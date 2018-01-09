@@ -1,0 +1,25 @@
+from pygame.locals import *
+from terra.strings import Language
+
+LANGUAGE = Language.EN_US
+SCREEN_SCALE = 3
+GRID_WIDTH = 24
+GRID_HEIGHT = 24
+
+# Key bindings
+MOUSE_LCLICK = 1
+MOUSE_RCLICK = 3
+
+KB_UP = {K_UP, K_w}
+KB_DOWN = {K_DOWN, K_s}
+KB_LEFT = {K_LEFT, K_a}
+KB_RIGHT = {K_RIGHT, K_d}
+KB_CONFIRM = {K_RETURN, K_SPACE, MOUSE_LCLICK}
+KB_CANCEL = {K_BACKSPACE, K_LSHIFT, K_RSHIFT, MOUSE_RCLICK}
+KB_MENU = {K_ESCAPE}
+
+KB_DEBUG1 = {K_1}
+KB_DEBUG2 = {K_2}
+KB_DEBUG3 = {K_3}
+KB_DEBUG4 = {K_4}
+KB_DEBUG5 = {K_5}

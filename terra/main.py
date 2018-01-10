@@ -5,8 +5,7 @@ from terra.unit import *
 
 # Initialize pygame and some UI settings
 pygame.init()
-resolution = width, height = 240, 240
-screen_resolution = screen_width, screen_height = width * SCREEN_SCALE, height * SCREEN_SCALE
+screen_resolution = screen_width, screen_height = RESOLUTION_WIDTH * SCREEN_SCALE, RESOLUTION_HEIGHT * SCREEN_SCALE
 clear_color = 80, 126, 163
 
 screen = pygame.display.set_mode(screen_resolution)
@@ -37,7 +36,7 @@ def step(event):
 
 # Render phase of game loop - draw to the screen
 def render():
-    canvas = pygame.Surface(resolution)
+    canvas = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT))
     canvas.fill(clear_color)
 
     for obj in game_objects:

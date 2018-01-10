@@ -5,6 +5,7 @@ from terra.gameobject import GameObject
 from terra.orders import *
 from terra.drawingutil import get_nine_slice_sprites
 from enum import Enum
+import random
 
 
 class UnitType(Enum):
@@ -54,7 +55,7 @@ class Unit(GameObject):
         self.gy = gy
 
         self.current_order = None
-        self.hp = 10
+        self.hp = random.randint(1, 10)
 
     def step(self, event):
         super().step(event)

@@ -4,6 +4,8 @@ from terra.strings import menu_option_strings
 from terra.gameobject import GameObject
 from terra.drawingutil import draw_text, draw_nine_slice_sprite
 
+from terra.unit import translated_order_flags
+
 textbox_base = pygame.image.load("resources/sprites/ui/Textbox_9slice.png")
 menu_option_cursor = pygame.image.load("resources/sprites/ui/Cursor.png")
 
@@ -49,7 +51,6 @@ class MenuPopup(GameObject):
         self.ty = ty
 
         # Rendered coords
-        # TODO: Avoid collisions with edges
         self.x = (self.tx + 1) * GRID_WIDTH
         self.y = self.ty * GRID_HEIGHT
 
@@ -59,9 +60,15 @@ class MenuPopup(GameObject):
         self.subgrid_height = 3 * len(options)
 
         self.options = options
-
         self.num_options = len(options)
+
         self.option_pos = 0
+
+        # Avoid collisions with edges of the screen
+        if self.x > RESOLUTION_WIDTH - self.subgrid_width * grid_size:
+            self.x -= self.subgrid_width * grid_size + 24
+        if self.y > RESOLUTION_HEIGHT - self.subgrid_height * grid_size:
+            self.y -= self.subgrid_height * grid_size - 12
 
     def confirm(self):
         pygame.event.post(pygame.event.Event(E_CLOSE_MENU, {
@@ -72,7 +79,12 @@ class MenuPopup(GameObject):
         }))
 
     def cancel(self):
-        pygame.event.post(pygame.event.Event(E_CLOSE_MENU, {}))
+        pygame.event.post(pygame.event.Event(E_CLOSE_MENU, {
+            'gx': self.tx,
+            'gy': self.ty,
+            'option': None,
+            'team': self.team
+        }))
 
     def cursor_up(self):
         self.option_pos -= 1
@@ -94,7 +106,7 @@ class MenuPopup(GameObject):
                 self.cursor_down()
             elif event.key in KB_CONFIRM:
                 self.confirm()
-            elif event.key in (KB_CANCEL, KB_MENU):
+            elif event.key in KB_CANCEL:
                 self.cancel()
         elif event.type == MOUSEMOTION:
             # Determine if the mouse is in the popup window
@@ -125,6 +137,8 @@ class MenuPopup(GameObject):
         row_y = 0
         for option in self.options:
             # screen.blit(menu_option_sprites[option], (rx, ry + 8 + y * option_height))
+            # TODO: Replace with menu specific sprites, not unit order flags
+            screen.blit(translated_order_flags[option], (self.x + 8, self.y + 16 + row_y * option_height))
             screen.blit(menu_option_text[option], (self.x + 24, self.y + 16 + row_y * option_height))
             row_y += 1
 

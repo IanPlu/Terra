@@ -3,20 +3,22 @@ from terra.gameobject import GameObject
 import random
 
 
-# A single map containing units and tiles, organized into a grid.
+# A single map containing tiles, organized into a grid.
 class Map(GameObject):
     def __init__(self, mapname=None, width=10, height=10):
         super().__init__()
 
         # Load a map if a name is provided, otherwise generate one of the provided size
+        # These are only integers (not tiles) for faster modification.
         if mapname:
             self.bitmap = self.generate_bitmap_from_file(mapname)
-
         else:
             self.bitmap = self.generate_bitmap(width, height)
 
         self.height = len(self.bitmap)
         self.width = len(self.bitmap[0])
+
+        # Serialize the map to Tile objects (from integers)
         self.tile_grid = self.convert_grid_from_bitmap(self.bitmap)
 
     # Generate a map of the required size
@@ -66,14 +68,12 @@ class Map(GameObject):
     def get_tile_type_at(self, gx, gy):
         return getattr(self.get_tile_at(gx, gy), 'tile_type', None)
 
+    def step(self, event):
+        super().step(event)
+
     # Render the map to the screen
     def render(self, screen):
         super().render(screen)
         for x in range(self.width):
             for y in range(self.height):
                 self.tile_grid[x][y].render(screen)
-
-
-
-
-

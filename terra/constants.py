@@ -14,21 +14,15 @@ class Team(Enum):
     BLUE = 1
 
 
-RESOLUTION_WIDTH = 240
-RESOLUTION_HEIGHT = 240
+class BattlePhase(Enum):
+    START_TURN = 0
+    ORDERS = 1
+    EXECUTE_BUILD = 2
+    EXECUTE_MOVE = 3
+    EXECUTE_COMBAT = 4
+    EXECUTE_RANGED = 5
+    EXECUTE_SPECIAL = 6
 
 
-# TODO: Figure out a better mechanism for tracking event offsets than doing it by hand
-# General action events
-E_OPEN_MENU = pygame.USEREVENT + 1
-E_CLOSE_MENU = pygame.USEREVENT + 2
-E_SELECT = pygame.USEREVENT + 3
-E_CANCEL = pygame.USEREVENT + 4
-E_EXECUTE_ORDERS = pygame.USEREVENT + 5
-
-# Menu option events
-MENU_MOVE_N = pygame.USEREVENT + 11
-MENU_MOVE_E = pygame.USEREVENT + 12
-MENU_MOVE_S = pygame.USEREVENT + 13
-MENU_MOVE_W = pygame.USEREVENT + 14
-MENU_CANCEL_ORDER = pygame.USEREVENT + 15
+RESOLUTION_WIDTH = 264
+RESOLUTION_HEIGHT = 264

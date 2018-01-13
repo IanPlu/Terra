@@ -5,25 +5,13 @@ from terra.gameobject import GameObject
 from terra.orders import *
 from terra.drawingutil import get_nine_slice_sprites
 from enum import Enum
+from terra.event import *
 import random
 
 
-class UnitType(Enum):
-    COLONIST = 0
-    TROOPER = 1
-
-
-# TODO: Build palette swaps rather than hard-coded team sprites
-# Unit graphics
-unit_sprites = {
-    Team.RED: {
-        UnitType.COLONIST: pygame.image.load("resources/sprites/units/Colonist.png"),
-        UnitType.TROOPER: pygame.image.load("resources/sprites/units/Trooper.png")
-    },
-    Team.BLUE: {
-        UnitType.COLONIST: pygame.image.load("resources/sprites/units/Colonist-2.png"),
-        UnitType.TROOPER: pygame.image.load("resources/sprites/units/Trooper-2.png")
-    }
+default_sprite = {
+    Team.RED: pygame.image.load("resources/sprites/units/Colonist.png"),
+    Team.BLUE: pygame.image.load("resources/sprites/units/Colonist-2.png")
 }
 
 # Additional data rendered over the unit, like HP, Orders, etc.
@@ -46,27 +34,35 @@ translated_order_flags = {
 # A single unit on the map.
 class Unit(GameObject):
     # Create a new Unit at the provided grid coordinates for the specified team
-    def __init__(self, game_map, unit_type=UnitType.COLONIST, team=Team.RED, gx=0, gy=0):
+    def __init__(self, game_map, team=Team.RED, gx=0, gy=0):
         super().__init__()
         self.game_map = game_map
-        self.unit_type = unit_type
         self.team = team
         self.gx = gx
         self.gy = gy
 
+        # Overrideable unit variables
+        self.max_hp = 10
+        self.attack = 0
+        self.sprite = default_sprite
+
+        self.hp = self.max_hp
         self.current_order = None
-        self.hp = random.randint(1, 10)
+
+    def __str__(self):
+        return "{} {} at tile ({}, {})".format(self.team, self.__class__.__name__, self.gx, self.gy)
 
     def step(self, event):
         super().step(event)
 
-        # When the Execute Orders phase begins, carry out our Order
-        if event.type == E_EXECUTE_ORDERS and self.current_order:
+        # Carry out our orders when appropriate
+        if is_event_type(event, START_PHASE_EXECUTE_MOVE) and self.current_order:
             self.execute_order()
+
         # Catch selection events and open the orders menu
-        elif event.type == E_SELECT:
+        elif is_event_type(event, E_SELECT):
             if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
-                pygame.event.post(pygame.event.Event(E_OPEN_MENU, {
+                publish_game_event(E_OPEN_MENU, {
                     'gx': self.gx,
                     'gy': self.gy,
                     'options': [
@@ -76,14 +72,14 @@ class Unit(GameObject):
                         MENU_MOVE_W,
                         MENU_CANCEL_ORDER
                     ]
-                }))
-        elif event.type == E_CLOSE_MENU and event.option:
+                })
+        elif is_event_type(event, E_CLOSE_MENU) and event.option:
             if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
                 self.set_order(event.option)
         elif event.type == KEYDOWN and event.key in KB_DEBUG3:
             self.hp -= 1
             if self.hp < 0:
-                self.hp = 10
+                self.hp = self.max_hp
 
     def set_order(self, option):
         order = None
@@ -104,17 +100,29 @@ class Unit(GameObject):
         if self.current_order:
             if isinstance(self.current_order, MoveOrder):
                 # We trust MoveOrders to be valid. TODO: Rethink enforcing validity here too
+                publish_game_event(E_UNIT_MOVED, {
+                    'gx': self.gx,
+                    'gy': self.gy,
+                    'team': self.team,
+                    'dx': self.current_order.dx,
+                    'dy': self.current_order.dy
+                })
+
                 self.gx = self.current_order.dx
                 self.gy = self.current_order.dy
 
             # Pop orders once they're executed
             self.current_order = None
 
+    def cleanup(self):
+        pass
+
     # Ask the Unit to render itself
     def render(self, screen):
         super().render(screen)
+
         # Render the unit
-        screen.blit(unit_sprites[self.team][self.unit_type],
+        screen.blit(self.sprite[self.team],
                     (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
         # Render order flag
@@ -126,6 +134,6 @@ class Unit(GameObject):
                         (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
 
         # Render HP flag
-        if 0 < self.hp < 10:
+        if 0 < self.hp < self.max_hp:
             screen.blit(hp_flags[self.hp - 1],
                         (self.gx * GRID_WIDTH + 16, self.gy * GRID_HEIGHT + 16))

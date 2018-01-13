@@ -2,6 +2,8 @@ from terra.settings import *
 from terra.constants import *
 from terra.gameobject import GameObject
 from terra.menupopup import MenuPopup
+from terra.mathutil import clamp
+from terra.event import *
 
 # TODO: Build palette swaps rather than hard-code
 cursor_sprites = {
@@ -13,7 +15,6 @@ cursor_sprites = {
 # Controllable cursor on the map.
 # Triggers selection events and allows the player to move around.
 class Cursor(GameObject):
-
     def __init__(self, game_map, team=Team.RED, gx=0, gy=0):
         super().__init__()
         self.game_map = game_map
@@ -24,14 +25,10 @@ class Cursor(GameObject):
         self.menu = None
 
     def confirm(self):
-        pygame.event.post(pygame.event.Event(E_SELECT, {'gx': self.gx, 'gy': self.gy, 'team': self.team}))
+        publish_game_event(E_SELECT, {'gx': self.gx, 'gy': self.gy, 'team': self.team})
 
     def cancel(self):
-        pygame.event.post(pygame.event.Event(E_CANCEL, {}))
-
-    # TODO: Remove debug key
-    def debug1(self):
-        pygame.event.post(pygame.event.Event(E_EXECUTE_ORDERS, {}))
+        publish_game_event(E_CANCEL, {})
 
     def debug2(self):
         if self.team == Team.RED:
@@ -44,15 +41,15 @@ class Cursor(GameObject):
         self.menu = MenuPopup(event.gx, event.gy, self.team, event.options)
 
     def close_menu(self):
-        # TODO: Check that menus are actually being deleted once dereferenced
+        del self.menu
         self.menu = None
 
     def step(self, event):
         super().step(event)
 
-        if event.type == E_OPEN_MENU:
+        if is_event_type(event, E_OPEN_MENU):
             self.open_menu(event)
-        elif event.type == E_CLOSE_MENU:
+        elif is_event_type(event, E_CLOSE_MENU):
             self.close_menu()
 
         # Only react to button inputs if we're not showing a sub menu
@@ -75,8 +72,6 @@ class Cursor(GameObject):
                     self.confirm()
                 elif event.key in KB_CANCEL:
                     self.cancel()
-                elif event.key in KB_DEBUG1:
-                    self.debug1()
                 elif event.key in KB_DEBUG2:
                     self.debug2()
 
@@ -86,6 +81,9 @@ class Cursor(GameObject):
                 # Convert the screen coordinates to the grid coordinates
                 self.gx = (mousex / SCREEN_SCALE) // GRID_WIDTH
                 self.gy = (mousey / SCREEN_SCALE) // GRID_HEIGHT
+                self.gx = clamp(self.gx, 0, self.game_map.width - 1)
+                self.gy = clamp(self.gy, 0, self.game_map.height - 1)
+
             elif event.type == MOUSEBUTTONDOWN:
                 if event.button in KB_CONFIRM:
                     self.confirm()

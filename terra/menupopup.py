@@ -3,8 +3,8 @@ from terra.constants import *
 from terra.strings import menu_option_strings
 from terra.gameobject import GameObject
 from terra.drawingutil import draw_text, draw_nine_slice_sprite
-
-from terra.unit import translated_order_flags
+from terra.event import *
+from terra.units.unit import translated_order_flags
 
 textbox_base = pygame.image.load("resources/sprites/ui/Textbox_9slice.png")
 menu_option_cursor = pygame.image.load("resources/sprites/ui/Cursor.png")
@@ -71,20 +71,20 @@ class MenuPopup(GameObject):
             self.y -= self.subgrid_height * grid_size - 12
 
     def confirm(self):
-        pygame.event.post(pygame.event.Event(E_CLOSE_MENU, {
+        publish_game_event(E_CLOSE_MENU, {
             'gx': self.tx,
             'gy': self.ty,
             'option': self.options[self.option_pos],
             'team': self.team
-        }))
+        })
 
     def cancel(self):
-        pygame.event.post(pygame.event.Event(E_CLOSE_MENU, {
+        publish_game_event(E_CLOSE_MENU, {
             'gx': self.tx,
             'gy': self.ty,
             'option': None,
             'team': self.team
-        }))
+        })
 
     def cursor_up(self):
         self.option_pos -= 1

@@ -30,11 +30,9 @@ textbox_sprites = [
 # }
 
 menu_option_text = {
-    MENU_MOVE_N: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE_N], (0, 0, 0)),
-    MENU_MOVE_E: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE_E], (0, 0, 0)),
-    MENU_MOVE_S: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE_S], (0, 0, 0)),
-    MENU_MOVE_W: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE_W], (0, 0, 0)),
-    MENU_CANCEL_ORDER: draw_text(menu_option_strings[LANGUAGE][MENU_CANCEL_ORDER], (0, 0, 0))
+    MENU_MOVE: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE], (0, 0, 0)),
+    MENU_CANCEL_ORDER: draw_text(menu_option_strings[LANGUAGE][MENU_CANCEL_ORDER], (0, 0, 0)),
+    MENU_RANGED_ATTACK: draw_text(menu_option_strings[LANGUAGE][MENU_RANGED_ATTACK], (0, 0, 0))
 }
 
 grid_size = 8

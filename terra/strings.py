@@ -9,11 +9,9 @@ class Language(Enum):
 
 menu_option_strings = {
     Language.EN_US: {
-        MENU_MOVE_N: "MOVE N",
-        MENU_MOVE_E: "MOVE E",
-        MENU_MOVE_S: "MOVE S",
-        MENU_MOVE_W: "MOVE W",
-        MENU_CANCEL_ORDER: "WAIT"
+        MENU_MOVE: "MOVE",
+        MENU_CANCEL_ORDER: "WAIT",
+        MENU_RANGED_ATTACK: "RANGED"
     }
 }
 

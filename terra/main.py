@@ -1,6 +1,6 @@
 import sys
 from terra.battle import Battle
-from terra.units.unit import *
+from terra.unit.unit import *
 
 # Initialize pygame and some UI settings
 pygame.init()

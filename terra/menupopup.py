@@ -4,7 +4,7 @@ from terra.strings import menu_option_strings
 from terra.gameobject import GameObject
 from terra.drawingutil import draw_text, draw_nine_slice_sprite
 from terra.event import *
-from terra.units.unit import translated_order_flags
+from terra.unit.unit import translated_order_flags
 
 textbox_base = pygame.image.load("resources/sprites/ui/Textbox_9slice.png")
 menu_option_cursor = pygame.image.load("resources/sprites/ui/Cursor.png")

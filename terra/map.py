@@ -1,6 +1,18 @@
 from terra.tile import Tile
+from terra.tile import TileType
 from terra.gameobject import GameObject
+from enum import Enum
 import random
+
+
+class MovementType(Enum):
+    GROUND = 0
+
+
+impassible_terrain_types = {
+    None: [],
+    MovementType.GROUND: [TileType.SEA]
+}
 
 
 # A single map containing tiles, organized into a grid.
@@ -67,6 +79,11 @@ class Map(GameObject):
     # Return the tile type at the specified grid location.
     def get_tile_type_at(self, gx, gy):
         return getattr(self.get_tile_at(gx, gy), 'tile_type', None)
+
+    # Return True if the tile is passable for the provided movement type. Tiles out of bounds are impassible.
+    def is_tile_passable(self, gx, gy, movement_type):
+        return 0 <= gx < self.width and 0 <= gy < self.height and \
+               not self.get_tile_type_at(gx, gy) in impassible_terrain_types[movement_type]
 
     def step(self, event):
         super().step(event)

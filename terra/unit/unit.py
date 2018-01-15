@@ -1,12 +1,10 @@
-import pygame
 from terra.settings import *
 from terra.constants import *
 from terra.gameobject import GameObject
-from terra.orders import *
+from terra.unit.orders import *
 from terra.drawingutil import get_nine_slice_sprites
-from enum import Enum
 from terra.event import *
-import random
+from terra.map import MovementType
 
 
 default_sprite = {
@@ -34,26 +32,37 @@ translated_order_flags = {
 # A single unit on the map.
 class Unit(GameObject):
     # Create a new Unit at the provided grid coordinates for the specified team
-    def __init__(self, game_map, team=Team.RED, gx=0, gy=0):
+    def __init__(self, army, battle, game_map, team=Team.RED, gx=0, gy=0):
         super().__init__()
+        self.battle = battle
         self.game_map = game_map
+        self.army = army
         self.team = team
         self.gx = gx
         self.gy = gy
 
-        # Overrideable unit variables
-        self.max_hp = 10
-        self.attack = 0
+        # Overrideable unit variables. Subclasses of Unit should override this.
+        self.max_hp = 10                            # Units start at max HP and can't be healed past this number.
+        self.attack = 0                             # How much damage base the unit does in melee combat.
+        self.ranged_attack = 0                      # How much damage base the unit does when conducting ranged attacks.
+        self.min_range = 0                          # Minimum range that a ranged attack can hit.
+        self.max_range = 0                          # Maximum range that a ranged attack can hit.
+        self.movement_type = MovementType.GROUND    # Movement type. Affects what tiles it can traverse.
         self.sprite = default_sprite
 
         self.hp = self.max_hp
         self.current_order = None
+        self.in_conflict = False
 
     def __str__(self):
         return "{} {} at tile ({}, {})".format(self.team, self.__class__.__name__, self.gx, self.gy)
 
     def step(self, event):
         super().step(event)
+
+        # Check if we're in conflict
+        self.in_conflict = self.battle.phase == BattlePhase.ORDERS and \
+                           len(self.army.get_enemy_units_at(self.gx, self.gy, self.team)) > 0
 
         # Carry out our orders when appropriate
         if is_event_type(event, START_PHASE_EXECUTE_MOVE) and self.current_order:
@@ -121,19 +130,30 @@ class Unit(GameObject):
     def render(self, screen):
         super().render(screen)
 
+        xoffset = 0
+        yoffset = 0
+
+        if self.in_conflict:
+            if self.team == Team.RED:
+                xoffset = -3
+                yoffset = -3
+            else:
+                xoffset = 3
+                yoffset = 3
+
         # Render the unit
         screen.blit(self.sprite[self.team],
-                    (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+                    (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
         # Render order flag
         if self.current_order:
             screen.blit(translated_order_flags[self.current_order.name],
-                        (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
+                        (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
         else:
             screen.blit(translated_order_flags[MENU_CANCEL_ORDER],
-                        (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
+                        (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Render HP flag
         if 0 < self.hp < self.max_hp:
             screen.blit(hp_flags[self.hp - 1],
-                        (self.gx * GRID_WIDTH + 16, self.gy * GRID_HEIGHT + 16))
+                        (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16))

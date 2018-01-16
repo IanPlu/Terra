@@ -1,10 +1,10 @@
 from terra.settings import *
 from terra.constants import *
-from terra.gameobject import GameObject
-from terra.menupopup import MenuPopup
-from terra.mathutil import clamp
+from terra.engine.gameobject import GameObject
+from terra.ui.menupopup import MenuPopup
+from terra.util.mathutil import clamp
 from terra.event import *
-from terra.tileselection import TileSelection
+from terra.ui.tileselection import TileSelection
 
 # TODO: Build palette swaps rather than hard-code
 cursor_sprites = {

@@ -1,8 +1,8 @@
 from terra.settings import *
 from terra.constants import *
-from terra.gameobject import GameObject
+from terra.engine.gameobject import GameObject
 from terra.unit.orders import *
-from terra.drawingutil import get_nine_slice_sprites
+from terra.util.drawingutil import get_nine_slice_sprites
 from terra.event import *
 from terra.map import MovementType
 
@@ -83,8 +83,12 @@ class Unit(GameObject):
         # Carry out our orders when appropriate
         self.execute_order(event)
 
+        # Conduct cleanup when prompted
+        if is_event_type(event, E_CLEANUP_UNITS):
+            self.cleanup()
+
         # Catch selection events and open the orders menu
-        if is_event_type(event, E_SELECT):
+        elif is_event_type(event, E_SELECT):
             if event.gx == self.gx and event.gy == self.gy and \
                     event.team == self.team and not event.selecting_movement:
                 publish_game_event(E_OPEN_MENU, {
@@ -177,7 +181,12 @@ class Unit(GameObject):
                 self.current_order = None
 
     def cleanup(self):
-        pass
+        if self.hp <= 0:
+            publish_game_event(E_UNIT_DEAD, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'team': self.team
+            })
 
     # Ask the Unit to render itself
     def render(self, screen):

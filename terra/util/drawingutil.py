@@ -18,6 +18,16 @@ def draw_text(text, color):
     return Font.COURIER.value.render(text, False, color)
 
 
+def get_sprites_from_strip(sprite, width):
+    sprites = []
+    strip_width, height = sprite.get_size()
+
+    for x in range(strip_width // width):
+        sprites.append(sprite.subsurface((x * width, 0, width, height)))
+
+    return sprites
+
+
 # Return a list of sprites cut out of the provided sprite
 def get_nine_slice_sprites(sprite, slice_size):
     sprites = []

@@ -1,6 +1,7 @@
 import pygame
 from terra.settings import *
-from terra.gameobject import GameObject
+from terra.engine.animatedgameobject import AnimatedGameObject
+from terra.util.drawingutil import get_sprites_from_strip
 from enum import Enum
 
 
@@ -12,10 +13,10 @@ class TileType(Enum):
 
 
 tile_sprites = {
-    TileType.NONE: pygame.image.load("resources/sprites/tiles/Tile_None.png"),
-    TileType.SEA: pygame.image.load("resources/sprites/tiles/Tile_Sea.png"),
-    TileType.GRASS: pygame.image.load("resources/sprites/tiles/Tile_Grass.png"),
-    TileType.WOODS: pygame.image.load("resources/sprites/tiles/Tile_Woods.png")
+    TileType.NONE: [pygame.image.load("resources/sprites/tiles/Tile_None.png")],
+    TileType.SEA: get_sprites_from_strip(pygame.image.load("resources/sprites/tiles/Tile_Sea.png"), 24),
+    TileType.GRASS: [pygame.image.load("resources/sprites/tiles/Tile_Grass.png")],
+    TileType.WOODS: [pygame.image.load("resources/sprites/tiles/Tile_Woods.png")]
 }
 
 coast_detail_sprites = {
@@ -39,19 +40,20 @@ coast_detail_sprites = {
 
 
 # A single tile on the map.
-class Tile(GameObject):
+class Tile(AnimatedGameObject):
     # Create a new Tile object at the provided grid coordinates
     def __init__(self, game_map, tile_type=1, gx=0, gy=0):
-        super().__init__()
         self.game_map = game_map
         self.tile_type = TileType(tile_type)
         self.gx = gx
         self.gy = gy
 
+        super().__init__(tile_sprites[self.tile_type], 2)
+
     # Ask the Tile to render itself.
     def render(self, screen):
         super().render(screen)
-        screen.blit(tile_sprites[self.tile_type],
+        screen.blit(self.sprite,
                     (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
         # For SEA tiles, render coastlines if adjacent to non-sea (map border counts as sea)

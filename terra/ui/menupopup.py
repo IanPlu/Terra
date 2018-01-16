@@ -1,33 +1,14 @@
 from terra.settings import *
 from terra.constants import *
 from terra.strings import menu_option_strings
-from terra.gameobject import GameObject
-from terra.drawingutil import draw_text, draw_nine_slice_sprite
+from terra.engine.gameobject import GameObject
+from terra.util.drawingutil import draw_text, get_nine_slice_sprites, draw_nine_slice_sprite
 from terra.event import *
 from terra.unit.unit import translated_order_flags
 
 textbox_base = pygame.image.load("resources/sprites/ui/Textbox_9slice.png")
 menu_option_cursor = pygame.image.load("resources/sprites/ui/Cursor.png")
-
-# Slice into 9 pieces, with a width of 8. In order from left to right, top to bottom
-textbox_sprites = [
-    textbox_base.subsurface((0, 0, 8, 8)),
-    textbox_base.subsurface((8, 0, 8, 8)),
-    textbox_base.subsurface((16, 0, 8, 8)),
-    textbox_base.subsurface((0, 8, 8, 8)),
-    textbox_base.subsurface((8, 8, 8, 8)),
-    textbox_base.subsurface((16, 8, 8, 8)),
-    textbox_base.subsurface((0, 16, 8, 8)),
-    textbox_base.subsurface((8, 16, 8, 8)),
-    textbox_base.subsurface((16, 16, 8, 8))
-]
-
-# menu_option_sprites = {
-#     MenuOptions.MOVE_N: pygame.image.load("resources/sprites/ui/MenuOption_N.png"),
-#     MenuOptions.MOVE_E: pygame.image.load("resources/sprites/ui/MenuOption_E.png"),
-#     MenuOptions.MOVE_S: pygame.image.load("resources/sprites/ui/MenuOption_S.png"),
-#     MenuOptions.MOVE_W: pygame.image.load("resources/sprites/ui/MenuOption_W.png")
-# }
+textbox_sprites = get_nine_slice_sprites(textbox_base, 8)
 
 menu_option_text = {
     MENU_MOVE: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE], (0, 0, 0)),

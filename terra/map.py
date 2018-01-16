@@ -1,6 +1,6 @@
 from terra.tile import Tile
 from terra.tile import TileType
-from terra.gameobject import GameObject
+from terra.engine.gameobject import GameObject
 from enum import Enum
 import random
 
@@ -17,13 +17,13 @@ impassible_terrain_types = {
 
 # A single map containing tiles, organized into a grid.
 class Map(GameObject):
-    def __init__(self, mapname=None, width=10, height=10):
+    def __init__(self, bitmap=None, width=10, height=10):
         super().__init__()
 
-        # Load a map if a name is provided, otherwise generate one of the provided size
+        # Use a provided bitmap to generate tiles, otherwise generate one of the provided size
         # These are only integers (not tiles) for faster modification.
-        if mapname:
-            self.bitmap = self.generate_bitmap_from_file(mapname)
+        if bitmap:
+            self.bitmap = bitmap
         else:
             self.bitmap = self.generate_bitmap(width, height)
 
@@ -42,17 +42,6 @@ class Map(GameObject):
                 tile = random.randint(1, 3)
                 row.append(tile)
             bitmap.append(row)
-
-        return bitmap
-
-    # Generate a map from the provided filename
-    # TODO: Add error handling
-    def generate_bitmap_from_file(self, mapname):
-        with open("resources/maps/" + mapname) as mapfile:
-            bitmap = []
-            for line in mapfile:
-                # Grab all non-newline chars, convert them to ints, and add them to the line list
-                bitmap.append(list(map(int, line.rstrip().split(' '))))
 
         return bitmap
 
@@ -93,4 +82,5 @@ class Map(GameObject):
         super().render(screen)
         for x in range(self.width):
             for y in range(self.height):
-                self.tile_grid[x][y].render(screen)
+                # print("x: {}, y: {}".format(x, y))
+                self.tile_grid[y][x].render(screen)

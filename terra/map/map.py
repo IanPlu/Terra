@@ -1,17 +1,13 @@
-from terra.tile import Tile
-from terra.tile import TileType
+from terra.map.movementtype import MovementType
+from terra.map.tile import Tile
+from terra.map.tiletype import TileType
 from terra.engine.gameobject import GameObject
-from enum import Enum
 import random
-
-
-class MovementType(Enum):
-    GROUND = 0
-
 
 impassible_terrain_types = {
     None: [],
-    MovementType.GROUND: [TileType.SEA]
+    MovementType.GROUND: [TileType.SEA],
+    MovementType.GHOST: [TileType.SEA]
 }
 
 
@@ -78,9 +74,9 @@ class Map(GameObject):
         super().step(event)
 
     # Render the map to the screen
-    def render(self, screen):
-        super().render(screen)
+    def render(self, game_screen, ui_screen):
+        super().render(game_screen, ui_screen)
         for x in range(self.width):
             for y in range(self.height):
                 # print("x: {}, y: {}".format(x, y))
-                self.tile_grid[y][x].render(screen)
+                self.tile_grid[y][x].render(game_screen, ui_screen)

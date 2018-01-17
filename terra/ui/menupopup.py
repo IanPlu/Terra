@@ -2,13 +2,10 @@ from terra.settings import *
 from terra.constants import *
 from terra.strings import menu_option_strings
 from terra.engine.gameobject import GameObject
-from terra.util.drawingutil import draw_text, get_nine_slice_sprites, draw_nine_slice_sprite
+from terra.util.drawingutil import draw_text, draw_nine_slice_sprite
 from terra.event import *
 from terra.unit.unit import translated_order_flags
-
-textbox_base = pygame.image.load("resources/sprites/ui/Textbox_9slice.png")
-menu_option_cursor = pygame.image.load("resources/sprites/ui/Cursor.png")
-textbox_sprites = get_nine_slice_sprites(textbox_base, 8)
+from terra.resources.assets import spr_cursor, spr_textbox
 
 menu_option_text = {
     MENU_MOVE: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE], (0, 0, 0)),
@@ -107,19 +104,19 @@ class MenuPopup(GameObject):
             elif event.button in KB_CANCEL:
                 self.cancel()
 
-    def render(self, screen):
-        super().render(screen)
+    def render(self, game_screen, ui_screen):
+        super().render(game_screen, ui_screen)
 
-        screen.blit(draw_nine_slice_sprite(textbox_sprites, grid_size, self.subgrid_width, self.subgrid_height + 1),
+        game_screen.blit(draw_nine_slice_sprite(spr_textbox[self.team], grid_size, self.subgrid_width, self.subgrid_height + 1),
                     (self.x, self.y))
 
         row_y = 0
         for option in self.options:
             # screen.blit(menu_option_sprites[option], (rx, ry + 8 + y * option_height))
             # TODO: Replace with menu specific sprites, not unit order flags
-            screen.blit(translated_order_flags[option], (self.x + 8, self.y + 16 + row_y * option_height))
-            screen.blit(menu_option_text[option], (self.x + 24, self.y + 16 + row_y * option_height))
+            game_screen.blit(translated_order_flags[option], (self.x + 8, self.y + 16 + row_y * option_height))
+            game_screen.blit(menu_option_text[option], (self.x + 24, self.y + 16 + row_y * option_height))
             row_y += 1
 
         # Render the option cursor
-        screen.blit(menu_option_cursor, (self.x, self.y + 8 + self.option_pos * option_height))
+        game_screen.blit(spr_cursor[self.team], (self.x, self.y + 8 + self.option_pos * option_height))

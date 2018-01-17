@@ -5,12 +5,7 @@ from terra.ui.menupopup import MenuPopup
 from terra.util.mathutil import clamp
 from terra.event import *
 from terra.ui.tileselection import TileSelection
-
-# TODO: Build palette swaps rather than hard-code
-cursor_sprites = {
-    Team.RED: pygame.image.load("resources/sprites/ui/Cursor.png"),
-    Team.BLUE: pygame.image.load("resources/sprites/ui/Cursor-2.png")
-}
+from terra.resources.assets import spr_cursor
 
 
 # Controllable cursor on the map.
@@ -25,6 +20,9 @@ class Cursor(GameObject):
 
         self.menu = None
         self.move_ui = None
+
+        self.camera_x = 0
+        self.camera_y = 0
 
     def confirm(self):
         publish_game_event(E_SELECT, {
@@ -101,10 +99,8 @@ class Cursor(GameObject):
             elif event.type == MOUSEMOTION:
                 mousex, mousey = pygame.mouse.get_pos()
                 # Convert the screen coordinates to the grid coordinates
-                self.gx = (mousex / SCREEN_SCALE) // GRID_WIDTH
-                self.gy = (mousey / SCREEN_SCALE) // GRID_HEIGHT
-                self.gx = clamp(self.gx, 0, self.game_map.width - 1)
-                self.gy = clamp(self.gy, 0, self.game_map.height - 1)
+                self.gx = (mousex / SCREEN_SCALE + self.camera_x) // GRID_WIDTH
+                self.gy = (mousey / SCREEN_SCALE + self.camera_y) // GRID_HEIGHT
 
             elif event.type == MOUSEBUTTONDOWN:
                 if event.button in KB_CONFIRM:
@@ -112,10 +108,36 @@ class Cursor(GameObject):
                 elif event.button in KB_CANCEL:
                     self.cancel()
 
-    def render(self, screen):
-        super().render(screen)
+        # Clamp gx and gy, and scroll camera as appropriate
+        self.gx = clamp(self.gx, 0, self.game_map.width - 1)
+        self.gy = clamp(self.gy, 0, self.game_map.height - 2)
+
+        self.scroll_camera()
+
+    def scroll_camera(self):
+        camera_min_gx = self.camera_x // GRID_WIDTH
+        camera_min_gy = self.camera_y // GRID_HEIGHT
+        camera_max_gx = camera_min_gx + RESOLUTION_WIDTH // GRID_WIDTH
+        camera_max_gy = camera_min_gy + RESOLUTION_HEIGHT // GRID_HEIGHT
+
+        screen_buffer = 2
+
+        if self.gx >= camera_max_gx - screen_buffer:
+            self.camera_x += GRID_WIDTH
+        if self.gx <= camera_min_gx + screen_buffer:
+            self.camera_x -= GRID_WIDTH
+        if self.gy >= camera_max_gy - screen_buffer - 1:
+            self.camera_y += GRID_HEIGHT
+        if self.gy <= camera_min_gy + screen_buffer:
+            self.camera_y -= GRID_HEIGHT
+
+        self.camera_x = clamp(self.camera_x, 0, self.game_map.width * GRID_WIDTH - RESOLUTION_WIDTH)
+        self.camera_y = clamp(self.camera_y, 0, self.game_map.height * GRID_HEIGHT - RESOLUTION_HEIGHT)
+
+    def render(self, game_screen, ui_screen):
+        super().render(game_screen, ui_screen)
         if self.menu:
-            self.menu.render(screen)
+            self.menu.render(game_screen, ui_screen)
         if self.move_ui:
-            self.move_ui.render(screen)
-        screen.blit(cursor_sprites[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+            self.move_ui.render(game_screen, ui_screen)
+        game_screen.blit(spr_cursor[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))

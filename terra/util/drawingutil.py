@@ -8,9 +8,24 @@ class Font(Enum):
     COURIER = pygame.font.SysFont('Arial', 11)
 
 
-def swap_palette():
-    # TODO: do some pixelarray magic
-    pass
+# Generate a list of colors in the provided image as a palette
+def generate_palette_list(palette):
+    return palette.get_palette()
+
+
+# Return a sprite with the provided palette
+def swap_palette(sprite, palette):
+    new_sprite = sprite.copy()
+    new_sprite.set_palette(palette)
+    return new_sprite
+
+
+# Swap the palette of a list of sprites
+def swap_multiple_palette(sprites, palette):
+    new_sprites = []
+    for sprite in sprites:
+        new_sprites.append(swap_palette(sprite, palette))
+    return new_sprites
 
 
 # Create a blittable surface with the provided text

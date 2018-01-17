@@ -15,5 +15,5 @@ class GameObject:
 
     # Invoked every frame of rendering.
     # Draw to the provided screen.
-    def render(self, screen):
+    def render(self, game_screen, ui_screen):
         pass

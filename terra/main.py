@@ -1,6 +1,7 @@
 import sys
 from terra.battle import Battle
 from terra.unit.unit import *
+from terra.resources.assets import load_assets
 
 # Initialize pygame and some UI settings
 pygame.init()
@@ -9,25 +10,27 @@ screen_resolution = screen_width, screen_height = RESOLUTION_WIDTH * SCREEN_SCAL
 
 screen = pygame.display.set_mode(screen_resolution)
 
+load_assets()
 battle = Battle()
-game_objects = [battle]
 
 
 # Step phase of game loop - handle events
 def step(event):
-    for obj in game_objects:
-        obj.step(event)
+    battle.step(event)
 
 
 # Render phase of game loop - draw to the screen
 def render():
-    canvas = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT))
-    canvas.fill(CLEAR_COLOR)
+    ui_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
+    ui_screen = ui_screen.convert_alpha()
 
-    for obj in game_objects:
-        obj.render(canvas)
+    # Render the battle
+    game_screen = battle.render(ui_screen)
 
-    pygame.transform.scale(canvas, (screen_width, screen_height), screen)
+    # Combine the game screen and UI
+    game_screen.blit(ui_screen, (0, 0))
+
+    pygame.transform.scale(game_screen, (screen_width, screen_height), screen)
     pygame.display.flip()
 
 

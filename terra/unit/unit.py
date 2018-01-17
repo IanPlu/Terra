@@ -2,28 +2,14 @@ from terra.settings import *
 from terra.constants import *
 from terra.engine.gameobject import GameObject
 from terra.unit.orders import *
-from terra.util.drawingutil import get_nine_slice_sprites
 from terra.event import *
-from terra.map import MovementType
-
-
-default_sprite = {
-    Team.RED: pygame.image.load("resources/sprites/units/Colonist.png"),
-    Team.BLUE: pygame.image.load("resources/sprites/units/Colonist-2.png")
-}
-
-# Additional data rendered over the unit, like HP, Orders, etc.
-# Each one gets sliced and rendered separately.
-order_flags_base = pygame.image.load("resources/sprites/units/OrderFlags.png")
-hp_flags_base = pygame.image.load("resources/sprites/units/HPFlags.png")
-
-order_flags = get_nine_slice_sprites(order_flags_base, 8)
-hp_flags = get_nine_slice_sprites(hp_flags_base, 8)
+from terra.map.movementtype import MovementType
+from terra.resources.assets import spr_unit_colonist, spr_order_flags, spr_hp_flags
 
 translated_order_flags = {
-    MENU_CANCEL_ORDER: order_flags[0],
-    MENU_MOVE: order_flags[1],
-    MENU_RANGED_ATTACK: order_flags[2]
+    MENU_CANCEL_ORDER: spr_order_flags[0],
+    MENU_MOVE: spr_order_flags[1],
+    MENU_RANGED_ATTACK: spr_order_flags[2]
 }
 
 
@@ -47,7 +33,7 @@ class Unit(GameObject):
         self.max_range = 0                          # Maximum range that a ranged attack can hit.
         self.movement_type = MovementType.GROUND    # Movement type. Affects what tiles it can traverse.
         self.movement_range = 0                     # How far the unit can move in one turn.
-        self.sprite = default_sprite
+        self.sprite = spr_unit_colonist
 
         self.hp = self.max_hp
         self.current_order = None
@@ -189,8 +175,8 @@ class Unit(GameObject):
             })
 
     # Ask the Unit to render itself
-    def render(self, screen):
-        super().render(screen)
+    def render(self, game_screen, ui_screen):
+        super().render(game_screen, ui_screen)
 
         xoffset = 0
         yoffset = 0
@@ -204,19 +190,19 @@ class Unit(GameObject):
                 yoffset = 3
 
         # Render the unit
-        screen.blit(self.sprite[self.team],
+        game_screen.blit(self.sprite[self.team],
                     (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
         # Render order flag
         if self.current_order:
-            screen.blit(translated_order_flags[self.current_order.name],
+            game_screen.blit(translated_order_flags[self.current_order.name],
                         (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Render HP flag
         if 0 < self.hp < self.max_hp:
-            screen.blit(hp_flags[self.hp - 1],
+            game_screen.blit(spr_hp_flags[self.hp - 1],
                         (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Allow our tile selection UI to function if alive
         if self.tile_selection:
-            self.tile_selection.render(screen)
+            self.tile_selection.render(game_screen, ui_screen)

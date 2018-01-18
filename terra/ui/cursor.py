@@ -120,7 +120,7 @@ class Cursor(GameObject):
         camera_max_gx = camera_min_gx + RESOLUTION_WIDTH // GRID_WIDTH
         camera_max_gy = camera_min_gy + RESOLUTION_HEIGHT // GRID_HEIGHT
 
-        screen_buffer = 2
+        screen_buffer = 1
 
         if self.gx >= camera_max_gx - screen_buffer:
             self.camera_x += GRID_WIDTH

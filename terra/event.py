@@ -22,10 +22,11 @@ E_CANCEL = define_event()
 # Notification events
 E_UNIT_MOVED = define_event()
 E_UNIT_RANGED_ATTACK = define_event()
-E_UNITS_IN_CONFLICT = define_event()
-E_CLEANUP_UNITS = define_event()
+E_PIECES_IN_CONFLICT = define_event()
+E_CLEANUP = define_event()
 E_INVALID_ORDER = define_event()
-E_UNIT_DEAD = define_event()
+E_PIECE_DEAD = define_event()
+E_BASE_DESTROYED = define_event()
 
 # Phase events
 START_PHASE_START_TURN = define_event()

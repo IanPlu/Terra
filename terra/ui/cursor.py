@@ -51,7 +51,7 @@ class Cursor(GameObject):
 
     def open_move_ui(self, event):
         self.move_ui = TileSelection(event.gx, event.gy, event.min_range, event.max_range,
-                                     event.game_map, event.movement_type, event.team, event.army, event.option)
+                                     event.game_map, event.movement_type, event.team, event.piece_manager, event.option)
 
     def close_move_ui(self, event):
         del self.move_ui

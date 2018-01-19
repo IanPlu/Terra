@@ -3,6 +3,7 @@ from terra.engine.gameobject import GameObject
 from terra.map.movementtype import MovementType
 from terra.event import *
 from terra.resources.assets import spr_tile_selectable
+from terra.piece.piecetype import PieceType
 
 
 # Controllable tile selection UI.
@@ -10,7 +11,7 @@ from terra.resources.assets import spr_tile_selectable
 # range. Optionally account for terrain and units without orders.
 # When complete, fires an event containing the coordinates of the selected tile.
 class TileSelection(GameObject):
-    def __init__(self, gx, gy, min_range, max_range, game_map, movement_type=None, team=None, army=None, option=None):
+    def __init__(self, gx, gy, min_range, max_range, game_map, movement_type=None, team=None, piece_manager=None, option=None):
         super().__init__()
         self.gx = gx
         self.gy = gy
@@ -22,7 +23,7 @@ class TileSelection(GameObject):
         self.movement_type = movement_type
 
         # Only required for accounting for friendly units without orders
-        self.army = army
+        self.piece_manager = piece_manager
         self.team = team
 
         # Menu option event to fire back on completion
@@ -31,12 +32,26 @@ class TileSelection(GameObject):
         self.coordinate_set = self.__generate_coordinate_set__()
         return
 
+    # Return the initial list of coordinates that cannot be selected
+    def __generate_excluded_coordinates__(self):
+        excluded_coordinates = {(self.gx, self.gy)}
+
+        # No tiles are excluded if it's not movement
+        if not self.movement_type:
+            return excluded_coordinates
+        # Otherwise exclude friendly buildings from selection
+        else:
+            for building in self.piece_manager.get_all_pieces_for_team(self.team, PieceType.BUILDING):
+                excluded_coordinates.add((building.gx, building.gy))
+
+        return excluded_coordinates
+
     # Generate a list of the coordinates of all tiles available to select
     def __generate_coordinate_set__(self):
         possible_coordinates = set()
-        excluded_coordinates = {(self.gx, self.gy)}
+        excluded_coordinates = self.__generate_excluded_coordinates__()
 
-        def traverse_tile(gx, gy, remaining_range, min_range, max_range, game_map, movement_type, team, army, first_move):
+        def traverse_tile(gx, gy, remaining_range, min_range, max_range, game_map, movement_type, team, piece_manager, first_move):
             # If we're out of tile range to use, return
             if remaining_range <= 0:
                 return
@@ -53,16 +68,16 @@ class TileSelection(GameObject):
 
                 # If there's an enemy unit on this tile, we can move onto it, but no further
                 if not first_move and movement_type and team and movement_type is not MovementType.GHOST and \
-                        len(army.get_enemy_units_at(gx, gy, team)) > 0:
+                        len(piece_manager.get_enemy_pieces_at(gx, gy, team)) > 0:
                     return
 
-                traverse_tile(gx + 1, gy, remaining_range - 1, min_range, max_range, game_map, movement_type, team, army, False)
-                traverse_tile(gx - 1, gy, remaining_range - 1, min_range, max_range, game_map, movement_type, team, army, False)
-                traverse_tile(gx, gy + 1, remaining_range - 1, min_range, max_range, game_map, movement_type, team, army, False)
-                traverse_tile(gx, gy - 1, remaining_range - 1, min_range, max_range, game_map, movement_type, team, army, False)
+                traverse_tile(gx + 1, gy, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
+                traverse_tile(gx - 1, gy, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
+                traverse_tile(gx, gy + 1, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
+                traverse_tile(gx, gy - 1, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
 
         traverse_tile(self.gx, self.gy, self.max_range + 1,
-                      self.min_range, self.max_range, self.game_map, self.movement_type, self.team, self.army, True)
+                      self.min_range, self.max_range, self.game_map, self.movement_type, self.team, self.piece_manager, True)
 
         return possible_coordinates - excluded_coordinates
 

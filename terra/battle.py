@@ -4,10 +4,10 @@ from terra.constants import *
 from terra.settings import *
 from terra.util.drawingutil import draw_text
 from terra.strings import phase_strings
-from terra.unit.army import Army
+from terra.piece.piecemanager import PieceManager
 from terra.event import *
-from terra.ui.toastnotification import ToastNotification
 from terra.resources.assets import spr_cursor, spr_phase_indicator
+from terra.teammanager import TeamManager
 
 
 phase_text = {}
@@ -21,10 +21,11 @@ class Battle:
     def __init__(self, mapname="map3.txt"):
         super().__init__()
 
-        bitmap, roster = self.load_map_from_file(mapname)
+        bitmap, roster, buildings, teams = self.load_map_from_file(mapname)
 
         self.map = Map(bitmap)
-        self.army = Army(self, self.map, roster)
+        self.team_manager = TeamManager(self, teams)
+        self.piece_manager = PieceManager(self, self.map, self.team_manager, roster, buildings)
         self.cursor = Cursor(self.map)
 
         self.phase = BattlePhase.ORDERS
@@ -33,15 +34,32 @@ class Battle:
         self.toast = None # ToastNotification(self, "")
 
     # Load a map from the provided filename
-    # Generate a bitmap for the Map to use, and generate a unit list for the Army to use.
+    # Generate a bitmap for the Map to use, and generate a unit list for the PieceManager to use.
     def load_map_from_file(self, mapname):
         reading_units = False
+        reading_buildings = False
+        reading_teams = False
+
         with open("resources/maps/" + mapname) as mapfile:
             bitmap = []
             roster = []
+            buildings = []
+            teams = []
             for line in mapfile:
-                if line[0] == "#":
+                if line.rstrip() == "# Units":
                     reading_units = True
+                elif line.rstrip() == "# Buildings":
+                    reading_buildings = True
+                elif line.rstrip() == "# Teams":
+                    reading_teams = True
+                elif reading_teams:
+                    if line.rstrip():
+                        # Add each line to teams
+                        teams.append(line.rstrip())
+                elif reading_buildings:
+                    if line.rstrip():
+                        # Add each line to the buildings
+                        buildings.append(line.rstrip())
                 elif reading_units:
                     if line.rstrip():
                         # Add each line to the roster
@@ -50,7 +68,10 @@ class Battle:
                     # Grab all non-newline chars, convert them to ints, and add them to the line list
                     bitmap.append(list(map(int, line.rstrip().split(' '))))
 
-        return bitmap, roster
+            # Filter teams to just the Team enum objects
+            teams = list(set([Team[team] for team in teams if Team[team]]))
+
+        return bitmap, roster, buildings, teams
 
     # Validate that it's OK to progress the current phase.
     # Check movement orders, primarily
@@ -58,7 +79,7 @@ class Battle:
         if self.phase == BattlePhase.ORDERS:
             # Validate that all orders for all teams are correct before moving on
             for team in Team:
-                if not self.army.validate_movement_orders(team):
+                if not self.piece_manager.validate_movement_orders(team):
                     publish_game_event(E_INVALID_ORDER, {
                         'team': team
                     })
@@ -85,9 +106,7 @@ class Battle:
         })
 
         # Clean up units every phase
-        publish_game_event(E_CLEANUP_UNITS, {})
-
-        print("Starting phase: " + str(self.phase))
+        publish_game_event(E_CLEANUP, {})
 
         # Execute the handler for the phase
         self.phase_handlers[self.phase](self)
@@ -124,6 +143,9 @@ class Battle:
         BattlePhase.EXECUTE_SPECIAL: resolve_phase_execute_special
     }
 
+    def check_for_victory(self, event):
+        print("A base has been destroyed. The game is over!")
+
     def step(self, event):
         if self.toast:
             self.toast.step(event)
@@ -132,7 +154,7 @@ class Battle:
             self.progress_phase()
 
         self.map.step(event)
-        self.army.step(event)
+        self.piece_manager.step(event)
 
         if self.phase == BattlePhase.ORDERS:
             self.cursor.step(event)
@@ -141,6 +163,8 @@ class Battle:
                          START_PHASE_EXECUTE_MOVE, START_PHASE_EXECUTE_COMBAT,
                          START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL):
             self.progress_phase()
+        elif is_event_type(event, E_BASE_DESTROYED):
+            self.check_for_victory(event)
 
     # Generate a screen with the entire map, subsurfaced to the camera area
     def render(self, ui_screen):
@@ -148,7 +172,7 @@ class Battle:
         map_screen = pygame.Surface((self.map.width * GRID_WIDTH, self.map.height * GRID_HEIGHT), pygame.SRCALPHA, 32)
 
         self.map.render(map_screen, ui_screen)
-        self.army.render(map_screen, ui_screen)
+        self.piece_manager.render(map_screen, ui_screen)
 
         if self.phase == BattlePhase.ORDERS:
             self.cursor.render(map_screen, ui_screen)

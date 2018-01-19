@@ -4,7 +4,7 @@ from terra.strings import menu_option_strings
 from terra.engine.gameobject import GameObject
 from terra.util.drawingutil import draw_text, draw_nine_slice_sprite
 from terra.event import *
-from terra.unit.unit import translated_order_flags
+from terra.piece.piece import spr_order_flags
 from terra.resources.assets import spr_cursor, spr_textbox
 
 menu_option_text = {
@@ -114,7 +114,7 @@ class MenuPopup(GameObject):
         for option in self.options:
             # screen.blit(menu_option_sprites[option], (rx, ry + 8 + y * option_height))
             # TODO: Replace with menu specific sprites, not unit order flags
-            game_screen.blit(translated_order_flags[option], (self.x + 8, self.y + 16 + row_y * option_height))
+            game_screen.blit(spr_order_flags[option], (self.x + 8, self.y + 16 + row_y * option_height))
             game_screen.blit(menu_option_text[option], (self.x + 24, self.y + 16 + row_y * option_height))
             row_y += 1
 

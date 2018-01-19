@@ -1,12 +1,12 @@
-from terra.unit.unit import *
+from terra.piece.unit.unit import *
 from terra.resources.assets import spr_unit_colonist
 
 
 # A Colonist unit.
 # Colonists have limited combat capabilities and are mainly for building and gathering resources.
 class Colonist(Unit):
-    def __init__(self, army, battle, game_map, team=Team.RED, gx=0, gy=0):
-        super().__init__(army, battle, game_map, team, gx, gy)
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
+        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
 
         self.max_hp = 5
         self.attack = 0

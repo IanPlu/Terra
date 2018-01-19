@@ -1,7 +1,8 @@
 import sys
 from terra.battle import Battle
-from terra.unit.unit import *
+from terra.piece.unit.unit import *
 from terra.resources.assets import load_assets
+from terra.settings import *
 
 # Initialize pygame and some UI settings
 pygame.init()

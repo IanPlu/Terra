@@ -2,5 +2,6 @@ from enum import Enum
 
 
 class MovementType(Enum):
-    GROUND = 0
-    GHOST = 1
+    NONE = 0
+    GROUND = 1
+    GHOST = 2

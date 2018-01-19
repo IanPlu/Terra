@@ -1,4 +1,4 @@
-from terra.unit.unit import *
+from terra.piece.unit.unit import *
 from terra.resources.assets import spr_unit_trooper
 
 
@@ -6,8 +6,8 @@ from terra.resources.assets import spr_unit_trooper
 # Troopers are general purpose close-range combat units.
 # Cheap and relatively weak.
 class Trooper(Unit):
-    def __init__(self, army, battle, game_map, team=Team.RED, gx=0, gy=0):
-        super().__init__(army, battle, game_map, team, gx, gy)
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
+        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
 
         self.max_hp = 10
         self.attack = 1

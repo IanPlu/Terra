@@ -1,6 +1,7 @@
 import pygame
 from terra.constants import Team
 from terra.map.tiletype import TileType
+from terra.event import *
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
     swap_palette, generate_palette_list, swap_multiple_palette
 
@@ -68,8 +69,20 @@ spr_unit_ranger = {
 spr_unit_ghost = {
     Team.RED: pygame.image.load("resources/sprites/units/Ghost.png"),
 }
-spr_order_flags = get_nine_slice_sprites(pygame.image.load("resources/sprites/units/OrderFlags.png"), 8)
+spr_base_order_flags = get_nine_slice_sprites(pygame.image.load("resources/sprites/units/OrderFlags.png"), 8)
+spr_order_flags = {
+    MENU_CANCEL_ORDER: spr_base_order_flags[0],
+    MENU_MOVE: spr_base_order_flags[1],
+    MENU_RANGED_ATTACK: spr_base_order_flags[2]
+}
+
 spr_hp_flags = get_nine_slice_sprites(pygame.image.load("resources/sprites/units/HPFlags.png"), 8)
+
+
+# Building
+spr_building_base = {
+    Team.RED: pygame.image.load("resources/sprites/buildings/Base.png")
+}
 
 
 def load_assets():
@@ -82,3 +95,4 @@ def load_assets():
         spr_unit_ranger[team] = swap_palette(spr_unit_ranger[Team.RED], unit_palette[team])
         spr_unit_ghost[team] = swap_palette(spr_unit_ghost[Team.RED], unit_palette[team])
         spr_textbox[team] = swap_multiple_palette(spr_textbox[Team.RED], unit_palette[team])
+        spr_building_base[team] = swap_palette(spr_building_base[Team.RED], unit_palette[team])

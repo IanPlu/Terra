@@ -1,4 +1,5 @@
 import pygame
+from terra.piece.unit.unittype import UnitType
 
 EVENT_TYPE = "event_type"
 event_counter = 0
@@ -18,6 +19,9 @@ E_SELECT_TILE = define_event()
 E_CANCEL_TILE_SELECTION = define_event()
 E_SELECT = define_event()
 E_CANCEL = define_event()
+E_OPEN_BUILD_MENU = define_event()
+E_SELECT_BUILD_UNIT = define_event()
+E_CANCEL_BUILD_UNIT = define_event()
 
 # Notification events
 E_UNIT_MOVED = define_event()
@@ -27,6 +31,7 @@ E_CLEANUP = define_event()
 E_INVALID_ORDER = define_event()
 E_PIECE_DEAD = define_event()
 E_BASE_DESTROYED = define_event()
+E_UNIT_BUILT = define_event()
 
 # Phase events
 START_PHASE_START_TURN = define_event()
@@ -42,6 +47,7 @@ E_NEXT_PHASE = define_event()
 MENU_CANCEL_ORDER = define_event()
 MENU_MOVE = define_event()
 MENU_RANGED_ATTACK = define_event()
+MENU_BUILD_UNIT = define_event()
 
 
 def publish_game_event(event_type, data):

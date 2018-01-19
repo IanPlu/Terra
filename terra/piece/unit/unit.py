@@ -4,6 +4,8 @@ from terra.event import *
 from terra.piece.piecetype import PieceType
 from terra.map.movementtype import MovementType
 from terra.piece.orders import *
+from terra.piece.unit.unittype import UnitType
+from terra.resources.assets import spr_units
 
 
 # A single unit on the map.
@@ -13,6 +15,7 @@ class Unit(Piece):
         super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
 
         self.piece_type = PieceType.UNIT
+        self.unit_type = UnitType.UNIT
 
         # Unit-specific overrideable variables.
         self.attack = 0
@@ -21,6 +24,9 @@ class Unit(Piece):
         self.max_range = 0
         self.movement_type = MovementType.GROUND
         self.movement_range = 0
+
+    def get_sprite(self):
+        return spr_units[self.team][self.unit_type]
 
     def get_available_actions(self):
         actions = []
@@ -68,15 +74,14 @@ class Unit(Piece):
             self.set_order(event)
 
     def set_order(self, event):
-        order = None
         if event.option == MENU_MOVE:
-            order = MoveOrder(self, event.option, event.dx, event.dy)
+            self.current_order = MoveOrder(self, event.dx, event.dy)
         elif event.option == MENU_RANGED_ATTACK:
-            order = RangedAttackOrder(self, event.option, event.dx, event.dy)
+            self.current_order = RangedAttackOrder(self, event.dx, event.dy)
         elif event.option == MENU_CANCEL_ORDER:
-            order = None
-
-        self.current_order = order
+            self.current_order = None
+        else:
+            self.current_order = None
 
     def handle_phase_move(self, event):
         if isinstance(self.current_order, MoveOrder):

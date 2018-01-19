@@ -16,9 +16,9 @@ class TeamManager(GameObject):
 
         # Initialize resources and upgrades for each team provided
         for team in self.teams:
-            self.carbon[team] = 0
-            self.minerals[team] = 0
-            self.gas[team] = 0
+            self.carbon[team] = 100
+            self.minerals[team] = 100
+            self.gas[team] = 100
             self.upgrades = []
 
     def __str__(self):
@@ -32,3 +32,18 @@ class TeamManager(GameObject):
         self.carbon[team] = self.carbon[team] + new_resources[0]
         self.minerals[team] = self.minerals[team] + new_resources[1]
         self.gas[team] = self.gas[team] + new_resources[2]
+
+    def deduct_resources(self, team, resource_deduction):
+        self.carbon[team] = self.carbon[team] - resource_deduction[0]
+        self.minerals[team] = self.minerals[team] - resource_deduction[1]
+        self.gas[team] = self.gas[team] - resource_deduction[2]
+
+    def can_spend_resources(self, team, amounts):
+        total_carbon = 0
+        total_minerals = 0
+        total_gas = 0
+        for amount in amounts:
+            total_carbon = total_carbon + amount[0]
+            total_minerals = total_minerals + amount[0]
+            total_gas = total_gas + amount[0]
+        return total_carbon < self.carbon[team] and total_minerals < self.minerals[team] and total_gas < self.gas[team]

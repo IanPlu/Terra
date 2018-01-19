@@ -28,7 +28,8 @@ class Battle:
         self.piece_manager = PieceManager(self, self.map, self.team_manager, roster, buildings)
         self.cursor = Cursor(self.map)
 
-        self.phase = BattlePhase.ORDERS
+        self.phase = BattlePhase.EXECUTE_SPECIAL
+        self.progress_phase()
 
         # TODO IP
         self.toast = None # ToastNotification(self, "")
@@ -79,7 +80,7 @@ class Battle:
         if self.phase == BattlePhase.ORDERS:
             # Validate that all orders for all teams are correct before moving on
             for team in Team:
-                if not self.piece_manager.validate_movement_orders(team):
+                if not self.piece_manager.validate_orders(team):
                     publish_game_event(E_INVALID_ORDER, {
                         'team': team
                     })

@@ -1,9 +1,13 @@
 import pygame
 from terra.constants import Team
 from terra.map.tiletype import TileType
+from terra.piece.unit.unittype import UnitType
+from terra.piece.building.buildingtype import BuildingType
+from terra.strings import *
 from terra.event import *
+from terra.settings import LANGUAGE
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
-    swap_palette, generate_palette_list, swap_multiple_palette
+    swap_palette, generate_palette_list, swap_multiple_palette, draw_text
 
 # General
 unit_palette = {
@@ -57,42 +61,62 @@ spr_coast_detail = {
 
 
 # Units
-spr_unit_colonist = {
-    Team.RED: pygame.image.load("resources/sprites/units/Colonist.png"),
+spr_units = {
+    Team.RED: {
+        UnitType.UNIT: pygame.image.load("resources/sprites/units/Colonist.png"),
+        UnitType.COLONIST: pygame.image.load("resources/sprites/units/Colonist.png"),
+        UnitType.TROOPER: pygame.image.load("resources/sprites/units/Trooper.png"),
+        UnitType.RANGER: pygame.image.load("resources/sprites/units/Ranger.png"),
+        UnitType.GHOST: pygame.image.load("resources/sprites/units/Ghost.png"),
+    }
 }
-spr_unit_trooper = {
-    Team.RED: pygame.image.load("resources/sprites/units/Trooper.png"),
-}
-spr_unit_ranger = {
-    Team.RED: pygame.image.load("resources/sprites/units/Ranger.png"),
-}
-spr_unit_ghost = {
-    Team.RED: pygame.image.load("resources/sprites/units/Ghost.png"),
-}
+
 spr_base_order_flags = get_nine_slice_sprites(pygame.image.load("resources/sprites/units/OrderFlags.png"), 8)
 spr_order_flags = {
     MENU_CANCEL_ORDER: spr_base_order_flags[0],
     MENU_MOVE: spr_base_order_flags[1],
-    MENU_RANGED_ATTACK: spr_base_order_flags[2]
+    MENU_RANGED_ATTACK: spr_base_order_flags[2],
+    MENU_BUILD_UNIT: spr_base_order_flags[3]
 }
 
 spr_hp_flags = get_nine_slice_sprites(pygame.image.load("resources/sprites/units/HPFlags.png"), 8)
 
 
-# Building
-spr_building_base = {
-    Team.RED: pygame.image.load("resources/sprites/buildings/Base.png")
+# Buildings
+spr_buildings = {
+    Team.RED: {
+        BuildingType.BUILDING: pygame.image.load("resources/sprites/buildings/Base.png"),
+        BuildingType.BASE: pygame.image.load("resources/sprites/buildings/Base.png")
+    }
 }
+
+
+# Text
+text_menu_option = {
+    MENU_MOVE: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE], (0, 0, 0)),
+    MENU_CANCEL_ORDER: draw_text(menu_option_strings[LANGUAGE][MENU_CANCEL_ORDER], (0, 0, 0)),
+    MENU_RANGED_ATTACK: draw_text(menu_option_strings[LANGUAGE][MENU_RANGED_ATTACK], (0, 0, 0)),
+    MENU_BUILD_UNIT: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_UNIT], (0, 0, 0))
+}
+text_unit_name = {}
 
 
 def load_assets():
     palette_swapped_teams = [Team.BLUE]
 
+    # Generate palette swaps for other teams
     for team in palette_swapped_teams:
         spr_cursor[team] = swap_palette(spr_cursor[Team.RED], unit_palette[team])
-        spr_unit_colonist[team] = swap_palette(spr_unit_colonist[Team.RED], unit_palette[team])
-        spr_unit_trooper[team] = swap_palette(spr_unit_trooper[Team.RED], unit_palette[team])
-        spr_unit_ranger[team] = swap_palette(spr_unit_ranger[Team.RED], unit_palette[team])
-        spr_unit_ghost[team] = swap_palette(spr_unit_ghost[Team.RED], unit_palette[team])
         spr_textbox[team] = swap_multiple_palette(spr_textbox[Team.RED], unit_palette[team])
-        spr_building_base[team] = swap_palette(spr_building_base[Team.RED], unit_palette[team])
+
+        spr_units[team] = {}
+        spr_buildings[team] = {}
+
+        for unit_type in UnitType:
+            spr_units[team][unit_type] = swap_palette(spr_units[Team.RED][unit_type], unit_palette[team])
+        for building_type in BuildingType:
+            spr_buildings[team][building_type] = swap_palette(spr_buildings[Team.RED][building_type], unit_palette[team])
+
+    # Generate text surfaces for each unit type
+    for unit_type in UnitType:
+        text_unit_name[unit_type] = draw_text(unit_name_strings[LANGUAGE][unit_type], (0, 0, 0))

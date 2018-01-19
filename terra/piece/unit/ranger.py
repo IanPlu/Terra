@@ -1,5 +1,4 @@
 from terra.piece.unit.unit import *
-from terra.resources.assets import spr_unit_ranger
 
 
 # A Ranger unit.
@@ -8,6 +7,7 @@ from terra.resources.assets import spr_unit_ranger
 class Ranger(Unit):
     def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
         super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+        self.unit_type = UnitType.RANGER
 
         self.max_hp = 10
         self.attack = 0
@@ -16,7 +16,6 @@ class Ranger(Unit):
         self.max_range = 2
         self.movement_type = MovementType.GROUND
         self.movement_range = 2
-        self.sprite = spr_unit_ranger
 
     def step(self, event):
         super().step(event)

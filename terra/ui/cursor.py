@@ -43,7 +43,7 @@ class Cursor(GameObject):
 
     # Creates a menu popup from the provided event.
     def open_menu(self, event):
-        self.menu = MenuPopup(event.gx, event.gy, self.team, event.options)
+        self.menu = MenuPopup(event.gx, event.gy, event.team, event.options)
 
     def close_menu(self):
         del self.menu
@@ -57,6 +57,9 @@ class Cursor(GameObject):
         del self.move_ui
         self.move_ui = None
 
+    def open_build_ui(self, event):
+        self.menu = MenuPopup(event.gx, event.gy, event.team, event.options, event.buildable_units)
+
     def step(self, event):
         super().step(event)
 
@@ -68,6 +71,10 @@ class Cursor(GameObject):
             self.open_move_ui(event)
         elif is_event_type(event, E_SELECT_TILE, E_CANCEL_TILE_SELECTION):
             self.close_move_ui(event)
+        elif is_event_type(event, E_OPEN_BUILD_MENU):
+            self.open_build_ui(event)
+        elif is_event_type(event, E_SELECT_BUILD_UNIT, E_CANCEL_BUILD_UNIT):
+            self.close_menu()
 
         # Only react to button inputs if we're not showing a sub menu
         if self.menu:

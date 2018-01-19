@@ -11,7 +11,8 @@ menu_option_strings = {
     Language.EN_US: {
         MENU_MOVE: "MOVE",
         MENU_CANCEL_ORDER: "WAIT",
-        MENU_RANGED_ATTACK: "RANGED"
+        MENU_RANGED_ATTACK: "RANGED",
+        MENU_BUILD_UNIT: "BUILD"
     }
 }
 
@@ -24,5 +25,15 @@ phase_strings = {
         BattlePhase.EXECUTE_COMBAT: "Combat",
         BattlePhase.EXECUTE_RANGED: "Ranged",
         BattlePhase.EXECUTE_SPECIAL: "Special"
+    }
+}
+
+unit_name_strings = {
+    Language.EN_US: {
+        UnitType.UNIT: "Unknown",
+        UnitType.COLONIST: "Colonist",
+        UnitType.TROOPER: "Trooper",
+        UnitType.RANGER: "Ranger",
+        UnitType.GHOST: "Ghost"
     }
 }

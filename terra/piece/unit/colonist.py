@@ -1,5 +1,4 @@
 from terra.piece.unit.unit import *
-from terra.resources.assets import spr_unit_colonist
 
 
 # A Colonist unit.
@@ -7,6 +6,7 @@ from terra.resources.assets import spr_unit_colonist
 class Colonist(Unit):
     def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
         super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+        self.unit_type = UnitType.COLONIST
 
         self.max_hp = 5
         self.attack = 0
@@ -15,7 +15,6 @@ class Colonist(Unit):
         self.max_range = 0
         self.movement_type = MovementType.GROUND
         self.movement_range = 3
-        self.sprite = spr_unit_colonist
 
     def step(self, event):
         super().step(event)

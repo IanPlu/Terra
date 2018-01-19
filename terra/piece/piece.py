@@ -1,8 +1,9 @@
 from terra.engine.gameobject import GameObject
 from terra.constants import Team, BattlePhase
-from terra.resources.assets import spr_unit_colonist, spr_order_flags, spr_hp_flags
+from terra.resources.assets import spr_units, spr_order_flags, spr_hp_flags
 from terra.event import *
 from terra.settings import *
+from terra.piece.unit.unittype import UnitType
 
 
 # Base object in play belonging to a player, like a unit or a building.
@@ -21,7 +22,7 @@ class Piece(GameObject):
 
         # Overrideable variables. Subclasses should override this.
         self.max_hp = 10
-        self.sprite = spr_unit_colonist
+        self.attack = 0
 
         # Interpreted variables. Don't touch!
         self.hp = self.max_hp
@@ -32,6 +33,9 @@ class Piece(GameObject):
     def __str__(self):
         return "{} {} at tile ({}, {}) with {} HP" \
             .format(self.team.name, self.__class__.__name__, self.gx, self.gy, self.hp)
+
+    def get_sprite(self):
+        return spr_units[self.team][UnitType.UNIT]
 
     # Return a list of actions to show in the selection UI.
     def get_available_actions(self):
@@ -103,8 +107,9 @@ class Piece(GameObject):
                 self.handle_phase_ranged(event)
             elif is_event_type(event, START_PHASE_EXECUTE_SPECIAL):
                 self.handle_phase_special(event)
+
         # Handle start of orders phase, if necessary
-        elif is_event_type(event, START_PHASE_ORDERS):
+        if is_event_type(event, START_PHASE_ORDERS):
             self.handle_phase_orders(event)
         # Handle start of turn
         elif is_event_type(event, START_PHASE_START_TURN):
@@ -119,6 +124,7 @@ class Piece(GameObject):
                 publish_game_event(E_OPEN_MENU, {
                     'gx': self.gx,
                     'gy': self.gy,
+                    'team': self.team,
                     'options': self.get_available_actions()
                 })
         # Catch menu events and set orders if they don't require tile selection
@@ -146,7 +152,7 @@ class Piece(GameObject):
                 yoffset = 3
 
         # Render the unit
-        game_screen.blit(self.sprite[self.team],
+        game_screen.blit(self.get_sprite(),
                          (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
         # Render order flag

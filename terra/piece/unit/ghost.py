@@ -1,5 +1,4 @@
 from terra.piece.unit.unit import *
-from terra.resources.assets import spr_unit_ghost
 
 
 # A Ghost unit.
@@ -8,6 +7,7 @@ from terra.resources.assets import spr_unit_ghost
 class Ghost(Unit):
     def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
         super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+        self.unit_type = UnitType.GHOST
 
         self.max_hp = 10
         self.attack = 1
@@ -16,7 +16,6 @@ class Ghost(Unit):
         self.max_range = 0
         self.movement_type = MovementType.GHOST
         self.movement_range = 3
-        self.sprite = spr_unit_ghost
 
     def step(self, event):
         super().step(event)

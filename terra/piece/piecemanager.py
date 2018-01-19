@@ -7,8 +7,11 @@ from terra.piece.unit.unit import Team
 from terra.piece.building.base import Base
 from terra.event import *
 from terra.piece.piececonflict import PieceConflict
-from terra.piece.orders import MoveOrder
+from terra.piece.orders import MoveOrder, BuildOrder
 from terra.piece.piecetype import PieceType
+from terra.piece.unit.unittype import UnitType
+from terra.piece.building.buildingtype import BuildingType
+from terra.piece.unit.unitprice import unit_prices
 
 
 # Contains and manages all units and buildings from all teams
@@ -28,33 +31,13 @@ class PieceManager(GameObject):
         if roster:
             for unit in roster:
                 data = unit.split(' ')
-
-                gx = int(data[0])
-                gy = int(data[1])
-                team = Team[data[2]]
-                unit_type = data[3]
-
-                if unit_type == "Colonist":
-                    self.register_piece(Colonist(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
-                elif unit_type == "Trooper":
-                    self.register_piece(Trooper(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
-                elif unit_type == "Ranger":
-                    self.register_piece(Ranger(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
-                elif unit_type == "Ghost":
-                    self.register_piece(Ghost(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
+                self.generate_piece_from_type(int(data[0]), int(data[1]), Team[data[2]], UnitType[data[3]])
 
         # Generate buildings from the provided buildings, if any
         if buildings:
             for building in buildings:
                 data = building.split(' ')
-
-                gx = int(data[0])
-                gy = int(data[1])
-                team = Team[data[2]]
-                building_type = data[3]
-
-                if building_type == "Base":
-                    self.register_piece(Base(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
+                self.generate_piece_from_type(int(data[0]), int(data[1]), Team[data[2]], BuildingType[data[3]])
 
     # Return a list of piece(s) at the specified grid location
     # If piece type or team is provided, only return pieces of that type.
@@ -109,6 +92,18 @@ class PieceManager(GameObject):
             if len(self.pieces[(gx, gy)]) == 0:
                 del self.pieces[(gx, gy)]
 
+    def generate_piece_from_type(self, gx, gy, team, piece_type):
+        if piece_type == UnitType.COLONIST:
+            self.register_piece(Colonist(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
+        elif piece_type == UnitType.TROOPER:
+            self.register_piece(Trooper(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
+        elif piece_type == UnitType.RANGER:
+            self.register_piece(Ranger(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
+        elif piece_type == UnitType.GHOST:
+            self.register_piece(Ghost(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
+        elif piece_type == BuildingType.BASE:
+            self.register_piece(Base(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
+
     # Move a unit on the game map
     def move_unit(self, gx, gy, team):
         unit = self.get_piece_at(gx, gy, team, PieceType.UNIT)
@@ -128,18 +123,31 @@ class PieceManager(GameObject):
                     buildings.append(piece)
         return units, buildings
 
-    # Return true if all movement orders for the provided team are valid (no friendly units end up in the same tile)
-    def validate_movement_orders(self, team):
+    # Return true if all movement and build orders for the provided team are valid
+    # (no friendly units end up in the same tile)
+    def validate_orders(self, team):
         coordinates = []
-        for unit in self.get_all_pieces_for_team(team):
-            if unit.current_order:
-                if isinstance(unit.current_order, MoveOrder):
-                    coordinates.append((unit.current_order.dx, unit.current_order.dy))
-            else:
-                coordinates.append((unit.gx, unit.gy))
+        spent_resources = []
 
-        # Return true if all the coordinates are unique-- no duplicates are removed
-        return len(coordinates) == len(set(coordinates))
+        for piece in self.get_all_pieces_for_team(team):
+            if piece.current_order:
+                if isinstance(piece.current_order, MoveOrder):
+                    coordinates.append((piece.current_order.dx, piece.current_order.dy))
+                elif isinstance(piece.current_order, BuildOrder):
+                    # Build orders result in a piece on the designated tile, and the builder's tile
+                    coordinates.append((piece.current_order.tx, piece.current_order.ty))
+                    coordinates.append((piece.gx, piece.gy))
+
+                    # Check that a team isn't spending more than they have
+                    spent_resources.append(unit_prices[piece.current_order.new_unit_type])
+            else:
+                coordinates.append((piece.gx, piece.gy))
+
+        # Move orders are valid if all the coordinates are unique-- no duplicates are removed
+        move_orders_valid = len(coordinates) == len(set(coordinates))
+        build_orders_valid = self.team_manager.can_spend_resources(team, spent_resources)
+
+        return move_orders_valid and build_orders_valid
 
     # Check for overlapping enemy units, and resolve their combat
     def resolve_unit_combat(self):
@@ -178,6 +186,8 @@ class PieceManager(GameObject):
             self.ranged_attack(event.gx, event.gy, event.team, event.tx, event.ty)
         elif is_event_type(event, E_PIECE_DEAD):
             self.remove_piece(event.gx, event.gy, event.team)
+        elif is_event_type(event, E_UNIT_BUILT):
+            self.generate_piece_from_type(event.tx, event.ty, event.team, event.new_unit_type)
 
         if is_event_type(event, START_PHASE_EXECUTE_COMBAT):
             self.resolve_unit_combat()

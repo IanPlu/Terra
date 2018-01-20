@@ -100,9 +100,11 @@ def draw_nine_slice_sprite(sprites, grid_size, grid_width, grid_height):
     return surface
 
 
-# Return a surface containing
+# Return a surface containing a three digit number in 8x8 digit sprites
 def draw_three_digit_number(spr_digit_icons, number, team):
-    digits = [int(digit) for digit in str(number)]
+    formatted_number = "{0:0=3d}".format(number)
+
+    digits = [int(digit) for digit in str(formatted_number)]
     display = pygame.Surface((len(digits) * 8, 8))
 
     x = 0

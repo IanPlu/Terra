@@ -1,19 +1,19 @@
-from terra.map.map import Map
+from terra.map.map import Map, load_map_from_file
 from terra.ui.cursor import Cursor
 from terra.constants import *
 from terra.settings import *
 from terra.piece.piecemanager import PieceManager
 from terra.event import *
-from terra.teammanager import TeamManager
+from terra.economy.teammanager import TeamManager
 
 
 # A battle containing a map, players, their resources + input methods, etc.
 # Handles the turn / phase loop.
 class Battle:
-    def __init__(self, mapname="map3.txt"):
+    def __init__(self, mapname="map4.txt"):
         super().__init__()
 
-        bitmap, roster, buildings, teams = self.load_map_from_file(mapname)
+        bitmap, roster, buildings, teams = load_map_from_file(mapname)
 
         self.map = Map(bitmap)
         self.team_manager = TeamManager(self, teams)
@@ -25,46 +25,6 @@ class Battle:
 
         # TODO IP
         self.toast = None # ToastNotification(self, "")
-
-    # Load a map from the provided filename
-    # Generate a bitmap for the Map to use, and generate a unit list for the PieceManager to use.
-    def load_map_from_file(self, mapname):
-        reading_units = False
-        reading_buildings = False
-        reading_teams = False
-
-        with open("resources/maps/" + mapname) as mapfile:
-            bitmap = []
-            roster = []
-            buildings = []
-            teams = []
-            for line in mapfile:
-                if line.rstrip() == "# Units":
-                    reading_units = True
-                elif line.rstrip() == "# Buildings":
-                    reading_buildings = True
-                elif line.rstrip() == "# Teams":
-                    reading_teams = True
-                elif reading_teams:
-                    if line.rstrip():
-                        # Add each line to teams
-                        teams.append(line.rstrip())
-                elif reading_buildings:
-                    if line.rstrip():
-                        # Add each line to the buildings
-                        buildings.append(line.rstrip())
-                elif reading_units:
-                    if line.rstrip():
-                        # Add each line to the roster
-                        roster.append(line.rstrip())
-                else:
-                    # Grab all non-newline chars, convert them to ints, and add them to the line list
-                    bitmap.append(list(map(int, line.rstrip().split(' '))))
-
-            # Filter teams to just the Team enum objects
-            teams = list(set([Team[team] for team in teams if Team[team]]))
-
-        return bitmap, roster, buildings, teams
 
     # Validate that it's OK to progress the current phase.
     # Check movement orders, primarily
@@ -176,4 +136,6 @@ class Battle:
             self.toast.render(map_screen, ui_screen)
 
         # Trim the screen to just the camera area
-        return map_screen.subsurface((self.cursor.camera_x, self.cursor.camera_y, RESOLUTION_WIDTH, RESOLUTION_HEIGHT))
+        return map_screen.subsurface((self.cursor.camera_x, self.cursor.camera_y,
+                                      min(RESOLUTION_WIDTH, map_screen.get_size()[0]),
+                                      min(RESOLUTION_HEIGHT, map_screen.get_size()[1])))

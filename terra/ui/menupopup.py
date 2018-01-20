@@ -27,7 +27,7 @@ class MenuPopup(GameObject):
 
         self.team = team
 
-        self.subgrid_width = 9
+        self.subgrid_width = 10
         self.subgrid_height = 3 * len(options)
 
         self.options = options

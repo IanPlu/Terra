@@ -6,3 +6,4 @@ class TileType(Enum):
     SEA = 1
     GRASS = 2
     WOODS = 3
+    RESOURCE = 4

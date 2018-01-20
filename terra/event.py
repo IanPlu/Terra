@@ -31,7 +31,7 @@ E_CLEANUP = define_event()
 E_INVALID_ORDER = define_event()
 E_PIECE_DEAD = define_event()
 E_BASE_DESTROYED = define_event()
-E_UNIT_BUILT = define_event()
+E_PIECE_BUILT = define_event()
 
 # Phase events
 START_PHASE_START_TURN = define_event()
@@ -48,6 +48,10 @@ MENU_CANCEL_ORDER = define_event()
 MENU_MOVE = define_event()
 MENU_RANGED_ATTACK = define_event()
 MENU_BUILD_UNIT = define_event()
+MENU_BUILD_CARBON_GENERATOR = define_event()
+MENU_BUILD_MINERAL_GENERATOR = define_event()
+MENU_BUILD_GAS_GENERATOR = define_event()
+MENU_BUILD_BARRACKS = define_event()
 
 
 def publish_game_event(event_type, data):

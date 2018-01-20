@@ -8,12 +8,13 @@ class Colonist(Unit):
         super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
         self.unit_type = UnitType.COLONIST
 
-        self.max_hp = 5
+        self.max_hp = 10
         self.damage_type = DamageType.MELEE
         self.min_range = 0
         self.max_range = 0
         self.movement_type = MovementType.GROUND
         self.movement_range = 3
+        self.can_build = True
 
     def step(self, event):
         super().step(event)

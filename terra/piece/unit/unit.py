@@ -7,6 +7,8 @@ from terra.piece.orders import *
 from terra.piece.unit.unittype import UnitType
 from terra.resources.assets import spr_units
 from terra.piece.unit.damagetype import DamageType
+from terra.map.tiletype import TileType
+from terra.piece.building.buildingtype import building_type_from_menu_option
 
 
 # A single unit on the map.
@@ -24,6 +26,7 @@ class Unit(Piece):
         self.max_range = 0
         self.movement_type = MovementType.GROUND
         self.movement_range = 0
+        self.can_build = False
 
     def get_sprite(self):
         return spr_units[self.team][self.unit_type]
@@ -34,8 +37,10 @@ class Unit(Piece):
             actions.append(MENU_MOVE)
         if self.damage_type == DamageType.RANGED and not self.in_conflict:
             actions.append(MENU_RANGED_ATTACK)
-
-        actions.extend(super().get_available_actions())
+        if self.can_build and self.game_map.get_tile_type_at(self.gx, self.gy) == TileType.RESOURCE:
+            actions.extend([MENU_BUILD_CARBON_GENERATOR, MENU_BUILD_MINERAL_GENERATOR, MENU_BUILD_GAS_GENERATOR])
+        if self.can_build and not self.game_map.get_tile_type_at(self.gx, self.gy) == TileType.RESOURCE:
+            actions.append(MENU_BUILD_BARRACKS)
         return actions
 
     # Handle menu selections. Open tile selection for moves, ranged attack selection, etc.
@@ -78,9 +83,28 @@ class Unit(Piece):
             self.current_order = MoveOrder(self, event.dx, event.dy)
         elif event.option == MENU_RANGED_ATTACK:
             self.current_order = RangedAttackOrder(self, event.dx, event.dy)
+        elif event.option in [MENU_BUILD_CARBON_GENERATOR, MENU_BUILD_MINERAL_GENERATOR,
+                              MENU_BUILD_GAS_GENERATOR, MENU_BUILD_BARRACKS]:
+            self.current_order = BuildOrder(self, self.gx, self.gy, self.team,
+                                            building_type_from_menu_option[event.option])
         elif event.option == MENU_CANCEL_ORDER:
             self.current_order = None
         else:
+            self.current_order = None
+
+    def handle_phase_build(self, event):
+        if isinstance(self.current_order, BuildOrder):
+            publish_game_event(E_PIECE_BUILT, {
+                'tx': self.current_order.tx,
+                'ty': self.current_order.ty,
+                'team': self.current_order.team,
+                'new_piece_type': self.current_order.new_piece_type
+            })
+
+            # Units are consumed on building buildings
+            self.hp = 0
+
+            # Pop orders once they're executed
             self.current_order = None
 
     def handle_phase_move(self, event):

@@ -79,15 +79,15 @@ class Building(Piece):
 
     def handle_phase_build(self, event):
         if isinstance(self.current_order, BuildOrder):
-            publish_game_event(E_UNIT_BUILT, {
+            publish_game_event(E_PIECE_BUILT, {
                 'tx': self.current_order.tx,
                 'ty': self.current_order.ty,
                 'team': self.current_order.team,
-                'new_unit_type': self.current_order.new_unit_type
+                'new_piece_type': self.current_order.new_piece_type
             })
 
             # Deduct unit price
-            self.team_manager.deduct_resources(self.team, unit_prices[self.current_order.new_unit_type])
+            self.team_manager.deduct_resources(self.team, unit_prices[self.current_order.new_piece_type])
 
             # Pop orders once they're executed
             self.current_order = None

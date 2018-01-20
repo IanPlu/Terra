@@ -1,6 +1,7 @@
 from terra.engine.gameobject import GameObject
 from terra.constants import *
 from terra.settings import *
+from terra.economy.resourcetypes import ResourceType
 from terra.util.drawingutil import draw_three_digit_number
 from terra.resources.assets import clear_color, phase_text, spr_cursor, spr_phase_indicator, \
     spr_resource_icon_carbon, spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons
@@ -33,14 +34,14 @@ class PhaseBar(GameObject):
         # Render resource counts
         x = x + 3
         ui_screen.blit(spr_resource_icon_carbon[self.team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
-        ui_screen.blit(draw_three_digit_number(spr_digit_icons, self.team_manager.carbon[self.team], self.team),
+        ui_screen.blit(draw_three_digit_number(spr_digit_icons, self.team_manager.resources[self.team][ResourceType.CARBON], self.team),
                        (GRID_WIDTH * x, RESOLUTION_HEIGHT - 8))
         x = x + 1
         ui_screen.blit(spr_resource_icon_minerals[self.team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
-        ui_screen.blit(draw_three_digit_number(spr_digit_icons, self.team_manager.minerals[self.team], self.team),
+        ui_screen.blit(draw_three_digit_number(spr_digit_icons, self.team_manager.resources[self.team][ResourceType.MINERALS], self.team),
                        (GRID_WIDTH * x, RESOLUTION_HEIGHT - 8))
         x = x + 1
         ui_screen.blit(spr_resource_icon_gas[self.team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
-        ui_screen.blit(draw_three_digit_number(spr_digit_icons, self.team_manager.gas[self.team], self.team),
+        ui_screen.blit(draw_three_digit_number(spr_digit_icons, self.team_manager.resources[self.team][ResourceType.GAS], self.team),
                        (GRID_WIDTH * x, RESOLUTION_HEIGHT - 8))
 

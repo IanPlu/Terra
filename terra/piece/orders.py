@@ -34,12 +34,12 @@ class RangedAttackOrder(Order):
 
 # An order to build a piece on a specific tile
 class BuildOrder(Order):
-    def __init__(self, piece, tx, ty, team, new_unit_type):
+    def __init__(self, piece, tx, ty, team, new_piece_type):
         super().__init__(piece, MENU_BUILD_UNIT)
         self.tx = tx
         self.ty = ty
         self.team = team
-        self.new_unit_type = new_unit_type
+        self.new_piece_type = new_piece_type
 
     def __str__(self):
-        return "Order: Build a {} piece on tile ({}, {})".format(self.new_unit_type, self.tx, self.ty)
+        return "Order: Build a {} piece on tile ({}, {})".format(self.new_piece_type, self.tx, self.ty)

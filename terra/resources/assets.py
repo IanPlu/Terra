@@ -40,7 +40,8 @@ spr_tiles = {
     TileType.NONE: [pygame.image.load("resources/sprites/tiles/Tile_None.png")],
     TileType.SEA: get_sprites_from_strip(pygame.image.load("resources/sprites/tiles/Tile_Sea.png"), 24),
     TileType.GRASS: [pygame.image.load("resources/sprites/tiles/Tile_Grass.png")],
-    TileType.WOODS: [pygame.image.load("resources/sprites/tiles/Tile_Woods.png")]
+    TileType.WOODS: [pygame.image.load("resources/sprites/tiles/Tile_Woods.png")],
+    TileType.RESOURCE: [pygame.image.load("resources/sprites/tiles/Tile_Resource.png")]
 }
 spr_coast_detail = {
     0: None,
@@ -78,7 +79,11 @@ spr_order_flags = {
     MENU_CANCEL_ORDER: spr_base_order_flags[0],
     MENU_MOVE: spr_base_order_flags[1],
     MENU_RANGED_ATTACK: spr_base_order_flags[2],
-    MENU_BUILD_UNIT: spr_base_order_flags[3]
+    MENU_BUILD_UNIT: spr_base_order_flags[3],
+    MENU_BUILD_CARBON_GENERATOR: spr_base_order_flags[4],
+    MENU_BUILD_MINERAL_GENERATOR: spr_base_order_flags[5],
+    MENU_BUILD_GAS_GENERATOR: spr_base_order_flags[6],
+    MENU_BUILD_BARRACKS: spr_base_order_flags[3],
 }
 
 spr_digit_icons = {
@@ -100,7 +105,11 @@ spr_resource_icon_gas = {
 spr_buildings = {
     Team.RED: {
         BuildingType.BUILDING: pygame.image.load("resources/sprites/buildings/Base.png"),
-        BuildingType.BASE: pygame.image.load("resources/sprites/buildings/Base.png")
+        BuildingType.BASE: pygame.image.load("resources/sprites/buildings/Base.png"),
+        BuildingType.CARBON_GENERATOR: pygame.image.load("resources/sprites/buildings/CarbonGenerator.png"),
+        BuildingType.MINERAL_GENERATOR: pygame.image.load("resources/sprites/buildings/MineralGenerator.png"),
+        BuildingType.GAS_GENERATOR: pygame.image.load("resources/sprites/buildings/GasGenerator.png"),
+        BuildingType.BARRACKS: pygame.image.load("resources/sprites/buildings/Barracks.png"),
     }
 }
 
@@ -110,7 +119,11 @@ text_menu_option = {
     MENU_MOVE: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE], (0, 0, 0)),
     MENU_CANCEL_ORDER: draw_text(menu_option_strings[LANGUAGE][MENU_CANCEL_ORDER], (0, 0, 0)),
     MENU_RANGED_ATTACK: draw_text(menu_option_strings[LANGUAGE][MENU_RANGED_ATTACK], (0, 0, 0)),
-    MENU_BUILD_UNIT: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_UNIT], (0, 0, 0))
+    MENU_BUILD_UNIT: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_UNIT], (0, 0, 0)),
+    MENU_BUILD_CARBON_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_CARBON_GENERATOR], (0, 0, 0)),
+    MENU_BUILD_MINERAL_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_MINERAL_GENERATOR], (0, 0, 0)),
+    MENU_BUILD_GAS_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_GAS_GENERATOR], (0, 0, 0)),
+    MENU_BUILD_BARRACKS: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_BARRACKS], (0, 0, 0))
 }
 text_unit_name = {}
 

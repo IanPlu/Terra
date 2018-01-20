@@ -162,7 +162,7 @@ class Piece(GameObject):
 
         # Render HP flag
         if 0 < self.hp < self.max_hp:
-            game_screen.blit(spr_digit_icons[self.team][self.hp],
+            game_screen.blit(spr_digit_icons[self.team][int(self.hp / self.max_hp * 10)],
                              (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Allow our tile selection UI to function if alive

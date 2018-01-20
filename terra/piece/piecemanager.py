@@ -5,6 +5,8 @@ from terra.piece.unit.ranger import Ranger
 from terra.piece.unit.ghost import Ghost
 from terra.piece.unit.unit import Team
 from terra.piece.building.base import Base
+from terra.piece.building.generator import Generator
+from terra.piece.building.barracks import Barracks
 from terra.event import *
 from terra.piece.piececonflict import PieceConflict
 from terra.piece.orders import MoveOrder, BuildOrder
@@ -13,6 +15,7 @@ from terra.piece.unit.unittype import UnitType
 from terra.piece.building.buildingtype import BuildingType
 from terra.piece.unit.unitprice import unit_prices
 from terra.piece.unit.piecedamage import piece_damage
+from terra.economy.resourcetypes import ResourceType
 
 
 # Contains and manages all units and buildings from all teams
@@ -104,6 +107,14 @@ class PieceManager(GameObject):
             self.register_piece(Ghost(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
         elif piece_type == BuildingType.BASE:
             self.register_piece(Base(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
+        elif piece_type == BuildingType.CARBON_GENERATOR:
+            self.register_piece(Generator(self, self.team_manager, self.battle, self.game_map, team, gx, gy, ResourceType.CARBON))
+        elif piece_type == BuildingType.MINERAL_GENERATOR:
+            self.register_piece(Generator(self, self.team_manager, self.battle, self.game_map, team, gx, gy, ResourceType.MINERALS))
+        elif piece_type == BuildingType.GAS_GENERATOR:
+            self.register_piece(Generator(self, self.team_manager, self.battle, self.game_map, team, gx, gy, ResourceType.GAS))
+        elif piece_type == BuildingType.BARRACKS:
+            self.register_piece(Barracks(self, self.team_manager, self.battle, self.game_map, team, gx, gy))
 
     # Move a unit on the game map
     def move_unit(self, gx, gy, team):
@@ -135,12 +146,15 @@ class PieceManager(GameObject):
                 if isinstance(piece.current_order, MoveOrder):
                     coordinates.append((piece.current_order.dx, piece.current_order.dy))
                 elif isinstance(piece.current_order, BuildOrder):
-                    # Build orders result in a piece on the designated tile, and the builder's tile
-                    coordinates.append((piece.current_order.tx, piece.current_order.ty))
-                    coordinates.append((piece.gx, piece.gy))
+                    # Build orders for units result in a piece on the designated tile, and the builder's tile
+                    if piece.current_order.new_piece_type in UnitType:
+                        coordinates.append((piece.current_order.tx, piece.current_order.ty))
+                        coordinates.append((piece.gx, piece.gy))
+                    elif piece.current_order.new_piece_type in BuildingType:
+                        coordinates.append((piece.current_order.tx, piece.current_order.ty))
 
                     # Check that a team isn't spending more than they have
-                    spent_resources.append(unit_prices[piece.current_order.new_unit_type])
+                    spent_resources.append(unit_prices[piece.current_order.new_piece_type])
             else:
                 coordinates.append((piece.gx, piece.gy))
 
@@ -194,8 +208,8 @@ class PieceManager(GameObject):
             self.ranged_attack(event.gx, event.gy, event.team, event.tx, event.ty)
         elif is_event_type(event, E_PIECE_DEAD):
             self.remove_piece(event.gx, event.gy, event.team)
-        elif is_event_type(event, E_UNIT_BUILT):
-            self.generate_piece_from_type(event.tx, event.ty, event.team, event.new_unit_type)
+        elif is_event_type(event, E_PIECE_BUILT):
+            self.generate_piece_from_type(event.tx, event.ty, event.team, event.new_piece_type)
 
         if is_event_type(event, START_PHASE_EXECUTE_COMBAT):
             self.resolve_unit_combat()

@@ -14,7 +14,7 @@ class Base(Building):
         self.building_type = BuildingType.BASE
 
         self.buildable_units = [UnitType.COLONIST]
-        self.resource_production = (100, 100, 100)
+        self.resource_production = (10, 10, 10)
 
     def on_death(self):
         publish_game_event(E_BASE_DESTROYED, {

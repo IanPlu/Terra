@@ -12,6 +12,7 @@ from terra.piece.piecetype import PieceType
 from terra.piece.unit.unittype import UnitType
 from terra.piece.building.buildingtype import BuildingType
 from terra.piece.unit.unitprice import unit_prices
+from terra.piece.unit.piecedamage import piece_damage
 
 
 # Contains and manages all units and buildings from all teams
@@ -164,12 +165,19 @@ class PieceManager(GameObject):
                 conflict.resolve()
 
     def ranged_attack(self, gx, gy, origin_team, tx, ty):
-        # Find the origin unit and the target unit
+        # Find the origin unit and the target pieces
         origin_unit = self.get_piece_at(gx, gy, origin_team)
-        target_units = self.get_enemy_pieces_at(tx, ty, origin_team)
+        target_pieces = self.get_enemy_pieces_at(tx, ty, origin_team)
 
-        for unit in target_units:
-            unit.hp -= origin_unit.ranged_attack
+        for target in target_pieces:
+            if hasattr(target, 'unit_type'):
+                target_type = target.unit_type
+            elif hasattr(target, 'building_type'):
+                target_type = target.building_type
+            else:
+                target_type = None
+
+            target.hp -= piece_damage[origin_unit.team][origin_unit.unit_type][target_type]
 
     def step(self, event):
         super().step(event)

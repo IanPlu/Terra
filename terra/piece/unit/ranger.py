@@ -10,8 +10,7 @@ class Ranger(Unit):
         self.unit_type = UnitType.RANGER
 
         self.max_hp = 10
-        self.attack = 0
-        self.ranged_attack = 1
+        self.damage_type = DamageType.RANGED
         self.min_range = 1
         self.max_range = 2
         self.movement_type = MovementType.GROUND

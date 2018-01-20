@@ -2,17 +2,9 @@ from terra.map.map import Map
 from terra.ui.cursor import Cursor
 from terra.constants import *
 from terra.settings import *
-from terra.util.drawingutil import draw_text
-from terra.strings import phase_strings
 from terra.piece.piecemanager import PieceManager
 from terra.event import *
-from terra.resources.assets import spr_cursor, spr_phase_indicator
 from terra.teammanager import TeamManager
-
-
-phase_text = {}
-for _, phase in BattlePhase.__members__.items():
-    phase_text[phase] = draw_text(phase_strings[LANGUAGE][phase], (248, 240, 211))
 
 
 # A battle containing a map, players, their resources + input methods, etc.
@@ -174,20 +166,10 @@ class Battle:
 
         self.map.render(map_screen, ui_screen)
         self.piece_manager.render(map_screen, ui_screen)
+        self.team_manager.render(map_screen, ui_screen)
 
         if self.phase == BattlePhase.ORDERS:
             self.cursor.render(map_screen, ui_screen)
-
-        # Render phase indicator bar
-        ui_screen.fill(CLEAR_COLOR, (0, RESOLUTION_HEIGHT - GRID_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT))
-
-        for x in range(len(spr_phase_indicator)):
-            ui_screen.blit(spr_phase_indicator[x], (x * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
-        ui_screen.blit(spr_cursor[Team.RED], (self.phase.value * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
-
-        # Render phase indicator text
-        ui_screen.blit(phase_text[self.phase],
-                    (4 + GRID_WIDTH * len(spr_phase_indicator), RESOLUTION_HEIGHT - GRID_HEIGHT + 6))
 
         # Render any toast notifications we have
         if self.toast:

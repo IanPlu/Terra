@@ -22,15 +22,17 @@ spr_cursor = {
 spr_textbox = {
     Team.RED: get_nine_slice_sprites(pygame.image.load("resources/sprites/ui/Textbox_9slice.png"), 8)
 }
-spr_phase_indicator = [
-    pygame.image.load("resources/sprites/ui/Phase_Icons0.png"),
-    pygame.image.load("resources/sprites/ui/Phase_Icons1.png"),
-    pygame.image.load("resources/sprites/ui/Phase_Icons2.png"),
-    pygame.image.load("resources/sprites/ui/Phase_Icons3.png"),
-    pygame.image.load("resources/sprites/ui/Phase_Icons4.png"),
-    pygame.image.load("resources/sprites/ui/Phase_Icons5.png"),
-    pygame.image.load("resources/sprites/ui/Phase_Icons6.png")
-]
+spr_phase_indicator = {
+    Team.RED: [
+        pygame.image.load("resources/sprites/ui/Phase_Icons0.png"),
+        pygame.image.load("resources/sprites/ui/Phase_Icons1.png"),
+        pygame.image.load("resources/sprites/ui/Phase_Icons2.png"),
+        pygame.image.load("resources/sprites/ui/Phase_Icons3.png"),
+        pygame.image.load("resources/sprites/ui/Phase_Icons4.png"),
+        pygame.image.load("resources/sprites/ui/Phase_Icons5.png"),
+        pygame.image.load("resources/sprites/ui/Phase_Icons6.png")
+    ]
+}
 
 # Tile
 spr_tile_selectable = pygame.image.load("resources/sprites/tiles/Tile_Selectable.png")
@@ -79,7 +81,19 @@ spr_order_flags = {
     MENU_BUILD_UNIT: spr_base_order_flags[3]
 }
 
-spr_hp_flags = get_nine_slice_sprites(pygame.image.load("resources/sprites/units/HPFlags.png"), 8)
+spr_digit_icons = {
+    Team.RED: get_sprites_from_strip(pygame.image.load("resources/sprites/ui/DigitIcons.png"), 8)
+}
+
+spr_resource_icon_carbon = {
+    Team.RED: pygame.image.load("resources/sprites/ui/ResourceIcon_Carbon.png")
+}
+spr_resource_icon_minerals = {
+    Team.RED: pygame.image.load("resources/sprites/ui/ResourceIcon_Minerals.png")
+}
+spr_resource_icon_gas = {
+    Team.RED: pygame.image.load("resources/sprites/ui/ResourceIcon_Gas.png")
+}
 
 
 # Buildings
@@ -100,6 +114,17 @@ text_menu_option = {
 }
 text_unit_name = {}
 
+phase_text = {}
+for _, phase in BattlePhase.__members__.items():
+    phase_text[phase] = draw_text(phase_strings[LANGUAGE][phase], (248, 240, 211), (82, 51, 51))
+
+
+# Colors
+clear_color = {
+    Team.RED: (46, 29, 29),
+    Team.BLUE: (41, 56, 71)
+}
+
 
 def load_assets():
     palette_swapped_teams = [Team.BLUE]
@@ -108,6 +133,12 @@ def load_assets():
     for team in palette_swapped_teams:
         spr_cursor[team] = swap_palette(spr_cursor[Team.RED], unit_palette[team])
         spr_textbox[team] = swap_multiple_palette(spr_textbox[Team.RED], unit_palette[team])
+        spr_digit_icons[team] = swap_multiple_palette(spr_digit_icons[Team.RED], unit_palette[team])
+
+        spr_phase_indicator[team] = swap_multiple_palette(spr_phase_indicator[Team.RED], unit_palette[team])
+        spr_resource_icon_carbon[team] = swap_palette(spr_resource_icon_carbon[Team.RED], unit_palette[team])
+        spr_resource_icon_minerals[team] = swap_palette(spr_resource_icon_minerals[Team.RED], unit_palette[team])
+        spr_resource_icon_gas[team] = swap_palette(spr_resource_icon_gas[Team.RED], unit_palette[team])
 
         spr_units[team] = {}
         spr_buildings[team] = {}
@@ -117,6 +148,6 @@ def load_assets():
         for building_type in BuildingType:
             spr_buildings[team][building_type] = swap_palette(spr_buildings[Team.RED][building_type], unit_palette[team])
 
-    # Generate text surfaces for each unit type
+    # Generate text surfaces for each unit and building type
     for unit_type in UnitType:
         text_unit_name[unit_type] = draw_text(unit_name_strings[LANGUAGE][unit_type], (0, 0, 0))

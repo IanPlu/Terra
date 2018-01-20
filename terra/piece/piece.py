@@ -1,6 +1,6 @@
 from terra.engine.gameobject import GameObject
 from terra.constants import Team, BattlePhase
-from terra.resources.assets import spr_units, spr_order_flags, spr_hp_flags
+from terra.resources.assets import spr_units, spr_order_flags, spr_digit_icons
 from terra.event import *
 from terra.settings import *
 from terra.piece.unit.unittype import UnitType
@@ -162,7 +162,7 @@ class Piece(GameObject):
 
         # Render HP flag
         if 0 < self.hp < self.max_hp:
-            game_screen.blit(spr_hp_flags[self.hp - 1],
+            game_screen.blit(spr_digit_icons[self.team][self.hp],
                              (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Allow our tile selection UI to function if alive

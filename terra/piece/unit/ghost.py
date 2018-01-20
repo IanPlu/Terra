@@ -10,8 +10,7 @@ class Ghost(Unit):
         self.unit_type = UnitType.GHOST
 
         self.max_hp = 10
-        self.attack = 1
-        self.ranged_attack = 0
+        self.damage_type = DamageType.MELEE
         self.min_range = 0
         self.max_range = 0
         self.movement_type = MovementType.GHOST

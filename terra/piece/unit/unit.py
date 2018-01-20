@@ -6,6 +6,7 @@ from terra.map.movementtype import MovementType
 from terra.piece.orders import *
 from terra.piece.unit.unittype import UnitType
 from terra.resources.assets import spr_units
+from terra.piece.unit.damagetype import DamageType
 
 
 # A single unit on the map.
@@ -18,8 +19,7 @@ class Unit(Piece):
         self.unit_type = UnitType.UNIT
 
         # Unit-specific overrideable variables.
-        self.attack = 0
-        self.ranged_attack = 0
+        self.damage_type = DamageType.MELEE
         self.min_range = 0
         self.max_range = 0
         self.movement_type = MovementType.GROUND
@@ -32,7 +32,7 @@ class Unit(Piece):
         actions = []
         if self.movement_range > 0:
             actions.append(MENU_MOVE)
-        if self.ranged_attack > 0 and not self.in_conflict:
+        if self.damage_type == DamageType.RANGED and not self.in_conflict:
             actions.append(MENU_RANGED_ATTACK)
 
         actions.extend(super().get_available_actions())

@@ -29,8 +29,19 @@ def swap_multiple_palette(sprites, palette):
 
 
 # Create a blittable surface with the provided text
-def draw_text(text, color):
-    return Font.COURIER.value.render(text, False, color)
+def draw_text(text, color, shadow_color=None):
+    if shadow_color:
+        background = Font.COURIER.value.render(text, False, shadow_color)
+        foreground = Font.COURIER.value.render(text, False, color)
+
+        text_size = background.get_size()
+        text_surface = pygame.Surface((text_size[0] + 1, text_size[1] + 1), pygame.SRCALPHA, 32)
+
+        text_surface.blit(background, (1, 1))
+        text_surface.blit(foreground, (0, 0))
+        return text_surface
+    else:
+        return Font.COURIER.value.render(text, False, color)
 
 
 def get_sprites_from_strip(sprite, width):
@@ -87,3 +98,15 @@ def draw_nine_slice_sprite(sprites, grid_size, grid_width, grid_height):
     surface.blit(sprites[8], (x * grid_size, y * grid_size))
 
     return surface
+
+
+# Return a surface containing
+def draw_three_digit_number(spr_digit_icons, number, team):
+    digits = [int(digit) for digit in str(number)]
+    display = pygame.Surface((len(digits) * 8, 8))
+
+    x = 0
+    for digit in digits:
+        display.blit(spr_digit_icons[team][digit], (x, 0))
+        x = x + 8
+    return display

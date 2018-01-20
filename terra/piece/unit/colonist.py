@@ -9,8 +9,7 @@ class Colonist(Unit):
         self.unit_type = UnitType.COLONIST
 
         self.max_hp = 5
-        self.attack = 0
-        self.ranged_attack = 0
+        self.damage_type = DamageType.MELEE
         self.min_range = 0
         self.max_range = 0
         self.movement_type = MovementType.GROUND

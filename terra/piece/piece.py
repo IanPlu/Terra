@@ -1,6 +1,6 @@
 from terra.engine.gameobject import GameObject
 from terra.constants import Team, BattlePhase
-from terra.resources.assets import spr_units, spr_order_flags, spr_digit_icons
+from terra.resources.assets import spr_units, spr_order_flags, spr_digit_icons, clear_color
 from terra.event import *
 from terra.settings import *
 from terra.piece.unit.unittype import UnitType
@@ -156,12 +156,14 @@ class Piece(GameObject):
                          (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
         # Render order flag
-        if self.current_order:
+        if self.current_order and self.battle.active_team == self.team:
             game_screen.blit(spr_order_flags[self.current_order.name],
                              (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Render HP flag
         if 0 < self.hp < self.max_hp:
+            game_screen.fill(clear_color[self.team],
+                             (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16, 8, 8))
             game_screen.blit(spr_digit_icons[self.team][int(self.hp / self.max_hp * 10)],
                              (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16))
 

@@ -2,24 +2,28 @@ from terra.engine.gameobject import GameObject
 from terra.ui.phasebar import PhaseBar
 from terra.constants import Team
 from terra.economy.resourcetypes import ResourceType
+from terra.event import *
 
 
 # Contains and manages all resources and upgrades for all teams
 class TeamManager(GameObject):
-    def __init__(self, battle, teams):
+    def __init__(self, battle, effects_manager, teams):
         super().__init__()
 
         self.battle = battle
         self.teams = teams
+        self.effects_manager = effects_manager
 
         self.resources = {}
         self.upgrades = {}
         self.phase_bars = {}
+        self.turn_submitted = {}
 
         # Initialize resources and upgrades for each team provided
         for team in self.teams:
+            self.turn_submitted[team] = False
             self.upgrades[team] = []
-            self.phase_bars[team] = PhaseBar(team, self, self.battle)
+            self.phase_bars[team] = PhaseBar(team, self, self.battle, self.effects_manager)
             self.resources[team] = {}
             for resource in ResourceType:
                 self.resources[team][resource] = 10
@@ -51,11 +55,35 @@ class TeamManager(GameObject):
             total_carbon = total_carbon + amount[0]
             total_minerals = total_minerals + amount[0]
             total_gas = total_gas + amount[0]
-        return total_carbon < self.resources[team][ResourceType.CARBON] and \
-               total_minerals < self.resources[team][ResourceType.MINERALS] and \
-               total_gas < self.resources[team][ResourceType.GAS]
+        return total_carbon <= self.resources[team][ResourceType.CARBON] and \
+               total_minerals <= self.resources[team][ResourceType.MINERALS] and \
+               total_gas <= self.resources[team][ResourceType.GAS]
+
+    def check_if_ready_to_submit_turns(self):
+        for team in Team:
+            if not self.turn_submitted[team]:
+                return False
+        return True
+
+    def step(self, event):
+        super().step(event)
+
+        for team in Team:
+            self.phase_bars[team].step(event)
+
+        if is_event_type(event, E_SUBMIT_TURN):
+            if not self.turn_submitted[event.team]:
+                self.turn_submitted[event.team] = True
+                if self.check_if_ready_to_submit_turns():
+                    publish_game_event(E_ALL_TURNS_SUBMITTED, {})
+                    for team in Team:
+                        self.turn_submitted[team] = False
+            else:
+                self.turn_submitted[event.team] = False
+        elif is_event_type(event, E_CLEANUP):
+            for team in Team:
+                self.turn_submitted[team] = False
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
-        # for team in Team:
-        self.phase_bars[Team.RED].render(game_screen, ui_screen)
+        self.phase_bars[self.battle.active_team].render(game_screen, ui_screen)

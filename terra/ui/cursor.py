@@ -35,15 +35,9 @@ class Cursor(GameObject):
     def cancel(self):
         publish_game_event(E_CANCEL, {})
 
-    def debug2(self):
-        if self.team == Team.RED:
-            self.team = Team.BLUE
-        elif self.team == Team.BLUE:
-            self.team = Team.RED
-
     # Creates a menu popup from the provided event.
     def open_menu(self, event):
-        self.menu = MenuPopup(event.gx, event.gy, event.team, event.options)
+        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
 
     def close_menu(self):
         del self.menu
@@ -58,7 +52,12 @@ class Cursor(GameObject):
         self.move_ui = None
 
     def open_build_ui(self, event):
-        self.menu = MenuPopup(event.gx, event.gy, event.team, event.options, event.buildable_units)
+        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options, event.buildable_units)
+
+    def submit_turn(self):
+        publish_game_event(E_SUBMIT_TURN, {
+            'team': self.team
+        })
 
     def step(self, event):
         super().step(event)
@@ -99,8 +98,8 @@ class Cursor(GameObject):
                     self.confirm()
                 elif event.key in KB_CANCEL:
                     self.cancel()
-                elif event.key in KB_DEBUG2:
-                    self.debug2()
+                elif event.key in KB_MENU:
+                    self.submit_turn()
 
             # Mouse control of the cursor
             elif event.type == MOUSEMOTION:

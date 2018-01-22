@@ -41,6 +41,7 @@ class Unit(Piece):
             actions.extend([MENU_BUILD_CARBON_GENERATOR, MENU_BUILD_MINERAL_GENERATOR, MENU_BUILD_GAS_GENERATOR])
         if self.can_build and not self.game_map.get_tile_type_at(self.gx, self.gy) == TileType.RESOURCE:
             actions.append(MENU_BUILD_BARRACKS)
+        actions.append(MENU_CANCEL_ORDER)
         return actions
 
     # Handle menu selections. Open tile selection for moves, ranged attack selection, etc.

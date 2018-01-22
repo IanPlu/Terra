@@ -5,6 +5,9 @@ from terra.settings import *
 from terra.piece.piecemanager import PieceManager
 from terra.event import *
 from terra.economy.teammanager import TeamManager
+from terra.effects.effectsmanager import EffectsManager
+from terra.effects.effecttype import EffectType
+from terra.piece.building.buildingtype import BuildingType
 
 
 # A battle containing a map, players, their resources + input methods, etc.
@@ -16,15 +19,18 @@ class Battle:
         bitmap, roster, buildings, teams = load_map_from_file(mapname)
 
         self.map = Map(bitmap)
-        self.team_manager = TeamManager(self, teams)
+        self.effects_manager = EffectsManager()
+        self.team_manager = TeamManager(self, self.effects_manager, teams)
         self.piece_manager = PieceManager(self, self.map, self.team_manager, roster, buildings)
-        self.cursor = Cursor(self.map)
+
+        self.cursors = {}
+        for team in Team:
+            self.cursors[team] = Cursor(self.map, team)
+
+        self.active_team = Team.RED
 
         self.phase = BattlePhase.EXECUTE_SPECIAL
         self.progress_phase()
-
-        # TODO IP
-        self.toast = None # ToastNotification(self, "")
 
     # Validate that it's OK to progress the current phase.
     # Check movement orders, primarily
@@ -33,9 +39,6 @@ class Battle:
             # Validate that all orders for all teams are correct before moving on
             for team in Team:
                 if not self.piece_manager.validate_orders(team):
-                    publish_game_event(E_INVALID_ORDER, {
-                        'team': team
-                    })
                     return False
         else:
             # Other phases have no validation at the moment
@@ -100,24 +103,36 @@ class Battle:
         print("A base has been destroyed. The game is over!")
 
     def step(self, event):
-        if self.toast:
-            self.toast.step(event)
-
-        if event.type == KEYDOWN and event.key in KB_DEBUG1:
-            self.progress_phase()
-
         self.map.step(event)
         self.piece_manager.step(event)
+        self.effects_manager.step(event)
+        self.team_manager.step(event)
 
         if self.phase == BattlePhase.ORDERS:
-            self.cursor.step(event)
+            self.cursors[self.active_team].step(event)
 
         if is_event_type(event, START_PHASE_START_TURN, START_PHASE_EXECUTE_BUILD,
                          START_PHASE_EXECUTE_MOVE, START_PHASE_EXECUTE_COMBAT,
                          START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL):
             self.progress_phase()
+        elif is_event_type(event, E_ALL_TURNS_SUBMITTED):
+            self.progress_phase()
         elif is_event_type(event, E_BASE_DESTROYED):
             self.check_for_victory(event)
+        elif is_event_type(event, E_PIECE_DEAD):
+            self.effects_manager.create_effect(event.gx, event.gy, EffectType.PIECE_DESTROYED)
+        elif is_event_type(event, E_INVALID_MOVE_ORDERS):
+            for coordinate in event.invalid_coordinates:
+                self.effects_manager.create_effect(coordinate[0], coordinate[1], EffectType.ALERT)
+        elif is_event_type(event, E_INVALID_BUILD_ORDERS):
+            base = self.piece_manager.get_all_pieces_for_team(event.team, BuildingType.BASE)[0]
+            self.effects_manager.create_effect(base.gx, base.gy, EffectType.NO_MONEY)
+        elif event.type == KEYDOWN:
+            if event.key in KB_DEBUG2:
+                if self.active_team == Team.RED:
+                    self.active_team = Team.BLUE
+                elif self.active_team == Team.BLUE:
+                    self.active_team = Team.RED
 
     # Generate a screen with the entire map, subsurfaced to the camera area
     def render(self, ui_screen):
@@ -127,15 +142,12 @@ class Battle:
         self.map.render(map_screen, ui_screen)
         self.piece_manager.render(map_screen, ui_screen)
         self.team_manager.render(map_screen, ui_screen)
+        self.effects_manager.render(map_screen, ui_screen)
 
         if self.phase == BattlePhase.ORDERS:
-            self.cursor.render(map_screen, ui_screen)
-
-        # Render any toast notifications we have
-        if self.toast:
-            self.toast.render(map_screen, ui_screen)
+            self.cursors[self.active_team].render(map_screen, ui_screen)
 
         # Trim the screen to just the camera area
-        return map_screen.subsurface((self.cursor.camera_x, self.cursor.camera_y,
+        return map_screen.subsurface((self.cursors[self.active_team].camera_x, self.cursors[self.active_team].camera_y,
                                       min(RESOLUTION_WIDTH, map_screen.get_size()[0]),
                                       min(RESOLUTION_HEIGHT, map_screen.get_size()[1])))

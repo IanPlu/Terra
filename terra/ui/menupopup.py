@@ -4,7 +4,7 @@ from terra.engine.gameobject import GameObject
 from terra.util.drawingutil import draw_nine_slice_sprite
 from terra.event import *
 from terra.piece.piece import spr_order_flags
-from terra.resources.assets import spr_cursor, spr_textbox, spr_units, text_menu_option, text_unit_name
+from terra.resources.assets import spr_cursor, spr_textbox, spr_units, text_menu_option, text_unit_name, clear_color
 
 
 grid_size = 8
@@ -14,8 +14,10 @@ option_height = 24
 # A menu popup containing multiple selectable menu options
 # TODO: Make this aware of the camera offset
 class MenuPopup(GameObject):
-    def __init__(self, tx=0, ty=0, team=Team.RED, options=None, buildable_units=None):
+    def __init__(self, cursor, tx=0, ty=0, team=Team.RED, options=None, buildable_units=None):
         super().__init__()
+
+        self.cursor = cursor
 
         # Tile the menu is for
         self.tx = tx
@@ -27,7 +29,7 @@ class MenuPopup(GameObject):
 
         self.team = team
 
-        self.subgrid_width = 10
+        self.subgrid_width = 12
         self.subgrid_height = 3 * len(options)
 
         self.options = options
@@ -87,9 +89,9 @@ class MenuPopup(GameObject):
                 self.cancel()
         elif event.type == MOUSEMOTION:
             # Determine if the mouse is in the popup window
-            mouse_coords = pygame.mouse.get_pos()
-            mousex = int(mouse_coords[0] / SCREEN_SCALE)
-            mousey = int(mouse_coords[1] / SCREEN_SCALE)
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            mousex = int(mouse_x / SCREEN_SCALE + self.cursor.camera_x)
+            mousey = int(mouse_y / SCREEN_SCALE + self.cursor.camera_y)
 
             min_x = self.x
             min_y = self.y + 8
@@ -115,12 +117,14 @@ class MenuPopup(GameObject):
         if self.buildable_units:
             # Render buildable units
             for buildable_unit in self.buildable_units:
+                game_screen.fill(clear_color[self.team], (self.x + 2, self.y + 10 + row_y * option_height, 20, 20))
                 game_screen.blit(spr_units[self.team][buildable_unit], (self.x, self.y + 8 + row_y * option_height))
                 game_screen.blit(text_unit_name[buildable_unit], (self.x + 24, self.y + 16 + row_y * option_height))
                 row_y += 1
         else:
             for option in self.options:
                 # Render menu option icons
+                game_screen.fill(clear_color[self.team], (self.x + 2, self.y + 10 + row_y * option_height, 20, 20))
                 game_screen.blit(spr_order_flags[option], (self.x + 8, self.y + 16 + row_y * option_height))
                 game_screen.blit(text_menu_option[option], (self.x + 24, self.y + 16 + row_y * option_height))
                 row_y += 1

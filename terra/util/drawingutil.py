@@ -105,7 +105,7 @@ def draw_three_digit_number(spr_digit_icons, number, team):
     formatted_number = "{0:0=3d}".format(number)
 
     digits = [int(digit) for digit in str(formatted_number)]
-    display = pygame.Surface((len(digits) * 8, 8))
+    display = pygame.Surface((len(digits) * 8, 8), pygame.SRCALPHA, 32)
 
     x = 0
     for digit in digits:

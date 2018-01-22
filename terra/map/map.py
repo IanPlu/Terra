@@ -22,7 +22,7 @@ class Map(GameObject):
         if bitmap:
             self.bitmap = bitmap
         else:
-            self.bitmap = self.generate_bitmap(width, height)
+            self.bitmap = generate_bitmap(width, height)
 
         self.height = len(self.bitmap)
         self.width = len(self.bitmap[0])

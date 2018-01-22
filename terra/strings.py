@@ -1,5 +1,6 @@
 from terra.constants import *
 from terra.event import *
+from terra.effects.effecttype import EffectType
 from enum import Enum
 
 
@@ -39,5 +40,12 @@ unit_name_strings = {
         UnitType.TROOPER: "Trooper",
         UnitType.RANGER: "Ranger",
         UnitType.GHOST: "Ghost"
+    }
+}
+
+notification_strings = {
+    Language.EN_US: {
+        EffectType.ALERT: "Orders result in stacked pieces",
+        EffectType.NO_MONEY: "Not enough resources for orders",
     }
 }

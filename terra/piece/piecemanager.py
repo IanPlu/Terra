@@ -16,6 +16,7 @@ from terra.piece.building.buildingtype import BuildingType
 from terra.piece.unit.unitprice import unit_prices
 from terra.piece.unit.piecedamage import piece_damage
 from terra.economy.resourcetypes import ResourceType
+from collections import Counter
 
 
 # Contains and manages all units and buildings from all teams
@@ -78,9 +79,15 @@ class PieceManager(GameObject):
         # Filter
         all_pieces = [piece for piece in all_pieces if piece.team == team]
         if piece_type:
-            all_pieces = [piece for piece in all_pieces if piece.piece_type == piece_type]
-
-        return all_pieces
+            filtered_pieces = []
+            for piece in all_pieces:
+                if hasattr(piece, 'unit_type') and piece.unit_type == piece_type:
+                    filtered_pieces.append(piece)
+                elif hasattr(piece, 'building_type') and piece.building_type == piece_type:
+                    filtered_pieces.append(piece)
+            return filtered_pieces
+        else:
+            return all_pieces
 
     # Register a piece with the game map.
     def register_piece(self, piece):
@@ -161,6 +168,21 @@ class PieceManager(GameObject):
         # Move orders are valid if all the coordinates are unique-- no duplicates are removed
         move_orders_valid = len(coordinates) == len(set(coordinates))
         build_orders_valid = self.team_manager.can_spend_resources(team, spent_resources)
+
+        # Publish events containing the invalid orders, if any
+        if not move_orders_valid:
+            # Find and return the coordinates of the collision(s)
+            collisions = [k for k, v in Counter(coordinates).items() if v > 1]
+
+            publish_game_event(E_INVALID_MOVE_ORDERS, {
+                'team': team,
+                'invalid_coordinates': collisions
+            })
+        if not build_orders_valid:
+            publish_game_event(E_INVALID_BUILD_ORDERS, {
+                'team': team,
+                'spent_resources': spent_resources
+            })
 
         return move_orders_valid and build_orders_valid
 

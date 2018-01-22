@@ -16,6 +16,10 @@ class AnimatedGameObject(GameObject):
 
         self.sprite = images[0]
 
+    # Triggered when the animation loops and resets to frame 0.
+    def on_animation_reset(self):
+        pass
+
     def step(self, event):
         super().step(event)
 
@@ -26,6 +30,7 @@ class AnimatedGameObject(GameObject):
         self.current_frame = self.current_frame + self.framerate / TICK_RATE
         if self.current_frame >= len(self.images):
             self.current_frame = 0
+            self.on_animation_reset()
 
         # Set the image to display
         self.sprite = self.images[int(self.current_frame)]

@@ -21,9 +21,11 @@ screen = pygame.display.set_mode(screen_resolution)
 screen.fill(clear_color[Team.RED])
 
 load_assets()
-level_editor = LevelEditor()
-battle = Battle()
 mode = Mode.BATTLE
+if mode == Mode.EDIT:
+    level_editor = LevelEditor()
+else:
+    battle = Battle()
 
 
 # Step phase of game loop - handle events
@@ -49,7 +51,6 @@ def render():
         game_screen = level_editor.render(ui_screen)
         # Combine the game screen and UI
         game_screen.blit(ui_screen, (0, 0))
-
     pygame.transform.scale(game_screen, (screen_width, screen_height), screen)
     pygame.display.flip()
 

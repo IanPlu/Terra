@@ -3,6 +3,7 @@ from terra.constants import Team
 from terra.map.tiletype import TileType
 from terra.piece.unit.unittype import UnitType
 from terra.piece.building.buildingtype import BuildingType
+from terra.effects.effecttype import EffectType
 from terra.strings import *
 from terra.event import *
 from terra.settings import LANGUAGE
@@ -32,6 +33,13 @@ spr_phase_indicator = {
         pygame.image.load("resources/sprites/ui/Phase_Icons5.png"),
         pygame.image.load("resources/sprites/ui/Phase_Icons6.png")
     ]
+}
+
+spr_turn_submitted_indicator = {
+    Team.RED: pygame.image.load("resources/sprites/ui/Turn_Submitted_Icon.png")
+}
+spr_turn_not_submitted_indicator = {
+    Team.RED: pygame.image.load("resources/sprites/ui/Turn_Not_Submitted_Icon.png")
 }
 
 # Tile
@@ -113,6 +121,25 @@ spr_buildings = {
     }
 }
 
+# Effects
+spr_effects = {
+    EffectType.ALERT: get_sprites_from_strip(pygame.image.load("resources/sprites/effects/FX_Alert.png"), 24),
+    EffectType.PIECE_DESTROYED: get_sprites_from_strip(pygame.image.load("resources/sprites/effects/FX_Piece_Destroyed.png"), 24),
+    EffectType.NO_MONEY: get_sprites_from_strip(pygame.image.load("resources/sprites/effects/FX_No_Money.png"), 24)
+}
+
+
+# Colors
+light_color = (248, 240, 211)
+clear_color = {
+    Team.RED: (46, 29, 29),
+    Team.BLUE: (41, 56, 71)
+}
+shadow_color = {
+    Team.RED: (82, 51, 51),
+    Team.BLUE: (67, 87, 107)
+}
+
 
 # Text
 text_menu_option = {
@@ -125,18 +152,19 @@ text_menu_option = {
     MENU_BUILD_GAS_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_GAS_GENERATOR], (0, 0, 0)),
     MENU_BUILD_BARRACKS: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_BARRACKS], (0, 0, 0))
 }
+
+text_notifications = {
+    EffectType.ALERT: draw_text(notification_strings[LANGUAGE][EffectType.ALERT], (0, 0, 0)),
+    EffectType.NO_MONEY: draw_text(notification_strings[LANGUAGE][EffectType.NO_MONEY], (0, 0, 0)),
+}
+
 text_unit_name = {}
 
 phase_text = {}
-for _, phase in BattlePhase.__members__.items():
-    phase_text[phase] = draw_text(phase_strings[LANGUAGE][phase], (248, 240, 211), (82, 51, 51))
-
-
-# Colors
-clear_color = {
-    Team.RED: (46, 29, 29),
-    Team.BLUE: (41, 56, 71)
-}
+for team in Team:
+    phase_text[team] = {}
+    for _, phase in BattlePhase.__members__.items():
+        phase_text[team][phase] = draw_text(phase_strings[LANGUAGE][phase], light_color, shadow_color[team])
 
 
 def load_assets():
@@ -152,6 +180,9 @@ def load_assets():
         spr_resource_icon_carbon[team] = swap_palette(spr_resource_icon_carbon[Team.RED], unit_palette[team])
         spr_resource_icon_minerals[team] = swap_palette(spr_resource_icon_minerals[Team.RED], unit_palette[team])
         spr_resource_icon_gas[team] = swap_palette(spr_resource_icon_gas[Team.RED], unit_palette[team])
+
+        spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED], unit_palette[team])
+        spr_turn_not_submitted_indicator[team] = swap_palette(spr_turn_not_submitted_indicator[Team.RED], unit_palette[team])
 
         spr_units[team] = {}
         spr_buildings[team] = {}

@@ -8,7 +8,7 @@ from terra.piece.unit.unittype import UnitType
 from terra.resources.assets import spr_units
 from terra.piece.unit.damagetype import DamageType
 from terra.map.tiletype import TileType
-from terra.piece.building.buildingtype import building_type_from_menu_option
+from terra.piece.building.buildingtype import BuildingType, building_type_from_menu_option
 
 
 # A single unit on the map.
@@ -37,12 +37,18 @@ class Unit(Piece):
             actions.append(MENU_MOVE)
         if self.damage_type == DamageType.RANGED and not self.in_conflict:
             actions.append(MENU_RANGED_ATTACK)
-        if self.can_build and self.game_map.get_tile_type_at(self.gx, self.gy) == TileType.RESOURCE:
+        if self.can_build and self.__can_build_generator__():
             actions.extend([MENU_BUILD_CARBON_GENERATOR, MENU_BUILD_MINERAL_GENERATOR, MENU_BUILD_GAS_GENERATOR])
         if self.can_build and not self.game_map.get_tile_type_at(self.gx, self.gy) == TileType.RESOURCE:
             actions.append(MENU_BUILD_BARRACKS)
         actions.append(MENU_CANCEL_ORDER)
         return actions
+
+    def __can_build_generator__(self):
+        return self.game_map.get_tile_type_at(self.gx + 1, self.gy) == TileType.RESOURCE or \
+               self.game_map.get_tile_type_at(self.gx - 1, self.gy) == TileType.RESOURCE or \
+               self.game_map.get_tile_type_at(self.gx, self.gy + 1) == TileType.RESOURCE or \
+               self.game_map.get_tile_type_at(self.gx, self.gy - 1) == TileType.RESOURCE
 
     # Handle menu selections. Open tile selection for moves, ranged attack selection, etc.
     def handle_menu_option(self, event):
@@ -70,6 +76,31 @@ class Unit(Piece):
                 'piece_manager': self.piece_manager,
                 'option': event.option
             })
+        elif event.option == MENU_BUILD_BARRACKS:
+            publish_game_event(E_OPEN_TILE_SELECTION, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'min_range': 1,
+                'max_range': 1,
+                'game_map': self.game_map,
+                'movement_type': MovementType.BUILD_BARRACKS,
+                'team': self.team,
+                'piece_manager': self.piece_manager,
+                'option': event.option
+            })
+        elif event.option in [MENU_BUILD_CARBON_GENERATOR, MENU_BUILD_MINERAL_GENERATOR,
+                              MENU_BUILD_GAS_GENERATOR]:
+            publish_game_event(E_OPEN_TILE_SELECTION, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'min_range': 1,
+                'max_range': 1,
+                'game_map': self.game_map,
+                'movement_type': MovementType.BUILD_GENERATOR,
+                'team': self.team,
+                'piece_manager': self.piece_manager,
+                'option': event.option
+            })
         else:
             self.set_order(event)
 
@@ -77,6 +108,8 @@ class Unit(Piece):
         if event.option == MENU_MOVE:
             self.set_order(event)
         elif event.option == MENU_RANGED_ATTACK:
+            self.set_order(event)
+        elif building_type_from_menu_option[event.option] in BuildingType:
             self.set_order(event)
 
     def set_order(self, event):
@@ -86,8 +119,9 @@ class Unit(Piece):
             self.current_order = RangedAttackOrder(self, event.dx, event.dy)
         elif event.option in [MENU_BUILD_CARBON_GENERATOR, MENU_BUILD_MINERAL_GENERATOR,
                               MENU_BUILD_GAS_GENERATOR, MENU_BUILD_BARRACKS]:
-            self.current_order = BuildOrder(self, self.gx, self.gy, self.team,
+            self.current_order = BuildOrder(self, event.dx, event.dy, self.team,
                                             building_type_from_menu_option[event.option])
+
         elif event.option == MENU_CANCEL_ORDER:
             self.current_order = None
         else:
@@ -101,9 +135,6 @@ class Unit(Piece):
                 'team': self.current_order.team,
                 'new_piece_type': self.current_order.new_piece_type
             })
-
-            # Units are consumed on building buildings
-            self.hp = 0
 
             # Pop orders once they're executed
             self.current_order = None

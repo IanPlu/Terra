@@ -34,11 +34,11 @@ class TileSelection(GameObject):
 
     # Return the initial list of coordinates that cannot be selected
     def __generate_excluded_coordinates__(self):
-        excluded_coordinates = {(self.gx, self.gy)}
+        excluded_coordinates = set()
 
-        # No tiles are excluded if it's not movement
+        # if it's not movement, only exclude our own tile
         if not self.movement_type:
-            return excluded_coordinates
+            return {(self.gx, self.gy)}
         # Otherwise exclude friendly buildings from selection
         else:
             for building in self.piece_manager.get_all_pieces_for_team(self.team, PieceType.BUILDING):
@@ -48,7 +48,7 @@ class TileSelection(GameObject):
 
     # Generate a list of the coordinates of all tiles available to select
     def __generate_coordinate_set__(self):
-        possible_coordinates = set()
+        possible_coordinates = {(self.gx, self.gy)}
         excluded_coordinates = self.__generate_excluded_coordinates__()
 
         def traverse_tile(gx, gy, remaining_range, min_range, max_range, game_map, movement_type, team, piece_manager, first_move):
@@ -56,7 +56,7 @@ class TileSelection(GameObject):
             if remaining_range <= 0:
                 return
             # If the tile is impassible, return (tiles off the edge are impassible too)
-            elif not game_map.is_tile_passable(gx, gy, movement_type):
+            elif not game_map.is_tile_passable(gx, gy, movement_type) and not first_move:
                 return
             # Otherwise, add the current tile to the selectable list, and iterate in all four directions
             else:
@@ -76,8 +76,8 @@ class TileSelection(GameObject):
                 traverse_tile(gx, gy + 1, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
                 traverse_tile(gx, gy - 1, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
 
-        traverse_tile(self.gx, self.gy, self.max_range + 1,
-                      self.min_range, self.max_range, self.game_map, self.movement_type, self.team, self.piece_manager, True)
+        traverse_tile(self.gx, self.gy, self.max_range + 1, self.min_range, self.max_range,
+                      self.game_map, self.movement_type, self.team, self.piece_manager, True)
 
         return possible_coordinates - excluded_coordinates
 

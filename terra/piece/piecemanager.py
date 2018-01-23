@@ -153,12 +153,9 @@ class PieceManager(GameObject):
                 if isinstance(piece.current_order, MoveOrder):
                     coordinates.append((piece.current_order.dx, piece.current_order.dy))
                 elif isinstance(piece.current_order, BuildOrder):
-                    # Build orders for units result in a piece on the designated tile, and the builder's tile
-                    if piece.current_order.new_piece_type in UnitType:
-                        coordinates.append((piece.current_order.tx, piece.current_order.ty))
-                        coordinates.append((piece.gx, piece.gy))
-                    elif piece.current_order.new_piece_type in BuildingType:
-                        coordinates.append((piece.current_order.tx, piece.current_order.ty))
+                    # Build orders result in a piece on the designated tile, and the builder's tile
+                    coordinates.append((piece.current_order.tx, piece.current_order.ty))
+                    coordinates.append((piece.gx, piece.gy))
 
                     # Check that a team isn't spending more than they have
                     spent_resources.append(unit_prices[piece.current_order.new_piece_type])

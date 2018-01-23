@@ -133,6 +133,8 @@ class Battle:
                     self.active_team = Team.BLUE
                 elif self.active_team == Team.BLUE:
                     self.active_team = Team.RED
+            elif event.key in KB_DEBUG1:
+                self.progress_phase()
 
     # Generate a screen with the entire map, subsurfaced to the camera area
     def render(self, ui_screen):

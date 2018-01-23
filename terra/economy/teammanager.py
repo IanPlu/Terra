@@ -65,6 +65,18 @@ class TeamManager(GameObject):
                 return False
         return True
 
+    def try_submitting_turn(self, team):
+        # TODO: Validate orders here
+
+        if not self.turn_submitted[team]:
+            self.turn_submitted[team] = True
+            if self.check_if_ready_to_submit_turns():
+                publish_game_event(E_ALL_TURNS_SUBMITTED, {})
+                for team in Team:
+                    self.turn_submitted[team] = False
+        else:
+            self.turn_submitted[team] = False
+
     def step(self, event):
         super().step(event)
 
@@ -72,14 +84,7 @@ class TeamManager(GameObject):
             self.phase_bars[team].step(event)
 
         if is_event_type(event, E_SUBMIT_TURN):
-            if not self.turn_submitted[event.team]:
-                self.turn_submitted[event.team] = True
-                if self.check_if_ready_to_submit_turns():
-                    publish_game_event(E_ALL_TURNS_SUBMITTED, {})
-                    for team in Team:
-                        self.turn_submitted[team] = False
-            else:
-                self.turn_submitted[event.team] = False
+            self.try_submitting_turn(event.team)
         elif is_event_type(event, E_CLEANUP):
             for team in Team:
                 self.turn_submitted[team] = False

@@ -8,7 +8,9 @@ import random
 impassible_terrain_types = {
     None: [],
     MovementType.GROUND: [TileType.SEA],
-    MovementType.GHOST: [TileType.SEA]
+    MovementType.GHOST: [TileType.SEA],
+    MovementType.BUILD_BARRACKS: [TileType.SEA, TileType.WOODS, TileType.RESOURCE],
+    MovementType.BUILD_GENERATOR: [TileType.SEA, TileType.GRASS, TileType.WOODS]
 }
 
 

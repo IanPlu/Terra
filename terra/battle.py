@@ -8,12 +8,13 @@ from terra.economy.teammanager import TeamManager
 from terra.effects.effectsmanager import EffectsManager
 from terra.effects.effecttype import EffectType
 from terra.piece.building.buildingtype import BuildingType
+from terra.engine.gamescreen import GameScreen
 
 
 # A battle containing a map, players, their resources + input methods, etc.
 # Handles the turn / phase loop.
-class Battle:
-    def __init__(self, mapname="map4.txt"):
+class Battle(GameScreen):
+    def __init__(self, mapname="key_range.txt"):
         super().__init__()
 
         bitmap, roster, buildings, teams = load_map_from_file(mapname)
@@ -103,6 +104,8 @@ class Battle:
         print("A base has been destroyed. The game is over!")
 
     def step(self, event):
+        super().step(event)
+
         self.map.step(event)
         self.piece_manager.step(event)
         self.effects_manager.step(event)
@@ -138,6 +141,8 @@ class Battle:
 
     # Generate a screen with the entire map, subsurfaced to the camera area
     def render(self, ui_screen):
+        super().render(ui_screen)
+
         # Generate a screen of the size of the map
         map_screen = pygame.Surface((self.map.width * GRID_WIDTH, self.map.height * GRID_HEIGHT), pygame.SRCALPHA, 32)
 

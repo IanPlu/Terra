@@ -2,7 +2,10 @@ from terra.engine.gameobject import GameObject
 from terra.ui.phasebar import PhaseBar
 from terra.constants import Team
 from terra.economy.resourcetypes import ResourceType
+from terra.util.mathutil import clamp
 from terra.event import *
+
+MAX_RESOURCES = 1000
 
 
 # Contains and manages all resources and upgrades for all teams
@@ -38,9 +41,9 @@ class TeamManager(GameObject):
         return return_string
 
     def add_resources(self, team, new_resources):
-        self.resources[team][ResourceType.CARBON] = self.resources[team][ResourceType.CARBON] + new_resources[0]
-        self.resources[team][ResourceType.MINERALS] = self.resources[team][ResourceType.MINERALS] + new_resources[1]
-        self.resources[team][ResourceType.GAS] = self.resources[team][ResourceType.GAS] + new_resources[2]
+        self.resources[team][ResourceType.CARBON] = clamp(self.resources[team][ResourceType.CARBON] + new_resources[0], 0, MAX_RESOURCES)
+        self.resources[team][ResourceType.MINERALS] = clamp(self.resources[team][ResourceType.MINERALS] + new_resources[1], 0, MAX_RESOURCES)
+        self.resources[team][ResourceType.GAS] = clamp(self.resources[team][ResourceType.GAS] + new_resources[2], 0, MAX_RESOURCES)
 
     def deduct_resources(self, team, resource_deduction):
         self.resources[team][ResourceType.CARBON] = self.resources[team][ResourceType.CARBON] - resource_deduction[0]

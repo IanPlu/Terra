@@ -1,5 +1,6 @@
 import pygame
 from enum import Enum
+from terra.util.mathutil import clamp
 
 pygame.font.init()
 
@@ -102,7 +103,8 @@ def draw_nine_slice_sprite(sprites, grid_size, grid_width, grid_height):
 
 # Return a surface containing a three digit number in 8x8 digit sprites
 def draw_three_digit_number(spr_digit_icons, number, team):
-    formatted_number = "{0:0=3d}".format(number)
+    # Restrict the number to 3 digits
+    formatted_number = "{0:0=3d}".format(clamp(number, 0, 999))
 
     digits = [int(digit) for digit in str(formatted_number)]
     display = pygame.Surface((len(digits) * 8, 8), pygame.SRCALPHA, 32)

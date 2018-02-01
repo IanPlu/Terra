@@ -1,6 +1,7 @@
 from terra.constants import *
 from terra.event import *
 from terra.effects.effecttype import EffectType
+from terra.mainmenu.option import Option
 from enum import Enum
 
 
@@ -47,5 +48,15 @@ notification_strings = {
     Language.EN_US: {
         EffectType.ALERT: "Orders result in stacked pieces",
         EffectType.NO_MONEY: "Not enough resources for orders",
+    }
+}
+
+main_menu_strings = {
+    Language.EN_US: {
+        Option.START: "Start",
+        Option.NEW_GAME: "New Game",
+        Option.LEVEL_EDITOR: "Level Editor",
+        Option.SETTINGS: "Settings",
+        Option.QUIT: "Quit"
     }
 }

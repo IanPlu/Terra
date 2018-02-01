@@ -1,6 +1,8 @@
 import sys
 from terra.battle import Battle
 from terra.leveleditor import LevelEditor
+from terra.mainmenu.mainmenu import MainMenu
+from terra.mainmenu.option import Option
 from terra.piece.unit.unit import *
 from terra.resources.assets import load_assets, clear_color
 from terra.settings import *
@@ -8,54 +10,63 @@ from enum import Enum
 
 
 class Mode(Enum):
-    BATTLE = 0
-    EDIT = 1
+    MAIN_MENU = 0
+    BATTLE = 1
+    EDIT = 2
+
+
+# Main entry point for the game.
+class Main:
+    def __init__(self):
+        self.mode = None
+        self.current_screen = None
+
+        self.set_screen_from_mode(Mode.MAIN_MENU)
+
+    def set_screen_from_mode(self, new_mode, mapname=None):
+        self.mode = new_mode
+        if new_mode == Mode.MAIN_MENU:
+            self.current_screen = MainMenu()
+        elif new_mode == Mode.BATTLE:
+            self.current_screen = Battle(mapname)
+        elif new_mode == Mode.EDIT:
+            self.current_screen = LevelEditor(mapname)
+
+    # Step phase of game loop - handle events
+    def step(self, event):
+        self.current_screen.step(event)
+
+        if is_event_type(event, MENU_SELECT_OPTION):
+            if event.option == Option.NEW_GAME:
+                self.set_screen_from_mode(Mode.BATTLE, event.mapname)
+            elif event.option == Option.LEVEL_EDITOR:
+                self.set_screen_from_mode(Mode.EDIT, event.mapname)
+            elif event.option == Option.QUIT:
+                quit()
+
+    # Render phase of game loop - draw to the screen
+    def render(self):
+        ui_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
+        ui_screen = ui_screen.convert_alpha()
+
+        game_screen = self.current_screen.render(ui_screen)
+        game_screen.blit(ui_screen, (0, 0))
+
+        pygame.transform.scale(game_screen, (screen_width, screen_height), screen)
+        pygame.display.flip()
 
 
 # Initialize pygame and some UI settings
 pygame.init()
 screen_resolution = screen_width, screen_height = RESOLUTION_WIDTH * SCREEN_SCALE, RESOLUTION_HEIGHT * SCREEN_SCALE
 
-
 screen = pygame.display.set_mode(screen_resolution)
 screen.fill(clear_color[Team.RED])
 
 load_assets()
-mode = Mode.BATTLE
-if mode == Mode.EDIT:
-    level_editor = LevelEditor()
-else:
-    battle = Battle()
-
-
-# Step phase of game loop - handle events
-def step(event):
-    if mode == Mode.BATTLE:
-        battle.step(event)
-    elif mode == Mode.EDIT:
-        level_editor.step(event)
-
-
-# Render phase of game loop - draw to the screen
-def render():
-    ui_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
-    ui_screen = ui_screen.convert_alpha()
-
-    if mode == Mode.BATTLE:
-        # Render the battle
-        game_screen = battle.render(ui_screen)
-        # Combine the game screen and UI
-        game_screen.blit(ui_screen, (0, 0))
-    else:
-        # Render the map editor
-        game_screen = level_editor.render(ui_screen)
-        # Combine the game screen and UI
-        game_screen.blit(ui_screen, (0, 0))
-    pygame.transform.scale(game_screen, (screen_width, screen_height), screen)
-    pygame.display.flip()
-
 
 clock = pygame.time.Clock()
+main = Main()
 
 # Game loop
 while True:
@@ -66,7 +77,7 @@ while True:
         if event.type == QUIT:
             sys.exit()
 
-        step(event)
+        main.step(event)
 
     # TODO: Separate out rendering loop from logic loop
-    render()
+    main.render()

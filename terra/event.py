@@ -56,6 +56,9 @@ MENU_BUILD_MINERAL_GENERATOR = define_event()
 MENU_BUILD_GAS_GENERATOR = define_event()
 MENU_BUILD_BARRACKS = define_event()
 
+# Main menu option events
+MENU_SELECT_OPTION = define_event()
+
 
 def publish_game_event(event_type, data):
     data[EVENT_TYPE] = event_type

@@ -7,10 +7,11 @@ from terra.ui.cursor import Cursor
 from terra.map.tiletype import TileType
 from terra.resources.assets import clear_color, spr_tiles, spr_cursor
 from terra.util.mathutil import clamp
+from terra.engine.gamescreen import GameScreen
 
 
-class LevelEditor:
-    def __init__(self, mapname="map5.txt"):
+class LevelEditor(GameScreen):
+    def __init__(self, mapname="key_range.txt"):
         super().__init__()
 
         bitmap, _, _, _ = load_map_from_file(mapname)
@@ -21,6 +22,8 @@ class LevelEditor:
         self.secondary_tile_type = TileType.SEA
 
     def step(self, event):
+        super().step(event)
+
         self.map.step(event)
         self.cursor.step(event)
 
@@ -63,6 +66,8 @@ class LevelEditor:
             mapfile.write(lines)
 
     def render(self, ui_screen):
+        super().render(ui_screen)
+
         # Generate a screen of the size of the map
         map_screen = pygame.Surface((self.map.width * GRID_WIDTH, self.map.height * GRID_HEIGHT), pygame.SRCALPHA, 32)
         self.map.render(map_screen, ui_screen)

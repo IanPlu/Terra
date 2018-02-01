@@ -8,15 +8,18 @@
 2 3 3 2 2 2 2 2 2 2 1 2 2 2 2
 2 3 2 2 1 1 2 3 2 2 2 3 2 3 1
 2 2 1 1 1 1 1 2 3 2 2 2 1 1 1
-#
-1 1 RED Colonist
-2 1 RED Trooper
-3 1 RED Ranger
-1 6 RED Trooper
-9 8 RED Ghost
-
-8 8 BLUE Colonist
-7 8 BLUE Trooper
-6 8 BLUE Ranger
-1 7 BLUE Trooper
-4 1 BLUE Ghost
+# Units
+1 1 RED COLONIST
+2 1 RED TROOPER
+3 1 RED RANGER
+1 6 RED TROOPER
+9 8 RED GHOST
+8 8 BLUE COLONIST
+7 8 BLUE TROOPER
+6 8 BLUE RANGER
+1 7 BLUE TROOPER
+4 1 BLUE GHOST
+# Buildings
+# Teams
+RED
+BLUE

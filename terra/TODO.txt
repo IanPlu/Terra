@@ -1,0 +1,20 @@
+General & QoL
+* Validate orders for a player as soon as they submit their turn
+* Add support to the level editor for adding units and buildings
+* Add saving games mid-combat
+* Add a preview order key and a preview all key-- when pressed, display whatever the piece is going to do.
+    Arrows to show movement, ghost pieces for building, etc.
+* Display prices in menus for building units and buildings
+* Add an intersitial screen when swapping active players for local coop, to hide moves
+* Improve the main menu
+* Game end screens / match review with statistics(?)
+
+Bug fixes
+* Fix map scaling + ui screen nonsense for map1 and map2
+
+Gameplay
+* Build support for upgrades, enable purchasing them from the base
+* Add additional tiers for units
+
+Huge goals
+* Network play refactor & support

@@ -3,6 +3,7 @@ from terra.map.tile import Tile
 from terra.map.tiletype import TileType
 from terra.engine.gameobject import GameObject
 from terra.constants import Team
+from os import walk
 import random
 
 impassible_terrain_types = {
@@ -88,6 +89,15 @@ class Map(GameObject):
                 self.tile_grid[y][x].render(game_screen, ui_screen)
 
 
+# Return a list of filenames of loadable maps
+def get_loadable_maps():
+    maps = []
+    for (_, _, filenames) in walk("resources/maps/"):
+        maps.extend(filenames)
+
+    return [mapname for mapname in maps if mapname.endswith(".txt")]
+
+
 # Load a map from the provided filename
 # Generate a bitmap for the Map to use, and generate a unit list for the PieceManager to use.
 def load_map_from_file(mapname):
@@ -128,21 +138,24 @@ def load_map_from_file(mapname):
             teams = list(set([Team[team] for team in teams if Team[team]]))
     except IOError as e:
         print("Unable to load file {}. Generating new map. Exception: {}".format(mapname, e))
-        bitmap = generate_bitmap(15, 15)
+        bitmap = generate_bitmap(20, 15, False)
         roster = []
-        buildings = ["0 0 RED BASE", "15 15 BLUE BASE"]
+        buildings = ["0 0 RED BASE", "20 15 BLUE BASE"]
         teams = []
 
     return bitmap, roster, buildings, teams
 
 
 # Generate a map of the required size
-def generate_bitmap(width, height):
+def generate_bitmap(width, height, random_tiles=True):
     bitmap = []
     for _ in range(height):
         row = []
         for _ in range(width):
-            tile = random.randint(1, len(TileType) - 1)
+            if random_tiles:
+                tile = random.randint(1, len(TileType) - 1)
+            else:
+                tile = 1
             row.append(tile)
         bitmap.append(row)
 

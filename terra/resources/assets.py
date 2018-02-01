@@ -6,6 +6,7 @@ from terra.piece.building.buildingtype import BuildingType
 from terra.effects.effecttype import EffectType
 from terra.strings import *
 from terra.event import *
+from terra.mainmenu.option import Option
 from terra.settings import LANGUAGE
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
     swap_palette, generate_palette_list, swap_multiple_palette, draw_text
@@ -165,6 +166,10 @@ for team in Team:
     phase_text[team] = {}
     for _, phase in BattlePhase.__members__.items():
         phase_text[team][phase] = draw_text(phase_strings[LANGUAGE][phase], light_color, shadow_color[team])
+
+text_main_menu = {}
+for _, option in Option.__members__.items():
+    text_main_menu[option] = draw_text(main_menu_strings[LANGUAGE][option], light_color, shadow_color[Team.RED])
 
 
 def load_assets():

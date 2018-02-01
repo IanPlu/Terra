@@ -14,7 +14,7 @@ class TeamManager(GameObject):
         super().__init__()
 
         self.battle = battle
-        self.teams = teams
+        self.teams = []
         self.effects_manager = effects_manager
 
         self.resources = {}
@@ -23,13 +23,19 @@ class TeamManager(GameObject):
         self.turn_submitted = {}
 
         # Initialize resources and upgrades for each team provided
-        for team in self.teams:
+        for team in teams:
+            # Parse the team line. Looks like: 'RED 1 2 3', with team color and then resource counts.
+            data = team.split(' ')
+            team = Team[data[0]]
+            self.teams.append(team)
+
             self.turn_submitted[team] = False
             self.upgrades[team] = []
             self.phase_bars[team] = PhaseBar(team, self, self.battle, self.effects_manager)
             self.resources[team] = {}
-            for resource in ResourceType:
-                self.resources[team][resource] = 10
+            self.resources[team][ResourceType.CARBON] = int(data[1])
+            self.resources[team][ResourceType.MINERALS] = int(data[2])
+            self.resources[team][ResourceType.GAS] = int(data[3])
 
     def __str__(self):
         return_string = ""
@@ -39,6 +45,16 @@ class TeamManager(GameObject):
                         self.resources[team][ResourceType.MINERALS],
                         self.resources[team][ResourceType.GAS])
         return return_string
+
+    # Serialize team and resource counts for saving
+    def serialize_teams(self):
+        team_strings = []
+        for team in self.teams:
+            team_strings.append("{} {} {} {}".format(team.name,
+                                                     self.resources[team][ResourceType.CARBON],
+                                                     self.resources[team][ResourceType.MINERALS],
+                                                     self.resources[team][ResourceType.GAS]))
+        return team_strings
 
     def add_resources(self, team, new_resources):
         self.resources[team][ResourceType.CARBON] = clamp(self.resources[team][ResourceType.CARBON] + new_resources[0], 0, MAX_RESOURCES)
@@ -86,11 +102,16 @@ class TeamManager(GameObject):
         for team in Team:
             self.phase_bars[team].step(event)
 
-        if is_event_type(event, E_SUBMIT_TURN):
-            self.try_submitting_turn(event.team)
-        elif is_event_type(event, E_CLEANUP):
+        if is_event_type(event, E_CLEANUP):
             for team in Team:
                 self.turn_submitted[team] = False
+        elif is_event_type(event, E_CLOSE_MENU) and event.option:
+            if event.option == MENU_SUBMIT_TURN:
+                self.try_submitting_turn(event.team)
+            elif event.option == MENU_SAVE_GAME:
+                publish_game_event(E_SAVE_GAME, {})
+            elif event.option == MENU_QUIT_BATTLE:
+                publish_game_event(E_QUIT_BATTLE, {})
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

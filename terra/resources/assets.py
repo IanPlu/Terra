@@ -93,6 +93,9 @@ spr_order_flags = {
     MENU_BUILD_MINERAL_GENERATOR: spr_base_order_flags[5],
     MENU_BUILD_GAS_GENERATOR: spr_base_order_flags[6],
     MENU_BUILD_BARRACKS: spr_base_order_flags[3],
+    MENU_SUBMIT_TURN: spr_base_order_flags[1],
+    MENU_SAVE_GAME: spr_base_order_flags[3],
+    MENU_QUIT_BATTLE: spr_base_order_flags[0],
 }
 
 spr_digit_icons = {
@@ -151,7 +154,10 @@ text_menu_option = {
     MENU_BUILD_CARBON_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_CARBON_GENERATOR], (0, 0, 0)),
     MENU_BUILD_MINERAL_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_MINERAL_GENERATOR], (0, 0, 0)),
     MENU_BUILD_GAS_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_GAS_GENERATOR], (0, 0, 0)),
-    MENU_BUILD_BARRACKS: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_BARRACKS], (0, 0, 0))
+    MENU_BUILD_BARRACKS: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_BARRACKS], (0, 0, 0)),
+    MENU_SUBMIT_TURN: draw_text(menu_option_strings[LANGUAGE][MENU_SUBMIT_TURN], (0, 0, 0)),
+    MENU_SAVE_GAME: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_GAME], (0, 0, 0)),
+    MENU_QUIT_BATTLE: draw_text(menu_option_strings[LANGUAGE][MENU_QUIT_BATTLE], (0, 0, 0)),
 }
 
 text_notifications = {

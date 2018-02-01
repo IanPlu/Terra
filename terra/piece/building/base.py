@@ -9,8 +9,8 @@ from terra.piece.building.buildingtype import BuildingType
 # Allows purchasing upgrades and building colonists.
 # If a team's base is destroyed, they lose.
 class Base(Building):
-    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
-        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
+        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy, hp)
         self.building_type = BuildingType.BASE
 
         self.buildable_units = [UnitType.COLONIST]

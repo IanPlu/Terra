@@ -9,21 +9,29 @@ from terra.event import *
 
 
 # Convert a list of loadable maps to selectable options: [(display name, filename), (...)]
-def convert_loadable_maps_to_options():
+def convert_loadable_maps_to_options(suffix):
     options = []
-    for mapname in get_loadable_maps():
+    for mapname in get_loadable_maps(suffix):
         options.append((mapname, []))
     return options
 
 
-menu_map = (
-    Option.START, [
-        (Option.NEW_GAME, convert_loadable_maps_to_options()),
-        (Option.LEVEL_EDITOR, convert_loadable_maps_to_options()),
-        (Option.SETTINGS, []),
-        (Option.QUIT, [])
-    ]
-)
+def generate_menu():
+    loadable_maps = convert_loadable_maps_to_options(".map")
+    loadable_saves = convert_loadable_maps_to_options(".sav")
+
+    start_menu_options = []
+    if len(loadable_maps) > 0:
+        start_menu_options.append((Option.NEW_GAME, loadable_maps))
+    if len(loadable_saves) > 0:
+        start_menu_options.append((Option.LOAD_GAME, loadable_saves))
+    if len(loadable_maps) > 0:
+        start_menu_options.append((Option.LEVEL_EDITOR, loadable_maps))
+
+    start_menu_options.append((Option.SETTINGS, []))
+    start_menu_options.append((Option.QUIT, []))
+
+    return Option.START, start_menu_options
 
 
 # Main menu for the game.
@@ -32,9 +40,9 @@ class MainMenu(GameScreen):
     def __init__(self):
         super().__init__()
 
-        self.current_menu = menu_map
+        self.current_menu = generate_menu()
         self.current_menu_pos = 0
-        self.num_options = len(menu_map[1])
+        self.num_options = len(self.current_menu[1])
 
     def cursor_up(self):
         self.current_menu_pos -= 1
@@ -57,12 +65,12 @@ class MainMenu(GameScreen):
             self.handle_menu_selection(selection)
 
     def cancel(self):
-        self.current_menu = menu_map
+        self.current_menu = generate_menu()
         self.current_menu_pos = 0
-        self.num_options = len(menu_map[1])
+        self.num_options = len(self.current_menu[1])
 
     def handle_menu_selection(self, option):
-        if self.current_menu[0] == Option.NEW_GAME or self.current_menu[0] == Option.LEVEL_EDITOR:
+        if self.current_menu[0] in [Option.NEW_GAME, Option.LOAD_GAME, Option.LEVEL_EDITOR]:
             publish_game_event(MENU_SELECT_OPTION, {
                 'option': self.current_menu[0],
                 'mapname': option[0]

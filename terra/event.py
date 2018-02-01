@@ -22,8 +22,9 @@ E_CANCEL = define_event()
 E_OPEN_BUILD_MENU = define_event()
 E_SELECT_BUILD_UNIT = define_event()
 E_CANCEL_BUILD_UNIT = define_event()
-E_SUBMIT_TURN = define_event()
 E_ALL_TURNS_SUBMITTED = define_event()
+E_SAVE_GAME = define_event()
+E_QUIT_BATTLE = define_event()
 
 # Notification events
 E_UNIT_MOVED = define_event()
@@ -46,7 +47,7 @@ START_PHASE_EXECUTE_RANGED = define_event()
 START_PHASE_EXECUTE_SPECIAL = define_event()
 E_NEXT_PHASE = define_event()
 
-# Menu option events
+# Piece selection menu option events
 MENU_CANCEL_ORDER = define_event()
 MENU_MOVE = define_event()
 MENU_RANGED_ATTACK = define_event()
@@ -55,6 +56,11 @@ MENU_BUILD_CARBON_GENERATOR = define_event()
 MENU_BUILD_MINERAL_GENERATOR = define_event()
 MENU_BUILD_GAS_GENERATOR = define_event()
 MENU_BUILD_BARRACKS = define_event()
+
+# Pause menu option events
+MENU_SUBMIT_TURN = define_event()
+MENU_SAVE_GAME = define_event()
+MENU_QUIT_BATTLE = define_event()
 
 # Main menu option events
 MENU_SELECT_OPTION = define_event()

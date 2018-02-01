@@ -13,8 +13,8 @@ from terra.map.movementtype import MovementType
 # Buildings function like Units-- they have health and can execute a limited set of orders.
 # Buildings are destroyed when their health reaches 0.
 class Building(Piece):
-    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
-        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
+        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy, hp)
 
         self.piece_type = PieceType.BUILDING
         self.building_type = BuildingType.BUILDING

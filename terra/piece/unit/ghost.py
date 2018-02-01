@@ -5,8 +5,8 @@ from terra.piece.unit.unit import *
 # Ghosts are basic harassment and mobility units.
 # Cheap and relatively weak. Strong against ranged units and not impeded by enemy units when moving.
 class Ghost(Unit):
-    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
-        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
+        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy, hp)
         self.unit_type = UnitType.GHOST
 
         self.max_hp = 10

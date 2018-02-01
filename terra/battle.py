@@ -14,24 +14,24 @@ from terra.engine.gamescreen import GameScreen
 # A battle containing a map, players, their resources + input methods, etc.
 # Handles the turn / phase loop.
 class Battle(GameScreen):
-    def __init__(self, mapname="key_range.txt"):
+    def __init__(self, mapname="key_range.map"):
         super().__init__()
 
         bitmap, roster, buildings, teams = load_map_from_file(mapname)
 
+        self.mapname = mapname
         self.map = Map(bitmap)
         self.effects_manager = EffectsManager()
         self.team_manager = TeamManager(self, self.effects_manager, teams)
         self.piece_manager = PieceManager(self, self.map, self.team_manager, roster, buildings)
 
         self.cursors = {}
-        for team in Team:
+        for team in self.team_manager.teams:
             self.cursors[team] = Cursor(self.map, team)
 
         self.active_team = Team.RED
 
-        self.phase = BattlePhase.EXECUTE_SPECIAL
-        self.progress_phase()
+        self.phase = BattlePhase.ORDERS
 
     # Validate that it's OK to progress the current phase.
     # Check movement orders, primarily
@@ -103,6 +103,46 @@ class Battle(GameScreen):
     def check_for_victory(self, event):
         print("A base has been destroyed. The game is over!")
 
+    def save_game(self, event):
+        # Ask the map to serialize itself
+        bitmap = self.map.convert_bitmap_from_grid()
+
+        # Ask the piece manager to serialize itself
+        units, buildings = self.piece_manager.serialize_pieces()
+
+        # Ask the team manager to serialize itself
+        teams = self.team_manager.serialize_teams()
+
+        # Strip '.map' from the map name
+        savename = self.mapname[:-4]
+
+        with open("resources/maps/{}.sav".format(savename), 'w') as savefile:
+            lines = ""
+            # Append map
+            for row in bitmap:
+                line = ""
+                for column in row:
+                    line += "{} ".format(column)
+                line += "\n"
+                lines += line
+
+            # Append units
+            lines += "# Units\n"
+            for unit in units:
+                lines += unit + "\n"
+
+            # Append buildings
+            lines += "# Buildings\n"
+            for building in buildings:
+                lines += building + "\n"
+
+            # Append teams
+            lines += "# Teams\n"
+            for team in teams:
+                lines += team + "\n"
+
+            savefile.write(lines)
+
     def step(self, event):
         super().step(event)
 
@@ -130,6 +170,8 @@ class Battle(GameScreen):
         elif is_event_type(event, E_INVALID_BUILD_ORDERS):
             base = self.piece_manager.get_all_pieces_for_team(event.team, BuildingType.BASE)[0]
             self.effects_manager.create_effect(base.gx, base.gy, EffectType.NO_MONEY)
+        elif is_event_type(event, E_SAVE_GAME):
+            self.save_game(event)
         elif event.type == KEYDOWN:
             if event.key in KB_DEBUG2:
                 if self.active_team == Team.RED:

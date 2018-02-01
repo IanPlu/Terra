@@ -5,8 +5,8 @@ from terra.piece.unit.unit import *
 # Troopers are general purpose close-range combat units.
 # Cheap and relatively weak.
 class Trooper(Unit):
-    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
-        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
+        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy, hp)
         self.unit_type = UnitType.TROOPER
 
         self.max_hp = 10

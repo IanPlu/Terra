@@ -39,10 +39,14 @@ class Main:
         if is_event_type(event, MENU_SELECT_OPTION):
             if event.option == Option.NEW_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, event.mapname)
+            elif event.option == Option.LOAD_GAME:
+                self.set_screen_from_mode(Mode.BATTLE, event.mapname)
             elif event.option == Option.LEVEL_EDITOR:
                 self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.QUIT:
                 quit()
+        elif is_event_type(event, E_QUIT_BATTLE):
+            self.set_screen_from_mode(Mode.MAIN_MENU, None)
 
     # Render phase of game loop - draw to the screen
     def render(self):

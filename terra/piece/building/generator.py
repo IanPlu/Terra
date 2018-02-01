@@ -15,9 +15,9 @@ __resource_to_building_type__ = {
 # A resource generator for a team.
 # Generators are subtyped for a specific resource when they're placed.
 class Generator(Building):
-    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0,
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None,
                  resource_type=ResourceType.CARBON):
-        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy, hp)
         self.resource_type = resource_type
         self.building_type = __resource_to_building_type__[self.resource_type]
 

@@ -21,5 +21,5 @@
 4 1 BLUE GHOST
 # Buildings
 # Teams
-RED
-BLUE
+RED 10 10 10
+BLUE 10 10 10

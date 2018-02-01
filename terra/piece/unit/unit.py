@@ -14,8 +14,8 @@ from terra.piece.building.buildingtype import BuildingType, building_type_from_m
 # A single unit on the map.
 class Unit(Piece):
     # Create a new Unit at the provided grid coordinates for the specified team
-    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
-        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy)
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
+        super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy, hp)
 
         self.piece_type = PieceType.UNIT
         self.unit_type = UnitType.UNIT

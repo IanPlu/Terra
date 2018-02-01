@@ -90,12 +90,12 @@ class Map(GameObject):
 
 
 # Return a list of filenames of loadable maps
-def get_loadable_maps():
+def get_loadable_maps(suffix=".map"):
     maps = []
     for (_, _, filenames) in walk("resources/maps/"):
         maps.extend(filenames)
 
-    return [mapname for mapname in maps if mapname.endswith(".txt")]
+    return [mapname for mapname in maps if mapname.endswith(suffix)]
 
 
 # Load a map from the provided filename
@@ -133,9 +133,6 @@ def load_map_from_file(mapname):
                 else:
                     # Grab all non-newline chars, convert them to ints, and add them to the line list
                     bitmap.append(list(map(int, line.rstrip().split(' '))))
-
-            # Filter teams to just the Team enum objects
-            teams = list(set([Team[team] for team in teams if Team[team]]))
     except IOError as e:
         print("Unable to load file {}. Generating new map. Exception: {}".format(mapname, e))
         bitmap = generate_bitmap(20, 15, False)

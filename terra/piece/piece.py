@@ -10,7 +10,7 @@ from terra.piece.unit.unittype import UnitType
 # They belong to a team and exist somewhere on the map.
 # Pieces have HP and can accept and execute orders.
 class Piece(GameObject):
-    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0):
+    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
         super().__init__()
         self.battle = battle
         self.game_map = game_map
@@ -25,7 +25,10 @@ class Piece(GameObject):
         self.attack = 0
 
         # Interpreted variables. Don't touch!
-        self.hp = self.max_hp
+        if hp:
+            self.hp = hp
+        else:
+            self.hp = self.max_hp
         self.current_order = None
         self.in_conflict = False
         self.tile_selection = None

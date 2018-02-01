@@ -11,7 +11,7 @@ from terra.engine.gamescreen import GameScreen
 
 
 class LevelEditor(GameScreen):
-    def __init__(self, mapname="key_range.txt"):
+    def __init__(self, mapname="key_range.map"):
         super().__init__()
 
         bitmap, _, _, _ = load_map_from_file(mapname)

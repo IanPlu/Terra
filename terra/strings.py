@@ -11,14 +11,17 @@ class Language(Enum):
 
 menu_option_strings = {
     Language.EN_US: {
-        MENU_MOVE: "MOVE",
-        MENU_CANCEL_ORDER: "WAIT",
-        MENU_RANGED_ATTACK: "RANGED",
-        MENU_BUILD_UNIT: "BUILD",
-        MENU_BUILD_CARBON_GENERATOR: "HARVEST",
-        MENU_BUILD_MINERAL_GENERATOR: "HARVEST",
-        MENU_BUILD_GAS_GENERATOR: "HARVEST",
-        MENU_BUILD_BARRACKS: "BARRACKS"
+        MENU_MOVE: "Move",
+        MENU_CANCEL_ORDER: "Wait",
+        MENU_RANGED_ATTACK: "Ranged",
+        MENU_BUILD_UNIT: "Build",
+        MENU_BUILD_CARBON_GENERATOR: "Harvest",
+        MENU_BUILD_MINERAL_GENERATOR: "Harvest",
+        MENU_BUILD_GAS_GENERATOR: "Harvest",
+        MENU_BUILD_BARRACKS: "Barracks",
+        MENU_SUBMIT_TURN: "Submit Turn",
+        MENU_SAVE_GAME: "Save Game",
+        MENU_QUIT_BATTLE: "Quit Battle"
     }
 }
 
@@ -55,6 +58,7 @@ main_menu_strings = {
     Language.EN_US: {
         Option.START: "Start",
         Option.NEW_GAME: "New Game",
+        Option.LOAD_GAME: "Load Game",
         Option.LEVEL_EDITOR: "Level Editor",
         Option.SETTINGS: "Settings",
         Option.QUIT: "Quit"

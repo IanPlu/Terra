@@ -1,14 +1,18 @@
-from terra.map.map import Map, load_map_from_file
-from terra.ui.cursor import Cursor
-from terra.constants import *
-from terra.settings import *
-from terra.piece.piecemanager import PieceManager
-from terra.event import *
+from pygame.constants import KEYDOWN
+
+from terra.battlephase import BattlePhase
+from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.economy.teammanager import TeamManager
 from terra.effects.effectsmanager import EffectsManager
 from terra.effects.effecttype import EffectType
-from terra.piece.building.buildingtype import BuildingType
 from terra.engine.gamescreen import GameScreen
+from terra.event import *
+from terra.keybindings import KB_DEBUG1, KB_DEBUG2
+from terra.map.map import Map, load_map_from_file
+from terra.piece.building.buildingtype import BuildingType
+from terra.piece.piecemanager import PieceManager
+from terra.team import Team
+from terra.ui.cursor import Cursor
 
 
 # A battle containing a map, players, their resources + input methods, etc.
@@ -101,9 +105,9 @@ class Battle(GameScreen):
     }
 
     def check_for_victory(self, event):
-        print("A base has been destroyed. The game is over!")
+        print("A base has been destroyed. The game is over!: " + str(event))
 
-    def save_game(self, event):
+    def save_game(self):
         # Ask the map to serialize itself
         bitmap = self.map.convert_bitmap_from_grid()
 
@@ -171,7 +175,7 @@ class Battle(GameScreen):
             base = self.piece_manager.get_all_pieces_for_team(event.team, BuildingType.BASE)[0]
             self.effects_manager.create_effect(base.gx, base.gy, EffectType.NO_MONEY)
         elif is_event_type(event, E_SAVE_GAME):
-            self.save_game(event)
+            self.save_game()
         elif event.type == KEYDOWN:
             if event.key in KB_DEBUG2:
                 if self.active_team == Team.RED:

@@ -1,12 +1,13 @@
-from terra.piece.piece import Piece
-from terra.constants import Team
-from terra.resources.assets import spr_buildings
-from terra.piece.piecetype import PieceType
-from terra.piece.building.buildingtype import BuildingType
-from terra.piece.orders import BuildOrder
-from terra.piece.unit.unitprice import unit_prices
 from terra.event import *
 from terra.map.movementtype import MovementType
+from terra.piece.building.buildingtype import BuildingType
+from terra.piece.orders import BuildOrder
+from terra.piece.piece import Piece
+from terra.piece.pieceprice import piece_prices
+from terra.piece.piecetype import PieceType
+from terra.piece.unit.unittype import UnitType
+from terra.resources.assets import spr_buildings
+from terra.team import Team
 
 
 # An immoveable building placed on the map.
@@ -87,7 +88,7 @@ class Building(Piece):
             })
 
             # Deduct unit price
-            self.team_manager.deduct_resources(self.team, unit_prices[self.current_order.new_piece_type])
+            self.team_manager.deduct_resources(self.team, piece_prices[self.current_order.new_piece_type])
 
             # Pop orders once they're executed
             self.current_order = None

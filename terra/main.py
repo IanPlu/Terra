@@ -1,12 +1,17 @@
 import sys
+from enum import Enum
+
+from pygame.constants import QUIT
+
 from terra.battle import Battle
+from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
+from terra.event import *
 from terra.leveleditor import LevelEditor
 from terra.mainmenu.mainmenu import MainMenu
 from terra.mainmenu.option import Option
-from terra.piece.unit.unit import *
 from terra.resources.assets import load_assets, clear_color
-from terra.settings import *
-from enum import Enum
+from terra.settings import SCREEN_SCALE, TICK_RATE
+from terra.team import Team
 
 
 class Mode(Enum):
@@ -49,6 +54,7 @@ class Main:
             self.set_screen_from_mode(Mode.MAIN_MENU, None)
 
     # Render phase of game loop - draw to the screen
+    # noinspection PyArgumentList
     def render(self):
         ui_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
         ui_screen = ui_screen.convert_alpha()
@@ -83,5 +89,4 @@ while True:
 
         main.step(event)
 
-    # TODO: Separate out rendering loop from logic loop
     main.render()

@@ -1,8 +1,8 @@
-from terra.piece.unit.unittype import UnitType
 from terra.piece.building.buildingtype import BuildingType
+from terra.piece.unit.unittype import UnitType
 
-
-unit_prices = {
+# Resource costs for all buildable pieces.
+piece_prices = {
     UnitType.COLONIST: (10, 10, 10),
     UnitType.TROOPER: (10, 10, 10),
     UnitType.RANGER: (10, 10, 10),

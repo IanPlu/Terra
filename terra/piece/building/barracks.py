@@ -1,7 +1,7 @@
 from terra.piece.building.building import Building
-from terra.constants import Team
-from terra.piece.unit.unittype import UnitType
 from terra.piece.building.buildingtype import BuildingType
+from terra.piece.unit.unittype import UnitType
+from terra.team import Team
 
 
 # Produces units for a team.

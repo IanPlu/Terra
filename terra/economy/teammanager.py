@@ -1,10 +1,11 @@
-from terra.engine.gameobject import GameObject
-from terra.ui.phasebar import PhaseBar
-from terra.constants import Team
 from terra.economy.resourcetypes import ResourceType
-from terra.util.mathutil import clamp
+from terra.engine.gameobject import GameObject
 from terra.event import *
+from terra.team import Team
+from terra.ui.phasebar import PhaseBar
+from terra.util.mathutil import clamp
 
+# Max number of any given resource a player can hold.
 MAX_RESOURCES = 1000
 
 
@@ -56,34 +57,45 @@ class TeamManager(GameObject):
                                                      self.resources[team][ResourceType.GAS]))
         return team_strings
 
+    # Add new resources to the specified team. new_resources should be formatted as a tuple: (1, 2, 3)
     def add_resources(self, team, new_resources):
-        self.resources[team][ResourceType.CARBON] = clamp(self.resources[team][ResourceType.CARBON] + new_resources[0], 0, MAX_RESOURCES)
-        self.resources[team][ResourceType.MINERALS] = clamp(self.resources[team][ResourceType.MINERALS] + new_resources[1], 0, MAX_RESOURCES)
-        self.resources[team][ResourceType.GAS] = clamp(self.resources[team][ResourceType.GAS] + new_resources[2], 0, MAX_RESOURCES)
+        self.resources[team][ResourceType.CARBON] = clamp(
+            self.resources[team][ResourceType.CARBON] + new_resources[0], 0, MAX_RESOURCES)
+        self.resources[team][ResourceType.MINERALS] = clamp(
+            self.resources[team][ResourceType.MINERALS] + new_resources[1], 0, MAX_RESOURCES)
+        self.resources[team][ResourceType.GAS] = clamp(
+            self.resources[team][ResourceType.GAS] + new_resources[2], 0, MAX_RESOURCES)
 
+    # Deduct resources from the specified team. resource_deduction should be formatted as a tuple: (1, 2, 3)
     def deduct_resources(self, team, resource_deduction):
         self.resources[team][ResourceType.CARBON] = self.resources[team][ResourceType.CARBON] - resource_deduction[0]
         self.resources[team][ResourceType.MINERALS] = self.resources[team][ResourceType.MINERALS] - resource_deduction[1]
         self.resources[team][ResourceType.GAS] = self.resources[team][ResourceType.GAS] - resource_deduction[2]
 
+    # Return true if the specified team is able to spend the provided list of amounts.
+    # Each amount in amounts should be formatted as a tuple: (1, 2, 3)
     def can_spend_resources(self, team, amounts):
         total_carbon = 0
         total_minerals = 0
         total_gas = 0
+
         for amount in amounts:
             total_carbon = total_carbon + amount[0]
             total_minerals = total_minerals + amount[0]
             total_gas = total_gas + amount[0]
+
         return total_carbon <= self.resources[team][ResourceType.CARBON] and \
                total_minerals <= self.resources[team][ResourceType.MINERALS] and \
                total_gas <= self.resources[team][ResourceType.GAS]
 
+    # Return true if all teams have submitted their turn.
     def check_if_ready_to_submit_turns(self):
         for team in Team:
             if not self.turn_submitted[team]:
                 return False
         return True
 
+    # Attempt to submit the turn for the specified team.
     def try_submitting_turn(self, team):
         # TODO: Validate orders here
 

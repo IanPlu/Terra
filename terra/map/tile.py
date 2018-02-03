@@ -1,6 +1,6 @@
-from terra.map.tiletype import TileType
-from terra.settings import *
+from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.animatedgameobject import AnimatedGameObject
+from terra.map.tiletype import TileType
 from terra.resources.assets import spr_tiles, spr_coast_detail
 
 
@@ -19,7 +19,7 @@ class Tile(AnimatedGameObject):
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
         game_screen.blit(self.sprite,
-                    (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+                         (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
         # For SEA tiles, render coastlines if adjacent to non-sea (map border counts as sea)
         if self.tile_type == TileType.SEA:

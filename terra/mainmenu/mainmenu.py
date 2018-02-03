@@ -1,11 +1,13 @@
-from terra.mainmenu.option import Option
-from terra.settings import *
-from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT, Team
+from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gamescreen import GameScreen
-from terra.resources.assets import clear_color, text_main_menu, light_color, shadow_color
-from terra.util.drawingutil import draw_text
-from terra.map.map import get_loadable_maps
 from terra.event import *
+from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL
+from terra.mainmenu.option import Option
+from terra.map.map import get_loadable_maps
+from terra.resources.assets import clear_color, text_main_menu, light_color, shadow_color
+from terra.team import Team
+from terra.util.drawingutil import draw_text
+from pygame.constants import KEYDOWN
 
 
 # Convert a list of loadable maps to selectable options: [(display name, filename), (...)]
@@ -16,6 +18,7 @@ def convert_loadable_maps_to_options(suffix):
     return options
 
 
+# Generate the default main menu.
 def generate_menu():
     loadable_maps = convert_loadable_maps_to_options(".map")
     loadable_saves = convert_loadable_maps_to_options(".sav")

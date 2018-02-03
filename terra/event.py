@@ -1,5 +1,4 @@
 import pygame
-from terra.piece.unit.unittype import UnitType
 
 EVENT_TYPE = "event_type"
 event_counter = 0
@@ -66,11 +65,13 @@ MENU_QUIT_BATTLE = define_event()
 MENU_SELECT_OPTION = define_event()
 
 
+# Publish the specified game event, with the data provided.
 def publish_game_event(event_type, data):
     data[EVENT_TYPE] = event_type
     event = pygame.event.Event(pygame.USEREVENT, data)
     pygame.event.post(event)
 
 
+# Return true if the event is any of the provided types.
 def is_event_type(event, *event_type):
     return event.type == pygame.USEREVENT and event.event_type in event_type

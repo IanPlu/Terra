@@ -1,19 +1,18 @@
-from terra.constants import *
-from terra.piece.piece import Piece
 from terra.event import *
-from terra.piece.piecetype import PieceType
 from terra.map.movementtype import MovementType
-from terra.piece.orders import *
-from terra.piece.unit.unittype import UnitType
-from terra.resources.assets import spr_units
-from terra.piece.unit.damagetype import DamageType
 from terra.map.tiletype import TileType
 from terra.piece.building.buildingtype import BuildingType, building_type_from_menu_option
+from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder
+from terra.piece.piece import Piece
+from terra.piece.piecetype import PieceType
+from terra.piece.unit.damagetype import DamageType
+from terra.piece.unit.unittype import UnitType
+from terra.resources.assets import spr_units
+from terra.team import Team
 
 
 # A single unit on the map.
 class Unit(Piece):
-    # Create a new Unit at the provided grid coordinates for the specified team
     def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
         super().__init__(piece_manager, team_manager, battle, game_map, team, gx, gy, hp)
 

@@ -1,9 +1,9 @@
-from terra.settings import *
+from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.gameobject import GameObject
-from terra.map.movementtype import MovementType
 from terra.event import *
-from terra.resources.assets import spr_tile_selectable
+from terra.map.movementtype import MovementType
 from terra.piece.piecetype import PieceType
+from terra.resources.assets import spr_tile_selectable
 
 
 # Controllable tile selection UI.
@@ -11,7 +11,8 @@ from terra.piece.piecetype import PieceType
 # range. Optionally account for terrain and units without orders.
 # When complete, fires an event containing the coordinates of the selected tile.
 class TileSelection(GameObject):
-    def __init__(self, gx, gy, min_range, max_range, game_map, movement_type=None, team=None, piece_manager=None, option=None):
+    def __init__(self, gx, gy, min_range, max_range, game_map,
+                 movement_type=None, team=None, piece_manager=None, option=None):
         super().__init__()
         self.gx = gx
         self.gy = gy
@@ -51,7 +52,8 @@ class TileSelection(GameObject):
         possible_coordinates = {(self.gx, self.gy)}
         excluded_coordinates = self.__generate_excluded_coordinates__()
 
-        def traverse_tile(gx, gy, remaining_range, min_range, max_range, game_map, movement_type, team, piece_manager, first_move):
+        def traverse_tile(gx, gy, remaining_range, min_range, max_range,
+                          game_map, movement_type, team, piece_manager, first_move):
             # If we're out of tile range to use, return
             if remaining_range <= 0:
                 return
@@ -71,10 +73,14 @@ class TileSelection(GameObject):
                         len(piece_manager.get_enemy_pieces_at(gx, gy, team)) > 0:
                     return
 
-                traverse_tile(gx + 1, gy, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
-                traverse_tile(gx - 1, gy, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
-                traverse_tile(gx, gy + 1, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
-                traverse_tile(gx, gy - 1, remaining_range - 1, min_range, max_range, game_map, movement_type, team, piece_manager, False)
+                traverse_tile(gx + 1, gy, remaining_range - 1, min_range, max_range,
+                              game_map, movement_type, team, piece_manager, False)
+                traverse_tile(gx - 1, gy, remaining_range - 1, min_range, max_range,
+                              game_map, movement_type, team, piece_manager, False)
+                traverse_tile(gx, gy + 1, remaining_range - 1, min_range, max_range,
+                              game_map, movement_type, team, piece_manager, False)
+                traverse_tile(gx, gy - 1, remaining_range - 1, min_range, max_range,
+                              game_map, movement_type, team, piece_manager, False)
 
         traverse_tile(self.gx, self.gy, self.max_range + 1, self.min_range, self.max_range,
                       self.game_map, self.movement_type, self.team, self.piece_manager, True)
@@ -91,20 +97,19 @@ class TileSelection(GameObject):
             'dy': event.gy,
         })
 
-    def cancel(self, event):
+    # noinspection PyMethodMayBeStatic
+    def cancel(self):
         publish_game_event(E_CANCEL_TILE_SELECTION, {})
 
     def step(self, event):
         super().step(event)
 
-        # TODO: If event is a selection event and it's for one of our tiles, fire the selection event
-        # If we catch a cancel button press, fire the cancel selection event
         if is_event_type(event, E_SELECT):
             if (event.gx, event.gy) in self.coordinate_set and \
                     event.team == self.team and event.selecting_movement:
                 self.confirm(event)
         elif is_event_type(event, E_CANCEL):
-            self.cancel(event)
+            self.cancel()
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

@@ -1,6 +1,5 @@
-from terra.constants import Team
 from terra.economy.resourcetypes import ResourceType
-
+from terra.team import Team
 
 # Base resource yield tables.
 base_resource_yields = {

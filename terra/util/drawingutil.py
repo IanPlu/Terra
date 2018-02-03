@@ -1,5 +1,7 @@
-import pygame
 from enum import Enum
+
+import pygame
+
 from terra.util.mathutil import clamp
 
 pygame.font.init()
@@ -45,6 +47,7 @@ def draw_text(text, color, shadow_color=None):
         return Font.COURIER.value.render(text, False, color)
 
 
+# Return a list of sprites of the provided width from a sprite strip.
 def get_sprites_from_strip(sprite, width):
     sprites = []
     strip_width, height = sprite.get_size()
@@ -55,7 +58,7 @@ def get_sprites_from_strip(sprite, width):
     return sprites
 
 
-# Return a list of sprites cut out of the provided sprite
+# Return a list of sprites cut out of the provided sprite, which is subdivided into a 3x3 grid.
 def get_nine_slice_sprites(sprite, slice_size):
     sprites = []
 
@@ -112,5 +115,19 @@ def draw_three_digit_number(spr_digit_icons, number, team):
     x = 0
     for digit in digits:
         display.blit(spr_digit_icons[team][digit], (x, 0))
-        x = x + 8
+        x += 8
     return display
+
+
+# Return a surface containing the three resource icons, with the provided resource counts labeled
+def draw_resource_count(spr_resources, spr_digit_icons, team, counts):
+    display = pygame.Surface((72, 24), pygame.SRCALPHA, 32)
+
+    x = 0
+    for resource in spr_resources:
+        display.blit(resource[team], (x * 24, 0))
+        display.blit(draw_three_digit_number(spr_digit_icons, counts[x], team), (x * 24, 16))
+        x += 1
+
+    return display
+

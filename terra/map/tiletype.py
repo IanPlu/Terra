@@ -1,6 +1,7 @@
 from enum import Enum
 
 
+# Possible types of tiles. Determines movement capability, building placement, and so on.
 class TileType(Enum):
     NONE = 0
     SEA = 1

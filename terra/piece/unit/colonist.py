@@ -1,4 +1,8 @@
-from terra.piece.unit.unit import *
+from terra.map.movementtype import MovementType
+from terra.piece.unit.damagetype import DamageType
+from terra.piece.unit.unit import Unit
+from terra.piece.unit.unittype import UnitType
+from terra.team import Team
 
 
 # A Colonist unit.

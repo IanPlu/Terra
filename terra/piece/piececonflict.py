@@ -1,9 +1,10 @@
 from terra.event import *
-from terra.piece.unit.piecedamage import piece_damage
 from terra.piece.unit.damagetype import DamageType
+from terra.piece.unit.piecedamage import piece_damage
+from terra.piece.unit.unittype import UnitType
 
 
-# Manager for rounds of melee direct conflict between two units.
+# Manager for rounds of melee direct conflict between two pieces.
 class PieceConflict:
     def __init__(self, piece1, piece2):
         super().__init__()

@@ -6,7 +6,7 @@ from terra.settings import TICK_RATE
 # Automatically ticks the frame to display over time.
 # Framerate: How many times per second to progress the animation
 class AnimatedGameObject(GameObject):
-    def __init__(self, images=[], framerate=1):
+    def __init__(self, images, framerate=1):
         super().__init__()
         self.images = images
         self.framerate = framerate

@@ -1,7 +1,6 @@
-from terra.piece.unit.unittype import UnitType
 from terra.piece.building.buildingtype import BuildingType
-from terra.constants import Team
-
+from terra.piece.unit.unittype import UnitType
+from terra.team import Team
 
 # Base unit damage tables. First entry is the attacking unit, second entry is the defending unit.
 base_piece_damage = {

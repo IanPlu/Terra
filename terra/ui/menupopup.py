@@ -1,32 +1,28 @@
-from terra.settings import *
-from terra.constants import *
+from pygame.constants import KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN
+
+from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
-from terra.util.drawingutil import draw_nine_slice_sprite
 from terra.event import *
+from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL
 from terra.piece.piece import spr_order_flags
-from terra.resources.assets import spr_cursor, spr_textbox, spr_units, text_menu_option, text_unit_name, clear_color
+from terra.piece.pieceprice import piece_prices
+from terra.resources.assets import spr_cursor, spr_textbox, spr_units, text_menu_option, text_unit_name, clear_color, \
+    spr_resource_icon_carbon, spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons
+from terra.settings import SCREEN_SCALE
+from terra.team import Team
+from terra.util.drawingutil import draw_nine_slice_sprite, draw_resource_count
 
-
-grid_size = 8
+# Constants for rendering textboxes
+subgrid_size = 8
 option_height = 24
 
 
 # A menu popup containing multiple selectable menu options
-# TODO: Make this aware of the camera offset
 class MenuPopup(GameObject):
-    def __init__(self, cursor, tx=0, ty=0, team=Team.RED, options=None, buildable_units=None):
+    def __init__(self, cursor, tx=0, ty=0, team=Team.RED, options=None, buildable_units=None, centered=False):
         super().__init__()
 
         self.cursor = cursor
-
-        # Tile the menu is for
-        self.tx = tx
-        self.ty = ty
-
-        # Rendered coords
-        self.x = (self.tx + 1) * GRID_WIDTH
-        self.y = self.ty * GRID_HEIGHT
-
         self.team = team
 
         self.subgrid_width = 12
@@ -38,11 +34,23 @@ class MenuPopup(GameObject):
 
         self.option_pos = 0
 
+        # Tile the menu is for
+        self.tx = tx
+        self.ty = ty
+
+        # Rendered coords
+        if centered:
+            self.x = (RESOLUTION_WIDTH - self.subgrid_width * subgrid_size) // 2 + self.cursor.camera_x
+            self.y = (RESOLUTION_HEIGHT - self.subgrid_height * subgrid_size) // 2 + self.cursor.camera_y
+        else:
+            self.x = (self.tx + 1) * GRID_WIDTH
+            self.y = self.ty * GRID_HEIGHT
+
         # Avoid collisions with edges of the screen
-        if self.x > RESOLUTION_WIDTH - self.subgrid_width * grid_size:
-            self.x -= self.subgrid_width * grid_size + 24
-        if self.y > RESOLUTION_HEIGHT - self.subgrid_height * grid_size:
-            self.y -= self.subgrid_height * grid_size - 12
+        if self.x > self.cursor.camera_x + RESOLUTION_WIDTH - self.subgrid_width * subgrid_size:
+            self.x -= self.subgrid_width * subgrid_size + 24
+        if self.y > self.cursor.camera_y + RESOLUTION_HEIGHT - self.subgrid_height * subgrid_size * 2:
+            self.y -= self.subgrid_height * subgrid_size - 12
 
     def confirm(self):
         if self.buildable_units:
@@ -95,8 +103,8 @@ class MenuPopup(GameObject):
 
             min_x = self.x
             min_y = self.y + 8
-            max_x = min_x + self.subgrid_width * grid_size
-            max_y = min_y + self.subgrid_height * grid_size
+            max_x = min_x + self.subgrid_width * subgrid_size
+            max_y = min_y + self.subgrid_height * subgrid_size
 
             if min_x < mousex < max_x and min_y < mousey < max_y:
                 # Determine where in the menu we are for the option pos
@@ -110,8 +118,9 @@ class MenuPopup(GameObject):
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
 
-        game_screen.blit(draw_nine_slice_sprite(spr_textbox[self.team], grid_size, self.subgrid_width, self.subgrid_height + 1),
-                    (self.x, self.y))
+        game_screen.blit(draw_nine_slice_sprite(spr_textbox[self.team], subgrid_size,
+                                                self.subgrid_width, self.subgrid_height + 1),
+                         (self.x, self.y))
 
         row_y = 0
         if self.buildable_units:
@@ -120,6 +129,13 @@ class MenuPopup(GameObject):
                 game_screen.fill(clear_color[self.team], (self.x + 2, self.y + 10 + row_y * option_height, 20, 20))
                 game_screen.blit(spr_units[self.team][buildable_unit], (self.x, self.y + 8 + row_y * option_height))
                 game_screen.blit(text_unit_name[buildable_unit], (self.x + 24, self.y + 16 + row_y * option_height))
+
+                resource_price = draw_resource_count([spr_resource_icon_carbon, spr_resource_icon_minerals,
+                                                      spr_resource_icon_gas], spr_digit_icons, self.team,
+                                                     piece_prices[buildable_unit])
+                game_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 2,
+                                                  self.y + row_y * option_height + subgrid_size))
+
                 row_y += 1
         else:
             for option in self.options:

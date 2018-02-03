@@ -1,8 +1,8 @@
+from terra.constants import GRID_HEIGHT, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
-from terra.constants import *
-from terra.settings import *
-from terra.util.drawingutil import draw_nine_slice_sprite
 from terra.resources.assets import spr_textbox
+from terra.settings import TICK_RATE
+from terra.util.drawingutil import draw_nine_slice_sprite
 
 
 # A toast notification that pops up in the corner of the screen and then dissipates

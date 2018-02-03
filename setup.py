@@ -8,5 +8,5 @@ setup(
     license='',
     author='Ian',
     author_email='',
-    description=''
+    description='', install_requires=['pygame']
 )

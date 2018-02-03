@@ -1,6 +1,7 @@
 from enum import Enum
 
 
+# Possible unit types.
 class UnitType(Enum):
     UNIT = 0
     COLONIST = 1

@@ -1,11 +1,16 @@
-from terra.settings import *
-from terra.constants import *
+from pygame.constants import KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN
+
+from terra.constants import GRID_WIDTH, GRID_HEIGHT
+from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
-from terra.ui.menupopup import MenuPopup
-from terra.util.mathutil import clamp
 from terra.event import *
-from terra.ui.tileselection import TileSelection
+from terra.keybindings import KB_UP, KB_DOWN, KB_LEFT, KB_RIGHT, KB_CONFIRM, KB_CANCEL, KB_MENU
 from terra.resources.assets import spr_cursor
+from terra.settings import SCREEN_SCALE
+from terra.team import Team
+from terra.ui.menupopup import MenuPopup
+from terra.ui.tileselection import TileSelection
+from terra.util.mathutil import clamp
 
 
 # Controllable cursor on the map.
@@ -46,13 +51,13 @@ class Cursor(GameObject):
     def open_pause_menu(self):
         self.menu = MenuPopup(self, self.gx, self.gy, self.team, [
             MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE
-        ])
+        ], centered=True)
 
     def open_move_ui(self, event):
         self.move_ui = TileSelection(event.gx, event.gy, event.min_range, event.max_range,
                                      event.game_map, event.movement_type, event.team, event.piece_manager, event.option)
 
-    def close_move_ui(self, event):
+    def close_move_ui(self):
         del self.move_ui
         self.move_ui = None
 
@@ -69,7 +74,7 @@ class Cursor(GameObject):
         elif is_event_type(event, E_OPEN_TILE_SELECTION):
             self.open_move_ui(event)
         elif is_event_type(event, E_SELECT_TILE, E_CANCEL_TILE_SELECTION):
-            self.close_move_ui(event)
+            self.close_move_ui()
         elif is_event_type(event, E_OPEN_BUILD_MENU):
             self.open_build_ui(event)
         elif is_event_type(event, E_SELECT_BUILD_UNIT, E_CANCEL_BUILD_UNIT):
@@ -142,8 +147,11 @@ class Cursor(GameObject):
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
-        if self.menu:
-            self.menu.render(game_screen, ui_screen)
+
         if self.move_ui:
             self.move_ui.render(game_screen, ui_screen)
+
         game_screen.blit(spr_cursor[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+
+        if self.menu:
+            self.menu.render(game_screen, ui_screen)

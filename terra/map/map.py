@@ -1,18 +1,10 @@
-from terra.map.movementtype import MovementType
+import random
+from os import walk
+
+from terra.engine.gameobject import GameObject
+from terra.map.movementtype import impassible_terrain_types
 from terra.map.tile import Tile
 from terra.map.tiletype import TileType
-from terra.engine.gameobject import GameObject
-from terra.constants import Team
-from os import walk
-import random
-
-impassible_terrain_types = {
-    None: [],
-    MovementType.GROUND: [TileType.SEA],
-    MovementType.GHOST: [TileType.SEA],
-    MovementType.BUILD_BARRACKS: [TileType.SEA, TileType.WOODS, TileType.RESOURCE],
-    MovementType.BUILD_GENERATOR: [TileType.SEA, TileType.GRASS, TileType.WOODS]
-}
 
 
 # A single map containing tiles, organized into a grid.
@@ -74,6 +66,7 @@ class Map(GameObject):
         return 0 <= gx < self.width and 0 <= gy < self.height and \
                not self.get_tile_type_at(gx, gy) in impassible_terrain_types[movement_type]
 
+    # Update the tile at the specified location to the new type
     def update_tile_type(self, gx, gy, new_tile_type):
         self.tile_grid[gy][gx] = Tile(self, new_tile_type, gx, gy)
 
@@ -89,6 +82,7 @@ class Map(GameObject):
                 self.tile_grid[y][x].render(game_screen, ui_screen)
 
 
+# TODO: Split these and other map utils into their own file
 # Return a list of filenames of loadable maps
 def get_loadable_maps(suffix=".map"):
     maps = []

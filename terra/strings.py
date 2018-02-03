@@ -1,8 +1,10 @@
-from terra.constants import *
-from terra.event import *
-from terra.effects.effecttype import EffectType
-from terra.mainmenu.option import Option
 from enum import Enum
+
+from terra.battlephase import BattlePhase
+from terra.effects.effecttype import EffectType
+from terra.event import *
+from terra.mainmenu.option import Option
+from terra.piece.unit.unittype import UnitType
 
 
 class Language(Enum):

@@ -1,15 +1,19 @@
-import pygame
-from terra.settings import *
-from terra.constants import *
+from pygame.constants import KEYDOWN, KMOD_CTRL
+
+from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT
+from terra.engine.gamescreen import GameScreen
 from terra.event import *
+from terra.keybindings import KB_MENU, KB_SCROLL_UP, KB_SCROLL_DOWN
 from terra.map.map import Map, load_map_from_file
-from terra.ui.cursor import Cursor
 from terra.map.tiletype import TileType
 from terra.resources.assets import clear_color, spr_tiles, spr_cursor
+from terra.team import Team
+from terra.ui.cursor import Cursor
 from terra.util.mathutil import clamp
-from terra.engine.gamescreen import GameScreen
 
 
+# A map editor for Terra maps.
+# Allows placing tiles of different types and saving / loading maps.
 class LevelEditor(GameScreen):
     def __init__(self, mapname="key_range.map"):
         super().__init__()

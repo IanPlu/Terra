@@ -1,15 +1,14 @@
-import pygame
-from terra.constants import Team
 from terra.map.tiletype import TileType
-from terra.piece.unit.unittype import UnitType
 from terra.piece.building.buildingtype import BuildingType
-from terra.effects.effecttype import EffectType
-from terra.strings import *
-from terra.event import *
-from terra.mainmenu.option import Option
 from terra.settings import LANGUAGE
+from terra.strings import *
+from terra.team import Team
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
     swap_palette, generate_palette_list, swap_multiple_palette, draw_text
+
+# This file defines constants for resources like sprites, text, etc., in order to drive reuse and not importing
+# resources more than once.
+
 
 # General
 unit_palette = {
@@ -52,6 +51,7 @@ spr_tiles = {
     TileType.WOODS: [pygame.image.load("resources/sprites/tiles/Tile_Woods.png")],
     TileType.RESOURCE: [pygame.image.load("resources/sprites/tiles/Tile_Resource.png")]
 }
+# noinspection PyUnresolvedReferences
 spr_coast_detail = {
     0: None,
     1: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail1.png"),
@@ -127,9 +127,12 @@ spr_buildings = {
 
 # Effects
 spr_effects = {
-    EffectType.ALERT: get_sprites_from_strip(pygame.image.load("resources/sprites/effects/FX_Alert.png"), 24),
-    EffectType.PIECE_DESTROYED: get_sprites_from_strip(pygame.image.load("resources/sprites/effects/FX_Piece_Destroyed.png"), 24),
-    EffectType.NO_MONEY: get_sprites_from_strip(pygame.image.load("resources/sprites/effects/FX_No_Money.png"), 24)
+    EffectType.ALERT: get_sprites_from_strip(
+        pygame.image.load("resources/sprites/effects/FX_Alert.png"), 24),
+    EffectType.PIECE_DESTROYED: get_sprites_from_strip(
+        pygame.image.load("resources/sprites/effects/FX_Piece_Destroyed.png"), 24),
+    EffectType.NO_MONEY: get_sprites_from_strip(
+        pygame.image.load("resources/sprites/effects/FX_No_Money.png"), 24)
 }
 
 
@@ -192,16 +195,20 @@ def load_assets():
         spr_resource_icon_minerals[team] = swap_palette(spr_resource_icon_minerals[Team.RED], unit_palette[team])
         spr_resource_icon_gas[team] = swap_palette(spr_resource_icon_gas[Team.RED], unit_palette[team])
 
-        spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED], unit_palette[team])
-        spr_turn_not_submitted_indicator[team] = swap_palette(spr_turn_not_submitted_indicator[Team.RED], unit_palette[team])
+        spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED],
+                                                          unit_palette[team])
+        spr_turn_not_submitted_indicator[team] = swap_palette(spr_turn_not_submitted_indicator[Team.RED],
+                                                              unit_palette[team])
 
         spr_units[team] = {}
         spr_buildings[team] = {}
 
         for unit_type in UnitType:
-            spr_units[team][unit_type] = swap_palette(spr_units[Team.RED][unit_type], unit_palette[team])
+            spr_units[team][unit_type] = swap_palette(spr_units[Team.RED][unit_type],
+                                                      unit_palette[team])
         for building_type in BuildingType:
-            spr_buildings[team][building_type] = swap_palette(spr_buildings[Team.RED][building_type], unit_palette[team])
+            spr_buildings[team][building_type] = swap_palette(spr_buildings[Team.RED][building_type],
+                                                              unit_palette[team])
 
     # Generate text surfaces for each unit and building type
     for unit_type in UnitType:

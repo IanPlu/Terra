@@ -1,9 +1,8 @@
-from terra.piece.building.building import Building
-from terra.constants import Team
-from terra.piece.building.buildingtype import BuildingType
 from terra.economy.resourcetypes import ResourceType
 from terra.economy.resourceyields import resource_yields
-
+from terra.piece.building.building import Building
+from terra.piece.building.buildingtype import BuildingType
+from terra.team import Team
 
 __resource_to_building_type__ = {
     ResourceType.CARBON: BuildingType.CARBON_GENERATOR,
@@ -24,6 +23,7 @@ class Generator(Building):
         self.buildable_units = []
         self.resource_production = self.__get_resource_yields__()
 
+    # Return how much of each resource this building produces, depending on its resource type.
     def __get_resource_yields__(self):
         if self.resource_type == ResourceType.CARBON:
             return resource_yields[self.team][self.resource_type], 0, 0

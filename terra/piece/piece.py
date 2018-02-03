@@ -1,9 +1,10 @@
+from terra.battlephase import BattlePhase
+from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.gameobject import GameObject
-from terra.constants import Team, BattlePhase
-from terra.resources.assets import spr_units, spr_order_flags, spr_digit_icons, clear_color
 from terra.event import *
-from terra.settings import *
 from terra.piece.unit.unittype import UnitType
+from terra.resources.assets import spr_units, spr_order_flags, spr_digit_icons, clear_color
+from terra.team import Team
 
 
 # Base object in play belonging to a player, like a unit or a building.
@@ -95,8 +96,8 @@ class Piece(GameObject):
             self.tile_selection.step(event)
 
         # Check if we're in conflict
-        self.in_conflict = self.battle.phase == BattlePhase.ORDERS and \
-                           len(self.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
+        self.in_conflict = self.battle.phase == BattlePhase.ORDERS and len(self.piece_manager.get_enemy_pieces_at(
+            self.gx, self.gy, self.team)) > 0
 
         # React to phase changes when we have an order
         if self.current_order:

@@ -1,23 +1,24 @@
-from terra.engine.gameobject import GameObject
-from terra.piece.unit.colonist import Colonist
-from terra.piece.unit.trooper import Trooper
-from terra.piece.unit.ranger import Ranger
-from terra.piece.unit.ghost import Ghost
-from terra.piece.unit.unit import Team
-from terra.piece.building.base import Base
-from terra.piece.building.generator import Generator
-from terra.piece.building.barracks import Barracks
-from terra.event import *
-from terra.piece.piececonflict import PieceConflict
-from terra.piece.orders import MoveOrder, BuildOrder
-from terra.piece.piecetype import PieceType
-from terra.piece.unit.unittype import UnitType
-from terra.piece.building.buildingtype import BuildingType
-from terra.piece.unit.unitprice import unit_prices
-from terra.piece.unit.piecedamage import piece_damage
-from terra.economy.resourcetypes import ResourceType
-from terra.util.collectionutil import safe_get_from_list
 from collections import Counter
+
+from terra.economy.resourcetypes import ResourceType
+from terra.engine.gameobject import GameObject
+from terra.event import *
+from terra.piece.building.barracks import Barracks
+from terra.piece.building.base import Base
+from terra.piece.building.buildingtype import BuildingType
+from terra.piece.building.generator import Generator
+from terra.piece.orders import MoveOrder, BuildOrder
+from terra.piece.piececonflict import PieceConflict
+from terra.piece.pieceprice import piece_prices
+from terra.piece.piecetype import PieceType
+from terra.piece.unit.colonist import Colonist
+from terra.piece.unit.ghost import Ghost
+from terra.piece.unit.piecedamage import piece_damage
+from terra.piece.unit.ranger import Ranger
+from terra.piece.unit.trooper import Trooper
+from terra.piece.unit.unittype import UnitType
+from terra.team import Team
+from terra.util.collectionutil import safe_get_from_list
 
 
 # Contains and manages all units and buildings from all teams
@@ -108,7 +109,7 @@ class PieceManager(GameObject):
             if len(self.pieces[(gx, gy)]) == 0:
                 del self.pieces[(gx, gy)]
 
-    def generate_piece_from_type(self, gx, gy, team, piece_type, hp):
+    def generate_piece_from_type(self, gx, gy, team, piece_type, hp=None):
         if piece_type == UnitType.COLONIST:
             self.register_piece(Colonist(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
         elif piece_type == UnitType.TROOPER:
@@ -120,11 +121,14 @@ class PieceManager(GameObject):
         elif piece_type == BuildingType.BASE:
             self.register_piece(Base(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
         elif piece_type == BuildingType.CARBON_GENERATOR:
-            self.register_piece(Generator(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp, ResourceType.CARBON))
+            self.register_piece(Generator(self, self.team_manager, self.battle,
+                                          self.game_map, team, gx, gy, hp, ResourceType.CARBON))
         elif piece_type == BuildingType.MINERAL_GENERATOR:
-            self.register_piece(Generator(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp, ResourceType.MINERALS))
+            self.register_piece(Generator(self, self.team_manager, self.battle,
+                                          self.game_map, team, gx, gy, hp, ResourceType.MINERALS))
         elif piece_type == BuildingType.GAS_GENERATOR:
-            self.register_piece(Generator(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp, ResourceType.GAS))
+            self.register_piece(Generator(self, self.team_manager, self.battle,
+                                          self.game_map, team, gx, gy, hp, ResourceType.GAS))
         elif piece_type == BuildingType.BARRACKS:
             self.register_piece(Barracks(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
 
@@ -154,9 +158,15 @@ class PieceManager(GameObject):
         unit_strings = []
         building_strings = []
         for unit in units:
-            unit_strings.append("{} {} {} {} {}".format(unit.gx, unit.gy, unit.team.name, unit.unit_type.name, unit.hp))
+            unit_strings.append("{} {} {} {} {}".format(unit.gx, unit.gy,
+                                                        unit.team.name,
+                                                        unit.unit_type.name,
+                                                        unit.hp))
         for building in buildings:
-            building_strings.append("{} {} {} {} {}".format(building.gx, building.gy, building.team.name, building.building_type.name, building.hp))
+            building_strings.append("{} {} {} {} {}".format(building.gx, building.gy,
+                                                            building.team.name,
+                                                            building.building_type.name,
+                                                            building.hp))
 
         return unit_strings, building_strings
 
@@ -176,7 +186,7 @@ class PieceManager(GameObject):
                     coordinates.append((piece.gx, piece.gy))
 
                     # Check that a team isn't spending more than they have
-                    spent_resources.append(unit_prices[piece.current_order.new_piece_type])
+                    spent_resources.append(piece_prices[piece.current_order.new_piece_type])
             else:
                 coordinates.append((piece.gx, piece.gy))
 

@@ -1,5 +1,5 @@
 from terra.map.tiletype import TileType
-from terra.piece.building.buildingtype import BuildingType
+from terra.piece.piecetype import PieceType
 from terra.settings import LANGUAGE
 from terra.strings import *
 from terra.team import Team
@@ -72,14 +72,20 @@ spr_coast_detail = {
 }
 
 
-# Units
-spr_units = {
+# Pieces
+spr_pieces = {
     Team.RED: {
-        UnitType.UNIT: pygame.image.load("resources/sprites/units/Colonist.png"),
-        UnitType.COLONIST: pygame.image.load("resources/sprites/units/Colonist.png"),
-        UnitType.TROOPER: pygame.image.load("resources/sprites/units/Trooper.png"),
-        UnitType.RANGER: pygame.image.load("resources/sprites/units/Ranger.png"),
-        UnitType.GHOST: pygame.image.load("resources/sprites/units/Ghost.png"),
+        # Units
+        PieceType.COLONIST: pygame.image.load("resources/sprites/units/Colonist.png"),
+        PieceType.TROOPER: pygame.image.load("resources/sprites/units/Trooper.png"),
+        PieceType.RANGER: pygame.image.load("resources/sprites/units/Ranger.png"),
+        PieceType.GHOST: pygame.image.load("resources/sprites/units/Ghost.png"),
+        # Buildings
+        PieceType.BASE: pygame.image.load("resources/sprites/buildings/Base.png"),
+        PieceType.CARBON_GENERATOR: pygame.image.load("resources/sprites/buildings/CarbonGenerator.png"),
+        PieceType.MINERAL_GENERATOR: pygame.image.load("resources/sprites/buildings/MineralGenerator.png"),
+        PieceType.GAS_GENERATOR: pygame.image.load("resources/sprites/buildings/GasGenerator.png"),
+        PieceType.BARRACKS: pygame.image.load("resources/sprites/buildings/Barracks.png"),
     }
 }
 
@@ -88,11 +94,7 @@ spr_order_flags = {
     MENU_CANCEL_ORDER: spr_base_order_flags[0],
     MENU_MOVE: spr_base_order_flags[1],
     MENU_RANGED_ATTACK: spr_base_order_flags[2],
-    MENU_BUILD_UNIT: spr_base_order_flags[3],
-    MENU_BUILD_CARBON_GENERATOR: spr_base_order_flags[4],
-    MENU_BUILD_MINERAL_GENERATOR: spr_base_order_flags[5],
-    MENU_BUILD_GAS_GENERATOR: spr_base_order_flags[6],
-    MENU_BUILD_BARRACKS: spr_base_order_flags[3],
+    MENU_BUILD_PIECE: spr_base_order_flags[3],
     MENU_SUBMIT_TURN: spr_base_order_flags[1],
     MENU_SAVE_GAME: spr_base_order_flags[3],
     MENU_QUIT_BATTLE: spr_base_order_flags[0],
@@ -110,19 +112,6 @@ spr_resource_icon_minerals = {
 }
 spr_resource_icon_gas = {
     Team.RED: pygame.image.load("resources/sprites/ui/ResourceIcon_Gas.png")
-}
-
-
-# Buildings
-spr_buildings = {
-    Team.RED: {
-        BuildingType.BUILDING: pygame.image.load("resources/sprites/buildings/Base.png"),
-        BuildingType.BASE: pygame.image.load("resources/sprites/buildings/Base.png"),
-        BuildingType.CARBON_GENERATOR: pygame.image.load("resources/sprites/buildings/CarbonGenerator.png"),
-        BuildingType.MINERAL_GENERATOR: pygame.image.load("resources/sprites/buildings/MineralGenerator.png"),
-        BuildingType.GAS_GENERATOR: pygame.image.load("resources/sprites/buildings/GasGenerator.png"),
-        BuildingType.BARRACKS: pygame.image.load("resources/sprites/buildings/Barracks.png"),
-    }
 }
 
 # Effects
@@ -153,11 +142,7 @@ text_menu_option = {
     MENU_MOVE: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE], (0, 0, 0)),
     MENU_CANCEL_ORDER: draw_text(menu_option_strings[LANGUAGE][MENU_CANCEL_ORDER], (0, 0, 0)),
     MENU_RANGED_ATTACK: draw_text(menu_option_strings[LANGUAGE][MENU_RANGED_ATTACK], (0, 0, 0)),
-    MENU_BUILD_UNIT: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_UNIT], (0, 0, 0)),
-    MENU_BUILD_CARBON_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_CARBON_GENERATOR], (0, 0, 0)),
-    MENU_BUILD_MINERAL_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_MINERAL_GENERATOR], (0, 0, 0)),
-    MENU_BUILD_GAS_GENERATOR: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_GAS_GENERATOR], (0, 0, 0)),
-    MENU_BUILD_BARRACKS: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_BARRACKS], (0, 0, 0)),
+    MENU_BUILD_PIECE: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_PIECE], (0, 0, 0)),
     MENU_SUBMIT_TURN: draw_text(menu_option_strings[LANGUAGE][MENU_SUBMIT_TURN], (0, 0, 0)),
     MENU_SAVE_GAME: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_GAME], (0, 0, 0)),
     MENU_QUIT_BATTLE: draw_text(menu_option_strings[LANGUAGE][MENU_QUIT_BATTLE], (0, 0, 0)),
@@ -168,7 +153,7 @@ text_notifications = {
     EffectType.NO_MONEY: draw_text(notification_strings[LANGUAGE][EffectType.NO_MONEY], (0, 0, 0)),
 }
 
-text_unit_name = {}
+text_piece_name = {}
 
 phase_text = {}
 for team in Team:
@@ -200,16 +185,10 @@ def load_assets():
         spr_turn_not_submitted_indicator[team] = swap_palette(spr_turn_not_submitted_indicator[Team.RED],
                                                               unit_palette[team])
 
-        spr_units[team] = {}
-        spr_buildings[team] = {}
-
-        for unit_type in UnitType:
-            spr_units[team][unit_type] = swap_palette(spr_units[Team.RED][unit_type],
-                                                      unit_palette[team])
-        for building_type in BuildingType:
-            spr_buildings[team][building_type] = swap_palette(spr_buildings[Team.RED][building_type],
-                                                              unit_palette[team])
+        spr_pieces[team] = {}
+        for piece_type in PieceType:
+            spr_pieces[team][piece_type] = swap_palette(spr_pieces[Team.RED][piece_type], unit_palette[team])
 
     # Generate text surfaces for each unit and building type
-    for unit_type in UnitType:
-        text_unit_name[unit_type] = draw_text(unit_name_strings[LANGUAGE][unit_type], (0, 0, 0))
+    for piece_type in PieceType:
+        text_piece_name[piece_type] = draw_text(piece_name_strings[LANGUAGE][piece_type], (0, 0, 0))

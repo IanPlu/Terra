@@ -2,9 +2,9 @@ import random
 from os import walk
 
 from terra.engine.gameobject import GameObject
-from terra.map.movementtype import impassible_terrain_types
 from terra.map.tile import Tile
 from terra.map.tiletype import TileType
+from terra.piece.movementtype import passable_terrain_types
 
 
 # A single map containing tiles, organized into a grid.
@@ -64,7 +64,7 @@ class Map(GameObject):
     # Return True if the tile is passable for the provided movement type. Tiles out of bounds are impassible.
     def is_tile_passable(self, gx, gy, movement_type):
         return 0 <= gx < self.width and 0 <= gy < self.height and \
-               not self.get_tile_type_at(gx, gy) in impassible_terrain_types[movement_type]
+               self.get_tile_type_at(gx, gy) in passable_terrain_types[movement_type]
 
     # Update the tile at the specified location to the new type
     def update_tile_type(self, gx, gy, new_tile_type):
@@ -95,46 +95,37 @@ def get_loadable_maps(suffix=".map"):
 # Load a map from the provided filename
 # Generate a bitmap for the Map to use, and generate a unit list for the PieceManager to use.
 def load_map_from_file(mapname):
-    reading_units = False
-    reading_buildings = False
+    reading_pieces = False
     reading_teams = False
 
     try:
         with open("resources/maps/" + mapname) as mapfile:
             bitmap = []
-            roster = []
-            buildings = []
+            pieces = []
             teams = []
             for line in mapfile:
-                if line.rstrip() == "# Units":
-                    reading_units = True
-                elif line.rstrip() == "# Buildings":
-                    reading_buildings = True
+                if line.rstrip() == "# Pieces":
+                    reading_pieces = True
                 elif line.rstrip() == "# Teams":
                     reading_teams = True
                 elif reading_teams:
                     if line.rstrip():
                         # Add each line to teams
                         teams.append(line.rstrip())
-                elif reading_buildings:
+                elif reading_pieces:
                     if line.rstrip():
-                        # Add each line to the buildings
-                        buildings.append(line.rstrip())
-                elif reading_units:
-                    if line.rstrip():
-                        # Add each line to the roster
-                        roster.append(line.rstrip())
+                        # Add each line to the piece list
+                        pieces.append(line.rstrip())
                 else:
                     # Grab all non-newline chars, convert them to ints, and add them to the line list
                     bitmap.append(list(map(int, line.rstrip().split(' '))))
     except IOError as e:
         print("Unable to load file {}. Generating new map. Exception: {}".format(mapname, e))
         bitmap = generate_bitmap(20, 15, False)
-        roster = []
-        buildings = ["0 0 RED BASE", "20 15 BLUE BASE"]
+        pieces = ["0 0 RED BASE", "20 15 BLUE BASE"]
         teams = []
 
-    return bitmap, roster, buildings, teams
+    return bitmap, pieces, teams
 
 
 # Generate a map of the required size

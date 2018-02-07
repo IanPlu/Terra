@@ -65,7 +65,7 @@ class LevelEditor(GameScreen):
                 line += "\n"
                 lines += line
 
-            lines += "# Units\n# Buildings\n# Teams\nRED\nBLUE"
+            lines += "# Pieces\n# Teams\nRED\nBLUE"
 
             mapfile.write(lines)
 

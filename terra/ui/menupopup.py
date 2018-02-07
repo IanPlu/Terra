@@ -5,12 +5,13 @@ from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL
 from terra.piece.piece import spr_order_flags
-from terra.piece.pieceprice import piece_prices
-from terra.resources.assets import spr_cursor, spr_textbox, spr_units, text_menu_option, text_unit_name, clear_color, \
+from terra.resources.assets import spr_cursor, spr_textbox, spr_pieces, text_menu_option, text_piece_name, clear_color, \
     spr_resource_icon_carbon, spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons
 from terra.settings import SCREEN_SCALE
 from terra.team import Team
 from terra.util.drawingutil import draw_nine_slice_sprite, draw_resource_count
+from terra.piece.pieceattributes import Attribute, piece_attributes
+from terra.piece.piecetype import PieceType
 
 # Constants for rendering textboxes
 subgrid_size = 8
@@ -19,7 +20,7 @@ option_height = 24
 
 # A menu popup containing multiple selectable menu options
 class MenuPopup(GameObject):
-    def __init__(self, cursor, tx=0, ty=0, team=Team.RED, options=None, buildable_units=None, centered=False):
+    def __init__(self, cursor, tx=0, ty=0, team=Team.RED, options=None, centered=False):
         super().__init__()
 
         self.cursor = cursor
@@ -30,7 +31,6 @@ class MenuPopup(GameObject):
 
         self.options = options
         self.num_options = len(options)
-        self.buildable_units = buildable_units
 
         self.option_pos = 0
 
@@ -53,10 +53,7 @@ class MenuPopup(GameObject):
             self.y -= self.subgrid_height * subgrid_size - 12
 
     def confirm(self):
-        if self.buildable_units:
-            selected_option = self.buildable_units[self.option_pos]
-        else:
-            selected_option = self.options[self.option_pos]
+        selected_option = self.options[self.option_pos]
 
         publish_game_event(E_CLOSE_MENU, {
             'gx': self.tx,
@@ -123,22 +120,21 @@ class MenuPopup(GameObject):
                          (self.x, self.y))
 
         row_y = 0
-        if self.buildable_units:
-            # Render buildable units
-            for buildable_unit in self.buildable_units:
+        for option in self.options:
+            if option in PieceType:
+                # Render buildable pieces
                 game_screen.fill(clear_color[self.team], (self.x + 2, self.y + 10 + row_y * option_height, 20, 20))
-                game_screen.blit(spr_units[self.team][buildable_unit], (self.x, self.y + 8 + row_y * option_height))
-                game_screen.blit(text_unit_name[buildable_unit], (self.x + 24, self.y + 16 + row_y * option_height))
+                game_screen.blit(spr_pieces[self.team][option], (self.x, self.y + 8 + row_y * option_height))
+                game_screen.blit(text_piece_name[option], (self.x + 24, self.y + 16 + row_y * option_height))
 
                 resource_price = draw_resource_count([spr_resource_icon_carbon, spr_resource_icon_minerals,
                                                       spr_resource_icon_gas], spr_digit_icons, self.team,
-                                                     piece_prices[buildable_unit])
+                                                     piece_attributes[self.team][option][Attribute.PRICE])
                 game_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 2,
                                                   self.y + row_y * option_height + subgrid_size))
 
                 row_y += 1
-        else:
-            for option in self.options:
+            else:
                 # Render menu option icons
                 game_screen.fill(clear_color[self.team], (self.x + 2, self.y + 10 + row_y * option_height, 20, 20))
                 game_screen.blit(spr_order_flags[option], (self.x + 8, self.y + 16 + row_y * option_height))

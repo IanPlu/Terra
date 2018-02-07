@@ -1,4 +1,4 @@
-from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_UNIT
+from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_PIECE
 
 
 # An order to be carried out by a piece.
@@ -35,7 +35,7 @@ class RangedAttackOrder(Order):
 # An order to build a piece on a specific tile
 class BuildOrder(Order):
     def __init__(self, piece, tx, ty, team, new_piece_type):
-        super().__init__(piece, MENU_BUILD_UNIT)
+        super().__init__(piece, MENU_BUILD_PIECE)
         self.tx = tx
         self.ty = ty
         self.team = team

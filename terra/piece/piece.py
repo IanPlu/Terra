@@ -2,16 +2,20 @@ from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event import *
-from terra.piece.unit.unittype import UnitType
-from terra.resources.assets import spr_units, spr_order_flags, spr_digit_icons, clear_color
+from terra.piece.movementtype import passable_terrain_types
+from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder
+from terra.piece.damagetype import DamageType
+from terra.piece.piecetype import PieceType
+from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color
 from terra.team import Team
+from terra.piece.pieceattributes import Attribute, piece_attributes
 
 
 # Base object in play belonging to a player, like a unit or a building.
 # They belong to a team and exist somewhere on the map.
 # Pieces have HP and can accept and execute orders.
 class Piece(GameObject):
-    def __init__(self, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
+    def __init__(self, piece_type, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
         super().__init__()
         self.battle = battle
         self.game_map = game_map
@@ -21,9 +25,19 @@ class Piece(GameObject):
         self.gx = gx
         self.gy = gy
 
-        # Overrideable variables. Subclasses should override this.
-        self.max_hp = 10
-        self.attack = 0
+        # Look up values based on our piece type
+        self.piece_type = piece_type
+        self.piece_subtype = piece_attributes[team][piece_type][Attribute.SUBTYPE]
+        self.max_hp = piece_attributes[team][piece_type][Attribute.MAX_HP]
+        self.buildable_pieces = piece_attributes[team][piece_type][Attribute.BUILDABLE_PIECES]
+        self.attack = piece_attributes[team][piece_type][Attribute.ATTACK]
+        self.attack_multiplier = piece_attributes[team][piece_type][Attribute.ATTACK_MULTIPLIER]
+        self.damage_type = piece_attributes[team][piece_type][Attribute.DAMAGE_TYPE]
+        self.min_range = piece_attributes[team][piece_type][Attribute.MIN_RANGE]
+        self.max_range = piece_attributes[team][piece_type][Attribute.MAX_RANGE]
+        self.movement_type = piece_attributes[team][piece_type][Attribute.MOVEMENT_TYPE]
+        self.movement_range = piece_attributes[team][piece_type][Attribute.MOVEMENT_RANGE]
+        self.resource_production = piece_attributes[team][piece_type][Attribute.RESOURCE_PRODUCTION]
 
         # Interpreted variables. Don't touch!
         if hp:
@@ -39,11 +53,41 @@ class Piece(GameObject):
             .format(self.team.name, self.__class__.__name__, self.gx, self.gy, self.hp)
 
     def get_sprite(self):
-        return spr_units[self.team][UnitType.UNIT]
+        return spr_pieces[self.team][self.piece_type]
 
     # Return a list of actions to show in the selection UI.
     def get_available_actions(self):
-        return [MENU_CANCEL_ORDER]
+        actions = []
+
+        if self.movement_range > 0:
+            actions.append(MENU_MOVE)
+        if self.damage_type == DamageType.RANGED and not self.in_conflict:
+            actions.append(MENU_RANGED_ATTACK)
+        if len(self.get_valid_buildable_pieces()) and not self.in_conflict:
+            actions.append(MENU_BUILD_PIECE)
+
+        actions.append(MENU_CANCEL_ORDER)
+        return actions
+
+    # Trim the list of innately buildable pieces to ones that can be placed nearby, taking tile type etc. into account
+    def get_valid_buildable_pieces(self):
+        valid_pieces = []
+
+        # For each buildable piece, if there exists at least one valid adjacent tile for its movement type that we can
+        # place it onto, add it to the list
+        for piece in self.buildable_pieces:
+            valid_tiles = passable_terrain_types[piece_attributes[self.team][piece][Attribute.MOVEMENT_TYPE]]
+            adjacent_tile_types = {
+                self.game_map.get_tile_type_at(self.gx + 1, self.gy),
+                self.game_map.get_tile_type_at(self.gx - 1, self.gy),
+                self.game_map.get_tile_type_at(self.gx, self.gy + 1),
+                self.game_map.get_tile_type_at(self.gx, self.gy - 1),
+            }
+
+            if not adjacent_tile_types.isdisjoint(valid_tiles):
+                valid_pieces.append(piece)
+
+        return valid_pieces
 
     # Clean ourselves up at the end of phases, die as appropriate
     def cleanup(self):
@@ -61,32 +105,131 @@ class Piece(GameObject):
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
-        pass
+        # Produce resources
+        if not self.resource_production == (0, 0, 0):
+            self.team_manager.add_resources(self.team, self.resource_production)
 
     def handle_phase_orders(self, event):
         pass
 
     def handle_phase_build(self, event):
-        pass
+        # Execute build orders
+        if isinstance(self.current_order, BuildOrder):
+            publish_game_event(E_PIECE_BUILT, {
+                'tx': self.current_order.tx,
+                'ty': self.current_order.ty,
+                'team': self.current_order.team,
+                'new_piece_type': self.current_order.new_piece_type
+            })
+
+            # Deduct unit price
+            self.team_manager.deduct_resources(self.team, piece_attributes[self.team][self.current_order.new_piece_type][Attribute.PRICE])
+            # Pop orders once they're executed
+            self.current_order = None
 
     def handle_phase_move(self, event):
-        pass
+        # Execute move orders
+        if isinstance(self.current_order, MoveOrder):
+            publish_game_event(E_UNIT_MOVED, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'team': self.team,
+                'dx': self.current_order.dx,
+                'dy': self.current_order.dy
+            })
+
+            self.gx = self.current_order.dx
+            self.gy = self.current_order.dy
+
+            # Pop orders once they're executed
+            self.current_order = None
 
     def handle_phase_combat(self, event):
         pass
 
     def handle_phase_ranged(self, event):
-        pass
+        # Execute ranged attack orders
+        if isinstance(self.current_order, RangedAttackOrder):
+            publish_game_event(E_UNIT_RANGED_ATTACK, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'team': self.team,
+                'tx': self.current_order.tx,
+                'ty': self.current_order.ty
+            })
+
+            # Pop orders once they're executed
+            self.current_order = None
 
     def handle_phase_special(self, event):
         pass
 
     # Handle menu events concerning us
     def handle_menu_option(self, event):
-        pass
+        if event.option == MENU_MOVE:
+            publish_game_event(E_OPEN_TILE_SELECTION, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'min_range': 1,
+                'max_range': self.movement_range,
+                'game_map': self.game_map,
+                'movement_type': self.movement_type,
+                'team': self.team,
+                'piece_manager': self.piece_manager,
+                'option': event.option
+            })
+        elif event.option == MENU_RANGED_ATTACK:
+            publish_game_event(E_OPEN_TILE_SELECTION, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'min_range': self.min_range,
+                'max_range': self.max_range,
+                'game_map': self.game_map,
+                'movement_type': None,
+                'team': self.team,
+                'piece_manager': self.piece_manager,
+                'option': event.option
+            })
+        elif event.option == MENU_BUILD_PIECE:
+            # Open the build menu and allow selecting a buildable piece
+            publish_game_event(E_OPEN_BUILD_MENU, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'team': self.team,
+                'options': self.get_valid_buildable_pieces()
+            })
+        elif event.option in PieceType:
+            # Attempting to build something, so open the tile selection
+            publish_game_event(E_OPEN_TILE_SELECTION, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'min_range': 1,
+                'max_range': 1,
+                'game_map': self.game_map,
+                'movement_type': piece_attributes[self.team][event.option][Attribute.MOVEMENT_TYPE],
+                'team': self.team,
+                'piece_manager': self.piece_manager,
+                'option': event.option
+            })
+        else:
+            self.set_order(event)
 
+    # Save orders to this piece
+    def set_order(self, event):
+        if event.option == MENU_MOVE:
+            self.current_order = MoveOrder(self, event.dx, event.dy)
+        elif event.option == MENU_RANGED_ATTACK:
+            self.current_order = RangedAttackOrder(self, event.dx, event.dy)
+        elif event.option in PieceType:
+            self.current_order = BuildOrder(self, event.dx, event.dy, self.team, event.option)
+        elif event.option == MENU_CANCEL_ORDER:
+            self.current_order = None
+        else:
+            self.current_order = None
+
+    # Handle tile selection events concerning us
     def handle_tile_selection(self, event):
-        pass
+        self.set_order(event)
 
     def step(self, event):
         super().step(event)
@@ -131,7 +274,7 @@ class Piece(GameObject):
                     'team': self.team,
                     'options': self.get_available_actions()
                 })
-        # Catch menu events and set orders if they don't require tile selection
+        # Catch menu events and set orders if they don't require tile selection or a submenu
         elif is_event_type(event, E_CLOSE_MENU) and event.option:
             if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
                 self.handle_menu_option(event)

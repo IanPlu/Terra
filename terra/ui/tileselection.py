@@ -1,8 +1,8 @@
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event import *
-from terra.map.movementtype import MovementType
-from terra.piece.piecetype import PieceType
+from terra.piece.movementtype import MovementType
+from terra.piece.piecesubtype import PieceSubtype
 from terra.resources.assets import spr_tile_selectable
 
 
@@ -42,7 +42,7 @@ class TileSelection(GameObject):
             return {(self.gx, self.gy)}
         # Otherwise exclude friendly buildings from selection
         else:
-            for building in self.piece_manager.get_all_pieces_for_team(self.team, PieceType.BUILDING):
+            for building in self.piece_manager.get_all_pieces_for_team(self.team, PieceSubtype.BUILDING):
                 excluded_coordinates.add((building.gx, building.gy))
 
         return excluded_coordinates

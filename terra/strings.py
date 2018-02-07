@@ -4,7 +4,7 @@ from terra.battlephase import BattlePhase
 from terra.effects.effecttype import EffectType
 from terra.event import *
 from terra.mainmenu.option import Option
-from terra.piece.unit.unittype import UnitType
+from terra.piece.piecetype import PieceType
 
 
 class Language(Enum):
@@ -16,11 +16,7 @@ menu_option_strings = {
         MENU_MOVE: "Move",
         MENU_CANCEL_ORDER: "Wait",
         MENU_RANGED_ATTACK: "Ranged",
-        MENU_BUILD_UNIT: "Build",
-        MENU_BUILD_CARBON_GENERATOR: "Harvest",
-        MENU_BUILD_MINERAL_GENERATOR: "Harvest",
-        MENU_BUILD_GAS_GENERATOR: "Harvest",
-        MENU_BUILD_BARRACKS: "Barracks",
+        MENU_BUILD_PIECE: "Build",
         MENU_SUBMIT_TURN: "Submit Turn",
         MENU_SAVE_GAME: "Save Game",
         MENU_QUIT_BATTLE: "Quit Battle"
@@ -39,13 +35,19 @@ phase_strings = {
     }
 }
 
-unit_name_strings = {
+piece_name_strings = {
     Language.EN_US: {
-        UnitType.UNIT: "Unknown",
-        UnitType.COLONIST: "Colonist",
-        UnitType.TROOPER: "Trooper",
-        UnitType.RANGER: "Ranger",
-        UnitType.GHOST: "Ghost"
+        PieceType.COLONIST: "Colonist",
+        PieceType.TROOPER: "Trooper",
+        PieceType.RANGER: "Ranger",
+        PieceType.GHOST: "Ghost",
+
+        PieceType.BASE: "Base",
+        PieceType.CARBON_GENERATOR: "Carbon Gen",
+        PieceType.MINERAL_GENERATOR: "Mineral Gen",
+        PieceType.GAS_GENERATOR: "Gas Gen",
+        PieceType.BARRACKS: "Barracks",
+
     }
 }
 

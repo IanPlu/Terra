@@ -3,5 +3,6 @@ from enum import Enum
 
 # What class of damage this unit does.
 class DamageType(Enum):
-    MELEE = 0
-    RANGED = 1
+    NONE = 0
+    MELEE = 1
+    RANGED = 2

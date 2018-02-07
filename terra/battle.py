@@ -9,8 +9,8 @@ from terra.engine.gamescreen import GameScreen
 from terra.event import *
 from terra.keybindings import KB_DEBUG1, KB_DEBUG2
 from terra.map.map import Map, load_map_from_file
-from terra.piece.building.buildingtype import BuildingType
 from terra.piece.piecemanager import PieceManager
+from terra.piece.piecetype import PieceType
 from terra.team import Team
 from terra.ui.cursor import Cursor
 
@@ -21,13 +21,13 @@ class Battle(GameScreen):
     def __init__(self, mapname="key_range.map"):
         super().__init__()
 
-        bitmap, roster, buildings, teams = load_map_from_file(mapname)
+        bitmap, pieces, teams = load_map_from_file(mapname)
 
         self.mapname = mapname
         self.map = Map(bitmap)
         self.effects_manager = EffectsManager()
         self.team_manager = TeamManager(self, self.effects_manager, teams)
-        self.piece_manager = PieceManager(self, self.map, self.team_manager, roster, buildings)
+        self.piece_manager = PieceManager(self, self.map, self.team_manager, pieces)
 
         self.cursors = {}
         for team in self.team_manager.teams:
@@ -112,7 +112,7 @@ class Battle(GameScreen):
         bitmap = self.map.convert_bitmap_from_grid()
 
         # Ask the piece manager to serialize itself
-        units, buildings = self.piece_manager.serialize_pieces()
+        pieces = self.piece_manager.serialize_pieces()
 
         # Ask the team manager to serialize itself
         teams = self.team_manager.serialize_teams()
@@ -130,15 +130,10 @@ class Battle(GameScreen):
                 line += "\n"
                 lines += line
 
-            # Append units
-            lines += "# Units\n"
-            for unit in units:
-                lines += unit + "\n"
-
-            # Append buildings
-            lines += "# Buildings\n"
-            for building in buildings:
-                lines += building + "\n"
+            # Append pieces
+            lines += "# Pieces\n"
+            for piece in pieces:
+                lines += piece + "\n"
 
             # Append teams
             lines += "# Teams\n"
@@ -172,7 +167,7 @@ class Battle(GameScreen):
             for coordinate in event.invalid_coordinates:
                 self.effects_manager.create_effect(coordinate[0], coordinate[1], EffectType.ALERT)
         elif is_event_type(event, E_INVALID_BUILD_ORDERS):
-            base = self.piece_manager.get_all_pieces_for_team(event.team, BuildingType.BASE)[0]
+            base = self.piece_manager.get_all_pieces_for_team(event.team, piece_type=PieceType.BASE)[0]
             self.effects_manager.create_effect(base.gx, base.gy, EffectType.NO_MONEY)
         elif is_event_type(event, E_SAVE_GAME):
             self.save_game()

@@ -50,11 +50,7 @@ E_NEXT_PHASE = define_event()
 MENU_CANCEL_ORDER = define_event()
 MENU_MOVE = define_event()
 MENU_RANGED_ATTACK = define_event()
-MENU_BUILD_UNIT = define_event()
-MENU_BUILD_CARBON_GENERATOR = define_event()
-MENU_BUILD_MINERAL_GENERATOR = define_event()
-MENU_BUILD_GAS_GENERATOR = define_event()
-MENU_BUILD_BARRACKS = define_event()
+MENU_BUILD_PIECE = define_event()
 
 # Pause menu option events
 MENU_SUBMIT_TURN = define_event()

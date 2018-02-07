@@ -1,7 +1,6 @@
-from terra.event import *
-from terra.piece.unit.damagetype import DamageType
-from terra.piece.unit.piecedamage import piece_damage
-from terra.piece.unit.unittype import UnitType
+from terra.event import publish_game_event, E_PIECES_IN_CONFLICT
+from terra.piece.damagetype import DamageType
+from terra.piece.pieceattributes import Attribute, piece_attributes
 
 
 # Manager for rounds of melee direct conflict between two pieces.
@@ -12,27 +11,15 @@ class PieceConflict:
         self.piece1 = piece1
         self.piece2 = piece2
 
-    def get_piece_type(self, piece):
-        if hasattr(piece, 'unit_type'):
-            return piece.unit_type
-        elif hasattr(piece, 'building_type'):
-            return piece.building_type
-        else:
-            return None
-
-    # Get the attack rating for this unit
+    # Get the attack rating for this piece
     def get_attack_damage(self, piece1, piece2):
-        piece1_type = self.get_piece_type(piece1)
-        piece2_type = self.get_piece_type(piece2)
+        if piece1.damage_type == DamageType.MELEE:
+            attack = piece_attributes[piece1.team][piece1.piece_type][Attribute.ATTACK]
+            multiplier = piece_attributes[piece1.team][piece1.piece_type][Attribute.ATTACK_MULTIPLIER][piece2.piece_type]
 
-        if piece1_type in UnitType:
-            if piece1.damage_type == DamageType.MELEE:
-                return piece_damage[piece1.team][piece1_type][piece2_type]
-            else:
-                # Ranged units can't deal melee damage
-                return 0
+            return attack * multiplier
         else:
-            # Buildings deal no damage to their assailants
+            # This piece can't fight back in this conflict
             return 0
 
     # Conduct one round of combat

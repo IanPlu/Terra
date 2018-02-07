@@ -1,54 +1,38 @@
 from collections import Counter
 
-from terra.economy.resourcetypes import ResourceType
 from terra.engine.gameobject import GameObject
 from terra.event import *
-from terra.piece.building.barracks import Barracks
-from terra.piece.building.base import Base
-from terra.piece.building.buildingtype import BuildingType
-from terra.piece.building.generator import Generator
 from terra.piece.orders import MoveOrder, BuildOrder
+from terra.piece.piece import Piece
+from terra.piece.pieceattributes import Attribute, piece_attributes
 from terra.piece.piececonflict import PieceConflict
-from terra.piece.pieceprice import piece_prices
+from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
-from terra.piece.unit.colonist import Colonist
-from terra.piece.unit.ghost import Ghost
-from terra.piece.unit.piecedamage import piece_damage
-from terra.piece.unit.ranger import Ranger
-from terra.piece.unit.trooper import Trooper
-from terra.piece.unit.unittype import UnitType
 from terra.team import Team
 from terra.util.collectionutil import safe_get_from_list
 
 
-# Contains and manages all units and buildings from all teams
+# Contains and manages all pieces from all teams
 class PieceManager(GameObject):
-    def __init__(self, battle, game_map, team_manager, roster=None, buildings=None):
+    def __init__(self, battle, game_map, team_manager, pieces=None):
         super().__init__()
 
         self.battle = battle
         self.game_map = game_map
         self.team_manager = team_manager
 
-        # Hold the units and buildings located on this map
+        # Hold the pieces located on this map
         # Key pairs look like: (gx, gy): [unit1, unit2, building1...]
         self.pieces = {}
 
         # Generate units from the provided Roster, if any
-        if roster:
-            for unit in roster:
-                data = unit.split(' ')
+        if pieces:
+            for piece in pieces:
+                data = piece.split(' ')
                 hp = int(safe_get_from_list(data, 4)) if safe_get_from_list(data, 4) else None
-                self.generate_piece_from_type(int(data[0]), int(data[1]), Team[data[2]],
-                                              UnitType[data[3]], hp)
 
-        # Generate buildings from the provided buildings, if any
-        if buildings:
-            for building in buildings:
-                data = building.split(' ')
-                hp = int(safe_get_from_list(data, 4)) if safe_get_from_list(data, 4) else None
-                self.generate_piece_from_type(int(data[0]), int(data[1]), Team[data[2]],
-                                              BuildingType[data[3]], hp)
+                self.register_piece(Piece(PieceType[data[3]], self, self.team_manager, self.battle, self.game_map,
+                                          Team[data[2]], int(data[0]), int(data[1]), hp))
 
     # Return a list of piece(s) at the specified grid location
     # If piece type or team is provided, only return pieces of that type.
@@ -62,9 +46,9 @@ class PieceManager(GameObject):
             return pieces
 
     # Return the unit or building for the specified team (None if no piece for that team is present)
-    def get_piece_at(self, gx, gy, team, piece_type=None):
+    def get_piece_at(self, gx, gy, team, piece_subtype=None):
         for piece in self.get_pieces_at(gx, gy):
-            if piece.team == team and (not piece_type or piece.piece_type == piece_type):
+            if piece.team == team and (not piece_subtype or piece.piece_subtype == piece_subtype):
                 return piece
         return None
 
@@ -76,21 +60,29 @@ class PieceManager(GameObject):
                 pieces.append(piece)
         return pieces
 
-    # Return all units or buildings belonging to the specified team
-    def get_all_pieces_for_team(self, team, piece_type=None):
+    # Return all pieces belonging to the specified team. Supports filtering down to a specific type or subtype.
+    def get_all_pieces_for_team(self, team, piece_subtype=None, piece_type=None):
         all_pieces = []
         for coordinate, pieces in self.pieces.items():
             all_pieces.extend(pieces)
 
         # Filter
         all_pieces = [piece for piece in all_pieces if piece.team == team]
-        if piece_type:
+        if piece_subtype:
             filtered_pieces = []
+
             for piece in all_pieces:
-                if hasattr(piece, 'unit_type') and piece.unit_type == piece_type:
+                if piece.piece_subtype == piece_subtype:
                     filtered_pieces.append(piece)
-                elif hasattr(piece, 'building_type') and piece.building_type == piece_type:
+
+            return filtered_pieces
+        elif piece_type:
+            filtered_pieces = []
+
+            for piece in all_pieces:
+                if piece.piece_type == piece_type:
                     filtered_pieces.append(piece)
+
             return filtered_pieces
         else:
             return all_pieces
@@ -109,66 +101,32 @@ class PieceManager(GameObject):
             if len(self.pieces[(gx, gy)]) == 0:
                 del self.pieces[(gx, gy)]
 
-    def generate_piece_from_type(self, gx, gy, team, piece_type, hp=None):
-        if piece_type == UnitType.COLONIST:
-            self.register_piece(Colonist(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
-        elif piece_type == UnitType.TROOPER:
-            self.register_piece(Trooper(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
-        elif piece_type == UnitType.RANGER:
-            self.register_piece(Ranger(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
-        elif piece_type == UnitType.GHOST:
-            self.register_piece(Ghost(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
-        elif piece_type == BuildingType.BASE:
-            self.register_piece(Base(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
-        elif piece_type == BuildingType.CARBON_GENERATOR:
-            self.register_piece(Generator(self, self.team_manager, self.battle,
-                                          self.game_map, team, gx, gy, hp, ResourceType.CARBON))
-        elif piece_type == BuildingType.MINERAL_GENERATOR:
-            self.register_piece(Generator(self, self.team_manager, self.battle,
-                                          self.game_map, team, gx, gy, hp, ResourceType.MINERALS))
-        elif piece_type == BuildingType.GAS_GENERATOR:
-            self.register_piece(Generator(self, self.team_manager, self.battle,
-                                          self.game_map, team, gx, gy, hp, ResourceType.GAS))
-        elif piece_type == BuildingType.BARRACKS:
-            self.register_piece(Barracks(self, self.team_manager, self.battle, self.game_map, team, gx, gy, hp))
-
     # Move a unit on the game map
     def move_unit(self, gx, gy, team):
-        unit = self.get_piece_at(gx, gy, team, PieceType.UNIT)
+        unit = self.get_piece_at(gx, gy, team, PieceSubtype.UNIT)
         if unit:
             self.register_piece(unit)
             self.remove_piece(gx, gy, team)
 
     # Get lists of all units and buildings, regardless of position or team
     def __get_all_pieces__(self):
-        units = []
-        buildings = []
+        pieces = []
         for coordinate in self.pieces:
             for piece in self.pieces[coordinate]:
-                if piece.piece_type == PieceType.UNIT:
-                    units.append(piece)
-                elif piece.piece_type == PieceType.BUILDING:
-                    buildings.append(piece)
-        return units, buildings
+                pieces.append(piece)
+        return pieces
 
     # Return a list of string representations for all units and buildings, for saving the game state
     def serialize_pieces(self):
-        units, buildings = self.__get_all_pieces__()
+        pieces = self.__get_all_pieces__()
 
-        unit_strings = []
-        building_strings = []
-        for unit in units:
-            unit_strings.append("{} {} {} {} {}".format(unit.gx, unit.gy,
-                                                        unit.team.name,
-                                                        unit.unit_type.name,
-                                                        unit.hp))
-        for building in buildings:
-            building_strings.append("{} {} {} {} {}".format(building.gx, building.gy,
-                                                            building.team.name,
-                                                            building.building_type.name,
-                                                            building.hp))
-
-        return unit_strings, building_strings
+        piece_strings = []
+        for piece in pieces:
+            piece_strings.append("{} {} {} {} {}".format(piece.gx, piece.gy,
+                                                         piece.team.name,
+                                                         piece.piece_type.name,
+                                                         piece.hp))
+        return piece_strings
 
     # Return true if all movement and build orders for the provided team are valid
     # (no friendly units end up in the same tile)
@@ -186,7 +144,7 @@ class PieceManager(GameObject):
                     coordinates.append((piece.gx, piece.gy))
 
                     # Check that a team isn't spending more than they have
-                    spent_resources.append(piece_prices[piece.current_order.new_piece_type])
+                    spent_resources.append(piece_attributes[piece.team][piece.current_order.new_piece_type][Attribute.PRICE])
             else:
                 coordinates.append((piece.gx, piece.gy))
 
@@ -231,23 +189,18 @@ class PieceManager(GameObject):
         target_pieces = self.get_enemy_pieces_at(tx, ty, origin_team)
 
         for target in target_pieces:
-            if hasattr(target, 'unit_type'):
-                target_type = target.unit_type
-            elif hasattr(target, 'building_type'):
-                target_type = target.building_type
-            else:
-                target_type = None
+            target_type = target.piece_type
+            attack = piece_attributes[origin_team][origin_unit.piece_type][Attribute.ATTACK]
+            multiplier = piece_attributes[origin_team][origin_unit.piece_type][Attribute.ATTACK_MULTIPLIER][target_type]
 
-            target.hp -= piece_damage[origin_unit.team][origin_unit.unit_type][target_type]
+            target.hp -= attack * multiplier
 
     def step(self, event):
         super().step(event)
 
-        units, buildings = self.__get_all_pieces__()
-        for building in buildings:
-            building.step(event)
-        for unit in units:
-            unit.step(event)
+        pieces = self.__get_all_pieces__()
+        for piece in pieces:
+            piece.step(event)
 
         if is_event_type(event, E_UNIT_MOVED):
             self.move_unit(event.gx, event.gy, event.team)
@@ -256,7 +209,8 @@ class PieceManager(GameObject):
         elif is_event_type(event, E_PIECE_DEAD):
             self.remove_piece(event.gx, event.gy, event.team)
         elif is_event_type(event, E_PIECE_BUILT):
-            self.generate_piece_from_type(event.tx, event.ty, event.team, event.new_piece_type)
+            self.register_piece(Piece(event.new_piece_type, self, self.team_manager, self.battle, self.game_map,
+                                      event.team, event.tx, event.ty))
 
         if is_event_type(event, START_PHASE_EXECUTE_COMBAT):
             self.resolve_unit_combat()
@@ -264,8 +218,6 @@ class PieceManager(GameObject):
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
 
-        units, buildings = self.__get_all_pieces__()
-        for building in buildings:
-            building.render(game_screen, ui_screen)
-        for unit in units:
-            unit.render(game_screen, ui_screen)
+        pieces = self.__get_all_pieces__()
+        for piece in pieces:
+            piece.render(game_screen, ui_screen)

@@ -1,7 +1,16 @@
 from enum import Enum
 
 
-# What subclass of piece this piece is.
+# Possible piece types.
+# Values give that type an ID, as well as a subtype -- BUILDING or UNIT.
 class PieceType(Enum):
-    UNIT = 0
-    BUILDING = 1
+    COLONIST = 0
+    TROOPER = 1
+    RANGER = 2
+    GHOST = 3
+
+    BASE = 4
+    CARBON_GENERATOR = 5
+    MINERAL_GENERATOR = 6
+    GAS_GENERATOR = 7
+    BARRACKS = 8

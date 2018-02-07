@@ -62,7 +62,7 @@ class Cursor(GameObject):
         self.move_ui = None
 
     def open_build_ui(self, event):
-        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options, event.buildable_units)
+        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
 
     def step(self, event):
         super().step(event)

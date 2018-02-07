@@ -5,9 +5,9 @@ x Add saving games mid-combat
     x Save and load piece HP
 * Add a preview order key and a preview all key-- when pressed, display whatever the piece is going to do.
     Arrows to show movement, ghost pieces for building, etc.
-* Display prices in menus for building units and buildings
+x Display prices in menus for building units and buildings
     x Display prices for units
-    * Display prices for buildings (unify build orders for all pieces?)
+    x Display prices for buildings (unify build orders for all pieces?)
 * Add an intersitial screen when swapping active players for local coop, to hide moves
 * Improve the main menu
 x Add context menu to battle screen for submitting turn, saving, quitting to menu, etc
@@ -19,7 +19,8 @@ Engineering
 Bug fixes
 * Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
 * Fix popup menus scrolling off the top of the screen
-* Fix resources not being deducted for placing buildings
+x Fix resources not being deducted for placing buildings
+* Fix invalid order effects showing for all teams
 
 Gameplay
 * Build support for upgrades, enable purchasing them from the base

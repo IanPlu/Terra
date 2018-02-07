@@ -8,9 +8,8 @@ from terra.piece.piece import spr_order_flags
 from terra.resources.assets import spr_cursor, spr_textbox, spr_pieces, text_menu_option, text_piece_name, clear_color, \
     spr_resource_icon_carbon, spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons
 from terra.settings import SCREEN_SCALE
-from terra.team import Team
 from terra.util.drawingutil import draw_nine_slice_sprite, draw_resource_count
-from terra.piece.pieceattributes import Attribute, piece_attributes
+from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
 
 # Constants for rendering textboxes
@@ -20,11 +19,12 @@ option_height = 24
 
 # A menu popup containing multiple selectable menu options
 class MenuPopup(GameObject):
-    def __init__(self, cursor, tx=0, ty=0, team=Team.RED, options=None, centered=False):
+    def __init__(self, cursor, tx, ty, team, team_manager, options=None, centered=False):
         super().__init__()
 
         self.cursor = cursor
         self.team = team
+        self.team_manager = team_manager
 
         self.subgrid_width = 12
         self.subgrid_height = 3 * len(options)
@@ -129,7 +129,7 @@ class MenuPopup(GameObject):
 
                 resource_price = draw_resource_count([spr_resource_icon_carbon, spr_resource_icon_minerals,
                                                       spr_resource_icon_gas], spr_digit_icons, self.team,
-                                                     piece_attributes[self.team][option][Attribute.PRICE])
+                                                     self.team_manager.attr(self.team, option, Attribute.PRICE))
                 game_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 2,
                                                   self.y + row_y * option_height + subgrid_size))
 

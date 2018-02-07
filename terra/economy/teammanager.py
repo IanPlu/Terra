@@ -1,6 +1,9 @@
+from copy import deepcopy
+
 from terra.economy.resourcetypes import ResourceType
 from terra.engine.gameobject import GameObject
 from terra.event import *
+from terra.piece.pieceattributes import base_piece_attributes
 from terra.team import Team
 from terra.ui.phasebar import PhaseBar
 from terra.util.mathutil import clamp
@@ -20,6 +23,8 @@ class TeamManager(GameObject):
 
         self.resources = {}
         self.upgrades = {}
+        self.piece_attributes = {}
+
         self.phase_bars = {}
         self.turn_submitted = {}
 
@@ -38,6 +43,9 @@ class TeamManager(GameObject):
             self.resources[team][ResourceType.MINERALS] = int(data[2])
             self.resources[team][ResourceType.GAS] = int(data[3])
 
+            # Set the base values for piece attributes
+            self.piece_attributes[team] = deepcopy(base_piece_attributes)
+
     def __str__(self):
         return_string = ""
         for team in self.teams:
@@ -46,6 +54,10 @@ class TeamManager(GameObject):
                         self.resources[team][ResourceType.MINERALS],
                         self.resources[team][ResourceType.GAS])
         return return_string
+
+    # Query the piece attributes table for an up to date value for an attribute on a piece
+    def attr(self, team, piece_type, attribute):
+        return self.piece_attributes[team][piece_type][attribute]
 
     # Serialize team and resource counts for saving
     def serialize_teams(self):

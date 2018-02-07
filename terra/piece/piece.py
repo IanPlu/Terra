@@ -8,7 +8,7 @@ from terra.piece.damagetype import DamageType
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color
 from terra.team import Team
-from terra.piece.pieceattributes import Attribute, piece_attributes
+from terra.piece.pieceattributes import Attribute
 
 
 # Base object in play belonging to a player, like a unit or a building.
@@ -27,23 +27,13 @@ class Piece(GameObject):
 
         # Look up values based on our piece type
         self.piece_type = piece_type
-        self.piece_subtype = piece_attributes[team][piece_type][Attribute.SUBTYPE]
-        self.max_hp = piece_attributes[team][piece_type][Attribute.MAX_HP]
-        self.buildable_pieces = piece_attributes[team][piece_type][Attribute.BUILDABLE_PIECES]
-        self.attack = piece_attributes[team][piece_type][Attribute.ATTACK]
-        self.attack_multiplier = piece_attributes[team][piece_type][Attribute.ATTACK_MULTIPLIER]
-        self.damage_type = piece_attributes[team][piece_type][Attribute.DAMAGE_TYPE]
-        self.min_range = piece_attributes[team][piece_type][Attribute.MIN_RANGE]
-        self.max_range = piece_attributes[team][piece_type][Attribute.MAX_RANGE]
-        self.movement_type = piece_attributes[team][piece_type][Attribute.MOVEMENT_TYPE]
-        self.movement_range = piece_attributes[team][piece_type][Attribute.MOVEMENT_RANGE]
-        self.resource_production = piece_attributes[team][piece_type][Attribute.RESOURCE_PRODUCTION]
+        self.piece_subtype = self.team_manager.attr(self.team, self.piece_type, Attribute.SUBTYPE)
 
         # Interpreted variables. Don't touch!
         if hp:
             self.hp = hp
         else:
-            self.hp = self.max_hp
+            self.hp = self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
         self.current_order = None
         self.in_conflict = False
         self.tile_selection = None
@@ -59,9 +49,9 @@ class Piece(GameObject):
     def get_available_actions(self):
         actions = []
 
-        if self.movement_range > 0:
+        if self.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE) > 0:
             actions.append(MENU_MOVE)
-        if self.damage_type == DamageType.RANGED and not self.in_conflict:
+        if self.team_manager.attr(self.team, self.piece_type, Attribute.DAMAGE_TYPE) == DamageType.RANGED and not self.in_conflict:
             actions.append(MENU_RANGED_ATTACK)
         if len(self.get_valid_buildable_pieces()) and not self.in_conflict:
             actions.append(MENU_BUILD_PIECE)
@@ -75,8 +65,8 @@ class Piece(GameObject):
 
         # For each buildable piece, if there exists at least one valid adjacent tile for its movement type that we can
         # place it onto, add it to the list
-        for piece in self.buildable_pieces:
-            valid_tiles = passable_terrain_types[piece_attributes[self.team][piece][Attribute.MOVEMENT_TYPE]]
+        for piece in self.team_manager.attr(self.team, self.piece_type, Attribute.BUILDABLE_PIECES):
+            valid_tiles = passable_terrain_types[self.team_manager.attr(self.team, piece, Attribute.MOVEMENT_TYPE)]
             adjacent_tile_types = {
                 self.game_map.get_tile_type_at(self.gx + 1, self.gy),
                 self.game_map.get_tile_type_at(self.gx - 1, self.gy),
@@ -106,8 +96,8 @@ class Piece(GameObject):
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
         # Produce resources
-        if not self.resource_production == (0, 0, 0):
-            self.team_manager.add_resources(self.team, self.resource_production)
+        if not self.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION) == (0, 0, 0):
+            self.team_manager.add_resources(self.team, self.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION))
 
     def handle_phase_orders(self, event):
         pass
@@ -123,7 +113,8 @@ class Piece(GameObject):
             })
 
             # Deduct unit price
-            self.team_manager.deduct_resources(self.team, piece_attributes[self.team][self.current_order.new_piece_type][Attribute.PRICE])
+            self.team_manager.deduct_resources(self.team,
+                                               self.team_manager.attr(self.team, self.current_order.new_piece_type, Attribute.PRICE))
             # Pop orders once they're executed
             self.current_order = None
 
@@ -171,9 +162,9 @@ class Piece(GameObject):
                 'gx': self.gx,
                 'gy': self.gy,
                 'min_range': 1,
-                'max_range': self.movement_range,
+                'max_range': self.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE),
                 'game_map': self.game_map,
-                'movement_type': self.movement_type,
+                'movement_type': self.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_TYPE),
                 'team': self.team,
                 'piece_manager': self.piece_manager,
                 'option': event.option
@@ -182,8 +173,8 @@ class Piece(GameObject):
             publish_game_event(E_OPEN_TILE_SELECTION, {
                 'gx': self.gx,
                 'gy': self.gy,
-                'min_range': self.min_range,
-                'max_range': self.max_range,
+                'min_range': self.team_manager.attr(self.team, self.piece_type, Attribute.MIN_RANGE),
+                'max_range': self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_RANGE),
                 'game_map': self.game_map,
                 'movement_type': None,
                 'team': self.team,
@@ -206,7 +197,7 @@ class Piece(GameObject):
                 'min_range': 1,
                 'max_range': 1,
                 'game_map': self.game_map,
-                'movement_type': piece_attributes[self.team][event.option][Attribute.MOVEMENT_TYPE],
+                'movement_type': self.team_manager.attr(self.team, event.option, Attribute.MOVEMENT_TYPE),
                 'team': self.team,
                 'piece_manager': self.piece_manager,
                 'option': event.option
@@ -308,10 +299,10 @@ class Piece(GameObject):
                              (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Render HP flag
-        if 0 < self.hp < self.max_hp:
+        if 0 < self.hp < self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP):
             game_screen.fill(clear_color[self.team],
                              (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16, 8, 8))
-            game_screen.blit(spr_digit_icons[self.team][int(self.hp / self.max_hp * 10)],
+            game_screen.blit(spr_digit_icons[self.team][int(self.hp / self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP) * 10)],
                              (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Allow our tile selection UI to function if alive

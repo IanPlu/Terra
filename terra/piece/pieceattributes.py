@@ -1,9 +1,9 @@
-from terra.team import Team
-from terra.piece.piecetype import PieceType
-from terra.piece.piecesubtype import PieceSubtype
+from enum import Enum
+
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import MovementType
-from enum import Enum
+from terra.piece.piecesubtype import PieceSubtype
+from terra.piece.piecetype import PieceType
 
 
 # Attributes a piece has
@@ -275,12 +275,3 @@ base_piece_attributes = {
         Attribute.RESOURCE_PRODUCTION: (0, 0, 0)
     }
 }
-
-# Actual up to date attribute tables, specific to each team.
-# Upgrades can mutate these values over the course of the game.
-# TODO: Move this to the team manager
-piece_attributes = {}
-
-# Propagate base values to each team
-for team in Team:
-    piece_attributes[team] = base_piece_attributes

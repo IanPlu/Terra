@@ -7,7 +7,6 @@ from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_LEFT, KB_RIGHT, KB_CONFIRM, KB_CANCEL, KB_MENU
 from terra.resources.assets import spr_cursor
 from terra.settings import SCREEN_SCALE
-from terra.team import Team
 from terra.ui.menupopup import MenuPopup
 from terra.ui.tileselection import TileSelection
 from terra.util.mathutil import clamp
@@ -16,12 +15,13 @@ from terra.util.mathutil import clamp
 # Controllable cursor on the map.
 # Triggers selection events and allows the player to move around.
 class Cursor(GameObject):
-    def __init__(self, game_map, team=Team.RED, gx=0, gy=0):
+    def __init__(self, game_map, team, team_manager, gx=0, gy=0):
         super().__init__()
         self.game_map = game_map
         self.gx = gx
         self.gy = gy
         self.team = team
+        self.team_manager = team_manager
 
         self.menu = None
         self.move_ui = None
@@ -42,14 +42,14 @@ class Cursor(GameObject):
 
     # Creates a generic menu popup from the provided event.
     def open_menu(self, event):
-        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
+        self.menu = MenuPopup(self, event.gx, event.gy, event.team, self.team_manager, event.options)
 
     def close_menu(self):
         del self.menu
         self.menu = None
 
     def open_pause_menu(self):
-        self.menu = MenuPopup(self, self.gx, self.gy, self.team, [
+        self.menu = MenuPopup(self, self.gx, self.gy, self.team, self.team_manager, [
             MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE
         ], centered=True)
 
@@ -62,7 +62,7 @@ class Cursor(GameObject):
         self.move_ui = None
 
     def open_build_ui(self, event):
-        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
+        self.menu = MenuPopup(self, event.gx, event.gy, event.team, self.team_manager, event.options)
 
     def step(self, event):
         super().step(event)

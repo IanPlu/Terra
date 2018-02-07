@@ -21,7 +21,7 @@ class LevelEditor(GameScreen):
         bitmap, _, _, _ = load_map_from_file(mapname)
         self.map = Map(bitmap)
         self.mapname = mapname
-        self.cursor = Cursor(self.map)
+        self.cursor = Cursor(self.map, Team.RED, None, 0, 0)
         self.current_tile_type = TileType.GRASS
         self.secondary_tile_type = TileType.SEA
 

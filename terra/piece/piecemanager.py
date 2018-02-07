@@ -4,7 +4,7 @@ from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.piece.orders import MoveOrder, BuildOrder
 from terra.piece.piece import Piece
-from terra.piece.pieceattributes import Attribute, piece_attributes
+from terra.piece.pieceattributes import Attribute
 from terra.piece.piececonflict import PieceConflict
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
@@ -144,7 +144,7 @@ class PieceManager(GameObject):
                     coordinates.append((piece.gx, piece.gy))
 
                     # Check that a team isn't spending more than they have
-                    spent_resources.append(piece_attributes[piece.team][piece.current_order.new_piece_type][Attribute.PRICE])
+                    spent_resources.append(self.team_manager.attr(piece.team, piece.current_order.new_piece_type, Attribute.PRICE))
             else:
                 coordinates.append((piece.gx, piece.gy))
 
@@ -180,7 +180,7 @@ class PieceManager(GameObject):
         # Conflict resolution
         if len(conflicting_pieces) > 0:
             for piece_pair in conflicting_pieces:
-                conflict = PieceConflict(piece_pair[0], piece_pair[1])
+                conflict = PieceConflict(piece_pair[0], piece_pair[1], self.team_manager)
                 conflict.resolve()
 
     def ranged_attack(self, gx, gy, origin_team, tx, ty):
@@ -190,8 +190,8 @@ class PieceManager(GameObject):
 
         for target in target_pieces:
             target_type = target.piece_type
-            attack = piece_attributes[origin_team][origin_unit.piece_type][Attribute.ATTACK]
-            multiplier = piece_attributes[origin_team][origin_unit.piece_type][Attribute.ATTACK_MULTIPLIER][target_type]
+            attack = self.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK)
+            multiplier = self.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK_MULTIPLIER)[target_type]
 
             target.hp -= attack * multiplier
 

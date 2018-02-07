@@ -7,8 +7,10 @@ from terra.effects.effectsmanager import EffectsManager
 from terra.effects.effecttype import EffectType
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
-from terra.keybindings import KB_DEBUG1, KB_DEBUG2
+from terra.keybindings import KB_DEBUG1, KB_DEBUG2, KB_DEBUG3
 from terra.map.map import Map, load_map_from_file
+from terra.piece.movementtype import MovementType
+from terra.piece.pieceattributes import Attribute
 from terra.piece.piecemanager import PieceManager
 from terra.piece.piecetype import PieceType
 from terra.team import Team
@@ -31,7 +33,7 @@ class Battle(GameScreen):
 
         self.cursors = {}
         for team in self.team_manager.teams:
-            self.cursors[team] = Cursor(self.map, team)
+            self.cursors[team] = Cursor(self.map, team, self.team_manager)
 
         self.active_team = Team.RED
 
@@ -172,7 +174,12 @@ class Battle(GameScreen):
         elif is_event_type(event, E_SAVE_GAME):
             self.save_game()
         elif event.type == KEYDOWN:
-            if event.key in KB_DEBUG2:
+            if event.key in KB_DEBUG3:
+                print("Enabling barracks movement")
+
+                self.team_manager.piece_attributes[self.active_team][PieceType.BARRACKS][Attribute.MOVEMENT_TYPE] = MovementType.GROUND
+                self.team_manager.piece_attributes[self.active_team][PieceType.BARRACKS][Attribute.MOVEMENT_RANGE] = 1
+            elif event.key in KB_DEBUG2:
                 if self.active_team == Team.RED:
                     self.active_team = Team.BLUE
                 elif self.active_team == Team.BLUE:

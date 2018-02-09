@@ -87,6 +87,33 @@ class PieceManager(GameObject):
         else:
             return all_pieces
 
+    # Return all pieces not belonging to the specified team. Supports filtering down to a specific type or subtype.
+    def get_all_enemy_pieces(self, team, piece_subtype=None, piece_type=None):
+        all_pieces = []
+        for coordinate, pieces in self.pieces.items():
+            all_pieces.extend(pieces)
+
+        # Filter
+        all_pieces = [piece for piece in all_pieces if piece.team != team]
+        if piece_subtype:
+            filtered_pieces = []
+
+            for piece in all_pieces:
+                if piece.piece_subtype == piece_subtype:
+                    filtered_pieces.append(piece)
+
+            return filtered_pieces
+        elif piece_type:
+            filtered_pieces = []
+
+            for piece in all_pieces:
+                if piece.piece_type == piece_type:
+                    filtered_pieces.append(piece)
+
+            return filtered_pieces
+        else:
+            return all_pieces
+
     # Register a piece with the game map.
     def register_piece(self, piece):
         if not self.pieces.get((piece.gx, piece.gy)):
@@ -192,8 +219,9 @@ class PieceManager(GameObject):
             target_type = target.piece_type
             attack = self.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK)
             multiplier = self.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK_MULTIPLIER)[target_type]
+            defense_bonus = target.entrenchment
 
-            target.hp -= attack * multiplier
+            target.hp -= int(attack * multiplier * (1 - defense_bonus / 10))
 
     def step(self, event):
         super().step(event)

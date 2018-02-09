@@ -1,14 +1,16 @@
+from math import ceil
+
 from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event import *
+from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import passable_terrain_types
 from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder
-from terra.piece.damagetype import DamageType
-from terra.piece.piecetype import PieceType
-from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color
-from terra.team import Team
 from terra.piece.pieceattributes import Attribute
+from terra.piece.piecetype import PieceType
+from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color, text_piece_name
+from terra.team import Team
 
 
 # Base object in play belonging to a player, like a unit or a building.
@@ -37,10 +39,11 @@ class Piece(GameObject):
         self.current_order = None
         self.in_conflict = False
         self.tile_selection = None
+        self.entrenchment = 0
 
     def __str__(self):
         return "{} {} at tile ({}, {}) with {} HP" \
-            .format(self.team.name, self.__class__.__name__, self.gx, self.gy, self.hp)
+            .format(self.team.name, text_piece_name[self.piece_type], self.gx, self.gy, self.hp)
 
     def get_sprite(self):
         return spr_pieces[self.team][self.piece_type]
@@ -81,7 +84,7 @@ class Piece(GameObject):
 
     # Clean ourselves up at the end of phases, die as appropriate
     def cleanup(self):
-        if self.hp <= 0:
+        if self.hp < 5:
             publish_game_event(E_PIECE_DEAD, {
                 'gx': self.gx,
                 'gy': self.gy,
@@ -92,6 +95,10 @@ class Piece(GameObject):
     # Do anything special on death
     def on_death(self):
         pass
+
+    # Return true if this piece is contested by an enemy piece occupying the same tile
+    def is_contested(self):
+        return len(self.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
@@ -105,18 +112,29 @@ class Piece(GameObject):
     def handle_phase_build(self, event):
         # Execute build orders
         if isinstance(self.current_order, BuildOrder):
-            publish_game_event(E_PIECE_BUILT, {
-                'tx': self.current_order.tx,
-                'ty': self.current_order.ty,
-                'team': self.current_order.team,
-                'new_piece_type': self.current_order.new_piece_type
-            })
+            if self.is_contested():
+                # Can't build if there's an enemy piece here
+                publish_game_event(E_ORDER_CANCELED, {
+                    'gx': self.gx,
+                    'gy': self.gy,
+                    'team': self.team
+                })
 
-            # Deduct unit price
-            self.team_manager.deduct_resources(self.team,
-                                               self.team_manager.attr(self.team, self.current_order.new_piece_type, Attribute.PRICE))
-            # Pop orders once they're executed
-            self.current_order = None
+                # Abort the order
+                self.current_order = None
+            else:
+                publish_game_event(E_PIECE_BUILT, {
+                    'tx': self.current_order.tx,
+                    'ty': self.current_order.ty,
+                    'team': self.current_order.team,
+                    'new_piece_type': self.current_order.new_piece_type
+                })
+
+                # Deduct unit price
+                self.team_manager.deduct_resources(self.team,
+                                                   self.team_manager.attr(self.team, self.current_order.new_piece_type, Attribute.PRICE))
+                # Pop orders once they're executed
+                self.current_order = None
 
     def handle_phase_move(self, event):
         # Execute move orders
@@ -129,11 +147,22 @@ class Piece(GameObject):
                 'dy': self.current_order.dy
             })
 
+            # Apply entrenchment bonus based on distance moved
+            self.apply_entrenchment(abs(self.gx - self.current_order.dx) + abs(self.gy - self.current_order.dy))
+
             self.gx = self.current_order.dx
             self.gy = self.current_order.dy
 
             # Pop orders once they're executed
             self.current_order = None
+        else:
+            # Apply the full entrenchment bonus
+            self.apply_entrenchment(0)
+
+    # Apply an entrenchment bonus per unused movement range (up to 2)
+    def apply_entrenchment(self, distance):
+        self.entrenchment = min(self.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE), 2) - distance
+        pass
 
     def handle_phase_combat(self, event):
         pass
@@ -141,16 +170,27 @@ class Piece(GameObject):
     def handle_phase_ranged(self, event):
         # Execute ranged attack orders
         if isinstance(self.current_order, RangedAttackOrder):
-            publish_game_event(E_UNIT_RANGED_ATTACK, {
-                'gx': self.gx,
-                'gy': self.gy,
-                'team': self.team,
-                'tx': self.current_order.tx,
-                'ty': self.current_order.ty
-            })
+            if self.is_contested():
+                # Can't conduct a ranged attack if there's an enemy on our tile
+                publish_game_event(E_ORDER_CANCELED, {
+                    'gx': self.gx,
+                    'gy': self.gy,
+                    'team': self.team
+                })
 
-            # Pop orders once they're executed
-            self.current_order = None
+                # Abort the order
+                self.current_order = None
+            else:
+                publish_game_event(E_UNIT_RANGED_ATTACK, {
+                    'gx': self.gx,
+                    'gy': self.gy,
+                    'team': self.team,
+                    'tx': self.current_order.tx,
+                    'ty': self.current_order.ty
+                })
+
+                # Pop orders once they're executed
+                self.current_order = None
 
     def handle_phase_special(self, event):
         pass
@@ -233,18 +273,17 @@ class Piece(GameObject):
         self.in_conflict = self.battle.phase == BattlePhase.ORDERS and len(self.piece_manager.get_enemy_pieces_at(
             self.gx, self.gy, self.team)) > 0
 
-        # React to phase changes when we have an order
-        if self.current_order:
-            if is_event_type(event, START_PHASE_EXECUTE_BUILD):
-                self.handle_phase_build(event)
-            elif is_event_type(event, START_PHASE_EXECUTE_MOVE):
-                self.handle_phase_move(event)
-            elif is_event_type(event, START_PHASE_EXECUTE_COMBAT):
-                self.handle_phase_combat(event)
-            elif is_event_type(event, START_PHASE_EXECUTE_RANGED):
-                self.handle_phase_ranged(event)
-            elif is_event_type(event, START_PHASE_EXECUTE_SPECIAL):
-                self.handle_phase_special(event)
+        # React to phase changes
+        if is_event_type(event, START_PHASE_EXECUTE_BUILD):
+            self.handle_phase_build(event)
+        elif is_event_type(event, START_PHASE_EXECUTE_MOVE):
+            self.handle_phase_move(event)
+        elif is_event_type(event, START_PHASE_EXECUTE_COMBAT):
+            self.handle_phase_combat(event)
+        elif is_event_type(event, START_PHASE_EXECUTE_RANGED):
+            self.handle_phase_ranged(event)
+        elif is_event_type(event, START_PHASE_EXECUTE_SPECIAL):
+            self.handle_phase_special(event)
 
         # Handle start of orders phase, if necessary
         if is_event_type(event, START_PHASE_ORDERS):
@@ -299,10 +338,12 @@ class Piece(GameObject):
                              (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Render HP flag
-        if 0 < self.hp < self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP):
+        displayable_hp = int(ceil(self.hp / self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP) * 10))
+
+        if 0 < displayable_hp * 10 < self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP):
             game_screen.fill(clear_color[self.team],
                              (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16, 8, 8))
-            game_screen.blit(spr_digit_icons[self.team][int(self.hp / self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP) * 10)],
+            game_screen.blit(spr_digit_icons[self.team][displayable_hp],
                              (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Allow our tile selection UI to function if alive

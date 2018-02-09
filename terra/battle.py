@@ -165,6 +165,8 @@ class Battle(GameScreen):
             self.check_for_victory(event)
         elif is_event_type(event, E_PIECE_DEAD):
             self.effects_manager.create_effect(event.gx, event.gy, EffectType.PIECE_DESTROYED)
+        elif is_event_type(event, E_ORDER_CANCELED):
+            self.effects_manager.create_effect(event.gx, event.gy, EffectType.ORDER_BLOCKED)
         elif is_event_type(event, E_INVALID_MOVE_ORDERS):
             for coordinate in event.invalid_coordinates:
                 self.effects_manager.create_effect(coordinate[0], coordinate[1], EffectType.ALERT)

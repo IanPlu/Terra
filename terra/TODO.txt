@@ -26,6 +26,8 @@ Gameplay
 * Build support for upgrades, enable purchasing them from the base
     * Double check whether I'm using piece prices or the team-specific piece prices, etc.
 * Add additional tiers for units
+x Modify GHOST movement type to be unable to stop on the same tile as enemy buildings
+* Decide where the BUILD phase should slot into the order. Currently impossible to interrupt production
 
 Huge goals
 * Network play refactor & support

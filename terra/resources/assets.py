@@ -121,7 +121,9 @@ spr_effects = {
     EffectType.PIECE_DESTROYED: get_sprites_from_strip(
         pygame.image.load("resources/sprites/effects/FX_Piece_Destroyed.png"), 24),
     EffectType.NO_MONEY: get_sprites_from_strip(
-        pygame.image.load("resources/sprites/effects/FX_No_Money.png"), 24)
+        pygame.image.load("resources/sprites/effects/FX_No_Money.png"), 24),
+    EffectType.ORDER_BLOCKED: get_sprites_from_strip(
+        pygame.image.load("resources/sprites/effects/FX_Order_Blocked.png"), 24)
 }
 
 

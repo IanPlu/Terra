@@ -35,6 +35,7 @@ E_BASE_DESTROYED = define_event()
 E_PIECE_BUILT = define_event()
 E_INVALID_MOVE_ORDERS = define_event()
 E_INVALID_BUILD_ORDERS = define_event()
+E_ORDER_CANCELED = define_event()
 
 # Phase events
 START_PHASE_START_TURN = define_event()

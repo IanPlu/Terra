@@ -30,7 +30,7 @@ base_piece_attributes = {
         # Basic worker unit.
         # Colonists have limited combat capabilities and are mainly for building and gathering resources.
         Attribute.SUBTYPE: PieceSubtype.UNIT,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [
             PieceType.BARRACKS,
             PieceType.CARBON_GENERATOR,
@@ -63,21 +63,21 @@ base_piece_attributes = {
         # General purpose close-range combat units.
         # Troopers excel at destroying buildings and Ghost units, and are good at forming a front line.
         Attribute.SUBTYPE: PieceSubtype.UNIT,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
-        Attribute.ATTACK: 1,
+        Attribute.ATTACK: 30,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
             PieceType.COLONIST: 1,
             PieceType.TROOPER: 1,
             PieceType.RANGER: 1,
-            PieceType.GHOST: 2,
+            PieceType.GHOST: 1.5,
             # Buildings
-            PieceType.BASE: 2,
-            PieceType.CARBON_GENERATOR: 2,
-            PieceType.MINERAL_GENERATOR: 2,
-            PieceType.GAS_GENERATOR: 2,
-            PieceType.BARRACKS: 2,
+            PieceType.BASE: 1,
+            PieceType.CARBON_GENERATOR: 1.5,
+            PieceType.MINERAL_GENERATOR: 1.5,
+            PieceType.GAS_GENERATOR: 1.5,
+            PieceType.BARRACKS: 1.5,
         },
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
         Attribute.MIN_RANGE: 0,
@@ -90,16 +90,17 @@ base_piece_attributes = {
     PieceType.RANGER: {
         # Light units capable of a short ranged attack. They have no combat strength in melee.
         # Rangers are strong against Troopers and are able to focus down targets when in large numbers.
+        # Rangers notably do very little damage to Ghosts.
         Attribute.SUBTYPE: PieceSubtype.UNIT,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
-        Attribute.ATTACK: 1,
+        Attribute.ATTACK: 30,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
             PieceType.COLONIST: 1,
-            PieceType.TROOPER: 2,
+            PieceType.TROOPER: 1.5,
             PieceType.RANGER: 1,
-            PieceType.GHOST: 1,
+            PieceType.GHOST: 0.5,
             # Buildings
             PieceType.BASE: 1,
             PieceType.CARBON_GENERATOR: 1,
@@ -118,27 +119,28 @@ base_piece_attributes = {
     PieceType.GHOST: {
         # Basic harassment and mobility unit.
         # Strong against ranged units and colonists. They are not impeded by enemy units when moving.
+        # Ghosts cannot attack enemy buildings-- they are strictly unit assassins.
         Attribute.SUBTYPE: PieceSubtype.UNIT,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
-        Attribute.ATTACK: 1,
+        Attribute.ATTACK: 30,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
-            PieceType.COLONIST: 2,
-            PieceType.TROOPER: 1,
-            PieceType.RANGER: 2,
+            PieceType.COLONIST: 1.5,
+            PieceType.TROOPER: 0.5,
+            PieceType.RANGER: 1.5,
             PieceType.GHOST: 1,
             # Buildings
-            PieceType.BASE: 1,
-            PieceType.CARBON_GENERATOR: 1,
-            PieceType.MINERAL_GENERATOR: 1,
-            PieceType.GAS_GENERATOR: 1,
-            PieceType.BARRACKS: 1,
+            PieceType.BASE: 0,
+            PieceType.CARBON_GENERATOR: 0,
+            PieceType.MINERAL_GENERATOR: 0,
+            PieceType.GAS_GENERATOR: 0,
+            PieceType.BARRACKS: 0,
         },
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
-        Attribute.MOVEMENT_TYPE: MovementType.GROUND,
+        Attribute.MOVEMENT_TYPE: MovementType.GHOST,
         Attribute.MOVEMENT_RANGE: 3,
         Attribute.PRICE: (10, 10, 10),
         Attribute.RESOURCE_PRODUCTION: (0, 0, 0)
@@ -146,14 +148,14 @@ base_piece_attributes = {
     # Buildings
     PieceType.BASE: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [PieceType.COLONIST],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
             PieceType.COLONIST: 1,
             PieceType.TROOPER: 1,
-            PieceType.RANGER: 2,
+            PieceType.RANGER: 1,
             PieceType.GHOST: 1,
             # Buildings
             PieceType.BASE: 1,
@@ -172,14 +174,14 @@ base_piece_attributes = {
     },
     PieceType.CARBON_GENERATOR: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
             PieceType.COLONIST: 1,
             PieceType.TROOPER: 1,
-            PieceType.RANGER: 2,
+            PieceType.RANGER: 1,
             PieceType.GHOST: 1,
             # Buildings
             PieceType.BASE: 1,
@@ -198,14 +200,14 @@ base_piece_attributes = {
     },
     PieceType.MINERAL_GENERATOR: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
             PieceType.COLONIST: 1,
             PieceType.TROOPER: 1,
-            PieceType.RANGER: 2,
+            PieceType.RANGER: 1,
             PieceType.GHOST: 1,
             # Buildings
             PieceType.BASE: 1,
@@ -224,14 +226,14 @@ base_piece_attributes = {
     },
     PieceType.GAS_GENERATOR: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
             PieceType.COLONIST: 1,
             PieceType.TROOPER: 1,
-            PieceType.RANGER: 2,
+            PieceType.RANGER: 1,
             PieceType.GHOST: 1,
             # Buildings
             PieceType.BASE: 1,
@@ -250,14 +252,14 @@ base_piece_attributes = {
     },
     PieceType.BARRACKS: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
-        Attribute.MAX_HP: 10,
+        Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [PieceType.TROOPER, PieceType.RANGER, PieceType.GHOST],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
             PieceType.COLONIST: 1,
             PieceType.TROOPER: 1,
-            PieceType.RANGER: 2,
+            PieceType.RANGER: 1,
             PieceType.GHOST: 1,
             # Buildings
             PieceType.BASE: 1,

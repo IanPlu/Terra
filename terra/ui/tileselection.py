@@ -45,6 +45,11 @@ class TileSelection(GameObject):
             for building in self.piece_manager.get_all_pieces_for_team(self.team, PieceSubtype.BUILDING):
                 excluded_coordinates.add((building.gx, building.gy))
 
+            # Ghosts cannot occupy the same space as enemy buildings
+            if self.movement_type is MovementType.GHOST:
+                for building in self.piece_manager.get_all_enemy_pieces(self.team, PieceSubtype.BUILDING):
+                    excluded_coordinates.add((building.gx, building.gy))
+
         return excluded_coordinates
 
     # Generate a list of the coordinates of all tiles available to select
@@ -68,8 +73,8 @@ class TileSelection(GameObject):
                 if remaining_range > max_range + 1 - min_range:
                     excluded_coordinates.add((gx, gy))
 
-                # If there's an enemy unit on this tile, we can move onto it, but no further
-                if not first_move and movement_type and team and movement_type is not MovementType.GHOST and \
+                # If there's an enemy unit on this tile, we can move onto it, but no further (unless we're a GHOST)
+                elif not first_move and movement_type and team and movement_type is not MovementType.GHOST and \
                         len(piece_manager.get_enemy_pieces_at(gx, gy, team)) > 0:
                     return
 

@@ -1,22 +1,22 @@
 from terra.event import publish_game_event, E_PIECES_IN_CONFLICT
 from terra.piece.damagetype import DamageType
 from terra.piece.pieceattributes import Attribute
+from terra.managers.managers import Managers
 
 
 # Manager for rounds of melee direct conflict between two pieces.
 class PieceConflict:
-    def __init__(self, piece1, piece2, team_manager):
+    def __init__(self, piece1, piece2):
         super().__init__()
 
         self.piece1 = piece1
         self.piece2 = piece2
-        self.team_manager = team_manager
 
     # Get the attack rating for this piece.
     def get_attack_damage(self, piece1, piece2):
-        if self.team_manager.attr(piece1.team, piece1.piece_type, Attribute.DAMAGE_TYPE) == DamageType.MELEE:
-            attack = self.team_manager.attr(piece1.team, piece1.piece_type, Attribute.ATTACK)
-            multiplier = self.team_manager.attr(piece1.team, piece1.piece_type, Attribute.ATTACK_MULTIPLIER)[piece2.piece_type]
+        if Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.DAMAGE_TYPE) == DamageType.MELEE:
+            attack = Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.ATTACK)
+            multiplier = Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.ATTACK_MULTIPLIER)[piece2.piece_type]
 
             return attack * multiplier
         else:

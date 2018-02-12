@@ -8,7 +8,7 @@ from terra.piece.movementtype import passable_terrain_types
 
 
 # A single map containing tiles, organized into a grid.
-class Map(GameObject):
+class MapManager(GameObject):
     def __init__(self, bitmap=None, width=10, height=10):
         super().__init__()
 

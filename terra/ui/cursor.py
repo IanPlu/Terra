@@ -5,6 +5,7 @@ from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_LEFT, KB_RIGHT, KB_CONFIRM, KB_CANCEL, KB_MENU
+from terra.managers.managers import Managers
 from terra.resources.assets import spr_cursor
 from terra.settings import SCREEN_SCALE
 from terra.ui.menupopup import MenuPopup
@@ -15,13 +16,11 @@ from terra.util.mathutil import clamp
 # Controllable cursor on the map.
 # Triggers selection events and allows the player to move around.
 class Cursor(GameObject):
-    def __init__(self, game_map, team, team_manager, gx=0, gy=0):
+    def __init__(self, team, gx=0, gy=0):
         super().__init__()
-        self.game_map = game_map
         self.gx = gx
         self.gy = gy
         self.team = team
-        self.team_manager = team_manager
 
         self.menu = None
         self.move_ui = None
@@ -42,27 +41,27 @@ class Cursor(GameObject):
 
     # Creates a generic menu popup from the provided event.
     def open_menu(self, event):
-        self.menu = MenuPopup(self, event.gx, event.gy, event.team, self.team_manager, event.options)
+        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
 
     def close_menu(self):
         del self.menu
         self.menu = None
 
     def open_pause_menu(self):
-        self.menu = MenuPopup(self, self.gx, self.gy, self.team, self.team_manager, [
+        self.menu = MenuPopup(self, self.gx, self.gy, self.team, [
             MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE
         ], centered=True)
 
     def open_move_ui(self, event):
         self.move_ui = TileSelection(event.gx, event.gy, event.min_range, event.max_range,
-                                     event.game_map, event.movement_type, event.team, event.piece_manager, event.option)
+                                     event.movement_type, event.team, event.option)
 
     def close_move_ui(self):
         del self.move_ui
         self.move_ui = None
 
     def open_build_ui(self, event):
-        self.menu = MenuPopup(self, event.gx, event.gy, event.team, self.team_manager, event.options)
+        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
 
     def step(self, event):
         super().step(event)
@@ -91,11 +90,11 @@ class Cursor(GameObject):
                 # Cursor movement
                 if event.key in KB_UP and self.gy > 0:
                     self.gy -= 1
-                elif event.key in KB_DOWN and self.gy < self.game_map.height - 1:
+                elif event.key in KB_DOWN and self.gy < Managers.battle_map.height - 1:
                     self.gy += 1
                 if event.key in KB_LEFT and self.gx > 0:
                     self.gx -= 1
-                elif event.key in KB_RIGHT and self.gx < self.game_map.width - 1:
+                elif event.key in KB_RIGHT and self.gx < Managers.battle_map.width - 1:
                     self.gx += 1
 
                 # Unit selection
@@ -120,8 +119,8 @@ class Cursor(GameObject):
                     self.cancel()
 
         # Clamp gx and gy, and scroll camera as appropriate
-        self.gx = clamp(self.gx, 0, self.game_map.width - 1)
-        self.gy = clamp(self.gy, 0, self.game_map.height - 2)
+        self.gx = clamp(self.gx, 0, Managers.battle_map.width - 1)
+        self.gy = clamp(self.gy, 0, Managers.battle_map.height - 2)
 
         self.scroll_camera()
 
@@ -142,8 +141,8 @@ class Cursor(GameObject):
         if self.gy <= camera_min_gy + screen_buffer:
             self.camera_y -= GRID_HEIGHT
 
-        self.camera_x = clamp(self.camera_x, 0, self.game_map.width * GRID_WIDTH - RESOLUTION_WIDTH)
-        self.camera_y = clamp(self.camera_y, 0, self.game_map.height * GRID_HEIGHT - RESOLUTION_HEIGHT)
+        self.camera_x = clamp(self.camera_x, 0, Managers.battle_map.width * GRID_WIDTH - RESOLUTION_WIDTH)
+        self.camera_y = clamp(self.camera_y, 0, Managers.battle_map.height * GRID_HEIGHT - RESOLUTION_HEIGHT)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

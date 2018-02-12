@@ -4,6 +4,7 @@ from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event import *
+from terra.managers.managers import Managers
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import passable_terrain_types
 from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder
@@ -17,25 +18,21 @@ from terra.team import Team
 # They belong to a team and exist somewhere on the map.
 # Pieces have HP and can accept and execute orders.
 class Piece(GameObject):
-    def __init__(self, piece_type, piece_manager, team_manager, battle, game_map, team=Team.RED, gx=0, gy=0, hp=None):
+    def __init__(self, piece_type=PieceType.COLONIST, team=Team.RED, gx=0, gy=0, hp=None):
         super().__init__()
-        self.battle = battle
-        self.game_map = game_map
-        self.team_manager = team_manager
-        self.piece_manager = piece_manager
         self.team = team
         self.gx = gx
         self.gy = gy
 
         # Look up values based on our piece type
         self.piece_type = piece_type
-        self.piece_subtype = self.team_manager.attr(self.team, self.piece_type, Attribute.SUBTYPE)
+        self.piece_subtype = Managers.team_manager.attr(self.team, self.piece_type, Attribute.SUBTYPE)
 
         # Interpreted variables. Don't touch!
         if hp:
             self.hp = hp
         else:
-            self.hp = self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
+            self.hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
         self.current_order = None
         self.in_conflict = False
         self.tile_selection = None
@@ -52,9 +49,9 @@ class Piece(GameObject):
     def get_available_actions(self):
         actions = []
 
-        if self.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE) > 0:
+        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE) > 0:
             actions.append(MENU_MOVE)
-        if self.team_manager.attr(self.team, self.piece_type, Attribute.DAMAGE_TYPE) == DamageType.RANGED and not self.in_conflict:
+        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.DAMAGE_TYPE) == DamageType.RANGED and not self.in_conflict:
             actions.append(MENU_RANGED_ATTACK)
         if len(self.get_valid_buildable_pieces()) and not self.in_conflict:
             actions.append(MENU_BUILD_PIECE)
@@ -68,13 +65,13 @@ class Piece(GameObject):
 
         # For each buildable piece, if there exists at least one valid adjacent tile for its movement type that we can
         # place it onto, add it to the list
-        for piece in self.team_manager.attr(self.team, self.piece_type, Attribute.BUILDABLE_PIECES):
-            valid_tiles = passable_terrain_types[self.team_manager.attr(self.team, piece, Attribute.MOVEMENT_TYPE)]
+        for piece in Managers.team_manager.attr(self.team, self.piece_type, Attribute.BUILDABLE_PIECES):
+            valid_tiles = passable_terrain_types[Managers.team_manager.attr(self.team, piece, Attribute.MOVEMENT_TYPE)]
             adjacent_tile_types = {
-                self.game_map.get_tile_type_at(self.gx + 1, self.gy),
-                self.game_map.get_tile_type_at(self.gx - 1, self.gy),
-                self.game_map.get_tile_type_at(self.gx, self.gy + 1),
-                self.game_map.get_tile_type_at(self.gx, self.gy - 1),
+                Managers.battle_map.get_tile_type_at(self.gx + 1, self.gy),
+                Managers.battle_map.get_tile_type_at(self.gx - 1, self.gy),
+                Managers.battle_map.get_tile_type_at(self.gx, self.gy + 1),
+                Managers.battle_map.get_tile_type_at(self.gx, self.gy - 1),
             }
 
             if not adjacent_tile_types.isdisjoint(valid_tiles):
@@ -98,13 +95,14 @@ class Piece(GameObject):
 
     # Return true if this piece is contested by an enemy piece occupying the same tile
     def is_contested(self):
-        return len(self.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
+        return len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
         # Produce resources
-        if not self.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION) == (0, 0, 0):
-            self.team_manager.add_resources(self.team, self.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION))
+        if not Managers.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION) == (0, 0, 0):
+            Managers.team_manager.add_resources(self.team, Managers.team_manager.attr(
+                self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION))
 
     def handle_phase_orders(self, event):
         pass
@@ -131,8 +129,8 @@ class Piece(GameObject):
                 })
 
                 # Deduct unit price
-                self.team_manager.deduct_resources(self.team,
-                                                   self.team_manager.attr(self.team, self.current_order.new_piece_type, Attribute.PRICE))
+                Managers.team_manager.deduct_resources(
+                    self.team, Managers.team_manager.attr(self.team, self.current_order.new_piece_type, Attribute.PRICE))
                 # Pop orders once they're executed
                 self.current_order = None
 
@@ -161,7 +159,7 @@ class Piece(GameObject):
 
     # Apply an entrenchment bonus per unused movement range (up to 2)
     def apply_entrenchment(self, distance):
-        self.entrenchment = min(self.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE), 2) - distance
+        self.entrenchment = min(Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE), 2) - distance
         pass
 
     def handle_phase_combat(self, event):
@@ -202,23 +200,19 @@ class Piece(GameObject):
                 'gx': self.gx,
                 'gy': self.gy,
                 'min_range': 1,
-                'max_range': self.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE),
-                'game_map': self.game_map,
-                'movement_type': self.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_TYPE),
+                'max_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE),
+                'movement_type': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_TYPE),
                 'team': self.team,
-                'piece_manager': self.piece_manager,
                 'option': event.option
             })
         elif event.option == MENU_RANGED_ATTACK:
             publish_game_event(E_OPEN_TILE_SELECTION, {
                 'gx': self.gx,
                 'gy': self.gy,
-                'min_range': self.team_manager.attr(self.team, self.piece_type, Attribute.MIN_RANGE),
-                'max_range': self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_RANGE),
-                'game_map': self.game_map,
+                'min_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MIN_RANGE),
+                'max_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_RANGE),
                 'movement_type': None,
                 'team': self.team,
-                'piece_manager': self.piece_manager,
                 'option': event.option
             })
         elif event.option == MENU_BUILD_PIECE:
@@ -236,10 +230,8 @@ class Piece(GameObject):
                 'gy': self.gy,
                 'min_range': 1,
                 'max_range': 1,
-                'game_map': self.game_map,
-                'movement_type': self.team_manager.attr(self.team, event.option, Attribute.MOVEMENT_TYPE),
+                'movement_type': Managers.team_manager.attr(self.team, event.option, Attribute.MOVEMENT_TYPE),
                 'team': self.team,
-                'piece_manager': self.piece_manager,
                 'option': event.option
             })
         else:
@@ -270,8 +262,8 @@ class Piece(GameObject):
             self.tile_selection.step(event)
 
         # Check if we're in conflict
-        self.in_conflict = self.battle.phase == BattlePhase.ORDERS and len(self.piece_manager.get_enemy_pieces_at(
-            self.gx, self.gy, self.team)) > 0
+        self.in_conflict = Managers.turn_manager.phase == BattlePhase.ORDERS and \
+                           len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
 
         # React to phase changes
         if is_event_type(event, START_PHASE_EXECUTE_BUILD):
@@ -333,14 +325,14 @@ class Piece(GameObject):
                          (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
         # Render order flag
-        if self.current_order and self.battle.active_team == self.team:
+        if self.current_order and Managers.player_manager.active_team == self.team:
             game_screen.blit(spr_order_flags[self.current_order.name],
                              (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Render HP flag
-        displayable_hp = int(ceil(self.hp / self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP) * 10))
+        displayable_hp = int(ceil(self.hp / Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP) * 10))
 
-        if 0 < displayable_hp * 10 < self.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP):
+        if 0 < displayable_hp * 10 < Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP):
             game_screen.fill(clear_color[self.team],
                              (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16, 8, 8))
             game_screen.blit(spr_digit_icons[self.team][displayable_hp],

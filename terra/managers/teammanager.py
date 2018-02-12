@@ -7,6 +7,7 @@ from terra.piece.pieceattributes import base_piece_attributes
 from terra.team import Team
 from terra.ui.phasebar import PhaseBar
 from terra.util.mathutil import clamp
+from terra.managers.managers import Managers
 
 # Max number of any given resource a player can hold.
 MAX_RESOURCES = 1000
@@ -14,12 +15,10 @@ MAX_RESOURCES = 1000
 
 # Contains and manages all resources and upgrades for all teams
 class TeamManager(GameObject):
-    def __init__(self, battle, effects_manager, teams):
+    def __init__(self, teams):
         super().__init__()
 
-        self.battle = battle
         self.teams = []
-        self.effects_manager = effects_manager
 
         self.resources = {}
         self.upgrades = {}
@@ -37,7 +36,7 @@ class TeamManager(GameObject):
 
             self.turn_submitted[team] = False
             self.upgrades[team] = []
-            self.phase_bars[team] = PhaseBar(team, self, self.battle, self.effects_manager)
+            self.phase_bars[team] = PhaseBar(team)
             self.resources[team] = {}
             self.resources[team][ResourceType.CARBON] = int(data[1])
             self.resources[team][ResourceType.MINERALS] = int(data[2])
@@ -139,4 +138,4 @@ class TeamManager(GameObject):
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
-        self.phase_bars[self.battle.active_team].render(game_screen, ui_screen)
+        self.phase_bars[Managers.player_manager.active_team].render(game_screen, ui_screen)

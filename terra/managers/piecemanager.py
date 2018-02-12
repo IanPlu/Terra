@@ -2,6 +2,7 @@ from collections import Counter
 
 from terra.engine.gameobject import GameObject
 from terra.event import *
+from terra.managers.managers import Managers
 from terra.piece.orders import MoveOrder, BuildOrder
 from terra.piece.piece import Piece
 from terra.piece.pieceattributes import Attribute
@@ -14,12 +15,8 @@ from terra.util.collectionutil import safe_get_from_list
 
 # Contains and manages all pieces from all teams
 class PieceManager(GameObject):
-    def __init__(self, battle, game_map, team_manager, pieces=None):
+    def __init__(self, pieces=None):
         super().__init__()
-
-        self.battle = battle
-        self.game_map = game_map
-        self.team_manager = team_manager
 
         # Hold the pieces located on this map
         # Key pairs look like: (gx, gy): [unit1, unit2, building1...]
@@ -31,8 +28,7 @@ class PieceManager(GameObject):
                 data = piece.split(' ')
                 hp = int(safe_get_from_list(data, 4)) if safe_get_from_list(data, 4) else None
 
-                self.register_piece(Piece(PieceType[data[3]], self, self.team_manager, self.battle, self.game_map,
-                                          Team[data[2]], int(data[0]), int(data[1]), hp))
+                self.register_piece(Piece(PieceType[data[3]], Team[data[2]], int(data[0]), int(data[1]), hp))
 
     # Return a list of piece(s) at the specified grid location
     # If piece type or team is provided, only return pieces of that type.
@@ -171,13 +167,13 @@ class PieceManager(GameObject):
                     coordinates.append((piece.gx, piece.gy))
 
                     # Check that a team isn't spending more than they have
-                    spent_resources.append(self.team_manager.attr(piece.team, piece.current_order.new_piece_type, Attribute.PRICE))
+                    spent_resources.append(Managers.team_manager.attr(piece.team, piece.current_order.new_piece_type, Attribute.PRICE))
             else:
                 coordinates.append((piece.gx, piece.gy))
 
         # Move orders are valid if all the coordinates are unique-- no duplicates are removed
         move_orders_valid = len(coordinates) == len(set(coordinates))
-        build_orders_valid = self.team_manager.can_spend_resources(team, spent_resources)
+        build_orders_valid = Managers.team_manager.can_spend_resources(team, spent_resources)
 
         # Publish events containing the invalid orders, if any
         if not move_orders_valid:
@@ -207,7 +203,7 @@ class PieceManager(GameObject):
         # Conflict resolution
         if len(conflicting_pieces) > 0:
             for piece_pair in conflicting_pieces:
-                conflict = PieceConflict(piece_pair[0], piece_pair[1], self.team_manager)
+                conflict = PieceConflict(piece_pair[0], piece_pair[1])
                 conflict.resolve()
 
     def ranged_attack(self, gx, gy, origin_team, tx, ty):
@@ -217,8 +213,8 @@ class PieceManager(GameObject):
 
         for target in target_pieces:
             target_type = target.piece_type
-            attack = self.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK)
-            multiplier = self.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK_MULTIPLIER)[target_type]
+            attack = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK)
+            multiplier = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK_MULTIPLIER)[target_type]
             defense_bonus = target.entrenchment
 
             target.hp -= int(attack * multiplier * (1 - defense_bonus / 10))
@@ -237,8 +233,7 @@ class PieceManager(GameObject):
         elif is_event_type(event, E_PIECE_DEAD):
             self.remove_piece(event.gx, event.gy, event.team)
         elif is_event_type(event, E_PIECE_BUILT):
-            self.register_piece(Piece(event.new_piece_type, self, self.team_manager, self.battle, self.game_map,
-                                      event.team, event.tx, event.ty))
+            self.register_piece(Piece(event.new_piece_type, event.team, event.tx, event.ty))
 
         if is_event_type(event, START_PHASE_EXECUTE_COMBAT):
             self.resolve_unit_combat()

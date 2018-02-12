@@ -4,6 +4,7 @@ from terra.economy.resourcetypes import ResourceType
 from terra.effects.effecttype import EffectType
 from terra.engine.gameobject import GameObject
 from terra.event import *
+from terra.managers.managers import Managers
 from terra.resources.assets import clear_color, phase_text, spr_cursor, spr_phase_indicator, \
     spr_resource_icon_carbon, spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons, \
     text_notifications, spr_turn_submitted_indicator, spr_turn_not_submitted_indicator
@@ -13,14 +14,10 @@ from terra.util.drawingutil import draw_resource_count
 
 # Renders a UI at the bottom of the screen
 class PhaseBar(GameObject):
-    def __init__(self, team, team_manager, battle, effects_manager):
+    def __init__(self, team):
         super().__init__()
 
         self.team = team
-        self.team_manager = team_manager
-        self.effects_manager = effects_manager
-        self.battle = battle
-
         self.toast = None
 
     def remove_toast_notification(self):
@@ -49,25 +46,25 @@ class PhaseBar(GameObject):
         x = 0
         for x in range(len(spr_phase_indicator[self.team])):
             ui_screen.blit(spr_phase_indicator[self.team][x], (x * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
-        ui_screen.blit(spr_cursor[self.team], (self.battle.phase.value * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
+        ui_screen.blit(spr_cursor[self.team], (Managers.turn_manager.phase.value * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Render phase indicator text
         x += 1
-        ui_screen.blit(phase_text[self.team][self.battle.phase],
+        ui_screen.blit(phase_text[self.team][Managers.turn_manager.phase],
                        (4 + GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT + 6))
 
         # Render resource counts
         x += 3
         resource_counts = draw_resource_count([spr_resource_icon_carbon, spr_resource_icon_minerals,
                                                spr_resource_icon_gas], spr_digit_icons, self.team,
-                                              [self.team_manager.resources[self.team][ResourceType.CARBON],
-                                               self.team_manager.resources[self.team][ResourceType.MINERALS],
-                                               self.team_manager.resources[self.team][ResourceType.GAS]])
+                                              [Managers.team_manager.resources[self.team][ResourceType.CARBON],
+                                               Managers.team_manager.resources[self.team][ResourceType.MINERALS],
+                                               Managers.team_manager.resources[self.team][ResourceType.GAS]])
         ui_screen.blit(resource_counts, (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Render turn submission status
         x += 4
-        turn_submitted = self.team_manager.turn_submitted[self.team]
+        turn_submitted = Managers.team_manager.turn_submitted[self.team]
         if turn_submitted:
             ui_screen.blit(spr_turn_submitted_indicator[self.team],
                            (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))

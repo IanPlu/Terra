@@ -3,7 +3,7 @@ from terra.engine.gamescreen import GameScreen
 from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL
 from terra.mainmenu.option import Option
-from terra.map.map import get_loadable_maps
+from terra.managers.mapmanager import get_loadable_maps
 from terra.resources.assets import clear_color, text_main_menu, light_color, shadow_color
 from terra.team import Team
 from terra.util.drawingutil import draw_text

@@ -1,3 +1,4 @@
+from terra.constants import SPRITE_PATH
 from terra.map.tiletype import TileType
 from terra.piece.piecetype import PieceType
 from terra.settings import LANGUAGE
@@ -12,63 +13,63 @@ from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_stri
 
 # General
 unit_palette = {
-    Team.RED: generate_palette_list(pygame.image.load("resources/sprites/palettes/Red-Palette.png")),
-    Team.BLUE: generate_palette_list(pygame.image.load("resources/sprites/palettes/Blue-Palette.png")),
+    Team.RED: generate_palette_list(pygame.image.load(SPRITE_PATH + "palettes/Red-Palette.png")),
+    Team.BLUE: generate_palette_list(pygame.image.load(SPRITE_PATH + "palettes/Blue-Palette.png")),
 }
 
 # UI
 spr_cursor = {
-    Team.RED: pygame.image.load("resources/sprites/ui/Cursor.png")
+    Team.RED: pygame.image.load(SPRITE_PATH + "ui/Cursor.png")
 }
 spr_textbox = {
-    Team.RED: get_nine_slice_sprites(pygame.image.load("resources/sprites/ui/Textbox_9slice.png"), 8)
+    Team.RED: get_nine_slice_sprites(pygame.image.load(SPRITE_PATH + "ui/Textbox_9slice.png"), 8)
 }
 spr_phase_indicator = {
     Team.RED: [
-        pygame.image.load("resources/sprites/ui/Phase_Icons0.png"),
-        pygame.image.load("resources/sprites/ui/Phase_Icons1.png"),
-        pygame.image.load("resources/sprites/ui/Phase_Icons2.png"),
-        pygame.image.load("resources/sprites/ui/Phase_Icons3.png"),
-        pygame.image.load("resources/sprites/ui/Phase_Icons4.png"),
-        pygame.image.load("resources/sprites/ui/Phase_Icons5.png"),
-        pygame.image.load("resources/sprites/ui/Phase_Icons6.png")
+        pygame.image.load(SPRITE_PATH + "ui/Phase_Icon_Start_Turn.png"),
+        pygame.image.load(SPRITE_PATH + "ui/Phase_Icon_Orders.png"),
+        pygame.image.load(SPRITE_PATH + "ui/Phase_Icon_Execute_Move.png"),
+        pygame.image.load(SPRITE_PATH + "ui/Phase_Icon_Execute_Build.png"),
+        pygame.image.load(SPRITE_PATH + "ui/Phase_Icon_Execute_Combat.png"),
+        pygame.image.load(SPRITE_PATH + "ui/Phase_Icon_Execute_Ranged.png"),
+        pygame.image.load(SPRITE_PATH + "ui/Phase_Icon_Execute_Special.png")
     ]
 }
 
 spr_turn_submitted_indicator = {
-    Team.RED: pygame.image.load("resources/sprites/ui/Turn_Submitted_Icon.png")
+    Team.RED: pygame.image.load(SPRITE_PATH + "ui/Turn_Submitted_Icon.png")
 }
 spr_turn_not_submitted_indicator = {
-    Team.RED: pygame.image.load("resources/sprites/ui/Turn_Not_Submitted_Icon.png")
+    Team.RED: pygame.image.load(SPRITE_PATH + "ui/Turn_Not_Submitted_Icon.png")
 }
 
 # Tile
-spr_tile_selectable = pygame.image.load("resources/sprites/tiles/Tile_Selectable.png")
+spr_tile_selectable = pygame.image.load(SPRITE_PATH + "tiles/Tile_Selectable.png")
 spr_tiles = {
-    TileType.NONE: [pygame.image.load("resources/sprites/tiles/Tile_None.png")],
-    TileType.SEA: get_sprites_from_strip(pygame.image.load("resources/sprites/tiles/Tile_Sea.png"), 24),
-    TileType.GRASS: [pygame.image.load("resources/sprites/tiles/Tile_Grass.png")],
-    TileType.WOODS: [pygame.image.load("resources/sprites/tiles/Tile_Woods.png")],
-    TileType.RESOURCE: [pygame.image.load("resources/sprites/tiles/Tile_Resource.png")]
+    TileType.NONE: [pygame.image.load(SPRITE_PATH + "tiles/Tile_None.png")],
+    TileType.SEA: get_sprites_from_strip(pygame.image.load(SPRITE_PATH + "tiles/Tile_Sea.png"), 24),
+    TileType.GRASS: [pygame.image.load(SPRITE_PATH + "tiles/Tile_Grass.png")],
+    TileType.WOODS: [pygame.image.load(SPRITE_PATH + "tiles/Tile_Woods.png")],
+    TileType.RESOURCE: [pygame.image.load(SPRITE_PATH + "tiles/Tile_Resource.png")]
 }
 # noinspection PyUnresolvedReferences
 spr_coast_detail = {
     0: None,
-    1: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail1.png"),
-    2: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail2.png"),
-    3: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail3.png"),
-    4: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail4.png"),
-    5: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail5.png"),
-    6: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail6.png"),
-    7: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail7.png"),
-    8: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail8.png"),
-    9: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail9.png"),
-    10: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail10.png"),
-    11: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail11.png"),
-    12: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail12.png"),
-    13: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail13.png"),
-    14: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail14.png"),
-    15: pygame.image.load("resources/sprites/tiles/coasts/Tile_CoastDetail15.png"),
+    1: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail1.png"),
+    2: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail2.png"),
+    3: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail3.png"),
+    4: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail4.png"),
+    5: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail5.png"),
+    6: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail6.png"),
+    7: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail7.png"),
+    8: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail8.png"),
+    9: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail9.png"),
+    10: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail10.png"),
+    11: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail11.png"),
+    12: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail12.png"),
+    13: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail13.png"),
+    14: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail14.png"),
+    15: pygame.image.load(SPRITE_PATH + "tiles/coasts/Tile_CoastDetail15.png"),
 }
 
 
@@ -76,20 +77,20 @@ spr_coast_detail = {
 spr_pieces = {
     Team.RED: {
         # Units
-        PieceType.COLONIST: pygame.image.load("resources/sprites/units/Colonist.png"),
-        PieceType.TROOPER: pygame.image.load("resources/sprites/units/Trooper.png"),
-        PieceType.RANGER: pygame.image.load("resources/sprites/units/Ranger.png"),
-        PieceType.GHOST: pygame.image.load("resources/sprites/units/Ghost.png"),
+        PieceType.COLONIST: pygame.image.load(SPRITE_PATH + "units/Colonist.png"),
+        PieceType.TROOPER: pygame.image.load(SPRITE_PATH + "units/Trooper.png"),
+        PieceType.RANGER: pygame.image.load(SPRITE_PATH + "units/Ranger.png"),
+        PieceType.GHOST: pygame.image.load(SPRITE_PATH + "units/Ghost.png"),
         # Buildings
-        PieceType.BASE: pygame.image.load("resources/sprites/buildings/Base.png"),
-        PieceType.CARBON_GENERATOR: pygame.image.load("resources/sprites/buildings/CarbonGenerator.png"),
-        PieceType.MINERAL_GENERATOR: pygame.image.load("resources/sprites/buildings/MineralGenerator.png"),
-        PieceType.GAS_GENERATOR: pygame.image.load("resources/sprites/buildings/GasGenerator.png"),
-        PieceType.BARRACKS: pygame.image.load("resources/sprites/buildings/Barracks.png"),
+        PieceType.BASE: pygame.image.load(SPRITE_PATH + "buildings/Base.png"),
+        PieceType.CARBON_GENERATOR: pygame.image.load(SPRITE_PATH + "buildings/CarbonGenerator.png"),
+        PieceType.MINERAL_GENERATOR: pygame.image.load(SPRITE_PATH + "buildings/MineralGenerator.png"),
+        PieceType.GAS_GENERATOR: pygame.image.load(SPRITE_PATH + "buildings/GasGenerator.png"),
+        PieceType.BARRACKS: pygame.image.load(SPRITE_PATH + "buildings/Barracks.png"),
     }
 }
 
-spr_base_order_flags = get_nine_slice_sprites(pygame.image.load("resources/sprites/units/OrderFlags.png"), 8)
+spr_base_order_flags = get_nine_slice_sprites(pygame.image.load(SPRITE_PATH + "units/OrderFlags.png"), 8)
 spr_order_flags = {
     MENU_CANCEL_ORDER: spr_base_order_flags[0],
     MENU_MOVE: spr_base_order_flags[1],
@@ -97,33 +98,33 @@ spr_order_flags = {
     MENU_BUILD_PIECE: spr_base_order_flags[3],
     MENU_SUBMIT_TURN: spr_base_order_flags[1],
     MENU_SAVE_GAME: spr_base_order_flags[3],
-    MENU_QUIT_BATTLE: spr_base_order_flags[0],
+    MENU_QUIT_BATTLE: spr_base_order_flags[0]
 }
 
 spr_digit_icons = {
-    Team.RED: get_sprites_from_strip(pygame.image.load("resources/sprites/ui/DigitIcons.png"), 8)
+    Team.RED: get_sprites_from_strip(pygame.image.load(SPRITE_PATH + "ui/DigitIcons.png"), 8)
 }
 
 spr_resource_icon_carbon = {
-    Team.RED: pygame.image.load("resources/sprites/ui/ResourceIcon_Carbon.png")
+    Team.RED: pygame.image.load(SPRITE_PATH + "ui/ResourceIcon_Carbon.png")
 }
 spr_resource_icon_minerals = {
-    Team.RED: pygame.image.load("resources/sprites/ui/ResourceIcon_Minerals.png")
+    Team.RED: pygame.image.load(SPRITE_PATH + "ui/ResourceIcon_Minerals.png")
 }
 spr_resource_icon_gas = {
-    Team.RED: pygame.image.load("resources/sprites/ui/ResourceIcon_Gas.png")
+    Team.RED: pygame.image.load(SPRITE_PATH + "ui/ResourceIcon_Gas.png")
 }
 
 # Effects
 spr_effects = {
     EffectType.ALERT: get_sprites_from_strip(
-        pygame.image.load("resources/sprites/effects/FX_Alert.png"), 24),
+        pygame.image.load(SPRITE_PATH + "effects/FX_Alert.png"), 24),
     EffectType.PIECE_DESTROYED: get_sprites_from_strip(
-        pygame.image.load("resources/sprites/effects/FX_Piece_Destroyed.png"), 24),
+        pygame.image.load(SPRITE_PATH + "effects/FX_Piece_Destroyed.png"), 24),
     EffectType.NO_MONEY: get_sprites_from_strip(
-        pygame.image.load("resources/sprites/effects/FX_No_Money.png"), 24),
+        pygame.image.load(SPRITE_PATH + "effects/FX_No_Money.png"), 24),
     EffectType.ORDER_BLOCKED: get_sprites_from_strip(
-        pygame.image.load("resources/sprites/effects/FX_Order_Blocked.png"), 24)
+        pygame.image.load(SPRITE_PATH + "effects/FX_Order_Blocked.png"), 24)
 }
 
 

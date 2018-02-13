@@ -1,5 +1,5 @@
 General & QoL
-* Validate orders for a player as soon as they submit their turn
+x Validate orders for a player as soon as they submit their turn
 * Add support to the level editor for adding units and buildings
 x Add saving games mid-combat
     x Save and load piece HP
@@ -12,6 +12,8 @@ x Display prices in menus for building units and buildings
 * Improve the main menu
 x Add context menu to battle screen for submitting turn, saving, quitting to menu, etc
 * Game end screens / match review with statistics(?)
+* Add UI to unit popup menus to indicate you're attempting to take an action that will be contested
+  (e.g. trying to build while contested)
 
 Engineering
 * Write tests!!
@@ -20,14 +22,14 @@ Bug fixes
 * Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
 * Fix popup menus scrolling off the top of the screen
 x Fix resources not being deducted for placing buildings
-* Fix invalid order effects showing for all teams
+x Fix invalid order effects showing for all teams
 
 Gameplay
 * Build support for upgrades, enable purchasing them from the base
-    * Double check whether I'm using piece prices or the team-specific piece prices, etc.
+    x Double check whether I'm using piece prices or the team-specific piece prices, etc.
 * Add additional tiers for units
 x Modify GHOST movement type to be unable to stop on the same tile as enemy buildings
-* Decide where the BUILD phase should slot into the order. Currently impossible to interrupt production
+x Decide where the BUILD phase should slot into the order. Currently impossible to interrupt production
 
 Huge goals
 * Network play refactor & support

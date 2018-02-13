@@ -51,9 +51,9 @@ class Piece(GameObject):
 
         if Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE) > 0:
             actions.append(MENU_MOVE)
-        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.DAMAGE_TYPE) == DamageType.RANGED and not self.in_conflict:
+        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.DAMAGE_TYPE) == DamageType.RANGED:
             actions.append(MENU_RANGED_ATTACK)
-        if len(self.get_valid_buildable_pieces()) and not self.in_conflict:
+        if len(self.get_valid_buildable_pieces()):
             actions.append(MENU_BUILD_PIECE)
 
         actions.append(MENU_CANCEL_ORDER)

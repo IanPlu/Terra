@@ -57,13 +57,12 @@ class TurnManager(GameObject):
 
     def resolve_phase_orders(self):
         publish_game_event(START_PHASE_ORDERS, {})
-        pass
-
-    def resolve_phase_execute_build(self):
-        publish_game_event(START_PHASE_EXECUTE_BUILD, {})
 
     def resolve_phase_execute_move(self):
         publish_game_event(START_PHASE_EXECUTE_MOVE, {})
+
+    def resolve_phase_execute_build(self):
+        publish_game_event(START_PHASE_EXECUTE_BUILD, {})
 
     def resolve_phase_execute_combat(self):
         publish_game_event(START_PHASE_EXECUTE_COMBAT, {})
@@ -77,8 +76,8 @@ class TurnManager(GameObject):
     phase_handlers = {
         BattlePhase.START_TURN: resolve_phase_start_turn,
         BattlePhase.ORDERS: resolve_phase_orders,
-        BattlePhase.EXECUTE_BUILD: resolve_phase_execute_build,
         BattlePhase.EXECUTE_MOVE: resolve_phase_execute_move,
+        BattlePhase.EXECUTE_BUILD: resolve_phase_execute_build,
         BattlePhase.EXECUTE_COMBAT: resolve_phase_execute_combat,
         BattlePhase.EXECUTE_RANGED: resolve_phase_execute_ranged,
         BattlePhase.EXECUTE_SPECIAL: resolve_phase_execute_special
@@ -87,8 +86,8 @@ class TurnManager(GameObject):
     def step(self, event):
         super().step(event)
 
-        if is_event_type(event, START_PHASE_START_TURN, START_PHASE_EXECUTE_BUILD,
-                         START_PHASE_EXECUTE_MOVE, START_PHASE_EXECUTE_COMBAT,
+        if is_event_type(event, START_PHASE_START_TURN, START_PHASE_EXECUTE_MOVE,
+                         START_PHASE_EXECUTE_BUILD, START_PHASE_EXECUTE_COMBAT,
                          START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL):
             self.progress_phase()
         elif is_event_type(event, E_ALL_TURNS_SUBMITTED):

@@ -1,6 +1,7 @@
 import random
 from os import walk
 
+from terra.constants import MAP_PATH
 from terra.engine.gameobject import GameObject
 from terra.map.tile import Tile
 from terra.map.tiletype import TileType
@@ -82,11 +83,10 @@ class MapManager(GameObject):
                 self.tile_grid[y][x].render(game_screen, ui_screen)
 
 
-# TODO: Split these and other map utils into their own file
 # Return a list of filenames of loadable maps
 def get_loadable_maps(suffix=".map"):
     maps = []
-    for (_, _, filenames) in walk("resources/maps/"):
+    for (_, _, filenames) in walk(MAP_PATH):
         maps.extend(filenames)
 
     return [mapname for mapname in maps if mapname.endswith(suffix)]
@@ -99,7 +99,7 @@ def load_map_from_file(mapname):
     reading_teams = False
 
     try:
-        with open("resources/maps/" + mapname) as mapfile:
+        with open(MAP_PATH + mapname) as mapfile:
             bitmap = []
             pieces = []
             teams = []
@@ -123,7 +123,7 @@ def load_map_from_file(mapname):
         print("Unable to load file {}. Generating new map. Exception: {}".format(mapname, e))
         bitmap = generate_bitmap(20, 15, False)
         pieces = ["0 0 RED BASE", "20 15 BLUE BASE"]
-        teams = []
+        teams = ["RED 0 0 0", "BLUE 0 0 0"]
 
     return bitmap, pieces, teams
 

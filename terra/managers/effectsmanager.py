@@ -14,8 +14,8 @@ class EffectsManager(GameObject):
         self.effects = []
 
     # Create an effect of the specified type.
-    def create_effect(self, gx=0, gy=0, effect_type=EffectType.ALERT):
-        self.effects.append(AnimatedEffect(self, effect_type, gx, gy))
+    def create_effect(self, gx, gy, effect_type, team):
+        self.effects.append(AnimatedEffect(self, effect_type, gx, gy, team))
 
     # Remove and delete the provided effect.
     def destroy_effect(self, effect):
@@ -25,15 +25,15 @@ class EffectsManager(GameObject):
         super().step(event)
 
         if is_event_type(event, E_PIECE_DEAD):
-            self.create_effect(event.gx, event.gy, EffectType.PIECE_DESTROYED)
+            self.create_effect(event.gx, event.gy, EffectType.PIECE_DESTROYED, None)
         elif is_event_type(event, E_ORDER_CANCELED):
-            self.create_effect(event.gx, event.gy, EffectType.ORDER_BLOCKED)
+            self.create_effect(event.gx, event.gy, EffectType.ORDER_BLOCKED, None)
         elif is_event_type(event, E_INVALID_MOVE_ORDERS):
             for coordinate in event.invalid_coordinates:
-                self.create_effect(coordinate[0], coordinate[1], EffectType.ALERT)
+                self.create_effect(coordinate[0], coordinate[1], EffectType.ALERT, event.team)
         elif is_event_type(event, E_INVALID_BUILD_ORDERS):
             base = Managers.piece_manager.get_all_pieces_for_team(event.team, piece_type=PieceType.BASE)[0]
-            self.create_effect(base.gx, base.gy, EffectType.NO_MONEY)
+            self.create_effect(base.gx, base.gy, EffectType.NO_MONEY, event.team)
 
         for effect in self.effects:
             effect.step(event)

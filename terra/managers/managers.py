@@ -1,3 +1,4 @@
+from terra.constants import MAP_PATH
 
 
 # Container for the various -manager objects.
@@ -42,7 +43,7 @@ class Managers:
         # Strip '.map' from the map name
         savename = Managers.map_name[:-4]
 
-        with open("resources/maps/{}.sav".format(savename), 'w') as savefile:
+        with open("{}{}.sav".format(MAP_PATH, savename), 'w') as savefile:
             lines = ""
             # Append map
             for row in bitmap:

@@ -106,11 +106,9 @@ class TeamManager(GameObject):
                 return False
         return True
 
-    # Attempt to submit the turn for the specified team.
+    # Attempt to submit the turn for the specified team. Orders are validated before submission is allowed.
     def try_submitting_turn(self, team):
-        # TODO: Validate orders here
-
-        if not self.turn_submitted[team]:
+        if not self.turn_submitted[team] and Managers.piece_manager.validate_orders(team):
             self.turn_submitted[team] = True
             if self.check_if_ready_to_submit_turns():
                 publish_game_event(E_ALL_TURNS_SUBMITTED, {})

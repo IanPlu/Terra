@@ -23,16 +23,21 @@ def generate_menu():
     loadable_maps = convert_loadable_maps_to_options(".map")
     loadable_saves = convert_loadable_maps_to_options(".sav")
 
-    start_menu_options = []
-    if len(loadable_maps) > 0:
-        start_menu_options.append((Option.NEW_GAME, loadable_maps))
-    if len(loadable_saves) > 0:
-        start_menu_options.append((Option.LOAD_GAME, loadable_saves))
-    if len(loadable_maps) > 0:
-        start_menu_options.append((Option.LEVEL_EDITOR, loadable_maps))
-
-    start_menu_options.append((Option.SETTINGS, []))
-    start_menu_options.append((Option.QUIT, []))
+    start_menu_options = [
+        (Option.LOCAL, [
+            (Option.NEW_GAME, loadable_maps),
+            (Option.LOAD_GAME, loadable_saves)
+        ]),
+        (Option.NETWORK, [
+            (Option.HOST_GAME, [
+                (Option.NEW_NETWORK_GAME, loadable_maps),
+                (Option.LOAD_NETWORK_GAME, loadable_saves)
+            ]),
+            (Option.JOIN_GAME, [])
+        ]),
+        (Option.SETTINGS, []),
+        (Option.QUIT, [])
+    ]
 
     return Option.START, start_menu_options
 
@@ -78,6 +83,17 @@ class MainMenu(GameScreen):
                 'option': self.current_menu[0],
                 'mapname': option[0]
             })
+        elif self.current_menu[0] in [Option.NEW_NETWORK_GAME, Option.LOAD_NETWORK_GAME]:
+            publish_game_event(MENU_SELECT_OPTION, {
+                'option': self.current_menu[0],
+                'mapname': option[0],
+                'address': "localhost"
+            })
+        elif option[0] == Option.JOIN_GAME:
+            publish_game_event(MENU_SELECT_OPTION, {
+                'option': option[0],
+                'address': "localhost"
+            })
         else:
             publish_game_event(MENU_SELECT_OPTION, {
                 'option': option[0]
@@ -104,8 +120,11 @@ class MainMenu(GameScreen):
         root_x = RESOLUTION_WIDTH // 2
         root_y = RESOLUTION_HEIGHT // 2
 
+        # Draw text for the menu title
+        game_screen.blit(text_main_menu[self.current_menu[0]], (root_x - 12, root_y))
+
         # Draw text for each menu option
-        row_y = 0
+        row_y = 1
         for option in self.current_menu[1]:
             if option == self.current_menu[1][self.current_menu_pos]:
                 x_offset = 12

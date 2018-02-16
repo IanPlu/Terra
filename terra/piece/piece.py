@@ -10,7 +10,9 @@ from terra.piece.movementtype import passable_terrain_types
 from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
-from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color, text_piece_name
+from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color
+from terra.settings import LANGUAGE
+from terra.strings import piece_name_strings
 from terra.team import Team
 
 
@@ -40,7 +42,7 @@ class Piece(GameObject):
 
     def __str__(self):
         return "{} {} at tile ({}, {}) with {} HP" \
-            .format(self.team.name, text_piece_name[self.piece_type], self.gx, self.gy, self.hp)
+            .format(self.team.name, piece_name_strings[LANGUAGE][self.piece_type], self.gx, self.gy, self.hp)
 
     def get_sprite(self):
         return spr_pieces[self.team][self.piece_type]
@@ -118,6 +120,8 @@ class Piece(GameObject):
                     'team': self.team
                 })
 
+                Managers.combat_logger.log_failed_order_execution(self, self.current_order)
+
                 # Abort the order
                 self.current_order = None
             else:
@@ -127,6 +131,8 @@ class Piece(GameObject):
                     'team': self.current_order.team,
                     'new_piece_type': self.current_order.new_piece_type
                 })
+
+                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
 
                 # Deduct unit price
                 Managers.team_manager.deduct_resources(
@@ -150,6 +156,8 @@ class Piece(GameObject):
 
             self.gx = self.current_order.dx
             self.gy = self.current_order.dy
+
+            Managers.combat_logger.log_successful_order_execution(self, self.current_order)
 
             # Pop orders once they're executed
             self.current_order = None
@@ -176,6 +184,8 @@ class Piece(GameObject):
                     'team': self.team
                 })
 
+                Managers.combat_logger.log_failed_order_execution(self, self.current_order)
+
                 # Abort the order
                 self.current_order = None
             else:
@@ -186,6 +196,8 @@ class Piece(GameObject):
                     'tx': self.current_order.tx,
                     'ty': self.current_order.ty
                 })
+
+                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
 
                 # Pop orders once they're executed
                 self.current_order = None

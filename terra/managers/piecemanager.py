@@ -30,6 +30,10 @@ class PieceManager(GameObject):
 
                 self.register_piece(Piece(PieceType[data[3]], Team[data[2]], int(data[0]), int(data[1]), hp))
 
+    # Serialize all orders for pieces from the specified team for submission to another player in a network game
+    def serialize_orders(self, team):
+        return "serialized orders for " + str(team)
+
     # Return a list of piece(s) at the specified grid location
     # If piece type or team is provided, only return pieces of that type.
     def get_pieces_at(self, gx, gy, piece_type=None):
@@ -192,6 +196,11 @@ class PieceManager(GameObject):
 
         return move_orders_valid and build_orders_valid
 
+    # Log the current orders for all pieces
+    def log_orders(self):
+        for piece in self.__get_all_pieces__():
+            Managers.combat_logger.log_order_assignment(piece, piece.current_order)
+
     # Check for overlapping enemy units, and resolve their combat
     def resolve_unit_combat(self):
         # Find conflicting units (opposing team units occupying the same space
@@ -217,7 +226,9 @@ class PieceManager(GameObject):
             multiplier = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK_MULTIPLIER)[target_type]
             defense_bonus = target.entrenchment
 
-            target.hp -= int(attack * multiplier * (1 - defense_bonus / 10))
+            damage = int(attack * multiplier * (1 - defense_bonus / 10))
+            target.hp -= damage
+            Managers.combat_logger.log_damage(target, damage)
 
     def step(self, event):
         super().step(event)

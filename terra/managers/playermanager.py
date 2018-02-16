@@ -17,7 +17,7 @@ class PlayerManager(GameObject):
         for team in Managers.team_manager.teams:
             self.cursors[team] = Cursor(team)
 
-        self.active_team = Team.RED
+        self.active_team = Managers.network_manager.team
 
     def step(self, event):
         super().step(event)

@@ -4,23 +4,36 @@ from terra.constants import MAP_PATH
 # Container for the various -manager objects.
 # The initialize method must be called first when a battle is being set up.
 class Managers:
-    team_manager = None
-    piece_manager = None
+    combat_logger = None
     effects_manager = None
+    map_name = None
+    team_manager = None
+    battle_map = None
+    piece_manager = None
     turn_manager = None
     player_manager = None
-    battle_map = None
-    map_name = ""
+    network_manager = None
 
     @staticmethod
-    def initialize_managers(bitmap, pieces, teams, map_name):
+    def initialize_managers(map_name, address, is_host):
         from terra.managers.effectsmanager import EffectsManager
-        from terra.managers.mapmanager import MapManager
+        from terra.managers.mapmanager import MapManager, load_map_from_file
         from terra.managers.piecemanager import PieceManager
         from terra.managers.playermanager import PlayerManager
         from terra.managers.teammanager import TeamManager
         from terra.managers.turnmanager import TurnManager
+        from terra.managers.combatlogger import CombatLogger
+        from terra.managers.networkmanager import NetworkManager
 
+        Managers.network_manager = NetworkManager(address, is_host)
+
+        # Client games won't have a map name until they connect, so fetch it now
+        if not map_name:
+            map_name = Managers.network_manager.get_map_name_from_host()
+
+        bitmap, pieces, teams = load_map_from_file(map_name)
+
+        Managers.combat_logger = CombatLogger(map_name)
         Managers.effects_manager = EffectsManager()
         Managers.map_name = map_name
         Managers.team_manager = TeamManager(teams)
@@ -67,6 +80,7 @@ class Managers:
 
     @staticmethod
     def step(event):
+        Managers.network_manager.step(event)
         Managers.battle_map.step(event)
         Managers.piece_manager.step(event)
         Managers.effects_manager.step(event)
@@ -82,3 +96,4 @@ class Managers:
         Managers.team_manager.render(map_screen, ui_screen)
         Managers.turn_manager.render(map_screen, ui_screen)
         Managers.player_manager.render(map_screen, ui_screen)
+        Managers.network_manager.render(map_screen, ui_screen)

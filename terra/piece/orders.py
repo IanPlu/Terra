@@ -1,4 +1,6 @@
 from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_PIECE
+from terra.settings import LANGUAGE
+from terra.strings import piece_name_strings
 
 
 # An order to be carried out by a piece.
@@ -42,4 +44,5 @@ class BuildOrder(Order):
         self.new_piece_type = new_piece_type
 
     def __str__(self):
-        return "Order: Build a {} piece on tile ({}, {})".format(self.new_piece_type, self.tx, self.ty)
+        return "Order: Build a {} on tile ({}, {})".format(
+            piece_name_strings[LANGUAGE][self.new_piece_type], self.tx, self.ty)

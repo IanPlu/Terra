@@ -65,6 +65,12 @@ main_menu_strings = {
         Option.LOAD_GAME: "Load Game",
         Option.LEVEL_EDITOR: "Level Editor",
         Option.SETTINGS: "Settings",
-        Option.QUIT: "Quit"
+        Option.QUIT: "Quit",
+        Option.LOCAL: "Local Play",
+        Option.NETWORK: "Network Play",
+        Option.JOIN_GAME: "Join Game",
+        Option.HOST_GAME: "Host Game",
+        Option.NEW_NETWORK_GAME: "New Network Game",
+        Option.LOAD_NETWORK_GAME: "Load Network Game"
     }
 }

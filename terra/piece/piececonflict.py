@@ -12,6 +12,8 @@ class PieceConflict:
         self.piece1 = piece1
         self.piece2 = piece2
 
+        Managers.combat_logger.log_contesting_pieces(piece1, piece2)
+
     # Get the attack rating for this piece.
     def get_attack_damage(self, piece1, piece2):
         if Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.DAMAGE_TYPE) == DamageType.MELEE:
@@ -45,5 +47,10 @@ class PieceConflict:
         second_piece_defense = self.get_defense_bonuses(self.piece2, self.piece1)
 
         # Determine health loss per piece
-        self.piece1.hp -= int(second_piece_attack * (1 - first_piece_defense / 10))
-        self.piece2.hp -= int(first_piece_attack * (1 - second_piece_defense / 10))
+        piece1_damage_taken = int(second_piece_attack * (1 - first_piece_defense / 10))
+        piece2_damage_taken = int(first_piece_attack * (1 - second_piece_defense / 10))
+
+        self.piece1.hp -= piece1_damage_taken
+        self.piece2.hp -= piece2_damage_taken
+        Managers.combat_logger.log_damage(self.piece1, piece1_damage_taken)
+        Managers.combat_logger.log_damage(self.piece2, piece2_damage_taken)

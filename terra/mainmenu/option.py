@@ -9,3 +9,9 @@ class Option(Enum):
     LEVEL_EDITOR = 3
     SETTINGS = 4
     QUIT = 5
+    LOCAL = 6
+    NETWORK = 7
+    HOST_GAME = 8
+    JOIN_GAME = 9
+    NEW_NETWORK_GAME = 10
+    LOAD_NETWORK_GAME = 11

@@ -18,6 +18,7 @@ class Mode(Enum):
     MAIN_MENU = 0
     BATTLE = 1
     EDIT = 2
+    NETWORK_BATTLE = 3
 
 
 # Main entry point for the game.
@@ -28,12 +29,12 @@ class Main:
 
         self.set_screen_from_mode(Mode.MAIN_MENU)
 
-    def set_screen_from_mode(self, new_mode, mapname=None):
+    def set_screen_from_mode(self, new_mode, mapname=None, address=None, is_host=False):
         self.mode = new_mode
         if new_mode == Mode.MAIN_MENU:
             self.current_screen = MainMenu()
         elif new_mode == Mode.BATTLE:
-            self.current_screen = Battle(mapname)
+            self.current_screen = Battle(mapname, address, is_host)
         elif new_mode == Mode.EDIT:
             self.current_screen = LevelEditor(mapname)
 
@@ -46,6 +47,10 @@ class Main:
                 self.set_screen_from_mode(Mode.BATTLE, event.mapname)
             elif event.option == Option.LOAD_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, event.mapname)
+            elif event.option in [Option.NEW_NETWORK_GAME, Option.LOAD_NETWORK_GAME]:
+                self.set_screen_from_mode(Mode.BATTLE, event.mapname, event.address, is_host=True)
+            elif event.option == Option.JOIN_GAME:
+                self.set_screen_from_mode(Mode.BATTLE, None, event.address, is_host=False)
             elif event.option == Option.LEVEL_EDITOR:
                 self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.QUIT:
@@ -83,10 +88,12 @@ while True:
     # Update game tick TICK_RATE times per second
     clock.tick(TICK_RATE)
 
+    # Run game logic
     for event in pygame.event.get():
         if event.type == QUIT:
             sys.exit()
 
         main.step(event)
 
+    # Render to the screen
     main.render()

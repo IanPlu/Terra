@@ -16,6 +16,8 @@ class TurnManager(GameObject):
         super().__init__()
 
         self.phase = BattlePhase.ORDERS
+        self.round = 1
+        Managers.combat_logger.log_new_round(self.round)
 
     # Validate that it's OK to progress the current phase.
     # Check movement orders, primarily
@@ -25,11 +27,12 @@ class TurnManager(GameObject):
             for team in Team:
                 if not Managers.piece_manager.validate_orders(team):
                     return False
+
+            Managers.piece_manager.log_orders()
+            return True
         else:
             # Other phases have no validation at the moment
             return True
-
-        return True
 
     # Move the phase forward if possible
     def progress_phase(self):
@@ -41,6 +44,7 @@ class TurnManager(GameObject):
             new_phase = 0
 
         self.phase = BattlePhase(new_phase)
+        Managers.combat_logger.log_new_phase(self.phase)
 
         publish_game_event(E_NEXT_PHASE, {
             'new_phase': self.phase
@@ -54,6 +58,8 @@ class TurnManager(GameObject):
 
     def resolve_phase_start_turn(self):
         publish_game_event(START_PHASE_START_TURN, {})
+        self.round += 1
+        Managers.combat_logger.log_new_round(self.round)
 
     def resolve_phase_orders(self):
         publish_game_event(START_PHASE_ORDERS, {})

@@ -2,17 +2,15 @@ from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTIO
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
 from terra.managers.managers import Managers
-from terra.managers.mapmanager import load_map_from_file
 
 
 # A battle containing a map, players, their resources + input methods, etc.
 # Handles the turn / phase loop.
 class Battle(GameScreen):
-    def __init__(self, map_name="key_range.map"):
+    def __init__(self, map_name="key_range.map", address=None, is_host=False):
         super().__init__()
 
-        bitmap, pieces, teams = load_map_from_file(map_name)
-        Managers.initialize_managers(bitmap, pieces, teams, map_name)
+        Managers.initialize_managers(map_name, address, is_host)
 
     def check_for_victory(self, event):
         print("A base has been destroyed. The game is over!: " + str(event))

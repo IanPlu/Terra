@@ -15,7 +15,7 @@ from terra.util.mathutil import clamp
 # A map editor for Terra maps.
 # Allows placing tiles of different types and saving / loading maps.
 class LevelEditor(GameScreen):
-    def __init__(self, map_name="key_range.map"):
+    def __init__(self, map_name="edited_map.map"):
         super().__init__()
 
         bitmap, pieces, teams = load_map_from_file(map_name)
@@ -45,29 +45,13 @@ class LevelEditor(GameScreen):
             elif event.key in KB_SCROLL_DOWN:
                 self.current_tile_type = self.update_tile_type(self.current_tile_type, -1)
             elif event.key in KB_MENU:
-                self.save_map()
+                Managers.save_game()
 
     def update_tile_type(self, tiletype, amount):
         new_tile_type = clamp(tiletype.value + amount, 0, len(TileType) - 1)
 
         if not new_tile_type == tiletype:
             return TileType(new_tile_type)
-
-    def save_map(self):
-        bitmap = Managers.battle_map.convert_bitmap_from_grid()
-
-        with open(MAP_PATH + Managers.map_name, 'w') as mapfile:
-            lines = ""
-            for row in bitmap:
-                line = ""
-                for column in row:
-                    line += "{} ".format(column)
-                line += "\n"
-                lines += line
-
-            lines += "# Pieces\n# Teams\nRED\nBLUE"
-
-            mapfile.write(lines)
 
     def render(self, ui_screen):
         super().render(ui_screen)

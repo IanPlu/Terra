@@ -14,6 +14,7 @@ x Add context menu to battle screen for submitting turn, saving, quitting to men
 * Game end screens / match review with statistics(?)
 * Add UI to unit popup menus to indicate you're attempting to take an action that will be contested
   (e.g. trying to build while contested)
+* Add 'serialize' method to managers, use this when saving or loading the game state
 
 Engineering
 * Write tests!!

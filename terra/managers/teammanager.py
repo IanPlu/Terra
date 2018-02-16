@@ -110,12 +110,29 @@ class TeamManager(GameObject):
     def try_submitting_turn(self, team):
         if not self.turn_submitted[team] and Managers.piece_manager.validate_orders(team):
             self.turn_submitted[team] = True
+            publish_game_event(E_TURN_SUBMITTED, {
+                'team': team,
+                'orders': Managers.piece_manager.serialize_orders(team)
+            })
+
             if self.check_if_ready_to_submit_turns():
                 publish_game_event(E_ALL_TURNS_SUBMITTED, {})
                 for team in Team:
                     self.turn_submitted[team] = False
         else:
             self.turn_submitted[team] = False
+            publish_game_event(E_CANCEL_TURN_SUBMITTED, {
+                'team': team
+            })
+
+    # Mark a turn received from the network as submitted.
+    def set_turn_submitted(self, team):
+        self.turn_submitted[team] = True
+
+        if self.check_if_ready_to_submit_turns():
+            publish_game_event(E_ALL_TURNS_SUBMITTED, {})
+            for team in Team:
+                self.turn_submitted[team] = False
 
     def step(self, event):
         super().step(event)
@@ -126,6 +143,8 @@ class TeamManager(GameObject):
         if is_event_type(event, E_CLEANUP):
             for team in Team:
                 self.turn_submitted[team] = False
+        elif is_event_type(event, E_SUBMIT_TURN):
+            self.set_turn_submitted(event.team)
         elif is_event_type(event, E_CLOSE_MENU) and event.option:
             if event.option == MENU_SUBMIT_TURN:
                 self.try_submitting_turn(event.team)

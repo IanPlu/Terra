@@ -63,6 +63,9 @@ class Cursor(GameObject):
     def open_build_ui(self, event):
         self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
 
+    def open_upgrade_ui(self, event):
+        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
+
     def step(self, event):
         super().step(event)
 
@@ -77,6 +80,10 @@ class Cursor(GameObject):
         elif is_event_type(event, E_OPEN_BUILD_MENU):
             self.open_build_ui(event)
         elif is_event_type(event, E_SELECT_BUILD_UNIT, E_CANCEL_BUILD_UNIT):
+            self.close_menu()
+        elif is_event_type(event, E_OPEN_UPGRADE_MENU):
+            self.open_upgrade_ui(event)
+        elif is_event_type(event, E_SELECT_UPGRADE, E_CANCEL_UPGRADE):
             self.close_menu()
 
         # Only react to button inputs if we're not showing a sub menu

@@ -1,9 +1,10 @@
 from collections import Counter
 
+from terra.economy.upgrades import base_upgrades
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.managers.managers import Managers
-from terra.piece.orders import MoveOrder, BuildOrder
+from terra.piece.orders import MoveOrder, BuildOrder, UpgradeOrder
 from terra.piece.piece import Piece
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piececonflict import PieceConflict
@@ -32,7 +33,21 @@ class PieceManager(GameObject):
 
     # Serialize all orders for pieces from the specified team for submission to another player in a network game
     def serialize_orders(self, team):
-        return "serialized orders for " + str(team)
+        orders = {}
+        pieces = self.get_all_pieces_for_team(team)
+        for piece in pieces:
+            if piece.current_order:
+                orders[(piece.gx, piece.gy)] = piece.current_order.serialize()
+
+        return orders
+
+    # Mass set orders for all pieces belonging to the provided team.
+    def set_orders(self, team, orders):
+        pieces = self.get_all_pieces_for_team(team)
+        for piece in pieces:
+            order = orders.get((piece.gx, piece.gy))
+            if order:
+                piece.current_order = order
 
     # Return a list of piece(s) at the specified grid location
     # If piece type or team is provided, only return pieces of that type.
@@ -172,6 +187,9 @@ class PieceManager(GameObject):
 
                     # Check that a team isn't spending more than they have
                     spent_resources.append(Managers.team_manager.attr(piece.team, piece.current_order.new_piece_type, Attribute.PRICE))
+                elif isinstance(piece.current_order, UpgradeOrder):
+                    # Check that a team isn't spending more than they have
+                    spent_resources.append(base_upgrades[piece.current_order.new_upgrade_type]["upgrade_price"])
             else:
                 coordinates.append((piece.gx, piece.gy))
 

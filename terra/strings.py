@@ -5,6 +5,7 @@ from terra.effects.effecttype import EffectType
 from terra.event import *
 from terra.mainmenu.option import Option
 from terra.piece.piecetype import PieceType
+from terra.economy.upgrades import UpgradeType
 
 
 class Language(Enum):
@@ -17,6 +18,7 @@ menu_option_strings = {
         MENU_CANCEL_ORDER: "Wait",
         MENU_RANGED_ATTACK: "Ranged",
         MENU_BUILD_PIECE: "Build",
+        MENU_PURCHASE_UPGRADE: "Upgrade",
         MENU_SUBMIT_TURN: "Submit Turn",
         MENU_SAVE_GAME: "Save Game",
         MENU_QUIT_BATTLE: "Quit Battle"
@@ -48,6 +50,16 @@ piece_name_strings = {
         PieceType.GAS_GENERATOR: "Gas Gen",
         PieceType.BARRACKS: "Barracks",
 
+    }
+}
+
+upgrade_name_strings = {
+    Language.EN_US: {
+        UpgradeType.RESOURCE_PRODUCTION_1: "Harvest+",
+        UpgradeType.RESOURCE_PRODUCTION_2: "Harvest++",
+
+        UpgradeType.COLONIST_ATTACK: "(C) Attack+",
+        UpgradeType.COLONIST_MAX_HP: "(C) HP+",
     }
 }
 

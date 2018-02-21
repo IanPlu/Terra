@@ -12,6 +12,7 @@ from terra.mainmenu.option import Option
 from terra.resources.assets import load_assets, clear_color
 from terra.settings import SCREEN_SCALE, TICK_RATE
 from terra.team import Team
+from terra.managers.managers import Managers
 
 
 class Mode(Enum):
@@ -87,6 +88,10 @@ main = Main()
 while True:
     # Update game tick TICK_RATE times per second
     clock.tick(TICK_RATE)
+
+    # Plumb for network messages if necessary
+    if Managers.network_manager:
+        Managers.network_manager.network_step()
 
     # Run game logic
     for event in pygame.event.get():

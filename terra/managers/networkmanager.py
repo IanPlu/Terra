@@ -5,9 +5,10 @@ from terra.event import *
 from terra.team import Team
 from terra.settings import SERVER_PORT
 from terra.engine.gameobject import GameObject
-from pygame.constants import KEYDOWN
-from terra.keybindings import KB_DEBUG3
 from terra.network.messagecode import MessageCode
+from ast import literal_eval
+from terra.managers.managers import Managers
+from terra.piece.orders import deserialize_order
 
 
 # Manager for synchronizing and messaging the game state back and forth in a network game.
@@ -61,24 +62,21 @@ class NetworkManager(GameObject):
         if command == MessageCode.NEW_CONNECTION.value:
             print("Connection request from: " + str(address))
             self.clients.append(address)
+        elif command == MessageCode.DROP_CONNECTION.value:
+            print("Connection dropped for: " + str(address))
+            self.clients.remove(address)
         elif command == MessageCode.SET_ORDERS.value:
-            print("Set orders: " + body)
-            # TODO: Set the orders parsed from this body, and parse the team from it
+            print("Setting orders from net msg: " + str(literal_eval(body)))
+            orders = literal_eval(body)
+
+            parsed_orders = {}
+            for coord, order in orders.items():
+                parsed_orders[coord] = deserialize_order(order)
+
+            Managers.piece_manager.set_orders(team, parsed_orders)
             publish_game_event(E_SUBMIT_TURN, {
                 'team': team
             })
-
-    # Check for any new network messages
-    def plumb_for_messages(self):
-        if self.networked_game:
-            readable, writable, exceptional = (
-                select.select(self.read_list, self.write_list, [], 0)
-            )
-
-            for f in readable:
-                if f is self.connection:
-                    message, address = f.recvfrom(2048)
-                    self.handle_message(message, address)
 
     # Send the provided message on to the other player
     def send_message(self, code, team, message):
@@ -90,24 +88,27 @@ class NetworkManager(GameObject):
         else:
             self.connection.sendto(full_message, (self.address, self.server_port))
 
-    # Handle events and send messages back to the client / host, as needed
-    def handle_events(self, event):
-        if is_event_type(event, E_TURN_SUBMITTED):
-            self.send_message(MessageCode.SET_ORDERS, event.team, event.orders)
-        elif is_event_type(event, E_CANCEL_TURN_SUBMITTED):
-            pass
-        elif is_event_type(event, E_ALL_TURNS_SUBMITTED):
-            pass
+    # Check for any new network messages
+    # Maintain a buffer of messages to send and send them in the step func, but add to the buffer in the while 1 loop
+    def network_step(self):
+        if self.networked_game:
+            readable, writable, exceptional = (
+                select.select(self.read_list, self.write_list, [], 0)
+            )
+
+            for f in readable:
+                if f is self.connection:
+                    message, address = f.recvfrom(2048)
+                    self.handle_message(message, address)
 
     def step(self, event):
         if self.networked_game:
-            self.plumb_for_messages()
-
-            self.handle_events(event)
-
-            if event.type == KEYDOWN:
-                if event.key in KB_DEBUG3:
-                    self.connection.sendto("c".encode(), (self.address, self.server_port))
+            if is_event_type(event, E_TURN_SUBMITTED):
+                self.send_message(MessageCode.SET_ORDERS, event.team, str(event.orders))
+            elif is_event_type(event, E_CANCEL_TURN_SUBMITTED):
+                pass
+            elif is_event_type(event, E_ALL_TURNS_SUBMITTED):
+                pass
 
     def render(self, map_screen, ui_screen):
         pass

@@ -1,4 +1,3 @@
-from pygame.constants import KEYDOWN
 
 from terra.battlephase import BattlePhase
 from terra.engine.gameobject import GameObject
@@ -7,7 +6,6 @@ from terra.event import is_event_type, publish_game_event, E_NEXT_PHASE, E_CLEAN
     START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL, E_ALL_TURNS_SUBMITTED
 from terra.managers.managers import Managers
 from terra.team import Team
-from terra.keybindings import KB_DEBUG1
 
 
 # Manager for the current phase of the game and marshalling progression through phases.
@@ -98,9 +96,6 @@ class TurnManager(GameObject):
             self.progress_phase()
         elif is_event_type(event, E_ALL_TURNS_SUBMITTED):
             self.progress_phase()
-        elif event.type == KEYDOWN:
-            if event.key in KB_DEBUG1:
-                self.progress_phase()
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

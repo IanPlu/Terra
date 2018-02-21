@@ -1,3 +1,4 @@
+from terra.economy.upgrades import UpgradeType
 from terra.constants import SPRITE_PATH
 from terra.map.tiletype import TileType
 from terra.piece.piecetype import PieceType
@@ -41,6 +42,17 @@ spr_turn_submitted_indicator = {
 }
 spr_turn_not_submitted_indicator = {
     Team.RED: pygame.image.load(SPRITE_PATH + "ui/Turn_Not_Submitted_Icon.png")
+}
+
+spr_upgrade_icons_base = get_sprites_from_strip(pygame.image.load(SPRITE_PATH + "ui/Upgrade_Icons.png"), 24)
+spr_upgrade_icons = {
+    Team.RED: {
+        UpgradeType.RESOURCE_PRODUCTION_1: spr_upgrade_icons_base[0],
+        UpgradeType.RESOURCE_PRODUCTION_2: spr_upgrade_icons_base[1],
+
+        UpgradeType.COLONIST_ATTACK: spr_upgrade_icons_base[2],
+        UpgradeType.COLONIST_MAX_HP: spr_upgrade_icons_base[3],
+    }
 }
 
 # Tile
@@ -96,6 +108,7 @@ spr_order_flags = {
     MENU_MOVE: spr_base_order_flags[1],
     MENU_RANGED_ATTACK: spr_base_order_flags[2],
     MENU_BUILD_PIECE: spr_base_order_flags[3],
+    MENU_PURCHASE_UPGRADE: spr_base_order_flags[3],
     MENU_SUBMIT_TURN: spr_base_order_flags[1],
     MENU_SAVE_GAME: spr_base_order_flags[3],
     MENU_QUIT_BATTLE: spr_base_order_flags[0]
@@ -146,6 +159,7 @@ text_menu_option = {
     MENU_CANCEL_ORDER: draw_text(menu_option_strings[LANGUAGE][MENU_CANCEL_ORDER], (0, 0, 0)),
     MENU_RANGED_ATTACK: draw_text(menu_option_strings[LANGUAGE][MENU_RANGED_ATTACK], (0, 0, 0)),
     MENU_BUILD_PIECE: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_PIECE], (0, 0, 0)),
+    MENU_PURCHASE_UPGRADE: draw_text(menu_option_strings[LANGUAGE][MENU_PURCHASE_UPGRADE], (0, 0, 0)),
     MENU_SUBMIT_TURN: draw_text(menu_option_strings[LANGUAGE][MENU_SUBMIT_TURN], (0, 0, 0)),
     MENU_SAVE_GAME: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_GAME], (0, 0, 0)),
     MENU_QUIT_BATTLE: draw_text(menu_option_strings[LANGUAGE][MENU_QUIT_BATTLE], (0, 0, 0)),
@@ -157,6 +171,7 @@ text_notifications = {
 }
 
 text_piece_name = {}
+text_upgrade_name = {}
 
 phase_text = {}
 for team in Team:
@@ -192,6 +207,14 @@ def load_assets():
         for piece_type in PieceType:
             spr_pieces[team][piece_type] = swap_palette(spr_pieces[Team.RED][piece_type], unit_palette[team])
 
+        spr_upgrade_icons[team] = {}
+        for upgrade_type in UpgradeType:
+            spr_upgrade_icons[team][upgrade_type] = swap_palette(spr_upgrade_icons[Team.RED][upgrade_type], unit_palette[team])
+
     # Generate text surfaces for each unit and building type
     for piece_type in PieceType:
         text_piece_name[piece_type] = draw_text(piece_name_strings[LANGUAGE][piece_type], (0, 0, 0))
+
+    # Generate text surfaces for each upgrade type
+    for upgrade_type in UpgradeType:
+        text_upgrade_name[upgrade_type] = draw_text(upgrade_name_strings[LANGUAGE][upgrade_type], (0, 0, 0))

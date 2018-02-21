@@ -18,6 +18,8 @@ x Add context menu to battle screen for submitting turn, saving, quitting to men
 
 Engineering
 * Write tests!!
+* Set up packaging this into an executable
+    * Determine directory structure -- do maps / saves need to be put somewhere else?
 
 Bug fixes
 * Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
@@ -26,11 +28,26 @@ x Fix resources not being deducted for placing buildings
 x Fix invalid order effects showing for all teams
 
 Gameplay
-* Build support for upgrades, enable purchasing them from the base
+x Build support for upgrades, enable purchasing them from the base
     x Double check whether I'm using piece prices or the team-specific piece prices, etc.
+    * Fill out more upgrades now that the framework is in place
 * Add additional tiers for units
 x Modify GHOST movement type to be unable to stop on the same tile as enemy buildings
 x Decide where the BUILD phase should slot into the order. Currently impossible to interrupt production
 
-Huge goals
-* Network play refactor & support
+* Implement parting shots -- when two units were contesting last turn, if one unit stays on that tile
+    and the other doesn't, the remaining unit gets a free weak attack against the retreating unit
+* Implement colonist building flipping
+* Implement colonist terraforming
+* Implement unique upgrades as generic attributes
+    * Whether this piece contests enemies, and can be contested
+    * Whether this piece impedes movement, and is affected by impedance
+    * Additional defensive bonuses + entrenchment bonuses
+    * Whether this piece is affected by parting shots
+
+Networking
+* Send the map / save data back and forth
+* Upon submitting a turn, don't allow modifying the turn unless you cancel submission
+    * Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
+* Gracefully handle connects / disconnects
+* Support for connecting to a custom IP

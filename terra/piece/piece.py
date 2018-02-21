@@ -2,12 +2,13 @@ from math import ceil
 
 from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
+from terra.economy.upgrades import UpgradeType, base_upgrades
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.managers.managers import Managers
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import passable_terrain_types
-from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder
+from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color
@@ -57,6 +58,8 @@ class Piece(GameObject):
             actions.append(MENU_RANGED_ATTACK)
         if len(self.get_valid_buildable_pieces()):
             actions.append(MENU_BUILD_PIECE)
+        if len(self.get_valid_purchaseable_upgrades()):
+            actions.append(MENU_PURCHASE_UPGRADE)
 
         actions.append(MENU_CANCEL_ORDER)
         return actions
@@ -81,6 +84,9 @@ class Piece(GameObject):
 
         return valid_pieces
 
+    def get_valid_purchaseable_upgrades(self):
+        return Managers.team_manager.attr(self.team, self.piece_type, Attribute.PURCHASEABLE_UPGRADES)
+
     # Clean ourselves up at the end of phases, die as appropriate
     def cleanup(self):
         if self.hp < 5:
@@ -94,6 +100,19 @@ class Piece(GameObject):
     # Do anything special on death
     def on_death(self):
         pass
+
+    # Cancel our current order, usually if we're contested.
+    def abort_order(self):
+        publish_game_event(E_ORDER_CANCELED, {
+            'gx': self.gx,
+            'gy': self.gy,
+            'team': self.team
+        })
+
+        Managers.combat_logger.log_failed_order_execution(self, self.current_order)
+
+        # Abort the order
+        self.current_order = None
 
     # Return true if this piece is contested by an enemy piece occupying the same tile
     def is_contested(self):
@@ -114,21 +133,12 @@ class Piece(GameObject):
         if isinstance(self.current_order, BuildOrder):
             if self.is_contested():
                 # Can't build if there's an enemy piece here
-                publish_game_event(E_ORDER_CANCELED, {
-                    'gx': self.gx,
-                    'gy': self.gy,
-                    'team': self.team
-                })
-
-                Managers.combat_logger.log_failed_order_execution(self, self.current_order)
-
-                # Abort the order
-                self.current_order = None
+                self.abort_order()
             else:
                 publish_game_event(E_PIECE_BUILT, {
                     'tx': self.current_order.tx,
                     'ty': self.current_order.ty,
-                    'team': self.current_order.team,
+                    'team': self.team,
                     'new_piece_type': self.current_order.new_piece_type
                 })
 
@@ -203,7 +213,24 @@ class Piece(GameObject):
                 self.current_order = None
 
     def handle_phase_special(self, event):
-        pass
+        # Execute upgrade orders
+        if isinstance(self.current_order, UpgradeOrder):
+            if self.is_contested():
+                # Can't upgrade if there's an enemy piece here
+                self.abort_order()
+            else:
+                publish_game_event(E_UPGRADE_BUILT, {
+                    'team': self.team,
+                    'new_upgrade_type': self.current_order.new_upgrade_type
+                })
+
+                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
+
+                # Deduct upgrade price
+                Managers.team_manager.deduct_resources(self.team, base_upgrades[self.current_order.new_upgrade_type]["upgrade_price"])
+
+                # Pop orders once they're executed
+                self.current_order = None
 
     # Handle menu events concerning us
     def handle_menu_option(self, event):
@@ -246,17 +273,27 @@ class Piece(GameObject):
                 'team': self.team,
                 'option': event.option
             })
+        elif event.option == MENU_PURCHASE_UPGRADE:
+            # Open the build menu and allow selecting an upgrade to purchase
+            publish_game_event(E_OPEN_UPGRADE_MENU, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'team': self.team,
+                'options': self.get_valid_purchaseable_upgrades()
+            })
         else:
             self.set_order(event)
 
     # Save orders to this piece
     def set_order(self, event):
         if event.option == MENU_MOVE:
-            self.current_order = MoveOrder(self, event.dx, event.dy)
+            self.current_order = MoveOrder(event.dx, event.dy)
         elif event.option == MENU_RANGED_ATTACK:
-            self.current_order = RangedAttackOrder(self, event.dx, event.dy)
+            self.current_order = RangedAttackOrder(event.dx, event.dy)
         elif event.option in PieceType:
-            self.current_order = BuildOrder(self, event.dx, event.dy, self.team, event.option)
+            self.current_order = BuildOrder(event.dx, event.dy, event.option)
+        elif event.option in UpgradeType:
+            self.current_order = UpgradeOrder(event.option)
         elif event.option == MENU_CANCEL_ORDER:
             self.current_order = None
         else:

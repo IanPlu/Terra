@@ -1,13 +1,19 @@
 from copy import deepcopy
 
+from pygame.constants import KEYDOWN
+
 from terra.economy.resourcetypes import ResourceType
+from terra.economy.upgrades import base_upgrades
 from terra.engine.gameobject import GameObject
 from terra.event import *
+from terra.keybindings import KB_DEBUG1
+from terra.managers.managers import Managers
+from terra.piece.pieceattributes import Attribute
 from terra.piece.pieceattributes import base_piece_attributes
+from terra.piece.piecetype import PieceType
 from terra.team import Team
 from terra.ui.phasebar import PhaseBar
-from terra.util.mathutil import clamp
-from terra.managers.managers import Managers
+from terra.util.mathutil import clamp, add_tuples
 
 # Max number of any given resource a player can hold.
 MAX_RESOURCES = 1000
@@ -21,7 +27,7 @@ class TeamManager(GameObject):
         self.teams = []
 
         self.resources = {}
-        self.upgrades = {}
+        self.owned_upgrades = {}
         self.piece_attributes = {}
 
         self.phase_bars = {}
@@ -35,7 +41,6 @@ class TeamManager(GameObject):
             self.teams.append(team)
 
             self.turn_submitted[team] = False
-            self.upgrades[team] = []
             self.phase_bars[team] = PhaseBar(team)
             self.resources[team] = {}
             self.resources[team][ResourceType.CARBON] = int(data[1])
@@ -44,6 +49,13 @@ class TeamManager(GameObject):
 
             # Set the base values for piece attributes
             self.piece_attributes[team] = deepcopy(base_piece_attributes)
+
+            # Set the base upgrade tree for each piece type
+            self.owned_upgrades[team] = []
+            for piece_type in PieceType:
+                for upgrade_type, upgrade in base_upgrades.items():
+                    if upgrade["bought_by"] == piece_type and upgrade["tier"] == 1:
+                        self.piece_attributes[team][piece_type][Attribute.PURCHASEABLE_UPGRADES].append(upgrade_type)
 
     def __str__(self):
         return_string = ""
@@ -99,6 +111,51 @@ class TeamManager(GameObject):
                total_minerals <= self.resources[team][ResourceType.MINERALS] and \
                total_gas <= self.resources[team][ResourceType.GAS]
 
+    # Add an upgrade to a team, triggering any changes to the units + upgrade tree as necessary.
+    def purchase_upgrade(self, team, upgrade_type):
+        print("Purchased upgrade: " + upgrade_type.name)
+
+        # 1. Add the chosen upgrade to the team
+        self.owned_upgrades[team].append(upgrade_type)
+
+        # 2. Trigger the 'on-purchase' effect
+        self.on_upgrade_purchase(team, upgrade_type)
+
+        # 3. Add any upgrades to the purchasable list that are now available (prereqs met)
+        bought_by_piece_type = base_upgrades[upgrade_type]["bought_by"]
+        new_unlocks = base_upgrades[upgrade_type]["unlocks"]
+        if len(new_unlocks):
+            self.piece_attributes[team][bought_by_piece_type][Attribute.PURCHASEABLE_UPGRADES] += new_unlocks
+
+        # 4. Remove the chosen upgrade from the purchaseable list
+        self.piece_attributes[team][bought_by_piece_type][Attribute.PURCHASEABLE_UPGRADES].remove(upgrade_type)
+
+    def on_upgrade_purchase(self, team, upgrade_type):
+        upgrade = base_upgrades[upgrade_type]
+
+        if upgrade.get("new_stat"):
+            for piece_type, attributes in upgrade["new_stat"].items():
+                for attribute in attributes:
+                    Managers.team_manager.piece_attributes[team][piece_type][attribute] += \
+                        upgrade["new_stat"][piece_type][attribute]
+
+        if upgrade.get("new_type"):
+            for piece_type, attributes in upgrade["new_type"].items():
+                for attribute in attributes:
+                    Managers.team_manager.piece_attributes[team][piece_type][attribute] = \
+                        upgrade["new_type"][piece_type][attribute]
+
+        if upgrade.get("new_costs"):
+            for piece_type, attributes in upgrade["new_costs"].items():
+                for attribute in attributes:
+                    existing_price = Managers.team_manager.piece_attributes[team][piece_type][attribute]
+                    new_price = upgrade["new_costs"][piece_type][attribute]
+                    Managers.team_manager.piece_attributes[team][piece_type][attribute] = \
+                        add_tuples(new_price, existing_price)
+
+    def get_owned_upgrades(self, team):
+        return self.owned_upgrades[team]
+
     # Return true if all teams have submitted their turn.
     def check_if_ready_to_submit_turns(self):
         for team in Team:
@@ -152,6 +209,11 @@ class TeamManager(GameObject):
                 publish_game_event(E_SAVE_GAME, {})
             elif event.option == MENU_QUIT_BATTLE:
                 publish_game_event(E_QUIT_BATTLE, {})
+        elif is_event_type(event, E_UPGRADE_BUILT):
+            self.purchase_upgrade(event.team, event.new_upgrade_type)
+        elif event.type == KEYDOWN:
+            if event.key in KB_DEBUG1:
+                self.try_submitting_turn(Managers.player_manager.active_team)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

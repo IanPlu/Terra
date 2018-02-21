@@ -11,6 +11,7 @@ class Attribute(Enum):
     SUBTYPE = "subtype"
     MAX_HP = "max_hp"
     BUILDABLE_PIECES = "buildable_pieces"
+    PURCHASEABLE_UPGRADES = "purchaseable_upgrades"
     ATTACK = "attack"
     ATTACK_MULTIPLIER = "attack_multiplier"
     DAMAGE_TYPE = "damage_type"
@@ -37,6 +38,7 @@ base_piece_attributes = {
             PieceType.MINERAL_GENERATOR,
             PieceType.GAS_GENERATOR
         ],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -65,6 +67,7 @@ base_piece_attributes = {
         Attribute.SUBTYPE: PieceSubtype.UNIT,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 30,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -94,6 +97,7 @@ base_piece_attributes = {
         Attribute.SUBTYPE: PieceSubtype.UNIT,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 30,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -123,6 +127,7 @@ base_piece_attributes = {
         Attribute.SUBTYPE: PieceSubtype.UNIT,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 30,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -150,6 +155,7 @@ base_piece_attributes = {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [PieceType.COLONIST],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -176,6 +182,7 @@ base_piece_attributes = {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -202,6 +209,7 @@ base_piece_attributes = {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -228,6 +236,7 @@ base_piece_attributes = {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -254,6 +263,7 @@ base_piece_attributes = {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [PieceType.TROOPER, PieceType.RANGER, PieceType.GHOST],
+        Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
             # Units

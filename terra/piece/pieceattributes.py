@@ -15,6 +15,7 @@ class Attribute(Enum):
     ATTACK = "attack"
     ATTACK_MULTIPLIER = "attack_multiplier"
     DAMAGE_TYPE = "damage_type"
+    ARMOR = "armor"
     MIN_RANGE = "min_range"
     MAX_RANGE = "max_range"
     MOVEMENT_TYPE = "movement_type"
@@ -54,6 +55,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 1,
         },
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
@@ -83,6 +85,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 1.5,
         },
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
@@ -113,6 +116,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 1,
         },
         Attribute.DAMAGE_TYPE: DamageType.RANGED,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 1,
         Attribute.MAX_RANGE: 2,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
@@ -143,6 +147,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 0,
         },
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GHOST,
@@ -171,6 +176,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 1,
         },
         Attribute.DAMAGE_TYPE: DamageType.NONE,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
@@ -198,6 +204,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 1,
         },
         Attribute.DAMAGE_TYPE: DamageType.NONE,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
@@ -225,6 +232,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 1,
         },
         Attribute.DAMAGE_TYPE: DamageType.NONE,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
@@ -252,6 +260,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 1,
         },
         Attribute.DAMAGE_TYPE: DamageType.NONE,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
@@ -279,6 +288,7 @@ base_piece_attributes = {
             PieceType.BARRACKS: 1,
         },
         Attribute.DAMAGE_TYPE: DamageType.NONE,
+        Attribute.ARMOR: 0,
         Attribute.MIN_RANGE: 0,
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,

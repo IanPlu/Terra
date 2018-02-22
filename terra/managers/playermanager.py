@@ -2,7 +2,7 @@ from terra.engine.gameobject import GameObject
 from terra.managers.managers import Managers
 from terra.ui.cursor import Cursor
 from terra.team import Team
-from terra.keybindings import KB_DEBUG2
+from terra.keybindings import KB_DEBUG0
 from pygame.constants import KEYDOWN
 from terra.battlephase import BattlePhase
 
@@ -26,7 +26,7 @@ class PlayerManager(GameObject):
             self.cursors[self.active_team].step(event)
 
         if event.type == KEYDOWN:
-            if event.key in KB_DEBUG2:
+            if event.key in KB_DEBUG0:
                 if self.active_team == Team.RED:
                     self.active_team = Team.BLUE
                 elif self.active_team == Team.BLUE:

@@ -6,7 +6,7 @@ from terra.economy.resourcetypes import ResourceType
 from terra.economy.upgrades import base_upgrades
 from terra.engine.gameobject import GameObject
 from terra.event import *
-from terra.keybindings import KB_DEBUG1
+from terra.keybindings import KB_DEBUG1, KB_DEBUG2
 from terra.managers.managers import Managers
 from terra.piece.pieceattributes import Attribute
 from terra.piece.pieceattributes import base_piece_attributes
@@ -153,6 +153,12 @@ class TeamManager(GameObject):
                     Managers.team_manager.piece_attributes[team][piece_type][attribute] = \
                         add_tuples(new_price, existing_price)
 
+        if upgrade.get("new_attack_multiplier"):
+            for piece_type, enemy_piece_types in upgrade["new_attack_multiplier"].items():
+                for enemy_piece_type in enemy_piece_types:
+                    Managers.team_manager.piece_attributes[team][piece_type][Attribute.ATTACK_MULTIPLIER][enemy_piece_type] = \
+                        upgrade["new_attack_multiplier"][piece_type][enemy_piece_type]
+
     def get_owned_upgrades(self, team):
         return self.owned_upgrades[team]
 
@@ -213,7 +219,9 @@ class TeamManager(GameObject):
             self.purchase_upgrade(event.team, event.new_upgrade_type)
         elif event.type == KEYDOWN:
             if event.key in KB_DEBUG1:
-                self.try_submitting_turn(Managers.player_manager.active_team)
+                self.try_submitting_turn(Team.RED)
+            elif event.key in KB_DEBUG2:
+                self.try_submitting_turn(Team.BLUE)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

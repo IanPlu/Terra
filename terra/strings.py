@@ -60,6 +60,23 @@ upgrade_name_strings = {
 
         UpgradeType.COLONIST_ATTACK: "(C) Attack+",
         UpgradeType.COLONIST_MAX_HP: "(C) HP+",
+        # UpgradeType.COLONIST_TERRAFORMING: "(C) Terraforming",
+        # UpgradeType.COLONIST_UNCONTESTABLE: "(C) Covert Ops",
+
+        UpgradeType.TROOPER_ATTACK: "(T) Attack+",
+        UpgradeType.TROOPER_ARMOR: "(T) Armor+",
+        # UpgradeType.TROOPER_REGEN: "(T) Regen",
+        # UpgradeType.TROOPER_ENTRENCHMENT: "(T) Entrench+",
+
+        UpgradeType.RANGER_ATTACK: "(R) Attack+",
+        UpgradeType.RANGER_DISTANCE: "(R) Range+",
+        UpgradeType.RANGER_MOVEMENT: "(R) Move+",
+        # UpgradeType.RANGER_UNCONTESTABLE: "(R) Ironsights",
+
+        UpgradeType.GHOST_MOVEMENT: "(G) Move+",
+        # UpgradeType.GHOST_STEALTH: "(G) Stealth",
+        UpgradeType.GHOST_ANTI_COLONIST: "(G) Assassin",
+        # UpgradeType.GHOST_ANTI_PARTING_SHOTS: "(G) Escapist",
     }
 }
 

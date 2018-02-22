@@ -15,6 +15,7 @@ x Add context menu to battle screen for submitting turn, saving, quitting to men
 * Add UI to unit popup menus to indicate you're attempting to take an action that will be contested
   (e.g. trying to build while contested)
 * Add 'serialize' method to managers, use this when saving or loading the game state
+x Create a separate 'buy' menu better suited to showing lots of upgrades / pieces to purchase, or add a scroll bar
 
 Engineering
 * Write tests!!

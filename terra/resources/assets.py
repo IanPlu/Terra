@@ -52,6 +52,24 @@ spr_upgrade_icons = {
 
         UpgradeType.COLONIST_ATTACK: spr_upgrade_icons_base[2],
         UpgradeType.COLONIST_MAX_HP: spr_upgrade_icons_base[3],
+        # UpgradeType.COLONIST_TERRAFORMING: spr_upgrade_icons_base[4],
+        # UpgradeType.COLONIST_UNCONTESTABLE: spr_upgrade_icons_base[5],
+
+        UpgradeType.TROOPER_ATTACK: spr_upgrade_icons_base[6],
+        UpgradeType.TROOPER_ARMOR: spr_upgrade_icons_base[7],
+        # UpgradeType.TROOPER_REGEN: spr_upgrade_icons_base[8],
+        # UpgradeType.TROOPER_ENTRENCHMENT: spr_upgrade_icons_base[9],
+
+        UpgradeType.RANGER_ATTACK: spr_upgrade_icons_base[10],
+        UpgradeType.RANGER_DISTANCE: spr_upgrade_icons_base[11],
+        UpgradeType.RANGER_MOVEMENT: spr_upgrade_icons_base[12],
+        # UpgradeType.RANGER_UNCONTESTABLE: spr_upgrade_icons_base[13],
+
+        UpgradeType.GHOST_MOVEMENT: spr_upgrade_icons_base[14],
+        # UpgradeType.GHOST_STEALTH: spr_upgrade_icons_base[15],
+        UpgradeType.GHOST_ANTI_COLONIST: spr_upgrade_icons_base[16],
+        # UpgradeType.GHOST_ANTI_PARTING_SHOTS: spr_upgrade_icons_base[17],
+
     }
 }
 
@@ -62,7 +80,7 @@ spr_tiles = {
     TileType.SEA: get_sprites_from_strip(pygame.image.load(SPRITE_PATH + "tiles/Tile_Sea.png"), 24),
     TileType.GRASS: [pygame.image.load(SPRITE_PATH + "tiles/Tile_Grass.png")],
     TileType.WOODS: [pygame.image.load(SPRITE_PATH + "tiles/Tile_Woods.png")],
-    TileType.RESOURCE: [pygame.image.load(SPRITE_PATH + "tiles/Tile_Resource.png")]
+    TileType.RESOURCE: get_sprites_from_strip(pygame.image.load(SPRITE_PATH + "tiles/Tile_Resource.png"), 24)
 }
 # noinspection PyUnresolvedReferences
 spr_coast_detail = {

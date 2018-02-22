@@ -27,7 +27,7 @@ class PieceConflict:
 
     # Get any defense bonuses this piece may have. Defense bonuses apply a 10% damage reduction per.
     def get_defense_bonuses(self, piece1, piece2):
-        return piece1.entrenchment
+        return piece1.entrenchment + Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.ARMOR)
 
     # Conduct one round of combat
     def resolve(self):

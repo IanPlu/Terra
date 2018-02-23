@@ -1,3 +1,5 @@
+from pygame.constants import KEYDOWN
+
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
@@ -7,7 +9,10 @@ from terra.managers.mapmanager import get_loadable_maps
 from terra.resources.assets import clear_color, text_main_menu, light_color, shadow_color
 from terra.team import Team
 from terra.util.drawingutil import draw_text
-from pygame.constants import KEYDOWN
+from terra.util.mathutil import clamp
+
+displayable_buffer = 1
+max_displayable_options = 5
 
 
 # Convert a list of loadable maps to selectable options: [(display name, filename), (...)]
@@ -51,16 +56,32 @@ class MainMenu(GameScreen):
         self.current_menu = generate_menu()
         self.current_menu_pos = 0
         self.num_options = len(self.current_menu[1])
+        self.current_menu_min = 0
+        self.current_menu_max = max_displayable_options
 
     def cursor_up(self):
         self.current_menu_pos -= 1
-        if self.current_menu_pos < 0:
-            self.current_menu_pos = self.num_options - 1
+        self.normalize_menu_pos()
 
     def cursor_down(self):
         self.current_menu_pos += 1
+        self.normalize_menu_pos()
+
+    def normalize_menu_pos(self):
+        if self.current_menu_pos < 0:
+            self.current_menu_pos = self.num_options - 1
         if self.current_menu_pos > self.num_options - 1:
             self.current_menu_pos = 0
+
+        # Scroll the displayable area
+        if self.current_menu_pos < self.current_menu_min + displayable_buffer:
+            self.current_menu_min = self.current_menu_pos - displayable_buffer
+        if self.current_menu_pos >= self.current_menu_max - displayable_buffer:
+            self.current_menu_min = self.current_menu_pos + displayable_buffer - max_displayable_options + 1
+
+        # Clamp to the bounds of the option list
+        self.current_menu_min = clamp(self.current_menu_min, 0, self.num_options - max_displayable_options)
+        self.current_menu_max = self.current_menu_min + max_displayable_options
 
     def confirm(self):
         selection = self.current_menu[1][self.current_menu_pos]
@@ -118,14 +139,15 @@ class MainMenu(GameScreen):
         game_screen.fill(clear_color[Team.RED])
 
         root_x = RESOLUTION_WIDTH // 2
-        root_y = RESOLUTION_HEIGHT // 2
+        root_y = RESOLUTION_HEIGHT // 2 - 48
 
         # Draw text for the menu title
         game_screen.blit(text_main_menu[self.current_menu[0]], (root_x - 12, root_y))
 
         # Draw text for each menu option
         row_y = 1
-        for option in self.current_menu[1]:
+        displayable_options = self.current_menu[1][self.current_menu_min:self.current_menu_max]
+        for option in displayable_options:
             if option == self.current_menu[1][self.current_menu_pos]:
                 x_offset = 12
             else:

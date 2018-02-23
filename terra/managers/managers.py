@@ -31,12 +31,12 @@ class Managers:
         if not map_name:
             map_name = Managers.network_manager.get_map_name_from_host()
 
-        bitmap, pieces, teams = load_map_from_file(map_name)
+        bitmap, pieces, teams, upgrades = load_map_from_file(map_name)
 
         Managers.combat_logger = CombatLogger(map_name)
         Managers.effects_manager = EffectsManager()
         Managers.map_name = map_name
-        Managers.team_manager = TeamManager(teams)
+        Managers.team_manager = TeamManager(teams, upgrades)
         Managers.battle_map = MapManager(bitmap)
         Managers.piece_manager = PieceManager(pieces)
         Managers.turn_manager = TurnManager()
@@ -52,6 +52,9 @@ class Managers:
 
         # Ask the team manager to serialize itself
         teams = Managers.team_manager.serialize_teams()
+
+        # Ask the team manager to serialize its upgrades
+        upgrades = Managers.team_manager.serialize_upgrades()
 
         # Strip '.map' from the map name
         savename = Managers.map_name[:-4]
@@ -75,6 +78,11 @@ class Managers:
             lines += "# Teams\n"
             for team in teams:
                 lines += team + "\n"
+
+            # Append upgrades
+            lines += "# Upgrades\n"
+            for upgrade in upgrades:
+                lines += upgrade + "\n"
 
             savefile.write(lines)
 

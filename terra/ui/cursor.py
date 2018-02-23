@@ -1,10 +1,10 @@
-from pygame.constants import KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN
+from pygame.constants import KEYDOWN, KEYUP, MOUSEMOTION, MOUSEBUTTONDOWN
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event import *
-from terra.keybindings import KB_UP, KB_DOWN, KB_LEFT, KB_RIGHT, KB_CONFIRM, KB_CANCEL, KB_MENU
+from terra.keybindings import KB_UP, KB_DOWN, KB_LEFT, KB_RIGHT, KB_CONFIRM, KB_CANCEL, KB_MENU, KB_MENU2
 from terra.managers.managers import Managers
 from terra.resources.assets import spr_cursor
 from terra.settings import SCREEN_SCALE

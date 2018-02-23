@@ -90,7 +90,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
         Attribute.MOVEMENT_RANGE: 2,
-        Attribute.PRICE: (10, 10, 10),
+        Attribute.PRICE: (10, 15, 5),
         Attribute.RESOURCE_PRODUCTION: (0, 0, 0)
     },
     PieceType.RANGER: {
@@ -121,7 +121,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 2,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
         Attribute.MOVEMENT_RANGE: 2,
-        Attribute.PRICE: (10, 10, 10),
+        Attribute.PRICE: (15, 5, 10),
         Attribute.RESOURCE_PRODUCTION: (0, 0, 0)
     },
     PieceType.GHOST: {
@@ -129,7 +129,7 @@ base_piece_attributes = {
         # Strong against ranged units and colonists. They are not impeded by enemy units when moving.
         # Ghosts cannot attack enemy buildings-- they are strictly unit assassins.
         Attribute.SUBTYPE: PieceSubtype.UNIT,
-        Attribute.MAX_HP: 100,
+        Attribute.MAX_HP: 70,
         Attribute.BUILDABLE_PIECES: [],
         Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 30,
@@ -152,7 +152,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GHOST,
         Attribute.MOVEMENT_RANGE: 3,
-        Attribute.PRICE: (10, 10, 10),
+        Attribute.PRICE: (5, 10, 15),
         Attribute.RESOURCE_PRODUCTION: (0, 0, 0)
     },
     # Buildings
@@ -209,7 +209,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (10, 10, 10),
+        Attribute.PRICE: (5, 10, 10),
         Attribute.RESOURCE_PRODUCTION: (10, 0, 0)
     },
     PieceType.MINERAL_GENERATOR: {
@@ -237,7 +237,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (10, 10, 10),
+        Attribute.PRICE: (10, 5, 10),
         Attribute.RESOURCE_PRODUCTION: (0, 10, 0)
     },
     PieceType.GAS_GENERATOR: {
@@ -265,7 +265,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (10, 10, 10),
+        Attribute.PRICE: (10, 10, 5),
         Attribute.RESOURCE_PRODUCTION: (0, 0, 10)
     },
     PieceType.BARRACKS: {
@@ -293,7 +293,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (30, 30, 30),
+        Attribute.PRICE: (25, 25, 25),
         Attribute.RESOURCE_PRODUCTION: (0, 0, 0)
     }
 }

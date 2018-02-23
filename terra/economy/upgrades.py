@@ -69,7 +69,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.COLONIST: {Attribute.ATTACK: 15}
         },
-        "upgrade_price": (20, 20, 20),
+        "upgrade_price": (10, 10, 10),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BASE
@@ -79,7 +79,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.COLONIST: {Attribute.MAX_HP: 20}
         },
-        "upgrade_price": (20, 20, 20),
+        "upgrade_price": (10, 10, 10),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BASE
@@ -92,7 +92,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.TROOPER: {Attribute.ATTACK: 10}
         },
-        "upgrade_price": (20, 20, 20),
+        "upgrade_price": (15, 20, 10),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -102,7 +102,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.TROOPER: {Attribute.ARMOR: 1}
         },
-        "upgrade_price": (30, 30, 30),
+        "upgrade_price": (20, 30, 10),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -115,7 +115,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.RANGER: {Attribute.ATTACK: 10}
         },
-        "upgrade_price": (20, 20, 20),
+        "upgrade_price": (20, 10, 15),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -128,7 +128,7 @@ base_upgrades = {
                 Attribute.MAX_RANGE: 1,
             },
         },
-        "upgrade_price": (30, 30, 30),
+        "upgrade_price": (30, 5, 10),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -138,7 +138,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.RANGER: {Attribute.MOVEMENT_RANGE: 1},
         },
-        "upgrade_price": (30, 30, 30),
+        "upgrade_price": (10, 20, 30),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -150,7 +150,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.GHOST: {Attribute.MOVEMENT_RANGE: 1},
         },
-        "upgrade_price": (20, 20, 20),
+        "upgrade_price": (10, 15, 30),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -163,7 +163,7 @@ base_upgrades = {
                 PieceType.COLONIST: 25
             },
         },
-        "upgrade_price": (20, 20, 20),
+        "upgrade_price": (10, 20, 30),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS

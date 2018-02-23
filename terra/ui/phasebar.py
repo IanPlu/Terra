@@ -7,7 +7,8 @@ from terra.event import *
 from terra.managers.managers import Managers
 from terra.resources.assets import clear_color, phase_text, spr_cursor, spr_phase_indicator, \
     spr_resource_icon_carbon, spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons, \
-    text_notifications, spr_turn_submitted_indicator, spr_turn_not_submitted_indicator
+    text_notifications, spr_turn_submitted_indicator
+from terra.team import Team
 from terra.ui.toastnotification import ToastNotification
 from terra.util.drawingutil import draw_resource_count
 
@@ -63,11 +64,8 @@ class PhaseBar(GameObject):
         ui_screen.blit(resource_counts, (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Render turn submission status
-        x += 4
-        turn_submitted = Managers.team_manager.turn_submitted[self.team]
-        if turn_submitted:
-            ui_screen.blit(spr_turn_submitted_indicator[self.team],
-                           (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
-        else:
-            ui_screen.blit(spr_turn_not_submitted_indicator[self.team],
-                           (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
+        x += 3
+        for team in Team:
+            if Managers.team_manager.turn_submitted[team]:
+                ui_screen.blit(spr_turn_submitted_indicator[team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
+            x += 1

@@ -109,12 +109,21 @@ def draw_three_digit_number(spr_digit_icons, number, team):
     # Restrict the number to 3 digits
     formatted_number = "{0:0=3d}".format(clamp(number, 0, 999))
 
-    digits = [int(digit) for digit in str(formatted_number)]
+    digits = []
+    replacing_zeroes = True
+    for char in formatted_number:
+        if replacing_zeroes and char == '0':
+            replacing_zeroes = False
+            digits.append(-1)
+        else:
+            digits.append(int(char))
+
     display = pygame.Surface((len(digits) * 8, 8), pygame.SRCALPHA, 32)
 
     x = 0
     for digit in digits:
-        display.blit(spr_digit_icons[team][digit], (x, 0))
+        if digit != -1:
+            display.blit(spr_digit_icons[team][digit], (x, 0))
         x += 8
     return display
 
@@ -131,3 +140,16 @@ def draw_resource_count(spr_resources, spr_digit_icons, team, counts):
 
     return display
 
+
+# Return a 24x24 px surface containing the three resource icons, with the provided resource counts labeled.
+def draw_small_resource_count(spr_resources, spr_digit_icons, clear_color, team, counts):
+    display = pygame.Surface((32, 24), pygame.SRCALPHA, 32)
+    display.fill(clear_color[team], (0, 0, 32, 24))
+
+    y = 0
+    for resource in spr_resources:
+        display.blit(resource[team], (0, y * 8))
+        display.blit(draw_three_digit_number(spr_digit_icons, counts[y], team), (8, y * 8))
+        y += 1
+
+    return display

@@ -97,17 +97,26 @@ def get_loadable_maps(suffix=".map"):
 def load_map_from_file(mapname):
     reading_pieces = False
     reading_teams = False
+    reading_upgrades = False
 
     try:
         with open(MAP_PATH + mapname) as mapfile:
             bitmap = []
             pieces = []
             teams = []
+            upgrades = []
+
             for line in mapfile:
                 if line.rstrip() == "# Pieces":
                     reading_pieces = True
                 elif line.rstrip() == "# Teams":
                     reading_teams = True
+                elif line.rstrip() == "# Upgrades":
+                    reading_upgrades = True
+                elif reading_upgrades:
+                    if line.rstrip():
+                        # Add each line to upgrades
+                        upgrades.append(line.rstrip())
                 elif reading_teams:
                     if line.rstrip():
                         # Add each line to teams
@@ -124,8 +133,9 @@ def load_map_from_file(mapname):
         bitmap = generate_bitmap(20, 15, False)
         pieces = ["0 0 RED BASE", "20 15 BLUE BASE"]
         teams = ["RED 0 0 0", "BLUE 0 0 0"]
+        upgrades = ["RED|", "BLUE|"]
 
-    return bitmap, pieces, teams
+    return bitmap, pieces, teams, upgrades
 
 
 # Generate a map of the required size

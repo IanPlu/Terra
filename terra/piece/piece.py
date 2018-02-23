@@ -1,17 +1,21 @@
 from math import ceil
 
+from pygame import KEYDOWN, KEYUP
+
 from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.economy.upgrades import UpgradeType, base_upgrades
 from terra.engine.gameobject import GameObject
 from terra.event import *
+from terra.keybindings import KB_MENU2
 from terra.managers.managers import Managers
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import passable_terrain_types
 from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
-from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color
+from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color, spr_upgrade_icons, \
+    spr_target
 from terra.settings import LANGUAGE
 from terra.strings import piece_name_strings
 from terra.team import Team
@@ -40,6 +44,7 @@ class Piece(GameObject):
         self.in_conflict = False
         self.tile_selection = None
         self.entrenchment = 0
+        self.previewing_order = False
 
     def __str__(self):
         return "{} {} at tile ({}, {}) with {} HP" \
@@ -61,7 +66,9 @@ class Piece(GameObject):
         if len(self.get_valid_purchaseable_upgrades()):
             actions.append(MENU_PURCHASE_UPGRADE)
 
-        actions.append(MENU_CANCEL_ORDER)
+        if len(actions) > 0:
+            actions.append(MENU_CANCEL_ORDER)
+
         return actions
 
     # Trim the list of innately buildable pieces to ones that can be placed nearby, taking tile type etc. into account
@@ -337,13 +344,15 @@ class Piece(GameObject):
             self.cleanup()
         # Catch selection events and open the orders menu
         elif is_event_type(event, E_SELECT):
+            available_actions = self.get_available_actions()
+
             if event.gx == self.gx and event.gy == self.gy and \
-                    event.team == self.team and not event.selecting_movement:
+                    event.team == self.team and not event.selecting_movement and len(available_actions) > 0:
                 publish_game_event(E_OPEN_MENU, {
                     'gx': self.gx,
                     'gy': self.gy,
                     'team': self.team,
-                    'options': self.get_available_actions()
+                    'options': available_actions
                 })
         # Catch menu events and set orders if they don't require tile selection or a submenu
         elif is_event_type(event, E_CLOSE_MENU) and event.option:
@@ -353,6 +362,36 @@ class Piece(GameObject):
         elif is_event_type(event, E_SELECT_TILE) and event.option:
             if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
                 self.handle_tile_selection(event)
+
+        if self.team == Managers.player_manager.active_team:
+            if event.type == KEYDOWN and event.key in KB_MENU2:
+                self.previewing_order = True
+            elif event.type == KEYUP and event.key in KB_MENU2:
+                self.previewing_order = False
+
+    # Render a preview of the piece's current orders.
+    def preview_order(self, game_screen):
+        if self.current_order:
+            if isinstance(self.current_order, MoveOrder):
+                target_sprite = self.get_sprite().copy()
+                target_sprite.set_alpha(128)
+                game_screen.blit(target_sprite, (self.current_order.dx * GRID_WIDTH,
+                                                 self.current_order.dy * GRID_HEIGHT))
+            elif isinstance(self.current_order, RangedAttackOrder):
+                target_sprite = spr_target[self.team].copy()
+                target_sprite.set_alpha(128)
+                game_screen.blit(target_sprite, (self.current_order.tx * GRID_WIDTH,
+                                                 self.current_order.ty * GRID_HEIGHT))
+            elif isinstance(self.current_order, BuildOrder):
+                target_sprite = spr_pieces[self.team][self.current_order.new_piece_type].copy()
+                target_sprite.set_alpha(128)
+                game_screen.blit(target_sprite, (self.current_order.tx * GRID_WIDTH,
+                                                 self.current_order.ty * GRID_HEIGHT))
+            elif isinstance(self.current_order, UpgradeOrder):
+                target_sprite = spr_upgrade_icons[self.team][self.current_order.new_upgrade_type].copy()
+                target_sprite.set_alpha(128)
+                game_screen.blit(target_sprite, (self.gx * GRID_WIDTH,
+                                                 self.gy * GRID_HEIGHT))
 
     # Ask the Unit to render itself
     def render(self, game_screen, ui_screen):
@@ -390,3 +429,6 @@ class Piece(GameObject):
         # Allow our tile selection UI to function if alive
         if self.tile_selection:
             self.tile_selection.render(game_screen, ui_screen)
+
+        if self.previewing_order:
+            self.preview_order(game_screen)

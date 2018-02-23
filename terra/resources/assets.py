@@ -38,10 +38,7 @@ spr_phase_indicator = {
 }
 
 spr_turn_submitted_indicator = {
-    Team.RED: pygame.image.load(SPRITE_PATH + "ui/Turn_Submitted_Icon.png")
-}
-spr_turn_not_submitted_indicator = {
-    Team.RED: pygame.image.load(SPRITE_PATH + "ui/Turn_Not_Submitted_Icon.png")
+    Team.RED: pygame.image.load(SPRITE_PATH + "ui/Turn_Submitted.png")
 }
 
 spr_upgrade_icons_base = get_sprites_from_strip(pygame.image.load(SPRITE_PATH + "ui/Upgrade_Icons.png"), 24)
@@ -71,6 +68,10 @@ spr_upgrade_icons = {
         # UpgradeType.GHOST_ANTI_PARTING_SHOTS: spr_upgrade_icons_base[17],
 
     }
+}
+
+spr_target = {
+    Team.RED: pygame.image.load(SPRITE_PATH + "ui/Target.png")
 }
 
 # Tile
@@ -146,6 +147,16 @@ spr_resource_icon_gas = {
     Team.RED: pygame.image.load(SPRITE_PATH + "ui/ResourceIcon_Gas.png")
 }
 
+spr_resource_icon_carbon_small = {
+    Team.RED: spr_base_order_flags[4]
+}
+spr_resource_icon_minerals_small = {
+    Team.RED: spr_base_order_flags[5]
+}
+spr_resource_icon_gas_small = {
+    Team.RED: spr_base_order_flags[6]
+}
+
 # Effects
 spr_effects = {
     EffectType.ALERT: get_sprites_from_strip(
@@ -216,10 +227,13 @@ def load_assets():
         spr_resource_icon_minerals[team] = swap_palette(spr_resource_icon_minerals[Team.RED], unit_palette[team])
         spr_resource_icon_gas[team] = swap_palette(spr_resource_icon_gas[Team.RED], unit_palette[team])
 
+        spr_resource_icon_carbon_small[team] = swap_palette(spr_resource_icon_carbon_small[Team.RED], unit_palette[team])
+        spr_resource_icon_minerals_small[team] = swap_palette(spr_resource_icon_minerals_small[Team.RED], unit_palette[team])
+        spr_resource_icon_gas_small[team] = swap_palette(spr_resource_icon_gas_small[Team.RED], unit_palette[team])
+
         spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED],
                                                           unit_palette[team])
-        spr_turn_not_submitted_indicator[team] = swap_palette(spr_turn_not_submitted_indicator[Team.RED],
-                                                              unit_palette[team])
+        spr_target[team] = swap_palette(spr_target[Team.RED], unit_palette[team])
 
         spr_pieces[team] = {}
         for piece_type in PieceType:

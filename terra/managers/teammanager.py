@@ -3,7 +3,7 @@ from copy import deepcopy
 from pygame.constants import KEYDOWN
 
 from terra.economy.resourcetypes import ResourceType
-from terra.economy.upgrades import base_upgrades
+from terra.economy.upgrades import base_upgrades, UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_DEBUG1, KB_DEBUG2
@@ -21,7 +21,7 @@ MAX_RESOURCES = 1000
 
 # Contains and manages all resources and upgrades for all teams
 class TeamManager(GameObject):
-    def __init__(self, teams):
+    def __init__(self, teams, upgrades):
         super().__init__()
 
         self.teams = []
@@ -50,12 +50,25 @@ class TeamManager(GameObject):
             # Set the base values for piece attributes
             self.piece_attributes[team] = deepcopy(base_piece_attributes)
 
+        # Initialize upgrades
+        for team_upgrades in upgrades:
+            # Parse the upgrades. Looks like: 'RED|UPGRADE1 UPGRADE2', with team color and then upgrade names.
+            upgrade_data = team_upgrades.split('|')
+            team = Team[upgrade_data[0]]
+
+            upgrade_list = upgrade_data[1].split(' ')
+
             # Set the base upgrade tree for each piece type
             self.owned_upgrades[team] = []
             for piece_type in PieceType:
                 for upgrade_type, upgrade in base_upgrades.items():
                     if upgrade["bought_by"] == piece_type and upgrade["tier"] == 1:
                         self.piece_attributes[team][piece_type][Attribute.PURCHASEABLE_UPGRADES].append(upgrade_type)
+
+            # Apply any already owned upgrades
+            for upgrade in upgrade_list:
+                if upgrade:
+                    self.purchase_upgrade(team, UpgradeType[upgrade])
 
     def __str__(self):
         return_string = ""
@@ -70,15 +83,24 @@ class TeamManager(GameObject):
     def attr(self, team, piece_type, attribute):
         return self.piece_attributes[team][piece_type][attribute]
 
-    # Serialize team and resource counts for saving
+    # Serialize team, resource counts, and upgrades for saving
     def serialize_teams(self):
         team_strings = []
         for team in self.teams:
-            team_strings.append("{} {} {} {}".format(team.name,
-                                                     self.resources[team][ResourceType.CARBON],
+            team_strings.append("{} {} {} {}".format(team.name, self.resources[team][ResourceType.CARBON],
                                                      self.resources[team][ResourceType.MINERALS],
                                                      self.resources[team][ResourceType.GAS]))
         return team_strings
+
+    def serialize_upgrades(self):
+        team_upgrade_strings = []
+        for team in self.teams:
+            team_upgrades = str(team.name) + "|"
+            for upgrade in self.owned_upgrades[team]:
+                team_upgrades += upgrade.name + " "
+            team_upgrade_strings.append(team_upgrades)
+
+        return team_upgrade_strings
 
     # Add new resources to the specified team. new_resources should be formatted as a tuple: (1, 2, 3)
     def add_resources(self, team, new_resources):
@@ -104,8 +126,8 @@ class TeamManager(GameObject):
 
         for amount in amounts:
             total_carbon = total_carbon + amount[0]
-            total_minerals = total_minerals + amount[0]
-            total_gas = total_gas + amount[0]
+            total_minerals = total_minerals + amount[1]
+            total_gas = total_gas + amount[2]
 
         return total_carbon <= self.resources[team][ResourceType.CARBON] and \
                total_minerals <= self.resources[team][ResourceType.MINERALS] and \
@@ -136,27 +158,27 @@ class TeamManager(GameObject):
         if upgrade.get("new_stat"):
             for piece_type, attributes in upgrade["new_stat"].items():
                 for attribute in attributes:
-                    Managers.team_manager.piece_attributes[team][piece_type][attribute] += \
+                    self.piece_attributes[team][piece_type][attribute] += \
                         upgrade["new_stat"][piece_type][attribute]
 
         if upgrade.get("new_type"):
             for piece_type, attributes in upgrade["new_type"].items():
                 for attribute in attributes:
-                    Managers.team_manager.piece_attributes[team][piece_type][attribute] = \
+                    self.piece_attributes[team][piece_type][attribute] = \
                         upgrade["new_type"][piece_type][attribute]
 
         if upgrade.get("new_costs"):
             for piece_type, attributes in upgrade["new_costs"].items():
                 for attribute in attributes:
-                    existing_price = Managers.team_manager.piece_attributes[team][piece_type][attribute]
+                    existing_price = self.piece_attributes[team][piece_type][attribute]
                     new_price = upgrade["new_costs"][piece_type][attribute]
-                    Managers.team_manager.piece_attributes[team][piece_type][attribute] = \
+                    self.piece_attributes[team][piece_type][attribute] = \
                         add_tuples(new_price, existing_price)
 
         if upgrade.get("new_attack_multiplier"):
             for piece_type, enemy_piece_types in upgrade["new_attack_multiplier"].items():
                 for enemy_piece_type in enemy_piece_types:
-                    Managers.team_manager.piece_attributes[team][piece_type][Attribute.ATTACK_MULTIPLIER][enemy_piece_type] = \
+                    self.piece_attributes[team][piece_type][Attribute.ATTACK_MULTIPLIER][enemy_piece_type] = \
                         upgrade["new_attack_multiplier"][piece_type][enemy_piece_type]
 
     def get_owned_upgrades(self, team):
@@ -217,7 +239,7 @@ class TeamManager(GameObject):
                 publish_game_event(E_QUIT_BATTLE, {})
         elif is_event_type(event, E_UPGRADE_BUILT):
             self.purchase_upgrade(event.team, event.new_upgrade_type)
-        elif event.type == KEYDOWN:
+        elif event.type == KEYDOWN and not Managers.network_manager.networked_game:
             if event.key in KB_DEBUG1:
                 self.try_submitting_turn(Team.RED)
             elif event.key in KB_DEBUG2:

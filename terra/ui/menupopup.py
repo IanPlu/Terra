@@ -9,11 +9,11 @@ from terra.managers.managers import Managers
 from terra.piece.piece import spr_order_flags
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
-from terra.resources.assets import spr_cursor, spr_textbox, spr_pieces, text_menu_option, text_piece_name, clear_color, \
-    spr_resource_icon_carbon, spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons, spr_upgrade_icons, \
-    text_upgrade_name
+from terra.resources.assets import spr_cursor, spr_textbox, spr_pieces, text_menu_option, text_piece_name,\
+    clear_color, spr_digit_icons, spr_upgrade_icons, text_upgrade_name, spr_resource_icon_carbon_small,\
+    spr_resource_icon_minerals_small, spr_resource_icon_gas_small
 from terra.settings import SCREEN_SCALE
-from terra.util.drawingutil import draw_nine_slice_sprite, draw_resource_count
+from terra.util.drawingutil import draw_nine_slice_sprite, draw_small_resource_count
 from terra.util.mathutil import clamp
 
 # Constants for rendering textboxes
@@ -139,14 +139,14 @@ class MenuPopup(GameObject):
                 self.confirm()
             elif event.key in KB_CANCEL:
                 self.cancel()
-        elif self.is_mouse_in_menu_bounds():
-            if event.type == MOUSEMOTION:
-                self.set_cursor_pos_to_mouse_coords()
-            elif event.type == MOUSEBUTTONDOWN:
+        if event.type == MOUSEMOTION and self.is_mouse_in_menu_bounds():
+            self.set_cursor_pos_to_mouse_coords()
+        elif event.type == MOUSEBUTTONDOWN:
+            if event.button in KB_CANCEL:
+                self.cancel()
+            elif self.is_mouse_in_menu_bounds():
                 if event.button in KB_CONFIRM:
                     self.confirm()
-                elif event.button in KB_CANCEL:
-                    self.cancel()
                 elif event.button in KB_SCROLL_UP:
                     self.scroll_option_up()
                     self.set_cursor_pos_to_mouse_coords()
@@ -170,11 +170,14 @@ class MenuPopup(GameObject):
                 game_screen.blit(spr_pieces[self.team][option], (self.x, self.y + 8 + row_y * option_height))
                 game_screen.blit(text_piece_name[option], (self.x + 24, self.y + 16 + row_y * option_height))
 
-                resource_price = draw_resource_count([spr_resource_icon_carbon, spr_resource_icon_minerals,
-                                                      spr_resource_icon_gas], spr_digit_icons, self.team,
-                                                     Managers.team_manager.attr(self.team, option, Attribute.PRICE))
-                game_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 2,
-                                                  self.y + row_y * option_height + subgrid_size))
+                if self.option_pos == row_y + self.option_min:
+                    resource_price = draw_small_resource_count([spr_resource_icon_carbon_small,
+                                                                spr_resource_icon_minerals_small,
+                                                                spr_resource_icon_gas_small],
+                                                               spr_digit_icons, clear_color, self.team,
+                                                               Managers.team_manager.attr(self.team, option, Attribute.PRICE))
+                    game_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 2,
+                                                      self.y + row_y * option_height + subgrid_size))
 
                 row_y += 1
             elif option in UpgradeType:
@@ -183,11 +186,14 @@ class MenuPopup(GameObject):
                 game_screen.blit(spr_upgrade_icons[self.team][option], (self.x, self.y + 8 + row_y * option_height))
                 game_screen.blit(text_upgrade_name[option], (self.x + 24, self.y + 16 + row_y * option_height))
 
-                resource_price = draw_resource_count([spr_resource_icon_carbon, spr_resource_icon_minerals,
-                                                      spr_resource_icon_gas], spr_digit_icons, self.team,
-                                                     base_upgrades[option]["upgrade_price"])
-                game_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 2,
-                                                  self.y + row_y * option_height + subgrid_size))
+                if self.option_pos == row_y + self.option_min:
+                    resource_price = draw_small_resource_count([spr_resource_icon_carbon_small,
+                                                                spr_resource_icon_minerals_small,
+                                                                spr_resource_icon_gas_small],
+                                                               spr_digit_icons, clear_color, self.team,
+                                                               base_upgrades[option]["upgrade_price"])
+                    game_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 2,
+                                                      self.y + row_y * option_height + subgrid_size))
 
                 row_y += 1
             else:

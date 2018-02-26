@@ -39,6 +39,10 @@ class Main:
         elif new_mode == Mode.EDIT:
             self.current_screen = LevelEditor(mapname)
 
+    def quit(self):
+        pygame.quit()
+        sys.exit()
+
     # Step phase of game loop - handle events
     def step(self, event):
         self.current_screen.step(event)
@@ -55,7 +59,7 @@ class Main:
             elif event.option == Option.LEVEL_EDITOR:
                 self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.QUIT:
-                quit()
+                self.quit()
         elif is_event_type(event, E_QUIT_BATTLE):
             self.set_screen_from_mode(Mode.MAIN_MENU, None)
 
@@ -96,7 +100,7 @@ while True:
     # Run game logic
     for event in pygame.event.get():
         if event.type == QUIT:
-            sys.exit()
+            main.quit()
 
         main.step(event)
 

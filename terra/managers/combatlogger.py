@@ -1,6 +1,6 @@
 import logging
 
-from terra.constants import LOG_PATH
+from terra.resources.assets import AssetType, get_asset
 from terra.settings import LANGUAGE
 from terra.strings import phase_strings
 
@@ -11,7 +11,7 @@ class CombatLogger:
         super().__init__()
 
         logging.basicConfig(format="%(message)s",
-                            filename=LOG_PATH + mapname + ".log",
+                            filename=get_asset(AssetType.LOG, mapname + ".log"),
                             level=logging.INFO)
 
     def log_new_round(self, round_number):

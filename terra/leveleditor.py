@@ -1,6 +1,6 @@
 from pygame.constants import KEYDOWN, KMOD_CTRL
 
-from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT, MAP_PATH
+from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
 from terra.keybindings import KB_MENU, KB_SCROLL_UP, KB_SCROLL_DOWN

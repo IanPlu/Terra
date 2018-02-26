@@ -1,4 +1,4 @@
-from terra.constants import MAP_PATH
+from terra.resources.assets import AssetType, get_asset
 
 
 # Container for the various -manager objects.
@@ -57,9 +57,10 @@ class Managers:
         upgrades = Managers.team_manager.serialize_upgrades()
 
         # Strip '.map' from the map name
-        savename = Managers.map_name[:-4]
+        save_name = Managers.map_name[:-4]
+        save_path = get_asset(AssetType.MAP, save_name + ".sav")
 
-        with open("{}{}.sav".format(MAP_PATH, savename), 'w') as savefile:
+        with open(save_path, 'w') as save_file:
             lines = ""
             # Append map
             for row in bitmap:
@@ -84,7 +85,7 @@ class Managers:
             for upgrade in upgrades:
                 lines += upgrade + "\n"
 
-            savefile.write(lines)
+            save_file.write(lines)
 
     @staticmethod
     def step(event):

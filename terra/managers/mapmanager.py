@@ -1,11 +1,11 @@
 import random
 from os import walk
 
-from terra.constants import MAP_PATH
 from terra.engine.gameobject import GameObject
 from terra.map.tile import Tile
 from terra.map.tiletype import TileType
 from terra.piece.movementtype import passable_terrain_types
+from terra.resources.assets import AssetType, get_asset
 
 
 # A single map containing tiles, organized into a grid.
@@ -86,7 +86,7 @@ class MapManager(GameObject):
 # Return a list of filenames of loadable maps
 def get_loadable_maps(suffix=".map"):
     maps = []
-    for (_, _, filenames) in walk(MAP_PATH):
+    for (_, _, filenames) in walk(get_asset(AssetType.MAP, "")):
         maps.extend(filenames)
 
     return [mapname for mapname in maps if mapname.endswith(suffix)]
@@ -99,8 +99,10 @@ def load_map_from_file(mapname):
     reading_teams = False
     reading_upgrades = False
 
+    map_path = get_asset(AssetType.MAP, mapname)
+
     try:
-        with open(MAP_PATH + mapname) as mapfile:
+        with open(map_path) as mapfile:
             bitmap = []
             pieces = []
             teams = []

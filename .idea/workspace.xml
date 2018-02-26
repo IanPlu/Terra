@@ -4,18 +4,235 @@
     <bookmark url="file://$PROJECT_DIR$/terra/piece/piece.py" line="337" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="894e41a0-738f-4e5f-8a18-3f971581210e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/terra/network/__init__.py" />
+    <list default="true" id="894e41a0-738f-4e5f-8a18-3f971581210e" name="Default" comment="Added missing build directory (how gauche)">
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/Terra.zip" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/launcher.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_bz2.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_ctypes.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_decimal.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_hashlib.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_lzma.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_multiprocessing.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_socket.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_ssl.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/ctypes/macholib/README.ctypes" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/ctypes/macholib/fetch_macholib" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/ctypes/macholib/fetch_macholib.bat" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/README" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/command_template" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-10.0-amd64.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-10.0.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-14.0-amd64.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-14.0.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-6.0.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-7.1.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-8.0.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-9.0-amd64.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-9.0.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/tests/Setup.sample" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/email/architecture.rst" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/Grammar.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/Grammar3.6.1.candidate.1.pickle" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/Grammar3.6.1.final.0.pickle" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/PatternGrammar.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/PatternGrammar3.6.1.candidate.1.pickle" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/PatternGrammar3.6.1.final.0.pickle" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/tests/data/README" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/library.zip" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pydoc_data/_pydoc.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pyexpat.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/LGPL" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/SDL.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/SDL_image.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/SDL_mixer.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/SDL_ttf.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/VCRUNTIME140.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/_freetype.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/base.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/bufferproxy.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/cdrom.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/color.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/constants.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/display.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/logos.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/pygame_logo.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/pygame_powered.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/pygame_small.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/pygame_tiny.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/ref/docscomments.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/draw.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/event.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien1.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien2.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien3.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/arraydemo.bmp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/asprite.bmp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/background.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/blue.mpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/bomb.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/boom.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/brick.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/car_door.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/chimp.bmp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/city.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/danger.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/explosion1.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/fist.bmp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/house_lo.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/house_lo.ogg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/house_lo.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/liquid.bmp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/midikeys.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/oldplayer.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/player1.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/punch.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/sans.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/secosmic_lo.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/shot.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/static.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/whiff.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/yuv_1.pgm" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/JavaCompiling.plist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/_MainMenu_EOArchive_English.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/classes.nib" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/info.nib" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/keyedobjects.nib" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/aliens.icns" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/README.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/fastevent.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/font.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/freesansbold.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/gfxdraw.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/image.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/imageext.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/install.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/joystick.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/key.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libfreetype-6.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libgcc_s_sjlj-1.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libjpeg-8.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libmpg123-0.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libogg-0.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libpng16-16.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libstdc++-6.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libtiff-5.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libvorbis-0.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libvorbisfile-3.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libwebp-5.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/mask.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/math.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/mixer.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/mixer_music.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/mouse.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/newbuffer.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/overlay.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pixelarray.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pixelcopy.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/portmidi.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame.ico" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame_icon.bmp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame_icon.icns" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame_icon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame_icon.tiff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pypm.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/python36.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/readme.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/rect.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/rwobject.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/scrap.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/surface.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/surflock.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/A_PyGameMono-8.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/PyGameMono-18-100dpi.bdf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/PyGameMono-18-75dpi.bdf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/PyGameMono-8.bdf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/PyGameMono.otf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/test_fixed.otf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/test_sans.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/u13079_PyGameMono-8.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/xbm_cursors/white_sizing.xbm" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/xbm_cursors/white_sizing_mask.xbm" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/time.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/transform.cp36-win32.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/zlib1.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/select.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/terra/TODO.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/lib/unicodedata.pyd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/logs/cycle_island.map.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/python36.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/cycle_island.map" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/cycle_island.sav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/demo_plains.map" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/key_range.map" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/key_range.sav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/snake_pass.map" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/test_map.map" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/Barracks.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/Base.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/CarbonGenerator.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/GasGenerator.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/MineralGenerator.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/effects/FX_Alert.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/effects/FX_No_Money.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/effects/FX_Order_Blocked.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/effects/FX_Piece_Destroyed.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/palettes/Blue-Palette.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/palettes/Red-Palette.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Coast_East.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Coast_North.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Coast_South.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Coast_West.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Grass.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_None.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Resource.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Sea.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Selectable.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Woods.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail10.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail11.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail12.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail13.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail14.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail15.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail5.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail6.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail7.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail8.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail9.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Cursor.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/DigitIcons.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/MenuOption.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Cleanup.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Build.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Combat.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Move.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Ranged.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Special.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Orders.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Start_Turn.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/ResourceIcon_Carbon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/ResourceIcon_Gas.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/ResourceIcon_Minerals.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Target.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Textbox_9slice.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Turn_Submitted.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Upgrade_Icons.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/Colonist.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/Ghost.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/OrderFlags.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/Ranger.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/Trooper.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/launcher.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/resources/sprites/ui/Target.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/logs/cycle_island.map.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
-      <change beforePath="$PROJECT_DIR$/terra/constants.py" afterPath="$PROJECT_DIR$/terra/constants.py" />
-      <change beforePath="$PROJECT_DIR$/terra/leveleditor.py" afterPath="$PROJECT_DIR$/terra/leveleditor.py" />
-      <change beforePath="$PROJECT_DIR$/terra/main.py" afterPath="$PROJECT_DIR$/terra/main.py" />
-      <change beforePath="$PROJECT_DIR$/terra/managers/combatlogger.py" afterPath="$PROJECT_DIR$/terra/managers/combatlogger.py" />
-      <change beforePath="$PROJECT_DIR$/terra/managers/managers.py" afterPath="$PROJECT_DIR$/terra/managers/managers.py" />
-      <change beforePath="$PROJECT_DIR$/terra/managers/mapmanager.py" afterPath="$PROJECT_DIR$/terra/managers/mapmanager.py" />
-      <change beforePath="$PROJECT_DIR$/terra/resources/assets.py" afterPath="$PROJECT_DIR$/terra/resources/assets.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +249,7 @@
           <file leaf-file-name="mainmenu.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/terra/mainmenu/mainmenu.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="316">
+                <state relative-caret-position="489">
                   <caret line="153" column="28" lean-forward="true" selection-start-line="153" selection-start-column="28" selection-end-line="153" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#36#0" expanded="true" />
@@ -407,11 +624,6 @@
               <item name="Terra" type="b2602c69:ProjectViewProjectNode" />
               <item name="Terra" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Terra" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terra" type="462c0819:PsiDirectoryNode" />
-              <item name="terra" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -780,7 +992,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519353092782</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="2/26/18 Support for creating an executable&#10;&#10;- Added dependency on cx_freeze&#10;- Changes to directory structures and how we find resource paths to accomodate being in an executable&#10;- First built executable!">
+      <created>1519682179637</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1519682179637</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -826,22 +1045,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2804348" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18804348" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" x="618" y="349" width="1168" height="547" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18804348" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" x="618" y="349" width="1168" height="547" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22391304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -898,8 +1116,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1/9/18 Progress&#10;                        &#10;                        - Rudimentary Unit orders&#10;                        -- Move 1 square in cardinal directions or stay put&#10;                        -- Execute all orders at once (orders assumed valid, no conflict resolution)&#10;                        - Popup menu controls and messaging&#10;                        - Unit flags (HP, Order)" />
-    <MESSAGE value="1/12/18 Progress&#10; - Created Battle container to organize units, the map, etc.&#10;   - Also handles organizing game phase and marshalling events for the phase progressing&#10;   - Game phase UI&#10; - Extremely basic unit conflict resolution&#10; - Broke out units into individual subclasses (Colonist and Trooper)&#10; - Reworked storage for units into Army object&#10; - Reworked event system to scale properly (pygame limits at 8 user events)" />
     <MESSAGE value="1/15/18 Checkpoint&#10;- Created tile selection UI. Uses a range-limited flood fill to determine selectable tiles within a range.&#10;- Added Ranger unit. Base Units still incapable of ranged orders." />
     <MESSAGE value="1/15/18 Progress&#10;- Used tile selection UI to enable moving units multiple tiles.&#10;- Enabled ranged attacks to be conducted." />
     <MESSAGE value="1/16/18 Progress&#10;- Units die when their health is below 0.&#10;- Added restriction on invalid orders and doubling up on positions&#10;- Added basic support for animated GameObjects. Applied this to Tiles.&#10;- Map loading improvements, added support for specifying Units already on maps" />
@@ -923,7 +1139,9 @@
     <MESSAGE value="2/20/18 Progress&#10;- Rudimentary networking. &#10;  - Able to send turns back and forth and play out a game. Still some edge cases and improvements to be made.&#10;- Support for upgrades.&#10;  - Able to purchase upgrades, and have them affect stats on pieces.&#10;  - Upgrades have a price and prerequisites, and are only built from a piece they specify.&#10;  - Upgrades are made at the end of the turn, during the 'special' phase." />
     <MESSAGE value="2/21/18 Progress&#10;- Filled out and implemented upgrades with non-unique effects&#10;- Implemented scrolling in popup menus" />
     <MESSAGE value="2/22/18 Progress&#10;- Added support to the save-load system for upgrades. Upgrades are now properly saved and reloaded + reapplied on loading a game.&#10;- Tweaked turn submission indicator to show each player (so you can tell when the other player is waiting on you)&#10;- Tweaked prices for just about everything to be less uniform&#10;- Added scrolling to main menu&#10;- Added order preview when the MENU2 key is held. Needs improvement around movement mostly to show origin -&gt; destination" />
-    <option name="LAST_COMMIT_MESSAGE" value="2/22/18 Progress&#10;- Added support to the save-load system for upgrades. Upgrades are now properly saved and reloaded + reapplied on loading a game.&#10;- Tweaked turn submission indicator to show each player (so you can tell when the other player is waiting on you)&#10;- Tweaked prices for just about everything to be less uniform&#10;- Added scrolling to main menu&#10;- Added order preview when the MENU2 key is held. Needs improvement around movement mostly to show origin -&gt; destination" />
+    <MESSAGE value="2/26/18 Support for creating an executable&#10;&#10;- Added dependency on cx_freeze&#10;- Changes to directory structures and how we find resource paths to accomodate being in an executable&#10;- First built executable!" />
+    <MESSAGE value="Added missing build directory (how gauche)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added missing build directory (how gauche)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1069,13 +1287,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/terra/team.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/terra/battle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1423,9 +1634,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/_MainMenu_EOArchive_English.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/terra/mainmenu/mainmenu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
+        <state relative-caret-position="489">
           <caret line="153" column="28" lean-forward="true" selection-start-line="153" selection-start-column="28" selection-end-line="153" selection-end-column="28" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />

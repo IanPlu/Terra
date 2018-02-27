@@ -30,6 +30,8 @@ class NetworkManager(GameObject):
             self.read_list = [self.connection]
             self.write_list = []
 
+            self.map_data = None
+
             if self.is_host:
                 # Set ourselves up as the server / host
                 self.connection.bind(("localhost", SERVER_PORT))
@@ -46,10 +48,13 @@ class NetworkManager(GameObject):
     def connect_to_host(self):
         self.send_message(MessageCode.NEW_CONNECTION, self.team, "")
 
-    # Query the map name from the host and return it
-    def get_map_name_from_host(self):
-        # TODO
-        return "cycle_island.map"
+        # Block until we receive the map information back from the host.
+        while not self.map_data:
+            self.network_step()
+
+    # Send the entire game state to clients. Same format as loading it from a file.
+    def send_game_state_to_client(self):
+        self.send_message(MessageCode.SET_GAME_STATE, self.team, Managers.save_game_to_string()[0])
 
     # Handle incoming messages from either the client or the host
     def handle_message(self, message, address):
@@ -62,6 +67,7 @@ class NetworkManager(GameObject):
         if command == MessageCode.NEW_CONNECTION.value:
             print("Connection request from: " + str(address))
             self.clients.append(address)
+            self.send_game_state_to_client()
         elif command == MessageCode.DROP_CONNECTION.value:
             print("Connection dropped for: " + str(address))
             self.clients.remove(address)
@@ -77,11 +83,15 @@ class NetworkManager(GameObject):
             publish_game_event(E_SUBMIT_TURN, {
                 'team': team
             })
+        elif command == MessageCode.SET_GAME_STATE.value:
+            print("Setting game state from net msg: " + str(body))
+            self.map_data = body
 
     # Send the provided message on to the other player
     def send_message(self, code, team, message):
         full_message = (code.value + team.value + message).encode()
 
+        # TODO: add exception handling and retries
         if self.is_host:
             for client in self.clients:
                 self.connection.sendto(full_message, client)
@@ -112,3 +122,10 @@ class NetworkManager(GameObject):
 
     def render(self, map_screen, ui_screen):
         pass
+
+
+# Return the ip from the 'networksettings' text file
+def get_network_settings():
+    with open("networksettings.txt") as file:
+        for line in file:
+            return line

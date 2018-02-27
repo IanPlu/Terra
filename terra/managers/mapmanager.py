@@ -1,5 +1,6 @@
 import random
 from os import walk
+from io import StringIO
 
 from terra.engine.gameobject import GameObject
 from terra.map.tile import Tile
@@ -92,50 +93,62 @@ def get_loadable_maps(suffix=".map"):
     return [mapname for mapname in maps if mapname.endswith(suffix)]
 
 
-# Load a map from the provided filename
-# Generate a bitmap for the Map to use, and generate a unit list for the PieceManager to use.
-def load_map_from_file(mapname):
+# Parse a map's data out from a string representation
+def parse_map_from_string(map_data):
     reading_pieces = False
     reading_teams = False
     reading_upgrades = False
 
-    map_path = get_asset(AssetType.MAP, mapname)
+    bitmap = []
+    pieces = []
+    teams = []
+    upgrades = []
 
+    for line in StringIO(map_data):
+        if line.rstrip() == "# Pieces":
+            reading_pieces = True
+        elif line.rstrip() == "# Teams":
+            reading_teams = True
+        elif line.rstrip() == "# Upgrades":
+            reading_upgrades = True
+        elif reading_upgrades:
+            if line.rstrip():
+                # Add each line to upgrades
+                upgrades.append(line.rstrip())
+        elif reading_teams:
+            if line.rstrip():
+                # Add each line to teams
+                teams.append(line.rstrip())
+        elif reading_pieces:
+            if line.rstrip():
+                # Add each line to the piece list
+                pieces.append(line.rstrip())
+        else:
+            # Grab all non-newline chars, convert them to ints, and add them to the line list
+            bitmap.append(list(map(int, line.rstrip().split(' '))))
+
+    return bitmap, pieces, teams, upgrades
+
+
+# Load a map from the provided filename
+# Generate a bitmap for the Map to use, and generate a unit list for the PieceManager to use.
+def load_map_from_file(mapname):
     try:
-        with open(map_path) as mapfile:
-            bitmap = []
-            pieces = []
-            teams = []
-            upgrades = []
+        map_path = get_asset(AssetType.MAP, mapname)
 
-            for line in mapfile:
-                if line.rstrip() == "# Pieces":
-                    reading_pieces = True
-                elif line.rstrip() == "# Teams":
-                    reading_teams = True
-                elif line.rstrip() == "# Upgrades":
-                    reading_upgrades = True
-                elif reading_upgrades:
-                    if line.rstrip():
-                        # Add each line to upgrades
-                        upgrades.append(line.rstrip())
-                elif reading_teams:
-                    if line.rstrip():
-                        # Add each line to teams
-                        teams.append(line.rstrip())
-                elif reading_pieces:
-                    if line.rstrip():
-                        # Add each line to the piece list
-                        pieces.append(line.rstrip())
-                else:
-                    # Grab all non-newline chars, convert them to ints, and add them to the line list
-                    bitmap.append(list(map(int, line.rstrip().split(' '))))
+        with open(map_path) as mapfile:
+            return parse_map_from_string(mapfile.read())
     except IOError as e:
         print("Unable to load file {}. Generating new map. Exception: {}".format(mapname, e))
-        bitmap = generate_bitmap(20, 15, False)
-        pieces = ["0 0 RED BASE", "20 15 BLUE BASE"]
-        teams = ["RED 0 0 0", "BLUE 0 0 0"]
-        upgrades = ["RED|", "BLUE|"]
+        return generate_map()
+
+
+# Generate a default map, pieces, teams, and so on, ready for use.
+def generate_map():
+    bitmap = generate_bitmap(20, 16, False)
+    pieces = ["0 0 RED BASE", "19 15 BLUE BASE"]
+    teams = ["RED 0 0 0", "BLUE 0 0 0"]
+    upgrades = ["RED|", "BLUE|"]
 
     return bitmap, pieces, teams, upgrades
 

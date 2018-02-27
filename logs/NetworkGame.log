@@ -1,0 +1,25 @@
+== ROUND 1 BEGIN ==
+RED Base at tile (5, 3) with 100 HP was assigned the order 'Order: Build a Colonist on tile (6, 3)'
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Trooper on tile (5, 4)'
+BLUE Base at tile (14, 10) with 100 HP was assigned the order 'Order: Build a Colonist on tile (13, 10)'
+BLUE Barracks at tile (15, 9) with 100 HP was assigned the order 'Order: Build a Ghost on tile (15, 8)'
+= Phase Move begins
+= Phase Build begins
+RED Base at tile (5, 3) with 100 HP successfully executed 'Order: Build a Colonist on tile (6, 3)'
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Trooper on tile (5, 4)'
+BLUE Base at tile (14, 10) with 100 HP successfully executed 'Order: Build a Colonist on tile (13, 10)'
+BLUE Barracks at tile (15, 9) with 100 HP successfully executed 'Order: Build a Ghost on tile (15, 8)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+== ROUND 2 BEGIN ==
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+== ROUND 3 BEGIN ==
+= Phase Issue Orders begins

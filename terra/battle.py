@@ -23,7 +23,7 @@ class Battle(GameScreen):
         if is_event_type(event, E_BASE_DESTROYED):
             self.check_for_victory(event)
         elif is_event_type(event, E_SAVE_GAME):
-            Managers.save_game()
+            Managers.save_game_to_file()
 
     # Generate a screen with the entire map, subsurfaced to the camera area
     def render(self, ui_screen):

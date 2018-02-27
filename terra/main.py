@@ -23,10 +23,16 @@ class Mode(Enum):
 
 
 # Main entry point for the game.
+# Instantiate this class and call 'run()' on it to fire up the game.
 class Main:
     def __init__(self):
         self.mode = None
         self.current_screen = None
+
+        self.screen_resolution = None
+        self.screen_width = None
+        self.screen_height = None
+        self.screen = None
 
         self.set_screen_from_mode(Mode.MAIN_MENU)
 
@@ -56,7 +62,9 @@ class Main:
                 self.set_screen_from_mode(Mode.BATTLE, event.mapname, event.address, is_host=True)
             elif event.option == Option.JOIN_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, None, event.address, is_host=False)
-            elif event.option == Option.LEVEL_EDITOR:
+            elif event.option == Option.NEW_MAP:
+                self.set_screen_from_mode(Mode.EDIT, None)
+            elif event.option == Option.LOAD_MAP:
                 self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.QUIT:
                 self.quit()
@@ -72,37 +80,37 @@ class Main:
         game_screen = self.current_screen.render(ui_screen)
         game_screen.blit(ui_screen, (0, 0))
 
-        pygame.transform.scale(game_screen, (screen_width, screen_height), screen)
+        pygame.transform.scale(game_screen, (self.screen_width, self.screen_height), self.screen)
         pygame.display.flip()
 
+    # Run the entire game + loop. Initialize stuff like pygame and the window the game will render in.
+    def run(self):
+        # Initialize pygame and some UI settings
+        pygame.init()
+        self.screen_resolution = self.screen_width, self.screen_height = RESOLUTION_WIDTH * SCREEN_SCALE, RESOLUTION_HEIGHT * SCREEN_SCALE
 
-# Initialize pygame and some UI settings
-pygame.init()
-screen_resolution = screen_width, screen_height = RESOLUTION_WIDTH * SCREEN_SCALE, RESOLUTION_HEIGHT * SCREEN_SCALE
+        self.screen = pygame.display.set_mode(self.screen_resolution)
+        self.screen.fill(clear_color[Team.RED])
 
-screen = pygame.display.set_mode(screen_resolution)
-screen.fill(clear_color[Team.RED])
+        load_assets()
 
-load_assets()
+        clock = pygame.time.Clock()
 
-clock = pygame.time.Clock()
-main = Main()
+        # Game loop
+        while True:
+            # Update game tick TICK_RATE times per second
+            clock.tick(TICK_RATE)
 
-# Game loop
-while True:
-    # Update game tick TICK_RATE times per second
-    clock.tick(TICK_RATE)
+            # Plumb for network messages if necessary
+            if Managers.network_manager:
+                Managers.network_manager.network_step()
 
-    # Plumb for network messages if necessary
-    if Managers.network_manager:
-        Managers.network_manager.network_step()
+            # Run game logic
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    self.quit()
 
-    # Run game logic
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            main.quit()
+                self.step(event)
 
-        main.step(event)
-
-    # Render to the screen
-    main.render()
+            # Render to the screen
+            self.render()

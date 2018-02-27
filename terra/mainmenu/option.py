@@ -15,3 +15,5 @@ class Option(Enum):
     JOIN_GAME = 9
     NEW_NETWORK_GAME = 10
     LOAD_NETWORK_GAME = 11
+    NEW_MAP = 12
+    LOAD_MAP = 13

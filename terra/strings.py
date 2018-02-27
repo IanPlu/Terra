@@ -100,6 +100,8 @@ main_menu_strings = {
         Option.JOIN_GAME: "Join Game",
         Option.HOST_GAME: "Host Game",
         Option.NEW_NETWORK_GAME: "New Network Game",
-        Option.LOAD_NETWORK_GAME: "Load Network Game"
+        Option.LOAD_NETWORK_GAME: "Load Network Game",
+        Option.NEW_MAP: "New Map",
+        Option.LOAD_MAP: "Load Map"
     }
 }

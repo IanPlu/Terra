@@ -1,5 +1,5 @@
 import os
-import shutil
+import zipfile
 
 from cx_Freeze import setup, Executable
 
@@ -8,16 +8,21 @@ options = {
         'includes': [
             'terra'
         ],
-        'include_files': ['resources', 'logs']
+        'include_files': ['resources', 'logs', 'networksettings.txt'],
+        # TODO: Figure out exactly how illegal this is
+        'include_msvcr': True
     }
 }
-
-# Clear the log directory before building
-shutil.rmtree('logs')
-os.mkdir('logs')
 
 setup(name="Terra",
       version="0.1",
       description="Terra game",
       options=options,
       executables=[Executable("launcher.py", base="Win32GUI")])
+
+# Zip up the created file
+zipf = zipfile.ZipFile('Terra.zip', 'w', zipfile.ZIP_DEFLATED)
+for root, dirs, files in os.walk('build/'):
+    for file in files:
+        zipf.write(os.path.join(root, file))
+zipf.close()

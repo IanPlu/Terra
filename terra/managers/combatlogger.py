@@ -1,4 +1,5 @@
 import logging
+import os
 
 from terra.resources.assets import AssetType, get_asset
 from terra.settings import LANGUAGE
@@ -7,11 +8,20 @@ from terra.strings import phase_strings
 
 # Logs events that occur over the course of the game
 class CombatLogger:
-    def __init__(self, mapname):
+    def __init__(self, mapname=None):
         super().__init__()
 
+        if mapname:
+            filename = mapname + ".log"
+        else:
+            filename = "Terra.log"
+
+        # Create the log dir if it doesn't exist
+        if not os.path.isdir(get_asset(AssetType.LOG, "")):
+            os.mkdir(AssetType.LOG.value)
+
         logging.basicConfig(format="%(message)s",
-                            filename=get_asset(AssetType.LOG, mapname + ".log"),
+                            filename=get_asset(AssetType.LOG, filename),
                             level=logging.INFO)
 
     def log_new_round(self, round_number):

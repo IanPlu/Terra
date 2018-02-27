@@ -10,6 +10,7 @@ from terra.resources.assets import clear_color, text_main_menu, light_color, sha
 from terra.team import Team
 from terra.util.drawingutil import draw_text
 from terra.util.mathutil import clamp
+from terra.managers.networkmanager import get_network_settings
 
 displayable_buffer = 1
 max_displayable_options = 5
@@ -39,6 +40,10 @@ def generate_menu():
                 (Option.LOAD_NETWORK_GAME, loadable_saves)
             ]),
             (Option.JOIN_GAME, [])
+        ]),
+        (Option.LEVEL_EDITOR, [
+            (Option.NEW_MAP, []),
+            (Option.LOAD_MAP, loadable_maps)
         ]),
         (Option.SETTINGS, []),
         (Option.QUIT, [])
@@ -99,7 +104,7 @@ class MainMenu(GameScreen):
         self.num_options = len(self.current_menu[1])
 
     def handle_menu_selection(self, option):
-        if self.current_menu[0] in [Option.NEW_GAME, Option.LOAD_GAME, Option.LEVEL_EDITOR]:
+        if self.current_menu[0] in [Option.NEW_GAME, Option.LOAD_GAME, Option.LOAD_MAP]:
             publish_game_event(MENU_SELECT_OPTION, {
                 'option': self.current_menu[0],
                 'mapname': option[0]
@@ -113,7 +118,7 @@ class MainMenu(GameScreen):
         elif option[0] == Option.JOIN_GAME:
             publish_game_event(MENU_SELECT_OPTION, {
                 'option': option[0],
-                'address': "localhost"
+                'address': get_network_settings()
             })
         else:
             publish_game_event(MENU_SELECT_OPTION, {

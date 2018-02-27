@@ -4,233 +4,24 @@
     <bookmark url="file://$PROJECT_DIR$/terra/piece/piece.py" line="337" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="894e41a0-738f-4e5f-8a18-3f971581210e" name="Default" comment="">
+    <list default="true" id="894e41a0-738f-4e5f-8a18-3f971581210e" name="Default" comment="Undo previous commit, remove build dir and just publish the .zip file">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/networksettings.txt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/Terra.zip" afterPath="$PROJECT_DIR$/Terra.zip" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/launcher.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_bz2.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_ctypes.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_decimal.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_hashlib.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_lzma.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_multiprocessing.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_socket.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/_ssl.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/ctypes/macholib/README.ctypes" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/ctypes/macholib/fetch_macholib" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/ctypes/macholib/fetch_macholib.bat" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/README" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/command_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-10.0-amd64.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-10.0.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-14.0-amd64.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-14.0.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-6.0.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-7.1.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-8.0.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-9.0-amd64.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/command/wininst-9.0.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/distutils/tests/Setup.sample" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/email/architecture.rst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/Grammar.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/Grammar3.6.1.candidate.1.pickle" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/Grammar3.6.1.final.0.pickle" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/PatternGrammar.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/PatternGrammar3.6.1.candidate.1.pickle" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/PatternGrammar3.6.1.final.0.pickle" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/lib2to3/tests/data/README" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/library.zip" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pydoc_data/_pydoc.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pyexpat.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/LGPL" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/SDL.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/SDL_image.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/SDL_mixer.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/SDL_ttf.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/VCRUNTIME140.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/_freetype.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/base.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/bufferproxy.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/cdrom.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/color.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/constants.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/display.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/logos.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/pygame_logo.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/pygame_powered.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/pygame_small.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/pygame_tiny.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/docs/ref/docscomments.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/draw.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/event.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien1.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien2.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien3.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/alien3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/arraydemo.bmp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/asprite.bmp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/background.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/blue.mpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/bomb.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/boom.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/brick.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/car_door.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/chimp.bmp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/city.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/danger.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/explosion1.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/fist.bmp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/house_lo.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/house_lo.ogg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/house_lo.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/liquid.bmp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/midikeys.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/oldplayer.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/player1.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/punch.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/sans.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/secosmic_lo.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/shot.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/static.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/whiff.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/data/yuv_1.pgm" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/JavaCompiling.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/_MainMenu_EOArchive_English.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/classes.nib" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/info.nib" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/keyedobjects.nib" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/English.lproj/aliens.icns" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/examples/macosx/aliens_app_example/README.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/fastevent.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/font.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/freesansbold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/gfxdraw.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/image.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/imageext.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/install.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/joystick.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/key.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libfreetype-6.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libgcc_s_sjlj-1.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libjpeg-8.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libmpg123-0.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libogg-0.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libpng16-16.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libstdc++-6.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libtiff-5.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libvorbis-0.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libvorbisfile-3.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/libwebp-5.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/mask.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/math.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/mixer.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/mixer_music.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/mouse.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/newbuffer.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/overlay.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pixelarray.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pixelcopy.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/portmidi.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame_icon.bmp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame_icon.icns" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame_icon.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pygame_icon.tiff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/pypm.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/python36.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/readme.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/rect.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/rwobject.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/scrap.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/surface.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/surflock.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/A_PyGameMono-8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/PyGameMono-18-100dpi.bdf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/PyGameMono-18-75dpi.bdf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/PyGameMono-8.bdf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/PyGameMono.otf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/test_fixed.otf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/test_sans.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/fonts/u13079_PyGameMono-8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/xbm_cursors/white_sizing.xbm" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/tests/fixtures/xbm_cursors/white_sizing_mask.xbm" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/time.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/transform.cp36-win32.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/pygame/zlib1.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/select.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/terra/TODO.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/lib/unicodedata.pyd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/logs/cycle_island.map.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/python36.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/cycle_island.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/cycle_island.sav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/demo_plains.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/key_range.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/key_range.sav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/snake_pass.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/maps/test_map.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/Barracks.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/Base.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/CarbonGenerator.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/GasGenerator.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/buildings/MineralGenerator.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/effects/FX_Alert.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/effects/FX_No_Money.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/effects/FX_Order_Blocked.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/effects/FX_Piece_Destroyed.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/palettes/Blue-Palette.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/palettes/Red-Palette.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Coast_East.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Coast_North.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Coast_South.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Coast_West.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Grass.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_None.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Resource.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Sea.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Selectable.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/Tile_Woods.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail13.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail14.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail15.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail7.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/tiles/coasts/Tile_CoastDetail9.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Cursor.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/DigitIcons.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/MenuOption.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Cleanup.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Build.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Combat.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Move.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Ranged.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Execute_Special.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Orders.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Phase_Icon_Start_Turn.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/ResourceIcon_Carbon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/ResourceIcon_Gas.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/ResourceIcon_Minerals.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Target.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Textbox_9slice.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Turn_Submitted.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/ui/Upgrade_Icons.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/Colonist.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/Ghost.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/OrderFlags.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/Ranger.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/exe.win32-3.6/resources/sprites/units/Trooper.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Terra.zip" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/launcher.py" afterPath="$PROJECT_DIR$/launcher.py" />
+      <change beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+      <change beforePath="$PROJECT_DIR$/terra/battle.py" afterPath="$PROJECT_DIR$/terra/battle.py" />
+      <change beforePath="$PROJECT_DIR$/terra/leveleditor.py" afterPath="$PROJECT_DIR$/terra/leveleditor.py" />
+      <change beforePath="$PROJECT_DIR$/terra/main.py" afterPath="$PROJECT_DIR$/terra/main.py" />
+      <change beforePath="$PROJECT_DIR$/terra/mainmenu/mainmenu.py" afterPath="$PROJECT_DIR$/terra/mainmenu/mainmenu.py" />
+      <change beforePath="$PROJECT_DIR$/terra/mainmenu/option.py" afterPath="$PROJECT_DIR$/terra/mainmenu/option.py" />
+      <change beforePath="$PROJECT_DIR$/terra/managers/combatlogger.py" afterPath="$PROJECT_DIR$/terra/managers/combatlogger.py" />
+      <change beforePath="$PROJECT_DIR$/terra/managers/managers.py" afterPath="$PROJECT_DIR$/terra/managers/managers.py" />
+      <change beforePath="$PROJECT_DIR$/terra/managers/mapmanager.py" afterPath="$PROJECT_DIR$/terra/managers/mapmanager.py" />
+      <change beforePath="$PROJECT_DIR$/terra/managers/networkmanager.py" afterPath="$PROJECT_DIR$/terra/managers/networkmanager.py" />
+      <change beforePath="$PROJECT_DIR$/terra/network/messagecode.py" afterPath="$PROJECT_DIR$/terra/network/messagecode.py" />
+      <change beforePath="$PROJECT_DIR$/terra/strings.py" afterPath="$PROJECT_DIR$/terra/strings.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -241,51 +32,47 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54919136">
+    <splitter split-orientation="horizontal" split-proportion="0.46855012">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="mainmenu.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/terra/mainmenu/mainmenu.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="302">
-                  <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#36#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/setup.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="assets.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/terra/resources/assets.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="44" column="48" lean-forward="false" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="48" />
-                  <folding>
-                    <element signature="e#0#10#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="managers.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/terra/managers/managers.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+                <state relative-caret-position="188">
+                  <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/terra/main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="382">
+                  <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="launcher.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/launcher.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mapmanager.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/terra/managers/mapmanager.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="510">
+                  <caret line="120" column="34" lean-forward="false" selection-start-line="120" selection-start-column="34" selection-end-line="120" selection-end-column="34" />
+                  <folding>
+                    <element signature="e#0#13#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -294,46 +81,22 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="mapmanager.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/terra/managers/mapmanager.py">
+          <file leaf-file-name="networkmanager.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/terra/managers/networkmanager.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="-255">
+                  <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="launcher.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/launcher.py">
+          <file leaf-file-name="battle.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/terra/battle.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="68">
-                  <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+                  <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/terra/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="combatlogger.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/terra/managers/combatlogger.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="28" column="59" lean-forward="false" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
-                  <folding>
-                    <element signature="e#0#14#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -352,8 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Order</find>
-      <find>MoveOrder</find>
       <find>BuildOrder</find>
       <find>RangedAttackOrder</find>
       <find>E_TURN_SUBMITTED</find>
@@ -382,6 +143,8 @@
       <find>SPRITE_PATH +</find>
       <find>SPRITE_PATH</find>
       <find>QUIT</find>
+      <find>load_map_from_file</find>
+      <find>get_map_name_from_host</find>
     </findStrings>
     <replaceStrings>
       <replace>publish_event</replace>
@@ -433,28 +196,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/managers/test_mapmanager.py" />
-        <option value="$PROJECT_DIR$/test/managers/test_piecemanager.py" />
-        <option value="$PROJECT_DIR$/test/managers/test_playermanager.py" />
         <option value="$PROJECT_DIR$/test/managers/test_teammanager.py" />
         <option value="$PROJECT_DIR$/test/managers/test_turnmanager.py" />
         <option value="$PROJECT_DIR$/terra/managers/effectsmanager.py" />
         <option value="$PROJECT_DIR$/logs/key_range.sav.log" />
         <option value="$PROJECT_DIR$/terra/battlephase.py" />
         <option value="$PROJECT_DIR$/resources/maps/cycle_island2.map" />
-        <option value="$PROJECT_DIR$/terra/mainmenu/option.py" />
         <option value="$PROJECT_DIR$/terra/settings.py" />
-        <option value="$PROJECT_DIR$/terra/battle.py" />
         <option value="$PROJECT_DIR$/terra/team.py" />
-        <option value="$PROJECT_DIR$/terra/network/messagecode.py" />
-        <option value="$PROJECT_DIR$/terra/managers/networkmanager.py" />
         <option value="$PROJECT_DIR$/terra/managers/turnmanager.py" />
         <option value="$PROJECT_DIR$/terra/util/mathutil.py" />
         <option value="$PROJECT_DIR$/terra/economy/upgrade.py" />
         <option value="$PROJECT_DIR$/terra/event.py" />
         <option value="$PROJECT_DIR$/terra/managers/piecemanager.py" />
         <option value="$PROJECT_DIR$/terra/piece/piececonflict.py" />
-        <option value="$PROJECT_DIR$/terra/strings.py" />
         <option value="$PROJECT_DIR$/terra/ui/phasebar.py" />
         <option value="$PROJECT_DIR$/terra/managers/playermanager.py" />
         <option value="$PROJECT_DIR$/terra/piece/pieceattributes.py" />
@@ -473,17 +228,25 @@
         <option value="$PROJECT_DIR$/resources/maps/snake_pass.map" />
         <option value="$PROJECT_DIR$/resources/maps/cycle_island.map" />
         <option value="$PROJECT_DIR$/resources/maps/key_range.map" />
-        <option value="$PROJECT_DIR$/terra/mainmenu/mainmenu.py" />
         <option value="$PROJECT_DIR$/terra/ui/cursor.py" />
         <option value="$PROJECT_DIR$/terra/constants.py" />
-        <option value="$PROJECT_DIR$/terra/leveleditor.py" />
-        <option value="$PROJECT_DIR$/terra/managers/managers.py" />
-        <option value="$PROJECT_DIR$/terra/managers/combatlogger.py" />
-        <option value="$PROJECT_DIR$/terra/managers/mapmanager.py" />
-        <option value="$PROJECT_DIR$/launcher.py" />
         <option value="$PROJECT_DIR$/terra/resources/assets.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/launcher.py" />
+        <option value="$PROJECT_DIR$/terra/mainmenu/option.py" />
+        <option value="$PROJECT_DIR$/terra/strings.py" />
         <option value="$PROJECT_DIR$/terra/main.py" />
+        <option value="$PROJECT_DIR$/terra/leveleditor.py" />
+        <option value="$PROJECT_DIR$/terra/mainmenu/textinput.py" />
+        <option value="$PROJECT_DIR$/terra/managers/combatlogger.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/terra/mainmenu/mainmenu.py" />
+        <option value="$PROJECT_DIR$/networksettings.txt" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/terra/battle.py" />
+        <option value="$PROJECT_DIR$/terra/network/messagecode.py" />
+        <option value="$PROJECT_DIR$/terra/managers/networkmanager.py" />
+        <option value="$PROJECT_DIR$/terra/managers/managers.py" />
+        <option value="$PROJECT_DIR$/terra/managers/mapmanager.py" />
       </list>
     </option>
   </component>
@@ -621,6 +384,11 @@
             <path>
               <item name="Terra" type="b2602c69:ProjectViewProjectNode" />
               <item name="Terra" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Terra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Terra" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1004,7 +772,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519682307247</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Undo previous commit, remove build dir and just publish the .zip file">
+      <created>1519682444633</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1519682444633</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1050,6 +825,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1059,12 +835,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2804348" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18804348" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" x="618" y="349" width="1168" height="547" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18804348" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" x="618" y="349" width="1168" height="547" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14925373" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22391304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1121,7 +897,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1/15/18 Checkpoint&#10;- Created tile selection UI. Uses a range-limited flood fill to determine selectable tiles within a range.&#10;- Added Ranger unit. Base Units still incapable of ranged orders." />
     <MESSAGE value="1/15/18 Progress&#10;- Used tile selection UI to enable moving units multiple tiles.&#10;- Enabled ranged attacks to be conducted." />
     <MESSAGE value="1/16/18 Progress&#10;- Units die when their health is below 0.&#10;- Added restriction on invalid orders and doubling up on positions&#10;- Added basic support for animated GameObjects. Applied this to Tiles.&#10;- Map loading improvements, added support for specifying Units already on maps" />
     <MESSAGE value="1/17/18 Progress&#10;- Added and made use of palette swapping for units, ui, etc.&#10;- Added camera support, and split the UI and game area into two separate surfaces" />
@@ -1146,10 +921,23 @@
     <MESSAGE value="2/22/18 Progress&#10;- Added support to the save-load system for upgrades. Upgrades are now properly saved and reloaded + reapplied on loading a game.&#10;- Tweaked turn submission indicator to show each player (so you can tell when the other player is waiting on you)&#10;- Tweaked prices for just about everything to be less uniform&#10;- Added scrolling to main menu&#10;- Added order preview when the MENU2 key is held. Needs improvement around movement mostly to show origin -&gt; destination" />
     <MESSAGE value="2/26/18 Support for creating an executable&#10;&#10;- Added dependency on cx_freeze&#10;- Changes to directory structures and how we find resource paths to accomodate being in an executable&#10;- First built executable!" />
     <MESSAGE value="Added missing build directory (how gauche)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added missing build directory (how gauche)" />
+    <MESSAGE value="Undo previous commit, remove build dir and just publish the .zip file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Undo previous commit, remove build dir and just publish the .zip file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/terra/managers/teammanager.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="316" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/terra/managers/mapmanager.py</url>
+          <line>139</line>
+          <option name="timeStamp" value="321" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1160,7 +948,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="315" />
+      <option name="time" value="322" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="tests">
@@ -1175,6 +963,22 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>mapfile.read()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>for line in map_data:
+    print(line)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>line in map_data</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>get_base_path(path.abspath(path.join(&quot;..&quot;, asset_type.value, resource_name)))</expression-string>
         <language-id>Python</language-id>
@@ -1202,21 +1006,6 @@
       </expression>
       <expression>
         <expression-string>path.abspath(get_base_path(asset_type.value + resource_name))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>paths.abspath(get_base_path(asset_type.value + resource_name))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>get_base_path(asset_type.value + resource_name)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>formatted_number.lstrip</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -1292,51 +1081,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/terra/battle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/managers/turnmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="54" lean-forward="true" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/test_map.map.log" />
-    <entry file="file://$PROJECT_DIR$/logs/snake_pass.map.log" />
-    <entry file="file://$PROJECT_DIR$/terra/network/messagecode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/util/test_mathutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/map/tiletype.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/event.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/economy/upgrade.py" />
     <entry file="file://$PROJECT_DIR$/terra/piece/piececonflict.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
@@ -1385,13 +1129,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/managers/networkmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/terra/managers/playermanager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1432,13 +1169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="187" column="74" lean-forward="true" selection-start-line="187" selection-start-column="74" selection-end-line="187" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/managers/teammanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="50" column="34" lean-forward="false" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1547,94 +1277,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/strings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/leveleditor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/managers/managers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/managers/mapmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/resources/assets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="44" column="48" lean-forward="false" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/launcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/terra/network/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/managers/combatlogger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="59" lean-forward="false" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1647,13 +1293,179 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/terra/mainmenu/option.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/strings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="104" column="35" lean-forward="false" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/genericpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/shutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="373" column="0" lean-forward="false" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/resources/assets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/managers/teammanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/managers/combatlogger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#14#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/mainmenu/textinput.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="true" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/networksettings.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/leveleditor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/terra/mainmenu/mainmenu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        <state relative-caret-position="515">
+          <caret line="120" column="49" lean-forward="false" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/network/messagecode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/managers/networkmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/managers/managers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/managers/mapmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="120" column="34" lean-forward="false" selection-start-line="120" selection-start-column="34" selection-end-line="120" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/battle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -17,7 +17,7 @@ class Managers:
     @staticmethod
     def initialize_managers(map_name, address, is_host):
         from terra.managers.effectsmanager import EffectsManager
-        from terra.managers.mapmanager import MapManager, load_map_from_file
+        from terra.managers.mapmanager import MapManager, load_map_from_file, generate_map, parse_map_from_string
         from terra.managers.piecemanager import PieceManager
         from terra.managers.playermanager import PlayerManager
         from terra.managers.teammanager import TeamManager
@@ -27,11 +27,19 @@ class Managers:
 
         Managers.network_manager = NetworkManager(address, is_host)
 
-        # Client games won't have a map name until they connect, so fetch it now
-        if not map_name:
-            map_name = Managers.network_manager.get_map_name_from_host()
-
-        bitmap, pieces, teams, upgrades = load_map_from_file(map_name)
+        if map_name:
+            # Load the map from a file for a local game (or network game where we're the host)
+            bitmap, pieces, teams, upgrades = load_map_from_file(map_name)
+        elif not map_name and Managers.network_manager.networked_game:
+            # Client games won't have a map name until they connect, so fetch it now
+            map_data = Managers.network_manager.map_data
+            map_name = "NetworkGame"
+            # Load the map from the string representation given to us by the host
+            bitmap, pieces, teams, upgrades = parse_map_from_string(map_data)
+        else:
+            # No map name for a local game, so assume we're generating a new map
+            map_name = None
+            bitmap, pieces, teams, upgrades = generate_map()
 
         Managers.combat_logger = CombatLogger(map_name)
         Managers.effects_manager = EffectsManager()
@@ -43,7 +51,7 @@ class Managers:
         Managers.player_manager = PlayerManager()
 
     @staticmethod
-    def save_game():
+    def save_game_to_string():
         # Ask the map to serialize itself
         bitmap = Managers.battle_map.convert_bitmap_from_grid()
 
@@ -60,31 +68,38 @@ class Managers:
         save_name = Managers.map_name[:-4]
         save_path = get_asset(AssetType.MAP, save_name + ".sav")
 
+        # Serialize to a string
+        lines = ""
+        # Append map
+        for row in bitmap:
+            line = ""
+            for column in row:
+                line += "{} ".format(column)
+            line += "\n"
+            lines += line
+
+        # Append pieces
+        lines += "# Pieces\n"
+        for piece in pieces:
+            lines += piece + "\n"
+
+        # Append teams
+        lines += "# Teams\n"
+        for team in teams:
+            lines += team + "\n"
+
+        # Append upgrades
+        lines += "# Upgrades\n"
+        for upgrade in upgrades:
+            lines += upgrade + "\n"
+
+        return lines, save_path
+
+    @staticmethod
+    def save_game_to_file():
+        lines, save_path = Managers.save_game_to_string()
+
         with open(save_path, 'w') as save_file:
-            lines = ""
-            # Append map
-            for row in bitmap:
-                line = ""
-                for column in row:
-                    line += "{} ".format(column)
-                line += "\n"
-                lines += line
-
-            # Append pieces
-            lines += "# Pieces\n"
-            for piece in pieces:
-                lines += piece + "\n"
-
-            # Append teams
-            lines += "# Teams\n"
-            for team in teams:
-                lines += team + "\n"
-
-            # Append upgrades
-            lines += "# Upgrades\n"
-            for upgrade in upgrades:
-                lines += upgrade + "\n"
-
             save_file.write(lines)
 
     @staticmethod

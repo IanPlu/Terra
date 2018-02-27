@@ -5,7 +5,6 @@ from terra.engine.gamescreen import GameScreen
 from terra.event import *
 from terra.keybindings import KB_MENU, KB_SCROLL_UP, KB_SCROLL_DOWN
 from terra.managers.managers import Managers
-from terra.managers.mapmanager import load_map_from_file
 from terra.map.tiletype import TileType
 from terra.resources.assets import clear_color, spr_tiles, spr_cursor
 from terra.team import Team
@@ -18,8 +17,7 @@ class LevelEditor(GameScreen):
     def __init__(self, map_name="edited_map.map"):
         super().__init__()
 
-        bitmap, pieces, teams = load_map_from_file(map_name)
-        Managers.initialize_managers(bitmap, pieces, teams, map_name)
+        Managers.initialize_managers(map_name, None, False)
 
         self.current_tile_type = TileType.GRASS
         self.secondary_tile_type = TileType.SEA
@@ -45,7 +43,8 @@ class LevelEditor(GameScreen):
             elif event.key in KB_SCROLL_DOWN:
                 self.current_tile_type = self.update_tile_type(self.current_tile_type, -1)
             elif event.key in KB_MENU:
-                Managers.save_game()
+                # Managers.save_game()
+                pass
 
     def update_tile_type(self, tiletype, amount):
         new_tile_type = clamp(tiletype.value + amount, 0, len(TileType) - 1)

@@ -4,24 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/terra/piece/piece.py" line="337" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="894e41a0-738f-4e5f-8a18-3f971581210e" name="Default" comment="Undo previous commit, remove build dir and just publish the .zip file">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/networksettings.txt" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Terra.zip" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/launcher.py" afterPath="$PROJECT_DIR$/launcher.py" />
-      <change beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
-      <change beforePath="$PROJECT_DIR$/terra/battle.py" afterPath="$PROJECT_DIR$/terra/battle.py" />
-      <change beforePath="$PROJECT_DIR$/terra/leveleditor.py" afterPath="$PROJECT_DIR$/terra/leveleditor.py" />
-      <change beforePath="$PROJECT_DIR$/terra/main.py" afterPath="$PROJECT_DIR$/terra/main.py" />
-      <change beforePath="$PROJECT_DIR$/terra/mainmenu/mainmenu.py" afterPath="$PROJECT_DIR$/terra/mainmenu/mainmenu.py" />
-      <change beforePath="$PROJECT_DIR$/terra/mainmenu/option.py" afterPath="$PROJECT_DIR$/terra/mainmenu/option.py" />
-      <change beforePath="$PROJECT_DIR$/terra/managers/combatlogger.py" afterPath="$PROJECT_DIR$/terra/managers/combatlogger.py" />
-      <change beforePath="$PROJECT_DIR$/terra/managers/managers.py" afterPath="$PROJECT_DIR$/terra/managers/managers.py" />
-      <change beforePath="$PROJECT_DIR$/terra/managers/mapmanager.py" afterPath="$PROJECT_DIR$/terra/managers/mapmanager.py" />
-      <change beforePath="$PROJECT_DIR$/terra/managers/networkmanager.py" afterPath="$PROJECT_DIR$/terra/managers/networkmanager.py" />
-      <change beforePath="$PROJECT_DIR$/terra/network/messagecode.py" afterPath="$PROJECT_DIR$/terra/network/messagecode.py" />
-      <change beforePath="$PROJECT_DIR$/terra/strings.py" afterPath="$PROJECT_DIR$/terra/strings.py" />
+    <list default="true" id="894e41a0-738f-4e5f-8a18-3f971581210e" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/terra.zip" />
+      <change beforePath="$PROJECT_DIR$/Terra.zip" afterPath="$PROJECT_DIR$/Terra.zip" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -779,7 +764,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519682444633</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="2/26/18 Progress&#10;&#10;- Build support for converting to an executable&#10;    - Automatically builds a ZIP file of the build dir when compiled&#10;- Networking improvements&#10;    - Client receives the entire game state from the host when they connect, and loads it&#10;    - Can now specify an IP to connect to via a text file (untested)">
+      <created>1519694733486</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1519694733486</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -833,9 +825,9 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2804348" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18804348" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18804348" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" x="618" y="349" width="1168" height="547" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18804348" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" x="618" y="349" width="1168" height="547" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -897,7 +889,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1/15/18 Progress&#10;- Used tile selection UI to enable moving units multiple tiles.&#10;- Enabled ranged attacks to be conducted." />
     <MESSAGE value="1/16/18 Progress&#10;- Units die when their health is below 0.&#10;- Added restriction on invalid orders and doubling up on positions&#10;- Added basic support for animated GameObjects. Applied this to Tiles.&#10;- Map loading improvements, added support for specifying Units already on maps" />
     <MESSAGE value="1/17/18 Progress&#10;- Added and made use of palette swapping for units, ui, etc.&#10;- Added camera support, and split the UI and game area into two separate surfaces" />
     <MESSAGE value="Adding unversioned files - whoops!" />
@@ -922,7 +913,8 @@
     <MESSAGE value="2/26/18 Support for creating an executable&#10;&#10;- Added dependency on cx_freeze&#10;- Changes to directory structures and how we find resource paths to accomodate being in an executable&#10;- First built executable!" />
     <MESSAGE value="Added missing build directory (how gauche)" />
     <MESSAGE value="Undo previous commit, remove build dir and just publish the .zip file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Undo previous commit, remove build dir and just publish the .zip file" />
+    <MESSAGE value="2/26/18 Progress&#10;&#10;- Build support for converting to an executable&#10;    - Automatically builds a ZIP file of the build dir when compiled&#10;- Networking improvements&#10;    - Client receives the entire game state from the host when they connect, and loads it&#10;    - Can now specify an IP to connect to via a text file (untested)" />
+    <option name="LAST_COMMIT_MESSAGE" value="2/26/18 Progress&#10;&#10;- Build support for converting to an executable&#10;    - Automatically builds a ZIP file of the build dir when compiled&#10;- Networking improvements&#10;    - Client receives the entire game state from the host when they connect, and loads it&#10;    - Can now specify an IP to connect to via a text file (untested)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

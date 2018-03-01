@@ -1,7 +1,8 @@
 from terra.effects.animatedeffect import AnimatedEffect
 from terra.effects.effecttype import EffectType
 from terra.engine.gameobject import GameObject
-from terra.event import is_event_type, E_PIECE_DEAD, E_ORDER_CANCELED, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS
+from terra.event import is_event_type, E_PIECE_DEAD, E_ORDER_CANCELED, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, \
+    E_ARMOR_GRANTED
 from terra.managers.managers import Managers
 from terra.piece.piecetype import PieceType
 
@@ -34,6 +35,8 @@ class EffectsManager(GameObject):
         elif is_event_type(event, E_INVALID_BUILD_ORDERS):
             base = Managers.piece_manager.get_all_pieces_for_team(event.team, piece_type=PieceType.BASE)[0]
             self.create_effect(base.gx, base.gy, EffectType.NO_MONEY, event.team)
+        elif is_event_type(event, E_ARMOR_GRANTED):
+            self.create_effect(event.gx, event.gy, EffectType.ARMOR_GRANTED, None)
 
         for effect in self.effects:
             effect.step(event)

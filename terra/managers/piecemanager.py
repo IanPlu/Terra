@@ -51,13 +51,15 @@ class PieceManager(GameObject):
 
     # Return a list of piece(s) at the specified grid location
     # If piece type or team is provided, only return pieces of that type.
-    def get_pieces_at(self, gx, gy, piece_type=None):
+    def get_pieces_at(self, gx, gy, piece_type=None, team=None):
         pieces = self.pieces.get((gx, gy))
         if not pieces:
             return []
         else:
             if piece_type:
                 pieces = [piece for piece in pieces if piece.piece_type == piece_type]
+            if team:
+                pieces = [piece for piece in pieces if piece.team == team]
             return pieces
 
     # Return the unit or building for the specified team (None if no piece for that team is present)
@@ -73,6 +75,24 @@ class PieceManager(GameObject):
         for piece in self.get_pieces_at(gx, gy):
             if not piece.team == my_team:
                 pieces.append(piece)
+        return pieces
+
+    # Return any pieces adjacent to the specified tile
+    def get_adjacent_pieces(self, gx, gy, team=None):
+        coords = [(gx + 1, gy), (gx - 1, gy), (gx, gy + 1), (gx, gy - 1)]
+        pieces = []
+        for coord in coords:
+            pieces.extend(self.get_pieces_at(coord[0], coord[1], team=team))
+
+        return pieces
+
+    # Return any enemy pieces adjacent to the specified tile
+    def get_adjacent_enemies(self, gx, gy, team):
+        coords = [(gx + 1, gy), (gx - 1, gy), (gx, gy + 1), (gx, gy - 1)]
+        pieces = []
+        for coord in coords:
+            pieces.extend(self.get_enemy_pieces_at(coord[0], coord[1], team))
+
         return pieces
 
     # Return all pieces belonging to the specified team. Supports filtering down to a specific type or subtype.
@@ -238,15 +258,23 @@ class PieceManager(GameObject):
         origin_unit = self.get_piece_at(gx, gy, origin_team)
         target_pieces = self.get_enemy_pieces_at(tx, ty, origin_team)
 
-        for target in target_pieces:
-            target_type = target.piece_type
-            attack = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK)
-            multiplier = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ATTACK_MULTIPLIER)[target_type]
-            defense_bonus = target.entrenchment
+        splashed_pieces = []
+        aoe_multiplier = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.RANGED_AOE_MULTIPLIER)
+        if aoe_multiplier > 0:
+            splashed_pieces.extend(self.get_adjacent_enemies(tx, ty, origin_team))
 
-            damage = int(attack * multiplier * (1 - defense_bonus / 10))
+        def conduct_ranged_attack(target, modifier):
+            attack = origin_unit.get_attack_rating(target)
+            defense = target.get_defense_rating()
+
+            damage = int(attack * modifier * (1 - defense / 10))
             target.hp -= damage
             Managers.combat_logger.log_damage(target, damage)
+
+        for target_piece in target_pieces:
+            conduct_ranged_attack(target_piece, 1)
+        for target_piece in splashed_pieces:
+            conduct_ranged_attack(target_piece, aoe_multiplier)
 
     def step(self, event):
         super().step(event)

@@ -15,7 +15,7 @@ from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, Upgrade
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color, spr_upgrade_icons, \
-    spr_target
+    spr_target, light_team_color
 from terra.settings import LANGUAGE
 from terra.strings import piece_name_strings
 from terra.team import Team
@@ -34,6 +34,7 @@ class Piece(GameObject):
         # Look up values based on our piece type
         self.piece_type = piece_type
         self.piece_subtype = Managers.team_manager.attr(self.team, self.piece_type, Attribute.SUBTYPE)
+        self.piece_archetype = Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARCHETYPE)
 
         # Interpreted variables. Don't touch!
         if hp:
@@ -44,6 +45,7 @@ class Piece(GameObject):
         self.in_conflict = False
         self.tile_selection = None
         self.entrenchment = 0
+        self.temporary_armor = 0
         self.previewing_order = False
 
     def __str__(self):
@@ -94,6 +96,19 @@ class Piece(GameObject):
     def get_valid_purchaseable_upgrades(self):
         return Managers.team_manager.attr(self.team, self.piece_type, Attribute.PURCHASEABLE_UPGRADES)
 
+    # Return this piece's attack strength against a target
+    def get_attack_rating(self, target):
+        attack = Managers.team_manager.attr(self.team, self.piece_type, Attribute.ATTACK)
+        multiplier = Managers.team_manager.attr(self.team, self.piece_type, Attribute.ATTACK_MULTIPLIER)[target.piece_archetype]
+
+        return attack * multiplier
+
+    # Return the combination of any innate armor, entrenchment bonuses, etc. this piece has
+    def get_defense_rating(self):
+        return self.entrenchment + \
+               Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARMOR) + \
+               self.temporary_armor
+
     # Clean ourselves up at the end of phases, die as appropriate
     def cleanup(self):
         if self.hp < 5:
@@ -103,6 +118,8 @@ class Piece(GameObject):
                 'team': self.team
             })
             self.on_death()
+        else:
+            self.temporary_armor = 0
 
     # Do anything special on death
     def on_death(self):
@@ -182,10 +199,23 @@ class Piece(GameObject):
             # Apply the full entrenchment bonus
             self.apply_entrenchment(0)
 
+    def handle_end_phase_move(self, event):
+        # Apply buffs to allies on adjacent tiles, if necessary
+        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARMOR_SHARE) > 0:
+            adjacent_allies = Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team)
+
+            for ally in adjacent_allies:
+                ally.temporary_armor += Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARMOR_SHARE)
+                publish_game_event(E_ARMOR_GRANTED, {
+                    'gx': ally.gx,
+                    'gy': ally.gy,
+                    'team': ally.team
+                })
+
     # Apply an entrenchment bonus per unused movement range (up to 2)
     def apply_entrenchment(self, distance):
-        self.entrenchment = min(Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE), 2) - distance
-        pass
+        self.entrenchment = (min(Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE), 2) - distance) * \
+                            Managers.team_manager.attr(self.team, self.piece_type, Attribute.ENTRENCHMENT_MODIFIER)
 
     def handle_phase_combat(self, event):
         pass
@@ -326,6 +356,8 @@ class Piece(GameObject):
             self.handle_phase_build(event)
         elif is_event_type(event, START_PHASE_EXECUTE_MOVE):
             self.handle_phase_move(event)
+        elif is_event_type(event, END_PHASE_MOVE):
+            self.handle_end_phase_move(event)
         elif is_event_type(event, START_PHASE_EXECUTE_COMBAT):
             self.handle_phase_combat(event)
         elif is_event_type(event, START_PHASE_EXECUTE_RANGED):
@@ -412,19 +444,20 @@ class Piece(GameObject):
         game_screen.blit(self.get_sprite(),
                          (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
+        # Render health bar if damaged
+        max_hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
+        if self.hp < max_hp:
+            displayable_hp = int((self.hp / max_hp) * 20)
+
+            game_screen.fill(clear_color[self.team],
+                             (self.gx * GRID_WIDTH + xoffset + 2, self.gy * GRID_HEIGHT + yoffset + 21, 18, 3))
+            game_screen.fill(light_team_color[self.team],
+                             (self.gx * GRID_WIDTH + xoffset + 2, self.gy * GRID_HEIGHT + yoffset + 21, displayable_hp, 2))
+
         # Render order flag
         if self.current_order and Managers.player_manager.active_team == self.team:
             game_screen.blit(spr_order_flags[self.current_order.name],
                              (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
-
-        # Render HP flag
-        displayable_hp = int(ceil(self.hp / Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP) * 10))
-
-        if 0 < displayable_hp * 10 < Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP):
-            game_screen.fill(clear_color[self.team],
-                             (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16, 8, 8))
-            game_screen.blit(spr_digit_icons[self.team][displayable_hp],
-                             (self.gx * GRID_WIDTH + xoffset + 16, self.gy * GRID_HEIGHT + yoffset + 16))
 
         # Allow our tile selection UI to function if alive
         if self.tile_selection:

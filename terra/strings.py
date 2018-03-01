@@ -39,16 +39,29 @@ phase_strings = {
 
 piece_name_strings = {
     Language.EN_US: {
+        PieceType.DEFAULT: "Unknown",
+
         PieceType.COLONIST: "Colonist",
         PieceType.TROOPER: "Trooper",
         PieceType.RANGER: "Ranger",
         PieceType.GHOST: "Ghost",
+
+        PieceType.GUARDIAN: "Guardian",
+        PieceType.BOLTCASTER: "Boltcaster",
+        # PieceType.BANSHEE: "Banshee",
+
+        # PieceType.TITAN: "Titan",
+        # PieceType.EARTHRENDER: "Earthrender",
+        # PieceType.DEMON: "Demon",
 
         PieceType.BASE: "Base",
         PieceType.CARBON_GENERATOR: "Carbon Gen",
         PieceType.MINERAL_GENERATOR: "Mineral Gen",
         PieceType.GAS_GENERATOR: "Gas Gen",
         PieceType.BARRACKS: "Barracks",
+        # PieceType.TOWER: "Tower",
+        # PieceType.WAYSTATION: "Waystation",
+        # PieceType.TECHLAB: "Tech Lab",
 
     }
 }
@@ -77,6 +90,9 @@ upgrade_name_strings = {
         # UpgradeType.GHOST_STEALTH: "(G) Stealth",
         UpgradeType.GHOST_ANTI_COLONIST: "(G) Assassin",
         # UpgradeType.GHOST_ANTI_PARTING_SHOTS: "(G) Escapist",
+
+        UpgradeType.RESEARCH_GUARDIAN: "Unlock Unit",
+        UpgradeType.RESEARCH_BOLTCASTER: "Unlock Unit",
     }
 }
 

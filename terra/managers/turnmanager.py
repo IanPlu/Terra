@@ -3,7 +3,8 @@ from terra.battlephase import BattlePhase
 from terra.engine.gameobject import GameObject
 from terra.event import is_event_type, publish_game_event, E_NEXT_PHASE, E_CLEANUP, START_PHASE_START_TURN, \
     START_PHASE_ORDERS, START_PHASE_EXECUTE_BUILD, START_PHASE_EXECUTE_MOVE, START_PHASE_EXECUTE_COMBAT, \
-    START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL, E_ALL_TURNS_SUBMITTED
+    START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL, E_ALL_TURNS_SUBMITTED, END_PHASE_START_TURN, \
+    END_PHASE_ORDERS, END_PHASE_MOVE, END_PHASE_BUILD, END_PHASE_COMBAT, END_PHASE_RANGED, END_PHASE_SPECIAL
 from terra.managers.managers import Managers
 from terra.team import Team
 
@@ -37,9 +38,16 @@ class TurnManager(GameObject):
         if not self.validate_phase():
             return
 
+        # Publish an event for the end of the old phase
+        publish_game_event(self.end_events[self.phase], {})
+
         new_phase = self.phase.value + 1
         if new_phase >= len(BattlePhase):
             new_phase = 0
+
+        if new_phase == BattlePhase.START_TURN:
+            self.round += 1
+            Managers.combat_logger.log_new_round(self.round)
 
         self.phase = BattlePhase(new_phase)
         Managers.combat_logger.log_new_phase(self.phase)
@@ -51,40 +59,27 @@ class TurnManager(GameObject):
         # Clean up units every phase
         publish_game_event(E_CLEANUP, {})
 
-        # Execute the handler for the phase
-        self.phase_handlers[self.phase](self)
+        # Publish an event for the new phase
+        publish_game_event(self.phase_events[self.phase], {})
 
-    def resolve_phase_start_turn(self):
-        publish_game_event(START_PHASE_START_TURN, {})
-        self.round += 1
-        Managers.combat_logger.log_new_round(self.round)
+    phase_events = {
+        BattlePhase.START_TURN: START_PHASE_START_TURN,
+        BattlePhase.ORDERS: START_PHASE_ORDERS,
+        BattlePhase.EXECUTE_MOVE: START_PHASE_EXECUTE_MOVE,
+        BattlePhase.EXECUTE_BUILD: START_PHASE_EXECUTE_BUILD,
+        BattlePhase.EXECUTE_COMBAT: START_PHASE_EXECUTE_COMBAT,
+        BattlePhase.EXECUTE_RANGED: START_PHASE_EXECUTE_RANGED,
+        BattlePhase.EXECUTE_SPECIAL: START_PHASE_EXECUTE_SPECIAL,
+    }
 
-    def resolve_phase_orders(self):
-        publish_game_event(START_PHASE_ORDERS, {})
-
-    def resolve_phase_execute_move(self):
-        publish_game_event(START_PHASE_EXECUTE_MOVE, {})
-
-    def resolve_phase_execute_build(self):
-        publish_game_event(START_PHASE_EXECUTE_BUILD, {})
-
-    def resolve_phase_execute_combat(self):
-        publish_game_event(START_PHASE_EXECUTE_COMBAT, {})
-
-    def resolve_phase_execute_ranged(self):
-        publish_game_event(START_PHASE_EXECUTE_RANGED, {})
-
-    def resolve_phase_execute_special(self):
-        publish_game_event(START_PHASE_EXECUTE_SPECIAL, {})
-
-    phase_handlers = {
-        BattlePhase.START_TURN: resolve_phase_start_turn,
-        BattlePhase.ORDERS: resolve_phase_orders,
-        BattlePhase.EXECUTE_MOVE: resolve_phase_execute_move,
-        BattlePhase.EXECUTE_BUILD: resolve_phase_execute_build,
-        BattlePhase.EXECUTE_COMBAT: resolve_phase_execute_combat,
-        BattlePhase.EXECUTE_RANGED: resolve_phase_execute_ranged,
-        BattlePhase.EXECUTE_SPECIAL: resolve_phase_execute_special
+    end_events = {
+        BattlePhase.START_TURN: END_PHASE_START_TURN,
+        BattlePhase.ORDERS: END_PHASE_ORDERS,
+        BattlePhase.EXECUTE_MOVE: END_PHASE_MOVE,
+        BattlePhase.EXECUTE_BUILD: END_PHASE_BUILD,
+        BattlePhase.EXECUTE_COMBAT: END_PHASE_COMBAT,
+        BattlePhase.EXECUTE_RANGED: END_PHASE_RANGED,
+        BattlePhase.EXECUTE_SPECIAL: END_PHASE_SPECIAL,
     }
 
     def step(self, event):

@@ -1,3 +1,4 @@
+from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piecetype import PieceType
 from terra.piece.pieceattributes import Attribute
 from enum import Enum, auto
@@ -27,12 +28,17 @@ class UpgradeType(Enum):
     GHOST_ANTI_COLONIST = auto()
     # GHOST_ANTI_PARTING_SHOTS = auto()
 
+    RESEARCH_GUARDIAN = auto()
+    RESEARCH_BOLTCASTER = auto()
+    # RESEARCH_BANSHEE = auto()
+
 
 # All upgrades available for purchase, including prereqs, price, effect, etc.
 #   - new_stat: Adds the new stat to the existing stat. Allows for stacking buffs.
 #   - new_type: Overwrites the attribute with the provided new attribute. Allows for mutating types.
 #   - new_costs: Adds the new price-like stat to the existing price-like stat. Allows for stacking buffs.
 #   - new_attack_multiplier: Sets the attack multiplier vs. the specified unit to the new value.
+#   - new_buildable: Adds the provided piece(s) to the buildable list for the specified piece.
 base_upgrades = {
     # Improves base resource yields for all buildings
     UpgradeType.RESOURCE_PRODUCTION_1: {
@@ -160,7 +166,7 @@ base_upgrades = {
     UpgradeType.GHOST_ANTI_COLONIST: {
         "new_attack_multiplier": {
             PieceType.GHOST: {
-                PieceType.COLONIST: 25
+                PieceArchetype.WORKER: 25
             },
         },
         "upgrade_price": (10, 20, 30),
@@ -169,4 +175,24 @@ base_upgrades = {
         "bought_by": PieceType.BARRACKS
     },
     # GHOST_ANTI_PARTING_SHOTS
+
+    UpgradeType.RESEARCH_GUARDIAN: {
+        "new_buildable": {
+            PieceType.BARRACKS: [PieceType.GUARDIAN]
+        },
+        "upgrade_price": (30, 30, 30),
+        "tier": 1,
+        "unlocks": [],
+        "bought_by": PieceType.BASE
+    },
+    UpgradeType.RESEARCH_BOLTCASTER: {
+        "new_buildable": {
+            PieceType.BARRACKS: [PieceType.BOLTCASTER]
+        },
+        "upgrade_price": (30, 30, 30),
+        "tier": 1,
+        "unlocks": [],
+        "bought_by": PieceType.BASE
+    },
+    # UpgradeType.RESEARCH_BANSHEE
 }

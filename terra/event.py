@@ -44,6 +44,7 @@ E_UPGRADE_BUILT = define_event()
 E_INVALID_MOVE_ORDERS = define_event()
 E_INVALID_BUILD_ORDERS = define_event()
 E_ORDER_CANCELED = define_event()
+E_ARMOR_GRANTED = define_event()
 
 # Phase events
 START_PHASE_START_TURN = define_event()
@@ -54,6 +55,14 @@ START_PHASE_EXECUTE_COMBAT = define_event()
 START_PHASE_EXECUTE_RANGED = define_event()
 START_PHASE_EXECUTE_SPECIAL = define_event()
 E_NEXT_PHASE = define_event()
+
+END_PHASE_START_TURN = define_event()
+END_PHASE_ORDERS = define_event()
+END_PHASE_MOVE = define_event()
+END_PHASE_BUILD = define_event()
+END_PHASE_COMBAT = define_event()
+END_PHASE_RANGED = define_event()
+END_PHASE_SPECIAL = define_event()
 
 # Piece selection menu option events
 MENU_CANCEL_ORDER = define_event()

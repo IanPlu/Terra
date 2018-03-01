@@ -100,6 +100,8 @@ spr_upgrade_icons = {
         UpgradeType.GHOST_ANTI_COLONIST: spr_upgrade_icons_base[16],
         # UpgradeType.GHOST_ANTI_PARTING_SHOTS: spr_upgrade_icons_base[17],
 
+        UpgradeType.RESEARCH_GUARDIAN: spr_upgrade_icons_base[18],
+        UpgradeType.RESEARCH_BOLTCASTER: spr_upgrade_icons_base[19],
     }
 }
 
@@ -140,17 +142,33 @@ spr_coast_detail = {
 # Pieces
 spr_pieces = {
     Team.RED: {
-        # Units
+        PieceType.DEFAULT: pygame.image.load(get_asset(AssetType.SPRITE, "units/Colonist.png")),
+
+        # Tier 1 Units
         PieceType.COLONIST: pygame.image.load(get_asset(AssetType.SPRITE, "units/Colonist.png")),
         PieceType.TROOPER: pygame.image.load(get_asset(AssetType.SPRITE, "units/Trooper.png")),
         PieceType.RANGER: pygame.image.load(get_asset(AssetType.SPRITE, "units/Ranger.png")),
         PieceType.GHOST: pygame.image.load(get_asset(AssetType.SPRITE, "units/Ghost.png")),
+
+        # Tier 2 Units
+        PieceType.GUARDIAN: pygame.image.load(get_asset(AssetType.SPRITE, "units/Guardian.png")),
+        PieceType.BOLTCASTER: pygame.image.load(get_asset(AssetType.SPRITE, "units/Boltcaster.png")),
+        # PieceType.BANSHEE: pygame.image.load(get_asset(AssetType.SPRITE, "units/Banshee.png")),
+
+        # Tier 3 Units
+        # PieceType.TITAN: pygame.image.load(get_asset(AssetType.SPRITE, "units/Titan.png")),
+        # PieceType.EARTHRENDER: pygame.image.load(get_asset(AssetType.SPRITE, "units/Earthrender.png")),
+        # PieceType.DEMON: pygame.image.load(get_asset(AssetType.SPRITE, "units/Demon.png")),
+
         # Buildings
         PieceType.BASE: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Base.png")),
         PieceType.CARBON_GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/CarbonGenerator.png")),
         PieceType.MINERAL_GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/MineralGenerator.png")),
         PieceType.GAS_GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/GasGenerator.png")),
         PieceType.BARRACKS: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Barracks.png")),
+        # PieceType.TOWER: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Tower.png")),
+        # PieceType.WAYSTATION: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Waystation.png")),
+        # PieceType.TECHLAB: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/TechLab.png")),
     }
 }
 
@@ -199,12 +217,18 @@ spr_effects = {
     EffectType.NO_MONEY: get_sprites_from_strip(
         pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_No_Money.png")), 24),
     EffectType.ORDER_BLOCKED: get_sprites_from_strip(
-        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Order_Blocked.png")), 24)
+        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Order_Blocked.png")), 24),
+    EffectType.ARMOR_GRANTED: get_sprites_from_strip(
+        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Armor_Granted.png")), 24),
 }
 
 
 # Colors
 light_color = (248, 240, 211)
+light_team_color = {
+    Team.RED: (247, 126, 126),
+    Team.BLUE: (114, 210, 239)
+}
 clear_color = {
     Team.RED: (46, 29, 29),
     Team.BLUE: (41, 56, 71)

@@ -1,0 +1,560 @@
+== ROUND 1 BEGIN ==
+RED Guardian at tile (4, 3) with 80 HP was assigned the order 'Order: Move to (5, 3)'
+= Phase Move begins
+RED Guardian at tile (5, 3) with 80 HP successfully executed 'Order: Move to (5, 3)'
+= Phase Build begins
+== ROUND 1 BEGIN ==
+RED Guardian at tile (4, 3) with 80 HP was assigned the order 'Order: Move to (5, 3)'
+= Phase Move begins
+RED Guardian at tile (5, 3) with 80 HP successfully executed 'Order: Move to (5, 3)'
+= Phase Build begins
+== ROUND 1 BEGIN ==
+RED Guardian at tile (4, 3) with 80 HP was assigned the order 'Order: Move to (5, 3)'
+= Phase Move begins
+RED Guardian at tile (5, 3) with 80 HP successfully executed 'Order: Move to (5, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+== ROUND 2 BEGIN ==
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+== ROUND 3 BEGIN ==
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+== ROUND 4 BEGIN ==
+= Phase Issue Orders begins
+RED Trooper at tile (5, 4) with 100 HP was assigned the order 'Order: Move to (7, 4)'
+RED Guardian at tile (5, 3) with 80 HP was assigned the order 'Order: Move to (6, 4)'
+= Phase Move begins
+RED Trooper at tile (7, 4) with 100 HP successfully executed 'Order: Move to (7, 4)'
+RED Guardian at tile (6, 4) with 80 HP successfully executed 'Order: Move to (6, 4)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+== ROUND 5 BEGIN ==
+= Phase Issue Orders begins
+RED Trooper at tile (7, 4) with 100 HP was assigned the order 'Order: Move to (7, 3)'
+= Phase Move begins
+RED Trooper at tile (7, 3) with 100 HP successfully executed 'Order: Move to (7, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+== ROUND 6 BEGIN ==
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Guardian at tile (4, 3) with 80 HP was assigned the order 'Order: Move to (5, 3)'
+= Phase Move begins
+RED Guardian at tile (5, 3) with 80 HP successfully executed 'Order: Move to (5, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Guardian at tile (5, 3) with 80 HP was assigned the order 'Order: Move to (7, 3)'
+= Phase Move begins
+RED Guardian at tile (7, 3) with 80 HP successfully executed 'Order: Move to (7, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Guardian at tile (7, 3) with 80 HP was assigned the order 'Order: Move to (6, 4)'
+= Phase Move begins
+RED Guardian at tile (6, 4) with 80 HP successfully executed 'Order: Move to (6, 4)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Guardian at tile (6, 4) with 80 HP was assigned the order 'Order: Move to (5, 3)'
+= Phase Move begins
+RED Guardian at tile (5, 3) with 80 HP successfully executed 'Order: Move to (5, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Guardian at tile (4, 3) with 80 HP was assigned the order 'Order: Move to (5, 3)'
+= Phase Move begins
+RED Guardian at tile (5, 3) with 80 HP successfully executed 'Order: Move to (5, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 8)'
+= Phase Move begins
+= Phase Build begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: Build a Trooper on tile (10, 8)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 8)'
+BLUE Trooper at tile (10, 8) with 100 HP was assigned the order 'Order: Move to (10, 6)'
+= Phase Move begins
+BLUE Trooper at tile (10, 6) with 100 HP successfully executed 'Order: Move to (10, 6)'
+= Phase Build begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: Build a Ghost on tile (10, 8)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Trooper at tile (10, 6) with 100 HP was assigned the order 'Order: Move to (10, 4)'
+BLUE Ghost at tile (10, 8) with 70 HP was assigned the order 'Order: Move to (10, 5)'
+= Phase Move begins
+BLUE Trooper at tile (10, 4) with 100 HP successfully executed 'Order: Move to (10, 4)'
+BLUE Ghost at tile (10, 5) with 70 HP successfully executed 'Order: Move to (10, 5)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Trooper at tile (10, 4) with 100 HP was assigned the order 'Order: Move to (8, 4)'
+BLUE Ghost at tile (10, 5) with 70 HP was assigned the order 'Order: Move to (9, 3)'
+= Phase Move begins
+BLUE Trooper at tile (8, 4) with 100 HP successfully executed 'Order: Move to (8, 4)'
+BLUE Ghost at tile (9, 3) with 70 HP successfully executed 'Order: Move to (9, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Trooper at tile (8, 4) with 100 HP was assigned the order 'Order: Move to (6, 4)'
+BLUE Ghost at tile (9, 3) with 70 HP was assigned the order 'Order: Move to (6, 3)'
+= Phase Move begins
+BLUE Trooper at tile (6, 4) with 100 HP successfully executed 'Order: Move to (6, 4)'
+BLUE Ghost at tile (6, 3) with 70 HP successfully executed 'Order: Move to (6, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Ranger on tile (5, 4)'
+RED Trooper at tile (5, 4) with 100 HP was assigned the order 'Order: Move to (6, 5)'
+= Phase Move begins
+RED Trooper at tile (6, 5) with 100 HP successfully executed 'Order: Move to (6, 5)'
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Ranger on tile (5, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Ranger at tile (5, 4) with 100 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Ranger at tile (5, 4) with 100 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Trooper at tile (6, 4) with 64 HP took 36 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Trooper at tile (6, 5) with 100 HP was assigned the order 'Order: Move to (6, 4)'
+= Phase Move begins
+RED Trooper at tile (6, 4) with 100 HP successfully executed 'Order: Move to (6, 4)'
+= Phase Build begins
+= Phase Combat begins
+BLUE Trooper at tile (6, 4) with 64 HP and RED Trooper at tile (6, 4) with 100 HP are contesting the tile at (6, 4)!
+BLUE Trooper at tile (6, 4) with 40 HP took 24 damage!
+RED Trooper at tile (6, 4) with 73 HP took 27 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+BLUE Trooper at tile (6, 4) with 40 HP and RED Trooper at tile (6, 4) with 73 HP are contesting the tile at (6, 4)!
+BLUE Trooper at tile (6, 4) with 16 HP took 24 damage!
+RED Trooper at tile (6, 4) with 49 HP took 24 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+BLUE Trooper at tile (6, 4) with 16 HP and RED Trooper at tile (6, 4) with 49 HP are contesting the tile at (6, 4)!
+BLUE Trooper at tile (6, 4) with -8 HP took 24 damage!
+RED Trooper at tile (6, 4) with 25 HP took 24 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Guardian at tile (4, 3) with 80 HP was assigned the order 'Order: Move to (6, 3)'
+= Phase Move begins
+RED Guardian at tile (6, 3) with 80 HP successfully executed 'Order: Move to (6, 3)'
+= Phase Build begins
+= Phase Combat begins
+BLUE Ghost at tile (6, 3) with 70 HP and RED Guardian at tile (6, 3) with 80 HP are contesting the tile at (6, 3)!
+BLUE Ghost at tile (6, 3) with 34 HP took 36 damage!
+RED Guardian at tile (6, 3) with 68 HP took 12 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+BLUE Ghost at tile (6, 3) with 34 HP and RED Guardian at tile (6, 3) with 68 HP are contesting the tile at (6, 3)!
+BLUE Ghost at tile (6, 3) with -2 HP took 36 damage!
+RED Guardian at tile (6, 3) with 62 HP took 6 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Ranger at tile (5, 4) with 100 HP was assigned the order 'Order: Move to (5, 3)'
+= Phase Move begins
+RED Ranger at tile (5, 3) with 100 HP successfully executed 'Order: Move to (5, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Trooper at tile (6, 4) with 25 HP was assigned the order 'Order: Move to (5, 3)'
+RED Guardian at tile (6, 3) with 62 HP was assigned the order 'Order: Move to (4, 3)'
+RED Ranger at tile (5, 3) with 100 HP was assigned the order 'Order: Move to (4, 2)'
+= Phase Move begins
+RED Trooper at tile (5, 3) with 25 HP successfully executed 'Order: Move to (5, 3)'
+RED Guardian at tile (4, 3) with 62 HP successfully executed 'Order: Move to (4, 3)'
+RED Ranger at tile (4, 2) with 100 HP successfully executed 'Order: Move to (4, 2)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+== ROUND 1 BEGIN ==
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+== ROUND 1 BEGIN ==
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Trooper at tile (6, 4) with 4 HP took 48 damage!
+BLUE Ghost at tile (6, 3) with 58 HP took 12 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Trooper at tile (6, 4) with 4 HP took 48 damage!
+== ROUND 1 BEGIN ==
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Trooper at tile (6, 4) with 4 HP took 48 damage!
+BLUE Ghost at tile (6, 3) with 58 HP took 12 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Trooper at tile (6, 4) with 4 HP took 48 damage!
+BLUE Ghost at tile (6, 3) with 52 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Ghost at tile (6, 3) with 34 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Ghost at tile (6, 3) with 16 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Ghost at tile (6, 3) with -2 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Trooper at tile (6, 4) with 4 HP took 48 damage!
+BLUE Ghost at tile (6, 3) with 52 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Trooper at tile (6, 4) with 4 HP took 48 damage!
+BLUE Ghost at tile (6, 3) with 52 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Ghost at tile (6, 3) with 34 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Ghost at tile (6, 3) with 16 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Ghost at tile (6, 3) with -2 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+RED Trooper at tile (6, 5) with 100 HP was assigned the order 'Order: Move to (6, 4)'
+= Phase Move begins
+RED Trooper at tile (6, 4) with 100 HP successfully executed 'Order: Move to (6, 4)'
+= Phase Build begins
+= Phase Combat begins
+BLUE Trooper at tile (6, 4) with 52 HP and RED Trooper at tile (6, 4) with 100 HP are contesting the tile at (6, 4)!
+BLUE Trooper at tile (6, 4) with 28 HP took 24 damage!
+RED Trooper at tile (6, 4) with 73 HP took 27 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+BLUE Trooper at tile (6, 4) with 28 HP and RED Trooper at tile (6, 4) with 73 HP are contesting the tile at (6, 4)!
+BLUE Trooper at tile (6, 4) with 4 HP took 24 damage!
+RED Trooper at tile (6, 4) with 49 HP took 24 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+BLUE Ghost at tile (6, 3) with 70 HP was assigned the order 'Order: Move to (6, 5)'
+= Phase Move begins
+BLUE Ghost at tile (6, 5) with 70 HP successfully executed 'Order: Move to (6, 5)'
+= Phase Build begins
+= Phase Combat begins
+RED Trooper at tile (6, 5) with 100 HP and BLUE Ghost at tile (6, 5) with 70 HP are contesting the tile at (6, 5)!
+RED Trooper at tile (6, 5) with 88 HP took 12 damage!
+BLUE Ghost at tile (6, 5) with 25 HP took 45 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Ghost at tile (6, 5) with 25 HP was assigned the order 'Order: Move to (6, 3)'
+= Phase Move begins
+BLUE Ghost at tile (6, 3) with 25 HP successfully executed 'Order: Move to (6, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (6, 4)'
+= Phase Special begins
+BLUE Trooper at tile (6, 4) with 4 HP took 48 damage!
+BLUE Ghost at tile (6, 3) with 7 HP took 18 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+BLUE Trooper at tile (6, 4) with 52 HP was assigned the order 'Order: Move to (5, 4)'
+BLUE Ghost at tile (6, 3) with 70 HP was assigned the order 'Order: Move to (7, 3)'
+RED Boltcaster at tile (3, 4) with 60 HP was assigned the order 'Order: Ranged attack tile (7, 4)'
+= Phase Move begins
+BLUE Trooper at tile (5, 4) with 52 HP successfully executed 'Order: Move to (5, 4)'
+BLUE Ghost at tile (7, 3) with 70 HP successfully executed 'Order: Move to (7, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (3, 4) with 60 HP successfully executed 'Order: Ranged attack tile (7, 4)'
+= Phase Special begins
+BLUE Ghost at tile (7, 3) with 50 HP took 20 damage!
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins

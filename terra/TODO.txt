@@ -47,7 +47,7 @@ x Decide where the BUILD phase should slot into the order. Currently impossible 
     * Whether this piece is affected by parting shots
 
 Networking
-* Send the map / save data back and forth
+x Send the map / save data back and forth
 * Upon submitting a turn, don't allow modifying the turn unless you cancel submission
     * Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
 * Gracefully handle connects / disconnects

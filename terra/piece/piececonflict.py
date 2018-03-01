@@ -17,17 +17,14 @@ class PieceConflict:
     # Get the attack rating for this piece.
     def get_attack_damage(self, piece1, piece2):
         if Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.DAMAGE_TYPE) == DamageType.MELEE:
-            attack = Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.ATTACK)
-            multiplier = Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.ATTACK_MULTIPLIER)[piece2.piece_type]
-
-            return attack * multiplier
+            return piece1.get_attack_rating(piece2)
         else:
             # This piece can't fight back in this conflict
             return 0
 
     # Get any defense bonuses this piece may have. Defense bonuses apply a 10% damage reduction per.
     def get_defense_bonuses(self, piece1, piece2):
-        return piece1.entrenchment + Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.ARMOR)
+        return piece1.get_defense_rating()
 
     # Conduct one round of combat
     def resolve(self):

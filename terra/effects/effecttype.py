@@ -1,8 +1,9 @@
-from enum import Enum
+from enum import Enum, auto
 
 
 class EffectType(Enum):
-    ALERT = 0
-    PIECE_DESTROYED = 1
-    NO_MONEY = 2
-    ORDER_BLOCKED = 3
+    ALERT = auto()
+    PIECE_DESTROYED = auto()
+    NO_MONEY = auto()
+    ORDER_BLOCKED = auto()
+    ARMOR_GRANTED = auto()

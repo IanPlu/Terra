@@ -1,16 +1,32 @@
-from enum import Enum
+from enum import Enum, auto
 
 
 # Possible piece types.
-# Values give that type an ID, as well as a subtype -- BUILDING or UNIT.
 class PieceType(Enum):
-    COLONIST = 0
-    TROOPER = 1
-    RANGER = 2
-    GHOST = 3
+    DEFAULT = auto()
 
-    BASE = 4
-    CARBON_GENERATOR = 5
-    MINERAL_GENERATOR = 6
-    GAS_GENERATOR = 7
-    BARRACKS = 8
+    # Tier 1 Units
+    COLONIST = auto()
+    TROOPER = auto()
+    RANGER = auto()
+    GHOST = auto()
+
+    # Tier 2 Units
+    GUARDIAN = auto()
+    BOLTCASTER = auto()
+    # BANSHEE = auto()
+
+    # Tier 3 Units
+    # TITAN = auto()
+    # EARTHRENDER = auto()
+    # DEMON = auto()
+
+    # Buildings
+    BASE = auto()
+    CARBON_GENERATOR = auto()
+    MINERAL_GENERATOR = auto()
+    GAS_GENERATOR = auto()
+    BARRACKS = auto()
+    # TOWER = auto()
+    # WAYSTATION = auto()
+    # TECHLAB = auto()

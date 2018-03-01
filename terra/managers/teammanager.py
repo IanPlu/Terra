@@ -81,7 +81,8 @@ class TeamManager(GameObject):
 
     # Query the piece attributes table for an up to date value for an attribute on a piece
     def attr(self, team, piece_type, attribute):
-        return self.piece_attributes[team][piece_type][attribute]
+        return self.piece_attributes[team][piece_type].get(attribute,
+                                                           self.piece_attributes[team][PieceType.DEFAULT][attribute])
 
     # Serialize team, resource counts, and upgrades for saving
     def serialize_teams(self):
@@ -176,10 +177,14 @@ class TeamManager(GameObject):
                         add_tuples(new_price, existing_price)
 
         if upgrade.get("new_attack_multiplier"):
-            for piece_type, enemy_piece_types in upgrade["new_attack_multiplier"].items():
-                for enemy_piece_type in enemy_piece_types:
-                    self.piece_attributes[team][piece_type][Attribute.ATTACK_MULTIPLIER][enemy_piece_type] = \
-                        upgrade["new_attack_multiplier"][piece_type][enemy_piece_type]
+            for piece_type, enemy_piece_archetypes in upgrade["new_attack_multiplier"].items():
+                for enemy_piece_archetype in enemy_piece_archetypes:
+                    self.piece_attributes[team][piece_type][Attribute.ATTACK_MULTIPLIER][enemy_piece_archetype] = \
+                        upgrade["new_attack_multiplier"][piece_type][enemy_piece_archetype]
+
+        if upgrade.get("new_buildable"):
+            for piece_type, new_pieces in upgrade["new_buildable"].items():
+                self.piece_attributes[team][piece_type][Attribute.BUILDABLE_PIECES].extend(new_pieces)
 
     def get_owned_upgrades(self, team):
         return self.owned_upgrades[team]

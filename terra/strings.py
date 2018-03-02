@@ -15,13 +15,14 @@ class Language(Enum):
 menu_option_strings = {
     Language.EN_US: {
         MENU_MOVE: "Move",
-        MENU_CANCEL_ORDER: "Wait",
+        MENU_CANCEL_ORDER: "Cancel Order",
         MENU_RANGED_ATTACK: "Ranged",
         MENU_BUILD_PIECE: "Build",
         MENU_PURCHASE_UPGRADE: "Upgrade",
         MENU_SUBMIT_TURN: "Submit Turn",
         MENU_SAVE_GAME: "Save Game",
-        MENU_QUIT_BATTLE: "Quit Battle"
+        MENU_QUIT_BATTLE: "Quit Battle",
+        MENU_SAVE_MAP: "Save Map",
     }
 }
 
@@ -48,7 +49,7 @@ piece_name_strings = {
 
         PieceType.GUARDIAN: "Guardian",
         PieceType.BOLTCASTER: "Boltcaster",
-        # PieceType.BANSHEE: "Banshee",
+        PieceType.BANSHEE: "Banshee",
 
         # PieceType.TITAN: "Titan",
         # PieceType.EARTHRENDER: "Earthrender",
@@ -93,6 +94,7 @@ upgrade_name_strings = {
 
         UpgradeType.RESEARCH_GUARDIAN: "Unlock Unit",
         UpgradeType.RESEARCH_BOLTCASTER: "Unlock Unit",
+        UpgradeType.RESEARCH_BANSHEE: "Unlock Unit",
     }
 }
 

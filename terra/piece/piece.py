@@ -1,5 +1,3 @@
-from math import ceil
-
 from pygame import KEYDOWN, KEYUP
 
 from terra.battlephase import BattlePhase
@@ -10,11 +8,11 @@ from terra.event import *
 from terra.keybindings import KB_MENU2
 from terra.managers.managers import Managers
 from terra.piece.damagetype import DamageType
-from terra.piece.movementtype import passable_terrain_types
+from terra.piece.movementtype import movement_types, MovementAttribute
 from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
-from terra.resources.assets import spr_pieces, spr_order_flags, spr_digit_icons, clear_color, spr_upgrade_icons, \
+from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
     spr_target, light_team_color
 from terra.settings import LANGUAGE
 from terra.strings import piece_name_strings
@@ -68,7 +66,7 @@ class Piece(GameObject):
         if len(self.get_valid_purchaseable_upgrades()):
             actions.append(MENU_PURCHASE_UPGRADE)
 
-        if len(actions) > 0:
+        if len(actions) > 0 and self.current_order:
             actions.append(MENU_CANCEL_ORDER)
 
         return actions
@@ -77,18 +75,24 @@ class Piece(GameObject):
     def get_valid_buildable_pieces(self):
         valid_pieces = []
 
+        tiles_to_check = [(self.gx + 1, self.gy),
+                          (self.gx - 1, self.gy),
+                          (self.gx, self.gy + 1),
+                          (self.gx, self.gy - 1)]
+        unoccupied_tiles = []
+
+        # Remove tiles that already have allies on it
+        for tile_x, tile_y in tiles_to_check:
+            if len(Managers.piece_manager.get_pieces_at(tile_x, tile_y, team=self.team)) == 0:
+                unoccupied_tiles.append((tile_x, tile_y))
+
         # For each buildable piece, if there exists at least one valid adjacent tile for its movement type that we can
         # place it onto, add it to the list
         for piece in Managers.team_manager.attr(self.team, self.piece_type, Attribute.BUILDABLE_PIECES):
-            valid_tiles = passable_terrain_types[Managers.team_manager.attr(self.team, piece, Attribute.MOVEMENT_TYPE)]
-            adjacent_tile_types = {
-                Managers.battle_map.get_tile_type_at(self.gx + 1, self.gy),
-                Managers.battle_map.get_tile_type_at(self.gx - 1, self.gy),
-                Managers.battle_map.get_tile_type_at(self.gx, self.gy + 1),
-                Managers.battle_map.get_tile_type_at(self.gx, self.gy - 1),
-            }
+            valid_tile_types = movement_types[Managers.team_manager.attr(self.team, piece, Attribute.MOVEMENT_TYPE)][MovementAttribute.PASSABLE]
+            unoccupied_tile_types = set([Managers.battle_map.get_tile_type_at(coord[0], coord[1]) for coord in unoccupied_tiles])
 
-            if not adjacent_tile_types.isdisjoint(valid_tiles):
+            if not unoccupied_tile_types.isdisjoint(valid_tile_types):
                 valid_pieces.append(piece)
 
         return valid_pieces
@@ -278,6 +282,7 @@ class Piece(GameObject):
                 'min_range': 1,
                 'max_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE),
                 'movement_type': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_TYPE),
+                'piece_type': self.piece_type,
                 'team': self.team,
                 'option': event.option
             })
@@ -288,6 +293,7 @@ class Piece(GameObject):
                 'min_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MIN_RANGE),
                 'max_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_RANGE),
                 'movement_type': None,
+                'piece_type': None,
                 'team': self.team,
                 'option': event.option
             })
@@ -307,6 +313,7 @@ class Piece(GameObject):
                 'min_range': 1,
                 'max_range': 1,
                 'movement_type': Managers.team_manager.attr(self.team, event.option, Attribute.MOVEMENT_TYPE),
+                'piece_type': event.option,
                 'team': self.team,
                 'option': event.option
             })
@@ -376,16 +383,16 @@ class Piece(GameObject):
             self.cleanup()
         # Catch selection events and open the orders menu
         elif is_event_type(event, E_SELECT):
-            available_actions = self.get_available_actions()
+            if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
+                available_actions = self.get_available_actions()
 
-            if event.gx == self.gx and event.gy == self.gy and \
-                    event.team == self.team and not event.selecting_movement and len(available_actions) > 0:
-                publish_game_event(E_OPEN_MENU, {
-                    'gx': self.gx,
-                    'gy': self.gy,
-                    'team': self.team,
-                    'options': available_actions
-                })
+                if not event.selecting_movement and len(available_actions) > 0:
+                    publish_game_event(E_OPEN_MENU, {
+                        'gx': self.gx,
+                        'gy': self.gy,
+                        'team': self.team,
+                        'options': available_actions
+                    })
         # Catch menu events and set orders if they don't require tile selection or a submenu
         elif is_event_type(event, E_CLOSE_MENU) and event.option:
             if event.gx == self.gx and event.gy == self.gy and event.team == self.team:

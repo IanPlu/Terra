@@ -14,7 +14,7 @@ class PieceType(Enum):
     # Tier 2 Units
     GUARDIAN = auto()
     BOLTCASTER = auto()
-    # BANSHEE = auto()
+    BANSHEE = auto()
 
     # Tier 3 Units
     # TITAN = auto()

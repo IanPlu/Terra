@@ -1,5 +1,4 @@
 import sys
-from enum import Enum
 
 from pygame.constants import QUIT
 
@@ -9,24 +8,17 @@ from terra.event import *
 from terra.leveleditor import LevelEditor
 from terra.mainmenu.mainmenu import MainMenu
 from terra.mainmenu.option import Option
+from terra.managers.managers import Managers
+from terra.mode import Mode
 from terra.resources.assets import load_assets, clear_color
 from terra.settings import SCREEN_SCALE, TICK_RATE
 from terra.team import Team
-from terra.managers.managers import Managers
-
-
-class Mode(Enum):
-    MAIN_MENU = 0
-    BATTLE = 1
-    EDIT = 2
-    NETWORK_BATTLE = 3
 
 
 # Main entry point for the game.
 # Instantiate this class and call 'run()' on it to fire up the game.
 class Main:
     def __init__(self):
-        self.mode = None
         self.current_screen = None
 
         self.screen_resolution = None
@@ -37,7 +29,8 @@ class Main:
         self.set_screen_from_mode(Mode.MAIN_MENU)
 
     def set_screen_from_mode(self, new_mode, mapname=None, address=None, is_host=False):
-        self.mode = new_mode
+        Managers.set_mode(new_mode)
+
         if new_mode == Mode.MAIN_MENU:
             self.current_screen = MainMenu()
         elif new_mode == Mode.BATTLE:
@@ -63,7 +56,7 @@ class Main:
             elif event.option == Option.JOIN_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, None, event.address, is_host=False)
             elif event.option == Option.NEW_MAP:
-                self.set_screen_from_mode(Mode.EDIT, None)
+                self.set_screen_from_mode(Mode.EDIT, "new_map.map")
             elif event.option == Option.LOAD_MAP:
                 self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.QUIT:

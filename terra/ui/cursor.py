@@ -1,11 +1,12 @@
-from pygame.constants import KEYDOWN, KEYUP, MOUSEMOTION, MOUSEBUTTONDOWN
+from pygame.constants import KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event import *
-from terra.keybindings import KB_UP, KB_DOWN, KB_LEFT, KB_RIGHT, KB_CONFIRM, KB_CANCEL, KB_MENU, KB_MENU2
+from terra.keybindings import KB_UP, KB_DOWN, KB_LEFT, KB_RIGHT, KB_CONFIRM, KB_CANCEL, KB_MENU
 from terra.managers.managers import Managers
+from terra.mode import Mode
 from terra.resources.assets import spr_cursor
 from terra.settings import SCREEN_SCALE
 from terra.ui.menupopup import MenuPopup
@@ -48,13 +49,19 @@ class Cursor(GameObject):
         self.menu = None
 
     def open_pause_menu(self):
-        self.menu = MenuPopup(self, self.gx, self.gy, self.team, [
-            MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE
-        ], centered=True)
+        if Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]:
+            menu_options = [MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE]
+        elif Managers.current_mode == Mode.EDIT:
+            menu_options = [MENU_SAVE_MAP, MENU_QUIT_BATTLE]
+        else:
+            # Don't open the menu in this mode
+            return
+
+        self.menu = MenuPopup(self, self.gx, self.gy, self.team, menu_options, centered=True)
 
     def open_move_ui(self, event):
         self.move_ui = TileSelection(event.gx, event.gy, event.min_range, event.max_range,
-                                     event.movement_type, event.team, event.option)
+                                     event.movement_type, event.piece_type, event.team, event.option)
 
     def close_move_ui(self):
         del self.move_ui

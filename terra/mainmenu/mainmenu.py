@@ -3,14 +3,14 @@ from pygame.constants import KEYDOWN
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
-from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL
+from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL, KB_MENU
 from terra.mainmenu.option import Option
 from terra.managers.mapmanager import get_loadable_maps
+from terra.managers.networkmanager import get_network_settings
 from terra.resources.assets import clear_color, text_main_menu, light_color, shadow_color
 from terra.team import Team
 from terra.util.drawingutil import draw_text
 from terra.util.mathutil import clamp
-from terra.managers.networkmanager import get_network_settings
 
 displayable_buffer = 1
 max_displayable_options = 5
@@ -135,7 +135,7 @@ class MainMenu(GameScreen):
                 self.cursor_down()
             elif event.key in KB_CONFIRM:
                 self.confirm()
-            elif event.key in KB_CANCEL:
+            elif event.key in KB_CANCEL or event.key in KB_MENU:
                 self.cancel()
 
     def render(self, ui_screen):

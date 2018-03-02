@@ -1,0 +1,93 @@
+== ROUND 1 BEGIN ==
+BLUE Colonist at tile (8, 8) with 100 HP was assigned the order 'Order: Build a Carbon Gen on tile (8, 7)'
+BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (7, 6)'
+BLUE Ranger at tile (6, 8) with 100 HP was assigned the order 'Order: Move to (6, 6)'
+BLUE Trooper at tile (1, 7) with 100 HP was assigned the order 'Order: Move to (2, 6)'
+= Phase Move begins
+BLUE Trooper at tile (7, 6) with 100 HP successfully executed 'Order: Move to (7, 6)'
+BLUE Ranger at tile (6, 6) with 100 HP successfully executed 'Order: Move to (6, 6)'
+BLUE Trooper at tile (2, 6) with 100 HP successfully executed 'Order: Move to (2, 6)'
+= Phase Build begins
+BLUE Colonist at tile (8, 8) with 100 HP successfully executed 'Order: Build a Carbon Gen on tile (8, 7)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Colonist at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (9, 7)'
+BLUE Ghost at tile (4, 1) with 80 HP was assigned the order 'Order: Move to (7, 1)'
+BLUE Trooper at tile (7, 6) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+= Phase Move begins
+BLUE Colonist at tile (9, 7) with 100 HP successfully executed 'Order: Move to (9, 7)'
+BLUE Ghost at tile (7, 1) with 80 HP successfully executed 'Order: Move to (7, 1)'
+BLUE Trooper at tile (7, 8) with 100 HP successfully executed 'Order: Move to (7, 8)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Colonist at tile (9, 7) with 100 HP was assigned the order 'Order: Build a Barracks on tile (9, 6)'
+= Phase Move begins
+= Phase Build begins
+BLUE Colonist at tile (9, 7) with 100 HP successfully executed 'Order: Build a Barracks on tile (9, 6)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Ghost at tile (7, 1) with 80 HP was assigned the order 'Order: Move to (4, 1)'
+= Phase Move begins
+BLUE Ghost at tile (4, 1) with 80 HP successfully executed 'Order: Move to (4, 1)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Ghost at tile (4, 1) with 80 HP was assigned the order 'Order: Move to (3, 1)'
+= Phase Move begins
+BLUE Ghost at tile (3, 1) with 80 HP successfully executed 'Order: Move to (3, 1)'
+= Phase Build begins
+= Phase Combat begins
+RED Ranger at tile (3, 1) with 100 HP and BLUE Ghost at tile (3, 1) with 80 HP are contesting the tile at (3, 1)!
+RED Ranger at tile (3, 1) with 64 HP took 36 damage!
+BLUE Ghost at tile (3, 1) with 80 HP took 0 damage!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Ghost at tile (3, 1) with 80 HP was assigned the order 'Order: Move to (5, 2)'
+= Phase Move begins
+BLUE Ghost at tile (5, 2) with 80 HP successfully executed 'Order: Move to (5, 2)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Colonist at tile (9, 7) with 100 HP was assigned the order 'Order: Move to (8, 6)'
+= Phase Move begins
+BLUE Colonist at tile (8, 6) with 100 HP successfully executed 'Order: Move to (8, 6)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Colonist at tile (8, 6) with 100 HP was assigned the order 'Order: Move to (7, 5)'
+= Phase Move begins
+BLUE Colonist at tile (7, 5) with 100 HP successfully executed 'Order: Move to (7, 5)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins

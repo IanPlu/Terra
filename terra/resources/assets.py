@@ -8,7 +8,7 @@ from terra.battlephase import BattlePhase
 from terra.economy.upgrades import UpgradeType
 from terra.effects.effecttype import EffectType
 from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
-    MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE
+    MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP
 from terra.mainmenu.option import Option
 from terra.map.tiletype import TileType
 from terra.piece.piecetype import PieceType
@@ -102,6 +102,7 @@ spr_upgrade_icons = {
 
         UpgradeType.RESEARCH_GUARDIAN: spr_upgrade_icons_base[18],
         UpgradeType.RESEARCH_BOLTCASTER: spr_upgrade_icons_base[19],
+        UpgradeType.RESEARCH_BANSHEE: spr_upgrade_icons_base[20],
     }
 }
 
@@ -112,11 +113,11 @@ spr_target = {
 # Tile
 spr_tile_selectable = pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Selectable.png"))
 spr_tiles = {
-    TileType.NONE: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_None.png"))],
     TileType.SEA: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Sea.png")), 24),
     TileType.GRASS: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Grass.png"))],
     TileType.WOODS: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Woods.png"))],
-    TileType.RESOURCE: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Resource.png")), 24)
+    TileType.RESOURCE: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Resource.png")), 24),
+    TileType.HILL: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Hill.png")), 24)
 }
 # noinspection PyUnresolvedReferences
 spr_coast_detail = {
@@ -153,7 +154,7 @@ spr_pieces = {
         # Tier 2 Units
         PieceType.GUARDIAN: pygame.image.load(get_asset(AssetType.SPRITE, "units/Guardian.png")),
         PieceType.BOLTCASTER: pygame.image.load(get_asset(AssetType.SPRITE, "units/Boltcaster.png")),
-        # PieceType.BANSHEE: pygame.image.load(get_asset(AssetType.SPRITE, "units/Banshee.png")),
+        PieceType.BANSHEE: pygame.image.load(get_asset(AssetType.SPRITE, "units/Banshee.png")),
 
         # Tier 3 Units
         # PieceType.TITAN: pygame.image.load(get_asset(AssetType.SPRITE, "units/Titan.png")),
@@ -181,7 +182,8 @@ spr_order_flags = {
     MENU_PURCHASE_UPGRADE: spr_base_order_flags[3],
     MENU_SUBMIT_TURN: spr_base_order_flags[1],
     MENU_SAVE_GAME: spr_base_order_flags[3],
-    MENU_QUIT_BATTLE: spr_base_order_flags[0]
+    MENU_QUIT_BATTLE: spr_base_order_flags[0],
+    MENU_SAVE_MAP: spr_base_order_flags[3],
 }
 
 spr_digit_icons = {
@@ -249,6 +251,7 @@ text_menu_option = {
     MENU_SUBMIT_TURN: draw_text(menu_option_strings[LANGUAGE][MENU_SUBMIT_TURN], (0, 0, 0)),
     MENU_SAVE_GAME: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_GAME], (0, 0, 0)),
     MENU_QUIT_BATTLE: draw_text(menu_option_strings[LANGUAGE][MENU_QUIT_BATTLE], (0, 0, 0)),
+    MENU_SAVE_MAP: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_MAP], (0, 0, 0)),
 }
 
 text_notifications = {

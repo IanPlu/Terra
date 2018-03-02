@@ -5,7 +5,7 @@ from io import StringIO
 from terra.engine.gameobject import GameObject
 from terra.map.tile import Tile
 from terra.map.tiletype import TileType
-from terra.piece.movementtype import passable_terrain_types
+from terra.piece.movementtype import movement_types, MovementAttribute
 from terra.resources.assets import AssetType, get_asset
 
 
@@ -66,7 +66,12 @@ class MapManager(GameObject):
     # Return True if the tile is passable for the provided movement type. Tiles out of bounds are impassible.
     def is_tile_passable(self, gx, gy, movement_type):
         return 0 <= gx < self.width and 0 <= gy < self.height and \
-               self.get_tile_type_at(gx, gy) in passable_terrain_types[movement_type]
+               self.get_tile_type_at(gx, gy) in movement_types[movement_type][MovementAttribute.PASSABLE]
+
+    # Return true if our movement type can pass over the tile, but not end movement on it
+    def is_tile_traversable(self, gx, gy, movement_type):
+        return 0 <= gx < self.width and 0 <= gy < self.height and \
+               self.get_tile_type_at(gx, gy) in movement_types[movement_type][MovementAttribute.TRAVERSABLE]
 
     # Update the tile at the specified location to the new type
     def update_tile_type(self, gx, gy, new_tile_type):

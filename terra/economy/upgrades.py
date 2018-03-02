@@ -30,7 +30,7 @@ class UpgradeType(Enum):
 
     RESEARCH_GUARDIAN = auto()
     RESEARCH_BOLTCASTER = auto()
-    # RESEARCH_BANSHEE = auto()
+    RESEARCH_BANSHEE = auto()
 
 
 # All upgrades available for purchase, including prereqs, price, effect, etc.
@@ -48,7 +48,7 @@ base_upgrades = {
             PieceType.MINERAL_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (0, 5, 0)},
             PieceType.GAS_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (0, 0, 5)},
         },
-        "upgrade_price": (20, 20, 20),
+        "upgrade_price": (4, 4, 4),
         "tier": 1,
         "unlocks": [
             UpgradeType.RESOURCE_PRODUCTION_2
@@ -64,7 +64,7 @@ base_upgrades = {
             PieceType.MINERAL_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (0, 5, 0)},
             PieceType.GAS_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (0, 0, 5)},
         },
-        "upgrade_price": (30, 30, 30),
+        "upgrade_price": (6, 6, 6),
         "tier": 2,
         "unlocks": [],
         "bought_by": PieceType.BASE
@@ -75,7 +75,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.COLONIST: {Attribute.ATTACK: 15}
         },
-        "upgrade_price": (10, 10, 10),
+        "upgrade_price": (2, 2, 2),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BASE
@@ -85,7 +85,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.COLONIST: {Attribute.MAX_HP: 20}
         },
-        "upgrade_price": (10, 10, 10),
+        "upgrade_price": (2, 2, 2),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BASE
@@ -98,7 +98,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.TROOPER: {Attribute.ATTACK: 10}
         },
-        "upgrade_price": (15, 20, 10),
+        "upgrade_price": (3, 4, 2),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -108,7 +108,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.TROOPER: {Attribute.ARMOR: 1}
         },
-        "upgrade_price": (20, 30, 10),
+        "upgrade_price": (4, 6, 2),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -121,7 +121,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.RANGER: {Attribute.ATTACK: 10}
         },
-        "upgrade_price": (20, 10, 15),
+        "upgrade_price": (4, 2, 3),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -134,7 +134,7 @@ base_upgrades = {
                 Attribute.MAX_RANGE: 1,
             },
         },
-        "upgrade_price": (30, 5, 10),
+        "upgrade_price": (6, 1, 2),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -144,7 +144,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.RANGER: {Attribute.MOVEMENT_RANGE: 1},
         },
-        "upgrade_price": (10, 20, 30),
+        "upgrade_price": (2, 4, 6),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -156,7 +156,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.GHOST: {Attribute.MOVEMENT_RANGE: 1},
         },
-        "upgrade_price": (10, 15, 30),
+        "upgrade_price": (2, 3, 6),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
@@ -169,30 +169,41 @@ base_upgrades = {
                 PieceArchetype.WORKER: 25
             },
         },
-        "upgrade_price": (10, 20, 30),
+        "upgrade_price": (2, 4, 6),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BARRACKS
     },
     # GHOST_ANTI_PARTING_SHOTS
 
+    # Allows building Guardian units.
     UpgradeType.RESEARCH_GUARDIAN: {
         "new_buildable": {
             PieceType.BARRACKS: [PieceType.GUARDIAN]
         },
-        "upgrade_price": (30, 30, 30),
+        "upgrade_price": (6, 6, 6),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BASE
     },
+    # Allows building Boltcaster units.
     UpgradeType.RESEARCH_BOLTCASTER: {
         "new_buildable": {
             PieceType.BARRACKS: [PieceType.BOLTCASTER]
         },
-        "upgrade_price": (30, 30, 30),
+        "upgrade_price": (6, 6, 6),
         "tier": 1,
         "unlocks": [],
         "bought_by": PieceType.BASE
     },
-    # UpgradeType.RESEARCH_BANSHEE
+    # Allows building Banshee units.
+    UpgradeType.RESEARCH_BANSHEE: {
+        "new_buildable": {
+            PieceType.BARRACKS: [PieceType.BANSHEE]
+        },
+        "upgrade_price": (6, 6, 6),
+        "tier": 1,
+        "unlocks": [],
+        "bought_by": PieceType.BASE
+    },
 }

@@ -75,6 +75,7 @@ MENU_PURCHASE_UPGRADE = define_event()
 MENU_SUBMIT_TURN = define_event()
 MENU_SAVE_GAME = define_event()
 MENU_QUIT_BATTLE = define_event()
+MENU_SAVE_MAP = define_event()
 
 # Main menu option events
 MENU_SELECT_OPTION = define_event()

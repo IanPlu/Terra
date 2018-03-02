@@ -1,4 +1,5 @@
 from terra.resources.assets import AssetType, get_asset
+from terra.mode import Mode
 
 
 # Container for the various -manager objects.
@@ -13,6 +14,8 @@ class Managers:
     turn_manager = None
     player_manager = None
     network_manager = None
+
+    current_mode = Mode.MAIN_MENU
 
     @staticmethod
     def initialize_managers(map_name, address, is_host):
@@ -96,11 +99,24 @@ class Managers:
         return lines, save_path
 
     @staticmethod
+    # Save the current state to a save file
     def save_game_to_file():
         lines, save_path = Managers.save_game_to_string()
 
         with open(save_path, 'w') as save_file:
             save_file.write(lines)
+
+    @staticmethod
+    # Save the current state to a map file
+    def save_map_to_file():
+        lines, _ = Managers.save_game_to_string()
+
+        with open(get_asset(AssetType.MAP, Managers.map_name), 'w') as map_file:
+            map_file.write(lines)
+
+    @staticmethod
+    def set_mode(new_mode):
+        Managers.current_mode = new_mode
 
     @staticmethod
     def step(event):

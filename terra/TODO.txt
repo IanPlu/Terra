@@ -14,13 +14,13 @@ x Add context menu to battle screen for submitting turn, saving, quitting to men
 * Game end screens / match review with statistics(?)
 * Add UI to unit popup menus to indicate you're attempting to take an action that will be contested
   (e.g. trying to build while contested)
-* Add 'serialize' method to managers, use this when saving or loading the game state
+x Add 'serialize' method to managers, use this when saving or loading the game state
 x Create a separate 'buy' menu better suited to showing lots of upgrades / pieces to purchase, or add a scroll bar
 
 Engineering
 * Write tests!!
-* Set up packaging this into an executable
-    * Determine directory structure -- do maps / saves need to be put somewhere else?
+x Set up packaging this into an executable
+    x Determine directory structure -- do maps / saves need to be put somewhere else?
 
 Bug fixes
 * Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
@@ -32,7 +32,9 @@ Gameplay
 x Build support for upgrades, enable purchasing them from the base
     x Double check whether I'm using piece prices or the team-specific piece prices, etc.
     * Fill out more upgrades now that the framework is in place
-* Add additional tiers for units
+    * Fill out basic T2 unit upgrades
+x Add additional tiers for units
+* Add ultimate tiers for units
 x Modify GHOST movement type to be unable to stop on the same tile as enemy buildings
 x Decide where the BUILD phase should slot into the order. Currently impossible to interrupt production
 
@@ -41,9 +43,9 @@ x Decide where the BUILD phase should slot into the order. Currently impossible 
 * Implement colonist building flipping
 * Implement colonist terraforming
 * Implement unique upgrades as generic attributes
-    * Whether this piece contests enemies, and can be contested
-    * Whether this piece impedes movement, and is affected by impedance
-    * Additional defensive bonuses + entrenchment bonuses
+    x Whether this piece contests enemies, and can be contested
+    x Whether this piece impedes movement, and is affected by impedance
+    x Additional defensive bonuses + entrenchment bonuses
     * Whether this piece is affected by parting shots
 
 Networking
@@ -52,3 +54,14 @@ x Send the map / save data back and forth
     * Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
 * Gracefully handle connects / disconnects
 * Support for connecting to a custom IP
+
+Kegan's Special to do list
+x Allow ESC to cancel out of menus
+* Unit info popup
+x Trim price UI down to 2 digits
+    x Adjust method to not always output a 3 digit number, right justify
+x Don't prompt to build generators on tiles with pieces on them already
+x Rename wait -> cancel, don't show if no order is currently queued
+x Remove 'None' tile type, no point
+x Invalid build order cue should show up on ALL pieces with a BUILD order
+    * Verbose tooltips

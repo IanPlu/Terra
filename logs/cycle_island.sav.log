@@ -558,3 +558,497 @@ BLUE Ghost at tile (7, 3) with 50 HP took 20 damage!
 = Phase Special begins
 = Phase Start Turn begins
 = Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+RED Colonist at tile (3, 1) with 100 HP was assigned the order 'Order: Move to (2, 2)'
+= Phase Move begins
+RED Colonist at tile (2, 2) with 100 HP successfully executed 'Order: Move to (2, 2)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (2, 2) with 100 HP was assigned the order 'Order: Build a Carbon Gen on tile (1, 2)'
+= Phase Move begins
+= Phase Build begins
+RED Colonist at tile (2, 2) with 100 HP successfully executed 'Order: Build a Carbon Gen on tile (1, 2)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (2, 2) with 100 HP was assigned the order 'Order: Build a Barracks on tile (3, 2)'
+= Phase Move begins
+= Phase Build begins
+RED Colonist at tile (2, 2) with 100 HP successfully executed 'Order: Build a Barracks on tile (3, 2)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (2, 2) with 100 HP was assigned the order 'Order: Move to (2, 4)'
+= Phase Move begins
+RED Colonist at tile (2, 4) with 100 HP successfully executed 'Order: Move to (2, 4)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (2, 4) with 100 HP was assigned the order 'Order: Build a Carbon Gen on tile (1, 4)'
+= Phase Move begins
+= Phase Build begins
+RED Colonist at tile (2, 4) with 100 HP successfully executed 'Order: Build a Carbon Gen on tile (1, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (2, 4) with 100 HP was assigned the order 'Order: Move to (5, 4)'
+= Phase Move begins
+RED Colonist at tile (5, 4) with 100 HP successfully executed 'Order: Move to (5, 4)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Ranger on tile (4, 5)'
+RED Barracks at tile (3, 2) with 100 HP was assigned the order 'Order: Build a Ranger on tile (4, 2)'
+= Phase Move begins
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Ranger on tile (4, 5)'
+RED Barracks at tile (3, 2) with 100 HP successfully executed 'Order: Build a Ranger on tile (4, 2)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Boltcaster on tile (4, 3)'
+RED Barracks at tile (3, 2) with 100 HP was assigned the order 'Order: Build a Boltcaster on tile (4, 2)'
+RED Colonist at tile (5, 4) with 100 HP was assigned the order 'Order: Build a Barracks on tile (6, 4)'
+RED Ranger at tile (4, 5) with 100 HP was assigned the order 'Order: Move to (6, 5)'
+RED Ranger at tile (4, 2) with 100 HP was assigned the order 'Order: Move to (5, 3)'
+= Phase Move begins
+RED Ranger at tile (6, 5) with 100 HP successfully executed 'Order: Move to (6, 5)'
+RED Ranger at tile (5, 3) with 100 HP successfully executed 'Order: Move to (5, 3)'
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Boltcaster on tile (4, 3)'
+RED Barracks at tile (3, 2) with 100 HP successfully executed 'Order: Build a Boltcaster on tile (4, 2)'
+RED Colonist at tile (5, 4) with 100 HP successfully executed 'Order: Build a Barracks on tile (6, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Boltcaster at tile (4, 3) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 5)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Boltcaster at tile (4, 3) with 60 HP successfully executed 'Order: Ranged attack tile (6, 5)'
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (5, 4) with 100 HP was assigned the order 'Order: Move to (8, 4)'
+RED Ranger at tile (6, 5) with 100 HP was assigned the order 'Order: Move to (7, 4)'
+RED Ranger at tile (5, 3) with 100 HP was assigned the order 'Order: Move to (7, 3)'
+RED Boltcaster at tile (4, 3) with 60 HP was assigned the order 'Order: Move to (5, 3)'
+RED Boltcaster at tile (4, 2) with 60 HP was assigned the order 'Order: Move to (5, 2)'
+= Phase Move begins
+RED Colonist at tile (8, 4) with 100 HP successfully executed 'Order: Move to (8, 4)'
+RED Ranger at tile (7, 4) with 100 HP successfully executed 'Order: Move to (7, 4)'
+RED Ranger at tile (7, 3) with 100 HP successfully executed 'Order: Move to (7, 3)'
+RED Boltcaster at tile (5, 3) with 60 HP successfully executed 'Order: Move to (5, 3)'
+RED Boltcaster at tile (5, 2) with 60 HP successfully executed 'Order: Move to (5, 2)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Barracks at tile (3, 2) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RANGER_DISTANCE'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Barracks at tile (3, 2) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RANGER_DISTANCE'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+RED Ranger at tile (7, 3) with 100 HP was assigned the order 'Order: Ranged attack tile (10, 3)'
+RED Boltcaster at tile (5, 3) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 4)'
+RED Boltcaster at tile (5, 2) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 3)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Ranger at tile (7, 3) with 100 HP successfully executed 'Order: Ranged attack tile (10, 3)'
+RED Boltcaster at tile (5, 3) with 60 HP successfully executed 'Order: Ranged attack tile (9, 4)'
+RED Boltcaster at tile (5, 2) with 60 HP successfully executed 'Order: Ranged attack tile (9, 3)'
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Guardian on tile (5, 4)'
+RED Barracks at tile (3, 2) with 100 HP was assigned the order 'Order: Build a Guardian on tile (4, 2)'
+RED Barracks at tile (6, 4) with 100 HP was assigned the order 'Order: Build a Guardian on tile (6, 3)'
+= Phase Move begins
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Guardian on tile (5, 4)'
+RED Barracks at tile (3, 2) with 100 HP successfully executed 'Order: Build a Guardian on tile (4, 2)'
+RED Barracks at tile (6, 4) with 100 HP successfully executed 'Order: Build a Guardian on tile (6, 3)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Guardian at tile (5, 4) with 80 HP was assigned the order 'Order: Move to (4, 5)'
+RED Guardian at tile (6, 3) with 80 HP was assigned the order 'Order: Move to (8, 3)'
+= Phase Move begins
+RED Guardian at tile (4, 5) with 80 HP successfully executed 'Order: Move to (4, 5)'
+RED Guardian at tile (8, 3) with 80 HP successfully executed 'Order: Move to (8, 3)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Guardian at tile (4, 5) with 80 HP was assigned the order 'Order: Move to (5, 4)'
+= Phase Move begins
+RED Guardian at tile (5, 4) with 80 HP successfully executed 'Order: Move to (5, 4)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==

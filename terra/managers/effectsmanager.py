@@ -4,7 +4,7 @@ from terra.engine.gameobject import GameObject
 from terra.event import is_event_type, E_PIECE_DEAD, E_ORDER_CANCELED, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, \
     E_ARMOR_GRANTED
 from terra.managers.managers import Managers
-from terra.piece.piecetype import PieceType
+from terra.piece.orders import BuildOrder, UpgradeOrder
 
 
 # Manager for multiple effects objects. Handles creating and destroying special effects.
@@ -33,8 +33,10 @@ class EffectsManager(GameObject):
             for coordinate in event.invalid_coordinates:
                 self.create_effect(coordinate[0], coordinate[1], EffectType.ALERT, event.team)
         elif is_event_type(event, E_INVALID_BUILD_ORDERS):
-            base = Managers.piece_manager.get_all_pieces_for_team(event.team, piece_type=PieceType.BASE)[0]
-            self.create_effect(base.gx, base.gy, EffectType.NO_MONEY, event.team)
+            pieces_with_build_orders = [piece for piece in Managers.piece_manager.get_all_pieces_for_team(event.team)
+                                        if isinstance(piece.current_order, (BuildOrder, UpgradeOrder))]
+            for piece in pieces_with_build_orders:
+                self.create_effect(piece.gx, piece.gy, EffectType.NO_MONEY, event.team)
         elif is_event_type(event, E_ARMOR_GRANTED):
             self.create_effect(event.gx, event.gy, EffectType.ARMOR_GRANTED, None)
 

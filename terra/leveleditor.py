@@ -33,6 +33,11 @@ class LevelEditor(GameScreen):
         elif is_event_type(event, E_CANCEL):
             cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
             Managers.battle_map.update_tile_type(cursor_x, cursor_y, self.secondary_tile_type)
+        elif is_event_type(event, E_CLOSE_MENU) and event.option:
+            if event.option == MENU_SAVE_MAP:
+                Managers.save_map_to_file()
+            if event.option == MENU_QUIT_BATTLE:
+                publish_game_event(E_QUIT_BATTLE, {})
         elif event.type == KEYDOWN:
             if event.key in KB_SCROLL_UP and pygame.key.get_mods() & KMOD_CTRL:
                 self.secondary_tile_type = self.update_tile_type(self.secondary_tile_type, 1)
@@ -42,12 +47,9 @@ class LevelEditor(GameScreen):
                 self.current_tile_type = self.update_tile_type(self.current_tile_type, 1)
             elif event.key in KB_SCROLL_DOWN:
                 self.current_tile_type = self.update_tile_type(self.current_tile_type, -1)
-            elif event.key in KB_MENU:
-                # Managers.save_game()
-                pass
 
     def update_tile_type(self, tiletype, amount):
-        new_tile_type = clamp(tiletype.value + amount, 0, len(TileType) - 1)
+        new_tile_type = clamp(tiletype.value + amount, 1, len(TileType))
 
         if not new_tile_type == tiletype:
             return TileType(new_tile_type)

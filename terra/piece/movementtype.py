@@ -7,16 +7,41 @@ from terra.map.tiletype import TileType
 class MovementType(Enum):
     NONE = 0
     GROUND = 1
-    GHOST = 2
-    BUILDING = 3
-    GENERATOR = 4
+    BANSHEE = 2
+    FLYING = 3
+    BUILDING = 4
+    GENERATOR = 5
+
+
+class MovementAttribute(Enum):
+    PASSABLE = "PASSABLE"
+    TRAVERSABLE = "TRAVERSABLE"
 
 
 # Sets of terrain types each movement type allows traversal over
-passable_terrain_types = {
-    None: set(TileType),
-    MovementType.GROUND: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE},
-    MovementType.GHOST: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE},
-    MovementType.BUILDING: {TileType.GRASS},
-    MovementType.GENERATOR: {TileType.RESOURCE},
+movement_types = {
+    None: {
+        MovementAttribute.PASSABLE: set(TileType),
+        MovementAttribute.TRAVERSABLE: {},
+    },
+    MovementType.GROUND: {
+        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE},
+        MovementAttribute.TRAVERSABLE: {},
+    },
+    MovementType.BANSHEE: {
+        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE},
+        MovementAttribute.TRAVERSABLE: {TileType.SEA, TileType.HILL},
+    },
+    MovementType.FLYING: {
+        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE, TileType.SEA, TileType.HILL},
+        MovementAttribute.TRAVERSABLE: {}
+    },
+    MovementType.BUILDING: {
+        MovementAttribute.PASSABLE: {TileType.GRASS},
+        MovementAttribute.TRAVERSABLE: {},
+    },
+    MovementType.GENERATOR: {
+        MovementAttribute.PASSABLE: {TileType.RESOURCE},
+        MovementAttribute.TRAVERSABLE: {},
+    },
 }

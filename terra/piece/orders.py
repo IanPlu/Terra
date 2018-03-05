@@ -1,8 +1,8 @@
 from terra.economy.upgrades import UpgradeType
-from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, MENU_PURCHASE_UPGRADE
 from terra.piece.piecetype import PieceType
 from terra.settings import LANGUAGE
 from terra.strings import piece_name_strings
+from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, MENU_PURCHASE_UPGRADE, MENU_RAISE_TILE
 
 
 # An order to be carried out by a piece.
@@ -74,6 +74,21 @@ class UpgradeOrder(Order):
         return "[Upgrd]{}".format(self.new_upgrade_type.name)
 
 
+# An order to modify an adjacent tile
+class TerraformOrder(Order):
+    def __init__(self, tx, ty, raising=True):
+        super().__init__(MENU_RAISE_TILE)
+        self.tx = tx
+        self.ty = ty
+        self.raising = raising
+
+    def __str__(self):
+        return "Order: {} terrain on tile ({}, {})".format("raise" if self.raising else "lower", self.tx, self.ty)
+
+    def serialize(self):
+        return "[Terra]{},{},{}".format(self.tx, self.ty, self.raising)
+
+
 # Deserialize an order from a serialized string
 def deserialize_order(order):
     prefix = order[:7]
@@ -86,5 +101,7 @@ def deserialize_order(order):
         return BuildOrder(int(fields[0]), int(fields[1]), PieceType[fields[2]])
     elif prefix == "[Upgrd]":
         return UpgradeOrder(UpgradeType[fields[0]])
+    elif prefix == "[Terra]":
+        return TerraformOrder(int(fields[0]), int(fields[1]), bool(fields[2]))
     else:
         return None

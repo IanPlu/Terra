@@ -8,8 +8,8 @@ from terra.event import *
 from terra.keybindings import KB_MENU2
 from terra.managers.managers import Managers
 from terra.piece.damagetype import DamageType
-from terra.piece.movementtype import movement_types, MovementAttribute
-from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder
+from terra.piece.movementtype import MovementType, MovementAttribute, movement_types
+from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, TerraformOrder
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
@@ -43,7 +43,12 @@ class Piece(GameObject):
         self.in_conflict = False
         self.tile_selection = None
         self.entrenchment = 0
+
         self.temporary_armor = 0
+        self.last_attacker = None
+        self.temporary_aoe_on_death = 0
+        self.temporary_money_lost_on_death = 0
+
         self.previewing_order = False
 
     def __str__(self):
@@ -57,7 +62,7 @@ class Piece(GameObject):
     def get_available_actions(self):
         actions = []
 
-        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE) > 0:
+        if self.get_movement_range() > 0:
             actions.append(MENU_MOVE)
         if Managers.team_manager.attr(self.team, self.piece_type, Attribute.DAMAGE_TYPE) == DamageType.RANGED:
             actions.append(MENU_RANGED_ATTACK)
@@ -65,6 +70,10 @@ class Piece(GameObject):
             actions.append(MENU_BUILD_PIECE)
         if len(self.get_valid_purchaseable_upgrades()):
             actions.append(MENU_PURCHASE_UPGRADE)
+        if len(self.get_valid_tiles_for_terraforming(raising=True)):
+            actions.append(MENU_RAISE_TILE)
+        if len(self.get_valid_tiles_for_terraforming(raising=False)):
+            actions.append(MENU_LOWER_TILE)
 
         if len(actions) > 0 and self.current_order:
             actions.append(MENU_CANCEL_ORDER)
@@ -97,8 +106,17 @@ class Piece(GameObject):
 
         return valid_pieces
 
+    # Get the list of upgrades that can be purchased by this piece
     def get_valid_purchaseable_upgrades(self):
         return Managers.team_manager.attr(self.team, self.piece_type, Attribute.PURCHASEABLE_UPGRADES)
+
+    # Return a list of adjacent tiles that can be traversed by this movement type
+    def get_valid_tiles_for_terraforming(self, raising=True):
+        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.TERRAFORMING):
+            return Managers.battle_map.get_valid_adjacent_tiles_for_movement_type(
+                self.gx, self.gy, MovementType.RAISE if raising else MovementType.LOWER)
+        else:
+            return []
 
     # Return this piece's attack strength against a target
     def get_attack_rating(self, target):
@@ -113,21 +131,47 @@ class Piece(GameObject):
                Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARMOR) + \
                self.temporary_armor
 
+    # Get movement range, plus any bonuses
+    def get_movement_range(self):
+        movement_range = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE)
+
+        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.KICKOFF):
+            movement_range += len(Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team))
+
+        return movement_range
+
     # Clean ourselves up at the end of phases, die as appropriate
     def cleanup(self):
-        if self.hp < 5:
-            publish_game_event(E_PIECE_DEAD, {
-                'gx': self.gx,
-                'gy': self.gy,
-                'team': self.team
-            })
+        if self.hp <= 0:
             self.on_death()
         else:
+            self.last_attacker = None
             self.temporary_armor = 0
+            self.temporary_aoe_on_death = 0
+            self.temporary_money_lost_on_death = 0
 
     # Do anything special on death
     def on_death(self):
-        pass
+        publish_game_event(E_PIECE_DEAD, {
+            'gx': self.gx,
+            'gy': self.gy,
+            'team': self.team
+        })
+
+        if self.last_attacker:
+            # TODO: Add effects for these special cases
+            # Explode if we've been hit by a temporary AoE debuff
+            if self.temporary_aoe_on_death > 0:
+                for ally in Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team):
+                    ally.damage_hp(self.temporary_aoe_on_death, self.last_attacker)
+
+            # Drain resources when killed if we've been hit by the steal debuff
+            if self.temporary_money_lost_on_death > 0:
+                resources = (self.temporary_money_lost_on_death,
+                             self.temporary_money_lost_on_death,
+                             self.temporary_money_lost_on_death)
+                Managers.team_manager.deduct_resources(self.team, resources)
+                Managers.team_manager.add_resources(self.last_attacker.team, resources)
 
     # Cancel our current order, usually if we're contested.
     def abort_order(self):
@@ -142,9 +186,34 @@ class Piece(GameObject):
         # Abort the order
         self.current_order = None
 
-    # Return true if this piece is contested by an enemy piece occupying the same tile
+    # Return true if this piece is contested by an enemy piece occupying the same tile, and we're able to be contested
     def is_contested(self):
-        return len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
+        return len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0 and not \
+               Managers.team_manager.attr(self.team, self.piece_type, Attribute.IGNORE_CONTESTING)
+
+    # Deal damage to this piece
+    def damage_hp(self, damage, source=None):
+        self.hp -= damage
+
+        # Add any additional effects or debuffs from the source
+        if source:
+            aoe_on_death_gained = Managers.team_manager.attr(source.team, source.piece_type, Attribute.AOE_ON_KILL)
+            if aoe_on_death_gained > 0:
+                self.temporary_aoe_on_death = aoe_on_death_gained
+
+        Managers.combat_logger.log_damage(self, damage, source)
+
+    # Heal this piece for the specified amount
+    def heal_hp(self, heal):
+        max_hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
+        if self.hp < max_hp:
+            self.hp = min(self.hp + heal, max_hp)
+            publish_game_event(E_PIECE_HEALED, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'team': self.team
+            })
+            Managers.combat_logger.log_healing(self, heal)
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
@@ -152,6 +221,31 @@ class Piece(GameObject):
         if not Managers.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION) == (0, 0, 0):
             Managers.team_manager.add_resources(self.team, Managers.team_manager.attr(
                 self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION))
+
+        # Regen health
+        regen = Managers.team_manager.attr(self.team, self.piece_type, Attribute.REGEN)
+        if regen > 0:
+            self.heal_hp(regen)
+
+        # Apply medic healing to adjacent allies
+        medic = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MEDIC)
+        if medic > 0:
+            adjacent_allies = Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team)
+            for ally in adjacent_allies:
+                ally.heal_hp(medic)
+
+        # Pieces occupying tiles they can't traverse take damage each turn.
+        if not Managers.battle_map.is_tile_passable(self.gx, self.gy, Managers.team_manager.attr(
+                self.team, self.piece_type, Attribute.MOVEMENT_TYPE)):
+            # TODO: Formalize this damage a bit
+            self.hp -= 50
+            Managers.combat_logger.log_damage(self, 50, "hostile terrain")
+
+            publish_game_event(E_PIECE_ON_INVALID_TERRAIN, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'team': self.team
+            })
 
     def handle_phase_orders(self, event):
         pass
@@ -273,6 +367,23 @@ class Piece(GameObject):
                 # Pop orders once they're executed
                 self.current_order = None
 
+        # Execute terraforming orders
+        elif isinstance(self.current_order, TerraformOrder):
+            if self.is_contested():
+                # Can't terraform if there's an enemy piece here
+                self.abort_order()
+            else:
+                publish_game_event(E_TILE_TERRAFORMED, {
+                    'gx': self.current_order.tx,
+                    'gy': self.current_order.ty,
+                    'raising': self.current_order.raising
+                })
+
+                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
+
+                # Pop orders once they're executed
+                self.current_order = None
+
     # Handle menu events concerning us
     def handle_menu_option(self, event):
         if event.option == MENU_MOVE:
@@ -280,7 +391,7 @@ class Piece(GameObject):
                 'gx': self.gx,
                 'gy': self.gy,
                 'min_range': 1,
-                'max_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE),
+                'max_range': self.get_movement_range(),
                 'movement_type': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_TYPE),
                 'piece_type': self.piece_type,
                 'team': self.team,
@@ -325,6 +436,18 @@ class Piece(GameObject):
                 'team': self.team,
                 'options': self.get_valid_purchaseable_upgrades()
             })
+        elif event.option in [MENU_RAISE_TILE, MENU_LOWER_TILE]:
+            # Attempting to terraform, so open the tile selection
+            publish_game_event(E_OPEN_TILE_SELECTION, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'min_range': 1,
+                'max_range': 1,
+                'movement_type': MovementType.RAISE if event.option == MENU_RAISE_TILE else MovementType.LOWER,
+                'piece_type': None,
+                'team': self.team,
+                'option': event.option
+            })
         else:
             self.set_order(event)
 
@@ -340,6 +463,10 @@ class Piece(GameObject):
             self.current_order = UpgradeOrder(event.option)
         elif event.option == MENU_CANCEL_ORDER:
             self.current_order = None
+        elif event.option == MENU_RAISE_TILE:
+            self.current_order = TerraformOrder(event.dx, event.dy, raising=True)
+        elif event.option == MENU_LOWER_TILE:
+            self.current_order = TerraformOrder(event.dx, event.dy, raising=False)
         else:
             self.current_order = None
 

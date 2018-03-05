@@ -28,12 +28,9 @@ class PhaseBar(GameObject):
         if self.toast:
             self.toast.step(event)
 
-        if is_event_type(event, E_INVALID_MOVE_ORDERS):
+        if is_event_type(event, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, E_INVALID_UPGRADE_ORDERS):
             if event.team == self.team:
-                self.toast = ToastNotification(self, text_notifications[EffectType.ALERT], self.team)
-        elif is_event_type(event, E_INVALID_BUILD_ORDERS):
-            if event.team == self.team:
-                self.toast = ToastNotification(self, text_notifications[EffectType.NO_MONEY], self.team)
+                self.toast = ToastNotification(self, text_notifications[event.event_type], self.team)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

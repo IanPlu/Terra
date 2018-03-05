@@ -2,7 +2,7 @@ from terra.effects.animatedeffect import AnimatedEffect
 from terra.effects.effecttype import EffectType
 from terra.engine.gameobject import GameObject
 from terra.event import is_event_type, E_PIECE_DEAD, E_ORDER_CANCELED, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, \
-    E_ARMOR_GRANTED
+    E_ARMOR_GRANTED, E_PIECE_HEALED, E_INVALID_UPGRADE_ORDERS, E_PIECE_ON_INVALID_TERRAIN, E_TILE_TERRAFORMED
 from terra.managers.managers import Managers
 from terra.piece.orders import BuildOrder, UpgradeOrder
 
@@ -37,8 +37,20 @@ class EffectsManager(GameObject):
                                         if isinstance(piece.current_order, (BuildOrder, UpgradeOrder))]
             for piece in pieces_with_build_orders:
                 self.create_effect(piece.gx, piece.gy, EffectType.NO_MONEY, event.team)
+        elif is_event_type(event, E_INVALID_UPGRADE_ORDERS):
+            pieces_with_upgrade_orders = [piece for piece in Managers.piece_manager.get_all_pieces_for_team(event.team)
+                                          if isinstance(piece.current_order, UpgradeOrder) and
+                                          piece.current_order.new_upgrade_type in event.duplicate_upgrades]
+            for piece in pieces_with_upgrade_orders:
+                self.create_effect(piece.gx, piece.gy, EffectType.DUPLICATE_UPGRADE, event.team)
         elif is_event_type(event, E_ARMOR_GRANTED):
             self.create_effect(event.gx, event.gy, EffectType.ARMOR_GRANTED, None)
+        elif is_event_type(event, E_PIECE_HEALED):
+            self.create_effect(event.gx, event.gy, EffectType.HP_HEALED, None)
+        elif is_event_type(event, E_PIECE_ON_INVALID_TERRAIN):
+            self.create_effect(event.gx, event.gy, EffectType.ALERT, None)
+        elif is_event_type(event, E_TILE_TERRAFORMED):
+            self.create_effect(event.gx, event.gy, EffectType.PIECE_DESTROYED, None)
 
         for effect in self.effects:
             effect.step(event)

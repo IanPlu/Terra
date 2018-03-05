@@ -114,9 +114,9 @@ class TeamManager(GameObject):
 
     # Deduct resources from the specified team. resource_deduction should be formatted as a tuple: (1, 2, 3)
     def deduct_resources(self, team, resource_deduction):
-        self.resources[team][ResourceType.CARBON] = self.resources[team][ResourceType.CARBON] - resource_deduction[0]
-        self.resources[team][ResourceType.MINERALS] = self.resources[team][ResourceType.MINERALS] - resource_deduction[1]
-        self.resources[team][ResourceType.GAS] = self.resources[team][ResourceType.GAS] - resource_deduction[2]
+        self.resources[team][ResourceType.CARBON] = max(self.resources[team][ResourceType.CARBON] - resource_deduction[0], 0)
+        self.resources[team][ResourceType.MINERALS] = max(self.resources[team][ResourceType.MINERALS] - resource_deduction[1], 0)
+        self.resources[team][ResourceType.GAS] = max(self.resources[team][ResourceType.GAS] - resource_deduction[2], 0)
 
     # Return true if the specified team is able to spend the provided list of amounts.
     # Each amount in amounts should be formatted as a tuple: (1, 2, 3)
@@ -136,8 +136,6 @@ class TeamManager(GameObject):
 
     # Add an upgrade to a team, triggering any changes to the units + upgrade tree as necessary.
     def purchase_upgrade(self, team, upgrade_type):
-        print("Purchased upgrade: " + upgrade_type.name)
-
         # 1. Add the chosen upgrade to the team
         self.owned_upgrades[team].append(upgrade_type)
 
@@ -145,13 +143,15 @@ class TeamManager(GameObject):
         self.on_upgrade_purchase(team, upgrade_type)
 
         # 3. Add any upgrades to the purchasable list that are now available (prereqs met)
-        bought_by_piece_type = base_upgrades[upgrade_type]["bought_by"]
         new_unlocks = base_upgrades[upgrade_type]["unlocks"]
         if len(new_unlocks):
-            self.piece_attributes[team][bought_by_piece_type][Attribute.PURCHASEABLE_UPGRADES] += new_unlocks
+            for new_unlock in new_unlocks:
+                self.piece_attributes[team][base_upgrades[new_unlock]["bought_by"]][Attribute.PURCHASEABLE_UPGRADES].append(new_unlock)
 
         # 4. Remove the chosen upgrade from the purchaseable list
-        self.piece_attributes[team][bought_by_piece_type][Attribute.PURCHASEABLE_UPGRADES].remove(upgrade_type)
+        self.piece_attributes[team][base_upgrades[upgrade_type]["bought_by"]][Attribute.PURCHASEABLE_UPGRADES].remove(upgrade_type)
+
+        Managers.combat_logger.log_upgrade(upgrade_type, team)
 
     def on_upgrade_purchase(self, team, upgrade_type):
         upgrade = base_upgrades[upgrade_type]

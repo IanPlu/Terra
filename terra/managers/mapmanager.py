@@ -1,10 +1,12 @@
 import random
-from os import walk
 from io import StringIO
+from os import walk
 
 from terra.engine.gameobject import GameObject
+from terra.event import is_event_type, E_TILE_TERRAFORMED
+from terra.managers.managers import Managers
 from terra.map.tile import Tile
-from terra.map.tiletype import TileType
+from terra.map.tiletype import TileType, tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
 from terra.resources.assets import AssetType, get_asset
 
@@ -73,12 +75,35 @@ class MapManager(GameObject):
         return 0 <= gx < self.width and 0 <= gy < self.height and \
                self.get_tile_type_at(gx, gy) in movement_types[movement_type][MovementAttribute.TRAVERSABLE]
 
+    # From the tiles adjacent to (gx, gy), return any that are passable for the provided movement type
+    def get_valid_adjacent_tiles_for_movement_type(self, gx, gy, movement_type):
+        tiles_to_check = [(gx + 1, gy),
+                          (gx - 1, gy),
+                          (gx, gy + 1),
+                          (gx, gy - 1)]
+
+        return [(tile_x, tile_y) for tile_x, tile_y in tiles_to_check
+                if self.is_tile_passable(tile_x, tile_y, movement_type)]
+
     # Update the tile at the specified location to the new type
     def update_tile_type(self, gx, gy, new_tile_type):
         self.tile_grid[gy][gx] = Tile(self, new_tile_type, gx, gy)
 
+    # Terraform a tile according to an event
+    def terraform_tile(self, event):
+        tile_type = self.get_tile_type_at(event.gx, event.gy)
+        if event.raising:
+            new_tile_type_index = tile_height_order.index(tile_type) + 1
+        else:
+            new_tile_type_index = tile_height_order.index(tile_type) - 1
+
+        self.update_tile_type(event.gx, event.gy, tile_height_order[new_tile_type_index])
+
     def step(self, event):
         super().step(event)
+
+        if is_event_type(event, E_TILE_TERRAFORMED):
+            self.terraform_tile(event)
 
     # Render the map to the screen
     def render(self, game_screen, ui_screen):

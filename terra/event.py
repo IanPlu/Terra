@@ -43,8 +43,12 @@ E_PIECE_BUILT = define_event()
 E_UPGRADE_BUILT = define_event()
 E_INVALID_MOVE_ORDERS = define_event()
 E_INVALID_BUILD_ORDERS = define_event()
+E_INVALID_UPGRADE_ORDERS = define_event()
 E_ORDER_CANCELED = define_event()
 E_ARMOR_GRANTED = define_event()
+E_PIECE_HEALED = define_event()
+E_PIECE_ON_INVALID_TERRAIN = define_event()
+E_TILE_TERRAFORMED = define_event()
 
 # Phase events
 START_PHASE_START_TURN = define_event()
@@ -70,6 +74,8 @@ MENU_MOVE = define_event()
 MENU_RANGED_ATTACK = define_event()
 MENU_BUILD_PIECE = define_event()
 MENU_PURCHASE_UPGRADE = define_event()
+MENU_RAISE_TILE = define_event()
+MENU_LOWER_TILE = define_event()
 
 # Pause menu option events
 MENU_SUBMIT_TURN = define_event()

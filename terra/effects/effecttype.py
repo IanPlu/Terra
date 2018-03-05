@@ -7,3 +7,5 @@ class EffectType(Enum):
     NO_MONEY = auto()
     ORDER_BLOCKED = auto()
     ARMOR_GRANTED = auto()
+    HP_HEALED = auto()
+    DUPLICATE_UPGRADE = auto()

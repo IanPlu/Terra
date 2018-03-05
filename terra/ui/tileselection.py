@@ -30,14 +30,17 @@ class TileSelection(GameObject):
         self.option = option
 
         self.coordinate_set = self.__generate_coordinate_set__()
-        return
+
+        # Abort immediately if there are no valid selectable tiles
+        if len(self.coordinate_set) == 0:
+            self.cancel()
 
     # Return the initial list of coordinates that cannot be selected
     def __generate_excluded_coordinates__(self):
         excluded_coordinates = set()
 
         # if it's not movement, only exclude our own tile
-        if not self.movement_type:
+        if not self.movement_type or self.movement_type in [MovementType.RAISE, MovementType.LOWER]:
             return {(self.gx, self.gy)}
         # Otherwise exclude friendly buildings from selection
         else:
@@ -105,7 +108,6 @@ class TileSelection(GameObject):
             'dy': event.gy,
         })
 
-    # noinspection PyMethodMayBeStatic
     def cancel(self):
         publish_game_event(E_CANCEL_TILE_SELECTION, {})
 

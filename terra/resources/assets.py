@@ -7,8 +7,10 @@ import pygame
 from terra.battlephase import BattlePhase
 from terra.economy.upgrades import UpgradeType
 from terra.effects.effecttype import EffectType
+from terra.event import E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, E_INVALID_UPGRADE_ORDERS
 from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
-    MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP
+    MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP, \
+    MENU_RAISE_TILE, MENU_LOWER_TILE
 from terra.mainmenu.option import Option
 from terra.map.tiletype import TileType
 from terra.piece.piecetype import PieceType
@@ -82,27 +84,39 @@ spr_upgrade_icons = {
 
         UpgradeType.COLONIST_ATTACK: spr_upgrade_icons_base[2],
         UpgradeType.COLONIST_MAX_HP: spr_upgrade_icons_base[3],
-        # UpgradeType.COLONIST_TERRAFORMING: spr_upgrade_icons_base[4],
-        # UpgradeType.COLONIST_UNCONTESTABLE: spr_upgrade_icons_base[5],
+        UpgradeType.COLONIST_TERRAFORMING: spr_upgrade_icons_base[4],
+        UpgradeType.COLONIST_UNCONTESTABLE: spr_upgrade_icons_base[5],
 
         UpgradeType.TROOPER_ATTACK: spr_upgrade_icons_base[6],
         UpgradeType.TROOPER_ARMOR: spr_upgrade_icons_base[7],
-        # UpgradeType.TROOPER_REGEN: spr_upgrade_icons_base[8],
-        # UpgradeType.TROOPER_ENTRENCHMENT: spr_upgrade_icons_base[9],
+        UpgradeType.TROOPER_REGEN: spr_upgrade_icons_base[8],
+        UpgradeType.TROOPER_ENTRENCHMENT: spr_upgrade_icons_base[9],
 
         UpgradeType.RANGER_ATTACK: spr_upgrade_icons_base[10],
         UpgradeType.RANGER_DISTANCE: spr_upgrade_icons_base[11],
         UpgradeType.RANGER_MOVEMENT: spr_upgrade_icons_base[12],
-        # UpgradeType.RANGER_UNCONTESTABLE: spr_upgrade_icons_base[13],
+        UpgradeType.RANGER_UNCONTESTABLE: spr_upgrade_icons_base[13],
 
         UpgradeType.GHOST_MOVEMENT: spr_upgrade_icons_base[14],
-        # UpgradeType.GHOST_STEALTH: spr_upgrade_icons_base[15],
+        UpgradeType.GHOST_ATTACK: spr_upgrade_icons_base[15],
         UpgradeType.GHOST_ANTI_COLONIST: spr_upgrade_icons_base[16],
-        # UpgradeType.GHOST_ANTI_PARTING_SHOTS: spr_upgrade_icons_base[17],
+        UpgradeType.GHOST_STEAL: spr_upgrade_icons_base[17],
 
         UpgradeType.RESEARCH_GUARDIAN: spr_upgrade_icons_base[18],
         UpgradeType.RESEARCH_BOLTCASTER: spr_upgrade_icons_base[19],
         UpgradeType.RESEARCH_BANSHEE: spr_upgrade_icons_base[20],
+
+        UpgradeType.GUARDIAN_ENTRENCHMENT: spr_upgrade_icons_base[21],
+        UpgradeType.GUARDIAN_ARMOR: spr_upgrade_icons_base[22],
+        UpgradeType.GUARDIAN_MEDIC: spr_upgrade_icons_base[23],
+
+        UpgradeType.BOLTCASTER_UNCONTESTABLE: spr_upgrade_icons_base[24],
+        UpgradeType.BOLTCASTER_RANGE: spr_upgrade_icons_base[25],
+        UpgradeType.BOLTCASTER_AP_ROUNDS: spr_upgrade_icons_base[26],
+
+        UpgradeType.BANSHEE_SABOTAGE: spr_upgrade_icons_base[27],
+        UpgradeType.BANSHEE_STRIKEFORMATION: spr_upgrade_icons_base[28],
+        UpgradeType.BANSHEE_LURK: spr_upgrade_icons_base[29],
     }
 }
 
@@ -184,6 +198,9 @@ spr_order_flags = {
     MENU_SAVE_GAME: spr_base_order_flags[3],
     MENU_QUIT_BATTLE: spr_base_order_flags[0],
     MENU_SAVE_MAP: spr_base_order_flags[3],
+    MENU_RAISE_TILE: spr_base_order_flags[7],
+    MENU_LOWER_TILE: spr_base_order_flags[7],
+
 }
 
 spr_digit_icons = {
@@ -222,6 +239,10 @@ spr_effects = {
         pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Order_Blocked.png")), 24),
     EffectType.ARMOR_GRANTED: get_sprites_from_strip(
         pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Armor_Granted.png")), 24),
+    EffectType.HP_HEALED: get_sprites_from_strip(
+        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_HP_Healed.png")), 24),
+    EffectType.DUPLICATE_UPGRADE: get_sprites_from_strip(
+        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Duplicate_Upgrade.png")), 24),
 }
 
 
@@ -252,11 +273,14 @@ text_menu_option = {
     MENU_SAVE_GAME: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_GAME], (0, 0, 0)),
     MENU_QUIT_BATTLE: draw_text(menu_option_strings[LANGUAGE][MENU_QUIT_BATTLE], (0, 0, 0)),
     MENU_SAVE_MAP: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_MAP], (0, 0, 0)),
+    MENU_RAISE_TILE: draw_text(menu_option_strings[LANGUAGE][MENU_RAISE_TILE], (0, 0, 0)),
+    MENU_LOWER_TILE: draw_text(menu_option_strings[LANGUAGE][MENU_LOWER_TILE], (0, 0, 0)),
 }
 
 text_notifications = {
-    EffectType.ALERT: draw_text(notification_strings[LANGUAGE][EffectType.ALERT], (0, 0, 0)),
-    EffectType.NO_MONEY: draw_text(notification_strings[LANGUAGE][EffectType.NO_MONEY], (0, 0, 0)),
+    E_INVALID_MOVE_ORDERS: draw_text(notification_strings[LANGUAGE][E_INVALID_MOVE_ORDERS], (0, 0, 0)),
+    E_INVALID_BUILD_ORDERS: draw_text(notification_strings[LANGUAGE][E_INVALID_BUILD_ORDERS], (0, 0, 0)),
+    E_INVALID_UPGRADE_ORDERS: draw_text(notification_strings[LANGUAGE][E_INVALID_UPGRADE_ORDERS], (0, 0, 0)),
 }
 
 text_piece_name = {}

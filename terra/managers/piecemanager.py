@@ -195,6 +195,7 @@ class PieceManager(GameObject):
     def validate_orders(self, team):
         coordinates = []
         spent_resources = []
+        upgrades_bought = []
 
         for piece in self.get_all_pieces_for_team(team):
             if piece.current_order:
@@ -210,12 +211,19 @@ class PieceManager(GameObject):
                 elif isinstance(piece.current_order, UpgradeOrder):
                     # Check that a team isn't spending more than they have
                     spent_resources.append(base_upgrades[piece.current_order.new_upgrade_type]["upgrade_price"])
+                    # Check that a team isn't building the same upgrade multiple times
+                    upgrades_bought.append(piece.current_order.new_upgrade_type)
             else:
                 coordinates.append((piece.gx, piece.gy))
 
         # Move orders are valid if all the coordinates are unique-- no duplicates are removed
         move_orders_valid = len(coordinates) == len(set(coordinates))
+
+        # Build orders are valid if there's enough resources to satisfy all orders
         build_orders_valid = Managers.team_manager.can_spend_resources(team, spent_resources)
+
+        # Upgrade orders are valid if all upgrades being bought are unique
+        upgrades_bought_valid = len([k for k, v in Counter(upgrades_bought).items() if v > 1]) <= 0
 
         # Publish events containing the invalid orders, if any
         if not move_orders_valid:
@@ -231,8 +239,15 @@ class PieceManager(GameObject):
                 'team': team,
                 'spent_resources': spent_resources
             })
+        if not upgrades_bought_valid:
+            duplicate_upgrades = [k for k, v in Counter(upgrades_bought).items() if v > 1]
 
-        return move_orders_valid and build_orders_valid
+            publish_game_event(E_INVALID_UPGRADE_ORDERS, {
+                'team': team,
+                'duplicate_upgrades': duplicate_upgrades
+            })
+
+        return move_orders_valid and build_orders_valid and upgrades_bought_valid
 
     # Log the current orders for all pieces
     def log_orders(self):
@@ -265,11 +280,15 @@ class PieceManager(GameObject):
 
         def conduct_ranged_attack(target, modifier):
             attack = origin_unit.get_attack_rating(target)
-            defense = target.get_defense_rating()
+            # Pieces with armor-piercing ignore defensive bonuses
+            if Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ARMOR_PIERCING):
+                defense = 0
+            else:
+                defense = target.get_defense_rating()
 
             damage = int(attack * modifier * (1 - defense / 10))
-            target.hp -= damage
-            Managers.combat_logger.log_damage(target, damage)
+
+            target.damage_hp(damage, origin_unit)
 
         for target_piece in target_pieces:
             conduct_ranged_attack(target_piece, 1)

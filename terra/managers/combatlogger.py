@@ -48,5 +48,12 @@ class CombatLogger:
         logging.info("{} and {} are contesting the tile at ({}, {})!".format(str(piece1), str(piece2), piece1.gx, piece1.gy))
 
     # Log whenever a piece takes damage.
-    def log_damage(self, piece, damage):
-        logging.info("{} took {} damage!".format(str(piece), damage))
+    def log_damage(self, piece, damage, source):
+        logging.info("{} took {} damage from {}!".format(str(piece), damage, str(source)))
+
+    def log_healing(self, piece, health):
+        logging.info("{} healed for {} health.".format(str(piece), health))
+
+    # Log whenever a team researches a new upgrade
+    def log_upgrade(self, upgrade, team):
+        logging.info("{} team researched the upgrade {}".format(str(team), str(upgrade)))

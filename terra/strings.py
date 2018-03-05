@@ -1,11 +1,10 @@
 from enum import Enum
 
 from terra.battlephase import BattlePhase
-from terra.effects.effecttype import EffectType
+from terra.economy.upgrades import UpgradeType
 from terra.event import *
 from terra.mainmenu.option import Option
 from terra.piece.piecetype import PieceType
-from terra.economy.upgrades import UpgradeType
 
 
 class Language(Enum):
@@ -23,6 +22,8 @@ menu_option_strings = {
         MENU_SAVE_GAME: "Save Game",
         MENU_QUIT_BATTLE: "Quit Battle",
         MENU_SAVE_MAP: "Save Map",
+        MENU_RAISE_TILE: "Raise Tile",
+        MENU_LOWER_TILE: "Lower Tile",
     }
 }
 
@@ -74,34 +75,47 @@ upgrade_name_strings = {
 
         UpgradeType.COLONIST_ATTACK: "(C) Attack+",
         UpgradeType.COLONIST_MAX_HP: "(C) HP+",
-        # UpgradeType.COLONIST_TERRAFORMING: "(C) Terraforming",
-        # UpgradeType.COLONIST_UNCONTESTABLE: "(C) Covert Ops",
+        UpgradeType.COLONIST_TERRAFORMING: "(C) Terraforming",
+        UpgradeType.COLONIST_UNCONTESTABLE: "(C) Covert Ops",
 
         UpgradeType.TROOPER_ATTACK: "(T) Attack+",
         UpgradeType.TROOPER_ARMOR: "(T) Armor+",
-        # UpgradeType.TROOPER_REGEN: "(T) Regen",
-        # UpgradeType.TROOPER_ENTRENCHMENT: "(T) Entrench+",
+        UpgradeType.TROOPER_REGEN: "(T) Regen",
+        UpgradeType.TROOPER_ENTRENCHMENT: "(T) Entrench+",
 
         UpgradeType.RANGER_ATTACK: "(R) Attack+",
         UpgradeType.RANGER_DISTANCE: "(R) Range+",
         UpgradeType.RANGER_MOVEMENT: "(R) Move+",
-        # UpgradeType.RANGER_UNCONTESTABLE: "(R) Ironsights",
+        UpgradeType.RANGER_UNCONTESTABLE: "(R) Ironsights",
 
-        UpgradeType.GHOST_MOVEMENT: "(G) Move+",
-        # UpgradeType.GHOST_STEALTH: "(G) Stealth",
-        UpgradeType.GHOST_ANTI_COLONIST: "(G) Assassin",
-        # UpgradeType.GHOST_ANTI_PARTING_SHOTS: "(G) Escapist",
+        UpgradeType.GHOST_MOVEMENT: "(Gh) Move+",
+        UpgradeType.GHOST_ATTACK: "(Gh) Attack+",
+        UpgradeType.GHOST_ANTI_COLONIST: "(Gh) Assassin",
+        UpgradeType.GHOST_STEAL: "(Gh) Steal",
 
         UpgradeType.RESEARCH_GUARDIAN: "Unlock Unit",
         UpgradeType.RESEARCH_BOLTCASTER: "Unlock Unit",
         UpgradeType.RESEARCH_BANSHEE: "Unlock Unit",
+
+        UpgradeType.GUARDIAN_ENTRENCHMENT: "(Gu) Entrench+",
+        UpgradeType.GUARDIAN_ARMOR: "(Gu) Armor+",
+        UpgradeType.GUARDIAN_MEDIC: "(Gu) Medic",
+
+        UpgradeType.BOLTCASTER_UNCONTESTABLE: "(Bo) Ironsights",
+        UpgradeType.BOLTCASTER_RANGE: "(Bo) Range+",
+        UpgradeType.BOLTCASTER_AP_ROUNDS: "(Bo) AP Rounds",
+
+        UpgradeType.BANSHEE_SABOTAGE: "(Ba) Sabotage",
+        UpgradeType.BANSHEE_STRIKEFORMATION: "(Ba) Strike",
+        UpgradeType.BANSHEE_LURK: "(Ba) Lurk",
     }
 }
 
 notification_strings = {
     Language.EN_US: {
-        EffectType.ALERT: "Orders result in stacked pieces",
-        EffectType.NO_MONEY: "Not enough resources for orders",
+        E_INVALID_MOVE_ORDERS: "Orders result in stacked pieces",
+        E_INVALID_BUILD_ORDERS: "Not enough resources for orders",
+        E_INVALID_UPGRADE_ORDERS: "Can't buy the same upgrade twice",
     }
 }
 

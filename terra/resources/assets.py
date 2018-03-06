@@ -14,17 +14,18 @@ from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_B
 from terra.mainmenu.option import Option
 from terra.map.tiletype import TileType
 from terra.piece.piecetype import PieceType
-from terra.settings import LANGUAGE
+from terra.settings import LANGUAGE, SFX_VOLUME, BGM_VOLUME
 from terra.strings import menu_option_strings, phase_strings, piece_name_strings, upgrade_name_strings, \
     notification_strings, main_menu_strings
 from terra.team import Team
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
-    swap_palette, generate_palette_list, swap_multiple_palette, draw_text
+    swap_palette, generate_palette_list, swap_multiple_palette, draw_text, get_indexed_sprites_from_strip
 
 
 # External assets are divided into subdirectories by their type
 class AssetType(Enum):
     SPRITE = "resources/sprites/"
+    SOUND = "resources/sfx/"
     MAP = "resources/maps/"
     LOG = "logs/"
 
@@ -45,6 +46,17 @@ def get_base_path(filename):
 # Return a properly formatted path to the specified resource
 def get_asset(asset_type, resource_name):
     return get_base_path(path.abspath(path.join(asset_type.value, resource_name)))
+
+
+# Load a sound and properly set it up
+def load_sound(resource_name):
+    sound = pygame.mixer.Sound(get_asset(AssetType.SOUND, resource_name))
+    sound.set_volume(SFX_VOLUME)
+    all_sounds.append(sound)
+    return sound
+
+
+pygame.mixer.init()
 
 
 # General
@@ -131,27 +143,12 @@ spr_tiles = {
     TileType.GRASS: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Grass.png"))],
     TileType.WOODS: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Woods.png"))],
     TileType.RESOURCE: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Resource.png")), 24),
-    TileType.HILL: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Hill.png")), 24)
+    TileType.MOUNTAIN: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Mountain.png"))],
+    TileType.COAST: get_indexed_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Coast.png")), 24, 24),
+    TileType.HILL: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Hill.png"))],
 }
-# noinspection PyUnresolvedReferences
-spr_coast_detail = {
-    0: None,
-    1: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail1.png")),
-    2: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail2.png")),
-    3: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail3.png")),
-    4: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail4.png")),
-    5: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail5.png")),
-    6: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail6.png")),
-    7: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail7.png")),
-    8: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail8.png")),
-    9: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail9.png")),
-    10: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail10.png")),
-    11: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail11.png")),
-    12: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail12.png")),
-    13: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail13.png")),
-    14: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail14.png")),
-    15: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/coasts/Tile_CoastDetail15.png")),
-}
+
+spr_coast_detail = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Sea_Border.png")), 24)
 
 
 # Pieces
@@ -295,6 +292,12 @@ for team in Team:
 text_main_menu = {}
 for _, option in Option.__members__.items():
     text_main_menu[option] = draw_text(main_menu_strings[LANGUAGE][option], light_color, shadow_color[Team.RED])
+
+# Audio
+all_sounds = []
+sfx_cursor_move = load_sound("cursor/sfx_cursor_move.wav")
+sfx_cursor_select = load_sound("cursor/sfx_cursor_select.wav")
+sfx_cursor_cancel = load_sound("cursor/sfx_cursor_cancel.wav")
 
 
 def load_assets():

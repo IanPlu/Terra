@@ -858,3 +858,75 @@ RED Trooper at tile (14, 10) with 100 HP took 0 damage!
 = Phase Special begins
 = Phase Start Turn begins
 = Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Trooper at tile (5, 7) with 100 HP was assigned the order 'Order: Move to (6, 8)'
+RED Trooper at tile (6, 9) with 100 HP was assigned the order 'Order: Move to (7, 10)'
+= Phase Move begins
+RED Trooper at tile (6, 8) with 100 HP successfully executed 'Order: Move to (6, 8)'
+RED Trooper at tile (7, 10) with 100 HP successfully executed 'Order: Move to (7, 10)'
+= Phase Build begins
+= Phase Combat begins
+BLUE Ghost at tile (7, 10) with 100 HP and RED Trooper at tile (7, 10) with 100 HP are contesting the tile at (7, 10)!
+BLUE Ghost at tile (7, 10) with 64 HP took 36 damage from RED Trooper at tile (7, 10) with 100 HP!
+RED Trooper at tile (7, 10) with 85 HP took 15 damage from BLUE Ghost at tile (7, 10) with 64 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+BLUE Ghost at tile (7, 10) with 64 HP and RED Trooper at tile (7, 10) with 85 HP are contesting the tile at (7, 10)!
+BLUE Ghost at tile (7, 10) with 28 HP took 36 damage from RED Trooper at tile (7, 10) with 85 HP!
+RED Trooper at tile (7, 10) with 73 HP took 12 damage from BLUE Ghost at tile (7, 10) with 28 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+BLUE Ghost at tile (7, 10) with 28 HP and RED Trooper at tile (7, 10) with 73 HP are contesting the tile at (7, 10)!
+BLUE Ghost at tile (7, 10) with -8 HP took 36 damage from RED Trooper at tile (7, 10) with 73 HP!
+RED Trooper at tile (7, 10) with 61 HP took 12 damage from BLUE Ghost at tile (7, 10) with -8 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Barracks at tile (4, 7) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.TROOPER_ENTRENCHMENT'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Barracks at tile (4, 7) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.TROOPER_ENTRENCHMENT'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.TROOPER_ENTRENCHMENT
+= Phase Issue Orders begins
+RED Barracks at tile (4, 7) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.TROOPER_REGEN'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Barracks at tile (4, 7) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.TROOPER_REGEN'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.TROOPER_REGEN
+RED Trooper at tile (7, 10) with 71 HP healed for 10 health.
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+RED Trooper at tile (7, 10) with 81 HP healed for 10 health.
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+RED Trooper at tile (7, 10) with 91 HP healed for 10 health.
+= Phase Issue Orders begins

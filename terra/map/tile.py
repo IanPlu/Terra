@@ -13,34 +13,42 @@ class Tile(AnimatedGameObject):
         self.gx = gx
         self.gy = gy
 
-        super().__init__(spr_tiles[self.tile_type], 2)
+        super().__init__(spr_tiles[self.tile_type], 2, indexed=self.tile_type in [TileType.COAST],
+                         use_global_animation_frame=self.tile_type in [TileType.SEA, TileType.COAST, TileType.RESOURCE])
+
+    # Return an index corresponding to the number of adjacent 'land' tiles
+    def get_index(self):
+        coast_index = super().get_index()
+        edge_tiles = [TileType.SEA, TileType.COAST]
+
+        # Use a 4-bit address to determine the coast sprite to use.
+        # Each direction is one binary place: NESW
+        # 0=no coast, 1=yes coast
+        north_type = self.game_map.get_tile_type_at(self.gx, self.gy-1)
+        east_type = self.game_map.get_tile_type_at(self.gx+1, self.gy)
+        south_type = self.game_map.get_tile_type_at(self.gx, self.gy+1)
+        west_type = self.game_map.get_tile_type_at(self.gx-1, self.gy)
+
+        if north_type and north_type not in edge_tiles:
+            coast_index += 8
+        if east_type and east_type not in edge_tiles:
+            coast_index += 4
+        if south_type and south_type not in edge_tiles:
+            coast_index += 2
+        if west_type and west_type not in edge_tiles:
+            coast_index += 1
+
+        return coast_index
 
     # Ask the Tile to render itself.
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
+
         game_screen.blit(self.sprite,
                          (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
         # For SEA tiles, render coastlines if adjacent to non-sea (map border counts as sea)
         if self.tile_type == TileType.SEA:
-            # Use a 4-bit address to determine the coast sprite to use.
-            # Each direction is one binary place: NESW
-            # 0=no coast, 1=yes coast
-            coast_index = 0
-
-            north_type = self.game_map.get_tile_type_at(self.gx, self.gy-1)
-            east_type = self.game_map.get_tile_type_at(self.gx+1, self.gy)
-            south_type = self.game_map.get_tile_type_at(self.gx, self.gy+1)
-            west_type = self.game_map.get_tile_type_at(self.gx-1, self.gy)
-
-            if north_type and north_type != TileType.SEA:
-                coast_index += 8
-            if east_type and east_type != TileType.SEA:
-                coast_index += 4
-            if south_type and south_type != TileType.SEA:
-                coast_index += 2
-            if west_type and west_type != TileType.SEA:
-                coast_index += 1
-
+            coast_index = self.get_index()
             if coast_index > 0:
                 game_screen.blit(spr_coast_detail[coast_index], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))

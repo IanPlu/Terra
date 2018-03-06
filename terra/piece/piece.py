@@ -7,6 +7,7 @@ from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_MENU2
 from terra.managers.managers import Managers
+from terra.mode import Mode
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import MovementType, MovementAttribute, movement_types
 from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, TerraformOrder
@@ -196,7 +197,7 @@ class Piece(GameObject):
         self.hp -= damage
 
         # Add any additional effects or debuffs from the source
-        if source:
+        if source and isinstance(source, Piece):
             aoe_on_death_gained = Managers.team_manager.attr(source.team, source.piece_type, Attribute.AOE_ON_KILL)
             if aoe_on_death_gained > 0:
                 self.temporary_aoe_on_death = aoe_on_death_gained
@@ -237,9 +238,10 @@ class Piece(GameObject):
         # Pieces occupying tiles they can't traverse take damage each turn.
         if not Managers.battle_map.is_tile_passable(self.gx, self.gy, Managers.team_manager.attr(
                 self.team, self.piece_type, Attribute.MOVEMENT_TYPE)):
-            # TODO: Formalize this damage a bit
-            self.hp -= 50
-            Managers.combat_logger.log_damage(self, 50, "hostile terrain")
+            tile_type = Managers.battle_map.get_tile_type_at(self.gx, self.gy)
+            self.damage_hp(30, tile_type)
+
+            Managers.combat_logger.log_damage(self, 50, tile_type)
 
             publish_game_event(E_PIECE_ON_INVALID_TERRAIN, {
                 'gx': self.gx,
@@ -485,55 +487,59 @@ class Piece(GameObject):
         self.in_conflict = Managers.turn_manager.phase == BattlePhase.ORDERS and \
                            len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
 
-        # React to phase changes
-        if is_event_type(event, START_PHASE_EXECUTE_BUILD):
-            self.handle_phase_build(event)
-        elif is_event_type(event, START_PHASE_EXECUTE_MOVE):
-            self.handle_phase_move(event)
-        elif is_event_type(event, END_PHASE_MOVE):
-            self.handle_end_phase_move(event)
-        elif is_event_type(event, START_PHASE_EXECUTE_COMBAT):
-            self.handle_phase_combat(event)
-        elif is_event_type(event, START_PHASE_EXECUTE_RANGED):
-            self.handle_phase_ranged(event)
-        elif is_event_type(event, START_PHASE_EXECUTE_SPECIAL):
-            self.handle_phase_special(event)
+        if Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]:
+            # React to phase changes
+            if is_event_type(event, START_PHASE_EXECUTE_BUILD):
+                self.handle_phase_build(event)
+            elif is_event_type(event, START_PHASE_EXECUTE_MOVE):
+                self.handle_phase_move(event)
+            elif is_event_type(event, END_PHASE_MOVE):
+                self.handle_end_phase_move(event)
+            elif is_event_type(event, START_PHASE_EXECUTE_COMBAT):
+                self.handle_phase_combat(event)
+            elif is_event_type(event, START_PHASE_EXECUTE_RANGED):
+                self.handle_phase_ranged(event)
+            elif is_event_type(event, START_PHASE_EXECUTE_SPECIAL):
+                self.handle_phase_special(event)
 
-        # Handle start of orders phase, if necessary
-        if is_event_type(event, START_PHASE_ORDERS):
-            self.handle_phase_orders(event)
-        # Handle start of turn
-        elif is_event_type(event, START_PHASE_START_TURN):
-            self.handle_phase_start_turn(event)
-        # Conduct cleanup when prompted
-        elif is_event_type(event, E_CLEANUP):
-            self.cleanup()
-        # Catch selection events and open the orders menu
-        elif is_event_type(event, E_SELECT):
-            if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
-                available_actions = self.get_available_actions()
+            # Handle start of orders phase, if necessary
+            if is_event_type(event, START_PHASE_ORDERS):
+                self.handle_phase_orders(event)
+            # Handle start of turn
+            elif is_event_type(event, START_PHASE_START_TURN):
+                self.handle_phase_start_turn(event)
+            # Conduct cleanup when prompted
+            elif is_event_type(event, E_CLEANUP):
+                self.cleanup()
+            # Catch selection events and open the orders menu
+            elif is_event_type(event, E_SELECT):
+                if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
+                    available_actions = self.get_available_actions()
 
-                if not event.selecting_movement and len(available_actions) > 0:
-                    publish_game_event(E_OPEN_MENU, {
-                        'gx': self.gx,
-                        'gy': self.gy,
-                        'team': self.team,
-                        'options': available_actions
-                    })
-        # Catch menu events and set orders if they don't require tile selection or a submenu
-        elif is_event_type(event, E_CLOSE_MENU) and event.option:
-            if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
-                self.handle_menu_option(event)
-        # Catch tile selection events and set orders involving tile selection
-        elif is_event_type(event, E_SELECT_TILE) and event.option:
-            if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
-                self.handle_tile_selection(event)
+                    if not event.selecting_movement and len(available_actions) > 0:
+                        publish_game_event(E_OPEN_MENU, {
+                            'gx': self.gx,
+                            'gy': self.gy,
+                            'team': self.team,
+                            'options': available_actions
+                        })
+            # Catch menu events and set orders if they don't require tile selection or a submenu
+            elif is_event_type(event, E_CLOSE_MENU) and event.option:
+                if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
+                    self.handle_menu_option(event)
+            # Catch tile selection events and set orders involving tile selection
+            elif is_event_type(event, E_SELECT_TILE) and event.option:
+                if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
+                    self.handle_tile_selection(event)
 
-        if self.team == Managers.player_manager.active_team:
-            if event.type == KEYDOWN and event.key in KB_MENU2:
-                self.previewing_order = True
-            elif event.type == KEYUP and event.key in KB_MENU2:
-                self.previewing_order = False
+            if self.team == Managers.player_manager.active_team:
+                if event.type == KEYDOWN and event.key in KB_MENU2:
+                    self.previewing_order = True
+                elif event.type == KEYUP and event.key in KB_MENU2:
+                    self.previewing_order = False
+
+        elif Managers.current_mode == Mode.EDIT:
+            pass
 
     # Render a preview of the piece's current orders.
     def preview_order(self, game_screen):

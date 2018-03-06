@@ -1,18 +1,19 @@
-from enum import Enum
+from enum import Enum, auto
 
 from terra.map.tiletype import TileType
 
 
 # Each possible movement type. Controls how a piece can move or target.
 class MovementType(Enum):
-    NONE = 0
-    GROUND = 1
-    BANSHEE = 2
-    FLYING = 3
-    BUILDING = 4
-    GENERATOR = 5
-    RAISE = 6
-    LOWER = 7
+    NONE = auto()
+    GROUND = auto()
+    HEAVY = auto()
+    BANSHEE = auto()
+    FLYING = auto()
+    BUILDING = auto()
+    GENERATOR = auto()
+    RAISE = auto()
+    LOWER = auto()
 
 
 class MovementAttribute(Enum):
@@ -29,17 +30,23 @@ movement_types = {
     },
     # Default groundbound movement type. Most pieces use this.
     MovementType.GROUND: {
-        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE},
+        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE, TileType.COAST, TileType.HILL},
         MovementAttribute.TRAVERSABLE: {},
+    },
+    # Heavier groundbound movement type. Doesn't allow stopping in rougher terrain like coasts or hills.
+    MovementType.HEAVY: {
+        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE},
+        MovementAttribute.TRAVERSABLE: {TileType.COAST, TileType.HILL},
     },
     # Banshee-specific pseudo-flying movement type. Can traverse SEA and HILLs but not stop on them.
     MovementType.BANSHEE: {
-        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE},
-        MovementAttribute.TRAVERSABLE: {TileType.SEA, TileType.HILL},
+        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE, TileType.COAST, TileType.HILL},
+        MovementAttribute.TRAVERSABLE: {TileType.SEA, TileType.MOUNTAIN},
     },
     # Flying movement type. Able to occupy any type of tile.
     MovementType.FLYING: {
-        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE, TileType.SEA, TileType.HILL},
+        MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE, TileType.COAST,
+                                     TileType.SEA, TileType.MOUNTAIN, TileType.HILL},
         MovementAttribute.TRAVERSABLE: {}
     },
     # 'Movement' type used by buildings. Used for determining placement, i.e. only on grassland.
@@ -54,12 +61,12 @@ movement_types = {
     },
     # 'Movement' type used for terraforming. Controls which tiles can be raised.
     MovementType.RAISE: {
-        MovementAttribute.PASSABLE: {TileType.SEA, TileType.GRASS},
+        MovementAttribute.PASSABLE: {TileType.SEA, TileType.COAST, TileType.GRASS, TileType.HILL},
         MovementAttribute.TRAVERSABLE: {},
     },
     # 'Movement' type used for terraforming. Controls which tiles can be lowered.
     MovementType.LOWER: {
-        MovementAttribute.PASSABLE: {TileType.HILL, TileType.GRASS},
+        MovementAttribute.PASSABLE: {TileType.MOUNTAIN, TileType.HILL, TileType.GRASS, TileType.COAST},
         MovementAttribute.TRAVERSABLE: {},
     },
 }

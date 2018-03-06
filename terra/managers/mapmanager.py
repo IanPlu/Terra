@@ -4,11 +4,11 @@ from os import walk
 
 from terra.engine.gameobject import GameObject
 from terra.event import is_event_type, E_TILE_TERRAFORMED
-from terra.managers.managers import Managers
 from terra.map.tile import Tile
 from terra.map.tiletype import TileType, tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
 from terra.resources.assets import AssetType, get_asset
+from terra.util.mathutil import clamp
 
 
 # A single map containing tiles, organized into a grid.
@@ -97,7 +97,7 @@ class MapManager(GameObject):
         else:
             new_tile_type_index = tile_height_order.index(tile_type) - 1
 
-        self.update_tile_type(event.gx, event.gy, tile_height_order[new_tile_type_index])
+        self.update_tile_type(event.gx, event.gy, tile_height_order[clamp(new_tile_type_index, 0, len(tile_height_order) - 1)])
 
     def step(self, event):
         super().step(event)

@@ -27,6 +27,7 @@ Bug fixes
 * Fix popup menus scrolling off the top of the screen
 x Fix resources not being deducted for placing buildings
 x Fix invalid order effects showing for all teams
+x Fix trying to RAISE or LOWER terrain past the edge of the tile types
 
 Gameplay
 x Build support for upgrades, enable purchasing them from the base
@@ -41,8 +42,8 @@ x Decide where the BUILD phase should slot into the order. Currently impossible 
 * Implement parting shots -- when two units were contesting last turn, if one unit stays on that tile
     and the other doesn't, the remaining unit gets a free weak attack against the retreating unit
 * Implement colonist building flipping
-* Implement colonist terraforming
-* Implement unique upgrades as generic attributes
+x Implement colonist terraforming
+x Implement unique upgrades as generic attributes
     x Whether this piece contests enemies, and can be contested
     x Whether this piece impedes movement, and is affected by impedance
     x Additional defensive bonuses + entrenchment bonuses

@@ -1,10 +1,12 @@
-from terra.engine.gameobject import GameObject
-from terra.managers.managers import Managers
-from terra.ui.cursor import Cursor
-from terra.team import Team
-from terra.keybindings import KB_DEBUG0
 from pygame.constants import KEYDOWN
+
 from terra.battlephase import BattlePhase
+from terra.engine.gameobject import GameObject
+from terra.keybindings import KB_DEBUG0
+from terra.managers.managers import Managers
+from terra.mode import Mode
+from terra.team import Team
+from terra.ui.cursor import Cursor
 
 
 # Manager for the current player. Helps handle input, networking, and information that should be hidden
@@ -25,7 +27,7 @@ class PlayerManager(GameObject):
         if Managers.turn_manager.phase == BattlePhase.ORDERS:
             self.cursors[self.active_team].step(event)
 
-        if event.type == KEYDOWN and not Managers.network_manager.networked_game:
+        if event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE]:
             if event.key in KB_DEBUG0:
                 if self.active_team == Team.RED:
                     self.active_team = Team.BLUE

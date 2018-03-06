@@ -14,6 +14,7 @@ class Managers:
     turn_manager = None
     player_manager = None
     network_manager = None
+    sound_manager = None
 
     current_mode = Mode.MAIN_MENU
 
@@ -27,6 +28,7 @@ class Managers:
         from terra.managers.turnmanager import TurnManager
         from terra.managers.combatlogger import CombatLogger
         from terra.managers.networkmanager import NetworkManager
+        from terra.managers.soundmanager import SoundManager
 
         Managers.network_manager = NetworkManager(address, is_host)
 
@@ -52,6 +54,7 @@ class Managers:
         Managers.piece_manager = PieceManager(pieces)
         Managers.turn_manager = TurnManager()
         Managers.player_manager = PlayerManager()
+        Managers.sound_manager = SoundManager()
 
     @staticmethod
     def save_game_to_string():
@@ -127,6 +130,7 @@ class Managers:
         Managers.team_manager.step(event)
         Managers.turn_manager.step(event)
         Managers.player_manager.step(event)
+        Managers.sound_manager.step(event)
 
     @staticmethod
     def render(map_screen, ui_screen):
@@ -137,3 +141,4 @@ class Managers:
         Managers.turn_manager.render(map_screen, ui_screen)
         Managers.player_manager.render(map_screen, ui_screen)
         Managers.network_manager.render(map_screen, ui_screen)
+        Managers.sound_manager.render(map_screen, ui_screen)

@@ -58,6 +58,21 @@ def get_sprites_from_strip(sprite, width):
     return sprites
 
 
+# Return a list of sprites, sliced for an animated indexed sprite. Assumes vertical rows are for animation frames.
+# Returns: sprite[animation_frame][index]
+def get_indexed_sprites_from_strip(sprite, width, height):
+    sprites = []
+    strip_width, strip_height = sprite.get_size()
+
+    for y in range(strip_height // height):
+        animated_sprites = []
+        for x in range(strip_width // width):
+            animated_sprites.append(sprite.subsurface((x * width, y * height, width, height)))
+        sprites.append(animated_sprites)
+
+    return sprites
+
+
 # Return a list of sprites cut out of the provided sprite, which is subdivided into a 3x3 grid.
 def get_nine_slice_sprites(sprite, slice_size):
     sprites = []

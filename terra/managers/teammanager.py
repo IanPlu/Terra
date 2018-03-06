@@ -8,6 +8,7 @@ from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_DEBUG1, KB_DEBUG2
 from terra.managers.managers import Managers
+from terra.mode import Mode
 from terra.piece.pieceattributes import Attribute
 from terra.piece.pieceattributes import base_piece_attributes
 from terra.piece.piecetype import PieceType
@@ -244,7 +245,7 @@ class TeamManager(GameObject):
                 publish_game_event(E_QUIT_BATTLE, {})
         elif is_event_type(event, E_UPGRADE_BUILT):
             self.purchase_upgrade(event.team, event.new_upgrade_type)
-        elif event.type == KEYDOWN and not Managers.network_manager.networked_game:
+        elif event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE]:
             if event.key in KB_DEBUG1:
                 self.try_submitting_turn(Team.RED)
             elif event.key in KB_DEBUG2:

@@ -9,6 +9,7 @@ from terra.managers.managers import Managers
 from terra.mode import Mode
 from terra.resources.assets import spr_cursor
 from terra.settings import SCREEN_SCALE
+from terra.sound.soundtype import SoundType
 from terra.ui.menupopup import MenuPopup
 from terra.ui.tileselection import TileSelection
 from terra.util.mathutil import clamp
@@ -104,18 +105,24 @@ class Cursor(GameObject):
                 # Cursor movement
                 if event.key in KB_UP and self.gy > 0:
                     self.gy -= 1
+                    Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
                 elif event.key in KB_DOWN and self.gy < Managers.battle_map.height - 1:
                     self.gy += 1
+                    Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
                 if event.key in KB_LEFT and self.gx > 0:
                     self.gx -= 1
+                    Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
                 elif event.key in KB_RIGHT and self.gx < Managers.battle_map.width - 1:
                     self.gx += 1
+                    Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
 
                 # Unit selection
                 if event.key in KB_CONFIRM:
                     self.confirm()
+                    Managers.sound_manager.play_sound(SoundType.CURSOR_SELECT)
                 elif event.key in KB_CANCEL:
                     self.cancel()
+                    Managers.sound_manager.play_sound(SoundType.CURSOR_CANCEL)
                 elif event.key in KB_MENU:
                     self.open_pause_menu()
 

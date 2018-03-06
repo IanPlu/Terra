@@ -219,7 +219,7 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
         Attribute.ARMOR: 2,
         Attribute.ENTRENCHMENT_MODIFIER: 2,
-        Attribute.MOVEMENT_TYPE: MovementType.GROUND,
+        Attribute.MOVEMENT_TYPE: MovementType.HEAVY,
         Attribute.MOVEMENT_RANGE: 2,
         Attribute.PRICE: (4, 6, 2),
         # Specialty
@@ -248,7 +248,7 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.RANGED,
         Attribute.MIN_RANGE: 3,
         Attribute.MAX_RANGE: 5,
-        Attribute.MOVEMENT_TYPE: MovementType.GROUND,
+        Attribute.MOVEMENT_TYPE: MovementType.HEAVY,
         Attribute.MOVEMENT_RANGE: 1,
         Attribute.PRICE: (6, 2, 4),
         Attribute.RESOURCE_PRODUCTION: (0, 0, 0),

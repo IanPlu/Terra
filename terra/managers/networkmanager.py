@@ -52,6 +52,10 @@ class NetworkManager(GameObject):
         while not self.map_data:
             self.network_step()
 
+    def disconnect_from_host(self):
+        self.send_message(MessageCode.DROP_CONNECTION, self.team, "")
+        self.connection.close()
+
     # Send the entire game state to clients. Same format as loading it from a file.
     def send_game_state_to_client(self):
         self.send_message(MessageCode.SET_GAME_STATE, self.team, Managers.save_game_to_string()[0])
@@ -71,6 +75,10 @@ class NetworkManager(GameObject):
         elif command == MessageCode.DROP_CONNECTION.value:
             print("Connection dropped for: " + str(address))
             self.clients.remove(address)
+        elif command == MessageCode.END_CONNECTION.value:
+            print("Connection ended from: " + str(address))
+            self.connection.close()
+            publish_game_event(E_QUIT_BATTLE, {})
         elif command == MessageCode.SET_ORDERS.value:
             print("Setting orders from net msg: " + str(literal_eval(body)))
             orders = literal_eval(body)
@@ -98,6 +106,15 @@ class NetworkManager(GameObject):
         else:
             self.connection.sendto(full_message, (self.address, self.server_port))
 
+    # Handle our client quitting the game
+    def handle_quit_event(self):
+        if self.is_host:
+            # Close down the game, notify clients
+            self.send_message(MessageCode.END_CONNECTION, self.team, "")
+        else:
+            # Disconnect from the host
+            self.disconnect_from_host()
+
     # Check for any new network messages
     # Maintain a buffer of messages to send and send them in the step func, but add to the buffer in the while 1 loop
     def network_step(self):
@@ -119,6 +136,8 @@ class NetworkManager(GameObject):
                 pass
             elif is_event_type(event, E_ALL_TURNS_SUBMITTED):
                 pass
+            elif is_event_type(event, E_QUIT_BATTLE):
+                self.handle_quit_event()
 
     def render(self, map_screen, ui_screen):
         pass

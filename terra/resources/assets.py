@@ -4,22 +4,18 @@ from os import path
 
 import pygame
 
-from terra.battlephase import BattlePhase
 from terra.economy.upgrades import UpgradeType
 from terra.effects.effecttype import EffectType
-from terra.event import E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, E_INVALID_UPGRADE_ORDERS
 from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
     MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP, \
-    MENU_RAISE_TILE, MENU_LOWER_TILE
-from terra.mainmenu.option import Option
+    MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN
 from terra.map.tiletype import TileType
+from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
-from terra.settings import LANGUAGE, SFX_VOLUME, BGM_VOLUME
-from terra.strings import menu_option_strings, phase_strings, piece_name_strings, upgrade_name_strings, \
-    notification_strings, main_menu_strings
+from terra.settings import SFX_VOLUME
 from terra.team import Team
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
-    swap_palette, generate_palette_list, swap_multiple_palette, draw_text, get_indexed_sprites_from_strip
+    swap_palette, generate_palette_list, swap_multiple_palette, get_indexed_sprites_from_strip
 
 
 # External assets are divided into subdirectories by their type
@@ -73,19 +69,43 @@ spr_textbox = {
     Team.RED: get_nine_slice_sprites(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Textbox_9slice.png")), 8)
 }
 spr_phase_indicator = {
-    Team.RED: [
-        pygame.image.load(get_asset(AssetType.SPRITE, "ui/Phase_Icon_Start_Turn.png")),
-        pygame.image.load(get_asset(AssetType.SPRITE, "ui/Phase_Icon_Orders.png")),
-        pygame.image.load(get_asset(AssetType.SPRITE, "ui/Phase_Icon_Execute_Move.png")),
-        pygame.image.load(get_asset(AssetType.SPRITE, "ui/Phase_Icon_Execute_Build.png")),
-        pygame.image.load(get_asset(AssetType.SPRITE, "ui/Phase_Icon_Execute_Combat.png")),
-        pygame.image.load(get_asset(AssetType.SPRITE, "ui/Phase_Icon_Execute_Ranged.png")),
-        pygame.image.load(get_asset(AssetType.SPRITE, "ui/Phase_Icon_Execute_Special.png"))
-    ]
+    Team.RED: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Phase_Icons.png")), 24)
 }
 
 spr_turn_submitted_indicator = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Turn_Submitted.png"))
+}
+
+spr_order_options_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Order_MenuOption.png")), 24)
+spr_order_options = {
+    Team.RED: {
+        MENU_CANCEL_ORDER: spr_order_options_base[0],
+        MENU_MOVE: spr_order_options_base[1],
+        MENU_RANGED_ATTACK: spr_order_options_base[2],
+        MENU_BUILD_PIECE: spr_order_options_base[3],
+        MENU_PURCHASE_UPGRADE: spr_order_options_base[4],
+        MENU_SUBMIT_TURN: spr_order_options_base[5],
+        MENU_REVISE_TURN: spr_order_options_base[6],
+        MENU_SAVE_GAME: spr_order_options_base[7],
+        MENU_QUIT_BATTLE: spr_order_options_base[8],
+        MENU_SAVE_MAP: spr_order_options_base[9],
+        MENU_RAISE_TILE: spr_order_options_base[10],
+        MENU_LOWER_TILE: spr_order_options_base[11],
+    }
+}
+
+spr_piece_attribute_icons_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Piece_Attribute_Icons.png")), 12)
+spr_piece_attribute_icons = {
+    Team.RED: {
+        Attribute.ARCHETYPE: spr_piece_attribute_icons_base[0],
+        Attribute.MAX_HP: spr_piece_attribute_icons_base[1],
+        Attribute.ATTACK: spr_piece_attribute_icons_base[2],
+        Attribute.ARMOR: spr_piece_attribute_icons_base[3],
+        Attribute.MIN_RANGE: spr_piece_attribute_icons_base[4],
+        Attribute.MAX_RANGE: spr_piece_attribute_icons_base[5],
+        Attribute.MOVEMENT_TYPE: spr_piece_attribute_icons_base[6],
+        Attribute.MOVEMENT_RANGE: spr_piece_attribute_icons_base[7],
+    }
 }
 
 spr_upgrade_icons_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Upgrade_Icons.png")), 24)
@@ -192,6 +212,7 @@ spr_order_flags = {
     MENU_BUILD_PIECE: spr_base_order_flags[3],
     MENU_PURCHASE_UPGRADE: spr_base_order_flags[3],
     MENU_SUBMIT_TURN: spr_base_order_flags[1],
+    MENU_REVISE_TURN: spr_base_order_flags[0],
     MENU_SAVE_GAME: spr_base_order_flags[3],
     MENU_QUIT_BATTLE: spr_base_order_flags[0],
     MENU_SAVE_MAP: spr_base_order_flags[3],
@@ -245,6 +266,8 @@ spr_effects = {
 
 # Colors
 light_color = (248, 240, 211)
+dark_color = (82, 51, 51)
+darker_color = (46, 29, 29)
 light_team_color = {
     Team.RED: (247, 126, 126),
     Team.BLUE: (114, 210, 239)
@@ -257,41 +280,6 @@ shadow_color = {
     Team.RED: (82, 51, 51),
     Team.BLUE: (67, 87, 107)
 }
-
-
-# Text
-text_menu_option = {
-    MENU_MOVE: draw_text(menu_option_strings[LANGUAGE][MENU_MOVE], (0, 0, 0)),
-    MENU_CANCEL_ORDER: draw_text(menu_option_strings[LANGUAGE][MENU_CANCEL_ORDER], (0, 0, 0)),
-    MENU_RANGED_ATTACK: draw_text(menu_option_strings[LANGUAGE][MENU_RANGED_ATTACK], (0, 0, 0)),
-    MENU_BUILD_PIECE: draw_text(menu_option_strings[LANGUAGE][MENU_BUILD_PIECE], (0, 0, 0)),
-    MENU_PURCHASE_UPGRADE: draw_text(menu_option_strings[LANGUAGE][MENU_PURCHASE_UPGRADE], (0, 0, 0)),
-    MENU_SUBMIT_TURN: draw_text(menu_option_strings[LANGUAGE][MENU_SUBMIT_TURN], (0, 0, 0)),
-    MENU_SAVE_GAME: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_GAME], (0, 0, 0)),
-    MENU_QUIT_BATTLE: draw_text(menu_option_strings[LANGUAGE][MENU_QUIT_BATTLE], (0, 0, 0)),
-    MENU_SAVE_MAP: draw_text(menu_option_strings[LANGUAGE][MENU_SAVE_MAP], (0, 0, 0)),
-    MENU_RAISE_TILE: draw_text(menu_option_strings[LANGUAGE][MENU_RAISE_TILE], (0, 0, 0)),
-    MENU_LOWER_TILE: draw_text(menu_option_strings[LANGUAGE][MENU_LOWER_TILE], (0, 0, 0)),
-}
-
-text_notifications = {
-    E_INVALID_MOVE_ORDERS: draw_text(notification_strings[LANGUAGE][E_INVALID_MOVE_ORDERS], (0, 0, 0)),
-    E_INVALID_BUILD_ORDERS: draw_text(notification_strings[LANGUAGE][E_INVALID_BUILD_ORDERS], (0, 0, 0)),
-    E_INVALID_UPGRADE_ORDERS: draw_text(notification_strings[LANGUAGE][E_INVALID_UPGRADE_ORDERS], (0, 0, 0)),
-}
-
-text_piece_name = {}
-text_upgrade_name = {}
-
-phase_text = {}
-for team in Team:
-    phase_text[team] = {}
-    for _, phase in BattlePhase.__members__.items():
-        phase_text[team][phase] = draw_text(phase_strings[LANGUAGE][phase], light_color, shadow_color[team])
-
-text_main_menu = {}
-for _, option in Option.__members__.items():
-    text_main_menu[option] = draw_text(main_menu_strings[LANGUAGE][option], light_color, shadow_color[Team.RED])
 
 # Audio
 all_sounds = []
@@ -330,10 +318,10 @@ def load_assets():
         for upgrade_type in UpgradeType:
             spr_upgrade_icons[team][upgrade_type] = swap_palette(spr_upgrade_icons[Team.RED][upgrade_type], unit_palette[team])
 
-    # Generate text surfaces for each unit and building type
-    for piece_type in PieceType:
-        text_piece_name[piece_type] = draw_text(piece_name_strings[LANGUAGE][piece_type], (0, 0, 0))
+        spr_order_options[team] = {}
+        for option in spr_order_options[Team.RED]:
+            spr_order_options[team][option] = swap_palette(spr_order_options[Team.RED][option], unit_palette[team])
 
-    # Generate text surfaces for each upgrade type
-    for upgrade_type in UpgradeType:
-        text_upgrade_name[upgrade_type] = draw_text(upgrade_name_strings[LANGUAGE][upgrade_type], (0, 0, 0))
+        spr_piece_attribute_icons[team] = {}
+        for icon in spr_piece_attribute_icons[Team.RED]:
+            spr_piece_attribute_icons[team][icon] = swap_palette(spr_piece_attribute_icons[Team.RED][icon], unit_palette[team])

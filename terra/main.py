@@ -3,7 +3,7 @@ import sys
 from pygame.constants import QUIT
 
 from terra.battle import Battle
-from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
+from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT
 from terra.event import *
 from terra.leveleditor import LevelEditor
 from terra.mainmenu.mainmenu import MainMenu
@@ -67,13 +67,18 @@ class Main:
     # Render phase of game loop - draw to the screen
     # noinspection PyArgumentList
     def render(self):
+        base_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
+        base_screen.fill(clear_color[Team.BLUE], (0, 0, RESOLUTION_WIDTH, RESOLUTION_HEIGHT))
+
         ui_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
         ui_screen = ui_screen.convert_alpha()
 
         game_screen = self.current_screen.render(ui_screen)
-        game_screen.blit(ui_screen, (0, 0))
 
-        pygame.transform.scale(game_screen, (self.screen_width, self.screen_height), self.screen)
+        base_screen.blit(game_screen, (0, 0))
+        base_screen.blit(ui_screen, (0, 0))
+
+        pygame.transform.scale(base_screen, (self.screen_width, self.screen_height), self.screen)
         pygame.display.flip()
 
     # Run the entire game + loop. Initialize stuff like pygame and the window the game will render in.

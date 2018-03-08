@@ -1,13 +1,14 @@
 from pygame.constants import KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN
 
+from terra.constants import CAMERA_WIDTH, CAMERA_HEIGHT
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
-from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_LEFT, KB_RIGHT, KB_CONFIRM, KB_CANCEL, KB_MENU
 from terra.managers.managers import Managers
 from terra.mode import Mode
-from terra.resources.assets import spr_cursor
+from terra.piece.piecetype import PieceType
+from terra.resources.assets import spr_cursor, spr_turn_submitted_indicator
 from terra.settings import SCREEN_SCALE
 from terra.sound.soundtype import SoundType
 from terra.ui.menupopup import MenuPopup
@@ -18,28 +19,39 @@ from terra.util.mathutil import clamp
 # Controllable cursor on the map.
 # Triggers selection events and allows the player to move around.
 class Cursor(GameObject):
-    def __init__(self, team, gx=0, gy=0):
+    def __init__(self, team):
         super().__init__()
-        self.gx = gx
-        self.gy = gy
+
+        # Cursors start on their team's base
+        base = Managers.piece_manager.get_all_pieces_for_team(team, piece_type=PieceType.BASE)
+        if len(base):
+            self.gx = base[0].gx
+            self.gy = base[0].gy
+        else:
+            self.gx = 0
+            self.gy = 0
+
         self.team = team
 
         self.menu = None
         self.move_ui = None
 
-        self.camera_x = 0
-        self.camera_y = 0
+        self.camera_x = self.gx * GRID_WIDTH
+        self.camera_y = self.gy * GRID_HEIGHT
+        self.scroll_camera()
 
     def confirm(self):
-        publish_game_event(E_SELECT, {
-            'gx': int(self.gx),
-            'gy': int(self.gy),
-            'team': self.team,
-            'selecting_movement': self.move_ui is not None
-        })
+        if not Managers.team_manager.is_turn_submitted(self.team):
+            publish_game_event(E_SELECT, {
+                'gx': int(self.gx),
+                'gy': int(self.gy),
+                'team': self.team,
+                'selecting_movement': self.move_ui is not None
+            })
 
     def cancel(self):
-        publish_game_event(E_CANCEL, {})
+        if not Managers.team_manager.is_turn_submitted(self.team):
+            publish_game_event(E_CANCEL, {})
 
     # Creates a generic menu popup from the provided event.
     def open_menu(self, event):
@@ -51,7 +63,12 @@ class Cursor(GameObject):
 
     def open_pause_menu(self):
         if Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]:
-            menu_options = [MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE]
+            if Managers.team_manager.is_turn_submitted(self.team):
+                menu_options = [MENU_REVISE_TURN]
+            else:
+                menu_options = [MENU_SUBMIT_TURN]
+
+            menu_options.extend([MENU_SAVE_GAME, MENU_QUIT_BATTLE])
         elif Managers.current_mode == Mode.EDIT:
             menu_options = [MENU_SAVE_MAP, MENU_QUIT_BATTLE]
         else:
@@ -139,17 +156,17 @@ class Cursor(GameObject):
                 elif event.button in KB_CANCEL:
                     self.cancel()
 
-        # Clamp gx and gy, and scroll camera as appropriate
-        self.gx = clamp(self.gx, 0, Managers.battle_map.width - 1)
-        self.gy = clamp(self.gy, 0, Managers.battle_map.height - 2)
-
         self.scroll_camera()
 
+    # Clamp gx and gy, and scroll camera as appropriate
     def scroll_camera(self):
+        self.gx = clamp(self.gx, 0, Managers.battle_map.width - 1)
+        self.gy = clamp(self.gy, 0, Managers.battle_map.height - 1)
+
         camera_min_gx = self.camera_x // GRID_WIDTH
         camera_min_gy = self.camera_y // GRID_HEIGHT
-        camera_max_gx = camera_min_gx + RESOLUTION_WIDTH // GRID_WIDTH
-        camera_max_gy = camera_min_gy + RESOLUTION_HEIGHT // GRID_HEIGHT
+        camera_max_gx = camera_min_gx + CAMERA_WIDTH // GRID_WIDTH
+        camera_max_gy = camera_min_gy + CAMERA_HEIGHT // GRID_HEIGHT
 
         screen_buffer = 1
 
@@ -157,13 +174,13 @@ class Cursor(GameObject):
             self.camera_x += GRID_WIDTH
         if self.gx <= camera_min_gx + screen_buffer:
             self.camera_x -= GRID_WIDTH
-        if self.gy >= camera_max_gy - screen_buffer - 1:
+        if self.gy >= camera_max_gy - screen_buffer:
             self.camera_y += GRID_HEIGHT
         if self.gy <= camera_min_gy + screen_buffer:
             self.camera_y -= GRID_HEIGHT
 
-        self.camera_x = clamp(self.camera_x, 0, Managers.battle_map.width * GRID_WIDTH - RESOLUTION_WIDTH)
-        self.camera_y = clamp(self.camera_y, 0, Managers.battle_map.height * GRID_HEIGHT - RESOLUTION_HEIGHT)
+        self.camera_x = clamp(self.camera_x, 0, Managers.battle_map.width * GRID_WIDTH - CAMERA_WIDTH)
+        self.camera_y = clamp(self.camera_y, 0, Managers.battle_map.height * GRID_HEIGHT - CAMERA_HEIGHT)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
@@ -172,6 +189,9 @@ class Cursor(GameObject):
             self.move_ui.render(game_screen, ui_screen)
 
         game_screen.blit(spr_cursor[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+
+        if Managers.team_manager.is_turn_submitted(self.team):
+            game_screen.blit(spr_turn_submitted_indicator[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
         if self.menu:
             self.menu.render(game_screen, ui_screen)

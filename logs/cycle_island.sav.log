@@ -3285,3 +3285,350 @@ RED Colonist at tile (8, 3) with 100 HP successfully executed 'Order: raise terr
 Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
 Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
 == ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+RED Guardian at tile (4, 3) with 20 HP was assigned the order 'Order: Move to (5, 4)'
+RED Colonist at tile (1, 4) with 100 HP was assigned the order 'Order: Move to (2, 4)'
+= Phase Move begins
+RED Guardian at tile (5, 4) with 20 HP successfully executed 'Order: Move to (5, 4)'
+RED Colonist at tile (2, 4) with 100 HP successfully executed 'Order: Move to (2, 4)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (2, 4) with 100 HP was assigned the order 'Order: Move to (3, 2)'
+= Phase Move begins
+RED Colonist at tile (3, 2) with 100 HP successfully executed 'Order: Move to (3, 2)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (3, 2) with 100 HP was assigned the order 'Order: Move to (3, 1)'
+= Phase Move begins
+RED Colonist at tile (3, 1) with 100 HP successfully executed 'Order: Move to (3, 1)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (3, 1) with 100 HP was assigned the order 'Order: Build a Carbon Gen on tile (2, 1)'
+= Phase Move begins
+= Phase Build begins
+RED Colonist at tile (3, 1) with 100 HP successfully executed 'Order: Build a Carbon Gen on tile (2, 1)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (3, 1) with 100 HP was assigned the order 'Order: Build a Carbon Gen on tile (4, 1)'
+= Phase Move begins
+= Phase Build begins
+RED Colonist at tile (3, 1) with 100 HP successfully executed 'Order: Build a Carbon Gen on tile (4, 1)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (3, 1) with 100 HP was assigned the order 'Order: Build a Barracks on tile (3, 2)'
+= Phase Move begins
+= Phase Build begins
+RED Colonist at tile (3, 1) with 100 HP successfully executed 'Order: Build a Barracks on tile (3, 2)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (3, 1) with 100 HP was assigned the order 'Order: raise terrain on tile (3, 0)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Colonist at tile (3, 1) with 100 HP successfully executed 'Order: raise terrain on tile (3, 0)'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (3, 1) with 100 HP was assigned the order 'Order: raise terrain on tile (3, 0)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Colonist at tile (3, 1) with 100 HP successfully executed 'Order: raise terrain on tile (3, 0)'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Base at tile (11, 10) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_BANSHEE'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+BLUE Base at tile (11, 10) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_BANSHEE'
+= Phase Start Turn begins
+Team.BLUE team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+= Phase Issue Orders begins
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: Build a Banshee on tile (10, 8)'
+= Phase Move begins
+= Phase Build begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: Build a Banshee on tile (10, 8)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Banshee at tile (10, 8) with 40 HP was assigned the order 'Order: Move to (9, 5)'
+= Phase Move begins
+BLUE Banshee at tile (9, 5) with 40 HP successfully executed 'Order: Move to (9, 5)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.BANSHEE_LURK'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.BANSHEE_LURK'
+= Phase Start Turn begins
+Team.BLUE team researched the upgrade UpgradeType.BANSHEE_LURK
+= Phase Issue Orders begins
+BLUE Banshee at tile (9, 5) with 40 HP was assigned the order 'Order: Move to (7, 6)'
+= Phase Move begins
+BLUE Banshee at tile (7, 6) with 40 HP successfully executed 'Order: Move to (7, 6)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: Build a Banshee on tile (10, 8)'
+= Phase Move begins
+= Phase Build begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: Build a Banshee on tile (10, 8)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Banshee at tile (10, 8) with 40 HP was assigned the order 'Order: Move to (7, 7)'
+= Phase Move begins
+BLUE Banshee at tile (7, 7) with 40 HP successfully executed 'Order: Move to (7, 7)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Banshee at tile (7, 6) with 40 HP was assigned the order 'Order: Move to (5, 4)'
+= Phase Move begins
+BLUE Banshee at tile (5, 4) with 40 HP successfully executed 'Order: Move to (5, 4)'
+= Phase Build begins
+= Phase Combat begins
+RED Guardian at tile (5, 4) with 20 HP and BLUE Banshee at tile (5, 4) with 40 HP are contesting the tile at (5, 4)!
+RED Guardian at tile (5, 4) with 12 HP took 8 damage from BLUE Banshee at tile (5, 4) with 40 HP!
+BLUE Banshee at tile (5, 4) with -32 HP took 72 damage from RED Guardian at tile (5, 4) with 12 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Banshee at tile (7, 7) with 40 HP was assigned the order 'Order: Move to (6, 5)'
+= Phase Move begins
+BLUE Banshee at tile (6, 5) with 40 HP successfully executed 'Order: Move to (6, 5)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Banshee at tile (6, 5) with 40 HP was assigned the order 'Order: Move to (5, 2)'
+= Phase Move begins
+BLUE Banshee at tile (5, 2) with 40 HP successfully executed 'Order: Move to (5, 2)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Banshee at tile (5, 2) with 40 HP was assigned the order 'Order: Move to (4, 2)'
+= Phase Move begins
+BLUE Banshee at tile (4, 2) with 40 HP successfully executed 'Order: Move to (4, 2)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Banshee at tile (4, 2) with 40 HP was assigned the order 'Order: Move to (3, 1)'
+= Phase Move begins
+BLUE Banshee at tile (3, 1) with 40 HP successfully executed 'Order: Move to (3, 1)'
+= Phase Build begins
+= Phase Combat begins
+RED Colonist at tile (3, 1) with 100 HP and BLUE Banshee at tile (3, 1) with 40 HP are contesting the tile at (3, 1)!
+RED Colonist at tile (3, 1) with 36 HP took 64 damage from BLUE Banshee at tile (3, 1) with 40 HP!
+BLUE Banshee at tile (3, 1) with 40 HP took 0 damage from RED Colonist at tile (3, 1) with 36 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+RED Colonist at tile (3, 1) with 36 HP and BLUE Banshee at tile (3, 1) with 40 HP are contesting the tile at (3, 1)!
+RED Colonist at tile (3, 1) with -28 HP took 64 damage from BLUE Banshee at tile (3, 1) with 40 HP!
+BLUE Banshee at tile (3, 1) with 40 HP took 0 damage from RED Colonist at tile (3, 1) with -28 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.BANSHEE_SABOTAGE'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.BANSHEE_SABOTAGE'
+= Phase Start Turn begins
+Team.BLUE team researched the upgrade UpgradeType.BANSHEE_SABOTAGE
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: Build a Colonist on tile (4, 3)'
+= Phase Move begins
+= Phase Build begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: Build a Colonist on tile (4, 3)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Banshee at tile (3, 1) with 40 HP was assigned the order 'Order: Move to (4, 3)'
+= Phase Move begins
+BLUE Banshee at tile (4, 3) with 40 HP successfully executed 'Order: Move to (4, 3)'
+= Phase Build begins
+= Phase Combat begins
+RED Colonist at tile (4, 3) with 100 HP and BLUE Banshee at tile (4, 3) with 40 HP are contesting the tile at (4, 3)!
+RED Colonist at tile (4, 3) with 36 HP took 64 damage from BLUE Banshee at tile (4, 3) with 40 HP!
+BLUE Banshee at tile (4, 3) with 40 HP took 0 damage from RED Colonist at tile (4, 3) with 36 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+RED Colonist at tile (4, 3) with 36 HP and BLUE Banshee at tile (4, 3) with 40 HP are contesting the tile at (4, 3)!
+RED Colonist at tile (4, 3) with -28 HP took 64 damage from BLUE Banshee at tile (4, 3) with 40 HP!
+BLUE Banshee at tile (4, 3) with 40 HP took 0 damage from RED Colonist at tile (4, 3) with -28 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.GHOST_STEAL'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.GHOST_STEAL'
+= Phase Start Turn begins
+Team.BLUE team researched the upgrade UpgradeType.GHOST_STEAL
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 8)'
+= Phase Move begins
+= Phase Build begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: Build a Ghost on tile (10, 8)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Ghost at tile (10, 8) with 80 HP was assigned the order 'Order: Move to (10, 5)'
+= Phase Move begins
+BLUE Ghost at tile (10, 5) with 80 HP successfully executed 'Order: Move to (10, 5)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Ghost at tile (10, 5) with 80 HP was assigned the order 'Order: Move to (8, 4)'
+= Phase Move begins
+BLUE Ghost at tile (8, 4) with 80 HP successfully executed 'Order: Move to (8, 4)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+BLUE Ghost at tile (8, 4) with 80 HP was assigned the order 'Order: Move to (5, 4)'
+= Phase Move begins
+BLUE Ghost at tile (5, 4) with 80 HP successfully executed 'Order: Move to (5, 4)'
+= Phase Build begins
+= Phase Combat begins
+RED Guardian at tile (5, 4) with 12 HP and BLUE Ghost at tile (5, 4) with 80 HP are contesting the tile at (5, 4)!
+RED Guardian at tile (5, 4) with 6 HP took 6 damage from BLUE Ghost at tile (5, 4) with 80 HP!
+BLUE Ghost at tile (5, 4) with 14 HP took 66 damage from RED Guardian at tile (5, 4) with 6 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+RED Guardian at tile (5, 4) with 6 HP and BLUE Ghost at tile (5, 4) with 14 HP are contesting the tile at (5, 4)!
+RED Guardian at tile (5, 4) with 0 HP took 6 damage from BLUE Ghost at tile (5, 4) with 14 HP!
+BLUE Ghost at tile (5, 4) with -34 HP took 48 damage from RED Guardian at tile (5, 4) with 0 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Trooper on tile (5, 4)'
+= Phase Move begins
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Trooper on tile (5, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins

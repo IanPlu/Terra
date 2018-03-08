@@ -1,4 +1,4 @@
-from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT
+from terra.constants import GRID_WIDTH, GRID_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
 from terra.managers.managers import Managers
@@ -38,5 +38,5 @@ class Battle(GameScreen):
         # Trim the screen to just the camera area
         camera_x, camera_y = Managers.player_manager.get_camera_coords()
         return map_screen.subsurface((camera_x, camera_y,
-                                      min(RESOLUTION_WIDTH, map_screen.get_size()[0]),
-                                      min(RESOLUTION_HEIGHT, map_screen.get_size()[1])))
+                                      min(CAMERA_WIDTH, map_screen.get_size()[0]),
+                                      min(CAMERA_HEIGHT, map_screen.get_size()[1])))

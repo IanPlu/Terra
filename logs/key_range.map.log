@@ -25,3 +25,70 @@ BLUE Barracks at tile (15, 9) with 100 HP successfully executed 'Order: Build a 
 = Phase Start Turn begins
 == ROUND 3 BEGIN ==
 = Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Base at tile (5, 3) with 100 HP was assigned the order 'Order: Build a Colonist on tile (6, 3)'
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Ghost on tile (4, 5)'
+BLUE Base at tile (14, 10) with 100 HP was assigned the order 'Order: Build a Colonist on tile (13, 10)'
+BLUE Barracks at tile (15, 9) with 100 HP was assigned the order 'Order: Build a Trooper on tile (14, 9)'
+= Phase Move begins
+= Phase Build begins
+RED Base at tile (5, 3) with 100 HP successfully executed 'Order: Build a Colonist on tile (6, 3)'
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Ghost on tile (4, 5)'
+BLUE Base at tile (14, 10) with 100 HP successfully executed 'Order: Build a Colonist on tile (13, 10)'
+BLUE Barracks at tile (15, 9) with 100 HP successfully executed 'Order: Build a Trooper on tile (14, 9)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Base at tile (5, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_TERRAFORMING'
+BLUE Base at tile (14, 10) with 100 HP was assigned the order 'Order: Build a Colonist on tile (14, 9)'
+BLUE Barracks at tile (15, 9) with 100 HP was assigned the order 'Order: Build a Ghost on tile (15, 10)'
+RED Colonist at tile (6, 3) with 100 HP was assigned the order 'Order: Move to (9, 3)'
+RED Ghost at tile (4, 5) with 80 HP was assigned the order 'Order: Move to (5, 7)'
+BLUE Colonist at tile (13, 10) with 100 HP was assigned the order 'Order: Move to (10, 10)'
+BLUE Trooper at tile (14, 9) with 100 HP was assigned the order 'Order: Move to (14, 7)'
+= Phase Move begins
+RED Colonist at tile (9, 3) with 100 HP successfully executed 'Order: Move to (9, 3)'
+RED Ghost at tile (5, 7) with 80 HP successfully executed 'Order: Move to (5, 7)'
+BLUE Colonist at tile (10, 10) with 100 HP successfully executed 'Order: Move to (10, 10)'
+BLUE Trooper at tile (14, 7) with 100 HP successfully executed 'Order: Move to (14, 7)'
+= Phase Build begins
+BLUE Base at tile (14, 10) with 100 HP successfully executed 'Order: Build a Colonist on tile (14, 9)'
+BLUE Barracks at tile (15, 9) with 100 HP successfully executed 'Order: Build a Ghost on tile (15, 10)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (5, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.COLONIST_TERRAFORMING'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+= Phase Issue Orders begins
+BLUE Base at tile (14, 10) with 100 HP was assigned the order 'Order: Build a Colonist on tile (13, 10)'
+RED Colonist at tile (9, 3) with 100 HP was assigned the order 'Order: raise terrain on tile (10, 3)'
+RED Ghost at tile (5, 7) with 80 HP was assigned the order 'Order: Move to (6, 9)'
+BLUE Colonist at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Barracks on tile (9, 10)'
+BLUE Trooper at tile (14, 7) with 100 HP was assigned the order 'Order: Move to (14, 5)'
+BLUE Ghost at tile (15, 10) with 80 HP was assigned the order 'Order: Move to (12, 10)'
+= Phase Move begins
+RED Ghost at tile (6, 9) with 80 HP successfully executed 'Order: Move to (6, 9)'
+BLUE Trooper at tile (14, 5) with 100 HP successfully executed 'Order: Move to (14, 5)'
+BLUE Ghost at tile (12, 10) with 80 HP successfully executed 'Order: Move to (12, 10)'
+= Phase Build begins
+BLUE Base at tile (14, 10) with 100 HP successfully executed 'Order: Build a Colonist on tile (13, 10)'
+BLUE Colonist at tile (10, 10) with 100 HP successfully executed 'Order: Build a Barracks on tile (9, 10)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Colonist at tile (9, 3) with 100 HP successfully executed 'Order: raise terrain on tile (10, 3)'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (9, 3) with 100 HP was assigned the order 'Order: raise terrain on tile (10, 3)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Colonist at tile (9, 3) with 100 HP successfully executed 'Order: raise terrain on tile (10, 3)'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==

@@ -1,7 +1,6 @@
 from terra.economy.upgrades import UpgradeType
 from terra.piece.piecetype import PieceType
-from terra.settings import LANGUAGE
-from terra.strings import piece_name_strings
+from terra.strings import piece_name_strings, LANGUAGE
 from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, MENU_PURCHASE_UPGRADE, MENU_RAISE_TILE
 
 

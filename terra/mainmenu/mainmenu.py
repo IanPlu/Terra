@@ -7,7 +7,8 @@ from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL, KB_MENU
 from terra.mainmenu.option import Option
 from terra.managers.mapmanager import get_loadable_maps
 from terra.managers.networkmanager import get_network_settings
-from terra.resources.assets import clear_color, text_main_menu, light_color, shadow_color
+from terra.resources.assets import clear_color, light_color, shadow_color
+from terra.strings import get_text, main_menu_strings
 from terra.team import Team
 from terra.util.drawingutil import draw_text
 from terra.util.mathutil import clamp
@@ -147,7 +148,7 @@ class MainMenu(GameScreen):
         root_y = RESOLUTION_HEIGHT // 2 - 48
 
         # Draw text for the menu title
-        game_screen.blit(text_main_menu[self.current_menu[0]], (root_x - 12, root_y))
+        game_screen.blit(get_text(main_menu_strings, self.current_menu[0]), (root_x - 12, root_y))
 
         # Draw text for each menu option
         row_y = 1
@@ -165,7 +166,7 @@ class MainMenu(GameScreen):
                 game_screen.blit(draw_text(option[0], light_color, shadow_color[Team.RED]), position)
             else:
                 # Display prerendered text
-                game_screen.blit(text_main_menu[option[0]], position)
+                game_screen.blit(get_text(main_menu_strings, option[0]), position)
 
             row_y += 1
 

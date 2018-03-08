@@ -1,4 +1,4 @@
-from enum import Enum, auto
+from enum import Enum
 
 
 # Substeps in the current turn, executed in order.

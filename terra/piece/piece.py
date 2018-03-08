@@ -1,4 +1,4 @@
-from pygame import KEYDOWN, KEYUP
+from pygame import KEYDOWN, KEYUP, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
@@ -15,8 +15,7 @@ from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
     spr_target, light_team_color
-from terra.settings import LANGUAGE
-from terra.strings import piece_name_strings
+from terra.strings import piece_name_strings, LANGUAGE
 from terra.team import Team
 
 
@@ -532,10 +531,13 @@ class Piece(GameObject):
                 if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
                     self.handle_tile_selection(event)
 
+            # Preview orders when the menu2 key is held
             if self.team == Managers.player_manager.active_team:
-                if event.type == KEYDOWN and event.key in KB_MENU2:
+                if (event.type == KEYDOWN and event.key in KB_MENU2) or \
+                        (event.type == MOUSEBUTTONDOWN and event.button in KB_MENU2):
                     self.previewing_order = True
-                elif event.type == KEYUP and event.key in KB_MENU2:
+                elif (event.type == KEYUP and event.key in KB_MENU2) or \
+                        (event.type == MOUSEBUTTONUP and event.button in KB_MENU2):
                     self.previewing_order = False
 
         elif Managers.current_mode == Mode.EDIT:

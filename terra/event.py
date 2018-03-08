@@ -79,6 +79,7 @@ MENU_LOWER_TILE = define_event()
 
 # Pause menu option events
 MENU_SUBMIT_TURN = define_event()
+MENU_REVISE_TURN = define_event()
 MENU_SAVE_GAME = define_event()
 MENU_QUIT_BATTLE = define_event()
 MENU_SAVE_MAP = define_event()

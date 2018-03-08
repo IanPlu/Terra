@@ -2,8 +2,7 @@ import logging
 import os
 
 from terra.resources.assets import AssetType, get_asset
-from terra.settings import LANGUAGE
-from terra.strings import phase_strings
+from terra.strings import phase_strings, LANGUAGE
 
 
 # Logs events that occur over the course of the game

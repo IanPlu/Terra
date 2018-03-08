@@ -5,8 +5,8 @@
 1 2 3 4 1 
 # Pieces
 # Teams
-RED
-BLUE
+RED 0 0 0
+BLUE 0 0 0
 # Upgrades
 RED|
 BLUE|

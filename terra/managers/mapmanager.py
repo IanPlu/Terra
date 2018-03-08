@@ -177,7 +177,7 @@ def load_map_from_file(mapname):
 def generate_map():
     bitmap = generate_bitmap(20, 16, False)
     pieces = ["0 0 RED BASE", "19 15 BLUE BASE"]
-    teams = ["RED 0 0 0", "BLUE 0 0 0"]
+    teams = ["RED 5 5 5", "BLUE 5 5 5"]
     upgrades = ["RED|", "BLUE|"]
 
     return bitmap, pieces, teams, upgrades

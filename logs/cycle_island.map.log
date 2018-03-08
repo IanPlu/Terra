@@ -4192,3 +4192,455 @@ RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Tr
 == ROUND 1 BEGIN ==
 == ROUND 1 BEGIN ==
 == ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 8)'
+= Phase Move begins
+= Phase Build begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: Build a Trooper on tile (10, 8)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Trooper on tile (5, 4)'
+= Phase Move begins
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Trooper on tile (5, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: Build a Colonist on tile (4, 3)'
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Trooper on tile (5, 4)'
+= Phase Move begins
+= Phase Build begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: Build a Colonist on tile (4, 3)'
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Trooper on tile (5, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+RED Colonist at tile (1, 4) with 100 HP was assigned the order 'Order: raise terrain on tile (2, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Colonist at tile (1, 4) with 100 HP successfully executed 'Order: raise terrain on tile (2, 4)'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Ranger on tile (5, 4)'
+RED Guardian at tile (4, 3) with 20 HP was assigned the order 'Order: Move to (6, 3)'
+= Phase Move begins
+RED Guardian at tile (6, 3) with 20 HP successfully executed 'Order: Move to (6, 3)'
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Ranger on tile (5, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Ranger at tile (5, 4) with 100 HP was assigned the order 'Order: Ranged attack tile (7, 4)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+RED Ranger at tile (5, 4) with 100 HP successfully executed 'Order: Ranged attack tile (7, 4)'
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (1, 4) with 100 HP was assigned the order 'Order: Move to (2, 4)'
+= Phase Move begins
+RED Colonist at tile (2, 4) with 100 HP successfully executed 'Order: Move to (2, 4)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: Build a Colonist on tile (4, 3)'
+= Phase Move begins
+= Phase Build begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: Build a Colonist on tile (4, 3)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_BANSHEE'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_BANSHEE'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_ATTACK'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.COLONIST_ATTACK'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_ATTACK
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_MAX_HP'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.COLONIST_MAX_HP'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_MAX_HP
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_TERRAFORMING'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.COLONIST_TERRAFORMING'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+= Phase Issue Orders begins
+RED Base at tile (3, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_UNCONTESTABLE'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (3, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.COLONIST_UNCONTESTABLE'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_UNCONTESTABLE
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+RED Base at tile (2, 3) with 100 HP was assigned the order 'Order: Build a Colonist on tile (2, 2)'
+RED Barracks at tile (4, 1) with 100 HP was assigned the order 'Order: Build a Trooper on tile (5, 1)'
+= Phase Move begins
+= Phase Build begins
+RED Base at tile (2, 3) with 100 HP successfully executed 'Order: Build a Colonist on tile (2, 2)'
+RED Barracks at tile (4, 1) with 100 HP successfully executed 'Order: Build a Trooper on tile (5, 1)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Base at tile (2, 3) with 100 HP was assigned the order 'Order: Build a Colonist on tile (2, 2)'
+RED Barracks at tile (4, 3) with 100 HP was assigned the order 'Order: Build a Ranger on tile (5, 3)'
+RED Barracks at tile (4, 1) with 100 HP was assigned the order 'Order: Build a Ghost on tile (5, 1)'
+RED Colonist at tile (2, 2) with 100 HP was assigned the order 'Order: Move to (5, 2)'
+RED Trooper at tile (5, 1) with 100 HP was assigned the order 'Order: Move to (7, 1)'
+= Phase Move begins
+RED Colonist at tile (5, 2) with 100 HP successfully executed 'Order: Move to (5, 2)'
+RED Trooper at tile (7, 1) with 100 HP successfully executed 'Order: Move to (7, 1)'
+= Phase Build begins
+RED Base at tile (2, 3) with 100 HP successfully executed 'Order: Build a Colonist on tile (2, 2)'
+RED Barracks at tile (4, 3) with 100 HP successfully executed 'Order: Build a Ranger on tile (5, 3)'
+RED Barracks at tile (4, 1) with 100 HP successfully executed 'Order: Build a Ghost on tile (5, 1)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (5, 2) with 100 HP was assigned the order 'Order: Build a Mineral Gen on tile (6, 2)'
+RED Trooper at tile (7, 1) with 100 HP was assigned the order 'Order: Move to (8, 2)'
+RED Colonist at tile (2, 2) with 100 HP was assigned the order 'Order: Build a Carbon Gen on tile (2, 1)'
+RED Ranger at tile (5, 3) with 90 HP was assigned the order 'Order: Move to (5, 1)'
+RED Ghost at tile (5, 1) with 80 HP was assigned the order 'Order: Move to (7, 2)'
+= Phase Move begins
+RED Trooper at tile (8, 2) with 100 HP successfully executed 'Order: Move to (8, 2)'
+RED Ranger at tile (5, 1) with 90 HP successfully executed 'Order: Move to (5, 1)'
+RED Ghost at tile (7, 2) with 80 HP successfully executed 'Order: Move to (7, 2)'
+= Phase Build begins
+RED Colonist at tile (5, 2) with 100 HP successfully executed 'Order: Build a Mineral Gen on tile (6, 2)'
+RED Colonist at tile (2, 2) with 100 HP successfully executed 'Order: Build a Carbon Gen on tile (2, 1)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Base at tile (2, 3) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+RED Colonist at tile (5, 2) with 100 HP was assigned the order 'Order: Move to (8, 2)'
+RED Colonist at tile (2, 2) with 100 HP was assigned the order 'Order: Move to (5, 2)'
+RED Ranger at tile (5, 1) with 90 HP was assigned the order 'Order: Move to (7, 1)'
+RED Trooper at tile (8, 2) with 100 HP was assigned the order 'Order: Move to (8, 4)'
+RED Ghost at tile (7, 2) with 80 HP was assigned the order 'Order: Move to (7, 5)'
+= Phase Move begins
+RED Colonist at tile (8, 2) with 100 HP successfully executed 'Order: Move to (8, 2)'
+RED Colonist at tile (5, 2) with 100 HP successfully executed 'Order: Move to (5, 2)'
+RED Ranger at tile (7, 1) with 90 HP successfully executed 'Order: Move to (7, 1)'
+RED Trooper at tile (8, 4) with 100 HP successfully executed 'Order: Move to (8, 4)'
+RED Ghost at tile (7, 5) with 80 HP successfully executed 'Order: Move to (7, 5)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Base at tile (2, 3) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+= Phase Issue Orders begins
+RED Colonist at tile (8, 2) with 100 HP was assigned the order 'Order: Move to (9, 4)'
+RED Ranger at tile (7, 1) with 90 HP was assigned the order 'Order: Move to (7, 3)'
+RED Trooper at tile (8, 4) with 100 HP was assigned the order 'Order: Move to (8, 6)'
+RED Ghost at tile (7, 5) with 80 HP was assigned the order 'Order: Move to (6, 6)'
+= Phase Move begins
+RED Colonist at tile (9, 4) with 100 HP successfully executed 'Order: Move to (9, 4)'
+RED Ranger at tile (7, 3) with 90 HP successfully executed 'Order: Move to (7, 3)'
+RED Trooper at tile (8, 6) with 100 HP successfully executed 'Order: Move to (8, 6)'
+RED Ghost at tile (6, 6) with 80 HP successfully executed 'Order: Move to (6, 6)'
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (9, 4) with 100 HP was assigned the order 'Order: Build a Barracks on tile (8, 4)'
+= Phase Move begins
+= Phase Build begins
+RED Colonist at tile (9, 4) with 100 HP successfully executed 'Order: Build a Barracks on tile (8, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Ranger on tile (5, 4)'
+= Phase Move begins
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Ranger on tile (5, 4)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==

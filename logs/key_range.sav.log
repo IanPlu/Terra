@@ -930,3 +930,16 @@ RED Trooper at tile (7, 10) with 81 HP healed for 10 health.
 = Phase Start Turn begins
 RED Trooper at tile (7, 10) with 91 HP healed for 10 health.
 = Phase Issue Orders begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+== ROUND 1 BEGIN ==
+RED Colonist at tile (9, 3) with 100 HP was assigned the order 'Order: lower terrain on tile (10, 3)'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Colonist at tile (9, 3) with 100 HP successfully executed 'Order: lower terrain on tile (10, 3)'
+= Phase Start Turn begins
+= Phase Issue Orders begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+== ROUND 1 BEGIN ==

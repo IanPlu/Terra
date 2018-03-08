@@ -1,16 +1,16 @@
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
 from terra.economy.resourcetypes import ResourceType
-from terra.effects.effecttype import EffectType
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.managers.managers import Managers
-from terra.resources.assets import clear_color, phase_text, spr_cursor, spr_phase_indicator, \
-    spr_resource_icon_carbon, spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons, \
-    text_notifications, spr_turn_submitted_indicator
+from terra.resources.assets import clear_color, spr_cursor, spr_phase_indicator, spr_resource_icon_carbon, \
+    spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons, spr_turn_submitted_indicator
+from terra.strings import get_text, notification_strings, phase_strings
 from terra.team import Team
 from terra.ui.toastnotification import ToastNotification
 from terra.util.drawingutil import draw_resource_count
+from terra.battlephase import BattlePhase
 
 
 # Renders a UI at the bottom of the screen
@@ -30,7 +30,7 @@ class PhaseBar(GameObject):
 
         if is_event_type(event, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, E_INVALID_UPGRADE_ORDERS):
             if event.team == self.team:
-                self.toast = ToastNotification(self, text_notifications[event.event_type], self.team)
+                self.toast = ToastNotification(self, get_text(notification_strings, event.event_type, light=False), self.team)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
@@ -42,13 +42,13 @@ class PhaseBar(GameObject):
         ui_screen.fill(clear_color[self.team], (0, RESOLUTION_HEIGHT - GRID_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT))
 
         x = 0
-        for x in range(len(spr_phase_indicator[self.team])):
-            ui_screen.blit(spr_phase_indicator[self.team][x], (x * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
+        for phase in BattlePhase:
+            ui_screen.blit(spr_phase_indicator[self.team][phase.value], (x * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
+            x += 1
         ui_screen.blit(spr_cursor[self.team], (Managers.turn_manager.phase.value * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Render phase indicator text
-        x += 1
-        ui_screen.blit(phase_text[self.team][Managers.turn_manager.phase],
+        ui_screen.blit(get_text(phase_strings, Managers.turn_manager.phase),
                        (4 + GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT + 6))
 
         # Render resource counts

@@ -47,6 +47,46 @@ def draw_text(text, color, shadow_color=None):
         return Font.COURIER.value.render(text, False, color)
 
 
+# Create a blittable surface with the provided text. Long text will wrap to the provided width in pixels.
+# https://stackoverflow.com/a/42015712
+def draw_multiline_text(text, color, shadow_color=None, width=192, height=192):
+    font = Font.COURIER.value
+    words = [word.split(' ') for word in text.splitlines()]
+    space = font.size(' ')[0]
+
+    text_surface = pygame.Surface((width, height), pygame.SRCALPHA, 32)
+
+    x = 0
+    y = 0
+
+    for line in words:
+        for word in line:
+            word_surface = font.render(word, False, color)
+            word_width, word_height = word_surface.get_size()
+
+            # Handle control characters
+            if word == "\n":
+                x = 0
+                y += word_height
+
+            if x + word_width >= width:
+                x = 0
+                y += word_height
+
+            if shadow_color:
+                shadow_surface = font.render(word, False, shadow_color)
+                text_surface.blit(shadow_surface, (x + 1, y + 1))
+
+            text_surface.blit(word_surface, (x, y))
+
+            x += word_width + space
+
+        x = 0
+        y += word_height
+
+    return text_surface
+
+
 # Return a list of sprites of the provided width from a sprite strip.
 def get_sprites_from_strip(sprite, width):
     sprites = []

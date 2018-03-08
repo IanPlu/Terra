@@ -197,9 +197,12 @@ class TeamManager(GameObject):
                 return False
         return True
 
+    def is_turn_submitted(self, team):
+        return self.turn_submitted[team]
+
     # Attempt to submit the turn for the specified team. Orders are validated before submission is allowed.
     def try_submitting_turn(self, team):
-        if not self.turn_submitted[team] and Managers.piece_manager.validate_orders(team):
+        if not self.is_turn_submitted(team) and Managers.piece_manager.validate_orders(team):
             self.turn_submitted[team] = True
             publish_game_event(E_TURN_SUBMITTED, {
                 'team': team,
@@ -210,7 +213,10 @@ class TeamManager(GameObject):
                 publish_game_event(E_ALL_TURNS_SUBMITTED, {})
                 for team in Team:
                     self.turn_submitted[team] = False
-        else:
+
+    # Cancel turn submission for the specified team
+    def cancel_turn_submission(self, team):
+        if self.is_turn_submitted(team):
             self.turn_submitted[team] = False
             publish_game_event(E_CANCEL_TURN_SUBMITTED, {
                 'team': team
@@ -239,6 +245,8 @@ class TeamManager(GameObject):
         elif is_event_type(event, E_CLOSE_MENU) and event.option:
             if event.option == MENU_SUBMIT_TURN:
                 self.try_submitting_turn(event.team)
+            elif event.option == MENU_REVISE_TURN:
+                self.cancel_turn_submission(event.team)
             elif event.option == MENU_SAVE_GAME:
                 publish_game_event(E_SAVE_GAME, {})
             elif event.option == MENU_QUIT_BATTLE:

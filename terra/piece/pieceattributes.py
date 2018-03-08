@@ -149,7 +149,7 @@ base_piece_attributes = {
         # Rangers notably do very little damage to Ghosts.
         Attribute.SUBTYPE: PieceSubtype.UNIT,
         Attribute.ARCHETYPE: PieceArchetype.RANGED,
-        Attribute.MAX_HP: 100,
+        Attribute.MAX_HP: 90,
         Attribute.ATTACK: 30,
         Attribute.ATTACK_MULTIPLIER: {
             # Units
@@ -226,7 +226,7 @@ base_piece_attributes = {
         Attribute.ARMOR_SHARE: 1,
     },
     PieceType.BOLTCASTER: {
-        # Ranges specialty unit.
+        # Ranged specialty unit.
         # Has a longer range than Rangers, but a wider blind spot. Boltcaster projectiles deal damage in an area,
         # with reduced damage to tiles adjacent to the target.
         # Notably brittle in direct combat, and has a small movement range.
@@ -275,7 +275,7 @@ base_piece_attributes = {
             PieceArchetype.UTILITY: 0,
         },
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
-        Attribute.MOVEMENT_TYPE: MovementType.BANSHEE,
+        Attribute.MOVEMENT_TYPE: MovementType.HOVER,
         Attribute.MOVEMENT_RANGE: 4,
         Attribute.PRICE: (2, 4, 6),
         Attribute.IGNORE_IMPEDANCE: True,

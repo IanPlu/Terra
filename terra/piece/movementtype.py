@@ -8,7 +8,7 @@ class MovementType(Enum):
     NONE = auto()
     GROUND = auto()
     HEAVY = auto()
-    BANSHEE = auto()
+    HOVER = auto()
     FLYING = auto()
     BUILDING = auto()
     GENERATOR = auto()
@@ -39,7 +39,7 @@ movement_types = {
         MovementAttribute.TRAVERSABLE: {TileType.COAST, TileType.HILL},
     },
     # Banshee-specific pseudo-flying movement type. Can traverse SEA and HILLs but not stop on them.
-    MovementType.BANSHEE: {
+    MovementType.HOVER: {
         MovementAttribute.PASSABLE: {TileType.GRASS, TileType.WOODS, TileType.RESOURCE, TileType.COAST, TileType.HILL},
         MovementAttribute.TRAVERSABLE: {TileType.SEA, TileType.MOUNTAIN},
     },

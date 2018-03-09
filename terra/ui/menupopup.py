@@ -135,7 +135,7 @@ class MenuPopup(GameObject):
         self.option_max = self.option_min + max_displayable_options
 
     def show_detailbox(self):
-        self.detailbox = DetailBox(self.cursor, self.team, self.options[self.option_pos])
+        self.detailbox = DetailBox(self.team, self.options[self.option_pos])
 
     def close_detailbox(self):
         self.detailbox = None

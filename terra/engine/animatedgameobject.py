@@ -9,7 +9,7 @@ from terra.settings import TICK_RATE
 # Use Global Animation Frame: If true, uses a global frame to keep things synced to the same animation frame
 class AnimatedGameObject(GameObject):
     global_animation_frame = 0
-    global_animation_framerate = 2
+    global_animation_framerate = 1
     global_num_frames = 4
 
     def __init__(self, images, framerate=1, indexed=False, use_global_animation_frame=False):

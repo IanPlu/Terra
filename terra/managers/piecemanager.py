@@ -38,6 +38,8 @@ class PieceManager(GameObject):
         for piece in pieces:
             if piece.current_order:
                 orders[(piece.gx, piece.gy)] = piece.current_order.serialize()
+            else:
+                orders[(piece.gx, piece.gy)] = None
 
         return orders
 
@@ -45,9 +47,7 @@ class PieceManager(GameObject):
     def set_orders(self, team, orders):
         pieces = self.get_all_pieces_for_team(team)
         for piece in pieces:
-            order = orders.get((piece.gx, piece.gy))
-            if order:
-                piece.current_order = order
+            piece.current_order = orders.get((piece.gx, piece.gy))
 
     # Return a list of piece(s) at the specified grid location
     # If piece type or team is provided, only return pieces of that type.

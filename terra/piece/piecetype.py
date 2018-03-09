@@ -27,6 +27,6 @@ class PieceType(Enum):
     MINERAL_GENERATOR = 10
     GAS_GENERATOR = 11
     BARRACKS = 12
-    # TOWER = 16
+    TOWER = 13
     # WAYSTATION = 17
-    # TECHLAB = 18
+    TECHLAB = 14

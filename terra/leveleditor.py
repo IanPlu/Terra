@@ -1,6 +1,6 @@
 from pygame.constants import KEYDOWN, KMOD_CTRL, MOUSEBUTTONDOWN
 
-from terra.constants import GRID_WIDTH, GRID_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT
+from terra.constants import GRID_WIDTH, GRID_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT, RESOLUTION_HEIGHT, RESOLUTION_WIDTH
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
 from terra.keybindings import KB_MENU2, KB_SCROLL_UP, KB_SCROLL_DOWN
@@ -130,7 +130,7 @@ class LevelEditor(GameScreen):
         Managers.render(map_screen, ui_screen)
 
         # Render the current tile at the bottom of the screen
-        ui_screen.fill(clear_color[Team.RED], (0, CAMERA_HEIGHT - GRID_HEIGHT, CAMERA_WIDTH, GRID_HEIGHT))
+        ui_screen.fill(clear_color[Team.RED], (0, RESOLUTION_HEIGHT - GRID_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT))
 
         # Render tiles
         tile_display = pygame.Surface((GRID_WIDTH * 2, GRID_HEIGHT), pygame.SRCALPHA, 32).convert()
@@ -141,7 +141,7 @@ class LevelEditor(GameScreen):
         tile_display.blit(self.get_tile_sprite_for_tiletype(self.secondary_tile_type), (GRID_WIDTH, 0))
         tile_display.blit(spr_cursor[Team.BLUE], (GRID_WIDTH, 0))
 
-        ui_screen.blit(tile_display, (0, CAMERA_HEIGHT - GRID_HEIGHT))
+        ui_screen.blit(tile_display, (0, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Render pieces
         piece_display = pygame.Surface((GRID_WIDTH, GRID_HEIGHT), pygame.SRCALPHA, 32).convert()
@@ -151,7 +151,7 @@ class LevelEditor(GameScreen):
         piece_display.blit(self.get_piece_sprite_for_piecetype(self.piece_type), (0, 0))
         piece_display.blit(spr_cursor[self.piece_team], (0, 0))
 
-        ui_screen.blit(piece_display, (GRID_WIDTH * 3, CAMERA_HEIGHT - GRID_HEIGHT))
+        ui_screen.blit(piece_display, (GRID_WIDTH * 3, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Trim the screen to just the camera area
         camera_x, camera_y = Managers.player_manager.get_camera_coords()

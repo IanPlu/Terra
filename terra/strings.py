@@ -81,9 +81,11 @@ menu_help_strings = {
         PieceType.MINERAL_GENERATOR: "* Mineral Generators harvest Minerals from Resource tiles each turn.",
         PieceType.GAS_GENERATOR: "* Gas Generators harvest Gas from Resource tiles each turn.",
         PieceType.BARRACKS: "* Barracks produce combat units, and can research upgrades to your combat units.",
-        # PieceType.TOWER: "Tower",
+        PieceType.TOWER: "* Towers are immobile defensive structures. They damage all adjacent enemies at the start of "
+                         "each turn, if they're not contested. Has a weak melee attack for defense.",
         # PieceType.WAYSTATION: "Waystation",
-        # PieceType.TECHLAB: "Tech Lab",
+        PieceType.TECHLAB: "* Tech Labs are able to research new tiers of units. Additionally, they're a second place "
+                           "to purchase upgrades of all types, including upgrades normally bought at the Base.",
 
         # Upgrades
         UpgradeType.RESOURCE_PRODUCTION_1: "* Generators now produce +1 of their resource.",
@@ -174,9 +176,9 @@ piece_name_strings = {
         PieceType.MINERAL_GENERATOR: "Mineral Gen",
         PieceType.GAS_GENERATOR: "Gas Gen",
         PieceType.BARRACKS: "Barracks",
-        # PieceType.TOWER: "Tower",
+        PieceType.TOWER: "Tower",
         # PieceType.WAYSTATION: "Waystation",
-        # PieceType.TECHLAB: "Tech Lab",
+        PieceType.TECHLAB: "Tech Lab",
 
     }
 }

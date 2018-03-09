@@ -85,7 +85,10 @@ class NetworkManager(GameObject):
 
             parsed_orders = {}
             for coord, order in orders.items():
-                parsed_orders[coord] = deserialize_order(order)
+                if order:
+                    parsed_orders[coord] = deserialize_order(order)
+                else:
+                    parsed_orders[coord] = None
 
             Managers.piece_manager.set_orders(team, parsed_orders)
             publish_game_event(E_SUBMIT_TURN, {

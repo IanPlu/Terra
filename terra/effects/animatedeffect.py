@@ -15,7 +15,7 @@ class AnimatedEffect(AnimatedGameObject):
         self.team = team
         self.is_alive = True
 
-        super().__init__(spr_effects[self.effect_type], TICK_RATE / 2)
+        super().__init__(spr_effects[self.effect_type], TICK_RATE / 4)
 
     # Handler for what to do when the animation loops.
     # By default, effects destroy themselves on loop.

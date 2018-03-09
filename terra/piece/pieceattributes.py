@@ -40,6 +40,7 @@ class Attribute(Enum):
     AOE_ON_KILL = "aoe_on_kill"                         # Enemies this kills detonate in an AoE for this much damage
     KICKOFF = "kickoff"                                 # Whether this gets a movement range bonus from adjacent allies
     STEAL = "steal"                                     # How many resources this piece steals on killing an enemy
+    AURA_DAMAGE = "aura_damage"                         # Multiplier on atk dealt to adjacent enemies on turn start
 
 
 # Base table of attributes for all units.
@@ -88,6 +89,7 @@ base_piece_attributes = {
         Attribute.ARMOR_PIERCING: False,
         Attribute.AOE_ON_KILL: 0,
         Attribute.KICKOFF: False,
+        Attribute.AURA_DAMAGE: 0,
     },
 
     # Tier 1 Units
@@ -99,6 +101,8 @@ base_piece_attributes = {
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [
             PieceType.BARRACKS,
+            PieceType.TOWER,
+            PieceType.TECHLAB,
             PieceType.CARBON_GENERATOR,
             PieceType.MINERAL_GENERATOR,
             PieceType.GAS_GENERATOR
@@ -286,7 +290,7 @@ base_piece_attributes = {
     PieceType.BASE: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
         Attribute.ARCHETYPE: PieceArchetype.UTILITY,
-        Attribute.MAX_HP: 100,
+        Attribute.MAX_HP: 150,
         Attribute.BUILDABLE_PIECES: [PieceType.COLONIST],
         Attribute.PURCHASEABLE_UPGRADES: [],
         Attribute.ATTACK: 0,
@@ -305,7 +309,8 @@ base_piece_attributes = {
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
         Attribute.MOVEMENT_RANGE: 0,
         Attribute.PRICE: (0, 0, 0),
-        Attribute.RESOURCE_PRODUCTION: (3, 3, 3)
+        Attribute.RESOURCE_PRODUCTION: (3, 3, 3),
+        Attribute.ARMOR: 1,
     },
     PieceType.CARBON_GENERATOR: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
@@ -396,5 +401,55 @@ base_piece_attributes = {
         Attribute.MOVEMENT_RANGE: 0,
         Attribute.PRICE: (5, 5, 5),
         Attribute.RESOURCE_PRODUCTION: (0, 0, 0)
-    }
+    },
+    PieceType.TOWER: {
+        Attribute.SUBTYPE: PieceSubtype.BUILDING,
+        Attribute.ARCHETYPE: PieceArchetype.UTILITY,
+        Attribute.MAX_HP: 50,
+        Attribute.BUILDABLE_PIECES: [],
+        Attribute.PURCHASEABLE_UPGRADES: [],
+        Attribute.ATTACK: 10,
+        Attribute.ATTACK_MULTIPLIER: {
+            # Units
+            PieceArchetype.WORKER: 1,
+            PieceArchetype.GROUND: 1,
+            PieceArchetype.RANGED: 1,
+            PieceArchetype.MOBILITY: 1.5,
+
+            # Buildings
+            PieceArchetype.GENERATOR: 0,
+            PieceArchetype.UTILITY: 0,
+        },
+        Attribute.DAMAGE_TYPE: DamageType.MELEE,
+        Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
+        Attribute.MOVEMENT_RANGE: 0,
+        Attribute.PRICE: (3, 3, 3),
+        Attribute.RESOURCE_PRODUCTION: (0, 0, 0),
+        Attribute.AURA_DAMAGE: 3,
+        Attribute.ARMOR: 1,
+    },
+    PieceType.TECHLAB: {
+        Attribute.SUBTYPE: PieceSubtype.BUILDING,
+        Attribute.ARCHETYPE: PieceArchetype.UTILITY,
+        Attribute.MAX_HP: 50,
+        Attribute.BUILDABLE_PIECES: [],
+        Attribute.PURCHASEABLE_UPGRADES: [],
+        Attribute.ATTACK: 0,
+        Attribute.ATTACK_MULTIPLIER: {
+            # Units
+            PieceArchetype.WORKER: 1,
+            PieceArchetype.GROUND: 1,
+            PieceArchetype.RANGED: 1,
+            PieceArchetype.MOBILITY: 1,
+
+            # Buildings
+            PieceArchetype.GENERATOR: 1,
+            PieceArchetype.UTILITY: 1,
+        },
+        Attribute.DAMAGE_TYPE: DamageType.NONE,
+        Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
+        Attribute.MOVEMENT_RANGE: 0,
+        Attribute.PRICE: (2, 2, 2),
+        Attribute.RESOURCE_PRODUCTION: (0, 0, 0),
+    },
 }

@@ -198,9 +198,9 @@ spr_pieces = {
         PieceType.MINERAL_GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/MineralGenerator.png")),
         PieceType.GAS_GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/GasGenerator.png")),
         PieceType.BARRACKS: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Barracks.png")),
-        # PieceType.TOWER: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Tower.png")),
+        PieceType.TOWER: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Tower.png")),
         # PieceType.WAYSTATION: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Waystation.png")),
-        # PieceType.TECHLAB: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/TechLab.png")),
+        PieceType.TECHLAB: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Techlab.png")),
     }
 }
 

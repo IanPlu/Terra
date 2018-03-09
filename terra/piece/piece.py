@@ -234,6 +234,13 @@ class Piece(GameObject):
             for ally in adjacent_allies:
                 ally.heal_hp(medic)
 
+        # Apply aura damage to adjacent enemies
+        aura = Managers.team_manager.attr(self.team, self.piece_type, Attribute.AURA_DAMAGE)
+        if aura > 0 and not self.is_contested():
+            adjacent_enemies = Managers.piece_manager.get_adjacent_enemies(self.gx, self.gy, self.team)
+            for enemy in adjacent_enemies:
+                enemy.damage_hp(self.get_attack_rating(enemy) * aura, self)
+
         # Pieces occupying tiles they can't traverse take damage each turn.
         if not Managers.battle_map.is_tile_passable(self.gx, self.gy, Managers.team_manager.attr(
                 self.team, self.piece_type, Attribute.MOVEMENT_TYPE)):

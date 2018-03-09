@@ -1,6 +1,6 @@
 General & QoL
 x Validate orders for a player as soon as they submit their turn
-* Add support to the level editor for adding units and buildings
+x Add support to the level editor for adding units and buildings
 x Add saving games mid-combat
     x Save and load piece HP
 x Add a preview order key and a preview all key-- when pressed, display whatever the piece is going to do.
@@ -23,8 +23,8 @@ x Set up packaging this into an executable
     x Determine directory structure -- do maps / saves need to be put somewhere else?
 
 Bug fixes
-* Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
-* Fix popup menus scrolling off the top of the screen
+x Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
+x Fix popup menus scrolling off the top of the screen
 x Fix resources not being deducted for placing buildings
 x Fix invalid order effects showing for all teams
 x Fix trying to RAISE or LOWER terrain past the edge of the tile types
@@ -32,8 +32,8 @@ x Fix trying to RAISE or LOWER terrain past the edge of the tile types
 Gameplay
 x Build support for upgrades, enable purchasing them from the base
     x Double check whether I'm using piece prices or the team-specific piece prices, etc.
-    * Fill out more upgrades now that the framework is in place
-    * Fill out basic T2 unit upgrades
+    x Fill out more upgrades now that the framework is in place
+    x Fill out basic T2 unit upgrades
 x Add additional tiers for units
 * Add ultimate tiers for units
 x Modify GHOST movement type to be unable to stop on the same tile as enemy buildings
@@ -49,20 +49,25 @@ x Implement unique upgrades as generic attributes
     x Additional defensive bonuses + entrenchment bonuses
     * Whether this piece is affected by parting shots
 
+Gameplay considerations
+* Prevent Colonists from occupying enemy buildings
+* Decide whether having a three-resource system adds all that much-- personally I don't like how fiddly that can be, but the upside is that if you focus on
+    one of the three archetypes you can optimize your production towards them. Need to decide whether I want to encourage that kind of specialization.
+
 Networking
 x Send the map / save data back and forth
-* Upon submitting a turn, don't allow modifying the turn unless you cancel submission
-    * Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
+x Upon submitting a turn, don't allow modifying the turn unless you cancel submission
+    x Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
 * Gracefully handle connects / disconnects
 * Support for connecting to a custom IP
 
 Kegan's Special to do list
 x Allow ESC to cancel out of menus
-* Unit info popup
+x Unit info popup
 x Trim price UI down to 2 digits
     x Adjust method to not always output a 3 digit number, right justify
 x Don't prompt to build generators on tiles with pieces on them already
 x Rename wait -> cancel, don't show if no order is currently queued
 x Remove 'None' tile type, no point
 x Invalid build order cue should show up on ALL pieces with a BUILD order
-    * Verbose tooltips
+    x Verbose tooltips

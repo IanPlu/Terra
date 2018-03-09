@@ -63,7 +63,7 @@ class TeamManager(GameObject):
             self.owned_upgrades[team] = []
             for piece_type in PieceType:
                 for upgrade_type, upgrade in base_upgrades.items():
-                    if upgrade["bought_by"] == piece_type and upgrade["tier"] == 1:
+                    if piece_type in upgrade["bought_by"] and upgrade["tier"] == 1:
                         self.piece_attributes[team][piece_type][Attribute.PURCHASEABLE_UPGRADES].append(upgrade_type)
 
             # Apply any already owned upgrades
@@ -147,10 +147,12 @@ class TeamManager(GameObject):
         new_unlocks = base_upgrades[upgrade_type]["unlocks"]
         if len(new_unlocks):
             for new_unlock in new_unlocks:
-                self.piece_attributes[team][base_upgrades[new_unlock]["bought_by"]][Attribute.PURCHASEABLE_UPGRADES].append(new_unlock)
+                for bought_by_piece in base_upgrades[new_unlock]["bought_by"]:
+                    self.piece_attributes[team][bought_by_piece][Attribute.PURCHASEABLE_UPGRADES].append(new_unlock)
 
         # 4. Remove the chosen upgrade from the purchaseable list
-        self.piece_attributes[team][base_upgrades[upgrade_type]["bought_by"]][Attribute.PURCHASEABLE_UPGRADES].remove(upgrade_type)
+        for bought_by_piece in base_upgrades[upgrade_type]["bought_by"]:
+            self.piece_attributes[team][bought_by_piece][Attribute.PURCHASEABLE_UPGRADES].remove(upgrade_type)
 
         Managers.combat_logger.log_upgrade(upgrade_type, team)
 

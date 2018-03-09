@@ -74,7 +74,7 @@ base_upgrades = {
         "unlocks": [
             UpgradeType.RESOURCE_PRODUCTION_2
         ],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.BASE, PieceType.TECHLAB]
     },
     # Improves base resource yields for all buildings
     UpgradeType.RESOURCE_PRODUCTION_2: {
@@ -87,7 +87,7 @@ base_upgrades = {
         "upgrade_price": (8, 8, 8),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.BASE, PieceType.TECHLAB]
     },
 
     # Enables colonists to fight by giving them an attack rating
@@ -98,7 +98,7 @@ base_upgrades = {
         "upgrade_price": (2, 2, 2),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.BASE, PieceType.TECHLAB]
     },
     # Gives colonists more max HP
     UpgradeType.COLONIST_MAX_HP: {
@@ -108,7 +108,7 @@ base_upgrades = {
         "upgrade_price": (2, 2, 2),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.BASE, PieceType.TECHLAB]
     },
     # Enables Colonists to conduct RAISE and LOWER actions, changing a tile around them to a different type
     UpgradeType.COLONIST_TERRAFORMING: {
@@ -118,7 +118,7 @@ base_upgrades = {
         "upgrade_price": (5, 5, 5),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.BASE, PieceType.TECHLAB]
     },
     # Colonists now cannot be contested, allowing them to always complete build orders (unless they die)
     UpgradeType.COLONIST_UNCONTESTABLE: {
@@ -128,7 +128,7 @@ base_upgrades = {
         "upgrade_price": (2, 6, 2),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.BASE, PieceType.TECHLAB]
     },
 
     # Gives troopers a stronger base attack
@@ -139,7 +139,7 @@ base_upgrades = {
         "upgrade_price": (3, 4, 2),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Gives troopers a bit of armor, giving them innate defense + damage reduction
     UpgradeType.TROOPER_ARMOR: {
@@ -149,7 +149,7 @@ base_upgrades = {
         "upgrade_price": (4, 6, 2),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Troopers now regenerate a small amount of health at the start of each turn
     UpgradeType.TROOPER_REGEN: {
@@ -159,7 +159,7 @@ base_upgrades = {
         "upgrade_price": (4, 4, 8),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Doubles the entrenchment bonuses Troopers gain.
     UpgradeType.TROOPER_ENTRENCHMENT: {
@@ -169,7 +169,7 @@ base_upgrades = {
         "upgrade_price": (4, 6, 4),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
 
     # Gives Rangers a stronger base attack
@@ -180,7 +180,7 @@ base_upgrades = {
         "upgrade_price": (4, 2, 3),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Increases both the max and min range that Rangers can conduct ranged attacks from.
     UpgradeType.RANGER_DISTANCE: {
@@ -193,7 +193,7 @@ base_upgrades = {
         "upgrade_price": (6, 1, 2),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Allows Rangers to move farther in one turn.
     UpgradeType.RANGER_MOVEMENT: {
@@ -203,7 +203,7 @@ base_upgrades = {
         "upgrade_price": (2, 4, 6),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Allows Rangers to ignore enemies contesting their tile, ensuring their ranged attacks execute (if they survive)
     UpgradeType.RANGER_UNCONTESTABLE: {
@@ -213,7 +213,7 @@ base_upgrades = {
         "upgrade_price": (4, 6, 6),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
 
     # Allows Ghosts to move even farther in one turn.
@@ -224,7 +224,7 @@ base_upgrades = {
         "upgrade_price": (2, 3, 6),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Gives Ghosts a stronger base attack
     UpgradeType.GHOST_ATTACK: {
@@ -234,7 +234,7 @@ base_upgrades = {
         "upgrade_price": (2, 3, 4),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Ghosts now deal upsetting amounts of damage to Colonists, killing them in one hit.
     UpgradeType.GHOST_ANTI_COLONIST: {
@@ -246,7 +246,7 @@ base_upgrades = {
         "upgrade_price": (2, 4, 6),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Ghosts now steal resources when killing enemies
     UpgradeType.GHOST_STEAL: {
@@ -256,7 +256,7 @@ base_upgrades = {
         "upgrade_price": (4, 4, 6),
         "tier": 1,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
 
     # Allows building Guardian units.
@@ -271,7 +271,7 @@ base_upgrades = {
             UpgradeType.GUARDIAN_ARMOR,
             UpgradeType.GUARDIAN_MEDIC
         ],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.TECHLAB]
     },
     # Allows building Boltcaster units.
     UpgradeType.RESEARCH_BOLTCASTER: {
@@ -285,7 +285,7 @@ base_upgrades = {
             UpgradeType.BOLTCASTER_RANGE,
             UpgradeType.BOLTCASTER_AP_ROUNDS
         ],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.TECHLAB]
     },
     # Allows building Banshee units.
     UpgradeType.RESEARCH_BANSHEE: {
@@ -299,7 +299,7 @@ base_upgrades = {
             UpgradeType.BANSHEE_STRIKEFORMATION,
             UpgradeType.BANSHEE_LURK
         ],
-        "bought_by": PieceType.BASE
+        "bought_by": [PieceType.TECHLAB]
     },
 
     # Grants even greater entrenchment bonuses to Guardians.
@@ -310,7 +310,7 @@ base_upgrades = {
         "upgrade_price": (6, 8, 6),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Grants even greater armor bonuses to Guardians.
     UpgradeType.GUARDIAN_ARMOR: {
@@ -320,7 +320,7 @@ base_upgrades = {
         "upgrade_price": (6, 8, 4),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Guardians now heal adjacent allies for a small amount each turn.
     UpgradeType.GUARDIAN_MEDIC: {
@@ -330,7 +330,7 @@ base_upgrades = {
         "upgrade_price": (8, 4, 8),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
 
     # Boltcasters ignore enemies contesting their tile, ensuring their ranged attacks execute (if they survive)
@@ -341,7 +341,7 @@ base_upgrades = {
         "upgrade_price": (6, 8, 8),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Boltcasters can now shoot targets even further away.
     UpgradeType.BOLTCASTER_RANGE: {
@@ -351,7 +351,7 @@ base_upgrades = {
         "upgrade_price": (8, 2, 4),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Boltcaster shots now ignore armor and defensive bonuses.
     UpgradeType.BOLTCASTER_AP_ROUNDS: {
@@ -361,7 +361,7 @@ base_upgrades = {
         "upgrade_price": (8, 4, 8),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
 
     # Banshees now trigger an AoE explosion on killing blows, centered on the target.
@@ -372,7 +372,7 @@ base_upgrades = {
         "upgrade_price": (2, 2, 8),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Banshees now gain additional movement range for starting the turn adjacent to allies, per ally.
     UpgradeType.BANSHEE_STRIKEFORMATION: {
@@ -382,7 +382,7 @@ base_upgrades = {
         "upgrade_price": (2, 4, 6),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     },
     # Banshees gain the Flying movement type, allowing them to end turn on impassible terrain like SEAs.
     UpgradeType.BANSHEE_LURK: {
@@ -392,7 +392,7 @@ base_upgrades = {
         "upgrade_price": (2, 4, 4),
         "tier": 2,
         "unlocks": [],
-        "bought_by": PieceType.BARRACKS
+        "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
     }
 
 }

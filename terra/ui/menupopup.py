@@ -1,7 +1,8 @@
 from pygame.constants import KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT
-from terra.economy.upgrades import UpgradeType, base_upgrades
+from terra.economy.upgrades import UpgradeType
+from terra.economy.upgrades import base_upgrades
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL, KB_SCROLL_UP, KB_SCROLL_DOWN, KB_MENU, KB_MENU2
@@ -9,12 +10,11 @@ from terra.managers.managers import Managers
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_cursor, spr_textbox, spr_pieces, clear_color, spr_digit_icons, \
-    spr_upgrade_icons, spr_resource_icon_carbon_small, spr_resource_icon_minerals_small, spr_resource_icon_gas_small, \
-    spr_order_options
+    spr_upgrade_icons, spr_resource_icon, spr_order_options
 from terra.settings import SCREEN_SCALE
 from terra.strings import menu_option_strings, piece_name_strings, upgrade_name_strings, get_text
 from terra.ui.detailbox import DetailBox
-from terra.util.drawingutil import draw_nine_slice_sprite, draw_small_resource_count
+from terra.util.drawingutil import draw_nine_slice_sprite, draw_resource_count
 from terra.util.mathutil import clamp
 
 # Constants for rendering textboxes
@@ -201,13 +201,10 @@ class MenuPopup(GameObject):
                     ui_screen.blit(get_text(piece_name_strings, option, light=False), (self.x + 25, self.y + 16 + row_y * option_height))
 
                     if self.option_pos == row_y + self.option_min:
-                        resource_price = draw_small_resource_count([spr_resource_icon_carbon_small,
-                                                                    spr_resource_icon_minerals_small,
-                                                                    spr_resource_icon_gas_small],
-                                                                   spr_digit_icons, clear_color, self.team,
-                                                                   Managers.team_manager.attr(self.team, option, Attribute.PRICE))
-                        ui_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 26,
-                                                          self.y + row_y * option_height + subgrid_size))
+                        ui_screen.blit(draw_resource_count(spr_resource_icon, spr_digit_icons, self.team,
+                                                           Managers.team_manager.attr(self.team, option, Attribute.PRICE)),
+                                       (self.x + self.subgrid_width * subgrid_size - 26,
+                                        self.y + row_y * option_height + subgrid_size))
 
                     row_y += 1
                 elif option in UpgradeType:
@@ -216,13 +213,10 @@ class MenuPopup(GameObject):
                     ui_screen.blit(get_text(upgrade_name_strings, option, light=False), (self.x + 25, self.y + 16 + row_y * option_height))
 
                     if self.option_pos == row_y + self.option_min:
-                        resource_price = draw_small_resource_count([spr_resource_icon_carbon_small,
-                                                                    spr_resource_icon_minerals_small,
-                                                                    spr_resource_icon_gas_small],
-                                                                   spr_digit_icons, clear_color, self.team,
-                                                                   base_upgrades[option]["upgrade_price"])
-                        ui_screen.blit(resource_price, (self.x + self.subgrid_width * subgrid_size - 26,
-                                                          self.y + row_y * option_height + subgrid_size))
+                        ui_screen.blit(draw_resource_count(spr_resource_icon, spr_digit_icons, self.team,
+                                                           base_upgrades[option]["upgrade_price"]),
+                                       (self.x + self.subgrid_width * subgrid_size - 26,
+                                        self.y + row_y * option_height + subgrid_size))
 
                     row_y += 1
                 else:

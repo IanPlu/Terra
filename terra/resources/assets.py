@@ -194,9 +194,7 @@ spr_pieces = {
 
         # Buildings
         PieceType.BASE: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Base.png")),
-        PieceType.CARBON_GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/CarbonGenerator.png")),
-        PieceType.MINERAL_GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/MineralGenerator.png")),
-        PieceType.GAS_GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/GasGenerator.png")),
+        PieceType.GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Generator.png")),
         PieceType.BARRACKS: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Barracks.png")),
         PieceType.TOWER: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Tower.png")),
         # PieceType.WAYSTATION: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Waystation.png")),
@@ -225,24 +223,12 @@ spr_digit_icons = {
     Team.RED: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/DigitIcons.png")), 8)
 }
 
-spr_resource_icon_carbon = {
-    Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/ResourceIcon_Carbon.png"))
-}
-spr_resource_icon_minerals = {
-    Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/ResourceIcon_Minerals.png"))
-}
-spr_resource_icon_gas = {
-    Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/ResourceIcon_Gas.png"))
+spr_resource_icon = {
+    Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/ResourceIcon.png"))
 }
 
-spr_resource_icon_carbon_small = {
-    Team.RED: spr_base_order_flags[4]
-}
-spr_resource_icon_minerals_small = {
+spr_resource_icon_small = {
     Team.RED: spr_base_order_flags[5]
-}
-spr_resource_icon_gas_small = {
-    Team.RED: spr_base_order_flags[6]
 }
 
 # Effects
@@ -298,13 +284,8 @@ def load_assets():
         spr_digit_icons[team] = swap_multiple_palette(spr_digit_icons[Team.RED], unit_palette[team])
 
         spr_phase_indicator[team] = swap_multiple_palette(spr_phase_indicator[Team.RED], unit_palette[team])
-        spr_resource_icon_carbon[team] = swap_palette(spr_resource_icon_carbon[Team.RED], unit_palette[team])
-        spr_resource_icon_minerals[team] = swap_palette(spr_resource_icon_minerals[Team.RED], unit_palette[team])
-        spr_resource_icon_gas[team] = swap_palette(spr_resource_icon_gas[Team.RED], unit_palette[team])
-
-        spr_resource_icon_carbon_small[team] = swap_palette(spr_resource_icon_carbon_small[Team.RED], unit_palette[team])
-        spr_resource_icon_minerals_small[team] = swap_palette(spr_resource_icon_minerals_small[Team.RED], unit_palette[team])
-        spr_resource_icon_gas_small[team] = swap_palette(spr_resource_icon_gas_small[Team.RED], unit_palette[team])
+        spr_resource_icon[team] = swap_palette(spr_resource_icon[Team.RED], unit_palette[team])
+        spr_resource_icon_small[team] = swap_palette(spr_resource_icon_small[Team.RED], unit_palette[team])
 
         spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED],
                                                           unit_palette[team])

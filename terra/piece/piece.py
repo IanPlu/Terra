@@ -14,9 +14,10 @@ from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, Upgrade
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
-    spr_target, light_team_color
+    spr_target, light_team_color, spr_digit_icons, spr_resource_icon_small
 from terra.strings import piece_name_strings, LANGUAGE
 from terra.team import Team
+from terra.util.drawingutil import draw_small_resource_count
 
 
 # Base object in play belonging to a player, like a unit or a building.
@@ -167,11 +168,8 @@ class Piece(GameObject):
 
             # Drain resources when killed if we've been hit by the steal debuff
             if self.temporary_money_lost_on_death > 0:
-                resources = (self.temporary_money_lost_on_death,
-                             self.temporary_money_lost_on_death,
-                             self.temporary_money_lost_on_death)
-                Managers.team_manager.deduct_resources(self.team, resources)
-                Managers.team_manager.add_resources(self.last_attacker.team, resources)
+                Managers.team_manager.deduct_resources(self.team, self.temporary_money_lost_on_death)
+                Managers.team_manager.add_resources(self.last_attacker.team, self.temporary_money_lost_on_death)
 
     # Cancel our current order, usually if we're contested.
     def abort_order(self):
@@ -568,11 +566,18 @@ class Piece(GameObject):
                 target_sprite.set_alpha(128)
                 game_screen.blit(target_sprite, (self.current_order.tx * GRID_WIDTH,
                                                  self.current_order.ty * GRID_HEIGHT))
+                game_screen.blit(draw_small_resource_count(clear_color, spr_resource_icon_small, spr_digit_icons, self.team,
+                                                 Managers.team_manager.attr(self.team, self.current_order.new_piece_type, Attribute.PRICE)),
+                                 (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
+
             elif isinstance(self.current_order, UpgradeOrder):
                 target_sprite = spr_upgrade_icons[self.team][self.current_order.new_upgrade_type].copy()
                 target_sprite.set_alpha(128)
                 game_screen.blit(target_sprite, (self.gx * GRID_WIDTH,
                                                  self.gy * GRID_HEIGHT))
+                game_screen.blit(draw_small_resource_count(clear_color, spr_resource_icon_small, spr_digit_icons, self.team,
+                                                           base_upgrades[self.current_order.new_upgrade_type]["upgrade_price"]),
+                                 (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
 
     # Ask the Unit to render itself
     def render(self, game_screen, ui_screen):

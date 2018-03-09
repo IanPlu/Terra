@@ -1,11 +1,10 @@
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
-from terra.economy.resourcetypes import ResourceType
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.managers.managers import Managers
-from terra.resources.assets import clear_color, spr_cursor, spr_phase_indicator, spr_resource_icon_carbon, \
-    spr_resource_icon_minerals, spr_resource_icon_gas, spr_digit_icons, spr_turn_submitted_indicator
+from terra.resources.assets import clear_color, spr_cursor, spr_phase_indicator, spr_resource_icon, spr_digit_icons, \
+    spr_turn_submitted_indicator
 from terra.strings import get_text, notification_strings, phase_strings
 from terra.team import Team
 from terra.ui.toastnotification import ToastNotification
@@ -51,17 +50,14 @@ class PhaseBar(GameObject):
         ui_screen.blit(get_text(phase_strings, Managers.turn_manager.phase),
                        (4 + GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT + 6))
 
-        # Render resource counts
+        # Render resource count
         x += 3
-        resource_counts = draw_resource_count([spr_resource_icon_carbon, spr_resource_icon_minerals,
-                                               spr_resource_icon_gas], spr_digit_icons, self.team,
-                                              [Managers.team_manager.resources[self.team][ResourceType.CARBON],
-                                               Managers.team_manager.resources[self.team][ResourceType.MINERALS],
-                                               Managers.team_manager.resources[self.team][ResourceType.GAS]])
-        ui_screen.blit(resource_counts, (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
+        ui_screen.blit(draw_resource_count(spr_resource_icon, spr_digit_icons, self.team,
+                                           Managers.team_manager.resources[self.team]),
+                       (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Render turn submission status
-        x += 3
+        x += 1
         for team in Team:
             if Managers.team_manager.turn_submitted[team]:
                 ui_screen.blit(spr_turn_submitted_indicator[team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))

@@ -73,8 +73,8 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 0,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
         Attribute.MOVEMENT_RANGE: 1,
-        Attribute.PRICE: (0, 0, 0),
-        Attribute.RESOURCE_PRODUCTION: (0, 0, 0),
+        Attribute.PRICE: 0,
+        Attribute.RESOURCE_PRODUCTION: 0,
 
         # Specialty
         Attribute.STEAL: 0,
@@ -103,9 +103,7 @@ base_piece_attributes = {
             PieceType.BARRACKS,
             PieceType.TOWER,
             PieceType.TECHLAB,
-            PieceType.CARBON_GENERATOR,
-            PieceType.MINERAL_GENERATOR,
-            PieceType.GAS_GENERATOR
+            PieceType.GENERATOR,
         ],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
@@ -122,7 +120,7 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
         Attribute.MOVEMENT_RANGE: 3,
-        Attribute.PRICE: (2, 2, 2),
+        Attribute.PRICE: 2,
     },
     PieceType.TROOPER: {
         # General purpose close-range combat units.
@@ -145,7 +143,7 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
         Attribute.MOVEMENT_RANGE: 2,
-        Attribute.PRICE: (2, 3, 1),
+        Attribute.PRICE: 3,
     },
     PieceType.RANGER: {
         # Light units capable of a short ranged attack. They have no combat strength in melee.
@@ -171,7 +169,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 2,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
         Attribute.MOVEMENT_RANGE: 2,
-        Attribute.PRICE: (3, 1, 2),
+        Attribute.PRICE: 3,
     },
     PieceType.GHOST: {
         # Basic harassment and mobility unit.
@@ -195,7 +193,7 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
         Attribute.MOVEMENT_TYPE: MovementType.GROUND,
         Attribute.MOVEMENT_RANGE: 3,
-        Attribute.PRICE: (1, 2, 3),
+        Attribute.PRICE: 3,
         Attribute.IGNORE_IMPEDANCE: True,
         Attribute.CANT_ATTACK_BUILDINGS: True,
     },
@@ -225,7 +223,7 @@ base_piece_attributes = {
         Attribute.ENTRENCHMENT_MODIFIER: 2,
         Attribute.MOVEMENT_TYPE: MovementType.HEAVY,
         Attribute.MOVEMENT_RANGE: 2,
-        Attribute.PRICE: (4, 6, 2),
+        Attribute.PRICE: 5,
         # Specialty
         Attribute.ARMOR_SHARE: 1,
     },
@@ -254,8 +252,7 @@ base_piece_attributes = {
         Attribute.MAX_RANGE: 5,
         Attribute.MOVEMENT_TYPE: MovementType.HEAVY,
         Attribute.MOVEMENT_RANGE: 1,
-        Attribute.PRICE: (6, 2, 4),
-        Attribute.RESOURCE_PRODUCTION: (0, 0, 0),
+        Attribute.PRICE: 5,
         # Specialty
         Attribute.RANGED_AOE_MULTIPLIER: 0.75
     },
@@ -281,7 +278,8 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
         Attribute.MOVEMENT_TYPE: MovementType.HOVER,
         Attribute.MOVEMENT_RANGE: 4,
-        Attribute.PRICE: (2, 4, 6),
+        Attribute.PRICE: 5,
+        # Specialty
         Attribute.IGNORE_IMPEDANCE: True,
         Attribute.CANT_ATTACK_BUILDINGS: True,
     },
@@ -308,11 +306,11 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.NONE,
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (0, 0, 0),
-        Attribute.RESOURCE_PRODUCTION: (3, 3, 3),
+        Attribute.PRICE: 0,
+        Attribute.RESOURCE_PRODUCTION: 2,
         Attribute.ARMOR: 1,
     },
-    PieceType.CARBON_GENERATOR: {
+    PieceType.GENERATOR: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
         Attribute.ARCHETYPE: PieceArchetype.GENERATOR,
         Attribute.MAX_HP: 100,
@@ -331,52 +329,8 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.NONE,
         Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (1, 2, 2),
-        Attribute.RESOURCE_PRODUCTION: (2, 0, 0)
-    },
-    PieceType.MINERAL_GENERATOR: {
-        Attribute.SUBTYPE: PieceSubtype.BUILDING,
-        Attribute.ARCHETYPE: PieceArchetype.GENERATOR,
-        Attribute.MAX_HP: 100,
-        Attribute.ATTACK: 0,
-        Attribute.ATTACK_MULTIPLIER: {
-            # Units
-            PieceArchetype.WORKER: 1,
-            PieceArchetype.GROUND: 1,
-            PieceArchetype.RANGED: 1,
-            PieceArchetype.MOBILITY: 1,
-
-            # Buildings
-            PieceArchetype.GENERATOR: 1,
-            PieceArchetype.UTILITY: 1,
-        },
-        Attribute.DAMAGE_TYPE: DamageType.NONE,
-        Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
-        Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (2, 1, 2),
-        Attribute.RESOURCE_PRODUCTION: (0, 2, 0)
-    },
-    PieceType.GAS_GENERATOR: {
-        Attribute.SUBTYPE: PieceSubtype.BUILDING,
-        Attribute.ARCHETYPE: PieceArchetype.GENERATOR,
-        Attribute.MAX_HP: 100,
-        Attribute.ATTACK: 0,
-        Attribute.ATTACK_MULTIPLIER: {
-            # Units
-            PieceArchetype.WORKER: 1,
-            PieceArchetype.GROUND: 1,
-            PieceArchetype.RANGED: 1,
-            PieceArchetype.MOBILITY: 1,
-
-            # Buildings
-            PieceArchetype.GENERATOR: 1,
-            PieceArchetype.UTILITY: 1,
-        },
-        Attribute.DAMAGE_TYPE: DamageType.NONE,
-        Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
-        Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (2, 2, 1),
-        Attribute.RESOURCE_PRODUCTION: (0, 0, 2)
+        Attribute.PRICE: 2,
+        Attribute.RESOURCE_PRODUCTION: 1
     },
     PieceType.BARRACKS: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
@@ -399,8 +353,8 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.NONE,
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (5, 5, 5),
-        Attribute.RESOURCE_PRODUCTION: (0, 0, 0)
+        Attribute.PRICE: 5,
+        Attribute.RESOURCE_PRODUCTION: 0
     },
     PieceType.TOWER: {
         Attribute.SUBTYPE: PieceSubtype.BUILDING,
@@ -423,8 +377,8 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.MELEE,
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (3, 3, 3),
-        Attribute.RESOURCE_PRODUCTION: (0, 0, 0),
+        Attribute.PRICE: 2,
+        Attribute.RESOURCE_PRODUCTION: 0,
         Attribute.AURA_DAMAGE: 3,
         Attribute.ARMOR: 1,
     },
@@ -449,7 +403,8 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.NONE,
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: (2, 2, 2),
-        Attribute.RESOURCE_PRODUCTION: (0, 0, 0),
+        Attribute.PRICE: 1,
+        Attribute.RESOURCE_PRODUCTION: 0,
+        Attribute.MEDIC: 5,
     },
 }

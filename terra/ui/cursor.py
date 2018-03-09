@@ -16,6 +16,10 @@ from terra.ui.tileselection import TileSelection
 from terra.util.mathutil import clamp
 
 
+camera_scroll_speed = 4
+camera_lock_distance = 1
+
+
 # Controllable cursor on the map.
 # Triggers selection events and allows the player to move around.
 class Cursor(GameObject):
@@ -38,7 +42,13 @@ class Cursor(GameObject):
 
         self.camera_x = self.gx * GRID_WIDTH
         self.camera_y = self.gy * GRID_HEIGHT
+        self.camera_dest_x = self.camera_x
+        self.camera_dest_y = self.camera_y
         self.scroll_camera()
+
+        # Set the camera position to the destination immediately, otherwise we might scroll out of the map area
+        self.camera_x = self.camera_dest_x
+        self.camera_y = self.camera_dest_y
 
     def confirm(self):
         if not Managers.team_manager.is_turn_submitted(self.team):
@@ -156,34 +166,44 @@ class Cursor(GameObject):
                 elif event.button in KB_CANCEL:
                     self.cancel()
 
-        self.scroll_camera()
-
     # Clamp gx and gy, and scroll camera as appropriate
     def scroll_camera(self):
         self.gx = clamp(self.gx, 0, Managers.battle_map.width - 1)
         self.gy = clamp(self.gy, 0, Managers.battle_map.height - 1)
 
-        camera_min_gx = self.camera_x // GRID_WIDTH
-        camera_min_gy = self.camera_y // GRID_HEIGHT
+        camera_min_gx = self.camera_dest_x // GRID_WIDTH
+        camera_min_gy = self.camera_dest_y // GRID_HEIGHT
         camera_max_gx = camera_min_gx + CAMERA_WIDTH // GRID_WIDTH
         camera_max_gy = camera_min_gy + CAMERA_HEIGHT // GRID_HEIGHT
 
         screen_buffer = 1
 
         if self.gx >= camera_max_gx - screen_buffer:
-            self.camera_x += GRID_WIDTH
+            self.camera_dest_x += GRID_WIDTH
         if self.gx <= camera_min_gx + screen_buffer:
-            self.camera_x -= GRID_WIDTH
+            self.camera_dest_x -= GRID_WIDTH
         if self.gy >= camera_max_gy - screen_buffer:
-            self.camera_y += GRID_HEIGHT
+            self.camera_dest_y += GRID_HEIGHT
         if self.gy <= camera_min_gy + screen_buffer:
-            self.camera_y -= GRID_HEIGHT
+            self.camera_dest_y -= GRID_HEIGHT
 
-        self.camera_x = clamp(self.camera_x, 0, Managers.battle_map.width * GRID_WIDTH - CAMERA_WIDTH)
-        self.camera_y = clamp(self.camera_y, 0, Managers.battle_map.height * GRID_HEIGHT - CAMERA_HEIGHT)
+        self.camera_dest_x = clamp(self.camera_dest_x, 0, Managers.battle_map.width * GRID_WIDTH - CAMERA_WIDTH)
+        self.camera_dest_y = clamp(self.camera_dest_y, 0, Managers.battle_map.height * GRID_HEIGHT - CAMERA_HEIGHT)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
+
+        self.scroll_camera()
+
+        # Scroll the actual camera position to the destination coords
+        if self.camera_x != self.camera_dest_x:
+            self.camera_x += (self.camera_dest_x - self.camera_x) / camera_scroll_speed
+            if abs(self.camera_x - self.camera_dest_x) <= camera_lock_distance:
+                self.camera_x = self.camera_dest_x
+        if self.camera_y != self.camera_dest_y:
+            self.camera_y += (self.camera_dest_y - self.camera_y) / camera_scroll_speed
+            if abs(self.camera_y - self.camera_dest_y) <= camera_lock_distance:
+                self.camera_y = self.camera_dest_y
 
         if self.move_ui:
             self.move_ui.render(game_screen, ui_screen)

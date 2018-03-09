@@ -165,39 +165,28 @@ def draw_three_digit_number(spr_digit_icons, number, team):
     formatted_number = "{}".format(clamp(number, 0, 999))
     display = pygame.Surface((24, 8), pygame.SRCALPHA, 32)
 
-    x = 0
+    x = 16
     digits = [int(digit) for digit in formatted_number]
     digits.reverse()
     for digit in digits:
         if digit != -1:
-            display.blit(spr_digit_icons[team][digit], (16 - x, 0))
-        x += 8
+            display.blit(spr_digit_icons[team][digit], (x, 0))
+        x -= 8
     return display
 
 
-# Return a surface containing the three resource icons, with the provided resource counts labeled
-def draw_resource_count(spr_resources, spr_digit_icons, team, counts):
-    display = pygame.Surface((72, 24), pygame.SRCALPHA, 32)
-
-    x = 0
-    for resource in spr_resources:
-        display.blit(resource[team], (x * 24, 0))
-        display.blit(draw_three_digit_number(spr_digit_icons, counts[x], team), (x * 24, 16))
-        x += 1
-
-    return display
-
-
-# Return a 24x24 px surface containing the three resource icons, with the provided resource counts labeled.
-# Note: this only supports 2-digit prices.
-def draw_small_resource_count(spr_resources, spr_digit_icons, clear_color, team, counts):
+# Return a 24x24 px surface containing a large display of the provided resource count.
+def draw_resource_count(spr_resource_icon, spr_digit_icons, team, count):
     display = pygame.Surface((24, 24), pygame.SRCALPHA, 32)
-    display.fill(clear_color[team], (0, 0, 24, 24))
+    display.blit(spr_resource_icon[team], (0, 0))
+    display.blit(draw_three_digit_number(spr_digit_icons, count, team), (0, 16))
+    return display
 
-    y = 0
-    for resource in spr_resources:
-        display.blit(draw_three_digit_number(spr_digit_icons, counts[y], team), (0, y * 8))
-        display.blit(resource[team], (0, y * 8))
-        y += 1
 
+# Return a 24x8 px surface containing a small display of the provided resource count.
+def draw_small_resource_count(clear_color, spr_resource_icon_small, spr_digit_icons, team, count):
+    display = pygame.Surface((24, 8), pygame.SRCALPHA, 32)
+    display.fill(clear_color[team], (0, 0, 24, 8))
+    display.blit(draw_three_digit_number(spr_digit_icons, count, team), (0, 0))
+    display.blit(spr_resource_icon_small[team], (0, 0))
     return display

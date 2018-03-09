@@ -77,19 +77,18 @@ menu_help_strings = {
 
         PieceType.BASE: "* Your Base is the only building capable of producing Colonists, and can research non-combat "
                         "unit upgrades. New units can be researched here. If destroyed, you lose!",
-        PieceType.CARBON_GENERATOR: "* Carbon Generators harvest Carbon from Resource tiles each turn.",
-        PieceType.MINERAL_GENERATOR: "* Mineral Generators harvest Minerals from Resource tiles each turn.",
-        PieceType.GAS_GENERATOR: "* Gas Generators harvest Gas from Resource tiles each turn.",
+        PieceType.GENERATOR: "* Generators harvest resources from Resource tiles each turn.",
         PieceType.BARRACKS: "* Barracks produce combat units, and can research upgrades to your combat units.",
         PieceType.TOWER: "* Towers are immobile defensive structures. They damage all adjacent enemies at the start of "
                          "each turn, if they're not contested. Has a weak melee attack for defense.",
         # PieceType.WAYSTATION: "Waystation",
         PieceType.TECHLAB: "* Tech Labs are able to research new tiers of units. Additionally, they're a second place "
-                           "to purchase upgrades of all types, including upgrades normally bought at the Base.",
+                           "to purchase upgrades of all types, including upgrades normally bought at the Base. "
+                           "Tech Labs also heal adjacent allies for a small amount each turn.",
 
         # Upgrades
-        UpgradeType.RESOURCE_PRODUCTION_1: "* Generators now produce +1 of their resource.",
-        UpgradeType.RESOURCE_PRODUCTION_2: "* Generators produce an additional +1 of their resource.",
+        UpgradeType.RESOURCE_PRODUCTION_1: "* Generators now produce +1 resource per turn.",
+        UpgradeType.RESOURCE_PRODUCTION_2: "* Generators now produce an additional +1 resource per turn.",
 
         UpgradeType.COLONIST_ATTACK: "* Colonists now deal a small amount of damage in direct combat.",
         UpgradeType.COLONIST_MAX_HP: "* Colonists now have a higher max HP.",
@@ -172,9 +171,7 @@ piece_name_strings = {
         # PieceType.DEMON: "Demon",
 
         PieceType.BASE: "Base",
-        PieceType.CARBON_GENERATOR: "Carbon Gen",
-        PieceType.MINERAL_GENERATOR: "Mineral Gen",
-        PieceType.GAS_GENERATOR: "Gas Gen",
+        PieceType.GENERATOR: "Generator",
         PieceType.BARRACKS: "Barracks",
         PieceType.TOWER: "Tower",
         # PieceType.WAYSTATION: "Waystation",

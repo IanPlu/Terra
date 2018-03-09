@@ -57,19 +57,16 @@ class UpgradeType(Enum):
 # All upgrades available for purchase, including prereqs, price, effect, etc.
 #   - new_stat: Adds the new stat to the existing stat. Allows for stacking buffs.
 #   - new_type: Overwrites the attribute with the provided new attribute. Allows for mutating types.
-#   - new_costs: Adds the new price-like stat to the existing price-like stat. Allows for stacking buffs.
 #   - new_attack_multiplier: Sets the attack multiplier vs. the specified unit to the new value.
 #   - new_buildable: Adds the provided piece(s) to the buildable list for the specified piece.
 base_upgrades = {
     # Improves base resource yields for all buildings
     UpgradeType.RESOURCE_PRODUCTION_1: {
-        "new_costs": {
-            PieceType.BASE: {Attribute.RESOURCE_PRODUCTION: (1, 1, 1)},
-            PieceType.CARBON_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (1, 0, 0)},
-            PieceType.MINERAL_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (0, 1, 0)},
-            PieceType.GAS_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (0, 0, 1)},
+        "new_stat": {
+            PieceType.BASE: {Attribute.RESOURCE_PRODUCTION: 1},
+            PieceType.GENERATOR: {Attribute.RESOURCE_PRODUCTION: 1},
         },
-        "upgrade_price": (5, 5, 5),
+        "upgrade_price": 4,
         "tier": 1,
         "unlocks": [
             UpgradeType.RESOURCE_PRODUCTION_2
@@ -78,13 +75,11 @@ base_upgrades = {
     },
     # Improves base resource yields for all buildings
     UpgradeType.RESOURCE_PRODUCTION_2: {
-        "new_costs": {
-            PieceType.BASE: {Attribute.RESOURCE_PRODUCTION: (1, 1, 1)},
-            PieceType.CARBON_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (1, 0, 0)},
-            PieceType.MINERAL_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (0, 1, 0)},
-            PieceType.GAS_GENERATOR: {Attribute.RESOURCE_PRODUCTION: (0, 0, 1)},
+        "new_stat": {
+            PieceType.BASE: {Attribute.RESOURCE_PRODUCTION: 1},
+            PieceType.GENERATOR: {Attribute.RESOURCE_PRODUCTION: 1},
         },
-        "upgrade_price": (8, 8, 8),
+        "upgrade_price": 4,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BASE, PieceType.TECHLAB]
@@ -95,7 +90,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.COLONIST: {Attribute.ATTACK: 15}
         },
-        "upgrade_price": (2, 2, 2),
+        "upgrade_price": 2,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BASE, PieceType.TECHLAB]
@@ -105,7 +100,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.COLONIST: {Attribute.MAX_HP: 20}
         },
-        "upgrade_price": (2, 2, 2),
+        "upgrade_price": 2,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BASE, PieceType.TECHLAB]
@@ -115,7 +110,7 @@ base_upgrades = {
         "new_type": {
             PieceType.COLONIST: {Attribute.TERRAFORMING: True}
         },
-        "upgrade_price": (5, 5, 5),
+        "upgrade_price": 4,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BASE, PieceType.TECHLAB]
@@ -125,7 +120,7 @@ base_upgrades = {
         "new_type": {
             PieceType.COLONIST: {Attribute.IGNORE_CONTESTING: True}
         },
-        "upgrade_price": (2, 6, 2),
+        "upgrade_price": 3,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BASE, PieceType.TECHLAB]
@@ -136,7 +131,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.TROOPER: {Attribute.ATTACK: 10}
         },
-        "upgrade_price": (3, 4, 2),
+        "upgrade_price": 3,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -146,7 +141,7 @@ base_upgrades = {
         "new_type": {
             PieceType.TROOPER: {Attribute.ARMOR: 1}
         },
-        "upgrade_price": (4, 6, 2),
+        "upgrade_price": 2,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -156,7 +151,7 @@ base_upgrades = {
         "new_type": {
             PieceType.TROOPER: {Attribute.REGEN: 10}
         },
-        "upgrade_price": (4, 4, 8),
+        "upgrade_price": 4,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -166,7 +161,7 @@ base_upgrades = {
         "new_type": {
             PieceType.TROOPER: {Attribute.ENTRENCHMENT_MODIFIER: 2}
         },
-        "upgrade_price": (4, 6, 4),
+        "upgrade_price": 4,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -177,7 +172,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.RANGER: {Attribute.ATTACK: 10}
         },
-        "upgrade_price": (4, 2, 3),
+        "upgrade_price": 3,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -190,7 +185,7 @@ base_upgrades = {
                 Attribute.MAX_RANGE: 1,
             },
         },
-        "upgrade_price": (6, 1, 2),
+        "upgrade_price": 4,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -200,7 +195,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.RANGER: {Attribute.MOVEMENT_RANGE: 1},
         },
-        "upgrade_price": (2, 4, 6),
+        "upgrade_price": 3,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -210,7 +205,7 @@ base_upgrades = {
         "new_type": {
             PieceType.RANGER: {Attribute.IGNORE_CONTESTING: True}
         },
-        "upgrade_price": (4, 6, 6),
+        "upgrade_price": 4,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -221,7 +216,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.GHOST: {Attribute.MOVEMENT_RANGE: 1},
         },
-        "upgrade_price": (2, 3, 6),
+        "upgrade_price": 4,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -231,7 +226,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.GHOST: {Attribute.ATTACK: 10}
         },
-        "upgrade_price": (2, 3, 4),
+        "upgrade_price": 3,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -243,7 +238,7 @@ base_upgrades = {
                 PieceArchetype.WORKER: 25
             },
         },
-        "upgrade_price": (2, 4, 6),
+        "upgrade_price": 2,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -253,7 +248,7 @@ base_upgrades = {
         "new_type": {
             PieceType.GHOST: {Attribute.STEAL: 1}
         },
-        "upgrade_price": (4, 4, 6),
+        "upgrade_price": 3,
         "tier": 1,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -264,7 +259,7 @@ base_upgrades = {
         "new_buildable": {
             PieceType.BARRACKS: [PieceType.GUARDIAN]
         },
-        "upgrade_price": (6, 6, 6),
+        "upgrade_price": 6,
         "tier": 1,
         "unlocks": [
             UpgradeType.GUARDIAN_ENTRENCHMENT,
@@ -278,7 +273,7 @@ base_upgrades = {
         "new_buildable": {
             PieceType.BARRACKS: [PieceType.BOLTCASTER]
         },
-        "upgrade_price": (6, 6, 6),
+        "upgrade_price": 6,
         "tier": 1,
         "unlocks": [
             UpgradeType.BOLTCASTER_UNCONTESTABLE,
@@ -292,7 +287,7 @@ base_upgrades = {
         "new_buildable": {
             PieceType.BARRACKS: [PieceType.BANSHEE]
         },
-        "upgrade_price": (6, 6, 6),
+        "upgrade_price": 6,
         "tier": 1,
         "unlocks": [
             UpgradeType.BANSHEE_SABOTAGE,
@@ -307,7 +302,7 @@ base_upgrades = {
         "new_type": {
             PieceType.GUARDIAN: {Attribute.ENTRENCHMENT_MODIFIER: 3}
         },
-        "upgrade_price": (6, 8, 6),
+        "upgrade_price": 6,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -317,7 +312,7 @@ base_upgrades = {
         "new_type": {
             PieceType.GUARDIAN: {Attribute.ARMOR: 3}
         },
-        "upgrade_price": (6, 8, 4),
+        "upgrade_price": 6,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -327,7 +322,7 @@ base_upgrades = {
         "new_type": {
             PieceType.GUARDIAN: {Attribute.MEDIC: 10}
         },
-        "upgrade_price": (8, 4, 8),
+        "upgrade_price": 8,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -338,7 +333,7 @@ base_upgrades = {
         "new_type": {
             PieceType.BOLTCASTER: {Attribute.IGNORE_CONTESTING: True}
         },
-        "upgrade_price": (6, 8, 8),
+        "upgrade_price": 6,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -348,7 +343,7 @@ base_upgrades = {
         "new_stat": {
             PieceType.BOLTCASTER: {Attribute.MAX_RANGE: 1},
         },
-        "upgrade_price": (8, 2, 4),
+        "upgrade_price": 6,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -358,7 +353,7 @@ base_upgrades = {
         "new_type": {
             PieceType.BOLTCASTER: {Attribute.ARMOR_PIERCING: True}
         },
-        "upgrade_price": (8, 4, 8),
+        "upgrade_price": 8,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -369,7 +364,7 @@ base_upgrades = {
         "new_type": {
             PieceType.BANSHEE: {Attribute.AOE_ON_KILL: 30}
         },
-        "upgrade_price": (2, 2, 8),
+        "upgrade_price": 6,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -379,7 +374,7 @@ base_upgrades = {
         "new_type": {
             PieceType.BANSHEE: {Attribute.KICKOFF: True}
         },
-        "upgrade_price": (2, 4, 6),
+        "upgrade_price": 6,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]
@@ -389,7 +384,7 @@ base_upgrades = {
         "new_type": {
             PieceType.BANSHEE: {Attribute.MOVEMENT_TYPE: MovementType.FLYING}
         },
-        "upgrade_price": (2, 4, 4),
+        "upgrade_price": 8,
         "tier": 2,
         "unlocks": [],
         "bought_by": [PieceType.BARRACKS, PieceType.TECHLAB]

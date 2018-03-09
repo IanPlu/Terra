@@ -2,7 +2,6 @@ from copy import deepcopy
 
 from pygame.constants import KEYDOWN
 
-from terra.economy.resourcetypes import ResourceType
 from terra.economy.upgrades import base_upgrades, UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event import *
@@ -14,7 +13,7 @@ from terra.piece.pieceattributes import base_piece_attributes
 from terra.piece.piecetype import PieceType
 from terra.team import Team
 from terra.ui.phasebar import PhaseBar
-from terra.util.mathutil import clamp, add_tuples
+from terra.util.mathutil import clamp
 
 # Max number of any given resource a player can hold.
 MAX_RESOURCES = 1000
@@ -43,10 +42,7 @@ class TeamManager(GameObject):
 
             self.turn_submitted[team] = False
             self.phase_bars[team] = PhaseBar(team)
-            self.resources[team] = {}
-            self.resources[team][ResourceType.CARBON] = int(data[1])
-            self.resources[team][ResourceType.MINERALS] = int(data[2])
-            self.resources[team][ResourceType.GAS] = int(data[3])
+            self.resources[team] = int(data[1])
 
             # Set the base values for piece attributes
             self.piece_attributes[team] = deepcopy(base_piece_attributes)
@@ -74,10 +70,8 @@ class TeamManager(GameObject):
     def __str__(self):
         return_string = ""
         for team in self.teams:
-            return_string = return_string + "{} team with {} carbon, {} minerals, and {} gas.\n"\
-                .format(team, self.resources[team][ResourceType.CARBON],
-                        self.resources[team][ResourceType.MINERALS],
-                        self.resources[team][ResourceType.GAS])
+            return_string = return_string + "{} team with {} resources.\n"\
+                .format(team, self.resources[team])
         return return_string
 
     # Query the piece attributes table for an up to date value for an attribute on a piece
@@ -89,9 +83,7 @@ class TeamManager(GameObject):
     def serialize_teams(self):
         team_strings = []
         for team in self.teams:
-            team_strings.append("{} {} {} {}".format(team.name, self.resources[team][ResourceType.CARBON],
-                                                     self.resources[team][ResourceType.MINERALS],
-                                                     self.resources[team][ResourceType.GAS]))
+            team_strings.append("{} {}".format(team.name, self.resources[team]))
         return team_strings
 
     def serialize_upgrades(self):
@@ -106,34 +98,20 @@ class TeamManager(GameObject):
 
     # Add new resources to the specified team. new_resources should be formatted as a tuple: (1, 2, 3)
     def add_resources(self, team, new_resources):
-        self.resources[team][ResourceType.CARBON] = clamp(
-            self.resources[team][ResourceType.CARBON] + new_resources[0], 0, MAX_RESOURCES)
-        self.resources[team][ResourceType.MINERALS] = clamp(
-            self.resources[team][ResourceType.MINERALS] + new_resources[1], 0, MAX_RESOURCES)
-        self.resources[team][ResourceType.GAS] = clamp(
-            self.resources[team][ResourceType.GAS] + new_resources[2], 0, MAX_RESOURCES)
+        self.resources[team] = clamp(self.resources[team] + new_resources, 0, MAX_RESOURCES)
 
     # Deduct resources from the specified team. resource_deduction should be formatted as a tuple: (1, 2, 3)
     def deduct_resources(self, team, resource_deduction):
-        self.resources[team][ResourceType.CARBON] = max(self.resources[team][ResourceType.CARBON] - resource_deduction[0], 0)
-        self.resources[team][ResourceType.MINERALS] = max(self.resources[team][ResourceType.MINERALS] - resource_deduction[1], 0)
-        self.resources[team][ResourceType.GAS] = max(self.resources[team][ResourceType.GAS] - resource_deduction[2], 0)
+        self.resources[team] = max(self.resources[team] - resource_deduction, 0)
 
     # Return true if the specified team is able to spend the provided list of amounts.
     # Each amount in amounts should be formatted as a tuple: (1, 2, 3)
     def can_spend_resources(self, team, amounts):
-        total_carbon = 0
-        total_minerals = 0
-        total_gas = 0
-
+        total_spent = 0
         for amount in amounts:
-            total_carbon = total_carbon + amount[0]
-            total_minerals = total_minerals + amount[1]
-            total_gas = total_gas + amount[2]
+            total_spent += amount
 
-        return total_carbon <= self.resources[team][ResourceType.CARBON] and \
-               total_minerals <= self.resources[team][ResourceType.MINERALS] and \
-               total_gas <= self.resources[team][ResourceType.GAS]
+        return total_spent <= self.resources[team]
 
     # Add an upgrade to a team, triggering any changes to the units + upgrade tree as necessary.
     def purchase_upgrade(self, team, upgrade_type):
@@ -170,14 +148,6 @@ class TeamManager(GameObject):
                 for attribute in attributes:
                     self.piece_attributes[team][piece_type][attribute] = \
                         upgrade["new_type"][piece_type][attribute]
-
-        if upgrade.get("new_costs"):
-            for piece_type, attributes in upgrade["new_costs"].items():
-                for attribute in attributes:
-                    existing_price = self.piece_attributes[team][piece_type][attribute]
-                    new_price = upgrade["new_costs"][piece_type][attribute]
-                    self.piece_attributes[team][piece_type][attribute] = \
-                        add_tuples(new_price, existing_price)
 
         if upgrade.get("new_attack_multiplier"):
             for piece_type, enemy_piece_archetypes in upgrade["new_attack_multiplier"].items():

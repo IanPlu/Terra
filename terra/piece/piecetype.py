@@ -23,9 +23,7 @@ class PieceType(Enum):
 
     # Buildings
     BASE = 8
-    CARBON_GENERATOR = 9
-    MINERAL_GENERATOR = 10
-    GAS_GENERATOR = 11
+    GENERATOR = 9
     BARRACKS = 12
     TOWER = 13
     # WAYSTATION = 17

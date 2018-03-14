@@ -92,3 +92,6 @@ RED Colonist at tile (9, 3) with 100 HP successfully executed 'Order: raise terr
 = Phase Start Turn begins
 = Phase Issue Orders begins
 == ROUND 1 BEGIN ==
+== ROUND 1 BEGIN ==
+Team.RED team researched the upgrade UpgradeType.COLONIST_MAX_HP
+== ROUND 1 BEGIN ==

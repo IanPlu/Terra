@@ -1,7 +1,8 @@
 from terra.economy.upgrades import UpgradeType
 from terra.piece.piecetype import PieceType
 from terra.strings import piece_name_strings, LANGUAGE
-from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, MENU_PURCHASE_UPGRADE, MENU_RAISE_TILE
+from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, MENU_PURCHASE_UPGRADE, MENU_RAISE_TILE, \
+    MENU_DEMOLISH_SELF
 
 
 # An order to be carried out by a piece.
@@ -88,6 +89,18 @@ class TerraformOrder(Order):
         return "[Terra]{},{},{}".format(self.tx, self.ty, self.raising)
 
 
+# An order for the building to demolish itself.
+class DemolishOrder(Order):
+    def __init__(self):
+        super().__init__(MENU_DEMOLISH_SELF)
+
+    def __str__(self):
+        return "Order: Demolish self".format()
+
+    def serialize(self):
+        return "[Demol]".format()
+
+
 # Deserialize an order from a serialized string
 def deserialize_order(order):
     prefix = order[:7]
@@ -102,5 +115,7 @@ def deserialize_order(order):
         return UpgradeOrder(UpgradeType[fields[0]])
     elif prefix == "[Terra]":
         return TerraformOrder(int(fields[0]), int(fields[1]), bool(fields[2]))
+    elif prefix == "[Demol]":
+        return DemolishOrder()
     else:
         return None

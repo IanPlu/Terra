@@ -99,6 +99,12 @@ class MapManager(GameObject):
 
         self.update_tile_type(event.gx, event.gy, tile_height_order[clamp(new_tile_type_index, 0, len(tile_height_order) - 1)])
 
+    # Replace all tiles with the provided tiletype.
+    def fill_map_with_tile(self, new_tile_type):
+        for x in range(self.width):
+            for y in range(self.height):
+                self.update_tile_type(x, y, new_tile_type)
+
     def step(self, event):
         super().step(event)
 

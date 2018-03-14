@@ -56,7 +56,7 @@ class Main:
             elif event.option == Option.JOIN_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, None, event.address, is_host=False)
             elif event.option == Option.NEW_MAP:
-                self.set_screen_from_mode(Mode.EDIT, "new_map.map")
+                self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.LOAD_MAP:
                 self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.QUIT:

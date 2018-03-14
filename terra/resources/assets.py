@@ -8,7 +8,7 @@ from terra.economy.upgrades import UpgradeType
 from terra.effects.effecttype import EffectType
 from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
     MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP, \
-    MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN
+    MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN, MENU_DEMOLISH_SELF, MENU_FILL_WITH_CURRENT_TILE
 from terra.map.tiletype import TileType
 from terra.piece.pieceattributes import Attribute
 from terra.piece.piecetype import PieceType
@@ -91,6 +91,8 @@ spr_order_options = {
         MENU_SAVE_MAP: spr_order_options_base[9],
         MENU_RAISE_TILE: spr_order_options_base[10],
         MENU_LOWER_TILE: spr_order_options_base[11],
+        MENU_DEMOLISH_SELF: spr_order_options_base[12],
+        MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
     }
 }
 
@@ -202,7 +204,7 @@ spr_pieces = {
     }
 }
 
-spr_base_order_flags = get_nine_slice_sprites(pygame.image.load(get_asset(AssetType.SPRITE, "units/OrderFlags.png")), 8)
+spr_base_order_flags = get_nine_slice_sprites(pygame.image.load(get_asset(AssetType.SPRITE, "ui/OrderFlags.png")), 8)
 spr_order_flags = {
     MENU_CANCEL_ORDER: spr_base_order_flags[0],
     MENU_MOVE: spr_base_order_flags[1],
@@ -216,7 +218,8 @@ spr_order_flags = {
     MENU_SAVE_MAP: spr_base_order_flags[3],
     MENU_RAISE_TILE: spr_base_order_flags[7],
     MENU_LOWER_TILE: spr_base_order_flags[7],
-
+    MENU_DEMOLISH_SELF: spr_base_order_flags[8],
+    MENU_FILL_WITH_CURRENT_TILE: spr_base_order_flags[0],
 }
 
 spr_digit_icons = {

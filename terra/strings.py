@@ -31,6 +31,8 @@ menu_option_strings = {
         MENU_SAVE_MAP: "Save Map",
         MENU_RAISE_TILE: "Raise Tile",
         MENU_LOWER_TILE: "Lower Tile",
+        MENU_DEMOLISH_SELF: "Demolish",
+        MENU_FILL_WITH_CURRENT_TILE: "Fill Map",
     }
 }
 
@@ -49,6 +51,8 @@ menu_help_strings = {
         MENU_SAVE_MAP: "* Save this map design to a file.",
         MENU_RAISE_TILE: "* Terraform an adjacent tile. Seas -> Coasts -> Plains -> Hills -> Mountains.",
         MENU_LOWER_TILE: "* Terraform an adjacent tile. Mountains -> Hills -> Plains -> Coasts -> Seas.",
+        MENU_DEMOLISH_SELF: "* Destroy this piece at the end of the turn, freeing space for other pieces later.",
+        MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
 
         # Pieces
         PieceType.COLONIST: "* Colonists are workers with little combat ability, but can harvest resources.",
@@ -233,7 +237,7 @@ notification_strings = {
 
 main_menu_strings = {
     Language.EN_US: {
-        Option.START: "Start",
+        Option.START: "Main Menu",
         Option.NEW_GAME: "New Game",
         Option.LOAD_GAME: "Load Game",
         Option.LEVEL_EDITOR: "Level Editor",
@@ -265,6 +269,13 @@ attribute_value_strings = {
         PieceArchetype.MOBILITY: "Mobility",
         PieceArchetype.GENERATOR: "Generator",
         PieceArchetype.UTILITY: "Utility",
+    }
+}
+
+label_strings = {
+    Language.EN_US: {
+        "IP_INPUT": "Enter ip address to connect to:",
+        "MAPNAME_INPUT": "Enter new map name:",
     }
 }
 

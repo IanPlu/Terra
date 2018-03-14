@@ -40,8 +40,10 @@ class LevelEditor(GameScreen):
         elif is_event_type(event, E_CLOSE_MENU) and event.option:
             if event.option == MENU_SAVE_MAP:
                 Managers.save_map_to_file()
-            if event.option == MENU_QUIT_BATTLE:
+            elif event.option == MENU_QUIT_BATTLE:
                 publish_game_event(E_QUIT_BATTLE, {})
+            elif event.option == MENU_FILL_WITH_CURRENT_TILE:
+                self.fill_with_current_tile()
         elif event.type == KEYDOWN:
             if event.key in KB_SCROLL_UP:
                 self.scroll(1)
@@ -121,6 +123,9 @@ class LevelEditor(GameScreen):
 
     def get_piece_sprite_for_piecetype(self, piecetype):
         return spr_pieces[self.piece_team][piecetype]
+
+    def fill_with_current_tile(self):
+        Managers.battle_map.fill_map_with_tile(self.current_tile_type)
 
     def render(self, ui_screen):
         super().render(ui_screen)

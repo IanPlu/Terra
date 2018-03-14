@@ -76,16 +76,22 @@ MENU_BUILD_PIECE = define_event()
 MENU_PURCHASE_UPGRADE = define_event()
 MENU_RAISE_TILE = define_event()
 MENU_LOWER_TILE = define_event()
+MENU_DEMOLISH_SELF = define_event()
 
 # Pause menu option events
 MENU_SUBMIT_TURN = define_event()
 MENU_REVISE_TURN = define_event()
 MENU_SAVE_GAME = define_event()
 MENU_QUIT_BATTLE = define_event()
+
+# Level editor menu option events
 MENU_SAVE_MAP = define_event()
+MENU_FILL_WITH_CURRENT_TILE = define_event()
 
 # Main menu option events
 MENU_SELECT_OPTION = define_event()
+TEXT_SUBMIT_INPUT = define_event()
+TEXT_CANCEL_INPUT = define_event()
 
 
 # Publish the specified game event, with the data provided.

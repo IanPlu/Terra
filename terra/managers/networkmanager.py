@@ -144,10 +144,3 @@ class NetworkManager(GameObject):
 
     def render(self, map_screen, ui_screen):
         pass
-
-
-# Return the ip from the 'networksettings' text file
-def get_network_settings():
-    with open("networksettings.txt") as file:
-        for line in file:
-            return line

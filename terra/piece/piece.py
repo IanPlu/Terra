@@ -10,8 +10,9 @@ from terra.managers.managers import Managers
 from terra.mode import Mode
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import MovementType, MovementAttribute, movement_types
-from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, TerraformOrder
+from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, TerraformOrder, DemolishOrder
 from terra.piece.pieceattributes import Attribute
+from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
     spr_target, light_team_color, spr_digit_icons, spr_resource_icon_small
@@ -75,6 +76,8 @@ class Piece(GameObject):
             actions.append(MENU_RAISE_TILE)
         if len(self.get_valid_tiles_for_terraforming(raising=False)):
             actions.append(MENU_LOWER_TILE)
+        if self.piece_subtype == PieceSubtype.BUILDING and self.piece_type is not PieceType.BASE:
+            actions.append(MENU_DEMOLISH_SELF)
 
         if len(actions) > 0 and self.current_order:
             actions.append(MENU_CANCEL_ORDER)
@@ -390,6 +393,13 @@ class Piece(GameObject):
                 # Pop orders once they're executed
                 self.current_order = None
 
+        # Execute demolition orders
+        elif isinstance(self.current_order, DemolishOrder):
+            self.damage_hp(self.hp)
+
+            Managers.combat_logger.log_successful_order_execution(self, self.current_order)
+            self.current_order = None
+
     # Handle menu events concerning us
     def handle_menu_option(self, event):
         if event.option == MENU_MOVE:
@@ -473,6 +483,8 @@ class Piece(GameObject):
             self.current_order = TerraformOrder(event.dx, event.dy, raising=True)
         elif event.option == MENU_LOWER_TILE:
             self.current_order = TerraformOrder(event.dx, event.dy, raising=False)
+        elif event.option == MENU_DEMOLISH_SELF:
+            self.current_order = DemolishOrder()
         else:
             self.current_order = None
 

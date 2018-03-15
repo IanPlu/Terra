@@ -41,6 +41,7 @@ def draw_text(text, color, shadow_color=None):
         text_surface = pygame.Surface((text_size[0] + 1, text_size[1] + 1), pygame.SRCALPHA, 32)
 
         text_surface.blit(background, (1, 1))
+        text_surface.blit(background, (0, 1))
         text_surface.blit(foreground, (0, 0))
         return text_surface
     else:

@@ -94,9 +94,14 @@ class Piece(GameObject):
                           (self.gx, self.gy - 1)]
         unoccupied_tiles = []
 
-        # Remove tiles that already have allies on it
+        # Remove tiles that already have allies on it that can't move
         for tile_x, tile_y in tiles_to_check:
-            if len(Managers.piece_manager.get_pieces_at(tile_x, tile_y, team=self.team)) == 0:
+            immobile_allies = []
+            for piece in Managers.piece_manager.get_pieces_at(tile_x, tile_y, team=self.team):
+                if Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.MOVEMENT_RANGE) <= 0:
+                    immobile_allies.append(piece)
+
+            if len(immobile_allies) <= 0:
                 unoccupied_tiles.append((tile_x, tile_y))
 
         # For each buildable piece, if there exists at least one valid adjacent tile for its movement type that we can
@@ -187,10 +192,19 @@ class Piece(GameObject):
         # Abort the order
         self.current_order = None
 
-    # Return true if this piece is contested by an enemy piece occupying the same tile, and we're able to be contested
+    # Return true if this piece is contested by an enemy piece occupying the same tile.
+    # Caveats: the enemy might not be able to contest us, or can't be contested
     def is_contested(self):
-        return len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0 and not \
-               Managers.team_manager.attr(self.team, self.piece_type, Attribute.IGNORE_CONTESTING)
+        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.IGNORE_CONTESTING):
+            return False
+        else:
+            enemy_pieces = Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)
+            contesting_pieces = []
+            for piece in enemy_pieces:
+                if not (self.piece_subtype is PieceSubtype.BUILDING and Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.CANT_ATTACK_BUILDINGS)):
+                    contesting_pieces.append(piece)
+
+            return len(contesting_pieces) > 0
 
     # Deal damage to this piece
     def damage_hp(self, damage, source=None):
@@ -215,6 +229,11 @@ class Piece(GameObject):
                 'team': self.team
             })
             Managers.combat_logger.log_healing(self, heal)
+
+    # Apply an entrenchment bonus per unused movement range (up to 2)
+    def apply_entrenchment(self, distance):
+        self.entrenchment = (min(Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE), 2) - distance) * \
+                            Managers.team_manager.attr(self.team, self.piece_type, Attribute.ENTRENCHMENT_MODIFIER)
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
@@ -318,11 +337,6 @@ class Piece(GameObject):
                     'gy': ally.gy,
                     'team': ally.team
                 })
-
-    # Apply an entrenchment bonus per unused movement range (up to 2)
-    def apply_entrenchment(self, distance):
-        self.entrenchment = (min(Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE), 2) - distance) * \
-                            Managers.team_manager.attr(self.team, self.piece_type, Attribute.ENTRENCHMENT_MODIFIER)
 
     def handle_phase_combat(self, event):
         pass

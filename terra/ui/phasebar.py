@@ -4,7 +4,7 @@ from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.managers.managers import Managers
 from terra.resources.assets import clear_color, spr_cursor, spr_phase_indicator, spr_resource_icon, spr_digit_icons, \
-    spr_turn_submitted_indicator
+    spr_turn_submitted_indicator, light_color
 from terra.strings import get_text, notification_strings, phase_strings
 from terra.team import Team
 from terra.ui.toastnotification import ToastNotification
@@ -38,7 +38,8 @@ class PhaseBar(GameObject):
             self.toast.render(game_screen, ui_screen)
 
         # Render phase indicator bar
-        ui_screen.fill(clear_color[self.team], (0, RESOLUTION_HEIGHT - GRID_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT))
+        ui_screen.fill(light_color, (0, RESOLUTION_HEIGHT - GRID_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT))
+        ui_screen.fill(clear_color[self.team], (1, RESOLUTION_HEIGHT - GRID_HEIGHT + 1, RESOLUTION_WIDTH - 2, GRID_HEIGHT - 3))
 
         x = 0
         for phase in BattlePhase:

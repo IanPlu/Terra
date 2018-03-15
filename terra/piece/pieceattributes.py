@@ -100,10 +100,10 @@ base_piece_attributes = {
         Attribute.ARCHETYPE: PieceArchetype.WORKER,
         Attribute.MAX_HP: 100,
         Attribute.BUILDABLE_PIECES: [
-            PieceType.BARRACKS,
-            PieceType.TOWER,
-            PieceType.TECHLAB,
             PieceType.GENERATOR,
+            PieceType.BARRACKS,
+            PieceType.TECHLAB,
+            PieceType.TOWER,
         ],
         Attribute.ATTACK: 0,
         Attribute.ATTACK_MULTIPLIER: {
@@ -329,7 +329,7 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.NONE,
         Attribute.MOVEMENT_TYPE: MovementType.GENERATOR,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: 2,
+        Attribute.PRICE: 1,
         Attribute.RESOURCE_PRODUCTION: 1
     },
     PieceType.BARRACKS: {
@@ -403,7 +403,7 @@ base_piece_attributes = {
         Attribute.DAMAGE_TYPE: DamageType.NONE,
         Attribute.MOVEMENT_TYPE: MovementType.BUILDING,
         Attribute.MOVEMENT_RANGE: 0,
-        Attribute.PRICE: 1,
+        Attribute.PRICE: 2,
         Attribute.RESOURCE_PRODUCTION: 0,
         Attribute.MEDIC: 5,
     },

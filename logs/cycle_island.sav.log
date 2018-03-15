@@ -3632,3 +3632,139 @@ RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Tr
 = Phase Special begins
 = Phase Start Turn begins
 = Phase Issue Orders begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_MAX_HP
+== ROUND 1 BEGIN ==
+BLUE Barracks at tile (10, 9) with 100 HP was assigned the order 'Order: Build a Ghost on tile (9, 9)'
+RED Colonist at tile (4, 8) with 100 HP was assigned the order 'Order: Move to (6, 9)'
+= Phase Move begins
+RED Colonist at tile (6, 9) with 100 HP successfully executed 'Order: Move to (6, 9)'
+= Phase Build begins
+BLUE Barracks at tile (10, 9) with 100 HP successfully executed 'Order: Build a Ghost on tile (9, 9)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (6, 9) with 100 HP was assigned the order 'Order: Build a Tower on tile (7, 9)'
+BLUE Ghost at tile (9, 9) with 80 HP was assigned the order 'Order: Move to (6, 9)'
+= Phase Move begins
+BLUE Ghost at tile (6, 9) with 80 HP successfully executed 'Order: Move to (6, 9)'
+= Phase Build begins
+RED Colonist at tile (6, 9) with 100 HP failed to execute 'Order: Build a Tower on tile (7, 9)'
+= Phase Combat begins
+RED Colonist at tile (6, 9) with 100 HP and BLUE Ghost at tile (6, 9) with 80 HP are contesting the tile at (6, 9)!
+RED Colonist at tile (6, 9) with 64 HP took 36 damage from BLUE Ghost at tile (6, 9) with 80 HP!
+BLUE Ghost at tile (6, 9) with 80 HP took 0 damage from RED Colonist at tile (6, 9) with 64 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+= Phase Issue Orders begins
+RED Colonist at tile (6, 9) with 64 HP was assigned the order 'Order: Build a Tech Lab on tile (6, 10)'
+BLUE Ghost at tile (6, 9) with 80 HP was assigned the order 'Order: Move to (7, 9)'
+= Phase Move begins
+BLUE Ghost at tile (7, 9) with 80 HP successfully executed 'Order: Move to (7, 9)'
+= Phase Build begins
+RED Colonist at tile (6, 9) with 64 HP successfully executed 'Order: Build a Tech Lab on tile (6, 10)'
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+RED Colonist at tile (6, 9) with 69 HP healed for 5 health.
+= Phase Issue Orders begins
+RED Tech Lab at tile (6, 10) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESOURCE_PRODUCTION_1'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+= Phase Ranged begins
+= Phase Special begins
+RED Tech Lab at tile (6, 10) with 50 HP successfully executed 'Order: purchase upgrade UpgradeType.RESOURCE_PRODUCTION_1'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.RESOURCE_PRODUCTION_1
+RED Colonist at tile (6, 9) with 74 HP healed for 5 health.
+= Phase Issue Orders begins
+RED Colonist at tile (6, 9) with 74 HP was assigned the order 'Order: Build a Tech Lab on tile (7, 9)'
+= Phase Move begins
+= Phase Build begins
+RED Colonist at tile (6, 9) with 74 HP successfully executed 'Order: Build a Tech Lab on tile (7, 9)'
+= Phase Combat begins
+BLUE Ghost at tile (7, 9) with 80 HP and RED Tech Lab at tile (7, 9) with 50 HP are contesting the tile at (7, 9)!
+BLUE Ghost at tile (7, 9) with 80 HP took 0 damage from RED Tech Lab at tile (7, 9) with 50 HP!
+RED Tech Lab at tile (7, 9) with 50 HP took 0 damage from BLUE Ghost at tile (7, 9) with 80 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+RED Colonist at tile (6, 9) with 79 HP healed for 5 health.
+RED Colonist at tile (6, 9) with 84 HP healed for 5 health.
+= Phase Issue Orders begins
+RED Tech Lab at tile (7, 9) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_ATTACK'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+BLUE Ghost at tile (7, 9) with 80 HP and RED Tech Lab at tile (7, 9) with 50 HP are contesting the tile at (7, 9)!
+BLUE Ghost at tile (7, 9) with 80 HP took 0 damage from RED Tech Lab at tile (7, 9) with 50 HP!
+RED Tech Lab at tile (7, 9) with 50 HP took 0 damage from BLUE Ghost at tile (7, 9) with 80 HP!
+= Phase Ranged begins
+= Phase Special begins
+RED Tech Lab at tile (7, 9) with 50 HP successfully executed 'Order: purchase upgrade UpgradeType.COLONIST_ATTACK'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.COLONIST_ATTACK
+RED Colonist at tile (6, 9) with 89 HP healed for 5 health.
+RED Colonist at tile (6, 9) with 94 HP healed for 5 health.
+= Phase Issue Orders begins
+RED Tech Lab at tile (7, 9) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+= Phase Move begins
+= Phase Build begins
+= Phase Combat begins
+BLUE Ghost at tile (7, 9) with 80 HP and RED Tech Lab at tile (7, 9) with 50 HP are contesting the tile at (7, 9)!
+BLUE Ghost at tile (7, 9) with 80 HP took 0 damage from RED Tech Lab at tile (7, 9) with 50 HP!
+RED Tech Lab at tile (7, 9) with 50 HP took 0 damage from BLUE Ghost at tile (7, 9) with 80 HP!
+= Phase Ranged begins
+= Phase Special begins
+RED Tech Lab at tile (7, 9) with 50 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+= Phase Start Turn begins
+Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+RED Colonist at tile (6, 9) with 99 HP healed for 5 health.
+RED Colonist at tile (6, 9) with 104 HP healed for 5 health.
+= Phase Issue Orders begins
+RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Guardian on tile (5, 4)'
+= Phase Move begins
+= Phase Build begins
+RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Guardian on tile (5, 4)'
+= Phase Combat begins
+BLUE Ghost at tile (7, 9) with 80 HP and RED Tech Lab at tile (7, 9) with 50 HP are contesting the tile at (7, 9)!
+BLUE Ghost at tile (7, 9) with 80 HP took 0 damage from RED Tech Lab at tile (7, 9) with 50 HP!
+RED Tech Lab at tile (7, 9) with 50 HP took 0 damage from BLUE Ghost at tile (7, 9) with 80 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+RED Colonist at tile (6, 9) with 109 HP healed for 5 health.
+RED Colonist at tile (6, 9) with 114 HP healed for 5 health.
+= Phase Issue Orders begins
+RED Guardian at tile (5, 4) with 80 HP was assigned the order 'Order: Move to (7, 4)'
+= Phase Move begins
+RED Guardian at tile (7, 4) with 80 HP successfully executed 'Order: Move to (7, 4)'
+= Phase Build begins
+= Phase Combat begins
+BLUE Ghost at tile (7, 9) with 80 HP and RED Tech Lab at tile (7, 9) with 50 HP are contesting the tile at (7, 9)!
+BLUE Ghost at tile (7, 9) with 80 HP took 0 damage from RED Tech Lab at tile (7, 9) with 50 HP!
+RED Tech Lab at tile (7, 9) with 50 HP took 0 damage from BLUE Ghost at tile (7, 9) with 80 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+RED Colonist at tile (6, 9) with 119 HP healed for 5 health.
+RED Colonist at tile (6, 9) with 120 HP healed for 5 health.
+= Phase Issue Orders begins
+BLUE Ghost at tile (7, 9) with 80 HP was assigned the order 'Order: Move to (6, 9)'
+= Phase Move begins
+BLUE Ghost at tile (6, 9) with 80 HP successfully executed 'Order: Move to (6, 9)'
+= Phase Build begins
+= Phase Combat begins
+RED Colonist at tile (6, 9) with 120 HP and BLUE Ghost at tile (6, 9) with 80 HP are contesting the tile at (6, 9)!
+RED Colonist at tile (6, 9) with 84 HP took 36 damage from BLUE Ghost at tile (6, 9) with 80 HP!
+BLUE Ghost at tile (6, 9) with 67 HP took 13 damage from RED Colonist at tile (6, 9) with 84 HP!
+= Phase Ranged begins
+= Phase Special begins
+= Phase Start Turn begins
+RED Colonist at tile (6, 9) with 89 HP healed for 5 health.
+RED Colonist at tile (6, 9) with 94 HP healed for 5 health.
+= Phase Issue Orders begins

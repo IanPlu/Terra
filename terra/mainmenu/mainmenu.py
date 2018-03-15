@@ -7,7 +7,7 @@ from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL, KB_MENU, KB
 from terra.mainmenu.option import Option
 from terra.mainmenu.textinput import TextInput, FILTER_IP, FILTER_FILENAME
 from terra.managers.mapmanager import get_loadable_maps
-from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color
+from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, spr_main_menu_option
 from terra.settings import SCREEN_SCALE
 from terra.strings import get_text, main_menu_strings
 from terra.team import Team
@@ -16,6 +16,7 @@ from terra.util.mathutil import clamp
 
 displayable_buffer = 1
 max_displayable_options = 5
+menu_width = 168
 
 
 # Convert a list of loadable maps to selectable options: [(display name, filename), (...)]
@@ -94,9 +95,16 @@ class MainMenu(GameScreen):
         # Clamp to the bounds of the option list
         self.clamp_menu_bounds()
 
+    def cursor_in_menu_bounds(self):
+        mouse_x = pygame.mouse.get_pos()[0] / SCREEN_SCALE
+        mouse_y = pygame.mouse.get_pos()[1] / SCREEN_SCALE
+        return self.root_x - 24 <= mouse_x <= self.root_x + menu_width - 24 and \
+               self.root_y <= mouse_y <= self.root_y + 24 * min(max_displayable_options, self.num_options) + 24
+
     def set_cursor_pos_to_mouse_coords(self):
-        self.current_menu_pos = clamp((int(pygame.mouse.get_pos()[1] / SCREEN_SCALE) - self.root_y - 24) // 24 +
-                                      self.current_menu_min, self.current_menu_min, self.current_menu_max)
+        if self.cursor_in_menu_bounds():
+            self.current_menu_pos = clamp((int(pygame.mouse.get_pos()[1] / SCREEN_SCALE) - self.root_y - 24) // 24 +
+                                          self.current_menu_min, self.current_menu_min, self.current_menu_max)
 
     def scroll_menu_pos_up(self):
         self.current_menu_min = clamp(self.current_menu_min - 1, 0, self.num_options - max_displayable_options)
@@ -205,28 +213,37 @@ class MainMenu(GameScreen):
             # Draw text for the menu title
             game_screen.blit(get_text(main_menu_strings, self.current_menu[0]), (self.root_x - 12, self.root_y))
 
-            # Draw text for each menu option
+            # Draw a scrollbar if necessary
+            percentage_shown = max_displayable_options / self.num_options
+            if percentage_shown < 1:
+                height = 24 * min(max_displayable_options, self.num_options)
+                game_screen.fill(light_color, (self.root_x + menu_width - 22, self.root_y + 23, 4, height))
+                game_screen.fill(shadow_color[Team.RED], (self.root_x + menu_width - 22, self.root_y + 24, 3, height - 3))
+
+                game_screen.fill(light_color, (self.root_x + menu_width - 22,
+                                               self.root_y + 23 + (height * self.current_menu_min / self.num_options),
+                                               4, percentage_shown * height))
+
+            # Draw each menu option
             row_y = 1
             displayable_options = self.current_menu[1][self.current_menu_min:self.current_menu_max]
             for option in displayable_options:
                 is_selected = self.current_menu_pos == self.current_menu[1].index(option)
-                if is_selected:
-                    x_offset = 0
-                else:
-                    x_offset = 16
+                x_offset = 0 if is_selected else 16
 
                 position_x, position_y = self.root_x, self.root_y + row_y * 24
-                box_width = 24 * 6
-                game_screen.fill(light_color, (position_x - 24 - 1 + x_offset, position_y - 1, box_width + 3 - x_offset, 24))
+                game_screen.fill(light_color, (position_x - 24 - 1 + x_offset, position_y - 1, menu_width + 3 - x_offset, 24))
                 game_screen.fill(light_team_color[Team.RED] if is_selected else shadow_color[Team.RED],
-                                 (position_x - 24 + x_offset, position_y, box_width - x_offset, 21))
+                                 (position_x - 24 + x_offset, position_y, menu_width - x_offset, 21))
 
                 if isinstance(option[0], str):
                     # Render arbitrary text
-                    game_screen.blit(draw_text(option[0], light_color, shadow_color[Team.RED]), (position_x + 8, position_y))
+                    game_screen.blit(draw_text(option[0], light_color, shadow_color[Team.RED]), (position_x + 8, position_y + 4))
                 else:
+                    # Display the icon for the option
+                    game_screen.blit(spr_main_menu_option[option[0]], (position_x - 24 + x_offset, position_y))
                     # Display prerendered text
-                    game_screen.blit(get_text(main_menu_strings, option[0]), (position_x + 8, position_y))
+                    game_screen.blit(get_text(main_menu_strings, option[0]), (position_x + 24, position_y + 4))
 
                 row_y += 1
 

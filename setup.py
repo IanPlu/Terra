@@ -8,7 +8,7 @@ options = {
         'includes': [
             'terra'
         ],
-        'include_files': ['resources', 'logs', 'networksettings.txt'],
+        'include_files': ['resources', 'logs'],
         # TODO: Figure out exactly how illegal this is
         'include_msvcr': True
     }

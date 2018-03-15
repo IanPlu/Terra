@@ -55,15 +55,16 @@ menu_help_strings = {
         MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
 
         # Pieces
-        PieceType.COLONIST: "* Colonists are workers with little combat ability, but can harvest resources.",
+        PieceType.COLONIST: "* Colonists are workers with little combat ability, but can harvest resources and build "
+                            "buildings. Build orders are canceled if an enemy contests this unit's tile. ",
         PieceType.TROOPER: "* Troopers are ground forces with balanced stats that form a strong front line. "
                            "Notably weak to ranged attacks.",
         PieceType.RANGER: "* Rangers are fairly fragile units that can conduct long-range attacks without being "
                           "counter attacked. They cannot defend themselves in melee and are notably weak to "
-                          "high-mobility units.",
+                          "high-mobility units. Their ranged attack is canceled if an enemy contests their tile. ",
         PieceType.GHOST: "* Ghosts are high-mobility units with low defenses. They are not impeded by enemy units when "
-                         "moving around, and can slip behind enemy lines. Cannot attack buildings, and are notably weak"
-                         " in direct combat.",
+                         "moving around, and can slip behind enemy lines. Cannot attack or contest buildings, and are "
+                         "notably weak in direct combat.",
 
         PieceType.GUARDIAN: "* Guardians are defensive specialty ground forces. They excel at holding ground with their"
                             " high defenses, and support nearby allies with defensive buffs. Notably weak when caught"
@@ -73,14 +74,14 @@ menu_help_strings = {
                               "deal damage to tiles adjacent to their target.",
         PieceType.BANSHEE: "* Banshees are a high-mobility specialty unit. They have a very high movement range, and "
                            "can traverse (but not end the turn in) normally impassible terrain. Like Ghosts, they're "
-                           "not impeded by enemies when moving. Notably low health pool-- don't get hit.",
+                           "not impeded by enemies when moving. Notably low health pool.",
 
         # PieceType.TITAN: "Titan",
         # PieceType.EARTHRENDER: "Earthrender",
         # PieceType.DEMON: "Demon",
 
         PieceType.BASE: "* Your Base is the only building capable of producing Colonists, and can research non-combat "
-                        "unit upgrades. New units can be researched here. If destroyed, you lose!",
+                        "unit upgrades. If destroyed, you lose!",
         PieceType.GENERATOR: "* Generators harvest resources from Resource tiles each turn.",
         PieceType.BARRACKS: "* Barracks produce combat units, and can research upgrades to your combat units.",
         PieceType.TOWER: "* Towers are immobile defensive structures. They damage all adjacent enemies at the start of "
@@ -88,7 +89,7 @@ menu_help_strings = {
         # PieceType.WAYSTATION: "Waystation",
         PieceType.TECHLAB: "* Tech Labs are able to research new tiers of units. Additionally, they're a second place "
                            "to purchase upgrades of all types, including upgrades normally bought at the Base. "
-                           "Tech Labs also heal adjacent allies for a small amount each turn.",
+                           "Tech Labs heal adjacent allies for a small amount each turn.",
 
         # Upgrades
         UpgradeType.RESOURCE_PRODUCTION_1: "* Generators now produce +1 resource per turn.",

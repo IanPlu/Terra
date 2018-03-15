@@ -40,7 +40,7 @@ class TileSelection(GameObject):
         excluded_coordinates = set()
 
         # if it's not movement, only exclude our own tile
-        if not self.movement_type or self.movement_type in [MovementType.RAISE, MovementType.LOWER]:
+        if not self.movement_type or self.movement_type in [MovementType.RAISE, MovementType.LOWER, MovementType.BUILDING, MovementType.GENERATOR]:
             return {(self.gx, self.gy)}
         # Otherwise exclude friendly buildings from selection
         else:

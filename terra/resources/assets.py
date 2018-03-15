@@ -16,6 +16,7 @@ from terra.settings import SFX_VOLUME
 from terra.team import Team
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
     swap_palette, generate_palette_list, swap_multiple_palette, get_indexed_sprites_from_strip
+from terra.mainmenu.option import Option
 
 
 # External assets are divided into subdirectories by their type
@@ -62,6 +63,25 @@ unit_palette = {
 }
 
 # UI
+spr_main_menu_background = pygame.image.load(get_asset(AssetType.SPRITE, "ui/MainMenuBackground.png"))
+spr_main_menu_option_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/MainMenuOption.png")), 24)
+spr_main_menu_option = {
+    Option.START: spr_main_menu_option_base[5],
+    Option.NEW_GAME: spr_main_menu_option_base[0],
+    Option.LOAD_GAME: spr_main_menu_option_base[6],
+    Option.LEVEL_EDITOR: spr_main_menu_option_base[2],
+    Option.SETTINGS: spr_main_menu_option_base[3],
+    Option.QUIT: spr_main_menu_option_base[4],
+    Option.LOCAL: spr_main_menu_option_base[0],
+    Option.NETWORK: spr_main_menu_option_base[1],
+    Option.HOST_GAME: spr_main_menu_option_base[7],
+    Option.JOIN_GAME: spr_main_menu_option_base[8],
+    Option.NEW_NETWORK_GAME: spr_main_menu_option_base[0],
+    Option.LOAD_NETWORK_GAME: spr_main_menu_option_base[6],
+    Option.NEW_MAP: spr_main_menu_option_base[2],
+    Option.LOAD_MAP: spr_main_menu_option_base[6],
+}
+
 spr_cursor = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Cursor.png"))
 }
@@ -94,6 +114,10 @@ spr_order_options = {
         MENU_DEMOLISH_SELF: spr_order_options_base[12],
         MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
     }
+}
+
+spr_menu_option_item_background = {
+    Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/MenuOption_PieceBackground.png"))
 }
 
 spr_piece_attribute_icons_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Piece_Attribute_Icons.png")), 12)
@@ -293,6 +317,7 @@ def load_assets():
         spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED],
                                                           unit_palette[team])
         spr_target[team] = swap_palette(spr_target[Team.RED], unit_palette[team])
+        spr_menu_option_item_background[team] = swap_palette(spr_menu_option_item_background[Team.RED], unit_palette[team])
 
         spr_pieces[team] = {}
         for piece_type in PieceType:

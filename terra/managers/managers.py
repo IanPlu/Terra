@@ -1,10 +1,12 @@
-from terra.resources.assets import AssetType, get_asset
+from terra.managers.errorlogger import ErrorLogger
 from terra.mode import Mode
+from terra.resources.assets import AssetType, get_asset
 
 
 # Container for the various -manager objects.
 # The initialize method must be called first when a battle is being set up.
 class Managers:
+    error_logger = ErrorLogger()
     combat_logger = None
     effects_manager = None
     map_name = None
@@ -38,13 +40,19 @@ class Managers:
         elif not map_name and Managers.network_manager.networked_game:
             # Client games won't have a map name until they connect, so fetch it now
             map_data = Managers.network_manager.map_data
-            map_name = "NetworkGame"
-            # Load the map from the string representation given to us by the host
-            bitmap, pieces, teams, upgrades = parse_map_from_string(map_data)
+
+            # If we still have no map data, just abort and return to the title screen
+            if not map_data:
+                Managers.tear_down_managers()
+                return
+            else:
+                # Load the map from the string representation given to us by the host
+                map_name = "NetworkGame"
+                bitmap, pieces, teams, upgrades = parse_map_from_string(map_data)
         else:
-            # No map name for a local game, so assume we're generating a new map
-            map_name = None
-            bitmap, pieces, teams, upgrades = generate_map()
+            # No map name for a local game, so assume something has gone wrong and abort
+            Managers.tear_down_managers()
+            return
 
         Managers.combat_logger = CombatLogger(map_name)
         Managers.effects_manager = EffectsManager()
@@ -55,6 +63,32 @@ class Managers:
         Managers.turn_manager = TurnManager()
         Managers.player_manager = PlayerManager()
         Managers.sound_manager = SoundManager()
+
+    @staticmethod
+    def tear_down_managers():
+        del Managers.network_manager
+        del Managers.combat_logger
+        del Managers.effects_manager
+        del Managers.map_name
+        del Managers.team_manager
+        del Managers.battle_map
+        del Managers.piece_manager
+        del Managers.turn_manager
+        del Managers.player_manager
+        del Managers.sound_manager
+
+        Managers.network_manager = None
+        Managers.combat_logger = None
+        Managers.effects_manager = None
+        Managers.map_name = None
+        Managers.team_manager = None
+        Managers.battle_map = None
+        Managers.piece_manager = None
+        Managers.turn_manager = None
+        Managers.player_manager = None
+        Managers.sound_manager = None
+
+        Managers.set_mode(Mode.MAIN_MENU)
 
     @staticmethod
     def save_game_to_string():

@@ -192,7 +192,7 @@ upgrade_name_strings = {
 
         UpgradeType.COLONIST_ATTACK: "[C] Attack+",
         UpgradeType.COLONIST_MAX_HP: "[C] HP+",
-        UpgradeType.COLONIST_TERRAFORMING: "[C] Terraforming",
+        UpgradeType.COLONIST_TERRAFORMING: "[C] Terraform",
         UpgradeType.COLONIST_UNCONTESTABLE: "[C] Covert Ops",
 
         UpgradeType.TROOPER_ATTACK: "[T] Attack+",

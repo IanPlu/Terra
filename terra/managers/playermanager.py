@@ -27,7 +27,7 @@ class PlayerManager(GameObject):
         if Managers.turn_manager.phase == BattlePhase.ORDERS:
             self.cursors[self.active_team].step(event)
 
-        if event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE]:
+        if event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game:
             if event.key in KB_DEBUG0:
                 if self.active_team == Team.RED:
                     self.active_team = Team.BLUE

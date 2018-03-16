@@ -517,7 +517,7 @@ class Piece(GameObject):
         self.in_conflict = Managers.turn_manager.phase == BattlePhase.ORDERS and \
                            len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
 
-        if Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]:
+        if Managers.current_mode in [Mode.BATTLE]:
             # React to phase changes
             if is_event_type(event, START_PHASE_EXECUTE_BUILD):
                 self.handle_phase_build(event)

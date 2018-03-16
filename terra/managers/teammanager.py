@@ -225,7 +225,7 @@ class TeamManager(GameObject):
                 publish_game_event(E_QUIT_BATTLE, {})
         elif is_event_type(event, E_UPGRADE_BUILT):
             self.purchase_upgrade(event.team, event.new_upgrade_type)
-        elif event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE]:
+        elif event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game:
             if event.key in KB_DEBUG1:
                 self.try_submitting_turn(Team.RED)
             elif event.key in KB_DEBUG2:

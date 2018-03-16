@@ -5,4 +5,3 @@ class Mode(Enum):
     MAIN_MENU = 0
     BATTLE = 1
     EDIT = 2
-    NETWORK_BATTLE = 3

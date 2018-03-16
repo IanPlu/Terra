@@ -74,7 +74,7 @@ class Cursor(GameObject):
         self.menu = None
 
     def open_pause_menu(self):
-        if Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]:
+        if Managers.current_mode in [Mode.BATTLE]:
             if Managers.team_manager.is_turn_submitted(self.team):
                 menu_options = [MENU_REVISE_TURN]
             else:

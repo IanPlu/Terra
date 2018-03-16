@@ -19,24 +19,27 @@ from terra.team import Team
 # Instantiate this class and call 'run()' on it to fire up the game.
 class Main:
     def __init__(self):
-        self.current_screen = None
-
         self.screen_resolution = None
         self.screen_width = None
         self.screen_height = None
         self.screen = None
 
+        self.screens = {}
         self.set_screen_from_mode(Mode.MAIN_MENU)
 
     def set_screen_from_mode(self, new_mode, mapname=None, address=None, is_host=False):
         Managers.set_mode(new_mode)
 
         if new_mode == Mode.MAIN_MENU:
-            self.current_screen = MainMenu()
+            new_screen = MainMenu()
         elif new_mode == Mode.BATTLE:
-            self.current_screen = Battle(mapname, address, is_host)
+            new_screen = Battle(mapname, address, is_host)
         elif new_mode == Mode.EDIT:
-            self.current_screen = LevelEditor(mapname)
+            new_screen = LevelEditor(mapname)
+        else:
+            new_screen = None
+
+        self.screens[new_mode] = new_screen
 
     def quit(self):
         pygame.quit()
@@ -44,7 +47,7 @@ class Main:
 
     # Step phase of game loop - handle events
     def step(self, event):
-        self.current_screen.step(event)
+        self.screens[Managers.current_mode].step(event)
 
         if is_event_type(event, MENU_SELECT_OPTION):
             if event.option == Option.NEW_GAME:
@@ -62,6 +65,9 @@ class Main:
             elif event.option == Option.QUIT:
                 self.quit()
         elif is_event_type(event, E_QUIT_BATTLE):
+            # Reset the screens and managers
+            Managers.tear_down_managers()
+            self.screens = {}
             self.set_screen_from_mode(Mode.MAIN_MENU, None)
 
     # Render phase of game loop - draw to the screen
@@ -73,7 +79,7 @@ class Main:
         ui_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
         ui_screen = ui_screen.convert_alpha()
 
-        game_screen = self.current_screen.render(ui_screen)
+        game_screen = self.screens[Managers.current_mode].render(ui_screen)
 
         base_screen.blit(game_screen, (0, 0))
         base_screen.blit(ui_screen, (0, 0))

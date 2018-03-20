@@ -27,7 +27,9 @@ class PhaseBar(GameObject):
         if self.toast:
             self.toast.step(event)
 
-        if is_event_type(event, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, E_INVALID_UPGRADE_ORDERS):
+        if is_event_type(event, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, E_INVALID_UPGRADE_ORDERS,
+                         NETWORK_CONNECTED_TO_HOST, NETWORK_DISCONNECTED_FROM_HOST,
+                         NETWORK_CLIENT_CONNECTED, NETWORK_CLIENT_DISCONNECTED):
             if event.team == self.team:
                 self.toast = ToastNotification(self, get_text(notification_strings, event.event_type, light=False), self.team)
 

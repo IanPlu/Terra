@@ -93,6 +93,12 @@ MENU_SELECT_OPTION = define_event()
 TEXT_SUBMIT_INPUT = define_event()
 TEXT_CANCEL_INPUT = define_event()
 
+# Network notification events
+NETWORK_CLIENT_CONNECTED = define_event()
+NETWORK_CONNECTED_TO_HOST = define_event()
+NETWORK_CLIENT_DISCONNECTED = define_event()
+NETWORK_DISCONNECTED_FROM_HOST = define_event()
+
 
 # Publish the specified game event, with the data provided.
 def publish_game_event(event_type, data):

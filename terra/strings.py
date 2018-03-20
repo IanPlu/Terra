@@ -233,6 +233,10 @@ notification_strings = {
         E_INVALID_MOVE_ORDERS: "Orders result in stacked pieces",
         E_INVALID_BUILD_ORDERS: "Not enough resources for orders",
         E_INVALID_UPGRADE_ORDERS: "Can't buy the same upgrade twice",
+        NETWORK_CLIENT_CONNECTED: "New client connected",
+        NETWORK_CLIENT_DISCONNECTED: "Client disconnected",
+        NETWORK_CONNECTED_TO_HOST: "Connected to host",
+        NETWORK_DISCONNECTED_FROM_HOST: "Disconnected from host",
     }
 }
 

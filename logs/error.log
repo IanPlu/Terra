@@ -7,3 +7,6 @@
 2018-03-19 18:48:50,265 ERROR [ERROR]: Easy there killer!
 2018-03-19 18:49:13,729 ERROR [ERROR]: !=== Caught a fatal exception: ===!
 2018-03-19 18:49:13,729 ERROR [ERROR]: Exception: Easy there killer!
+2018-03-20 14:50:20,263 ERROR [ERROR]: Failed to connect to host. Reason: Event queue full
+2018-03-20 14:50:20,264 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-03-20 14:50:20,264 ERROR [ERROR]: Exception: Event queue full

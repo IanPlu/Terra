@@ -62,6 +62,9 @@ class NetworkManager(GameObject):
     def disconnect_from_host(self):
         self.send_message(MessageCode.DROP_CONNECTION, self.team, "")
         self.connection.close()
+        publish_game_event(NETWORK_DISCONNECTED_FROM_HOST, {
+            'team': self.team
+        })
 
     # Send the entire game state to clients. Same format as loading it from a file.
     def send_game_state_to_client(self):
@@ -79,9 +82,15 @@ class NetworkManager(GameObject):
             print("Connection request from: " + str(address))
             self.clients.append(address)
             self.send_game_state_to_client()
+            publish_game_event(NETWORK_CLIENT_CONNECTED, {
+                'team': self.team
+            })
         elif command == MessageCode.DROP_CONNECTION.value:
             print("Connection dropped for: " + str(address))
             self.clients.remove(address)
+            publish_game_event(NETWORK_CLIENT_DISCONNECTED, {
+                'team': self.team
+            })
         elif command == MessageCode.END_CONNECTION.value:
             print("Connection ended from: " + str(address))
             self.connection.close()

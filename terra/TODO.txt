@@ -9,7 +9,7 @@ x Display prices in menus for building units and buildings
     x Display prices for units
     x Display prices for buildings (unify build orders for all pieces?)
 * Add an intersitial screen when swapping active players for local coop, to hide moves
-* Improve the main menu
+x Improve the main menu
 x Add context menu to battle screen for submitting turn, saving, quitting to menu, etc
 * Game end screens / match review with statistics(?)
 * Add UI to unit popup menus to indicate you're attempting to take an action that will be contested
@@ -30,6 +30,7 @@ x Fix resources not being deducted for placing buildings
 x Fix invalid order effects showing for all teams
 x Fix trying to RAISE or LOWER terrain past the edge of the tile types
 x fix not being able to issue BUILD orders when an ally is on the required tile (e.g. ally on an adjacent resource tile)
+* Fix the loggers not outputting to separate files: https://stackoverflow.com/questions/11232230/logging-to-two-files-with-different-settings
 
 Gameplay
 x Build support for upgrades, enable purchasing them from the base
@@ -54,15 +55,16 @@ x Implement unique upgrades as generic attributes
     * Whether this piece is affected by parting shots
 
 Gameplay considerations
-* Prevent Colonists from occupying enemy buildings
-* Decide whether having a three-resource system adds all that much-- personally I don't like how fiddly that can be, but the upside is that if you focus on
+x Prevent Colonists from occupying enemy buildings
+x Prevent Colonists from contesting enemies
+x Decide whether having a three-resource system adds all that much-- personally I don't like how fiddly that can be, but the upside is that if you focus on
     one of the three archetypes you can optimize your production towards them. Need to decide whether I want to encourage that kind of specialization.
 
 Networking
 x Send the map / save data back and forth
 x Upon submitting a turn, don't allow modifying the turn unless you cancel submission
     x Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
-* Gracefully handle connects / disconnects
+x Gracefully handle connects / disconnects
 x Support for connecting to a custom IP
 
 Kegan's Special to do list

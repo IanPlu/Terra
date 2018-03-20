@@ -1,15 +1,16 @@
 from pygame.constants import KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT
-from terra.economy.upgrades import UpgradeType
+from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
+from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL, KB_SCROLL_UP, KB_SCROLL_DOWN, KB_MENU, KB_MENU2
 from terra.managers.managers import Managers
-from terra.piece.pieceattributes import Attribute
+from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
-from terra.resources.assets import spr_cursor, spr_pieces, clear_color, spr_digit_icons, spr_upgrade_icons, \
+from terra.resources.assets import spr_pieces, clear_color, spr_digit_icons, spr_upgrade_icons, \
     spr_resource_icon, spr_order_options, light_color, spr_menu_option_item_background, light_team_color
 from terra.settings import SCREEN_SCALE
 from terra.strings import menu_option_strings, piece_name_strings, upgrade_name_strings, get_text
@@ -21,6 +22,7 @@ from terra.util.mathutil import clamp
 option_height = 24
 max_displayable_options = 4
 displayable_buffer = 1
+menu_edge_buffer = 24
 
 
 # A menu popup containing multiple selectable menu options
@@ -60,9 +62,9 @@ class MenuPopup(GameObject):
             self.y = (self.ty - self.cursor.camera_y // GRID_HEIGHT) * GRID_HEIGHT
 
         # Avoid collisions with edges of the screen
-        if self.x > RESOLUTION_WIDTH - self.width:
+        if self.x > RESOLUTION_WIDTH - self.width - menu_edge_buffer:
             self.x -= self.width + 24
-        if self.y > RESOLUTION_HEIGHT - self.height * 2:
+        if self.y > RESOLUTION_HEIGHT - self.height * 2 - menu_edge_buffer:
             self.y -= self.height - 12
 
     def confirm(self):
@@ -231,7 +233,7 @@ class MenuPopup(GameObject):
 
                     # if self.option_pos == row_y + self.option_min:
                     ui_screen.blit(draw_resource_count(spr_resource_icon, spr_digit_icons, self.team,
-                                                       base_upgrades[option]["upgrade_price"]),
+                                                       base_upgrades[option][UpgradeAttribute.UPGRADE_PRICE]),
                                    (self.x + self.width - 20,
                                     self.y + row_y * option_height))
 

@@ -1,8 +1,6 @@
 import logging
-import os
 
-from terra.resources.assets import AssetType, get_asset
-from terra.strings import phase_strings, LANGUAGE
+from terra.util.loggingutil import get_logger, check_log_dir_exists
 
 
 # Logs errors or crashes that occur during the operation of the game
@@ -11,17 +9,11 @@ class ErrorLogger:
         super().__init__()
 
         filename = "error.log"
-
-        # Create the log dir if it doesn't exist
-        if not os.path.isdir(get_asset(AssetType.LOG, "")):
-            os.mkdir(AssetType.LOG.value)
-
-        logging.basicConfig(format="%(message)s",
-                            filename=get_asset(AssetType.LOG, filename),
-                            level=logging.INFO)
+        check_log_dir_exists()
+        self.logger = get_logger("ErrorLogger", logging.INFO, filename)
 
     def error(self, error):
-        logging.error("[ERROR]: {}".format(error))
+        self.logger.error("[ERROR]: {}".format(error))
 
     def warn(self, error):
-        logging.warning("[WARN]: {}".format(error))
+        self.logger.warning("[WARN]: {}".format(error))

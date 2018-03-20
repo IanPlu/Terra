@@ -2,16 +2,18 @@ from pygame import KEYDOWN, KEYUP, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
-from terra.economy.upgrades import UpgradeType, base_upgrades
+from terra.economy.upgradeattribute import UpgradeAttribute
+from terra.economy.upgrades import base_upgrades
+from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_MENU2
 from terra.managers.managers import Managers
 from terra.mode import Mode
+from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import MovementType, MovementAttribute, movement_types
 from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, TerraformOrder, DemolishOrder
-from terra.piece.pieceattributes import Attribute
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
@@ -201,7 +203,10 @@ class Piece(GameObject):
             enemy_pieces = Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)
             contesting_pieces = []
             for piece in enemy_pieces:
-                if not (self.piece_subtype is PieceSubtype.BUILDING and Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.CANT_ATTACK_BUILDINGS)):
+                # Cannot contest if the enemy can't attack a building (and we're a building) or it has no melee attack
+                if Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.ATTACK) > 0 and \
+                        Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.DAMAGE_TYPE) == DamageType.MELEE and not \
+                        (Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.CANT_ATTACK_BUILDINGS) and self.piece_subtype is PieceSubtype.BUILDING):
                     contesting_pieces.append(piece)
 
             return len(contesting_pieces) > 0
@@ -385,7 +390,7 @@ class Piece(GameObject):
                 Managers.combat_logger.log_successful_order_execution(self, self.current_order)
 
                 # Deduct upgrade price
-                Managers.team_manager.deduct_resources(self.team, base_upgrades[self.current_order.new_upgrade_type]["upgrade_price"])
+                Managers.team_manager.deduct_resources(self.team, base_upgrades[self.current_order.new_upgrade_type][UpgradeAttribute.UPGRADE_PRICE])
 
                 # Pop orders once they're executed
                 self.current_order = None
@@ -602,7 +607,7 @@ class Piece(GameObject):
                 game_screen.blit(target_sprite, (self.gx * GRID_WIDTH,
                                                  self.gy * GRID_HEIGHT))
                 game_screen.blit(draw_small_resource_count(clear_color, spr_resource_icon_small, spr_digit_icons, self.team,
-                                                           base_upgrades[self.current_order.new_upgrade_type]["upgrade_price"]),
+                                                           base_upgrades[self.current_order.new_upgrade_type][UpgradeAttribute.UPGRADE_PRICE]),
                                  (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
 
     # Ask the Unit to render itself

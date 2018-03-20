@@ -4,13 +4,13 @@ from os import path
 
 import pygame
 
-from terra.economy.upgrades import UpgradeType
+from terra.economy.upgradetype import UpgradeType
 from terra.effects.effecttype import EffectType
 from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
     MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP, \
     MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN, MENU_DEMOLISH_SELF, MENU_FILL_WITH_CURRENT_TILE
 from terra.map.tiletype import TileType
-from terra.piece.pieceattributes import Attribute
+from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
 from terra.settings import SFX_VOLUME
 from terra.team import Team
@@ -24,6 +24,7 @@ class AssetType(Enum):
     SPRITE = "resources/sprites/"
     SOUND = "resources/sfx/"
     MAP = "resources/maps/"
+    ATTRIBUTES = "resources/attributes/"
     LOG = "logs/"
 
 

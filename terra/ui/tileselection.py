@@ -5,7 +5,7 @@ from terra.piece.movementtype import MovementType
 from terra.piece.piecesubtype import PieceSubtype
 from terra.resources.assets import spr_tile_selectable
 from terra.managers.managers import Managers
-from terra.piece.pieceattributes import Attribute
+from terra.piece.attribute import Attribute
 
 
 # Controllable tile selection UI.

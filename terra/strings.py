@@ -1,7 +1,7 @@
 from enum import Enum
 
 from terra.battlephase import BattlePhase
-from terra.economy.upgrades import UpgradeType
+from terra.economy.upgradetype import UpgradeType
 from terra.event import *
 from terra.mainmenu.option import Option
 from terra.piece.piecetype import PieceType

@@ -2,14 +2,16 @@ from copy import deepcopy
 
 from pygame.constants import KEYDOWN
 
-from terra.economy.upgrades import base_upgrades, UpgradeType
+from terra.economy.upgrades import base_upgrades
+from terra.economy.upgradeattribute import UpgradeAttribute
+from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.keybindings import KB_DEBUG1, KB_DEBUG2
 from terra.managers.managers import Managers
 from terra.mode import Mode
-from terra.piece.pieceattributes import Attribute
 from terra.piece.pieceattributes import base_piece_attributes
+from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
 from terra.team import Team
 from terra.ui.phasebar import PhaseBar
@@ -59,7 +61,7 @@ class TeamManager(GameObject):
             self.owned_upgrades[team] = []
             for piece_type in PieceType:
                 for upgrade_type, upgrade in base_upgrades.items():
-                    if piece_type in upgrade["bought_by"] and upgrade["tier"] == 1:
+                    if piece_type in upgrade[UpgradeAttribute.BOUGHT_BY] and upgrade[UpgradeAttribute.TIER] == 1:
                         self.piece_attributes[team][piece_type][Attribute.PURCHASEABLE_UPGRADES].append(upgrade_type)
 
             # Apply any already owned upgrades
@@ -122,14 +124,14 @@ class TeamManager(GameObject):
         self.on_upgrade_purchase(team, upgrade_type)
 
         # 3. Add any upgrades to the purchasable list that are now available (prereqs met)
-        new_unlocks = base_upgrades[upgrade_type]["unlocks"]
+        new_unlocks = base_upgrades[upgrade_type][UpgradeAttribute.UNLOCKS]
         if len(new_unlocks):
             for new_unlock in new_unlocks:
-                for bought_by_piece in base_upgrades[new_unlock]["bought_by"]:
+                for bought_by_piece in base_upgrades[new_unlock][UpgradeAttribute.BOUGHT_BY]:
                     self.piece_attributes[team][bought_by_piece][Attribute.PURCHASEABLE_UPGRADES].append(new_unlock)
 
         # 4. Remove the chosen upgrade from the purchaseable list
-        for bought_by_piece in base_upgrades[upgrade_type]["bought_by"]:
+        for bought_by_piece in base_upgrades[upgrade_type][UpgradeAttribute.BOUGHT_BY]:
             self.piece_attributes[team][bought_by_piece][Attribute.PURCHASEABLE_UPGRADES].remove(upgrade_type)
 
         Managers.combat_logger.log_upgrade(upgrade_type, team)
@@ -137,26 +139,26 @@ class TeamManager(GameObject):
     def on_upgrade_purchase(self, team, upgrade_type):
         upgrade = base_upgrades[upgrade_type]
 
-        if upgrade.get("new_stat"):
-            for piece_type, attributes in upgrade["new_stat"].items():
+        if upgrade.get(UpgradeAttribute.NEW_STAT):
+            for piece_type, attributes in upgrade[UpgradeAttribute.NEW_STAT].items():
                 for attribute in attributes:
                     self.piece_attributes[team][piece_type][attribute] += \
-                        upgrade["new_stat"][piece_type][attribute]
+                        upgrade[UpgradeAttribute.NEW_STAT][piece_type][attribute]
 
-        if upgrade.get("new_type"):
-            for piece_type, attributes in upgrade["new_type"].items():
+        if upgrade.get(UpgradeAttribute.NEW_TYPE):
+            for piece_type, attributes in upgrade[UpgradeAttribute.NEW_TYPE].items():
                 for attribute in attributes:
                     self.piece_attributes[team][piece_type][attribute] = \
-                        upgrade["new_type"][piece_type][attribute]
+                        upgrade[UpgradeAttribute.NEW_TYPE][piece_type][attribute]
 
-        if upgrade.get("new_attack_multiplier"):
-            for piece_type, enemy_piece_archetypes in upgrade["new_attack_multiplier"].items():
+        if upgrade.get(UpgradeAttribute.NEW_ATTACK_MULTIPLIER):
+            for piece_type, enemy_piece_archetypes in upgrade[UpgradeAttribute.NEW_ATTACK_MULTIPLIER].items():
                 for enemy_piece_archetype in enemy_piece_archetypes:
                     self.piece_attributes[team][piece_type][Attribute.ATTACK_MULTIPLIER][enemy_piece_archetype] = \
-                        upgrade["new_attack_multiplier"][piece_type][enemy_piece_archetype]
+                        upgrade[UpgradeAttribute.NEW_ATTACK_MULTIPLIER][piece_type][enemy_piece_archetype]
 
-        if upgrade.get("new_buildable"):
-            for piece_type, new_pieces in upgrade["new_buildable"].items():
+        if upgrade.get(UpgradeAttribute.NEW_BUILDABLE):
+            for piece_type, new_pieces in upgrade[UpgradeAttribute.NEW_BUILDABLE].items():
                 self.piece_attributes[team][piece_type][Attribute.BUILDABLE_PIECES].extend(new_pieces)
 
     def get_owned_upgrades(self, team):

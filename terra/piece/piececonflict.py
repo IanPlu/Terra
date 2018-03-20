@@ -1,6 +1,6 @@
 from terra.event import publish_game_event, E_PIECES_IN_CONFLICT
 from terra.piece.damagetype import DamageType
-from terra.piece.pieceattributes import Attribute
+from terra.piece.attribute import Attribute
 from terra.managers.managers import Managers
 
 

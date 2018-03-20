@@ -3,7 +3,7 @@ import sys
 from pygame.constants import QUIT
 
 from terra.battle import Battle
-from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT
+from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
 from terra.event import *
 from terra.leveleditor import LevelEditor
 from terra.mainmenu.mainmenu import MainMenu

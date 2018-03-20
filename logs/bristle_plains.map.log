@@ -1,0 +1,43 @@
+2018-03-19 18:22:03,200 INFO == ROUND 1 BEGIN ==
+2018-03-19 18:22:05,359 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Trooper on tile (6, 13)'
+2018-03-19 18:22:05,359 INFO = Phase Move begins
+2018-03-19 18:22:05,369 INFO = Phase Build begins
+2018-03-19 18:22:05,380 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Trooper on tile (6, 13)'
+2018-03-19 18:22:05,380 INFO = Phase Combat begins
+2018-03-19 18:22:05,391 INFO = Phase Ranged begins
+2018-03-19 18:22:05,403 INFO = Phase Special begins
+2018-03-19 18:22:05,414 INFO = Phase Start Turn begins
+2018-03-19 18:22:05,425 INFO = Phase Issue Orders begins
+2018-03-19 18:32:10,663 INFO == ROUND 1 BEGIN ==
+2018-03-19 18:32:13,751 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Trooper on tile (5, 12)'
+2018-03-19 18:32:13,751 INFO = Phase Move begins
+2018-03-19 18:32:13,761 INFO = Phase Build begins
+2018-03-19 18:32:13,772 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Trooper on tile (5, 12)'
+2018-03-19 18:32:13,773 INFO = Phase Combat begins
+2018-03-19 18:32:13,783 INFO = Phase Ranged begins
+2018-03-19 18:32:13,795 INFO = Phase Special begins
+2018-03-19 18:32:13,806 INFO = Phase Start Turn begins
+2018-03-19 18:32:13,817 INFO = Phase Issue Orders begins
+2018-03-19 18:32:18,516 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.RANGER_UNCONTESTABLE'
+2018-03-19 18:32:18,517 INFO = Phase Move begins
+2018-03-19 18:32:18,528 INFO = Phase Build begins
+2018-03-19 18:32:18,539 INFO = Phase Combat begins
+2018-03-19 18:32:18,550 INFO = Phase Ranged begins
+2018-03-19 18:32:18,560 INFO = Phase Special begins
+2018-03-19 18:32:18,572 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.RANGER_UNCONTESTABLE'
+2018-03-19 18:32:18,572 INFO = Phase Start Turn begins
+2018-03-19 18:32:18,583 INFO Team.RED team researched the upgrade UpgradeType.RANGER_UNCONTESTABLE
+2018-03-19 18:32:18,583 INFO = Phase Issue Orders begins
+2018-03-19 18:32:20,363 INFO RED Trooper at tile (5, 12) with 100 HP was assigned the order 'Order: Move to (6, 11)'
+2018-03-19 18:32:20,363 INFO = Phase Move begins
+2018-03-19 18:32:20,373 INFO RED Trooper at tile (6, 11) with 100 HP successfully executed 'Order: Move to (6, 11)'
+2018-03-19 18:32:20,374 INFO = Phase Build begins
+2018-03-19 18:32:20,385 INFO = Phase Combat begins
+2018-03-19 18:32:20,396 INFO = Phase Ranged begins
+2018-03-19 18:32:20,407 INFO = Phase Special begins
+2018-03-19 18:32:20,418 INFO = Phase Start Turn begins
+2018-03-19 18:32:20,428 INFO = Phase Issue Orders begins
+2018-03-19 18:47:43,320 INFO == ROUND 1 BEGIN ==
+2018-03-19 18:48:30,971 INFO == ROUND 1 BEGIN ==
+2018-03-19 18:48:49,676 INFO == ROUND 1 BEGIN ==
+2018-03-19 18:49:13,325 INFO == ROUND 1 BEGIN ==

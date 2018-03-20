@@ -1,12 +1,13 @@
 from collections import Counter
 
+from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.engine.gameobject import GameObject
 from terra.event import *
 from terra.managers.managers import Managers
+from terra.piece.attribute import Attribute
 from terra.piece.orders import MoveOrder, BuildOrder, UpgradeOrder
 from terra.piece.piece import Piece
-from terra.piece.pieceattributes import Attribute
 from terra.piece.piececonflict import PieceConflict
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
@@ -210,7 +211,7 @@ class PieceManager(GameObject):
                     spent_resources.append(Managers.team_manager.attr(piece.team, piece.current_order.new_piece_type, Attribute.PRICE))
                 elif isinstance(piece.current_order, UpgradeOrder):
                     # Check that a team isn't spending more than they have
-                    spent_resources.append(base_upgrades[piece.current_order.new_upgrade_type]["upgrade_price"])
+                    spent_resources.append(base_upgrades[piece.current_order.new_upgrade_type][UpgradeAttribute.UPGRADE_PRICE])
                     # Check that a team isn't building the same upgrade multiple times
                     upgrades_bought.append(piece.current_order.new_upgrade_type)
             else:

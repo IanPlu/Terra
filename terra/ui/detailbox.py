@@ -1,10 +1,10 @@
 import pygame
 
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
-from terra.economy.upgrades import UpgradeType
+from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.managers.managers import Managers
-from terra.piece.pieceattributes import Attribute
+from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_upgrade_icons, spr_order_options, clear_color, spr_textbox, \
     spr_piece_attribute_icons, dark_color

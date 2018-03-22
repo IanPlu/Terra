@@ -284,9 +284,21 @@ label_strings = {
     }
 }
 
+# Strings that are required to be used with string.format() before use
+formatted_strings = {
+    Language.EN_US: {
+        "NEW_TURN_MESSAGE": "TURN {}"
+    }
+}
+
 # Cached copies of text surfaces
 text_objects = {}
 multiline_text_objects = {}
+
+
+# Convenience method to return a string for the current language
+def get_string(string_type, string_name):
+    return string_type[LANGUAGE][string_name]
 
 
 # Return a surface containing the provided string.

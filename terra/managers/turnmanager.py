@@ -38,6 +38,9 @@ class TurnManager(GameObject):
         if not self.validate_phase():
             return
 
+        # Clean up units every phase
+        publish_game_event(E_CLEANUP, {})
+
         # Publish an event for the end of the old phase
         publish_game_event(self.end_events[self.phase], {})
 
@@ -45,22 +48,22 @@ class TurnManager(GameObject):
         if new_phase >= len(BattlePhase):
             new_phase = 0
 
-        if new_phase == BattlePhase.START_TURN:
+        self.phase = BattlePhase(new_phase)
+
+        if self.phase == BattlePhase.START_TURN:
             self.round += 1
             Managers.combat_logger.log_new_round(self.round)
 
-        self.phase = BattlePhase(new_phase)
         Managers.combat_logger.log_new_phase(self.phase)
 
         publish_game_event(E_NEXT_PHASE, {
             'new_phase': self.phase
         })
 
-        # Clean up units every phase
-        publish_game_event(E_CLEANUP, {})
-
         # Publish an event for the new phase
-        publish_game_event(self.phase_events[self.phase], {})
+        publish_game_event(self.phase_events[self.phase], {
+            "turn_number": self.round
+        })
 
     phase_events = {
         BattlePhase.START_TURN: START_PHASE_START_TURN,

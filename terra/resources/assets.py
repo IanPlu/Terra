@@ -64,7 +64,9 @@ unit_palette = {
 }
 
 # UI
-spr_main_menu_background = pygame.image.load(get_asset(AssetType.SPRITE, "ui/MainMenuBackground.png"))
+spr_game_icon = pygame.image.load(get_asset(AssetType.SPRITE, "ui/GameIcon.png"))
+
+spr_title_text = pygame.image.load(get_asset(AssetType.SPRITE, "ui/TitleText.png"))
 spr_main_menu_option_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/MainMenuOption.png")), 24)
 spr_main_menu_option = {
     Option.START: spr_main_menu_option_base[5],
@@ -194,6 +196,8 @@ spr_tiles = {
     TileType.COAST: get_indexed_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Coast.png")), 24, 24),
     TileType.HILL: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Hill.png"))],
 }
+
+spr_tiles_mini = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Minimap_Tile.png")), 4)
 
 spr_coast_detail = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Sea_Border.png")), 24)
 

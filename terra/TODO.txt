@@ -22,6 +22,9 @@ Engineering
 * Write tests!!
 x Set up packaging this into an executable
     x Determine directory structure -- do maps / saves need to be put somewhere else?
+* Improve rendering performance
+    * Rendering large maps chugs. Look into pygame.display.update, and only updating the portion around the camera viewport?
+    * Cull rendering for entities outside the camera?
 
 Bug fixes
 x Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
@@ -30,7 +33,7 @@ x Fix resources not being deducted for placing buildings
 x Fix invalid order effects showing for all teams
 x Fix trying to RAISE or LOWER terrain past the edge of the tile types
 x fix not being able to issue BUILD orders when an ally is on the required tile (e.g. ally on an adjacent resource tile)
-* Fix the loggers not outputting to separate files: https://stackoverflow.com/questions/11232230/logging-to-two-files-with-different-settings
+x Fix the loggers not outputting to separate files: https://stackoverflow.com/questions/11232230/logging-to-two-files-with-different-settings
 
 Gameplay
 x Build support for upgrades, enable purchasing them from the base

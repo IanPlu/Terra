@@ -101,10 +101,12 @@ class TeamManager(GameObject):
     # Add new resources to the specified team. new_resources should be formatted as a tuple: (1, 2, 3)
     def add_resources(self, team, new_resources):
         self.resources[team] = clamp(self.resources[team] + new_resources, 0, MAX_RESOURCES)
+        Managers.combat_logger.log_resource_acquisition(new_resources, team)
 
     # Deduct resources from the specified team. resource_deduction should be formatted as a tuple: (1, 2, 3)
     def deduct_resources(self, team, resource_deduction):
         self.resources[team] = max(self.resources[team] - resource_deduction, 0)
+        Managers.combat_logger.log_resource_acquisition(-resource_deduction, team)
 
     # Return true if the specified team is able to spend the provided list of amounts.
     # Each amount in amounts should be formatted as a tuple: (1, 2, 3)

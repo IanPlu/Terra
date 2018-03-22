@@ -21,7 +21,7 @@ class CombatLogger:
         self.logger.info("== ROUND {} BEGIN ==".format(round_number))
 
     def log_new_phase(self, phase):
-        self.logger.info("= Phase {} begins".format(phase_strings[LANGUAGE][phase]))
+        self.logger.info("= {} phase begins".format(phase_strings[LANGUAGE][phase]))
 
     # Log an order assigned to a unit.
     def log_order_assignment(self, piece, order):
@@ -50,3 +50,9 @@ class CombatLogger:
     # Log whenever a team researches a new upgrade
     def log_upgrade(self, upgrade, team):
         self.logger.info("{} team researched the upgrade {}".format(str(team), str(upgrade)))
+
+    def log_resource_acquisition(self, amount, team):
+        if amount > 0:
+            self.logger.info("{} team acquired {} resources.".format(team, amount))
+        else:
+            self.logger.info("{} team spent {} resources.".format(team, abs(amount)))

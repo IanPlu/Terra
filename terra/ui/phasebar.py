@@ -31,7 +31,7 @@ class PhaseBar(GameObject):
                          NETWORK_CONNECTED_TO_HOST, NETWORK_DISCONNECTED_FROM_HOST,
                          NETWORK_CLIENT_CONNECTED, NETWORK_CLIENT_DISCONNECTED):
             if event.team == self.team:
-                self.toast = ToastNotification(self, get_text(notification_strings, event.event_type, light=False), self.team)
+                self.toast = ToastNotification(self, get_text(notification_strings, event.event_type, light=True), self.team)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

@@ -10,7 +10,7 @@ from terra.mainmenu.mainmenu import MainMenu
 from terra.mainmenu.option import Option
 from terra.managers.managers import Managers
 from terra.mode import Mode
-from terra.resources.assets import load_assets, clear_color
+from terra.resources.assets import load_assets, clear_color, spr_game_icon
 from terra.settings import SCREEN_SCALE, TICK_RATE
 from terra.team import Team
 
@@ -85,7 +85,7 @@ class Main:
         base_screen.blit(ui_screen, (0, 0))
 
         pygame.transform.scale(base_screen, (self.screen_width, self.screen_height), self.screen)
-        pygame.display.flip()
+        pygame.display.update()
 
     # Run the entire game + loop. Initialize stuff like pygame and the window the game will render in.
     def run(self):
@@ -97,6 +97,10 @@ class Main:
         self.screen.fill(clear_color[Team.RED])
 
         load_assets()
+
+        # Set the window icon and caption
+        pygame.display.set_icon(spr_game_icon)
+        pygame.display.set_caption("Terra")
 
         clock = pygame.time.Clock()
 

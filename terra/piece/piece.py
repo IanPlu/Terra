@@ -217,9 +217,15 @@ class Piece(GameObject):
 
         # Add any additional effects or debuffs from the source
         if source and isinstance(source, Piece):
+            self.last_attacker = source
+
             aoe_on_death_gained = Managers.team_manager.attr(source.team, source.piece_type, Attribute.AOE_ON_KILL)
             if aoe_on_death_gained > 0:
                 self.temporary_aoe_on_death = aoe_on_death_gained
+
+            money_lost_on_death_gained = Managers.team_manager.attr(source.team, source.piece_type, Attribute.STEAL)
+            if money_lost_on_death_gained > 0:
+                self.temporary_money_lost_on_death = money_lost_on_death_gained
 
         Managers.combat_logger.log_damage(self, damage, source)
 
@@ -243,7 +249,7 @@ class Piece(GameObject):
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
         # Produce resources
-        if not Managers.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION) == (0, 0, 0):
+        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION) > 0:
             Managers.team_manager.add_resources(self.team, Managers.team_manager.attr(
                 self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION))
 

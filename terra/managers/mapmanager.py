@@ -1,3 +1,4 @@
+from pygame import Surface, SRCALPHA
 import random
 from io import StringIO
 from os import walk
@@ -7,7 +8,7 @@ from terra.event import is_event_type, E_TILE_TERRAFORMED
 from terra.map.tile import Tile
 from terra.map.tiletype import TileType, tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
-from terra.resources.assets import AssetType, get_asset
+from terra.resources.assets import AssetType, get_asset, spr_tiles_mini
 from terra.util.mathutil import clamp
 
 
@@ -203,3 +204,17 @@ def generate_bitmap(width, height, random_tiles=True):
         bitmap.append(row)
 
     return bitmap
+
+
+# Generate a surface containing a minimap of the passed in bitmap
+def generate_minimap(bitmap):
+    height = len(bitmap)
+    width = len(bitmap[0])
+
+    minimap = Surface((width * 4, height * 4), SRCALPHA, 32)
+
+    for x in range(width):
+        for y in range(height):
+            minimap.blit(spr_tiles_mini[bitmap[y][x]], (x * 4, y * 4))
+
+    return minimap

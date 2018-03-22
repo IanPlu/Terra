@@ -6,8 +6,9 @@ from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL, KB_MENU, KB_SCROLL_DOWN, KB_SCROLL_UP
 from terra.mainmenu.option import Option
 from terra.mainmenu.textinput import TextInput, FILTER_IP, FILTER_FILENAME
-from terra.managers.mapmanager import get_loadable_maps
-from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, spr_main_menu_option
+from terra.managers.mapmanager import get_loadable_maps, load_map_from_file, generate_minimap
+from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, spr_main_menu_option, \
+    spr_title_text
 from terra.settings import SCREEN_SCALE
 from terra.strings import get_text, main_menu_strings
 from terra.team import Team
@@ -207,6 +208,8 @@ class MainMenu(GameScreen):
         game_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
         game_screen.fill(clear_color[Team.RED])
 
+        game_screen.blit(spr_title_text, (self.root_x - spr_title_text.get_width() // 2, 24))
+
         if self.text_input:
             self.text_input.render(game_screen, ui_screen)
         else:
@@ -239,6 +242,14 @@ class MainMenu(GameScreen):
                 if isinstance(option[0], str):
                     # Render arbitrary text
                     game_screen.blit(draw_text(option[0], light_color, shadow_color[Team.RED]), (position_x + 8, position_y + 4))
+
+                    # Render map previews if we're trying to select a map
+                    if is_selected and self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
+                                                                Option.LOAD_GAME, Option.LOAD_MAP,
+                                                                Option.NEW_NETWORK_GAME, Option.LOAD_NETWORK_GAME]:
+                        bitmap, _, _, _ = load_map_from_file(option[0])
+                        minimap = generate_minimap(bitmap)
+                        game_screen.blit(minimap, (self.root_x - 48 - minimap.get_width(), self.root_y + 24))
                 else:
                     # Display the icon for the option
                     game_screen.blit(spr_main_menu_option[option[0]], (position_x - 24 + x_offset, position_y))

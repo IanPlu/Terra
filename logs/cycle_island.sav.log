@@ -1,0 +1,55 @@
+2018-03-21 16:54:20,849 INFO Team.RED team researched the upgrade UpgradeType.GHOST_STEAL
+2018-03-21 16:54:20,850 INFO == ROUND 1 BEGIN ==
+2018-03-21 16:54:23,352 INFO = Move phase begins
+2018-03-21 16:54:23,363 INFO = Build phase begins
+2018-03-21 16:54:23,374 INFO = Combat phase begins
+2018-03-21 16:54:23,384 INFO = Ranged phase begins
+2018-03-21 16:54:23,394 INFO = Special phase begins
+2018-03-21 16:54:23,405 INFO == ROUND 2 BEGIN ==
+2018-03-21 16:54:23,405 INFO = Start Turn phase begins
+2018-03-21 16:54:23,415 INFO Team.RED team acquired 2 resources.
+2018-03-21 16:54:23,415 INFO Team.BLUE team acquired 2 resources.
+2018-03-21 16:54:23,415 INFO = Issue Orders phase begins
+2018-03-21 16:54:25,823 INFO RED Ghost at tile (8, 10) with 80 HP was assigned the order 'Order: Move to (10, 10)'
+2018-03-21 16:54:25,823 INFO = Move phase begins
+2018-03-21 16:54:25,833 INFO RED Ghost at tile (10, 10) with 80 HP successfully executed 'Order: Move to (10, 10)'
+2018-03-21 16:54:25,833 INFO = Build phase begins
+2018-03-21 16:54:25,843 INFO = Combat phase begins
+2018-03-21 16:54:25,853 INFO BLUE Colonist at tile (10, 10) with 100 HP and RED Ghost at tile (10, 10) with 80 HP are contesting the tile at (10, 10)!
+2018-03-21 16:54:25,853 INFO BLUE Colonist at tile (10, 10) with 64 HP took 36 damage from RED Ghost at tile (10, 10) with 80 HP!
+2018-03-21 16:54:25,853 INFO RED Ghost at tile (10, 10) with 80 HP took 0 damage from BLUE Colonist at tile (10, 10) with 64 HP!
+2018-03-21 16:54:25,853 INFO = Ranged phase begins
+2018-03-21 16:54:25,864 INFO = Special phase begins
+2018-03-21 16:54:25,875 INFO == ROUND 3 BEGIN ==
+2018-03-21 16:54:25,875 INFO = Start Turn phase begins
+2018-03-21 16:54:25,885 INFO Team.RED team acquired 2 resources.
+2018-03-21 16:54:25,885 INFO Team.BLUE team acquired 2 resources.
+2018-03-21 16:54:25,885 INFO = Issue Orders phase begins
+2018-03-21 16:54:26,316 INFO = Move phase begins
+2018-03-21 16:54:26,327 INFO = Build phase begins
+2018-03-21 16:54:26,337 INFO = Combat phase begins
+2018-03-21 16:54:26,347 INFO BLUE Colonist at tile (10, 10) with 64 HP and RED Ghost at tile (10, 10) with 80 HP are contesting the tile at (10, 10)!
+2018-03-21 16:54:26,348 INFO BLUE Colonist at tile (10, 10) with 28 HP took 36 damage from RED Ghost at tile (10, 10) with 80 HP!
+2018-03-21 16:54:26,348 INFO RED Ghost at tile (10, 10) with 80 HP took 0 damage from BLUE Colonist at tile (10, 10) with 28 HP!
+2018-03-21 16:54:26,348 INFO = Ranged phase begins
+2018-03-21 16:54:26,358 INFO = Special phase begins
+2018-03-21 16:54:26,368 INFO == ROUND 4 BEGIN ==
+2018-03-21 16:54:26,368 INFO = Start Turn phase begins
+2018-03-21 16:54:26,378 INFO Team.RED team acquired 2 resources.
+2018-03-21 16:54:26,378 INFO Team.BLUE team acquired 2 resources.
+2018-03-21 16:54:26,378 INFO = Issue Orders phase begins
+2018-03-21 16:54:26,836 INFO = Move phase begins
+2018-03-21 16:54:26,847 INFO = Build phase begins
+2018-03-21 16:54:26,857 INFO = Combat phase begins
+2018-03-21 16:54:26,866 INFO BLUE Colonist at tile (10, 10) with 28 HP and RED Ghost at tile (10, 10) with 80 HP are contesting the tile at (10, 10)!
+2018-03-21 16:54:26,866 INFO BLUE Colonist at tile (10, 10) with -8 HP took 36 damage from RED Ghost at tile (10, 10) with 80 HP!
+2018-03-21 16:54:26,867 INFO RED Ghost at tile (10, 10) with 80 HP took 0 damage from BLUE Colonist at tile (10, 10) with -8 HP!
+2018-03-21 16:54:26,867 INFO = Ranged phase begins
+2018-03-21 16:54:26,877 INFO Team.BLUE team spent 2 resources.
+2018-03-21 16:54:26,877 INFO Team.RED team acquired 2 resources.
+2018-03-21 16:54:26,877 INFO = Special phase begins
+2018-03-21 16:54:26,886 INFO == ROUND 5 BEGIN ==
+2018-03-21 16:54:26,887 INFO = Start Turn phase begins
+2018-03-21 16:54:26,897 INFO Team.RED team acquired 2 resources.
+2018-03-21 16:54:26,897 INFO Team.BLUE team acquired 2 resources.
+2018-03-21 16:54:26,897 INFO = Issue Orders phase begins

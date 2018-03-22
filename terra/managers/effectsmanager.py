@@ -2,9 +2,11 @@ from terra.effects.animatedeffect import AnimatedEffect
 from terra.effects.effecttype import EffectType
 from terra.engine.gameobject import GameObject
 from terra.event import is_event_type, E_PIECE_DEAD, E_ORDER_CANCELED, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, \
-    E_ARMOR_GRANTED, E_PIECE_HEALED, E_INVALID_UPGRADE_ORDERS, E_PIECE_ON_INVALID_TERRAIN, E_TILE_TERRAFORMED
+    E_ARMOR_GRANTED, E_PIECE_HEALED, E_INVALID_UPGRADE_ORDERS, E_PIECE_ON_INVALID_TERRAIN, E_TILE_TERRAFORMED, \
+    START_PHASE_START_TURN
 from terra.managers.managers import Managers
 from terra.piece.orders import BuildOrder, UpgradeOrder
+from terra.effects.turnbanner import TurnBanner
 
 
 # Manager for multiple effects objects. Handles creating and destroying special effects.
@@ -51,6 +53,8 @@ class EffectsManager(GameObject):
             self.create_effect(event.gx, event.gy, EffectType.ALERT, None)
         elif is_event_type(event, E_TILE_TERRAFORMED):
             self.create_effect(event.gx, event.gy, EffectType.PIECE_DESTROYED, None)
+        elif is_event_type(event, START_PHASE_START_TURN):
+            self.effects.append(TurnBanner(self, event.turn_number))
 
         for effect in self.effects:
             effect.step(event)

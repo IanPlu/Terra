@@ -11,7 +11,8 @@ x Display prices in menus for building units and buildings
 * Add an intersitial screen when swapping active players for local coop, to hide moves
 x Improve the main menu
 x Add context menu to battle screen for submitting turn, saving, quitting to menu, etc
-* Game end screens / match review with statistics(?)
+x Game end screens / match review with statistics(?)
+    * Improve the look and feel of the stats screen
 * Add UI to unit popup menus to indicate you're attempting to take an action that will be contested
   (e.g. trying to build while contested)
 x Add 'serialize' method to managers, use this when saving or loading the game state

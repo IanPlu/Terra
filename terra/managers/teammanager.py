@@ -227,6 +227,10 @@ class TeamManager(GameObject):
                 publish_game_event(E_SAVE_GAME, {})
             elif event.option == MENU_QUIT_BATTLE:
                 publish_game_event(E_QUIT_BATTLE, {})
+            elif event.option == MENU_CONCEDE:
+                publish_game_event(E_PLAYER_CONCEDED, {
+                    'team': event.team
+                })
         elif is_event_type(event, E_UPGRADE_BUILT):
             self.purchase_upgrade(event.team, event.new_upgrade_type)
         elif event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game:

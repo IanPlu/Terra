@@ -1,6 +1,6 @@
 import logging
 
-from terra.strings import phase_strings, LANGUAGE
+from terra.strings import get_string, phase_strings, formatted_strings
 from terra.util.loggingutil import get_logger, check_log_dir_exists
 
 
@@ -21,7 +21,7 @@ class CombatLogger:
         self.logger.info("== TURN {} BEGIN ==".format(turn_number))
 
     def log_new_phase(self, phase):
-        self.logger.info("= {} phase begins".format(phase_strings[LANGUAGE][phase]))
+        self.logger.info("= {} phase begins".format(get_string(phase_strings, phase)))
 
     # Log an order assigned to a unit.
     def log_order_assignment(self, piece, order):
@@ -56,3 +56,18 @@ class CombatLogger:
             self.logger.info("{} team acquired {} resources.".format(team, amount))
         else:
             self.logger.info("{} team spent {} resources.".format(team, abs(amount)))
+
+    # Log the end of a game.
+    def log_results(self, teams, losing_teams, team_stats):
+        self.logger.info("=== BATTLE OVER! ===")
+
+        for team in teams:
+            if team in losing_teams:
+                self.logger.info("{} team has lost their base!".format(team))
+            else:
+                self.logger.info("{} team survived!".format(team))
+
+            self.logger.info("-- Stats for team {} --".format(team))
+            for stat, value in team_stats[team].items():
+                self.logger.info("  * " + get_string(formatted_strings, stat).format(value))
+

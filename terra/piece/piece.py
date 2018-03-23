@@ -169,6 +169,12 @@ class Piece(GameObject):
             'team': self.team
         })
 
+        # Bases being destroyed ends the game
+        if self.piece_type == PieceType.BASE:
+            publish_game_event(E_BASE_DESTROYED, {
+                'team': self.team
+            })
+
         if self.last_attacker:
             # TODO: Add effects for these special cases
             # Explode if we've been hit by a temporary AoE debuff

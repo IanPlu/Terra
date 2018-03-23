@@ -2,15 +2,17 @@ import sys
 
 from pygame.constants import QUIT
 
-from terra.battle import Battle
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, TICK_RATE
 from terra.event import *
-from terra.leveleditor import LevelEditor
 from terra.mainmenu.mainmenu import MainMenu
 from terra.mainmenu.option import Option
 from terra.managers.managers import Managers
 from terra.mode import Mode
+from terra.resources.assetloading import AssetType
 from terra.resources.assets import load_assets, clear_color, spr_game_icon
+from terra.screens.battle import Battle
+from terra.screens.leveleditor import LevelEditor
+from terra.screens.results import ResultsScreen
 from terra.settings import Setting, SETTINGS
 from terra.team import Team
 
@@ -27,15 +29,17 @@ class Main:
         self.screens = {}
         self.set_screen_from_mode(Mode.MAIN_MENU)
 
-    def set_screen_from_mode(self, new_mode, mapname=None, address=None, is_host=False):
+    def set_screen_from_mode(self, new_mode, mapname=None, address=None, is_host=False, map_type=AssetType.MAP, results=None):
         Managers.set_mode(new_mode)
 
         if new_mode == Mode.MAIN_MENU:
             new_screen = MainMenu()
         elif new_mode == Mode.BATTLE:
-            new_screen = Battle(mapname, address, is_host)
+            new_screen = Battle(mapname, address, is_host, map_type)
         elif new_mode == Mode.EDIT:
             new_screen = LevelEditor(mapname)
+        elif new_mode == Mode.RESULTS:
+            new_screen = ResultsScreen(results)
         else:
             new_screen = None
 
@@ -50,6 +54,12 @@ class Main:
         self.screen = pygame.display.set_mode(self.screen_resolution)
         self.screen.fill(clear_color[Team.RED])
 
+    # Reset the screens and managers
+    def reset_to_menu(self):
+        Managers.tear_down_managers()
+        self.screens = {}
+        self.set_screen_from_mode(Mode.MAIN_MENU, None)
+
     def quit(self):
         pygame.quit()
         sys.exit()
@@ -62,9 +72,11 @@ class Main:
             if event.option == Option.NEW_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, event.mapname)
             elif event.option == Option.LOAD_GAME:
-                self.set_screen_from_mode(Mode.BATTLE, event.mapname)
-            elif event.option in [Option.NEW_NETWORK_GAME, Option.LOAD_NETWORK_GAME]:
+                self.set_screen_from_mode(Mode.BATTLE, event.mapname, map_type=AssetType.SAVE)
+            elif event.option == Option.NEW_NETWORK_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, event.mapname, event.address, is_host=True)
+            elif event.option == Option.LOAD_NETWORK_GAME:
+                self.set_screen_from_mode(Mode.BATTLE, event.mapname, event.address, is_host=True, map_type=AssetType.SAVE)
             elif event.option == Option.JOIN_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, None, event.address, is_host=False)
             elif event.option == Option.NEW_MAP:
@@ -76,11 +88,14 @@ class Main:
             elif event.option == Option.SAVE_SETTINGS:
                 SETTINGS.save_settings()
                 self.reset_resolution()
-        elif is_event_type(event, E_QUIT_BATTLE):
-            # Reset the screens and managers
-            Managers.tear_down_managers()
-            self.screens = {}
-            self.set_screen_from_mode(Mode.MAIN_MENU, None)
+        elif is_event_type(event, E_QUIT_BATTLE, E_EXIT_RESULTS):
+            self.reset_to_menu()
+        elif is_event_type(event, E_BATTLE_OVER):
+            self.set_screen_from_mode(Mode.RESULTS, results={
+                'bases_destroyed': event.bases_destroyed,
+                'team_stats': event.team_stats,
+                'teams': event.teams,
+            })
 
     # Render phase of game loop - draw to the screen
     # noinspection PyArgumentList

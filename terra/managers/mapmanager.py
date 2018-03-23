@@ -211,7 +211,7 @@ def generate_map():
     pieces = ["0 0 RED BASE", "19 15 BLUE BASE"]
     teams = ["RED 5 5 5", "BLUE 5 5 5"]
     upgrades = ["RED|", "BLUE|"]
-    meta = "Turn 1\nPhase START_TURN"
+    meta = "Turn 1\n Phase START_TURN"
 
     return bitmap, pieces, teams, upgrades, meta
 

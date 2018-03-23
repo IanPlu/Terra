@@ -4,7 +4,7 @@ from terra.economy.upgradetype import UpgradeType
 from terra.effects.effecttype import EffectType
 from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
     MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP, \
-    MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN, MENU_DEMOLISH_SELF, MENU_FILL_WITH_CURRENT_TILE
+    MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN, MENU_DEMOLISH_SELF, MENU_FILL_WITH_CURRENT_TILE, MENU_CONCEDE
 from terra.mainmenu.option import Option
 from terra.map.tiletype import TileType
 from terra.piece.attribute import Attribute
@@ -19,7 +19,7 @@ from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_stri
 # Load a sound and properly set it up
 def load_sound(resource_name):
     sound = pygame.mixer.Sound(get_asset(AssetType.SOUND, resource_name))
-    sound.set_volume(SETTINGS.get(Setting.SFX_VOLUME) / 10)
+    sound.set_volume(SETTINGS.get(Setting.SFX_VOLUME) / 100)
     all_sounds.append(sound)
     return sound
 
@@ -89,6 +89,7 @@ spr_order_options = {
         MENU_LOWER_TILE: spr_order_options_base[11],
         MENU_DEMOLISH_SELF: spr_order_options_base[12],
         MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
+        MENU_CONCEDE: spr_order_options_base[0],
     }
 }
 
@@ -223,6 +224,7 @@ spr_order_flags = {
     MENU_LOWER_TILE: spr_base_order_flags[7],
     MENU_DEMOLISH_SELF: spr_base_order_flags[8],
     MENU_FILL_WITH_CURRENT_TILE: spr_base_order_flags[0],
+    MENU_CONCEDE: spr_base_order_flags[0],
 }
 
 spr_digit_icons = {

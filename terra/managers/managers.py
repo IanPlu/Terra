@@ -17,13 +17,14 @@ class Managers:
     player_manager = None
     network_manager = None
     sound_manager = None
+    stat_manager = None
 
     current_mode = Mode.MAIN_MENU
 
     @staticmethod
-    def initialize_managers(map_name, address, is_host):
+    def initialize_managers(map_name, address, is_host, map_type=AssetType.MAP):
         from terra.managers.effectsmanager import EffectsManager
-        from terra.managers.mapmanager import MapManager, load_map_from_file, generate_map, parse_map_from_string
+        from terra.managers.mapmanager import MapManager, load_map_from_file, parse_map_from_string
         from terra.managers.piecemanager import PieceManager
         from terra.managers.playermanager import PlayerManager
         from terra.managers.teammanager import TeamManager
@@ -31,12 +32,13 @@ class Managers:
         from terra.managers.combatlogger import CombatLogger
         from terra.managers.networkmanager import NetworkManager
         from terra.managers.soundmanager import SoundManager
+        from terra.managers.statmanager import StatManager
 
         Managers.network_manager = NetworkManager(address, is_host)
 
         if map_name:
             # Load the map from a file for a local game (or network game where we're the host)
-            bitmap, pieces, teams, upgrades, meta = load_map_from_file(map_name)
+            bitmap, pieces, teams, upgrades, meta = load_map_from_file(map_name, map_type)
         elif not map_name and Managers.network_manager.networked_game:
             # Client games won't have a map name until they connect, so fetch it now
             map_data = Managers.network_manager.map_data
@@ -63,6 +65,7 @@ class Managers:
         Managers.turn_manager = TurnManager(meta)
         Managers.player_manager = PlayerManager()
         Managers.sound_manager = SoundManager()
+        Managers.stat_manager = StatManager(teams)
 
     @staticmethod
     def tear_down_managers():
@@ -76,6 +79,7 @@ class Managers:
         del Managers.turn_manager
         del Managers.player_manager
         del Managers.sound_manager
+        del Managers.stat_manager
 
         Managers.network_manager = None
         Managers.combat_logger = None
@@ -87,6 +91,7 @@ class Managers:
         Managers.turn_manager = None
         Managers.player_manager = None
         Managers.sound_manager = None
+        Managers.stat_manager = None
 
         Managers.set_mode(Mode.MAIN_MENU)
 
@@ -140,7 +145,7 @@ class Managers:
         # Append any meta information
         lines += "# Meta\n"
         for metadata in meta:
-            lines += "{} {}\n".format(metadata[0], metadata[1])
+            lines += "{} {} \n".format(metadata[0], metadata[1])
 
         return lines, save_path
 
@@ -178,6 +183,7 @@ class Managers:
         Managers.turn_manager.step(event)
         Managers.player_manager.step(event)
         Managers.sound_manager.step(event)
+        Managers.stat_manager.step(event)
 
     @staticmethod
     def render(map_screen, ui_screen):
@@ -189,3 +195,4 @@ class Managers:
         Managers.player_manager.render(map_screen, ui_screen)
         Managers.network_manager.render(map_screen, ui_screen)
         Managers.sound_manager.render(map_screen, ui_screen)
+        Managers.stat_manager.render(map_screen, ui_screen)

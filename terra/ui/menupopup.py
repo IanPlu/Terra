@@ -61,11 +61,11 @@ class MenuPopup(GameObject):
             self.x = (self.tx + 1 - self.cursor.camera_x // GRID_WIDTH) * GRID_WIDTH
             self.y = (self.ty - self.cursor.camera_y // GRID_HEIGHT) * GRID_HEIGHT
 
-        # Avoid collisions with edges of the screen
-        if self.x > RESOLUTION_WIDTH - self.width - menu_edge_buffer:
-            self.x -= self.width + 24
-        if self.y > RESOLUTION_HEIGHT - self.height * 2 - menu_edge_buffer:
-            self.y -= self.height - 12
+            # Avoid collisions with edges of the screen
+            if self.x > RESOLUTION_WIDTH - self.width - menu_edge_buffer:
+                self.x -= self.width + 24
+            if self.y > RESOLUTION_HEIGHT - self.height * 2 - menu_edge_buffer:
+                self.y -= self.height - 12
 
     def confirm(self):
         selected_option = self.options[self.option_pos]

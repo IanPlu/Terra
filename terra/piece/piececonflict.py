@@ -30,7 +30,8 @@ class PieceConflict:
     def resolve(self):
         publish_game_event(E_PIECES_IN_CONFLICT, {
             'gx': self.piece1.gx,
-            'gy': self.piece1.gy
+            'gy': self.piece1.gy,
+            'teams': [self.piece1.team, self.piece2.team]
         })
 
         # Get the first piece's attack value against the second

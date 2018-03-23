@@ -10,7 +10,7 @@ class SoundManager(GameObject):
     def play_sound(self, sound_type):
         sound = sound_type.value
 
-        sound.set_volume(SETTINGS.get(Setting.SFX_VOLUME) / 10)
+        sound.set_volume(SETTINGS.get(Setting.SFX_VOLUME) / 100)
         sound.play()
 
     def adjust_volume(self, new_volume):

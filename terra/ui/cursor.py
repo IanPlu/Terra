@@ -80,7 +80,7 @@ class Cursor(GameObject):
             else:
                 menu_options = [MENU_SUBMIT_TURN]
 
-            menu_options.extend([MENU_SAVE_GAME, MENU_QUIT_BATTLE])
+            menu_options.extend([MENU_SAVE_GAME, MENU_CONCEDE, MENU_QUIT_BATTLE])
         elif Managers.current_mode == Mode.EDIT:
             menu_options = [MENU_FILL_WITH_CURRENT_TILE, MENU_SAVE_MAP, MENU_QUIT_BATTLE]
         else:

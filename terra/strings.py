@@ -4,11 +4,13 @@ from terra.battlephase import BattlePhase
 from terra.economy.upgradetype import UpgradeType
 from terra.event import *
 from terra.mainmenu.option import Option
-from terra.settings import Setting
+from terra.managers.statmanager import Stat
 from terra.piece.movementtype import MovementType
 from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import light_color, dark_color
+from terra.settings import Setting
+from terra.team import Team
 from terra.util.drawingutil import draw_text, draw_multiline_text
 
 
@@ -34,6 +36,7 @@ menu_option_strings = {
         MENU_LOWER_TILE: "Lower Tile",
         MENU_DEMOLISH_SELF: "Demolish",
         MENU_FILL_WITH_CURRENT_TILE: "Fill Map",
+        MENU_CONCEDE: "Concede",
     }
 }
 
@@ -54,6 +57,7 @@ menu_help_strings = {
         MENU_LOWER_TILE: "* Terraform an adjacent tile. Mountains -> Hills -> Plains -> Coasts -> Seas.",
         MENU_DEMOLISH_SELF: "* Destroy this piece at the end of the turn, freeing space for other pieces later.",
         MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
+        MENU_CONCEDE: "* Concede the game. Your opponent wins!",
 
         # Pieces
         PieceType.COLONIST: "* Colonists are workers with little combat ability, but can harvest resources and build "
@@ -156,6 +160,13 @@ phase_strings = {
         BattlePhase.EXECUTE_COMBAT: "Combat",
         BattlePhase.EXECUTE_RANGED: "Ranged",
         BattlePhase.EXECUTE_SPECIAL: "Special"
+    }
+}
+
+team_name_strings = {
+    Language.EN_US: {
+        Team.RED: "RED",
+        Team.BLUE: "BLUE"
     }
 }
 
@@ -283,6 +294,7 @@ label_strings = {
     Language.EN_US: {
         "IP_INPUT": "Enter ip address to connect to:",
         "MAPNAME_INPUT": "Enter new map name:",
+        "RESULTS_PROMPT": "Press the CONFIRM key to continue",
     }
 }
 
@@ -294,6 +306,13 @@ formatted_strings = {
         Setting.SCREEN_SCALE: "Screen Scale: {}x",
         Setting.SFX_VOLUME: "Sound Volume: {}%",
         Setting.BGM_VOLUME: "Music Volume: {}%",
+
+        Stat.TILES_MOVED: "Tiles Moved: {}",
+        Stat.RANGED_ATTACKS_MADE: "Ranged Attacks: {}",
+        Stat.PIECE_CONFLICTS: "Piece Conflicts: {}",
+        Stat.PIECES_LOST: "Pieces Lost: {}",
+        Stat.PIECES_BUILT: "Pieces Built: {}",
+        Stat.UPGRADES_RESEARCHED: "Upgrades Researched: {}",
     }
 }
 

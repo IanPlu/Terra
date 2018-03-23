@@ -31,6 +31,8 @@ E_CANCEL_TURN_SUBMITTED = define_event()
 E_ALL_TURNS_SUBMITTED = define_event()
 E_SAVE_GAME = define_event()
 E_QUIT_BATTLE = define_event()
+E_BATTLE_OVER = define_event()
+E_EXIT_RESULTS = define_event()
 
 # Notification events
 E_UNIT_MOVED = define_event()
@@ -49,6 +51,7 @@ E_ARMOR_GRANTED = define_event()
 E_PIECE_HEALED = define_event()
 E_PIECE_ON_INVALID_TERRAIN = define_event()
 E_TILE_TERRAFORMED = define_event()
+E_PLAYER_CONCEDED = define_event()
 
 # Phase events
 START_PHASE_START_TURN = define_event()
@@ -83,6 +86,7 @@ MENU_SUBMIT_TURN = define_event()
 MENU_REVISE_TURN = define_event()
 MENU_SAVE_GAME = define_event()
 MENU_QUIT_BATTLE = define_event()
+MENU_CONCEDE = define_event()
 
 # Level editor menu option events
 MENU_SAVE_MAP = define_event()

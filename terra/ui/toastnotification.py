@@ -1,7 +1,6 @@
-from terra.constants import GRID_HEIGHT, RESOLUTION_HEIGHT
+from terra.constants import GRID_HEIGHT, RESOLUTION_HEIGHT, TICK_RATE
 from terra.engine.gameobject import GameObject
 from terra.resources.assets import light_color, clear_color
-from terra.settings import TICK_RATE
 from terra.event import is_event_type, E_NEXT_PHASE
 
 

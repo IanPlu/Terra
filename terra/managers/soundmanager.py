@@ -1,5 +1,5 @@
 from terra.engine.gameobject import GameObject
-from terra.settings import SFX_VOLUME
+from terra.settings import SETTINGS, Setting
 from terra.resources.assets import all_sounds
 
 
@@ -10,7 +10,7 @@ class SoundManager(GameObject):
     def play_sound(self, sound_type):
         sound = sound_type.value
 
-        sound.set_volume(SFX_VOLUME)
+        sound.set_volume(SETTINGS.get(Setting.SFX_VOLUME) / 10)
         sound.play()
 
     def adjust_volume(self, new_volume):

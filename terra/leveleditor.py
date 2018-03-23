@@ -1,9 +1,9 @@
-from pygame.constants import KEYDOWN, KMOD_CTRL, MOUSEBUTTONDOWN
+from pygame.constants import KEYDOWN, KEYUP, KMOD_CTRL, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT, RESOLUTION_HEIGHT, RESOLUTION_WIDTH
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
-from terra.keybindings import KB_MENU2, KB_SCROLL_UP, KB_SCROLL_DOWN
+from terra.keybindings import KB_MENU2, KB_SCROLL_UP, KB_SCROLL_DOWN, KB_CONFIRM, KB_CANCEL
 from terra.managers.managers import Managers
 from terra.map.tiletype import TileType
 from terra.piece.piecetype import PieceType
@@ -28,6 +28,9 @@ class LevelEditor(GameScreen):
         self.piece_team = Team.RED
         self.piece_type = PieceType.COLONIST
 
+        self.placing_multiple = False
+        self.placing_multiple_alt = False
+
     def step(self, event):
         super().step(event)
 
@@ -51,11 +54,30 @@ class LevelEditor(GameScreen):
                 self.scroll(-1)
             elif event.key in KB_MENU2:
                 self.swap_placing_mode()
+            elif event.key in KB_CONFIRM:
+                self.placing_multiple = True
+            elif event.key in KB_CANCEL:
+                self.placing_multiple_alt = True
         elif event.type == MOUSEBUTTONDOWN:
             if event.button in KB_SCROLL_UP:
                 self.scroll(1)
             elif event.button in KB_SCROLL_DOWN:
                 self.scroll(-1)
+            elif event.button in KB_CONFIRM:
+                self.placing_multiple = True
+            elif event.button in KB_CANCEL:
+                self.placing_multiple_alt = True
+        elif event.type == KEYUP:
+            self.placing_multiple = False
+            self.placing_multiple_alt = False
+        elif event.type == MOUSEBUTTONUP:
+            self.placing_multiple = False
+            self.placing_multiple_alt = False
+
+        if self.placing_multiple:
+            self.confirm()
+        elif self.placing_multiple_alt:
+            self.confirm2()
 
     def confirm(self):
         if self.placing_tiles:
@@ -117,9 +139,9 @@ class LevelEditor(GameScreen):
 
     def get_tile_sprite_for_tiletype(self, tiletype):
         if tiletype in [TileType.COAST]:
-            return spr_tiles[tiletype][0][1]
+            return spr_tiles[tiletype].subsurface(0, 0, 24, 24)
         else:
-            return spr_tiles[tiletype][0]
+            return spr_tiles[tiletype].subsurface(0, 0, 24, 24)
 
     def get_piece_sprite_for_piecetype(self, piecetype):
         return spr_pieces[self.piece_team][piecetype]

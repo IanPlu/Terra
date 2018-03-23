@@ -1,10 +1,9 @@
 from pygame import KEYDOWN, MOUSEBUTTONDOWN
 
-from terra.constants import HALF_RES_WIDTH, HALF_RES_HEIGHT
+from terra.constants import HALF_RES_WIDTH, HALF_RES_HEIGHT, TICK_RATE
 from terra.engine.gameobject import GameObject
 from terra.managers.managers import Managers
 from terra.resources.assets import clear_color, light_color
-from terra.settings import TICK_RATE
 from terra.strings import formatted_strings, get_string
 from terra.util.drawingutil import draw_text
 

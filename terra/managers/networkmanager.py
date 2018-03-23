@@ -3,7 +3,7 @@ import select
 import random
 from terra.event import *
 from terra.team import Team
-from terra.settings import SERVER_PORT
+from terra.constants import SERVER_PORT
 from terra.engine.gameobject import GameObject
 from terra.network.messagecode import MessageCode
 from ast import literal_eval

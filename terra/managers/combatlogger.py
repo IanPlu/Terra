@@ -17,8 +17,8 @@ class CombatLogger:
         check_log_dir_exists()
         self.logger = get_logger("CombatLogger", logging.INFO, filename)
 
-    def log_new_round(self, round_number):
-        self.logger.info("== ROUND {} BEGIN ==".format(round_number))
+    def log_new_turn(self, turn_number):
+        self.logger.info("== TURN {} BEGIN ==".format(turn_number))
 
     def log_new_phase(self, phase):
         self.logger.info("= {} phase begins".format(phase_strings[LANGUAGE][phase]))

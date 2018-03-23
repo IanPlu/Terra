@@ -1,6 +1,6 @@
 from terra.managers.errorlogger import ErrorLogger
 from terra.mode import Mode
-from terra.resources.assets import AssetType, get_asset
+from terra.resources.assetloading import AssetType, get_asset
 
 
 # Container for the various -manager objects.
@@ -36,7 +36,7 @@ class Managers:
 
         if map_name:
             # Load the map from a file for a local game (or network game where we're the host)
-            bitmap, pieces, teams, upgrades = load_map_from_file(map_name)
+            bitmap, pieces, teams, upgrades, meta = load_map_from_file(map_name)
         elif not map_name and Managers.network_manager.networked_game:
             # Client games won't have a map name until they connect, so fetch it now
             map_data = Managers.network_manager.map_data
@@ -48,7 +48,7 @@ class Managers:
             else:
                 # Load the map from the string representation given to us by the host
                 map_name = "NetworkGame"
-                bitmap, pieces, teams, upgrades = parse_map_from_string(map_data)
+                bitmap, pieces, teams, upgrades, meta = parse_map_from_string(map_data)
         else:
             # No map name for a local game, so assume something has gone wrong and abort
             Managers.tear_down_managers()
@@ -60,7 +60,7 @@ class Managers:
         Managers.team_manager = TeamManager(teams, upgrades)
         Managers.battle_map = MapManager(bitmap)
         Managers.piece_manager = PieceManager(pieces)
-        Managers.turn_manager = TurnManager()
+        Managers.turn_manager = TurnManager(meta)
         Managers.player_manager = PlayerManager()
         Managers.sound_manager = SoundManager()
 
@@ -104,9 +104,13 @@ class Managers:
         # Ask the team manager to serialize its upgrades
         upgrades = Managers.team_manager.serialize_upgrades()
 
+        # TODO: Expand to allow all managers to register k/v pairs to this
+        # Ask the turn manager to serialize the current turn
+        meta = Managers.serialize_metadata()
+
         # Strip '.map' from the map name
         save_name = Managers.map_name[:-4]
-        save_path = get_asset(AssetType.MAP, save_name + ".sav")
+        save_path = get_asset(AssetType.SAVE, save_name + ".sav")
 
         # Serialize to a string
         lines = ""
@@ -133,7 +137,16 @@ class Managers:
         for upgrade in upgrades:
             lines += upgrade + "\n"
 
+        # Append any meta information
+        lines += "# Meta\n"
+        for metadata in meta:
+            lines += "{} {}\n".format(metadata[0], metadata[1])
+
         return lines, save_path
+
+    @staticmethod
+    def serialize_metadata():
+        return Managers.turn_manager.serialize_metadata()
 
     @staticmethod
     # Save the current state to a save file

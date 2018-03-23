@@ -1,15 +1,36 @@
-from pygame import Surface, SRCALPHA
 import random
+from enum import Enum
 from io import StringIO
 from os import walk
+
+from pygame import Surface, SRCALPHA
 
 from terra.engine.gameobject import GameObject
 from terra.event import is_event_type, E_TILE_TERRAFORMED
 from terra.map.tile import Tile
 from terra.map.tiletype import TileType, tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
-from terra.resources.assets import AssetType, get_asset, spr_tiles_mini
+from terra.resources.assets import spr_tiles_mini
+from terra.resources.assetloading import AssetType, get_asset
 from terra.util.mathutil import clamp
+
+
+# Steps involved in reading in the map.
+class MapReadingStep(Enum):
+    META = "# Meta"
+    UPGRADES = "# Upgrades"
+    TEAMS = "# Teams"
+    PIECES = "# Pieces"
+    MAP = "# Map"
+
+    # Return the enum member corresponding to the provided string, if any. Returns None if no match.
+    @staticmethod
+    def safe_get_from_string(str):
+        for member in MapReadingStep:
+            if member.value == str:
+                return member
+
+        return None
 
 
 # A single map containing tiles, organized into a grid.
@@ -122,56 +143,60 @@ class MapManager(GameObject):
 
 
 # Return a list of filenames of loadable maps
-def get_loadable_maps(suffix=".map"):
+def get_loadable_maps(asset_type=AssetType.MAP):
     maps = []
-    for (_, _, filenames) in walk(get_asset(AssetType.MAP, "")):
+    for (_, _, filenames) in walk(get_asset(asset_type, "")):
         maps.extend(filenames)
 
-    return [mapname for mapname in maps if mapname.endswith(suffix)]
+    return maps
 
 
 # Parse a map's data out from a string representation
 def parse_map_from_string(map_data):
-    reading_pieces = False
-    reading_teams = False
-    reading_upgrades = False
+    step = MapReadingStep.MAP
 
     bitmap = []
     pieces = []
     teams = []
     upgrades = []
+    meta = {}
 
     for line in StringIO(map_data):
-        if line.rstrip() == "# Pieces":
-            reading_pieces = True
-        elif line.rstrip() == "# Teams":
-            reading_teams = True
-        elif line.rstrip() == "# Upgrades":
-            reading_upgrades = True
-        elif reading_upgrades:
-            if line.rstrip():
-                # Add each line to upgrades
-                upgrades.append(line.rstrip())
-        elif reading_teams:
-            if line.rstrip():
-                # Add each line to teams
-                teams.append(line.rstrip())
-        elif reading_pieces:
+        sline = line.rstrip()
+
+        if MapReadingStep.safe_get_from_string(sline):
+            step = MapReadingStep(sline)
+        elif step == MapReadingStep.MAP:
+            # Grab all non-newline chars, convert them to ints, and add them to the line list
+            bitmap.append(list(map(int, sline.split(' '))))
+        elif step == MapReadingStep.PIECES:
             if line.rstrip():
                 # Add each line to the piece list
-                pieces.append(line.rstrip())
-        else:
-            # Grab all non-newline chars, convert them to ints, and add them to the line list
-            bitmap.append(list(map(int, line.rstrip().split(' '))))
+                pieces.append(sline)
+        elif step == MapReadingStep.TEAMS:
+            if sline:
+                # Add each line to teams
+                teams.append(sline)
+        elif step == MapReadingStep.UPGRADES:
+            if sline:
+                # Add each line to upgrades
+                upgrades.append(sline)
+        elif step == MapReadingStep.META:
+            if sline:
+                # Split into key pairs and add to meta
+                # Note that non-pairs (too many or too few items) are ignored
+                values = sline.split(' ')
+                if len(values) == 2:
+                    meta[values[0]] = values[1]
 
-    return bitmap, pieces, teams, upgrades
+    return bitmap, pieces, teams, upgrades, meta
 
 
 # Load a map from the provided filename
 # Generate a bitmap for the Map to use, and generate a unit list for the PieceManager to use.
-def load_map_from_file(mapname):
+def load_map_from_file(mapname, asset_type=AssetType.MAP):
     try:
-        map_path = get_asset(AssetType.MAP, mapname)
+        map_path = get_asset(asset_type, mapname)
 
         with open(map_path) as mapfile:
             return parse_map_from_string(mapfile.read())
@@ -186,8 +211,9 @@ def generate_map():
     pieces = ["0 0 RED BASE", "19 15 BLUE BASE"]
     teams = ["RED 5 5 5", "BLUE 5 5 5"]
     upgrades = ["RED|", "BLUE|"]
+    meta = "Turn 1\nPhase START_TURN"
 
-    return bitmap, pieces, teams, upgrades
+    return bitmap, pieces, teams, upgrades, meta
 
 
 # Generate a map of the required size

@@ -618,41 +618,43 @@ class Piece(GameObject):
 
     # Ask the Unit to render itself
     def render(self, game_screen, ui_screen):
-        super().render(game_screen, ui_screen)
+        # Only render if we're within the camera view
+        if Managers.player_manager.is_within_camera_view((self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT, GRID_WIDTH, GRID_HEIGHT)):
+            super().render(game_screen, ui_screen)
 
-        xoffset = 0
-        yoffset = 0
+            xoffset = 0
+            yoffset = 0
 
-        if self.in_conflict:
-            if self.team == Team.RED:
-                xoffset = -3
-                yoffset = -3
-            else:
-                xoffset = 3
-                yoffset = 3
+            if self.in_conflict:
+                if self.team == Team.RED:
+                    xoffset = -3
+                    yoffset = -3
+                else:
+                    xoffset = 3
+                    yoffset = 3
 
-        # Render the unit
-        game_screen.blit(self.get_sprite(),
-                         (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
+            # Render the unit
+            game_screen.blit(self.get_sprite(),
+                             (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
-        # Render health bar if damaged
-        max_hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
-        if self.hp < max_hp:
-            displayable_hp = int((self.hp / max_hp) * 20)
+            # Render health bar if damaged
+            max_hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
+            if self.hp < max_hp:
+                displayable_hp = int((self.hp / max_hp) * 20)
 
-            game_screen.fill(clear_color[self.team],
-                             (self.gx * GRID_WIDTH + xoffset + 2, self.gy * GRID_HEIGHT + yoffset + 21, 18, 3))
-            game_screen.fill(light_team_color[self.team],
-                             (self.gx * GRID_WIDTH + xoffset + 2, self.gy * GRID_HEIGHT + yoffset + 21, displayable_hp, 2))
+                game_screen.fill(clear_color[self.team],
+                                 (self.gx * GRID_WIDTH + xoffset + 2, self.gy * GRID_HEIGHT + yoffset + 21, 18, 3))
+                game_screen.fill(light_team_color[self.team],
+                                 (self.gx * GRID_WIDTH + xoffset + 2, self.gy * GRID_HEIGHT + yoffset + 21, displayable_hp, 2))
 
-        # Render order flag
-        if self.current_order and Managers.player_manager.active_team == self.team:
-            game_screen.blit(spr_order_flags[self.current_order.name],
-                             (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
+            # Render order flag
+            if self.current_order and Managers.player_manager.active_team == self.team:
+                game_screen.blit(spr_order_flags[self.current_order.name],
+                                 (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
 
-        # Allow our tile selection UI to function if alive
-        if self.tile_selection:
-            self.tile_selection.render(game_screen, ui_screen)
+            # Allow our tile selection UI to function if alive
+            if self.tile_selection:
+                self.tile_selection.render(game_screen, ui_screen)
 
-        if self.previewing_order:
-            self.preview_order(game_screen)
+            if self.previewing_order:
+                self.preview_order(game_screen)

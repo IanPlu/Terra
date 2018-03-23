@@ -4,11 +4,12 @@ from terra.battlephase import BattlePhase
 from terra.economy.upgradetype import UpgradeType
 from terra.event import *
 from terra.mainmenu.option import Option
-from terra.piece.piecetype import PieceType
-from terra.util.drawingutil import draw_text, draw_multiline_text
-from terra.resources.assets import light_color, dark_color
-from terra.piece.piecearchetype import PieceArchetype
+from terra.settings import Setting
 from terra.piece.movementtype import MovementType
+from terra.piece.piecearchetype import PieceArchetype
+from terra.piece.piecetype import PieceType
+from terra.resources.assets import light_color, dark_color
+from terra.util.drawingutil import draw_text, draw_multiline_text
 
 
 class Language(Enum):
@@ -255,7 +256,8 @@ main_menu_strings = {
         Option.NEW_NETWORK_GAME: "New Network Game",
         Option.LOAD_NETWORK_GAME: "Load Network Game",
         Option.NEW_MAP: "New Map",
-        Option.LOAD_MAP: "Load Map"
+        Option.LOAD_MAP: "Load Map",
+        Option.SAVE_SETTINGS: "Apply Settings",
     }
 }
 
@@ -287,7 +289,11 @@ label_strings = {
 # Strings that are required to be used with string.format() before use
 formatted_strings = {
     Language.EN_US: {
-        "NEW_TURN_MESSAGE": "TURN {}"
+        "NEW_TURN_MESSAGE": "TURN {}",
+
+        Setting.SCREEN_SCALE: "Screen Scale: {}x",
+        Setting.SFX_VOLUME: "Sound Volume: {}%",
+        Setting.BGM_VOLUME: "Music Volume: {}%",
     }
 }
 

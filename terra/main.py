@@ -3,7 +3,7 @@ import sys
 from pygame.constants import QUIT
 
 from terra.battle import Battle
-from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
+from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, TICK_RATE
 from terra.event import *
 from terra.leveleditor import LevelEditor
 from terra.mainmenu.mainmenu import MainMenu
@@ -11,7 +11,7 @@ from terra.mainmenu.option import Option
 from terra.managers.managers import Managers
 from terra.mode import Mode
 from terra.resources.assets import load_assets, clear_color, spr_game_icon
-from terra.settings import SCREEN_SCALE, TICK_RATE
+from terra.settings import Setting, SETTINGS
 from terra.team import Team
 
 
@@ -41,6 +41,15 @@ class Main:
 
         self.screens[new_mode] = new_screen
 
+    # Set the screen resolution from the screen scale in the settings
+    def reset_resolution(self):
+        self.screen_resolution = RESOLUTION_WIDTH * SETTINGS.get(Setting.SCREEN_SCALE), \
+                                 RESOLUTION_HEIGHT * SETTINGS.get(Setting.SCREEN_SCALE)
+        self.screen_width, self.screen_height = self.screen_resolution
+
+        self.screen = pygame.display.set_mode(self.screen_resolution)
+        self.screen.fill(clear_color[Team.RED])
+
     def quit(self):
         pygame.quit()
         sys.exit()
@@ -64,6 +73,9 @@ class Main:
                 self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.QUIT:
                 self.quit()
+            elif event.option == Option.SAVE_SETTINGS:
+                SETTINGS.save_settings()
+                self.reset_resolution()
         elif is_event_type(event, E_QUIT_BATTLE):
             # Reset the screens and managers
             Managers.tear_down_managers()
@@ -91,10 +103,7 @@ class Main:
     def run(self):
         # Initialize pygame and some UI settings
         pygame.init()
-        self.screen_resolution = self.screen_width, self.screen_height = RESOLUTION_WIDTH * SCREEN_SCALE, RESOLUTION_HEIGHT * SCREEN_SCALE
-
-        self.screen = pygame.display.set_mode(self.screen_resolution)
-        self.screen.fill(clear_color[Team.RED])
+        self.reset_resolution()
 
         load_assets()
 

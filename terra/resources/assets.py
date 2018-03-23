@@ -1,7 +1,3 @@
-import sys
-from enum import Enum
-from os import path
-
 import pygame
 
 from terra.economy.upgradetype import UpgradeType
@@ -9,47 +5,21 @@ from terra.effects.effecttype import EffectType
 from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
     MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP, \
     MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN, MENU_DEMOLISH_SELF, MENU_FILL_WITH_CURRENT_TILE
+from terra.mainmenu.option import Option
 from terra.map.tiletype import TileType
 from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
-from terra.settings import SFX_VOLUME
+from terra.resources.assetloading import AssetType, get_asset
+from terra.settings import SETTINGS, Setting
 from terra.team import Team
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
-    swap_palette, generate_palette_list, swap_multiple_palette, get_indexed_sprites_from_strip
-from terra.mainmenu.option import Option
-
-
-# External assets are divided into subdirectories by their type
-class AssetType(Enum):
-    SPRITE = "resources/sprites/"
-    SOUND = "resources/sfx/"
-    MAP = "resources/maps/"
-    ATTRIBUTES = "resources/attributes/"
-    LOG = "logs/"
-
-
-# Resources might be located somewhere strange depending on how the application is packaged.
-# Locate the directory we ask for regardless of whether we're an executable or not.
-def get_base_path(filename):
-    if getattr(sys, 'frozen', False):
-        # The application is frozen / packaged into an executable
-        datadir = path.dirname(sys.executable)
-    else:
-        # The application is not frozen (debugging or otherwise not packaged)
-        datadir = path.dirname(__file__)
-
-    return path.join(datadir, filename)
-
-
-# Return a properly formatted path to the specified resource
-def get_asset(asset_type, resource_name):
-    return get_base_path(path.abspath(path.join(asset_type.value, resource_name)))
+    swap_palette, generate_palette_list, swap_multiple_palette
 
 
 # Load a sound and properly set it up
 def load_sound(resource_name):
     sound = pygame.mixer.Sound(get_asset(AssetType.SOUND, resource_name))
-    sound.set_volume(SFX_VOLUME)
+    sound.set_volume(SETTINGS.get(Setting.SFX_VOLUME) / 10)
     all_sounds.append(sound)
     return sound
 
@@ -67,7 +37,8 @@ unit_palette = {
 spr_game_icon = pygame.image.load(get_asset(AssetType.SPRITE, "ui/GameIcon.png"))
 
 spr_title_text = pygame.image.load(get_asset(AssetType.SPRITE, "ui/TitleText.png"))
-spr_main_menu_option_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/MainMenuOption.png")), 24)
+spr_main_menu_option_base = get_sprites_from_strip(pygame.image.load(
+    get_asset(AssetType.SPRITE, "ui/MainMenuOption.png")), 24)
 spr_main_menu_option = {
     Option.START: spr_main_menu_option_base[5],
     Option.NEW_GAME: spr_main_menu_option_base[0],
@@ -83,6 +54,7 @@ spr_main_menu_option = {
     Option.LOAD_NETWORK_GAME: spr_main_menu_option_base[6],
     Option.NEW_MAP: spr_main_menu_option_base[2],
     Option.LOAD_MAP: spr_main_menu_option_base[6],
+    Option.SAVE_SETTINGS: spr_main_menu_option_base[6],
 }
 
 spr_cursor = {
@@ -99,7 +71,8 @@ spr_turn_submitted_indicator = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Turn_Submitted.png"))
 }
 
-spr_order_options_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Order_MenuOption.png")), 24)
+spr_order_options_base = get_sprites_from_strip(pygame.image.load(
+    get_asset(AssetType.SPRITE, "ui/Order_MenuOption.png")), 24)
 spr_order_options = {
     Team.RED: {
         MENU_CANCEL_ORDER: spr_order_options_base[0],
@@ -123,7 +96,8 @@ spr_menu_option_item_background = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/MenuOption_PieceBackground.png"))
 }
 
-spr_piece_attribute_icons_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Piece_Attribute_Icons.png")), 12)
+spr_piece_attribute_icons_base = get_sprites_from_strip(pygame.image.load(
+    get_asset(AssetType.SPRITE, "ui/Piece_Attribute_Icons.png")), 12)
 spr_piece_attribute_icons = {
     Team.RED: {
         Attribute.ARCHETYPE: spr_piece_attribute_icons_base[0],
@@ -188,13 +162,13 @@ spr_target = {
 # Tile
 spr_tile_selectable = pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Selectable.png"))
 spr_tiles = {
-    TileType.SEA: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Sea.png")), 24),
-    TileType.GRASS: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Grass.png"))],
-    TileType.WOODS: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Woods.png"))],
-    TileType.RESOURCE: get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Resource.png")), 24),
-    TileType.MOUNTAIN: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Mountain.png"))],
-    TileType.COAST: get_indexed_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Coast.png")), 24, 24),
-    TileType.HILL: [pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Hill.png"))],
+    TileType.SEA: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Sea.png")),
+    TileType.GRASS: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Grass.png")),
+    TileType.WOODS: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Woods.png")),
+    TileType.RESOURCE: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Resource.png")),
+    TileType.MOUNTAIN: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Mountain.png")),
+    TileType.COAST: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Coast.png")),
+    TileType.HILL: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Hill.png")),
 }
 
 spr_tiles_mini = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Minimap_Tile.png")), 4)
@@ -265,20 +239,13 @@ spr_resource_icon_small = {
 
 # Effects
 spr_effects = {
-    EffectType.ALERT: get_sprites_from_strip(
-        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Alert.png")), 24),
-    EffectType.PIECE_DESTROYED: get_sprites_from_strip(
-        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Piece_Destroyed.png")), 24),
-    EffectType.NO_MONEY: get_sprites_from_strip(
-        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_No_Money.png")), 24),
-    EffectType.ORDER_BLOCKED: get_sprites_from_strip(
-        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Order_Blocked.png")), 24),
-    EffectType.ARMOR_GRANTED: get_sprites_from_strip(
-        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Armor_Granted.png")), 24),
-    EffectType.HP_HEALED: get_sprites_from_strip(
-        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_HP_Healed.png")), 24),
-    EffectType.DUPLICATE_UPGRADE: get_sprites_from_strip(
-        pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Duplicate_Upgrade.png")), 24),
+    EffectType.ALERT: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Alert.png")),
+    EffectType.PIECE_DESTROYED: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Piece_Destroyed.png")),
+    EffectType.NO_MONEY: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_No_Money.png")),
+    EffectType.ORDER_BLOCKED: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Order_Blocked.png")),
+    EffectType.ARMOR_GRANTED: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Armor_Granted.png")),
+    EffectType.HP_HEALED: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_HP_Healed.png")),
+    EffectType.DUPLICATE_UPGRADE: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Duplicate_Upgrade.png")),
 }
 
 

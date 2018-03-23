@@ -12,7 +12,7 @@ from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, clear_color, spr_digit_icons, spr_upgrade_icons, \
     spr_resource_icon, spr_order_options, light_color, spr_menu_option_item_background, light_team_color
-from terra.settings import SCREEN_SCALE
+from terra.settings import SETTINGS, Setting
 from terra.strings import menu_option_strings, piece_name_strings, upgrade_name_strings, get_text
 from terra.ui.detailbox import DetailBox
 from terra.util.drawingutil import draw_resource_count
@@ -113,8 +113,8 @@ class MenuPopup(GameObject):
     # Return true if the mouse coordinates are within the boundaries of our menu window
     def is_mouse_in_menu_bounds(self):
         mouse_x, mouse_y = pygame.mouse.get_pos()
-        mousex = int(mouse_x / SCREEN_SCALE)
-        mousey = int(mouse_y / SCREEN_SCALE)
+        mousex = int(mouse_x / SETTINGS.get(Setting.SCREEN_SCALE))
+        mousey = int(mouse_y / SETTINGS.get(Setting.SCREEN_SCALE))
 
         min_x = self.x
         min_y = self.y
@@ -124,7 +124,7 @@ class MenuPopup(GameObject):
         return min_x < mousex < max_x and min_y < mousey < max_y
 
     def set_cursor_pos_to_mouse_coords(self):
-        self.option_pos = (int(pygame.mouse.get_pos()[1] / SCREEN_SCALE) - self.y) \
+        self.option_pos = (int(pygame.mouse.get_pos()[1] / SETTINGS.get(Setting.SCREEN_SCALE)) - self.y) \
                           // option_height + self.option_min
 
     def scroll_option_up(self):

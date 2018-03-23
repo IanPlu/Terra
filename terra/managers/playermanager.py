@@ -7,6 +7,7 @@ from terra.managers.managers import Managers
 from terra.mode import Mode
 from terra.team import Team
 from terra.ui.cursor import Cursor
+from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 
 
 # Manager for the current player. Helps handle input, networking, and information that should be hidden
@@ -36,6 +37,15 @@ class PlayerManager(GameObject):
 
     def get_camera_coords(self):
         return int(self.cursors[self.active_team].camera_x), int(self.cursors[self.active_team].camera_y)
+
+    # Return true if the provided rect is within the camera coords
+    def is_within_camera_view(self, rect, border_fuzz=48):
+        x, y, width, height = rect
+        camera_x, camera_y = self.get_camera_coords()
+        in_view_x = camera_x - border_fuzz - width <= x <= camera_x + border_fuzz + width + RESOLUTION_WIDTH
+        in_view_y = camera_y - border_fuzz - height <= y <= camera_y + border_fuzz + height + RESOLUTION_HEIGHT
+
+        return in_view_x and in_view_y
 
     def get_cursor_coords(self):
         return int(self.cursors[self.active_team].gx), int(self.cursors[self.active_team].gy)

@@ -1,6 +1,6 @@
 import json
 
-from terra.resources.assets import AssetType, get_asset
+from terra.resources.assetloading import AssetType, get_asset
 from terra.util.jsonutil import as_enum
 
 

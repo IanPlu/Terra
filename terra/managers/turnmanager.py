@@ -1,4 +1,3 @@
-
 from terra.battlephase import BattlePhase
 from terra.engine.gameobject import GameObject
 from terra.event import is_event_type, publish_game_event, E_NEXT_PHASE, E_CLEANUP, START_PHASE_START_TURN, \
@@ -6,17 +5,27 @@ from terra.event import is_event_type, publish_game_event, E_NEXT_PHASE, E_CLEAN
     START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL, E_ALL_TURNS_SUBMITTED, END_PHASE_START_TURN, \
     END_PHASE_ORDERS, END_PHASE_MOVE, END_PHASE_BUILD, END_PHASE_COMBAT, END_PHASE_RANGED, END_PHASE_SPECIAL
 from terra.managers.managers import Managers
+from terra.map.metadatakey import MetadataKey
 from terra.team import Team
 
 
 # Manager for the current phase of the game and marshalling progression through phases.
 class TurnManager(GameObject):
-    def __init__(self):
+    def __init__(self, meta):
         super().__init__()
-
+        self.turn = 1
         self.phase = BattlePhase.ORDERS
-        self.round = 1
-        Managers.combat_logger.log_new_round(self.round)
+
+        # Initialize any data from metadata we care about
+        for key, value in meta.items():
+            if key == MetadataKey.TURN.value:
+                self.turn = int(value)
+            elif key == MetadataKey.PHASE.value:
+                self.phase = BattlePhase[value]
+
+        if self.phase == BattlePhase.START_TURN:
+            Managers.combat_logger.log_new_turn(self.turn)
+            self.progress_phase()
 
     # Validate that it's OK to progress the current phase.
     # Check movement orders, primarily
@@ -51,8 +60,8 @@ class TurnManager(GameObject):
         self.phase = BattlePhase(new_phase)
 
         if self.phase == BattlePhase.START_TURN:
-            self.round += 1
-            Managers.combat_logger.log_new_round(self.round)
+            self.turn += 1
+            Managers.combat_logger.log_new_turn(self.turn)
 
         Managers.combat_logger.log_new_phase(self.phase)
 
@@ -62,7 +71,7 @@ class TurnManager(GameObject):
 
         # Publish an event for the new phase
         publish_game_event(self.phase_events[self.phase], {
-            "turn_number": self.round
+            "turn_number": self.turn
         })
 
     phase_events = {
@@ -84,6 +93,12 @@ class TurnManager(GameObject):
         BattlePhase.EXECUTE_RANGED: END_PHASE_RANGED,
         BattlePhase.EXECUTE_SPECIAL: END_PHASE_SPECIAL,
     }
+
+    def serialize_metadata(self):
+        return [
+            (MetadataKey.TURN.value, self.turn),
+            (MetadataKey.PHASE.value, self.phase.name),
+        ]
 
     def step(self, event):
         super().step(event)

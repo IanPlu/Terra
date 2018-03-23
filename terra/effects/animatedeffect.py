@@ -1,8 +1,7 @@
-from terra.constants import GRID_WIDTH, GRID_HEIGHT
+from terra.constants import GRID_WIDTH, GRID_HEIGHT, TICK_RATE
 from terra.engine.animatedgameobject import AnimatedGameObject
 from terra.managers.managers import Managers
 from terra.resources.assets import spr_effects
-from terra.settings import TICK_RATE
 
 
 # An animated special effect / particle. Renders its animation once and then expires.
@@ -15,7 +14,7 @@ class AnimatedEffect(AnimatedGameObject):
         self.team = team
         self.is_alive = True
 
-        super().__init__(spr_effects[self.effect_type], TICK_RATE / 8)
+        super().__init__(spr_effects[self.effect_type], 24, TICK_RATE / 8)
 
     # Handler for what to do when the animation loops.
     # By default, effects destroy themselves on loop.

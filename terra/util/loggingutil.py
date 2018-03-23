@@ -1,6 +1,6 @@
 import logging
 import os
-from terra.resources.assets import AssetType, get_asset
+from terra.resources.assetloading import AssetType, get_asset
 
 formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
 

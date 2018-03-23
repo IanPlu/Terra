@@ -9,7 +9,7 @@ from terra.managers.managers import Managers
 from terra.mode import Mode
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_cursor, spr_turn_submitted_indicator
-from terra.settings import SCREEN_SCALE
+from terra.settings import SETTINGS, Setting
 from terra.sound.soundtype import SoundType
 from terra.ui.menupopup import MenuPopup
 from terra.ui.tileselection import TileSelection
@@ -159,8 +159,8 @@ class Cursor(GameObject):
             elif event.type == MOUSEMOTION:
                 mousex, mousey = pygame.mouse.get_pos()
                 # Convert the screen coordinates to the grid coordinates
-                self.gx = (mousex / SCREEN_SCALE + self.camera_x) // GRID_WIDTH
-                self.gy = (mousey / SCREEN_SCALE + self.camera_y) // GRID_HEIGHT
+                self.gx = (mousex / SETTINGS.get(Setting.SCREEN_SCALE) + self.camera_x) // GRID_WIDTH
+                self.gy = (mousey / SETTINGS.get(Setting.SCREEN_SCALE) + self.camera_y) // GRID_HEIGHT
 
             elif event.type == MOUSEBUTTONDOWN:
                 if event.button in KB_CONFIRM:
@@ -173,8 +173,8 @@ class Cursor(GameObject):
         if not self.menu and pygame.mouse.get_focused():
             mousex, mousey = pygame.mouse.get_pos()
             # Convert the screen coordinates to the grid coordinates
-            self.gx = clamp((mousex / SCREEN_SCALE + self.camera_x) // GRID_WIDTH, 0, Managers.battle_map.width - 1)
-            self.gy = clamp((mousey / SCREEN_SCALE + self.camera_y) // GRID_HEIGHT, 0, Managers.battle_map.height - 1)
+            self.gx = clamp((mousex / SETTINGS.get(Setting.SCREEN_SCALE) + self.camera_x) // GRID_WIDTH, 0, Managers.battle_map.width - 1)
+            self.gy = clamp((mousey / SETTINGS.get(Setting.SCREEN_SCALE) + self.camera_y) // GRID_HEIGHT, 0, Managers.battle_map.height - 1)
 
         camera_min_gx = self.camera_dest_x // GRID_WIDTH
         camera_min_gy = self.camera_dest_y // GRID_HEIGHT

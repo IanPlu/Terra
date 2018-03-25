@@ -3,15 +3,16 @@ from enum import Enum
 from io import StringIO
 from os import walk
 
+from opensimplex import OpenSimplex
 from pygame import Surface, SRCALPHA
 
 from terra.engine.gameobject import GameObject
 from terra.event import is_event_type, E_TILE_TERRAFORMED
 from terra.map.tile import Tile
-from terra.map.tiletype import TileType, tile_height_order
+from terra.map.tiletype import tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
-from terra.resources.assets import spr_tiles_mini
 from terra.resources.assetloading import AssetType, get_asset
+from terra.resources.assets import spr_tiles_mini
 from terra.util.mathutil import clamp
 
 
@@ -43,7 +44,7 @@ class MapManager(GameObject):
         if bitmap:
             self.bitmap = bitmap
         else:
-            self.bitmap = generate_bitmap(width, height)
+            self.bitmap = generate_bitmap_from_simplex_noise(width, height)
 
         self.height = len(self.bitmap)
         self.width = len(self.bitmap[0])
@@ -127,6 +128,14 @@ class MapManager(GameObject):
             for y in range(self.height):
                 self.update_tile_type(x, y, new_tile_type)
 
+    # Mirror the map across the specified axes, prioritizing the top-left-most tiles.
+    def mirror_map(self, mirror_x=True, mirror_y=False):
+        for x in range(self.width):
+            for y in range(self.height):
+                mx = self.width - 1 - x if mirror_x else x
+                my = self.height - 1 - y if mirror_y else y
+                self.update_tile_type(mx, my, self.get_tile_type_at(x, y))
+
     def step(self, event):
         super().step(event)
 
@@ -138,7 +147,6 @@ class MapManager(GameObject):
         super().render(game_screen, ui_screen)
         for x in range(self.width):
             for y in range(self.height):
-                # print("x: {}, y: {}".format(x, y))
                 self.tile_grid[y][x].render(game_screen, ui_screen)
 
 
@@ -207,11 +215,14 @@ def load_map_from_file(mapname, asset_type=AssetType.MAP):
 
 # Generate a default map, pieces, teams, and so on, ready for use.
 def generate_map():
-    bitmap = generate_bitmap(20, 16, False)
-    pieces = ["0 0 RED BASE", "19 15 BLUE BASE"]
+    bitmap = generate_bitmap_from_simplex_noise(20, 15, mirror_x=False, mirror_y=False)
+    pieces = []
     teams = ["RED 5 5 5", "BLUE 5 5 5"]
     upgrades = ["RED|", "BLUE|"]
-    meta = "Turn 1\n Phase START_TURN"
+    meta = {
+        "Turn": "1",
+        "Phase": "START_TURN",
+    }
 
     return bitmap, pieces, teams, upgrades, meta
 
@@ -223,11 +234,73 @@ def generate_bitmap(width, height, random_tiles=True):
         row = []
         for _ in range(width):
             if random_tiles:
-                tile = random.randint(1, len(TileType) - 1)
+                tile = random.randint(1, 2)
             else:
                 tile = 1
             row.append(tile)
         bitmap.append(row)
+
+    return bitmap
+
+
+# Generate a bitmap using simplex noise and some fancy footwork
+# https://www.redblobgames.com/maps/terrain-from-noise/
+def generate_bitmap_from_simplex_noise(width, height, mirror_x=False, mirror_y=False):
+    generator = OpenSimplex(seed=random.randint(0, 100))
+
+    # Generate a noise value from 0 to 1
+    def noise(noise_x, noise_y):
+        return generator.noise2d(noise_x, noise_y) / 2.0 + 0.5
+
+    # Convert a height value to an integer representing a tile (1=SEA, 2=GRASS, etc.)
+    def get_tile_from_height(t_height):
+        if t_height <= 0.7:
+            return 1
+        elif t_height <= 1.1:
+            return 2
+        elif t_height <= 1.2:
+            return 7
+        else:
+            return 5
+
+    bitmap = []
+    for y in range(height):
+        row = []
+        for x in range(width):
+            nx = x / width - 0.5
+            ny = y / height - 0.5
+            elevation = 1 * noise(nx, ny) + 0.5 * noise(nx * 2, ny * 2) + 0.25 * noise(nx * 4, ny * 4)
+
+            distance_to_center = 2 * max(abs(nx), abs(ny))
+            base_height = 0.1
+            edge_height = 0.4
+            dropoff = 1.6
+
+            fuzziness = random.randint(10, 20) / 10
+
+            # Form islands
+            elevation += (base_height - edge_height * pow(distance_to_center, dropoff)) * fuzziness
+
+            tile = get_tile_from_height(round(elevation, 2))
+
+            # Randomly add features to existing plains tiles
+            if tile == 2:
+                feature_chance = random.randint(0, 9)
+                if feature_chance >= 9:
+                    tile = 4
+                elif feature_chance >= 8:
+                    tile = 3
+
+            row.append(tile)
+        bitmap.append(row)
+
+    if mirror_x or mirror_y:
+        for y in range(height):
+            for x in range(width):
+                mx = width - 1 - x if mirror_x else x
+                my = height - 1 - y if mirror_y else y
+
+                bitmap[y][x] = bitmap[my][mx]
 
     return bitmap
 

@@ -3,6 +3,7 @@ import sys
 from pygame.constants import QUIT
 
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, TICK_RATE
+from terra.engine.animatedgameobject import AnimatedGameObject
 from terra.event import *
 from terra.mainmenu.mainmenu import MainMenu
 from terra.mainmenu.option import Option
@@ -100,6 +101,9 @@ class Main:
     # Render phase of game loop - draw to the screen
     # noinspection PyArgumentList
     def render(self):
+        # Update the global frame
+        AnimatedGameObject.update_global_frame()
+
         base_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
         base_screen.fill(clear_color[Team.BLUE], (0, 0, RESOLUTION_WIDTH, RESOLUTION_HEIGHT))
 

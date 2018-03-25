@@ -216,7 +216,7 @@ class MenuPopup(GameObject):
                     # Render buildable pieces
                     ui_screen.blit(spr_menu_option_item_background[self.team], (self.x + x_offset, self.y + row_y * option_height))
 
-                    ui_screen.blit(spr_pieces[self.team][option], (self.x + x_offset, self.y + row_y * option_height))
+                    ui_screen.blit(spr_pieces[self.team][option].subsurface(0, 0, 24, 24), (self.x + x_offset, self.y + row_y * option_height))
                     ui_screen.blit(get_text(piece_name_strings, option, light=True), (self.x + 29, self.y + 8 + row_y * option_height))
 
                     # if self.option_pos == row_y + self.option_min:

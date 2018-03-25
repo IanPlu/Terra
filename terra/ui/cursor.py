@@ -82,7 +82,7 @@ class Cursor(GameObject):
 
             menu_options.extend([MENU_SAVE_GAME, MENU_CONCEDE, MENU_QUIT_BATTLE])
         elif Managers.current_mode == Mode.EDIT:
-            menu_options = [MENU_FILL_WITH_CURRENT_TILE, MENU_SAVE_MAP, MENU_QUIT_BATTLE]
+            menu_options = [MENU_FILL_WITH_CURRENT_TILE, MENU_MIRROR_X, MENU_MIRROR_Y, MENU_SAVE_MAP, MENU_QUIT_BATTLE]
         else:
             # Don't open the menu in this mode
             return

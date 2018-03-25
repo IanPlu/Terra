@@ -4,7 +4,8 @@ from terra.economy.upgradetype import UpgradeType
 from terra.effects.effecttype import EffectType
 from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
     MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP, \
-    MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN, MENU_DEMOLISH_SELF, MENU_FILL_WITH_CURRENT_TILE, MENU_CONCEDE
+    MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN, MENU_DEMOLISH_SELF, MENU_FILL_WITH_CURRENT_TILE, MENU_CONCEDE, \
+    MENU_MIRROR_X, MENU_MIRROR_Y
 from terra.mainmenu.option import Option
 from terra.map.tiletype import TileType
 from terra.piece.attribute import Attribute
@@ -31,6 +32,8 @@ pygame.mixer.init()
 unit_palette = {
     Team.RED: generate_palette_list(pygame.image.load(get_asset(AssetType.SPRITE, "palettes/Red-Palette.png"))),
     Team.BLUE: generate_palette_list(pygame.image.load(get_asset(AssetType.SPRITE, "palettes/Blue-Palette.png"))),
+    Team.GREEN: generate_palette_list(pygame.image.load(get_asset(AssetType.SPRITE, "palettes/Green-Palette.png"))),
+    Team.YELLOW: generate_palette_list(pygame.image.load(get_asset(AssetType.SPRITE, "palettes/Yellow-Palette.png"))),
 }
 
 # UI
@@ -90,6 +93,8 @@ spr_order_options = {
         MENU_DEMOLISH_SELF: spr_order_options_base[12],
         MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
         MENU_CONCEDE: spr_order_options_base[0],
+        MENU_MIRROR_X: spr_order_options_base[13],
+        MENU_MIRROR_Y: spr_order_options_base[14],
     }
 }
 
@@ -225,6 +230,8 @@ spr_order_flags = {
     MENU_DEMOLISH_SELF: spr_base_order_flags[8],
     MENU_FILL_WITH_CURRENT_TILE: spr_base_order_flags[0],
     MENU_CONCEDE: spr_base_order_flags[0],
+    MENU_MIRROR_X: spr_base_order_flags[0],
+    MENU_MIRROR_Y: spr_base_order_flags[0],
 }
 
 spr_digit_icons = {
@@ -257,15 +264,21 @@ dark_color = (82, 51, 51)
 darker_color = (46, 29, 29)
 light_team_color = {
     Team.RED: (247, 126, 126),
-    Team.BLUE: (114, 210, 239)
+    Team.BLUE: (114, 210, 239),
+    Team.GREEN: (84, 158, 91),
+    Team.YELLOW: (242, 230, 150),
 }
 clear_color = {
     Team.RED: (46, 29, 29),
-    Team.BLUE: (41, 56, 71)
+    Team.BLUE: (41, 56, 71),
+    Team.GREEN: (26, 23, 10),
+    Team.YELLOW: (26, 14, 2),
 }
 shadow_color = {
     Team.RED: (82, 51, 51),
-    Team.BLUE: (67, 87, 107)
+    Team.BLUE: (67, 87, 107),
+    Team.GREEN: (48, 43, 39),
+    Team.YELLOW: (71, 41, 7),
 }
 
 # Audio
@@ -276,7 +289,7 @@ sfx_cursor_cancel = load_sound("cursor/sfx_cursor_cancel.wav")
 
 
 def load_assets():
-    palette_swapped_teams = [Team.BLUE]
+    palette_swapped_teams = [Team.BLUE, Team.GREEN, Team.YELLOW]
 
     # Generate palette swaps for other teams
     for team in palette_swapped_teams:

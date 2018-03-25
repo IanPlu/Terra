@@ -76,6 +76,10 @@ class TeamManager(GameObject):
                 .format(team, self.resources[team])
         return return_string
 
+    # Get the list of teams present in the battle
+    def get_teams(self):
+        return self.teams
+
     # Query the piece attributes table for an up to date value for an attribute on a piece
     def attr(self, team, piece_type, attribute):
         return self.piece_attributes[team][piece_type].get(attribute,
@@ -168,7 +172,7 @@ class TeamManager(GameObject):
 
     # Return true if all teams have submitted their turn.
     def check_if_ready_to_submit_turns(self):
-        for team in Team:
+        for team in self.teams:
             if not self.turn_submitted[team]:
                 return False
         return True
@@ -187,7 +191,7 @@ class TeamManager(GameObject):
 
             if self.check_if_ready_to_submit_turns():
                 publish_game_event(E_ALL_TURNS_SUBMITTED, {})
-                for team in Team:
+                for team in self.teams:
                     self.turn_submitted[team] = False
 
     # Cancel turn submission for the specified team
@@ -204,17 +208,17 @@ class TeamManager(GameObject):
 
         if self.check_if_ready_to_submit_turns():
             publish_game_event(E_ALL_TURNS_SUBMITTED, {})
-            for team in Team:
+            for team in self.teams:
                 self.turn_submitted[team] = False
 
     def step(self, event):
         super().step(event)
 
-        for team in Team:
+        for team in self.teams:
             self.phase_bars[team].step(event)
 
         if is_event_type(event, E_CLEANUP):
-            for team in Team:
+            for team in self.teams:
                 self.turn_submitted[team] = False
         elif is_event_type(event, E_SUBMIT_TURN):
             self.set_turn_submitted(event.team)
@@ -234,10 +238,10 @@ class TeamManager(GameObject):
         elif is_event_type(event, E_UPGRADE_BUILT):
             self.purchase_upgrade(event.team, event.new_upgrade_type)
         elif event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game:
-            if event.key in KB_DEBUG1:
-                self.try_submitting_turn(Team.RED)
-            elif event.key in KB_DEBUG2:
-                self.try_submitting_turn(Team.BLUE)
+            if event.key in KB_DEBUG1 and len(self.teams) >= 1:
+                self.try_submitting_turn(self.teams[0])
+            elif event.key in KB_DEBUG2 and len(self.teams) >= 2:
+                self.try_submitting_turn(self.teams[1])
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

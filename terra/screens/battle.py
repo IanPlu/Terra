@@ -23,7 +23,7 @@ class Battle(GameScreen):
         results = {
             'bases_destroyed': self.bases_destroyed,
             'team_stats': Managers.stat_manager.get_results(),
-            'teams': Managers.team_manager.teams,
+            'teams': Managers.team_manager.get_teams(),
         }
 
         publish_game_event(E_BATTLE_OVER, results)

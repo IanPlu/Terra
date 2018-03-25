@@ -32,7 +32,7 @@ class TurnManager(GameObject):
     def validate_phase(self):
         if self.phase == BattlePhase.ORDERS:
             # Validate that all orders for all teams are correct before moving on
-            for team in Team:
+            for team in Managers.team_manager.get_teams():
                 if not Managers.piece_manager.validate_orders(team):
                     return False
 

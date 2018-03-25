@@ -31,6 +31,8 @@ class LevelEditor(GameScreen):
         self.placing_multiple = False
         self.placing_multiple_alt = False
 
+        self.allow_placing_multiple = False
+
     def step(self, event):
         super().step(event)
 
@@ -47,6 +49,10 @@ class LevelEditor(GameScreen):
                 publish_game_event(E_QUIT_BATTLE, {})
             elif event.option == MENU_FILL_WITH_CURRENT_TILE:
                 self.fill_with_current_tile()
+            elif event.option == MENU_MIRROR_X:
+                self.mirror_map(mirror_x=True, mirror_y=False)
+            elif event.option == MENU_MIRROR_Y:
+                self.mirror_map(mirror_x=False, mirror_y=True)
         elif event.type == KEYDOWN:
             if event.key in KB_SCROLL_UP:
                 self.scroll(1)
@@ -54,18 +60,18 @@ class LevelEditor(GameScreen):
                 self.scroll(-1)
             elif event.key in KB_MENU2:
                 self.swap_placing_mode()
-            elif event.key in KB_CONFIRM:
+            elif event.key in KB_CONFIRM and self.allow_placing_multiple:
                 self.placing_multiple = True
-            elif event.key in KB_CANCEL:
+            elif event.key in KB_CANCEL and self.allow_placing_multiple:
                 self.placing_multiple_alt = True
         elif event.type == MOUSEBUTTONDOWN:
             if event.button in KB_SCROLL_UP:
                 self.scroll(1)
             elif event.button in KB_SCROLL_DOWN:
                 self.scroll(-1)
-            elif event.button in KB_CONFIRM:
+            elif event.button in KB_CONFIRM and self.allow_placing_multiple:
                 self.placing_multiple = True
-            elif event.button in KB_CANCEL:
+            elif event.button in KB_CANCEL and self.allow_placing_multiple:
                 self.placing_multiple_alt = True
         elif event.type == KEYUP:
             self.placing_multiple = False
@@ -148,6 +154,9 @@ class LevelEditor(GameScreen):
 
     def fill_with_current_tile(self):
         Managers.battle_map.fill_map_with_tile(self.current_tile_type)
+
+    def mirror_map(self, mirror_x=True, mirror_y=False):
+        Managers.battle_map.mirror_map(mirror_x, mirror_y)
 
     def render(self, ui_screen):
         super().render(ui_screen)

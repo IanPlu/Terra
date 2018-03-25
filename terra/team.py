@@ -5,3 +5,5 @@ from enum import Enum
 class Team(Enum):
     RED = "[RED]"
     BLUE = "[BLU]"
+    GREEN = "[GRN]"
+    YELLOW = "[YLO]"

@@ -17,7 +17,7 @@ class PlayerManager(GameObject):
         super().__init__()
 
         self.cursors = {}
-        for team in Managers.team_manager.teams:
+        for team in Managers.team_manager.get_teams():
             self.cursors[team] = Cursor(team)
 
         self.active_team = Managers.network_manager.team
@@ -30,10 +30,11 @@ class PlayerManager(GameObject):
 
         if event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game:
             if event.key in KB_DEBUG0:
-                if self.active_team == Team.RED:
-                    self.active_team = Team.BLUE
-                elif self.active_team == Team.BLUE:
-                    self.active_team = Team.RED
+                current_index = Managers.team_manager.get_teams().index(self.active_team) + 1
+                if current_index >= len(Managers.team_manager.get_teams()):
+                    current_index = 0
+
+                self.active_team = Managers.team_manager.get_teams()[current_index]
 
     def get_camera_coords(self):
         return int(self.cursors[self.active_team].camera_x), int(self.cursors[self.active_team].camera_y)

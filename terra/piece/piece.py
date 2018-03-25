@@ -5,7 +5,7 @@ from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import UpgradeType
-from terra.engine.gameobject import GameObject
+from terra.engine.animatedgameobject import AnimatedGameObject
 from terra.event import *
 from terra.keybindings import KB_MENU2
 from terra.managers.managers import Managers
@@ -26,9 +26,8 @@ from terra.util.drawingutil import draw_small_resource_count
 # Base object in play belonging to a player, like a unit or a building.
 # They belong to a team and exist somewhere on the map.
 # Pieces have HP and can accept and execute orders.
-class Piece(GameObject):
+class Piece(AnimatedGameObject):
     def __init__(self, piece_type=PieceType.COLONIST, team=Team.RED, gx=0, gy=0, hp=None):
-        super().__init__()
         self.team = team
         self.gx = gx
         self.gy = gy
@@ -55,12 +54,11 @@ class Piece(GameObject):
 
         self.previewing_order = False
 
+        super().__init__(spr_pieces[self.team][self.piece_type], 24, 2, indexed=False, use_global_animation_frame=True)
+
     def __str__(self):
         return "{} {} at tile ({}, {}) with {} HP" \
             .format(self.team.name, piece_name_strings[LANGUAGE][self.piece_type], self.gx, self.gy, self.hp)
-
-    def get_sprite(self):
-        return spr_pieces[self.team][self.piece_type]
 
     # Return a list of actions to show in the selection UI.
     def get_available_actions(self):
@@ -640,8 +638,7 @@ class Piece(GameObject):
                     yoffset = 3
 
             # Render the unit
-            game_screen.blit(self.get_sprite(),
-                             (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
+            game_screen.blit(self.sprite, (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
             # Render health bar if damaged
             max_hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)

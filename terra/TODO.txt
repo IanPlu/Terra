@@ -36,6 +36,10 @@ x Fix invalid order effects showing for all teams
 x Fix trying to RAISE or LOWER terrain past the edge of the tile types
 x fix not being able to issue BUILD orders when an ally is on the required tile (e.g. ally on an adjacent resource tile)
 x Fix the loggers not outputting to separate files: https://stackoverflow.com/questions/11232230/logging-to-two-files-with-different-settings
+* Fix level editor click+hold taking effect when clicking the pause menu
+* Fix level editor generating new maps via an error in loading files, rather than an explicit action?
+* Fix level editor scrolling piece types when scrolling the pause menu
+* Fix team assumptions from the network manager -- because it's loaded before the map, it can't know what teams are in the game
 
 Gameplay
 x Build support for upgrades, enable purchasing them from the base
@@ -71,6 +75,7 @@ x Upon submitting a turn, don't allow modifying the turn unless you cancel submi
     x Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
 x Gracefully handle connects / disconnects
 x Support for connecting to a custom IP
+* Check that victory checking + conceding works
 
 Kegan's Special to do list
 x Allow ESC to cancel out of menus

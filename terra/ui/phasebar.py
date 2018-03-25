@@ -61,7 +61,7 @@ class PhaseBar(GameObject):
 
         # Render turn submission status
         x += 1
-        for team in Team:
+        for team in Managers.team_manager.get_teams():
             if Managers.team_manager.turn_submitted[team]:
                 ui_screen.blit(spr_turn_submitted_indicator[team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
-            x += 1
+                x += 1

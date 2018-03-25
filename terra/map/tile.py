@@ -14,7 +14,7 @@ class Tile(AnimatedGameObject):
         self.gx = gx
         self.gy = gy
 
-        super().__init__(spr_tiles[self.tile_type], 24, 2, indexed=self.tile_type in [TileType.COAST],
+        super().__init__(spr_tiles[self.tile_type], 24, 1, indexed=self.tile_type in [TileType.COAST],
                          use_global_animation_frame=True)
 
     # Return an index corresponding to the number of adjacent 'land' tiles
@@ -47,8 +47,7 @@ class Tile(AnimatedGameObject):
         if Managers.player_manager.is_within_camera_view((self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT, GRID_WIDTH, GRID_HEIGHT)):
             super().render(game_screen, ui_screen)
 
-            game_screen.blit(self.sprite,
-                             (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+            game_screen.blit(self.sprite, (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
             # For SEA tiles, render coastlines if adjacent to non-sea (map border counts as sea)
             if self.tile_type == TileType.SEA:

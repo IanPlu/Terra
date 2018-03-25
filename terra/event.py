@@ -91,6 +91,8 @@ MENU_CONCEDE = define_event()
 # Level editor menu option events
 MENU_SAVE_MAP = define_event()
 MENU_FILL_WITH_CURRENT_TILE = define_event()
+MENU_MIRROR_X = define_event()
+MENU_MIRROR_Y = define_event()
 
 # Main menu option events
 MENU_SELECT_OPTION = define_event()

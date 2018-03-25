@@ -11,7 +11,7 @@ from terra.util.mathutil import clamp
 # Use Global Animation Frame: If true, uses a global frame to keep things synced to the same animation frame
 class AnimatedGameObject(GameObject):
     global_animation_frame = 0
-    global_animation_framerate = 1
+    global_animation_framerate = 2
     global_num_frames = 4
 
     def __init__(self, image, size=24, framerate=1, indexed=False, use_global_animation_frame=False):
@@ -46,11 +46,10 @@ class AnimatedGameObject(GameObject):
     def update_frame(self):
         if self.use_global_animation_frame:
             # Use the global frame
-            # Update it if no one else has
-            if AnimatedGameObject.global_animation_frame == self.current_frame:
-                AnimatedGameObject.update_global_frame()
+            global_frame = AnimatedGameObject.global_animation_frame
+            num_frames = self.image.get_width() // self.size - 1
 
-            self.current_frame = clamp(AnimatedGameObject.global_animation_frame, 0, self.image.get_width() // self.size - 1)
+            self.current_frame = clamp(global_frame, 0, num_frames)
         else:
             # Tick the image and update the frame
             self.current_frame += self.framerate / TICK_RATE

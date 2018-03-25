@@ -37,6 +37,8 @@ menu_option_strings = {
         MENU_DEMOLISH_SELF: "Demolish",
         MENU_FILL_WITH_CURRENT_TILE: "Fill Map",
         MENU_CONCEDE: "Concede",
+        MENU_MIRROR_X: "Mirror (H)",
+        MENU_MIRROR_Y: "Mirror (V)",
     }
 }
 

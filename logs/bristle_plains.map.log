@@ -1,0 +1,1391 @@
+2018-03-26 12:55:59,214 INFO == TURN 1 BEGIN ==
+2018-03-26 12:55:59,214 INFO = Issue Orders phase begins
+2018-03-26 12:57:13,522 INFO == TURN 1 BEGIN ==
+2018-03-26 12:57:13,522 INFO = Issue Orders phase begins
+2018-03-26 12:57:32,543 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Move to (15, 2)'
+2018-03-26 12:57:32,543 INFO = Move phase begins
+2018-03-26 12:57:32,555 INFO BLUE Colonist at tile (15, 2) with 100 HP successfully executed 'Order: Move to (15, 2)'
+2018-03-26 12:57:32,555 INFO = Build phase begins
+2018-03-26 12:57:32,568 INFO = Combat phase begins
+2018-03-26 12:57:32,581 INFO = Ranged phase begins
+2018-03-26 12:57:32,593 INFO = Special phase begins
+2018-03-26 12:57:32,606 INFO == TURN 2 BEGIN ==
+2018-03-26 12:57:32,606 INFO = Start Turn phase begins
+2018-03-26 12:57:32,618 INFO Team.RED team acquired 2 resources.
+2018-03-26 12:57:32,618 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 12:57:32,618 INFO Team.RED team acquired 1 resources.
+2018-03-26 12:57:32,618 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 12:57:32,619 INFO = Issue Orders phase begins
+2018-03-26 13:08:21,159 INFO == TURN 1 BEGIN ==
+2018-03-26 13:08:21,160 INFO = Issue Orders phase begins
+2018-03-26 13:08:57,804 INFO == TURN 1 BEGIN ==
+2018-03-26 13:08:57,804 INFO == TURN 1 BEGIN ==
+2018-03-26 13:08:57,804 INFO = Issue Orders phase begins
+2018-03-26 13:08:57,804 INFO = Issue Orders phase begins
+2018-03-26 13:11:13,409 INFO == TURN 1 BEGIN ==
+2018-03-26 13:11:13,410 INFO = Issue Orders phase begins
+2018-03-26 13:12:15,463 INFO == TURN 1 BEGIN ==
+2018-03-26 13:12:15,463 INFO = Issue Orders phase begins
+2018-03-26 13:12:30,833 INFO = Move phase begins
+2018-03-26 13:12:30,845 INFO = Build phase begins
+2018-03-26 13:12:30,858 INFO = Combat phase begins
+2018-03-26 13:12:30,875 INFO = Ranged phase begins
+2018-03-26 13:12:30,887 INFO = Special phase begins
+2018-03-26 13:12:30,899 INFO == TURN 2 BEGIN ==
+2018-03-26 13:12:30,899 INFO = Start Turn phase begins
+2018-03-26 13:12:30,922 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:12:30,922 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:12:30,922 INFO Team.RED team acquired 1 resources.
+2018-03-26 13:12:30,923 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 13:12:30,923 INFO = Issue Orders phase begins
+2018-03-26 13:12:37,595 INFO = Move phase begins
+2018-03-26 13:12:37,607 INFO = Build phase begins
+2018-03-26 13:12:37,620 INFO = Combat phase begins
+2018-03-26 13:12:37,632 INFO = Ranged phase begins
+2018-03-26 13:12:37,643 INFO = Special phase begins
+2018-03-26 13:12:37,656 INFO == TURN 3 BEGIN ==
+2018-03-26 13:12:37,656 INFO = Start Turn phase begins
+2018-03-26 13:12:37,669 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:12:37,669 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:12:37,669 INFO Team.RED team acquired 1 resources.
+2018-03-26 13:12:37,669 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 13:12:37,669 INFO = Issue Orders phase begins
+2018-03-26 13:13:02,000 INFO === BATTLE OVER! ===
+2018-03-26 13:13:02,000 INFO Team.RED team survived!
+2018-03-26 13:13:02,000 INFO -- Stats for team Team.RED --
+2018-03-26 13:13:02,000 INFO   * Tiles Moved: 0
+2018-03-26 13:13:02,000 INFO   * Ranged Attacks: 0
+2018-03-26 13:13:02,000 INFO   * Piece Conflicts: 0
+2018-03-26 13:13:02,000 INFO   * Pieces Lost: 0
+2018-03-26 13:13:02,000 INFO   * Pieces Built: 0
+2018-03-26 13:13:02,000 INFO   * Upgrades Researched: 0
+2018-03-26 13:13:02,000 INFO Team.BLUE team has lost their base!
+2018-03-26 13:13:02,001 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:13:02,001 INFO   * Tiles Moved: 0
+2018-03-26 13:13:02,001 INFO   * Ranged Attacks: 0
+2018-03-26 13:13:02,001 INFO   * Piece Conflicts: 0
+2018-03-26 13:13:02,001 INFO   * Pieces Lost: 0
+2018-03-26 13:13:02,001 INFO   * Pieces Built: 0
+2018-03-26 13:13:02,001 INFO   * Upgrades Researched: 0
+2018-03-26 13:18:02,375 INFO == TURN 1 BEGIN ==
+2018-03-26 13:18:02,375 INFO = Issue Orders phase begins
+2018-03-26 13:20:01,638 INFO == TURN 1 BEGIN ==
+2018-03-26 13:20:01,639 INFO = Issue Orders phase begins
+2018-03-26 13:20:05,523 INFO === BATTLE OVER! ===
+2018-03-26 13:20:05,523 INFO Team.RED team survived!
+2018-03-26 13:20:05,523 INFO -- Stats for team Team.RED --
+2018-03-26 13:20:05,523 INFO   * Tiles Moved: 0
+2018-03-26 13:20:05,523 INFO   * Ranged Attacks: 0
+2018-03-26 13:20:05,523 INFO   * Piece Conflicts: 0
+2018-03-26 13:20:05,523 INFO   * Pieces Lost: 0
+2018-03-26 13:20:05,523 INFO   * Pieces Built: 0
+2018-03-26 13:20:05,523 INFO   * Upgrades Researched: 0
+2018-03-26 13:20:05,523 INFO Team.BLUE team has lost their base!
+2018-03-26 13:20:05,523 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:20:05,523 INFO   * Tiles Moved: 0
+2018-03-26 13:20:05,524 INFO   * Ranged Attacks: 0
+2018-03-26 13:20:05,524 INFO   * Piece Conflicts: 0
+2018-03-26 13:20:05,524 INFO   * Pieces Lost: 0
+2018-03-26 13:20:05,524 INFO   * Pieces Built: 0
+2018-03-26 13:20:05,524 INFO   * Upgrades Researched: 0
+2018-03-26 13:20:52,498 INFO == TURN 1 BEGIN ==
+2018-03-26 13:20:52,499 INFO = Issue Orders phase begins
+2018-03-26 13:20:57,350 INFO === BATTLE OVER! ===
+2018-03-26 13:20:57,351 INFO Team.RED team survived!
+2018-03-26 13:20:57,351 INFO -- Stats for team Team.RED --
+2018-03-26 13:20:57,351 INFO   * Tiles Moved: 0
+2018-03-26 13:20:57,351 INFO   * Ranged Attacks: 0
+2018-03-26 13:20:57,351 INFO   * Piece Conflicts: 0
+2018-03-26 13:20:57,351 INFO   * Pieces Lost: 0
+2018-03-26 13:20:57,351 INFO   * Pieces Built: 0
+2018-03-26 13:20:57,351 INFO   * Upgrades Researched: 0
+2018-03-26 13:20:57,351 INFO Team.BLUE team has lost their base!
+2018-03-26 13:20:57,351 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:20:57,351 INFO   * Tiles Moved: 0
+2018-03-26 13:20:57,351 INFO   * Ranged Attacks: 0
+2018-03-26 13:20:57,351 INFO   * Piece Conflicts: 0
+2018-03-26 13:20:57,351 INFO   * Pieces Lost: 0
+2018-03-26 13:20:57,351 INFO   * Pieces Built: 0
+2018-03-26 13:20:57,351 INFO   * Upgrades Researched: 0
+2018-03-26 13:21:52,464 INFO == TURN 1 BEGIN ==
+2018-03-26 13:21:52,464 INFO = Issue Orders phase begins
+2018-03-26 13:21:55,944 INFO === BATTLE OVER! ===
+2018-03-26 13:21:55,944 INFO Team.RED team survived!
+2018-03-26 13:21:55,944 INFO -- Stats for team Team.RED --
+2018-03-26 13:21:55,944 INFO   * Tiles Moved: 0
+2018-03-26 13:21:55,944 INFO   * Ranged Attacks: 0
+2018-03-26 13:21:55,944 INFO   * Piece Conflicts: 0
+2018-03-26 13:21:55,944 INFO   * Pieces Lost: 0
+2018-03-26 13:21:55,944 INFO   * Pieces Built: 0
+2018-03-26 13:21:55,944 INFO   * Upgrades Researched: 0
+2018-03-26 13:21:55,944 INFO Team.BLUE team has lost their base!
+2018-03-26 13:21:55,944 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:21:55,944 INFO   * Tiles Moved: 0
+2018-03-26 13:21:55,945 INFO   * Ranged Attacks: 0
+2018-03-26 13:21:55,945 INFO   * Piece Conflicts: 0
+2018-03-26 13:21:55,945 INFO   * Pieces Lost: 0
+2018-03-26 13:21:55,945 INFO   * Pieces Built: 0
+2018-03-26 13:21:55,945 INFO   * Upgrades Researched: 0
+2018-03-26 13:22:57,798 INFO == TURN 1 BEGIN ==
+2018-03-26 13:22:57,798 INFO = Issue Orders phase begins
+2018-03-26 13:23:02,561 INFO === BATTLE OVER! ===
+2018-03-26 13:23:02,561 INFO Team.RED team survived!
+2018-03-26 13:23:02,561 INFO -- Stats for team Team.RED --
+2018-03-26 13:23:02,561 INFO   * Tiles Moved: 0
+2018-03-26 13:23:02,561 INFO   * Ranged Attacks: 0
+2018-03-26 13:23:02,561 INFO   * Piece Conflicts: 0
+2018-03-26 13:23:02,561 INFO   * Pieces Lost: 0
+2018-03-26 13:23:02,561 INFO   * Pieces Built: 0
+2018-03-26 13:23:02,561 INFO   * Upgrades Researched: 0
+2018-03-26 13:23:02,561 INFO Team.BLUE team has lost their base!
+2018-03-26 13:23:02,561 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:23:02,561 INFO   * Tiles Moved: 0
+2018-03-26 13:23:02,561 INFO   * Ranged Attacks: 0
+2018-03-26 13:23:02,561 INFO   * Piece Conflicts: 0
+2018-03-26 13:23:02,561 INFO   * Pieces Lost: 0
+2018-03-26 13:23:02,561 INFO   * Pieces Built: 0
+2018-03-26 13:23:02,561 INFO   * Upgrades Researched: 0
+2018-03-26 13:24:12,866 INFO == TURN 1 BEGIN ==
+2018-03-26 13:24:12,866 INFO = Issue Orders phase begins
+2018-03-26 13:24:16,773 INFO === BATTLE OVER! ===
+2018-03-26 13:24:16,774 INFO Team.RED team survived!
+2018-03-26 13:24:16,774 INFO -- Stats for team Team.RED --
+2018-03-26 13:24:16,774 INFO   * Tiles Moved: 0
+2018-03-26 13:24:16,774 INFO   * Ranged Attacks: 0
+2018-03-26 13:24:16,774 INFO   * Piece Conflicts: 0
+2018-03-26 13:24:16,774 INFO   * Pieces Lost: 0
+2018-03-26 13:24:16,774 INFO   * Pieces Built: 0
+2018-03-26 13:24:16,774 INFO   * Upgrades Researched: 0
+2018-03-26 13:24:16,774 INFO Team.BLUE team has lost their base!
+2018-03-26 13:24:16,774 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:24:16,774 INFO   * Tiles Moved: 0
+2018-03-26 13:24:16,774 INFO   * Ranged Attacks: 0
+2018-03-26 13:24:16,774 INFO   * Piece Conflicts: 0
+2018-03-26 13:24:16,774 INFO   * Pieces Lost: 0
+2018-03-26 13:24:16,774 INFO   * Pieces Built: 0
+2018-03-26 13:24:16,774 INFO   * Upgrades Researched: 0
+2018-03-26 13:27:30,205 INFO == TURN 1 BEGIN ==
+2018-03-26 13:27:30,205 INFO = Issue Orders phase begins
+2018-03-26 13:27:33,039 INFO === BATTLE OVER! ===
+2018-03-26 13:27:33,039 INFO Team.RED team survived!
+2018-03-26 13:27:33,040 INFO -- Stats for team Team.RED --
+2018-03-26 13:27:33,040 INFO   * Tiles Moved: 0
+2018-03-26 13:27:33,040 INFO   * Ranged Attacks: 0
+2018-03-26 13:27:33,040 INFO   * Piece Conflicts: 0
+2018-03-26 13:27:33,040 INFO   * Pieces Lost: 0
+2018-03-26 13:27:33,040 INFO   * Pieces Built: 0
+2018-03-26 13:27:33,040 INFO   * Upgrades Researched: 0
+2018-03-26 13:27:33,040 INFO Team.BLUE team has lost their base!
+2018-03-26 13:27:33,040 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:27:33,040 INFO   * Tiles Moved: 0
+2018-03-26 13:27:33,040 INFO   * Ranged Attacks: 0
+2018-03-26 13:27:33,040 INFO   * Piece Conflicts: 0
+2018-03-26 13:27:33,040 INFO   * Pieces Lost: 0
+2018-03-26 13:27:33,040 INFO   * Pieces Built: 0
+2018-03-26 13:27:33,040 INFO   * Upgrades Researched: 0
+2018-03-26 13:31:27,394 INFO == TURN 1 BEGIN ==
+2018-03-26 13:31:27,394 INFO = Issue Orders phase begins
+2018-03-26 13:31:36,237 INFO === BATTLE OVER! ===
+2018-03-26 13:31:36,237 INFO Team.RED team survived!
+2018-03-26 13:31:36,237 INFO -- Stats for team Team.RED --
+2018-03-26 13:31:36,237 INFO   * Tiles Moved: 0
+2018-03-26 13:31:36,237 INFO   * Ranged Attacks: 0
+2018-03-26 13:31:36,237 INFO   * Piece Conflicts: 0
+2018-03-26 13:31:36,237 INFO   * Pieces Lost: 0
+2018-03-26 13:31:36,237 INFO   * Pieces Built: 0
+2018-03-26 13:31:36,237 INFO   * Upgrades Researched: 0
+2018-03-26 13:31:36,237 INFO Team.BLUE team has lost their base!
+2018-03-26 13:31:36,237 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:31:36,238 INFO   * Tiles Moved: 0
+2018-03-26 13:31:36,238 INFO   * Ranged Attacks: 0
+2018-03-26 13:31:36,238 INFO   * Piece Conflicts: 0
+2018-03-26 13:31:36,238 INFO   * Pieces Lost: 0
+2018-03-26 13:31:36,238 INFO   * Pieces Built: 0
+2018-03-26 13:31:36,238 INFO   * Upgrades Researched: 0
+2018-03-26 13:37:09,461 INFO == TURN 1 BEGIN ==
+2018-03-26 13:37:09,462 INFO = Issue Orders phase begins
+2018-03-26 13:37:14,311 INFO === BATTLE OVER! ===
+2018-03-26 13:37:14,311 INFO Team.RED team survived!
+2018-03-26 13:37:14,311 INFO -- Stats for team Team.RED --
+2018-03-26 13:37:14,311 INFO   * Tiles Moved: 0
+2018-03-26 13:37:14,311 INFO   * Ranged Attacks: 0
+2018-03-26 13:37:14,311 INFO   * Piece Conflicts: 0
+2018-03-26 13:37:14,311 INFO   * Pieces Lost: 0
+2018-03-26 13:37:14,311 INFO   * Pieces Built: 0
+2018-03-26 13:37:14,312 INFO   * Upgrades Researched: 0
+2018-03-26 13:37:14,312 INFO Team.BLUE team has lost their base!
+2018-03-26 13:37:14,312 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:37:14,312 INFO   * Tiles Moved: 0
+2018-03-26 13:37:14,312 INFO   * Ranged Attacks: 0
+2018-03-26 13:37:14,312 INFO   * Piece Conflicts: 0
+2018-03-26 13:37:14,312 INFO   * Pieces Lost: 0
+2018-03-26 13:37:14,312 INFO   * Pieces Built: 0
+2018-03-26 13:37:14,312 INFO   * Upgrades Researched: 0
+2018-03-26 13:37:33,513 INFO == TURN 1 BEGIN ==
+2018-03-26 13:37:33,513 INFO == TURN 1 BEGIN ==
+2018-03-26 13:37:33,513 INFO = Issue Orders phase begins
+2018-03-26 13:37:33,513 INFO = Issue Orders phase begins
+2018-03-26 13:37:38,339 INFO == TURN 1 BEGIN ==
+2018-03-26 13:37:38,339 INFO = Issue Orders phase begins
+2018-03-26 13:37:44,478 INFO == TURN 1 BEGIN ==
+2018-03-26 13:37:44,478 INFO == TURN 1 BEGIN ==
+2018-03-26 13:37:44,478 INFO = Issue Orders phase begins
+2018-03-26 13:37:44,478 INFO = Issue Orders phase begins
+2018-03-26 13:37:48,585 INFO === BATTLE OVER! ===
+2018-03-26 13:37:48,585 INFO === BATTLE OVER! ===
+2018-03-26 13:37:48,585 INFO Team.RED team has lost their base!
+2018-03-26 13:37:48,585 INFO Team.RED team has lost their base!
+2018-03-26 13:37:48,585 INFO -- Stats for team Team.RED --
+2018-03-26 13:37:48,585 INFO -- Stats for team Team.RED --
+2018-03-26 13:37:48,585 INFO   * Tiles Moved: 0
+2018-03-26 13:37:48,585 INFO   * Tiles Moved: 0
+2018-03-26 13:37:48,586 INFO   * Ranged Attacks: 0
+2018-03-26 13:37:48,586 INFO   * Ranged Attacks: 0
+2018-03-26 13:37:48,586 INFO   * Piece Conflicts: 0
+2018-03-26 13:37:48,586 INFO   * Piece Conflicts: 0
+2018-03-26 13:37:48,586 INFO   * Pieces Lost: 0
+2018-03-26 13:37:48,586 INFO   * Pieces Lost: 0
+2018-03-26 13:37:48,586 INFO   * Pieces Built: 0
+2018-03-26 13:37:48,586 INFO   * Pieces Built: 0
+2018-03-26 13:37:48,586 INFO   * Upgrades Researched: 0
+2018-03-26 13:37:48,586 INFO   * Upgrades Researched: 0
+2018-03-26 13:37:48,586 INFO Team.BLUE team survived!
+2018-03-26 13:37:48,586 INFO Team.BLUE team survived!
+2018-03-26 13:37:48,586 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:37:48,586 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:37:48,586 INFO   * Tiles Moved: 0
+2018-03-26 13:37:48,586 INFO   * Tiles Moved: 0
+2018-03-26 13:37:48,586 INFO   * Ranged Attacks: 0
+2018-03-26 13:37:48,586 INFO   * Ranged Attacks: 0
+2018-03-26 13:37:48,587 INFO   * Piece Conflicts: 0
+2018-03-26 13:37:48,587 INFO   * Piece Conflicts: 0
+2018-03-26 13:37:48,587 INFO   * Pieces Lost: 0
+2018-03-26 13:37:48,587 INFO   * Pieces Lost: 0
+2018-03-26 13:37:48,587 INFO   * Pieces Built: 0
+2018-03-26 13:37:48,587 INFO   * Pieces Built: 0
+2018-03-26 13:37:48,587 INFO   * Upgrades Researched: 0
+2018-03-26 13:37:48,587 INFO   * Upgrades Researched: 0
+2018-03-26 13:39:07,045 INFO == TURN 1 BEGIN ==
+2018-03-26 13:39:07,045 INFO = Issue Orders phase begins
+2018-03-26 13:39:10,529 INFO === BATTLE OVER! ===
+2018-03-26 13:39:10,529 INFO Team.RED team has lost their base!
+2018-03-26 13:39:10,529 INFO -- Stats for team Team.RED --
+2018-03-26 13:39:10,529 INFO   * Tiles Moved: 0
+2018-03-26 13:39:10,529 INFO   * Ranged Attacks: 0
+2018-03-26 13:39:10,529 INFO   * Piece Conflicts: 0
+2018-03-26 13:39:10,529 INFO   * Pieces Lost: 0
+2018-03-26 13:39:10,529 INFO   * Pieces Built: 0
+2018-03-26 13:39:10,529 INFO   * Upgrades Researched: 0
+2018-03-26 13:39:10,529 INFO Team.BLUE team survived!
+2018-03-26 13:39:10,529 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:39:10,529 INFO   * Tiles Moved: 0
+2018-03-26 13:39:10,529 INFO   * Ranged Attacks: 0
+2018-03-26 13:39:10,529 INFO   * Piece Conflicts: 0
+2018-03-26 13:39:10,530 INFO   * Pieces Lost: 0
+2018-03-26 13:39:10,530 INFO   * Pieces Built: 0
+2018-03-26 13:39:10,530 INFO   * Upgrades Researched: 0
+2018-03-26 13:42:23,024 INFO == TURN 1 BEGIN ==
+2018-03-26 13:42:23,024 INFO = Issue Orders phase begins
+2018-03-26 13:42:26,994 INFO === BATTLE OVER! ===
+2018-03-26 13:42:26,994 INFO Team.RED team has lost their base!
+2018-03-26 13:42:26,994 INFO -- Stats for team Team.RED --
+2018-03-26 13:42:26,994 INFO   * Tiles Moved: 0
+2018-03-26 13:42:26,994 INFO   * Ranged Attacks: 0
+2018-03-26 13:42:26,995 INFO   * Piece Conflicts: 0
+2018-03-26 13:42:26,995 INFO   * Pieces Lost: 0
+2018-03-26 13:42:26,995 INFO   * Pieces Built: 0
+2018-03-26 13:42:26,995 INFO   * Upgrades Researched: 0
+2018-03-26 13:42:26,995 INFO Team.BLUE team survived!
+2018-03-26 13:42:26,995 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:42:26,995 INFO   * Tiles Moved: 0
+2018-03-26 13:42:26,995 INFO   * Ranged Attacks: 0
+2018-03-26 13:42:26,995 INFO   * Piece Conflicts: 0
+2018-03-26 13:42:26,995 INFO   * Pieces Lost: 0
+2018-03-26 13:42:26,995 INFO   * Pieces Built: 0
+2018-03-26 13:42:26,995 INFO   * Upgrades Researched: 0
+2018-03-26 13:44:39,169 INFO == TURN 1 BEGIN ==
+2018-03-26 13:44:39,169 INFO = Issue Orders phase begins
+2018-03-26 13:44:45,129 INFO === BATTLE OVER! ===
+2018-03-26 13:44:45,129 INFO Team.RED team has lost their base!
+2018-03-26 13:44:45,130 INFO -- Stats for team Team.RED --
+2018-03-26 13:44:45,130 INFO   * Tiles Moved: 0
+2018-03-26 13:44:45,130 INFO   * Ranged Attacks: 0
+2018-03-26 13:44:45,130 INFO   * Piece Conflicts: 0
+2018-03-26 13:44:45,130 INFO   * Pieces Lost: 0
+2018-03-26 13:44:45,130 INFO   * Pieces Built: 0
+2018-03-26 13:44:45,131 INFO   * Upgrades Researched: 0
+2018-03-26 13:44:45,131 INFO Team.BLUE team survived!
+2018-03-26 13:44:45,131 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:44:45,131 INFO   * Tiles Moved: 0
+2018-03-26 13:44:45,131 INFO   * Ranged Attacks: 0
+2018-03-26 13:44:45,131 INFO   * Piece Conflicts: 0
+2018-03-26 13:44:45,131 INFO   * Pieces Lost: 0
+2018-03-26 13:44:45,131 INFO   * Pieces Built: 0
+2018-03-26 13:44:45,131 INFO   * Upgrades Researched: 0
+2018-03-26 13:55:27,597 INFO == TURN 1 BEGIN ==
+2018-03-26 13:55:27,598 INFO = Issue Orders phase begins
+2018-03-26 13:55:31,637 INFO === BATTLE OVER! ===
+2018-03-26 13:55:31,637 INFO Team.RED team survived!
+2018-03-26 13:55:31,637 INFO -- Stats for team Team.RED --
+2018-03-26 13:55:31,637 INFO   * Tiles Moved: 0
+2018-03-26 13:55:31,637 INFO   * Ranged Attacks: 0
+2018-03-26 13:55:31,637 INFO   * Piece Conflicts: 0
+2018-03-26 13:55:31,637 INFO   * Pieces Lost: 0
+2018-03-26 13:55:31,637 INFO   * Pieces Built: 0
+2018-03-26 13:55:31,637 INFO   * Upgrades Researched: 0
+2018-03-26 13:55:31,637 INFO Team.BLUE team has lost their base!
+2018-03-26 13:55:31,637 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:55:31,637 INFO   * Tiles Moved: 0
+2018-03-26 13:55:31,637 INFO   * Ranged Attacks: 0
+2018-03-26 13:55:31,637 INFO   * Piece Conflicts: 0
+2018-03-26 13:55:31,637 INFO   * Pieces Lost: 0
+2018-03-26 13:55:31,637 INFO   * Pieces Built: 0
+2018-03-26 13:55:31,638 INFO   * Upgrades Researched: 0
+2018-03-26 13:55:38,592 INFO == TURN 1 BEGIN ==
+2018-03-26 13:55:38,592 INFO == TURN 1 BEGIN ==
+2018-03-26 13:55:38,592 INFO = Issue Orders phase begins
+2018-03-26 13:55:38,592 INFO = Issue Orders phase begins
+2018-03-26 13:55:42,628 INFO === BATTLE OVER! ===
+2018-03-26 13:55:42,628 INFO === BATTLE OVER! ===
+2018-03-26 13:55:42,628 INFO Team.RED team has lost their base!
+2018-03-26 13:55:42,628 INFO Team.RED team has lost their base!
+2018-03-26 13:55:42,628 INFO -- Stats for team Team.RED --
+2018-03-26 13:55:42,628 INFO -- Stats for team Team.RED --
+2018-03-26 13:55:42,628 INFO   * Tiles Moved: 0
+2018-03-26 13:55:42,628 INFO   * Tiles Moved: 0
+2018-03-26 13:55:42,628 INFO   * Ranged Attacks: 0
+2018-03-26 13:55:42,628 INFO   * Ranged Attacks: 0
+2018-03-26 13:55:42,629 INFO   * Piece Conflicts: 0
+2018-03-26 13:55:42,629 INFO   * Piece Conflicts: 0
+2018-03-26 13:55:42,629 INFO   * Pieces Lost: 0
+2018-03-26 13:55:42,629 INFO   * Pieces Lost: 0
+2018-03-26 13:55:42,629 INFO   * Pieces Built: 0
+2018-03-26 13:55:42,629 INFO   * Pieces Built: 0
+2018-03-26 13:55:42,629 INFO   * Upgrades Researched: 0
+2018-03-26 13:55:42,629 INFO   * Upgrades Researched: 0
+2018-03-26 13:55:42,629 INFO Team.BLUE team survived!
+2018-03-26 13:55:42,629 INFO Team.BLUE team survived!
+2018-03-26 13:55:42,629 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:55:42,629 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:55:42,629 INFO   * Tiles Moved: 0
+2018-03-26 13:55:42,629 INFO   * Tiles Moved: 0
+2018-03-26 13:55:42,629 INFO   * Ranged Attacks: 0
+2018-03-26 13:55:42,629 INFO   * Ranged Attacks: 0
+2018-03-26 13:55:42,629 INFO   * Piece Conflicts: 0
+2018-03-26 13:55:42,629 INFO   * Piece Conflicts: 0
+2018-03-26 13:55:42,629 INFO   * Pieces Lost: 0
+2018-03-26 13:55:42,629 INFO   * Pieces Lost: 0
+2018-03-26 13:55:42,629 INFO   * Pieces Built: 0
+2018-03-26 13:55:42,629 INFO   * Pieces Built: 0
+2018-03-26 13:55:42,629 INFO   * Upgrades Researched: 0
+2018-03-26 13:55:42,629 INFO   * Upgrades Researched: 0
+2018-03-26 13:55:54,730 INFO = Move phase begins
+2018-03-26 13:55:54,730 INFO = Move phase begins
+2018-03-26 13:55:54,742 INFO = Build phase begins
+2018-03-26 13:55:54,742 INFO = Build phase begins
+2018-03-26 13:55:54,753 INFO = Combat phase begins
+2018-03-26 13:55:54,753 INFO = Combat phase begins
+2018-03-26 13:55:54,765 INFO BLUE Base at tile (11, 10) with 123 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:55:54,765 INFO BLUE Base at tile (11, 10) with 123 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:55:54,766 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:55:54,766 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:55:54,766 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 96 HP!
+2018-03-26 13:55:54,766 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 96 HP!
+2018-03-26 13:55:54,766 INFO = Ranged phase begins
+2018-03-26 13:55:54,766 INFO = Ranged phase begins
+2018-03-26 13:55:54,777 INFO = Special phase begins
+2018-03-26 13:55:54,777 INFO = Special phase begins
+2018-03-26 13:55:54,789 INFO == TURN 9 BEGIN ==
+2018-03-26 13:55:54,789 INFO == TURN 9 BEGIN ==
+2018-03-26 13:55:54,789 INFO = Start Turn phase begins
+2018-03-26 13:55:54,789 INFO = Start Turn phase begins
+2018-03-26 13:55:54,800 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:55:54,800 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:55:54,801 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:55:54,801 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:55:54,801 INFO = Issue Orders phase begins
+2018-03-26 13:55:54,801 INFO = Issue Orders phase begins
+2018-03-26 13:55:56,615 INFO = Move phase begins
+2018-03-26 13:55:56,615 INFO = Move phase begins
+2018-03-26 13:55:56,636 INFO = Build phase begins
+2018-03-26 13:55:56,636 INFO = Build phase begins
+2018-03-26 13:55:56,649 INFO = Combat phase begins
+2018-03-26 13:55:56,649 INFO = Combat phase begins
+2018-03-26 13:55:56,666 INFO BLUE Base at tile (11, 10) with 96 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:55:56,666 INFO BLUE Base at tile (11, 10) with 96 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:55:56,667 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:55:56,667 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:55:56,667 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-03-26 13:55:56,667 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-03-26 13:55:56,667 INFO = Ranged phase begins
+2018-03-26 13:55:56,667 INFO = Ranged phase begins
+2018-03-26 13:55:56,687 INFO = Special phase begins
+2018-03-26 13:55:56,687 INFO = Special phase begins
+2018-03-26 13:55:56,699 INFO == TURN 10 BEGIN ==
+2018-03-26 13:55:56,699 INFO == TURN 10 BEGIN ==
+2018-03-26 13:55:56,699 INFO = Start Turn phase begins
+2018-03-26 13:55:56,699 INFO = Start Turn phase begins
+2018-03-26 13:55:56,710 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:55:56,710 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:55:56,710 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:55:56,710 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:55:56,710 INFO = Issue Orders phase begins
+2018-03-26 13:55:56,710 INFO = Issue Orders phase begins
+2018-03-26 13:55:58,775 INFO = Move phase begins
+2018-03-26 13:55:58,775 INFO = Move phase begins
+2018-03-26 13:55:58,786 INFO = Build phase begins
+2018-03-26 13:55:58,786 INFO = Build phase begins
+2018-03-26 13:55:58,797 INFO = Combat phase begins
+2018-03-26 13:55:58,797 INFO = Combat phase begins
+2018-03-26 13:55:58,807 INFO BLUE Base at tile (11, 10) with 69 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:55:58,807 INFO BLUE Base at tile (11, 10) with 69 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:55:58,807 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:55:58,807 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:55:58,808 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 42 HP!
+2018-03-26 13:55:58,808 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 42 HP!
+2018-03-26 13:55:58,808 INFO = Ranged phase begins
+2018-03-26 13:55:58,808 INFO = Ranged phase begins
+2018-03-26 13:55:58,818 INFO = Special phase begins
+2018-03-26 13:55:58,818 INFO = Special phase begins
+2018-03-26 13:55:58,830 INFO == TURN 11 BEGIN ==
+2018-03-26 13:55:58,830 INFO == TURN 11 BEGIN ==
+2018-03-26 13:55:58,831 INFO = Start Turn phase begins
+2018-03-26 13:55:58,831 INFO = Start Turn phase begins
+2018-03-26 13:55:58,841 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:55:58,841 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:55:58,842 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:55:58,842 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:55:58,842 INFO = Issue Orders phase begins
+2018-03-26 13:55:58,842 INFO = Issue Orders phase begins
+2018-03-26 13:56:02,594 INFO = Move phase begins
+2018-03-26 13:56:02,594 INFO = Move phase begins
+2018-03-26 13:56:02,605 INFO = Build phase begins
+2018-03-26 13:56:02,605 INFO = Build phase begins
+2018-03-26 13:56:02,617 INFO = Combat phase begins
+2018-03-26 13:56:02,617 INFO = Combat phase begins
+2018-03-26 13:56:02,629 INFO BLUE Base at tile (11, 10) with 42 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:56:02,629 INFO BLUE Base at tile (11, 10) with 42 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:56:02,629 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:56:02,629 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:56:02,629 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-03-26 13:56:02,629 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-03-26 13:56:02,629 INFO = Ranged phase begins
+2018-03-26 13:56:02,629 INFO = Ranged phase begins
+2018-03-26 13:56:02,641 INFO = Special phase begins
+2018-03-26 13:56:02,641 INFO = Special phase begins
+2018-03-26 13:56:02,652 INFO == TURN 12 BEGIN ==
+2018-03-26 13:56:02,652 INFO == TURN 12 BEGIN ==
+2018-03-26 13:56:02,652 INFO = Start Turn phase begins
+2018-03-26 13:56:02,652 INFO = Start Turn phase begins
+2018-03-26 13:56:02,664 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:56:02,664 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:56:02,664 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:56:02,664 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:56:02,665 INFO = Issue Orders phase begins
+2018-03-26 13:56:02,665 INFO = Issue Orders phase begins
+2018-03-26 13:56:05,778 INFO = Move phase begins
+2018-03-26 13:56:05,778 INFO = Move phase begins
+2018-03-26 13:56:05,789 INFO = Build phase begins
+2018-03-26 13:56:05,789 INFO = Build phase begins
+2018-03-26 13:56:05,800 INFO = Combat phase begins
+2018-03-26 13:56:05,800 INFO = Combat phase begins
+2018-03-26 13:56:05,811 INFO BLUE Base at tile (11, 10) with 15 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:56:05,811 INFO BLUE Base at tile (11, 10) with 15 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:56:05,811 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:56:05,811 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:56:05,811 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with -12 HP!
+2018-03-26 13:56:05,811 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with -12 HP!
+2018-03-26 13:56:05,811 INFO = Ranged phase begins
+2018-03-26 13:56:05,811 INFO = Ranged phase begins
+2018-03-26 13:56:05,822 INFO = Special phase begins
+2018-03-26 13:56:05,822 INFO = Special phase begins
+2018-03-26 13:56:05,833 INFO == TURN 13 BEGIN ==
+2018-03-26 13:56:05,833 INFO == TURN 13 BEGIN ==
+2018-03-26 13:56:05,834 INFO = Start Turn phase begins
+2018-03-26 13:56:05,834 INFO = Start Turn phase begins
+2018-03-26 13:56:05,845 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:56:05,845 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:56:05,845 INFO = Issue Orders phase begins
+2018-03-26 13:56:05,845 INFO = Issue Orders phase begins
+2018-03-26 13:56:05,857 INFO === BATTLE OVER! ===
+2018-03-26 13:56:05,857 INFO === BATTLE OVER! ===
+2018-03-26 13:56:05,857 INFO Team.RED team survived!
+2018-03-26 13:56:05,857 INFO Team.RED team survived!
+2018-03-26 13:56:05,857 INFO -- Stats for team Team.RED --
+2018-03-26 13:56:05,857 INFO -- Stats for team Team.RED --
+2018-03-26 13:56:05,857 INFO   * Tiles Moved: 0
+2018-03-26 13:56:05,857 INFO   * Tiles Moved: 0
+2018-03-26 13:56:05,857 INFO   * Ranged Attacks: 0
+2018-03-26 13:56:05,857 INFO   * Ranged Attacks: 0
+2018-03-26 13:56:05,857 INFO   * Piece Conflicts: 5
+2018-03-26 13:56:05,857 INFO   * Piece Conflicts: 5
+2018-03-26 13:56:05,857 INFO   * Pieces Lost: 0
+2018-03-26 13:56:05,857 INFO   * Pieces Lost: 0
+2018-03-26 13:56:05,857 INFO   * Pieces Built: 0
+2018-03-26 13:56:05,857 INFO   * Pieces Built: 0
+2018-03-26 13:56:05,857 INFO   * Upgrades Researched: 0
+2018-03-26 13:56:05,857 INFO   * Upgrades Researched: 0
+2018-03-26 13:56:05,858 INFO Team.BLUE team has lost their base!
+2018-03-26 13:56:05,858 INFO Team.BLUE team has lost their base!
+2018-03-26 13:56:05,858 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:56:05,858 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:56:05,858 INFO   * Tiles Moved: 0
+2018-03-26 13:56:05,858 INFO   * Tiles Moved: 0
+2018-03-26 13:56:05,858 INFO   * Ranged Attacks: 0
+2018-03-26 13:56:05,858 INFO   * Ranged Attacks: 0
+2018-03-26 13:56:05,858 INFO   * Piece Conflicts: 5
+2018-03-26 13:56:05,858 INFO   * Piece Conflicts: 5
+2018-03-26 13:56:05,858 INFO   * Pieces Lost: 1
+2018-03-26 13:56:05,858 INFO   * Pieces Lost: 1
+2018-03-26 13:56:05,858 INFO   * Pieces Built: 0
+2018-03-26 13:56:05,858 INFO   * Pieces Built: 0
+2018-03-26 13:56:05,858 INFO   * Upgrades Researched: 0
+2018-03-26 13:56:05,858 INFO   * Upgrades Researched: 0
+2018-03-26 13:58:38,108 INFO == TURN 1 BEGIN ==
+2018-03-26 13:58:38,108 INFO = Issue Orders phase begins
+2018-03-26 13:59:01,395 INFO === BATTLE OVER! ===
+2018-03-26 13:59:01,395 INFO Team.RED team survived!
+2018-03-26 13:59:01,395 INFO -- Stats for team Team.RED --
+2018-03-26 13:59:01,395 INFO   * Tiles Moved: 0
+2018-03-26 13:59:01,395 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:01,395 INFO   * Piece Conflicts: 0
+2018-03-26 13:59:01,395 INFO   * Pieces Lost: 0
+2018-03-26 13:59:01,395 INFO   * Pieces Built: 0
+2018-03-26 13:59:01,395 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:01,395 INFO Team.BLUE team has lost their base!
+2018-03-26 13:59:01,395 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:59:01,396 INFO   * Tiles Moved: 0
+2018-03-26 13:59:01,396 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:01,396 INFO   * Piece Conflicts: 0
+2018-03-26 13:59:01,396 INFO   * Pieces Lost: 0
+2018-03-26 13:59:01,396 INFO   * Pieces Built: 0
+2018-03-26 13:59:01,396 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:05,169 INFO == TURN 1 BEGIN ==
+2018-03-26 13:59:05,169 INFO == TURN 1 BEGIN ==
+2018-03-26 13:59:05,170 INFO = Issue Orders phase begins
+2018-03-26 13:59:05,170 INFO = Issue Orders phase begins
+2018-03-26 13:59:08,885 INFO === BATTLE OVER! ===
+2018-03-26 13:59:08,885 INFO === BATTLE OVER! ===
+2018-03-26 13:59:08,885 INFO Team.RED team has lost their base!
+2018-03-26 13:59:08,885 INFO Team.RED team has lost their base!
+2018-03-26 13:59:08,885 INFO -- Stats for team Team.RED --
+2018-03-26 13:59:08,885 INFO -- Stats for team Team.RED --
+2018-03-26 13:59:08,886 INFO   * Tiles Moved: 0
+2018-03-26 13:59:08,886 INFO   * Tiles Moved: 0
+2018-03-26 13:59:08,886 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:08,886 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:08,886 INFO   * Piece Conflicts: 0
+2018-03-26 13:59:08,886 INFO   * Piece Conflicts: 0
+2018-03-26 13:59:08,886 INFO   * Pieces Lost: 0
+2018-03-26 13:59:08,886 INFO   * Pieces Lost: 0
+2018-03-26 13:59:08,886 INFO   * Pieces Built: 0
+2018-03-26 13:59:08,886 INFO   * Pieces Built: 0
+2018-03-26 13:59:08,886 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:08,886 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:08,886 INFO Team.BLUE team survived!
+2018-03-26 13:59:08,886 INFO Team.BLUE team survived!
+2018-03-26 13:59:08,886 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:59:08,886 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:59:08,886 INFO   * Tiles Moved: 0
+2018-03-26 13:59:08,886 INFO   * Tiles Moved: 0
+2018-03-26 13:59:08,886 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:08,886 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:08,886 INFO   * Piece Conflicts: 0
+2018-03-26 13:59:08,886 INFO   * Piece Conflicts: 0
+2018-03-26 13:59:08,886 INFO   * Pieces Lost: 0
+2018-03-26 13:59:08,886 INFO   * Pieces Lost: 0
+2018-03-26 13:59:08,887 INFO   * Pieces Built: 0
+2018-03-26 13:59:08,887 INFO   * Pieces Built: 0
+2018-03-26 13:59:08,887 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:08,887 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:21,437 INFO = Move phase begins
+2018-03-26 13:59:21,437 INFO = Move phase begins
+2018-03-26 13:59:21,448 INFO = Build phase begins
+2018-03-26 13:59:21,448 INFO = Build phase begins
+2018-03-26 13:59:21,459 INFO = Combat phase begins
+2018-03-26 13:59:21,459 INFO = Combat phase begins
+2018-03-26 13:59:21,471 INFO BLUE Base at tile (11, 10) with 123 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:21,471 INFO BLUE Base at tile (11, 10) with 123 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:21,471 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:21,471 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:21,471 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 96 HP!
+2018-03-26 13:59:21,471 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 96 HP!
+2018-03-26 13:59:21,471 INFO = Ranged phase begins
+2018-03-26 13:59:21,471 INFO = Ranged phase begins
+2018-03-26 13:59:21,482 INFO = Special phase begins
+2018-03-26 13:59:21,482 INFO = Special phase begins
+2018-03-26 13:59:21,494 INFO == TURN 9 BEGIN ==
+2018-03-26 13:59:21,494 INFO == TURN 9 BEGIN ==
+2018-03-26 13:59:21,494 INFO = Start Turn phase begins
+2018-03-26 13:59:21,494 INFO = Start Turn phase begins
+2018-03-26 13:59:21,505 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:21,505 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:21,505 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:59:21,505 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:59:21,505 INFO = Issue Orders phase begins
+2018-03-26 13:59:21,505 INFO = Issue Orders phase begins
+2018-03-26 13:59:23,736 INFO = Move phase begins
+2018-03-26 13:59:23,736 INFO = Move phase begins
+2018-03-26 13:59:23,746 INFO = Build phase begins
+2018-03-26 13:59:23,746 INFO = Build phase begins
+2018-03-26 13:59:23,757 INFO = Combat phase begins
+2018-03-26 13:59:23,757 INFO = Combat phase begins
+2018-03-26 13:59:23,768 INFO BLUE Base at tile (11, 10) with 96 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:23,768 INFO BLUE Base at tile (11, 10) with 96 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:23,768 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:23,768 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:23,768 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-03-26 13:59:23,768 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-03-26 13:59:23,768 INFO = Ranged phase begins
+2018-03-26 13:59:23,768 INFO = Ranged phase begins
+2018-03-26 13:59:23,779 INFO = Special phase begins
+2018-03-26 13:59:23,779 INFO = Special phase begins
+2018-03-26 13:59:23,790 INFO == TURN 10 BEGIN ==
+2018-03-26 13:59:23,790 INFO == TURN 10 BEGIN ==
+2018-03-26 13:59:23,790 INFO = Start Turn phase begins
+2018-03-26 13:59:23,790 INFO = Start Turn phase begins
+2018-03-26 13:59:23,803 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:23,803 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:23,803 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:59:23,803 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:59:23,804 INFO = Issue Orders phase begins
+2018-03-26 13:59:23,804 INFO = Issue Orders phase begins
+2018-03-26 13:59:26,140 INFO = Move phase begins
+2018-03-26 13:59:26,140 INFO = Move phase begins
+2018-03-26 13:59:26,155 INFO = Build phase begins
+2018-03-26 13:59:26,155 INFO = Build phase begins
+2018-03-26 13:59:26,167 INFO = Combat phase begins
+2018-03-26 13:59:26,167 INFO = Combat phase begins
+2018-03-26 13:59:26,178 INFO BLUE Base at tile (11, 10) with 69 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:26,178 INFO BLUE Base at tile (11, 10) with 69 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:26,178 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:26,178 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:26,178 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 42 HP!
+2018-03-26 13:59:26,178 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 42 HP!
+2018-03-26 13:59:26,178 INFO = Ranged phase begins
+2018-03-26 13:59:26,178 INFO = Ranged phase begins
+2018-03-26 13:59:26,190 INFO = Special phase begins
+2018-03-26 13:59:26,190 INFO = Special phase begins
+2018-03-26 13:59:26,210 INFO == TURN 11 BEGIN ==
+2018-03-26 13:59:26,210 INFO == TURN 11 BEGIN ==
+2018-03-26 13:59:26,211 INFO = Start Turn phase begins
+2018-03-26 13:59:26,211 INFO = Start Turn phase begins
+2018-03-26 13:59:26,224 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:26,224 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:26,224 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:59:26,224 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:59:26,224 INFO = Issue Orders phase begins
+2018-03-26 13:59:26,224 INFO = Issue Orders phase begins
+2018-03-26 13:59:29,180 INFO = Move phase begins
+2018-03-26 13:59:29,180 INFO = Move phase begins
+2018-03-26 13:59:29,192 INFO = Build phase begins
+2018-03-26 13:59:29,192 INFO = Build phase begins
+2018-03-26 13:59:29,203 INFO = Combat phase begins
+2018-03-26 13:59:29,203 INFO = Combat phase begins
+2018-03-26 13:59:29,214 INFO BLUE Base at tile (11, 10) with 42 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:29,214 INFO BLUE Base at tile (11, 10) with 42 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:29,215 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:29,215 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:29,215 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-03-26 13:59:29,215 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-03-26 13:59:29,215 INFO = Ranged phase begins
+2018-03-26 13:59:29,215 INFO = Ranged phase begins
+2018-03-26 13:59:29,226 INFO = Special phase begins
+2018-03-26 13:59:29,226 INFO = Special phase begins
+2018-03-26 13:59:29,238 INFO == TURN 12 BEGIN ==
+2018-03-26 13:59:29,238 INFO == TURN 12 BEGIN ==
+2018-03-26 13:59:29,238 INFO = Start Turn phase begins
+2018-03-26 13:59:29,238 INFO = Start Turn phase begins
+2018-03-26 13:59:29,249 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:29,249 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:29,249 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:59:29,249 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 13:59:29,250 INFO = Issue Orders phase begins
+2018-03-26 13:59:29,250 INFO = Issue Orders phase begins
+2018-03-26 13:59:31,997 INFO = Move phase begins
+2018-03-26 13:59:31,997 INFO = Move phase begins
+2018-03-26 13:59:32,009 INFO = Build phase begins
+2018-03-26 13:59:32,009 INFO = Build phase begins
+2018-03-26 13:59:32,019 INFO = Combat phase begins
+2018-03-26 13:59:32,019 INFO = Combat phase begins
+2018-03-26 13:59:32,031 INFO BLUE Base at tile (11, 10) with 15 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:32,031 INFO BLUE Base at tile (11, 10) with 15 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 13:59:32,032 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:32,032 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 13:59:32,032 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with -12 HP!
+2018-03-26 13:59:32,032 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with -12 HP!
+2018-03-26 13:59:32,032 INFO = Ranged phase begins
+2018-03-26 13:59:32,032 INFO = Ranged phase begins
+2018-03-26 13:59:32,044 INFO = Special phase begins
+2018-03-26 13:59:32,044 INFO = Special phase begins
+2018-03-26 13:59:32,054 INFO == TURN 13 BEGIN ==
+2018-03-26 13:59:32,054 INFO == TURN 13 BEGIN ==
+2018-03-26 13:59:32,054 INFO = Start Turn phase begins
+2018-03-26 13:59:32,054 INFO = Start Turn phase begins
+2018-03-26 13:59:32,065 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:32,065 INFO Team.RED team acquired 2 resources.
+2018-03-26 13:59:32,066 INFO = Issue Orders phase begins
+2018-03-26 13:59:32,066 INFO = Issue Orders phase begins
+2018-03-26 13:59:32,077 INFO === BATTLE OVER! ===
+2018-03-26 13:59:32,077 INFO === BATTLE OVER! ===
+2018-03-26 13:59:32,077 INFO Team.RED team survived!
+2018-03-26 13:59:32,077 INFO Team.RED team survived!
+2018-03-26 13:59:32,077 INFO -- Stats for team Team.RED --
+2018-03-26 13:59:32,077 INFO -- Stats for team Team.RED --
+2018-03-26 13:59:32,077 INFO   * Tiles Moved: 0
+2018-03-26 13:59:32,077 INFO   * Tiles Moved: 0
+2018-03-26 13:59:32,077 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:32,077 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:32,078 INFO   * Piece Conflicts: 5
+2018-03-26 13:59:32,078 INFO   * Piece Conflicts: 5
+2018-03-26 13:59:32,078 INFO   * Pieces Lost: 0
+2018-03-26 13:59:32,078 INFO   * Pieces Lost: 0
+2018-03-26 13:59:32,078 INFO   * Pieces Built: 0
+2018-03-26 13:59:32,078 INFO   * Pieces Built: 0
+2018-03-26 13:59:32,078 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:32,078 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:32,078 INFO Team.BLUE team has lost their base!
+2018-03-26 13:59:32,078 INFO Team.BLUE team has lost their base!
+2018-03-26 13:59:32,078 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:59:32,078 INFO -- Stats for team Team.BLUE --
+2018-03-26 13:59:32,078 INFO   * Tiles Moved: 0
+2018-03-26 13:59:32,078 INFO   * Tiles Moved: 0
+2018-03-26 13:59:32,079 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:32,079 INFO   * Ranged Attacks: 0
+2018-03-26 13:59:32,079 INFO   * Piece Conflicts: 5
+2018-03-26 13:59:32,079 INFO   * Piece Conflicts: 5
+2018-03-26 13:59:32,079 INFO   * Pieces Lost: 1
+2018-03-26 13:59:32,079 INFO   * Pieces Lost: 1
+2018-03-26 13:59:32,079 INFO   * Pieces Built: 0
+2018-03-26 13:59:32,079 INFO   * Pieces Built: 0
+2018-03-26 13:59:32,079 INFO   * Upgrades Researched: 0
+2018-03-26 13:59:32,079 INFO   * Upgrades Researched: 0
+2018-03-26 14:58:22,044 INFO == TURN 1 BEGIN ==
+2018-03-26 14:58:22,044 INFO = Issue Orders phase begins
+2018-03-26 14:58:48,758 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Trooper on tile (5, 12)'
+2018-03-26 14:58:48,758 INFO = Move phase begins
+2018-03-26 14:58:48,769 INFO = Build phase begins
+2018-03-26 14:58:48,780 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Trooper on tile (5, 12)'
+2018-03-26 14:58:48,780 INFO Team.RED team spent 3 resources.
+2018-03-26 14:58:48,780 INFO = Combat phase begins
+2018-03-26 14:58:48,791 INFO = Ranged phase begins
+2018-03-26 14:58:48,802 INFO = Special phase begins
+2018-03-26 14:58:48,813 INFO == TURN 2 BEGIN ==
+2018-03-26 14:58:48,813 INFO = Start Turn phase begins
+2018-03-26 14:58:48,825 INFO Team.RED team acquired 2 resources.
+2018-03-26 14:58:48,825 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 14:58:48,825 INFO Team.RED team acquired 1 resources.
+2018-03-26 14:58:48,825 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 14:58:48,825 INFO = Issue Orders phase begins
+2018-03-26 14:58:52,166 INFO = Move phase begins
+2018-03-26 14:58:52,177 INFO = Build phase begins
+2018-03-26 14:58:52,189 INFO = Combat phase begins
+2018-03-26 14:58:52,201 INFO = Ranged phase begins
+2018-03-26 14:58:52,211 INFO = Special phase begins
+2018-03-26 14:58:52,223 INFO == TURN 3 BEGIN ==
+2018-03-26 14:58:52,223 INFO = Start Turn phase begins
+2018-03-26 14:58:52,234 INFO Team.RED team acquired 2 resources.
+2018-03-26 14:58:52,234 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 14:58:52,234 INFO Team.RED team acquired 1 resources.
+2018-03-26 14:58:52,234 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 14:58:52,234 INFO = Issue Orders phase begins
+2018-03-26 14:58:56,363 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Ranger on tile (6, 13)'
+2018-03-26 14:58:56,363 INFO = Move phase begins
+2018-03-26 14:58:56,374 INFO = Build phase begins
+2018-03-26 14:58:56,387 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Ranger on tile (6, 13)'
+2018-03-26 14:58:56,387 INFO Team.RED team spent 3 resources.
+2018-03-26 14:58:56,387 INFO = Combat phase begins
+2018-03-26 14:58:56,399 INFO = Ranged phase begins
+2018-03-26 14:58:56,410 INFO = Special phase begins
+2018-03-26 14:58:56,421 INFO == TURN 4 BEGIN ==
+2018-03-26 14:58:56,421 INFO = Start Turn phase begins
+2018-03-26 14:58:56,432 INFO Team.RED team acquired 2 resources.
+2018-03-26 14:58:56,432 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 14:58:56,433 INFO Team.RED team acquired 1 resources.
+2018-03-26 14:58:56,433 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 14:58:56,433 INFO = Issue Orders phase begins
+2018-03-26 14:58:59,683 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Ghost on tile (4, 13)'
+2018-03-26 14:58:59,684 INFO RED Ranger at tile (6, 13) with 90 HP was assigned the order 'Order: Move to (6, 12)'
+2018-03-26 14:58:59,684 INFO = Move phase begins
+2018-03-26 14:58:59,695 INFO RED Ranger at tile (6, 12) with 90 HP successfully executed 'Order: Move to (6, 12)'
+2018-03-26 14:58:59,696 INFO = Build phase begins
+2018-03-26 14:58:59,707 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Ghost on tile (4, 13)'
+2018-03-26 14:58:59,707 INFO Team.RED team spent 3 resources.
+2018-03-26 14:58:59,707 INFO = Combat phase begins
+2018-03-26 14:58:59,718 INFO = Ranged phase begins
+2018-03-26 14:58:59,730 INFO = Special phase begins
+2018-03-26 14:58:59,741 INFO == TURN 5 BEGIN ==
+2018-03-26 14:58:59,741 INFO = Start Turn phase begins
+2018-03-26 14:58:59,752 INFO Team.RED team acquired 2 resources.
+2018-03-26 14:58:59,752 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 14:58:59,752 INFO Team.RED team acquired 1 resources.
+2018-03-26 14:58:59,752 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 14:58:59,752 INFO = Issue Orders phase begins
+2018-03-26 14:59:01,175 INFO RED Ghost at tile (4, 13) with 80 HP was assigned the order 'Order: Move to (4, 12)'
+2018-03-26 14:59:01,175 INFO = Move phase begins
+2018-03-26 14:59:01,186 INFO RED Ghost at tile (4, 12) with 80 HP successfully executed 'Order: Move to (4, 12)'
+2018-03-26 14:59:01,187 INFO = Build phase begins
+2018-03-26 14:59:01,198 INFO = Combat phase begins
+2018-03-26 14:59:01,209 INFO = Ranged phase begins
+2018-03-26 14:59:01,221 INFO = Special phase begins
+2018-03-26 14:59:01,232 INFO == TURN 6 BEGIN ==
+2018-03-26 14:59:01,232 INFO = Start Turn phase begins
+2018-03-26 14:59:01,243 INFO Team.RED team acquired 2 resources.
+2018-03-26 14:59:01,244 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 14:59:01,244 INFO Team.RED team acquired 1 resources.
+2018-03-26 14:59:01,244 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 14:59:01,244 INFO = Issue Orders phase begins
+2018-03-26 14:59:24,906 INFO RED Colonist at tile (1, 13) with 100 HP was assigned the order 'Order: Move to (4, 13)'
+2018-03-26 14:59:24,906 INFO = Move phase begins
+2018-03-26 14:59:24,917 INFO RED Colonist at tile (4, 13) with 100 HP successfully executed 'Order: Move to (4, 13)'
+2018-03-26 14:59:24,918 INFO = Build phase begins
+2018-03-26 14:59:24,929 INFO = Combat phase begins
+2018-03-26 14:59:24,939 INFO = Ranged phase begins
+2018-03-26 14:59:24,951 INFO = Special phase begins
+2018-03-26 14:59:24,963 INFO == TURN 7 BEGIN ==
+2018-03-26 14:59:24,963 INFO = Start Turn phase begins
+2018-03-26 14:59:24,973 INFO Team.RED team acquired 2 resources.
+2018-03-26 14:59:24,974 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 14:59:24,974 INFO Team.RED team acquired 1 resources.
+2018-03-26 14:59:24,974 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 14:59:24,974 INFO = Issue Orders phase begins
+2018-03-26 15:02:09,491 INFO == TURN 1 BEGIN ==
+2018-03-26 15:02:09,491 INFO = Issue Orders phase begins
+2018-03-26 15:02:14,822 INFO = Move phase begins
+2018-03-26 15:02:14,833 INFO = Build phase begins
+2018-03-26 15:02:14,844 INFO = Combat phase begins
+2018-03-26 15:02:14,856 INFO BLUE Base at tile (11, 10) with 123 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 15:02:14,856 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 15:02:14,856 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 96 HP!
+2018-03-26 15:02:14,856 INFO = Ranged phase begins
+2018-03-26 15:02:14,868 INFO = Special phase begins
+2018-03-26 15:02:14,878 INFO == TURN 9 BEGIN ==
+2018-03-26 15:02:14,879 INFO = Start Turn phase begins
+2018-03-26 15:02:14,891 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:02:14,892 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:02:14,892 INFO = Issue Orders phase begins
+2018-03-26 15:02:15,158 INFO = Move phase begins
+2018-03-26 15:02:15,169 INFO = Build phase begins
+2018-03-26 15:02:15,179 INFO = Combat phase begins
+2018-03-26 15:02:15,190 INFO BLUE Base at tile (11, 10) with 96 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 15:02:15,191 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 15:02:15,191 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-03-26 15:02:15,191 INFO = Ranged phase begins
+2018-03-26 15:02:15,202 INFO = Special phase begins
+2018-03-26 15:02:15,213 INFO == TURN 10 BEGIN ==
+2018-03-26 15:02:15,213 INFO = Start Turn phase begins
+2018-03-26 15:02:15,224 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:02:15,224 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:02:15,224 INFO = Issue Orders phase begins
+2018-03-26 15:02:15,569 INFO = Move phase begins
+2018-03-26 15:02:15,580 INFO = Build phase begins
+2018-03-26 15:02:15,591 INFO = Combat phase begins
+2018-03-26 15:02:15,602 INFO BLUE Base at tile (11, 10) with 69 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 15:02:15,602 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 15:02:15,602 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 42 HP!
+2018-03-26 15:02:15,602 INFO = Ranged phase begins
+2018-03-26 15:02:15,613 INFO = Special phase begins
+2018-03-26 15:02:15,624 INFO == TURN 11 BEGIN ==
+2018-03-26 15:02:15,624 INFO = Start Turn phase begins
+2018-03-26 15:02:15,635 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:02:15,635 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:02:15,635 INFO = Issue Orders phase begins
+2018-03-26 15:02:15,915 INFO = Move phase begins
+2018-03-26 15:02:15,926 INFO = Build phase begins
+2018-03-26 15:02:15,937 INFO = Combat phase begins
+2018-03-26 15:02:15,947 INFO BLUE Base at tile (11, 10) with 42 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 15:02:15,947 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 15:02:15,947 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-03-26 15:02:15,948 INFO = Ranged phase begins
+2018-03-26 15:02:15,959 INFO = Special phase begins
+2018-03-26 15:02:15,970 INFO == TURN 12 BEGIN ==
+2018-03-26 15:02:15,970 INFO = Start Turn phase begins
+2018-03-26 15:02:15,981 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:02:15,981 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:02:15,981 INFO = Issue Orders phase begins
+2018-03-26 15:02:16,328 INFO = Move phase begins
+2018-03-26 15:02:16,338 INFO = Build phase begins
+2018-03-26 15:02:16,349 INFO = Combat phase begins
+2018-03-26 15:02:16,361 INFO BLUE Base at tile (11, 10) with 15 HP and RED Trooper at tile (11, 10) with 100 HP are contesting the tile at (11, 10)!
+2018-03-26 15:02:16,361 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-03-26 15:02:16,361 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with -12 HP!
+2018-03-26 15:02:16,361 INFO = Ranged phase begins
+2018-03-26 15:02:16,372 INFO = Special phase begins
+2018-03-26 15:02:16,384 INFO == TURN 13 BEGIN ==
+2018-03-26 15:02:16,384 INFO = Start Turn phase begins
+2018-03-26 15:02:16,396 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:02:16,396 INFO = Issue Orders phase begins
+2018-03-26 15:02:16,406 INFO === BATTLE OVER! ===
+2018-03-26 15:02:16,407 INFO Team.RED team survived!
+2018-03-26 15:02:16,407 INFO -- Stats for team Team.RED --
+2018-03-26 15:02:16,407 INFO   * Tiles Moved: 0
+2018-03-26 15:02:16,407 INFO   * Ranged Attacks: 0
+2018-03-26 15:02:16,407 INFO   * Piece Conflicts: 5
+2018-03-26 15:02:16,407 INFO   * Pieces Lost: 0
+2018-03-26 15:02:16,407 INFO   * Pieces Built: 0
+2018-03-26 15:02:16,407 INFO   * Upgrades Researched: 0
+2018-03-26 15:02:16,407 INFO Team.BLUE team has lost their base!
+2018-03-26 15:02:16,407 INFO -- Stats for team Team.BLUE --
+2018-03-26 15:02:16,407 INFO   * Tiles Moved: 0
+2018-03-26 15:02:16,407 INFO   * Ranged Attacks: 0
+2018-03-26 15:02:16,408 INFO   * Piece Conflicts: 5
+2018-03-26 15:02:16,408 INFO   * Pieces Lost: 1
+2018-03-26 15:02:16,408 INFO   * Pieces Built: 0
+2018-03-26 15:02:16,408 INFO   * Upgrades Researched: 0
+2018-03-26 15:26:30,315 INFO == TURN 1 BEGIN ==
+2018-03-26 15:26:30,315 INFO = Issue Orders phase begins
+2018-03-26 15:26:45,626 INFO == TURN 1 BEGIN ==
+2018-03-26 15:26:45,626 INFO == TURN 1 BEGIN ==
+2018-03-26 15:26:45,626 INFO = Issue Orders phase begins
+2018-03-26 15:26:45,626 INFO = Issue Orders phase begins
+2018-03-26 15:29:02,418 INFO == TURN 1 BEGIN ==
+2018-03-26 15:29:02,418 INFO == TURN 1 BEGIN ==
+2018-03-26 15:29:02,418 INFO == TURN 1 BEGIN ==
+2018-03-26 15:29:02,419 INFO = Issue Orders phase begins
+2018-03-26 15:29:02,419 INFO = Issue Orders phase begins
+2018-03-26 15:29:02,419 INFO = Issue Orders phase begins
+2018-03-26 15:30:17,776 INFO == TURN 1 BEGIN ==
+2018-03-26 15:30:17,776 INFO = Issue Orders phase begins
+2018-03-26 15:32:02,981 INFO == TURN 1 BEGIN ==
+2018-03-26 15:32:02,981 INFO = Issue Orders phase begins
+2018-03-26 15:33:53,964 INFO == TURN 1 BEGIN ==
+2018-03-26 15:33:53,964 INFO = Issue Orders phase begins
+2018-03-26 15:34:20,763 INFO = Move phase begins
+2018-03-26 15:34:20,773 INFO = Build phase begins
+2018-03-26 15:34:20,784 INFO = Combat phase begins
+2018-03-26 15:34:20,794 INFO = Ranged phase begins
+2018-03-26 15:34:20,805 INFO = Special phase begins
+2018-03-26 15:34:20,816 INFO == TURN 2 BEGIN ==
+2018-03-26 15:34:20,817 INFO = Start Turn phase begins
+2018-03-26 15:34:20,826 INFO Team.GREEN team acquired 2 resources.
+2018-03-26 15:34:20,827 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:34:20,827 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:34:20,827 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:34:20,827 INFO Team.YELLOW team acquired 2 resources.
+2018-03-26 15:34:20,827 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:34:20,827 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:34:20,828 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:34:20,828 INFO = Issue Orders phase begins
+2018-03-26 15:40:31,790 INFO == TURN 1 BEGIN ==
+2018-03-26 15:40:31,790 INFO = Issue Orders phase begins
+2018-03-26 15:41:06,445 INFO GREEN Barracks at tile (3, 7) with 100 HP was assigned the order 'Order: Build a Ghost on tile (4, 7)'
+2018-03-26 15:41:06,445 INFO YELLOW Barracks at tile (13, 3) with 100 HP was assigned the order 'Order: Build a Trooper on tile (12, 3)'
+2018-03-26 15:41:06,445 INFO = Move phase begins
+2018-03-26 15:41:06,456 INFO = Build phase begins
+2018-03-26 15:41:06,466 INFO GREEN Barracks at tile (3, 7) with 100 HP successfully executed 'Order: Build a Ghost on tile (4, 7)'
+2018-03-26 15:41:06,466 INFO Team.GREEN team spent 3 resources.
+2018-03-26 15:41:06,466 INFO YELLOW Barracks at tile (13, 3) with 100 HP successfully executed 'Order: Build a Trooper on tile (12, 3)'
+2018-03-26 15:41:06,467 INFO Team.YELLOW team spent 3 resources.
+2018-03-26 15:41:06,467 INFO = Combat phase begins
+2018-03-26 15:41:06,477 INFO = Ranged phase begins
+2018-03-26 15:41:06,488 INFO = Special phase begins
+2018-03-26 15:41:06,499 INFO == TURN 2 BEGIN ==
+2018-03-26 15:41:06,499 INFO = Start Turn phase begins
+2018-03-26 15:41:06,510 INFO Team.GREEN team acquired 2 resources.
+2018-03-26 15:41:06,510 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:41:06,511 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:41:06,511 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:41:06,511 INFO Team.YELLOW team acquired 2 resources.
+2018-03-26 15:41:06,511 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:41:06,511 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:41:06,511 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:41:06,512 INFO = Issue Orders phase begins
+2018-03-26 15:41:20,057 INFO GREEN Barracks at tile (3, 7) with 100 HP was assigned the order 'Order: Build a Trooper on tile (3, 6)'
+2018-03-26 15:41:20,057 INFO GREEN Ghost at tile (4, 7) with 80 HP was assigned the order 'Order: Move to (7, 7)'
+2018-03-26 15:41:20,057 INFO YELLOW Trooper at tile (12, 3) with 100 HP was assigned the order 'Order: Move to (10, 3)'
+2018-03-26 15:41:20,057 INFO = Move phase begins
+2018-03-26 15:41:20,068 INFO GREEN Ghost at tile (7, 7) with 80 HP successfully executed 'Order: Move to (7, 7)'
+2018-03-26 15:41:20,068 INFO YELLOW Trooper at tile (10, 3) with 100 HP successfully executed 'Order: Move to (10, 3)'
+2018-03-26 15:41:20,068 INFO = Build phase begins
+2018-03-26 15:41:20,078 INFO GREEN Barracks at tile (3, 7) with 100 HP successfully executed 'Order: Build a Trooper on tile (3, 6)'
+2018-03-26 15:41:20,078 INFO Team.GREEN team spent 3 resources.
+2018-03-26 15:41:20,078 INFO = Combat phase begins
+2018-03-26 15:41:20,089 INFO = Ranged phase begins
+2018-03-26 15:41:20,099 INFO = Special phase begins
+2018-03-26 15:41:20,109 INFO == TURN 3 BEGIN ==
+2018-03-26 15:41:20,109 INFO = Start Turn phase begins
+2018-03-26 15:41:20,119 INFO Team.GREEN team acquired 2 resources.
+2018-03-26 15:41:20,119 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:41:20,120 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:41:20,120 INFO Team.GREEN team acquired 1 resources.
+2018-03-26 15:41:20,120 INFO Team.YELLOW team acquired 2 resources.
+2018-03-26 15:41:20,120 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:41:20,120 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:41:20,120 INFO Team.YELLOW team acquired 1 resources.
+2018-03-26 15:41:20,120 INFO = Issue Orders phase begins
+2018-03-26 15:43:17,580 INFO === BATTLE OVER! ===
+2018-03-26 15:43:17,580 INFO Team.GREEN team survived!
+2018-03-26 15:43:17,580 INFO -- Stats for team Team.GREEN --
+2018-03-26 15:43:17,580 INFO   * Tiles Moved: 0
+2018-03-26 15:43:17,580 INFO   * Ranged Attacks: 0
+2018-03-26 15:43:17,581 INFO   * Piece Conflicts: 0
+2018-03-26 15:43:17,581 INFO   * Pieces Lost: 0
+2018-03-26 15:43:17,581 INFO   * Pieces Built: 0
+2018-03-26 15:43:17,581 INFO   * Upgrades Researched: 0
+2018-03-26 15:43:17,581 INFO Team.YELLOW team has lost their base!
+2018-03-26 15:43:17,581 INFO -- Stats for team Team.YELLOW --
+2018-03-26 15:43:17,581 INFO   * Tiles Moved: 0
+2018-03-26 15:43:17,581 INFO   * Ranged Attacks: 0
+2018-03-26 15:43:17,582 INFO   * Piece Conflicts: 0
+2018-03-26 15:43:17,582 INFO   * Pieces Lost: 0
+2018-03-26 15:43:17,582 INFO   * Pieces Built: 0
+2018-03-26 15:43:17,582 INFO   * Upgrades Researched: 0
+2018-03-26 15:44:51,871 INFO == TURN 1 BEGIN ==
+2018-03-26 15:44:51,872 INFO = Issue Orders phase begins
+2018-03-26 15:44:53,013 INFO === BATTLE OVER! ===
+2018-03-26 15:44:53,013 INFO Team.RED team has lost their base!
+2018-03-26 15:44:53,013 INFO -- Stats for team Team.RED --
+2018-03-26 15:44:53,013 INFO   * Tiles Moved: 0
+2018-03-26 15:44:53,013 INFO   * Ranged Attacks: 0
+2018-03-26 15:44:53,013 INFO   * Piece Conflicts: 0
+2018-03-26 15:44:53,013 INFO   * Pieces Lost: 0
+2018-03-26 15:44:53,013 INFO   * Pieces Built: 0
+2018-03-26 15:44:53,014 INFO   * Upgrades Researched: 0
+2018-03-26 15:44:53,014 INFO Team.BLUE team survived!
+2018-03-26 15:44:53,014 INFO -- Stats for team Team.BLUE --
+2018-03-26 15:44:53,014 INFO   * Tiles Moved: 0
+2018-03-26 15:44:53,014 INFO   * Ranged Attacks: 0
+2018-03-26 15:44:53,014 INFO   * Piece Conflicts: 0
+2018-03-26 15:44:53,014 INFO   * Pieces Lost: 0
+2018-03-26 15:44:53,014 INFO   * Pieces Built: 0
+2018-03-26 15:44:53,014 INFO   * Upgrades Researched: 0
+2018-03-26 15:45:55,597 INFO == TURN 1 BEGIN ==
+2018-03-26 15:45:55,598 INFO = Issue Orders phase begins
+2018-03-26 15:45:56,630 INFO === BATTLE OVER! ===
+2018-03-26 15:45:56,630 INFO Team.RED team has lost their base!
+2018-03-26 15:45:56,630 INFO -- Stats for team Team.RED --
+2018-03-26 15:45:56,630 INFO   * Tiles Moved: 0
+2018-03-26 15:45:56,630 INFO   * Ranged Attacks: 0
+2018-03-26 15:45:56,630 INFO   * Piece Conflicts: 0
+2018-03-26 15:45:56,630 INFO   * Pieces Lost: 0
+2018-03-26 15:45:56,630 INFO   * Pieces Built: 0
+2018-03-26 15:45:56,630 INFO   * Upgrades Researched: 0
+2018-03-26 15:45:56,630 INFO Team.BLUE team survived!
+2018-03-26 15:45:56,631 INFO -- Stats for team Team.BLUE --
+2018-03-26 15:45:56,631 INFO   * Tiles Moved: 0
+2018-03-26 15:45:56,631 INFO   * Ranged Attacks: 0
+2018-03-26 15:45:56,631 INFO   * Piece Conflicts: 0
+2018-03-26 15:45:56,631 INFO   * Pieces Lost: 0
+2018-03-26 15:45:56,631 INFO   * Pieces Built: 0
+2018-03-26 15:45:56,631 INFO   * Upgrades Researched: 0
+2018-03-26 15:46:20,015 INFO == TURN 1 BEGIN ==
+2018-03-26 15:46:20,015 INFO = Issue Orders phase begins
+2018-03-26 15:46:21,386 INFO === BATTLE OVER! ===
+2018-03-26 15:46:21,387 INFO Team.RED team has lost their base!
+2018-03-26 15:46:21,387 INFO -- Stats for team Team.RED --
+2018-03-26 15:46:21,387 INFO   * Tiles Moved: 0
+2018-03-26 15:46:21,387 INFO   * Ranged Attacks: 0
+2018-03-26 15:46:21,387 INFO   * Piece Conflicts: 0
+2018-03-26 15:46:21,387 INFO   * Pieces Lost: 0
+2018-03-26 15:46:21,387 INFO   * Pieces Built: 0
+2018-03-26 15:46:21,387 INFO   * Upgrades Researched: 0
+2018-03-26 15:46:21,387 INFO Team.BLUE team survived!
+2018-03-26 15:46:21,387 INFO -- Stats for team Team.BLUE --
+2018-03-26 15:46:21,387 INFO   * Tiles Moved: 0
+2018-03-26 15:46:21,387 INFO   * Ranged Attacks: 0
+2018-03-26 15:46:21,387 INFO   * Piece Conflicts: 0
+2018-03-26 15:46:21,387 INFO   * Pieces Lost: 0
+2018-03-26 15:46:21,387 INFO   * Pieces Built: 0
+2018-03-26 15:46:21,388 INFO   * Upgrades Researched: 0
+2018-03-26 15:46:57,430 INFO == TURN 1 BEGIN ==
+2018-03-26 15:46:57,430 INFO = Issue Orders phase begins
+2018-03-26 15:46:58,439 INFO === BATTLE OVER! ===
+2018-03-26 15:46:58,440 INFO Team.RED team has lost their base!
+2018-03-26 15:46:58,440 INFO -- Stats for team Team.RED --
+2018-03-26 15:46:58,440 INFO   * Tiles Moved: 0
+2018-03-26 15:46:58,440 INFO   * Ranged Attacks: 0
+2018-03-26 15:46:58,440 INFO   * Piece Conflicts: 0
+2018-03-26 15:46:58,440 INFO   * Pieces Lost: 0
+2018-03-26 15:46:58,440 INFO   * Pieces Built: 0
+2018-03-26 15:46:58,440 INFO   * Upgrades Researched: 0
+2018-03-26 15:46:58,440 INFO Team.BLUE team survived!
+2018-03-26 15:46:58,440 INFO -- Stats for team Team.BLUE --
+2018-03-26 15:46:58,440 INFO   * Tiles Moved: 0
+2018-03-26 15:46:58,440 INFO   * Ranged Attacks: 0
+2018-03-26 15:46:58,440 INFO   * Piece Conflicts: 0
+2018-03-26 15:46:58,440 INFO   * Pieces Lost: 0
+2018-03-26 15:46:58,440 INFO   * Pieces Built: 0
+2018-03-26 15:46:58,440 INFO   * Upgrades Researched: 0
+2018-03-26 15:57:29,795 INFO == TURN 1 BEGIN ==
+2018-03-26 15:57:29,795 INFO = Issue Orders phase begins
+2018-03-26 15:59:26,401 INFO = Move phase begins
+2018-03-26 15:59:26,413 INFO = Build phase begins
+2018-03-26 15:59:26,425 INFO = Combat phase begins
+2018-03-26 15:59:26,436 INFO = Ranged phase begins
+2018-03-26 15:59:26,448 INFO = Special phase begins
+2018-03-26 15:59:26,459 INFO == TURN 2 BEGIN ==
+2018-03-26 15:59:26,460 INFO = Start Turn phase begins
+2018-03-26 15:59:26,470 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:26,471 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:26,471 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:26,471 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:26,471 INFO = Issue Orders phase begins
+2018-03-26 15:59:32,492 INFO = Move phase begins
+2018-03-26 15:59:32,504 INFO = Build phase begins
+2018-03-26 15:59:32,515 INFO = Combat phase begins
+2018-03-26 15:59:32,526 INFO = Ranged phase begins
+2018-03-26 15:59:32,537 INFO = Special phase begins
+2018-03-26 15:59:32,548 INFO == TURN 3 BEGIN ==
+2018-03-26 15:59:32,548 INFO = Start Turn phase begins
+2018-03-26 15:59:32,559 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:32,559 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:32,560 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:32,560 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:32,560 INFO = Issue Orders phase begins
+2018-03-26 15:59:33,183 INFO = Move phase begins
+2018-03-26 15:59:33,194 INFO = Build phase begins
+2018-03-26 15:59:33,205 INFO = Combat phase begins
+2018-03-26 15:59:33,216 INFO = Ranged phase begins
+2018-03-26 15:59:33,228 INFO = Special phase begins
+2018-03-26 15:59:33,238 INFO == TURN 4 BEGIN ==
+2018-03-26 15:59:33,239 INFO = Start Turn phase begins
+2018-03-26 15:59:33,249 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:33,249 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:33,250 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:33,250 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:33,250 INFO = Issue Orders phase begins
+2018-03-26 15:59:33,709 INFO = Move phase begins
+2018-03-26 15:59:33,720 INFO = Build phase begins
+2018-03-26 15:59:33,731 INFO = Combat phase begins
+2018-03-26 15:59:33,742 INFO = Ranged phase begins
+2018-03-26 15:59:33,753 INFO = Special phase begins
+2018-03-26 15:59:33,764 INFO == TURN 5 BEGIN ==
+2018-03-26 15:59:33,764 INFO = Start Turn phase begins
+2018-03-26 15:59:33,775 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:33,776 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:33,776 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:33,776 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:33,776 INFO = Issue Orders phase begins
+2018-03-26 15:59:34,160 INFO = Move phase begins
+2018-03-26 15:59:34,171 INFO = Build phase begins
+2018-03-26 15:59:34,182 INFO = Combat phase begins
+2018-03-26 15:59:34,194 INFO = Ranged phase begins
+2018-03-26 15:59:34,206 INFO = Special phase begins
+2018-03-26 15:59:34,217 INFO == TURN 6 BEGIN ==
+2018-03-26 15:59:34,217 INFO = Start Turn phase begins
+2018-03-26 15:59:34,228 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:34,228 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:34,229 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:34,229 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:34,229 INFO = Issue Orders phase begins
+2018-03-26 15:59:34,612 INFO = Move phase begins
+2018-03-26 15:59:34,623 INFO = Build phase begins
+2018-03-26 15:59:34,634 INFO = Combat phase begins
+2018-03-26 15:59:34,644 INFO = Ranged phase begins
+2018-03-26 15:59:34,656 INFO = Special phase begins
+2018-03-26 15:59:34,667 INFO == TURN 7 BEGIN ==
+2018-03-26 15:59:34,667 INFO = Start Turn phase begins
+2018-03-26 15:59:34,678 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:34,678 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:34,678 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:34,679 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:34,679 INFO = Issue Orders phase begins
+2018-03-26 15:59:35,076 INFO = Move phase begins
+2018-03-26 15:59:35,087 INFO = Build phase begins
+2018-03-26 15:59:35,098 INFO = Combat phase begins
+2018-03-26 15:59:35,109 INFO = Ranged phase begins
+2018-03-26 15:59:35,121 INFO = Special phase begins
+2018-03-26 15:59:35,133 INFO == TURN 8 BEGIN ==
+2018-03-26 15:59:35,133 INFO = Start Turn phase begins
+2018-03-26 15:59:35,144 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:35,144 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:35,144 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:35,144 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:35,145 INFO = Issue Orders phase begins
+2018-03-26 15:59:35,555 INFO = Move phase begins
+2018-03-26 15:59:35,566 INFO = Build phase begins
+2018-03-26 15:59:35,577 INFO = Combat phase begins
+2018-03-26 15:59:35,588 INFO = Ranged phase begins
+2018-03-26 15:59:35,600 INFO = Special phase begins
+2018-03-26 15:59:35,611 INFO == TURN 9 BEGIN ==
+2018-03-26 15:59:35,612 INFO = Start Turn phase begins
+2018-03-26 15:59:35,622 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:35,623 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:35,623 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:35,623 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:35,623 INFO = Issue Orders phase begins
+2018-03-26 15:59:35,989 INFO = Move phase begins
+2018-03-26 15:59:36,000 INFO = Build phase begins
+2018-03-26 15:59:36,011 INFO = Combat phase begins
+2018-03-26 15:59:36,025 INFO = Ranged phase begins
+2018-03-26 15:59:36,036 INFO = Special phase begins
+2018-03-26 15:59:36,048 INFO == TURN 10 BEGIN ==
+2018-03-26 15:59:36,048 INFO = Start Turn phase begins
+2018-03-26 15:59:36,059 INFO Team.RED team acquired 2 resources.
+2018-03-26 15:59:36,059 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 15:59:36,059 INFO Team.RED team acquired 1 resources.
+2018-03-26 15:59:36,059 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 15:59:36,059 INFO = Issue Orders phase begins
+2018-03-26 16:00:00,603 INFO == TURN 1 BEGIN ==
+2018-03-26 16:00:00,603 INFO = Issue Orders phase begins
+2018-03-26 16:00:03,125 INFO = Move phase begins
+2018-03-26 16:00:10,696 INFO = Build phase begins
+2018-03-26 16:00:11,873 INFO = Combat phase begins
+2018-03-26 16:00:12,916 INFO = Ranged phase begins
+2018-03-26 16:00:13,954 INFO = Special phase begins
+2018-03-26 16:00:15,677 INFO == TURN 2 BEGIN ==
+2018-03-26 16:00:15,678 INFO = Start Turn phase begins
+2018-03-26 16:00:15,695 INFO Team.RED team acquired 2 resources.
+2018-03-26 16:00:15,695 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 16:00:15,696 INFO Team.RED team acquired 1 resources.
+2018-03-26 16:00:15,696 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 16:00:18,757 INFO = Issue Orders phase begins
+2018-03-26 16:02:03,295 INFO == TURN 1 BEGIN ==
+2018-03-26 16:02:03,295 INFO = Issue Orders phase begins
+2018-03-26 16:02:04,469 INFO = Move phase begins
+2018-03-26 16:02:04,481 INFO = Build phase begins
+2018-03-26 16:02:04,492 INFO = Combat phase begins
+2018-03-26 16:02:04,504 INFO = Ranged phase begins
+2018-03-26 16:02:04,515 INFO = Special phase begins
+2018-03-26 16:02:04,527 INFO == TURN 2 BEGIN ==
+2018-03-26 16:02:04,527 INFO = Start Turn phase begins
+2018-03-26 16:02:04,538 INFO Team.RED team acquired 2 resources.
+2018-03-26 16:02:04,538 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 16:02:04,538 INFO Team.RED team acquired 1 resources.
+2018-03-26 16:02:04,539 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 16:02:04,539 INFO = Issue Orders phase begins
+2018-03-26 16:02:05,602 INFO = Move phase begins
+2018-03-26 16:02:05,614 INFO = Build phase begins
+2018-03-26 16:02:05,625 INFO = Combat phase begins
+2018-03-26 16:02:05,636 INFO = Ranged phase begins
+2018-03-26 16:02:05,647 INFO = Special phase begins
+2018-03-26 16:02:05,658 INFO == TURN 3 BEGIN ==
+2018-03-26 16:02:05,658 INFO = Start Turn phase begins
+2018-03-26 16:02:05,669 INFO Team.RED team acquired 2 resources.
+2018-03-26 16:02:05,669 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 16:02:05,670 INFO Team.RED team acquired 1 resources.
+2018-03-26 16:02:05,670 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 16:02:05,670 INFO = Issue Orders phase begins
+2018-03-26 16:02:06,255 INFO = Move phase begins
+2018-03-26 16:02:06,267 INFO = Build phase begins
+2018-03-26 16:02:06,278 INFO = Combat phase begins
+2018-03-26 16:02:06,290 INFO = Ranged phase begins
+2018-03-26 16:02:06,301 INFO = Special phase begins
+2018-03-26 16:02:06,312 INFO == TURN 4 BEGIN ==
+2018-03-26 16:02:06,312 INFO = Start Turn phase begins
+2018-03-26 16:02:06,324 INFO Team.RED team acquired 2 resources.
+2018-03-26 16:02:06,324 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 16:02:06,324 INFO Team.RED team acquired 1 resources.
+2018-03-26 16:02:06,324 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 16:02:06,324 INFO = Issue Orders phase begins
+2018-03-26 16:02:06,765 INFO = Move phase begins
+2018-03-26 16:02:06,776 INFO = Build phase begins
+2018-03-26 16:02:06,788 INFO = Combat phase begins
+2018-03-26 16:02:06,799 INFO = Ranged phase begins
+2018-03-26 16:02:06,809 INFO = Special phase begins
+2018-03-26 16:02:06,820 INFO == TURN 5 BEGIN ==
+2018-03-26 16:02:06,821 INFO = Start Turn phase begins
+2018-03-26 16:02:06,831 INFO Team.RED team acquired 2 resources.
+2018-03-26 16:02:06,831 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 16:02:06,832 INFO Team.RED team acquired 1 resources.
+2018-03-26 16:02:06,832 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 16:02:06,832 INFO = Issue Orders phase begins
+2018-03-26 16:02:07,357 INFO = Move phase begins
+2018-03-26 16:02:07,370 INFO = Build phase begins
+2018-03-26 16:02:07,384 INFO = Combat phase begins
+2018-03-26 16:02:07,398 INFO = Ranged phase begins
+2018-03-26 16:02:07,412 INFO = Special phase begins
+2018-03-26 16:02:07,425 INFO == TURN 6 BEGIN ==
+2018-03-26 16:02:07,425 INFO = Start Turn phase begins
+2018-03-26 16:02:07,441 INFO Team.RED team acquired 2 resources.
+2018-03-26 16:02:07,442 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 16:02:07,442 INFO Team.RED team acquired 1 resources.
+2018-03-26 16:02:07,442 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 16:02:07,442 INFO = Issue Orders phase begins
+2018-03-26 16:02:07,827 INFO = Move phase begins
+2018-03-26 16:02:07,838 INFO = Build phase begins
+2018-03-26 16:02:07,849 INFO = Combat phase begins
+2018-03-26 16:02:07,861 INFO = Ranged phase begins
+2018-03-26 16:02:07,872 INFO = Special phase begins
+2018-03-26 16:02:07,883 INFO == TURN 7 BEGIN ==
+2018-03-26 16:02:07,883 INFO = Start Turn phase begins
+2018-03-26 16:02:07,895 INFO Team.RED team acquired 2 resources.
+2018-03-26 16:02:07,895 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 16:02:07,895 INFO Team.RED team acquired 1 resources.
+2018-03-26 16:02:07,895 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 16:02:07,896 INFO = Issue Orders phase begins
+2018-03-26 16:02:08,287 INFO = Move phase begins
+2018-03-26 16:02:08,298 INFO = Build phase begins
+2018-03-26 16:02:08,309 INFO = Combat phase begins
+2018-03-26 16:02:08,321 INFO = Ranged phase begins
+2018-03-26 16:02:08,332 INFO = Special phase begins
+2018-03-26 16:02:08,343 INFO == TURN 8 BEGIN ==
+2018-03-26 16:02:08,343 INFO = Start Turn phase begins
+2018-03-26 16:02:08,354 INFO Team.RED team acquired 2 resources.
+2018-03-26 16:02:08,354 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 16:02:08,355 INFO Team.RED team acquired 1 resources.
+2018-03-26 16:02:08,355 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 16:02:08,355 INFO = Issue Orders phase begins
+2018-03-26 16:37:04,503 INFO == TURN 1 BEGIN ==
+2018-03-26 16:37:04,503 INFO = Issue Orders phase begins
+2018-03-26 16:38:19,144 INFO == TURN 1 BEGIN ==
+2018-03-26 16:38:19,144 INFO = Issue Orders phase begins
+2018-03-26 16:40:04,535 INFO == TURN 1 BEGIN ==
+2018-03-26 16:40:04,536 INFO = Issue Orders phase begins
+2018-03-26 16:50:57,486 INFO == TURN 1 BEGIN ==
+2018-03-26 16:50:57,486 INFO = Issue Orders phase begins
+2018-03-26 16:51:09,490 INFO == TURN 1 BEGIN ==
+2018-03-26 16:51:09,490 INFO = Issue Orders phase begins
+2018-03-26 16:53:16,027 INFO == TURN 1 BEGIN ==
+2018-03-26 16:53:16,027 INFO = Issue Orders phase begins
+2018-03-26 16:55:21,359 INFO == TURN 1 BEGIN ==
+2018-03-26 16:55:21,359 INFO = Issue Orders phase begins
+2018-03-26 17:01:49,785 INFO == TURN 1 BEGIN ==
+2018-03-26 17:01:49,785 INFO = Issue Orders phase begins
+2018-03-26 17:02:46,277 INFO == TURN 1 BEGIN ==
+2018-03-26 17:02:46,277 INFO = Issue Orders phase begins
+2018-03-26 17:04:39,532 INFO == TURN 1 BEGIN ==
+2018-03-26 17:04:39,532 INFO = Issue Orders phase begins
+2018-03-26 17:10:55,223 INFO == TURN 1 BEGIN ==
+2018-03-26 17:10:55,223 INFO = Issue Orders phase begins
+2018-03-26 17:12:26,476 INFO == TURN 1 BEGIN ==
+2018-03-26 17:12:26,476 INFO == TURN 1 BEGIN ==
+2018-03-26 17:12:26,476 INFO = Issue Orders phase begins
+2018-03-26 17:12:26,476 INFO = Issue Orders phase begins
+2018-03-26 17:12:32,555 INFO == TURN 1 BEGIN ==
+2018-03-26 17:12:32,555 INFO == TURN 1 BEGIN ==
+2018-03-26 17:12:32,555 INFO == TURN 1 BEGIN ==
+2018-03-26 17:12:32,555 INFO = Issue Orders phase begins
+2018-03-26 17:12:32,555 INFO = Issue Orders phase begins
+2018-03-26 17:12:32,555 INFO = Issue Orders phase begins
+2018-03-26 17:26:01,250 INFO == TURN 1 BEGIN ==
+2018-03-26 17:26:01,250 INFO = Issue Orders phase begins
+2018-03-26 17:27:47,796 INFO == TURN 1 BEGIN ==
+2018-03-26 17:27:47,796 INFO == TURN 1 BEGIN ==
+2018-03-26 17:27:47,797 INFO = Issue Orders phase begins
+2018-03-26 17:27:47,797 INFO = Issue Orders phase begins
+2018-03-26 17:28:05,543 INFO == TURN 1 BEGIN ==
+2018-03-26 17:28:05,543 INFO = Issue Orders phase begins
+2018-03-26 17:28:22,834 INFO RED Colonist at tile (1, 13) with 100 HP was assigned the order 'Order: Move to (1, 12)'
+2018-03-26 17:28:22,835 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Move to (15, 2)'
+2018-03-26 17:28:22,835 INFO = Move phase begins
+2018-03-26 17:28:22,845 INFO RED Colonist at tile (1, 12) with 100 HP successfully executed 'Order: Move to (1, 12)'
+2018-03-26 17:28:22,845 INFO BLUE Colonist at tile (15, 2) with 100 HP successfully executed 'Order: Move to (15, 2)'
+2018-03-26 17:28:22,846 INFO = Build phase begins
+2018-03-26 17:28:22,857 INFO = Combat phase begins
+2018-03-26 17:28:22,869 INFO = Ranged phase begins
+2018-03-26 17:28:22,880 INFO = Special phase begins
+2018-03-26 17:28:22,892 INFO == TURN 2 BEGIN ==
+2018-03-26 17:28:22,892 INFO = Start Turn phase begins
+2018-03-26 17:28:22,904 INFO Team.RED team acquired 2 resources.
+2018-03-26 17:28:22,904 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 17:28:22,904 INFO Team.RED team acquired 1 resources.
+2018-03-26 17:28:22,904 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 17:28:22,905 INFO = Issue Orders phase begins
+2018-03-26 17:28:35,545 INFO === BATTLE OVER! ===
+2018-03-26 17:28:35,545 INFO Team.RED team has lost their base!
+2018-03-26 17:28:35,546 INFO -- Stats for team Team.RED --
+2018-03-26 17:28:35,546 INFO   * Tiles Moved: 1
+2018-03-26 17:28:35,546 INFO   * Ranged Attacks: 0
+2018-03-26 17:28:35,546 INFO   * Piece Conflicts: 0
+2018-03-26 17:28:35,546 INFO   * Pieces Lost: 0
+2018-03-26 17:28:35,546 INFO   * Pieces Built: 0
+2018-03-26 17:28:35,546 INFO   * Upgrades Researched: 0
+2018-03-26 17:28:35,546 INFO Team.BLUE team survived!
+2018-03-26 17:28:35,546 INFO -- Stats for team Team.BLUE --
+2018-03-26 17:28:35,546 INFO   * Tiles Moved: 3
+2018-03-26 17:28:35,546 INFO   * Ranged Attacks: 0
+2018-03-26 17:28:35,546 INFO   * Piece Conflicts: 0
+2018-03-26 17:28:35,546 INFO   * Pieces Lost: 0
+2018-03-26 17:28:35,546 INFO   * Pieces Built: 0
+2018-03-26 17:28:35,546 INFO   * Upgrades Researched: 0

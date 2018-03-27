@@ -1,17 +1,17 @@
 from pygame.constants import KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN
 
-from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
+from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT, HALF_RES_WIDTH, HALF_RES_HEIGHT
 from terra.engine.gamescreen import GameScreen
 from terra.event import *
 from terra.keybindings import KB_UP, KB_DOWN, KB_CONFIRM, KB_CANCEL, KB_MENU, KB_SCROLL_DOWN, KB_SCROLL_UP, KB_LEFT, \
     KB_RIGHT
 from terra.mainmenu.option import Option
-from terra.mainmenu.textinput import TextInput, FILTER_IP, FILTER_FILENAME
+from terra.mainmenu.textinput import TextInput, FILTER_IP, FILTER_FILENAME, FILTER_ALPHANUMERIC
 from terra.managers.mapmanager import get_loadable_maps, load_map_from_file, generate_minimap
 from terra.resources.assetloading import AssetType
 from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, spr_main_menu_option, \
     spr_title_text
-from terra.settings import Setting, SETTINGS
+from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
 from terra.team import Team
 from terra.util.drawingutil import draw_text
@@ -64,6 +64,7 @@ def generate_settings_menu():
         (Setting.SCREEN_SCALE, []),
         (Setting.SFX_VOLUME, []),
         (Setting.BGM_VOLUME, []),
+        (Setting.NICKNAME, []),
         (Option.SAVE_SETTINGS, []),
     ]
 
@@ -80,8 +81,8 @@ class MainMenu(GameScreen):
         self.current_menu_min = 0
         self.current_menu_max = self.num_options
 
-        self.root_x = RESOLUTION_WIDTH // 2
-        self.root_y = RESOLUTION_HEIGHT // 2 - 48
+        self.root_x = HALF_RES_WIDTH
+        self.root_y = HALF_RES_HEIGHT - 48
 
         self.text_input = None
 
@@ -143,6 +144,8 @@ class MainMenu(GameScreen):
                     self.clamp_menu_bounds()
                 else:
                     self.handle_menu_selection(selection)
+            elif selection[0] == Setting.NICKNAME:
+                self.text_input = TextInput("NICKNAME_INPUT", selection[0], default_text=SETTINGS.get_unsaved(Setting.NICKNAME), input_filter=FILTER_ALPHANUMERIC)
 
     def reset_menu(self):
         if self.current_menu[0] == Option.SETTINGS:
@@ -176,12 +179,12 @@ class MainMenu(GameScreen):
 
     def lower_setting(self):
         selection, _ = self.current_menu[1][self.current_menu_pos]
-        if selection in Setting:
+        if selection in numeric_settings:
             SETTINGS.lower_setting(selection)
 
     def raise_setting(self):
         selection, _ = self.current_menu[1][self.current_menu_pos]
-        if selection in Setting:
+        if selection in numeric_settings:
             SETTINGS.raise_setting(selection)
 
     def step(self, event):
@@ -204,6 +207,8 @@ class MainMenu(GameScreen):
                         'option': event.tag,
                         'address': event.input
                     })
+                elif event.tag == Setting.NICKNAME:
+                    SETTINGS.set_nonnumeric_setting(Setting.NICKNAME, event.input)
         else:
             if event.type == KEYDOWN:
                 if event.key in KB_UP:

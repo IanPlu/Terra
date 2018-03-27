@@ -5,8 +5,7 @@ from terra.event import *
 from terra.managers.managers import Managers
 from terra.resources.assets import clear_color, spr_cursor, spr_phase_indicator, spr_resource_icon, spr_digit_icons, \
     spr_turn_submitted_indicator, light_color
-from terra.strings import get_text, notification_strings, phase_strings
-from terra.team import Team
+from terra.strings import get_text, get_formatted_text, notification_strings, phase_strings
 from terra.ui.toastnotification import ToastNotification
 from terra.util.drawingutil import draw_resource_count
 from terra.battlephase import BattlePhase
@@ -28,10 +27,12 @@ class PhaseBar(GameObject):
             self.toast.step(event)
 
         if is_event_type(event, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, E_INVALID_UPGRADE_ORDERS,
-                         NETWORK_CONNECTED_TO_HOST, NETWORK_DISCONNECTED_FROM_HOST,
-                         NETWORK_CLIENT_CONNECTED, NETWORK_CLIENT_DISCONNECTED):
+                         NETWORK_CONNECTED_TO_HOST, NETWORK_DISCONNECTED_FROM_HOST):
             if event.team == self.team:
                 self.toast = ToastNotification(self, get_text(notification_strings, event.event_type, light=True), self.team)
+        elif is_event_type(event, NETWORK_CLIENT_CONNECTED, NETWORK_CLIENT_DISCONNECTED):
+            if event.team == self.team:
+                self.toast = ToastNotification(self, get_formatted_text(notification_strings, event.event_type, True, event.nickname), self.team)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

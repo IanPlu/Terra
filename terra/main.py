@@ -16,6 +16,9 @@ from terra.screens.leveleditor import LevelEditor
 from terra.screens.results import ResultsScreen
 from terra.settings import Setting, SETTINGS
 from terra.team import Team
+from terra.screens.networklobby import NetworkLobby
+
+use_network_lobby = False
 
 
 # Main entry point for the game.
@@ -36,11 +39,19 @@ class Main:
         if new_mode == Mode.MAIN_MENU:
             new_screen = MainMenu()
         elif new_mode == Mode.BATTLE:
-            new_screen = Battle(mapname, address, is_host, map_type)
+            map_name, bitmap, pieces, teams, upgrades, meta = Managers.load_map_setup_network(mapname, address, is_host, map_type)
+            Managers.initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta)
+            new_screen = Battle()
         elif new_mode == Mode.EDIT:
             new_screen = LevelEditor(mapname)
         elif new_mode == Mode.RESULTS:
             new_screen = ResultsScreen(results)
+        elif new_mode == Mode.NETWORK_LOBBY:
+            map_name, bitmap, pieces, teams, upgrades, meta = Managers.load_map_setup_network(mapname, address, is_host, map_type)
+            new_screen = NetworkLobby(map_name, bitmap, pieces, teams, upgrades, meta)
+        elif new_mode == Mode.NETWORK_BATTLE:
+            # Managers are already initialized by the lobby
+            new_screen = Battle()
         else:
             new_screen = None
 
@@ -75,11 +86,14 @@ class Main:
             elif event.option == Option.LOAD_GAME:
                 self.set_screen_from_mode(Mode.BATTLE, event.mapname, map_type=AssetType.SAVE)
             elif event.option == Option.NEW_NETWORK_GAME:
-                self.set_screen_from_mode(Mode.BATTLE, event.mapname, event.address, is_host=True)
+                mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
+                self.set_screen_from_mode(mode, event.mapname, event.address, is_host=True)
             elif event.option == Option.LOAD_NETWORK_GAME:
-                self.set_screen_from_mode(Mode.BATTLE, event.mapname, event.address, is_host=True, map_type=AssetType.SAVE)
+                mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
+                self.set_screen_from_mode(mode, event.mapname, event.address, is_host=True, map_type=AssetType.SAVE)
             elif event.option == Option.JOIN_GAME:
-                self.set_screen_from_mode(Mode.BATTLE, None, event.address, is_host=False)
+                mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
+                self.set_screen_from_mode(mode, None, event.address, is_host=False)
             elif event.option == Option.NEW_MAP:
                 self.set_screen_from_mode(Mode.EDIT, event.mapname)
             elif event.option == Option.LOAD_MAP:
@@ -89,7 +103,9 @@ class Main:
             elif event.option == Option.SAVE_SETTINGS:
                 SETTINGS.save_settings()
                 self.reset_resolution()
-        elif is_event_type(event, E_QUIT_BATTLE, E_EXIT_RESULTS):
+        elif is_event_type(event, E_START_NETWORK_BATTLE):
+            self.set_screen_from_mode(Mode.NETWORK_BATTLE)
+        elif is_event_type(event, E_QUIT_BATTLE, E_EXIT_RESULTS, E_EXIT_LOBBY, E_NETWORKING_ERROR):
             self.reset_to_menu()
         elif is_event_type(event, E_BATTLE_OVER):
             self.set_screen_from_mode(Mode.RESULTS, results={

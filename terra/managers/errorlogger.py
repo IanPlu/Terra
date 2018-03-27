@@ -1,4 +1,5 @@
 import logging
+import traceback
 
 from terra.util.loggingutil import get_logger, check_log_dir_exists
 
@@ -17,3 +18,10 @@ class ErrorLogger:
 
     def warn(self, error):
         self.logger.warning("[WARN]: {}".format(error))
+
+    # Log an exception + traceback/stacktrace.
+    def exception(self, context, exc):
+        self.error(context)
+        stacktrace = "\n".join(traceback.format_tb(exc.__traceback__))
+        self.error("!=== Caught a fatal exception: ===!")
+        self.error("Exception: \n{}\n{}".format(exc, stacktrace))

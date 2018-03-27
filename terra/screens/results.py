@@ -38,25 +38,28 @@ class ResultsScreen(GameScreen):
         game_screen = Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), SRCALPHA, 32)
         game_screen.fill(clear_color[Team.RED])
 
+        base_x = 24
+
         y = 0
         for team in self.losing_teams:
-            game_screen.blit(draw_text("{} team lost".format(team), light_color, shadow_color[Team.RED]), (0, y * 24))
+            game_screen.blit(draw_text(get_string(formatted_strings, "RESULTS_HEADER").format(get_string(team_name_strings, team)),
+                                       light_color, shadow_color[Team.RED]), (base_x, y * 24))
             y += 1
 
         x = 0
         last_y = y
         for team in self.teams:
             y = last_y + 1
-            game_screen.blit(get_text(team_name_strings, team), (x, y * 24))
+            game_screen.blit(get_text(team_name_strings, team), (base_x + x, y * 24))
 
             y += 1
             for stat, value in self.team_stats[team].items():
                 game_screen.blit(draw_text(get_string(formatted_strings, stat).format(value),
-                                           light_color, shadow_color[Team.RED]), (x, y * 24))
+                                           light_color, shadow_color[Team.RED]), (base_x + x, y * 24))
                 y += 1
 
             x += HALF_RES_WIDTH
 
-        game_screen.blit(draw_text(get_string(label_strings, "RESULTS_PROMPT"), light_color, shadow_color[Team.RED]), (0, y * 24))
+        game_screen.blit(draw_text(get_string(label_strings, "RESULTS_PROMPT"), light_color, shadow_color[Team.RED]), (base_x, y * 24))
 
         return game_screen

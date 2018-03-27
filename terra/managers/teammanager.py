@@ -211,6 +211,10 @@ class TeamManager(GameObject):
             for team in self.teams:
                 self.turn_submitted[team] = False
 
+    # Mark a turn received from the network as NOT submitted
+    def unset_turn_submitted(self, team):
+        self.turn_submitted[team] = False
+
     def step(self, event):
         super().step(event)
 
@@ -222,6 +226,8 @@ class TeamManager(GameObject):
                 self.turn_submitted[team] = False
         elif is_event_type(event, E_SUBMIT_TURN):
             self.set_turn_submitted(event.team)
+        elif is_event_type(event, E_CANCEL_TURN):
+            self.unset_turn_submitted(event.team)
         elif is_event_type(event, E_CLOSE_MENU) and event.option:
             if event.option == MENU_SUBMIT_TURN:
                 self.try_submitting_turn(event.team)
@@ -232,7 +238,7 @@ class TeamManager(GameObject):
             elif event.option == MENU_QUIT_BATTLE:
                 publish_game_event(E_QUIT_BATTLE, {})
             elif event.option == MENU_CONCEDE:
-                publish_game_event(E_PLAYER_CONCEDED, {
+                publish_game_event(E_CONCEDE, {
                     'team': event.team
                 })
         elif is_event_type(event, E_UPGRADE_BUILT):

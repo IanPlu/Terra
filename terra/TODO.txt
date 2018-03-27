@@ -18,6 +18,7 @@ x Game end screens / match review with statistics(?)
 x Add 'serialize' method to managers, use this when saving or loading the game state
 x Create a separate 'buy' menu better suited to showing lots of upgrades / pieces to purchase, or add a scroll bar
 * Add autosave to battle and level editor
+* Add a prematch lobby where you can assign teams and wait for connections / kick connections, etc.
 
 Engineering
 * Write tests!!
@@ -39,7 +40,10 @@ x Fix the loggers not outputting to separate files: https://stackoverflow.com/qu
 * Fix level editor click+hold taking effect when clicking the pause menu
 * Fix level editor generating new maps via an error in loading files, rather than an explicit action?
 * Fix level editor scrolling piece types when scrolling the pause menu
-* Fix team assumptions from the network manager -- because it's loaded before the map, it can't know what teams are in the game
+x Fix team assumptions from the network manager -- because it's loaded before the map, it can't know what teams are in the game
+    x Loaded map ahead of time, and network manager gains a team from the host when polling for the map data
+* Fix window gaining focus + clicking on a menu option confirms that menu option
+
 
 Gameplay
 x Build support for upgrades, enable purchasing them from the base
@@ -75,7 +79,7 @@ x Upon submitting a turn, don't allow modifying the turn unless you cancel submi
     x Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
 x Gracefully handle connects / disconnects
 x Support for connecting to a custom IP
-* Check that victory checking + conceding works
+x Check that victory checking + conceding works
 
 Kegan's Special to do list
 x Allow ESC to cancel out of menus

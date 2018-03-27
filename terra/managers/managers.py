@@ -1,6 +1,7 @@
 from terra.managers.errorlogger import ErrorLogger
 from terra.mode import Mode
 from terra.resources.assetloading import AssetType, get_asset
+from terra.team import Team
 
 
 # Container for the various -manager objects.
@@ -22,25 +23,19 @@ class Managers:
     current_mode = Mode.MAIN_MENU
 
     @staticmethod
-    def initialize_managers(map_name, address, is_host, map_type=AssetType.MAP):
-        from terra.managers.effectsmanager import EffectsManager
-        from terra.managers.mapmanager import MapManager, load_map_from_file, parse_map_from_string
-        from terra.managers.piecemanager import PieceManager
-        from terra.managers.playermanager import PlayerManager
-        from terra.managers.teammanager import TeamManager
-        from terra.managers.turnmanager import TurnManager
-        from terra.managers.combatlogger import CombatLogger
+    def load_map_setup_network(map_name, address, is_host, map_type=AssetType.MAP):
         from terra.managers.networkmanager import NetworkManager
-        from terra.managers.soundmanager import SoundManager
-        from terra.managers.statmanager import StatManager
-
-        Managers.network_manager = NetworkManager(address, is_host)
+        from terra.managers.mapmanager import load_map_from_file, parse_map_from_string
 
         if map_name:
             # Load the map from a file for a local game (or network game where we're the host)
             bitmap, pieces, teams, upgrades, meta = load_map_from_file(map_name, map_type)
-        elif not map_name and Managers.network_manager.networked_game:
+            open_teams = [Team[team.split(' ')[0]] for team in teams]
+
+            Managers.network_manager = NetworkManager(address, open_teams, is_host)
+        elif not map_name and not is_host:
             # Client games won't have a map name until they connect, so fetch it now
+            Managers.network_manager = NetworkManager(address, None, is_host)
             map_data = Managers.network_manager.map_data
 
             # If we still have no map data, just abort and return to the title screen
@@ -55,6 +50,20 @@ class Managers:
             # No map name for a local game, so assume something has gone wrong and abort
             Managers.tear_down_managers()
             return
+
+        return map_name, bitmap, pieces, teams, upgrades, meta
+
+    @staticmethod
+    def initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta):
+        from terra.managers.effectsmanager import EffectsManager
+        from terra.managers.mapmanager import MapManager
+        from terra.managers.piecemanager import PieceManager
+        from terra.managers.playermanager import PlayerManager
+        from terra.managers.teammanager import TeamManager
+        from terra.managers.turnmanager import TurnManager
+        from terra.managers.combatlogger import CombatLogger
+        from terra.managers.soundmanager import SoundManager
+        from terra.managers.statmanager import StatManager
 
         Managers.combat_logger = CombatLogger(map_name)
         Managers.effects_manager = EffectsManager()

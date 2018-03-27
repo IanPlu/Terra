@@ -3,7 +3,7 @@ from pygame import Surface, SRCALPHA
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT
 from terra.engine.gamescreen import GameScreen
 from terra.event import is_event_type, publish_game_event, E_BASE_DESTROYED, E_SAVE_GAME, END_PHASE_SPECIAL, \
-    E_BATTLE_OVER, E_PLAYER_CONCEDED
+    E_BATTLE_OVER, E_PLAYER_CONCEDED, E_CONCEDE
 from terra.managers.managers import Managers
 from terra.resources.assetloading import AssetType
 
@@ -11,13 +11,11 @@ from terra.resources.assetloading import AssetType
 # A battle containing a map, players, their resources + input methods, etc.
 # Handles the turn / phase loop.
 class Battle(GameScreen):
-    def __init__(self, map_name="key_range.map", address=None, is_host=False, map_type=AssetType.MAP):
+    def __init__(self):
         super().__init__()
 
         # Store bases as they're destroyed.
         self.bases_destroyed = set()
-
-        Managers.initialize_managers(map_name, address, is_host, map_type)
 
     def end_battle(self):
         results = {
@@ -40,7 +38,7 @@ class Battle(GameScreen):
         elif is_event_type(event, END_PHASE_SPECIAL):
             if len(self.bases_destroyed) > 0:
                 self.end_battle()
-        elif is_event_type(event, E_PLAYER_CONCEDED):
+        elif is_event_type(event, E_PLAYER_CONCEDED, E_CONCEDE):
             self.bases_destroyed.add(event.team)
             self.end_battle()
 

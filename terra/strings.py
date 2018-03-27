@@ -168,7 +168,10 @@ phase_strings = {
 team_name_strings = {
     Language.EN_US: {
         Team.RED: "RED",
-        Team.BLUE: "BLUE"
+        Team.BLUE: "BLUE",
+        Team.GREEN: "GREEN",
+        Team.YELLOW: "YELLOW",
+        Team.NONE: "???",
     }
 }
 
@@ -247,8 +250,8 @@ notification_strings = {
         E_INVALID_MOVE_ORDERS: "Orders result in stacked pieces",
         E_INVALID_BUILD_ORDERS: "Not enough resources for orders",
         E_INVALID_UPGRADE_ORDERS: "Can't buy the same upgrade twice",
-        NETWORK_CLIENT_CONNECTED: "New client connected",
-        NETWORK_CLIENT_DISCONNECTED: "Client disconnected",
+        NETWORK_CLIENT_CONNECTED: "{} connected",
+        NETWORK_CLIENT_DISCONNECTED: "{} disconnected",
         NETWORK_CONNECTED_TO_HOST: "Connected to host",
         NETWORK_DISCONNECTED_FROM_HOST: "Disconnected from host",
     }
@@ -295,6 +298,7 @@ attribute_value_strings = {
 label_strings = {
     Language.EN_US: {
         "IP_INPUT": "Enter ip address to connect to:",
+        "NICKNAME_INPUT": "Enter a new nickname:",
         "MAPNAME_INPUT": "Enter new map name:",
         "RESULTS_PROMPT": "Press the CONFIRM key to continue",
     }
@@ -304,10 +308,12 @@ label_strings = {
 formatted_strings = {
     Language.EN_US: {
         "NEW_TURN_MESSAGE": "TURN {}",
+        "RESULTS_HEADER": "{} team lost!",
 
         Setting.SCREEN_SCALE: "Screen Scale: {}x",
         Setting.SFX_VOLUME: "Sound Volume: {}%",
         Setting.BGM_VOLUME: "Music Volume: {}%",
+        Setting.NICKNAME: "Nickname: '{}'",
 
         Stat.TILES_MOVED: "Tiles Moved: {}",
         Stat.RANGED_ATTACKS_MADE: "Ranged Attacks: {}",
@@ -328,9 +334,8 @@ def get_string(string_type, string_name):
     return string_type[LANGUAGE][string_name]
 
 
-# Return a surface containing the provided string.
-def get_text(string_type, string_name, light=True):
-    string = string_type[LANGUAGE][string_name]
+# Return a surface containing the provided string
+def __get_cached_text__(string, light=True):
     color = light_color if light else dark_color
     background = dark_color if light else light_color
 
@@ -340,6 +345,16 @@ def get_text(string_type, string_name, light=True):
         new_text = draw_text(string, color, background)
         text_objects[(string, color)] = new_text
         return new_text
+
+
+# Return a surface containing the provided string.
+def get_text(string_type, string_name, light=True):
+    return __get_cached_text__(string_type[LANGUAGE][string_name], light)
+
+
+# Return a surface containing the provided FORMATTED string.
+def get_formatted_text(string_type, string_name, light=True, *inputs):
+    return __get_cached_text__(string_type[LANGUAGE][string_name].format(*inputs), light)
 
 
 # Return a surface containing the provided string, broken out over multiple lines as appropriate.

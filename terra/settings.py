@@ -10,6 +10,14 @@ class Setting(Enum):
     SCREEN_SCALE = "SCREEN_SCALE"
     SFX_VOLUME = "SFX_VOLUME"
     BGM_VOLUME = "BGM_VOLUME"
+    NICKNAME = "NICKNAME"
+
+
+numeric_settings = [
+    Setting.SCREEN_SCALE,
+    Setting.SFX_VOLUME,
+    Setting.BGM_VOLUME,
+]
 
 
 # Upper and lower bounds for specific settings
@@ -31,6 +39,7 @@ default_settings = {
     Setting.SCREEN_SCALE: 3,
     Setting.SFX_VOLUME: 10,
     Setting.BGM_VOLUME: 0,
+    Setting.NICKNAME: "Colonist"
 }
 
 
@@ -51,7 +60,11 @@ class Settings:
                 for line in StringIO(lines):
                     values = line.split(' ')
                     if len(values) == 2:
-                        file_settings[Setting[values[0]]] = int(values[1])
+                        setting = Setting[values[0]]
+                        if setting in numeric_settings:
+                            file_settings[setting] = int(values[1])
+                        else:
+                            file_settings[setting] = values[1].rstrip()
             return file_settings
         except (IOError, KeyError) as e:
             print("Unable to load settings file. Using defaults. Exception: {}".format(e))
@@ -86,6 +99,9 @@ class Settings:
     # Set the unsaved value of the setting
     def set_setting(self, setting, new_value):
         self.unsaved_settings[setting] = clamp(new_value, setting_bounds[setting][0], setting_bounds[setting][1])
+
+    def set_nonnumeric_setting(self, setting, new_value):
+        self.unsaved_settings[setting] = new_value
 
     # Save unsaved settings, making them the actual values
     def save_settings(self):

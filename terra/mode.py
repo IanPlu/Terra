@@ -6,3 +6,5 @@ class Mode(Enum):
     BATTLE = 1
     EDIT = 2
     RESULTS = 3
+    NETWORK_LOBBY = 4
+    NETWORK_BATTLE = 5

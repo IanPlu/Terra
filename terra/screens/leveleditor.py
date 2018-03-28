@@ -6,11 +6,11 @@ from terra.event import *
 from terra.keybindings import KB_MENU2, KB_SCROLL_UP, KB_SCROLL_DOWN, KB_CONFIRM, KB_CANCEL
 from terra.managers.managers import Managers
 from terra.map.tiletype import TileType
+from terra.piece.piece import Piece
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import clear_color, spr_tiles, spr_cursor, spr_pieces
 from terra.team import Team
 from terra.util.mathutil import clamp
-from terra.piece.piece import Piece
 
 
 # A map editor for Terra maps.
@@ -19,13 +19,15 @@ class LevelEditor(GameScreen):
     def __init__(self, map_name="edited_map.map"):
         super().__init__()
 
-        Managers.initialize_managers(map_name, None, False)
+        map_name, bitmap, pieces, team_data, upgrades, meta = Managers.load_map_setup_network(map_name, None, False)
+        self.teams = [Team[team.split(' ')[0]] for team in team_data]
+        Managers.initialize_managers(map_name, bitmap, pieces, team_data, upgrades, meta)
 
         self.current_tile_type = TileType.GRASS
         self.secondary_tile_type = TileType.SEA
 
         self.placing_tiles = True
-        self.piece_team = Team.RED
+        self.piece_team = self.teams[0]
         self.piece_type = PieceType.COLONIST
 
         self.placing_multiple = False
@@ -133,15 +135,18 @@ class LevelEditor(GameScreen):
             return PieceType(new_piece_type)
 
     def update_team(self, team, amount):
-        if team == Team.RED:
-            new_team = Team.BLUE
-        elif team == Team.BLUE:
-            new_team = Team.RED
-        else:
-            new_team = Team.RED
+        new_index = self.teams.index(team) + amount
+        if new_index > len(self.teams) - 1:
+            new_index = 0
+        elif new_index < 0:
+            new_index = len(self.teams) - 1
+
+        new_team = self.teams[new_index]
 
         if not new_team == team:
             return Team(new_team)
+        else:
+            return team
 
     def get_tile_sprite_for_tiletype(self, tiletype):
         if tiletype in [TileType.COAST]:

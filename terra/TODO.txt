@@ -80,6 +80,7 @@ x Upon submitting a turn, don't allow modifying the turn unless you cancel submi
 x Gracefully handle connects / disconnects
 x Support for connecting to a custom IP
 x Check that victory checking + conceding works
+* Support marking events as coming from the network or local. Use this when deciding whether to forward an event on to the network
 
 Kegan's Special to do list
 x Allow ESC to cancel out of menus

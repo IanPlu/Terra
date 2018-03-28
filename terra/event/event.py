@@ -1,6 +1,7 @@
 import pygame
 
 EVENT_TYPE = "event_type"
+FROM_NETWORK = "from_network"
 event_counter = 0
 
 
@@ -119,6 +120,17 @@ def publish_game_event(event_type, data):
     pygame.event.post(event)
 
 
+# Publish the specified game event, with the data provided, and the event marked as being from the network (not local)
+def publish_game_event_from_network(event_type, data):
+    data[FROM_NETWORK] = True
+    publish_game_event(event_type, data)
+
+
 # Return true if the event is any of the provided types.
 def is_event_type(event, *event_type):
     return event.type == pygame.USEREVENT and event.event_type in event_type
+
+
+# Return true if the event is of any of the provided types AND it originated here (not from the network)
+def is_local_event_type(event, *event_type):
+    return event.type == pygame.USEREVENT and event.event_type in event_type and not hasattr(event, FROM_NETWORK)

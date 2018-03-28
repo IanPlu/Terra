@@ -114,3 +114,21 @@
 2018-03-26 15:44:04,682 INFO   * Pieces Lost: 0
 2018-03-26 15:44:04,682 INFO   * Pieces Built: 0
 2018-03-26 15:44:04,682 INFO   * Upgrades Researched: 0
+2018-03-26 18:21:43,429 INFO = Move phase begins
+2018-03-26 18:21:43,442 INFO = Build phase begins
+2018-03-26 18:21:43,455 INFO = Combat phase begins
+2018-03-26 18:21:43,467 INFO = Ranged phase begins
+2018-03-26 18:21:43,478 INFO = Special phase begins
+2018-03-26 18:21:43,491 INFO == TURN 2 BEGIN ==
+2018-03-26 18:21:43,492 INFO = Start Turn phase begins
+2018-03-26 18:21:43,504 INFO Team.RED team acquired 2 resources.
+2018-03-26 18:21:43,504 INFO Team.RED team acquired 1 resources.
+2018-03-26 18:21:43,504 INFO Team.RED team acquired 1 resources.
+2018-03-26 18:21:43,504 INFO Team.RED team acquired 1 resources.
+2018-03-26 18:21:43,505 INFO Team.BLUE team acquired 2 resources.
+2018-03-26 18:21:43,505 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 18:21:43,505 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 18:21:43,505 INFO Team.BLUE team acquired 1 resources.
+2018-03-26 18:21:43,505 INFO = Issue Orders phase begins
+2018-03-26 18:24:44,606 INFO == TURN 1 BEGIN ==
+2018-03-26 18:24:44,606 INFO = Issue Orders phase begins

@@ -19,6 +19,7 @@ class NetworkManager(GameObject):
 
         self.open_teams = open_teams
         self.filled_teams = {}
+        self.team = Team.NONE
 
         if not address:
             # Don't do any networking.
@@ -128,7 +129,7 @@ class NetworkManager(GameObject):
             print("Connection ended from: " + str(address))
             self.connection.close()
             self.quit_network_game(notify_host=False)
-            publish_game_event(E_QUIT_BATTLE, {})
+            publish_game_event_from_network(E_QUIT_BATTLE, {})
         elif command == MessageCode.SET_ORDERS.value:
             print("Setting orders from net msg: " + str(body))
             orders = literal_eval(body)
@@ -141,7 +142,7 @@ class NetworkManager(GameObject):
                     parsed_orders[coord] = None
 
             Managers.piece_manager.set_orders(team, parsed_orders)
-            publish_game_event(E_SUBMIT_TURN, {
+            publish_game_event_from_network(E_SUBMIT_TURN, {
                 'team': team
             })
         elif command == MessageCode.SET_TEAM.value:
@@ -149,12 +150,12 @@ class NetworkManager(GameObject):
             self.team = Team(body)
         elif command == MessageCode.CANCEL_ORDERS.value:
             print("Canceling orders from net msg:" + str(body))
-            publish_game_event(E_CANCEL_TURN, {
+            publish_game_event_from_network(E_CANCEL_TURN, {
                 'team': team
             })
         elif command == MessageCode.PLAYER_CONCEDED.value:
             print("Player has conceded from net msg: " + str(body))
-            publish_game_event(E_PLAYER_CONCEDED, {
+            publish_game_event_from_network(E_PLAYER_CONCEDED, {
                 'team': team
             })
         elif command == MessageCode.SET_GAME_STATE.value:
@@ -162,7 +163,7 @@ class NetworkManager(GameObject):
             self.map_data = body
         elif command == MessageCode.START_BATTLE.value:
             print("Network has started the battle")
-            publish_game_event(E_START_NETWORK_BATTLE, {})
+            publish_game_event_from_network(E_START_NETWORK_BATTLE, {})
 
     # Send the provided message on to the other player
     def send_message(self, code, team, message):
@@ -226,19 +227,19 @@ class NetworkManager(GameObject):
 
     def step(self, event):
         if self.networked_game:
-            if is_event_type(event, E_TURN_SUBMITTED):
+            if is_local_event_type(event, E_TURN_SUBMITTED):
                 self.send_message(MessageCode.SET_ORDERS, event.team, str(event.orders))
-            elif is_event_type(event, E_CANCEL_TURN_SUBMITTED):
+            elif is_local_event_type(event, E_CANCEL_TURN_SUBMITTED):
                 self.send_message(MessageCode.CANCEL_ORDERS, event.team, "")
-            elif is_event_type(event, E_CONCEDE):
+            elif is_local_event_type(event, E_CONCEDE):
                 self.send_message(MessageCode.PLAYER_CONCEDED, event.team, "")
-            elif is_event_type(event, E_START_BATTLE):
+            elif is_local_event_type(event, E_START_BATTLE):
                 self.send_message(MessageCode.START_BATTLE, event.team, "")
                 publish_game_event(E_START_NETWORK_BATTLE, {})
 
-            elif is_event_type(event, E_QUIT_BATTLE):
+            elif is_local_event_type(event, E_QUIT_BATTLE):
                 self.quit_network_game(notify_host=True)
-            elif is_event_type(event, E_EXIT_RESULTS):
+            elif is_local_event_type(event, E_EXIT_RESULTS):
                 self.quit_network_game(notify_host=False)
 
     def render(self, map_screen, ui_screen):

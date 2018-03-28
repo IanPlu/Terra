@@ -593,7 +593,7 @@ class Piece(AnimatedGameObject):
     def preview_order(self, game_screen):
         if self.current_order:
             if isinstance(self.current_order, MoveOrder):
-                target_sprite = self.get_sprite().copy()
+                target_sprite = self.sprite.copy()
                 target_sprite.set_alpha(128)
                 game_screen.blit(target_sprite, (self.current_order.dx * GRID_WIDTH,
                                                  self.current_order.dy * GRID_HEIGHT))
@@ -603,7 +603,7 @@ class Piece(AnimatedGameObject):
                 game_screen.blit(target_sprite, (self.current_order.tx * GRID_WIDTH,
                                                  self.current_order.ty * GRID_HEIGHT))
             elif isinstance(self.current_order, BuildOrder):
-                target_sprite = spr_pieces[self.team][self.current_order.new_piece_type].copy()
+                target_sprite = spr_pieces[self.team][self.current_order.new_piece_type].subsurface((0, 0, 24, 24)).copy()
                 target_sprite.set_alpha(128)
                 game_screen.blit(target_sprite, (self.current_order.tx * GRID_WIDTH,
                                                  self.current_order.ty * GRID_HEIGHT))

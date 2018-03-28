@@ -1536,3 +1536,23 @@
 2018-03-26 17:28:35,556 INFO   * Pieces Lost: 0
 2018-03-26 17:28:35,556 INFO   * Pieces Built: 0
 2018-03-26 17:28:35,556 INFO   * Upgrades Researched: 0
+2018-03-28 12:44:46,744 INFO RED Colonist at tile (1, 13) with 100 HP was assigned the order 'Order: Build a Generator on tile (1, 14)'
+2018-03-28 12:44:46,744 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 3)'
+2018-03-28 12:44:46,744 INFO = Move phase begins
+2018-03-28 12:44:46,756 INFO = Build phase begins
+2018-03-28 12:44:46,767 INFO RED Colonist at tile (1, 13) with 100 HP successfully executed 'Order: Build a Generator on tile (1, 14)'
+2018-03-28 12:44:46,767 INFO Team.RED team spent 1 resources.
+2018-03-28 12:44:46,767 INFO BLUE Colonist at tile (18, 2) with 100 HP successfully executed 'Order: Build a Generator on tile (18, 3)'
+2018-03-28 12:44:46,767 INFO Team.BLUE team spent 1 resources.
+2018-03-28 12:44:46,767 INFO = Combat phase begins
+2018-03-28 12:44:46,779 INFO = Ranged phase begins
+2018-03-28 12:44:46,791 INFO = Special phase begins
+2018-03-28 12:44:46,802 INFO == TURN 2 BEGIN ==
+2018-03-28 12:44:46,803 INFO = Start Turn phase begins
+2018-03-28 12:44:46,814 INFO Team.RED team acquired 2 resources.
+2018-03-28 12:44:46,814 INFO Team.BLUE team acquired 2 resources.
+2018-03-28 12:44:46,815 INFO Team.RED team acquired 1 resources.
+2018-03-28 12:44:46,815 INFO Team.BLUE team acquired 1 resources.
+2018-03-28 12:44:46,815 INFO Team.RED team acquired 1 resources.
+2018-03-28 12:44:46,815 INFO Team.BLUE team acquired 1 resources.
+2018-03-28 12:44:46,815 INFO = Issue Orders phase begins

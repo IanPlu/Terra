@@ -1389,3 +1389,87 @@
 2018-03-26 17:28:35,546 INFO   * Pieces Lost: 0
 2018-03-26 17:28:35,546 INFO   * Pieces Built: 0
 2018-03-26 17:28:35,546 INFO   * Upgrades Researched: 0
+2018-03-26 17:49:13,131 INFO == TURN 1 BEGIN ==
+2018-03-26 17:49:13,132 INFO = Issue Orders phase begins
+2018-03-26 17:53:17,427 INFO == TURN 1 BEGIN ==
+2018-03-26 17:53:17,428 INFO = Issue Orders phase begins
+2018-03-28 12:34:20,529 INFO == TURN 1 BEGIN ==
+2018-03-28 12:34:20,530 INFO = Issue Orders phase begins
+2018-03-28 12:36:21,720 INFO == TURN 1 BEGIN ==
+2018-03-28 12:36:21,721 INFO = Issue Orders phase begins
+2018-03-28 12:38:33,318 INFO == TURN 1 BEGIN ==
+2018-03-28 12:38:33,318 INFO = Issue Orders phase begins
+2018-03-28 12:39:05,194 INFO == TURN 1 BEGIN ==
+2018-03-28 12:39:05,194 INFO = Issue Orders phase begins
+2018-03-28 12:39:38,712 INFO RED Base at tile (3, 12) with 150 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_TERRAFORMING'
+2018-03-28 12:39:38,712 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: purchase upgrade UpgradeType.GHOST_ANTI_COLONIST'
+2018-03-28 12:39:38,712 INFO = Move phase begins
+2018-03-28 12:39:38,723 INFO = Build phase begins
+2018-03-28 12:39:38,735 INFO = Combat phase begins
+2018-03-28 12:39:38,746 INFO = Ranged phase begins
+2018-03-28 12:39:38,758 INFO = Special phase begins
+2018-03-28 12:39:38,768 INFO RED Base at tile (3, 12) with 150 HP successfully executed 'Order: purchase upgrade UpgradeType.COLONIST_TERRAFORMING'
+2018-03-28 12:39:38,768 INFO Team.RED team spent 4 resources.
+2018-03-28 12:39:38,768 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: purchase upgrade UpgradeType.GHOST_ANTI_COLONIST'
+2018-03-28 12:39:38,768 INFO Team.RED team spent 2 resources.
+2018-03-28 12:39:38,769 INFO == TURN 2 BEGIN ==
+2018-03-28 12:39:38,769 INFO = Start Turn phase begins
+2018-03-28 12:39:38,780 INFO Team.RED team researched the upgrade UpgradeType.COLONIST_TERRAFORMING
+2018-03-28 12:39:38,780 INFO Team.RED team researched the upgrade UpgradeType.GHOST_ANTI_COLONIST
+2018-03-28 12:39:38,780 INFO Team.RED team acquired 2 resources.
+2018-03-28 12:39:38,781 INFO Team.BLUE team acquired 2 resources.
+2018-03-28 12:39:38,781 INFO Team.RED team acquired 1 resources.
+2018-03-28 12:39:38,781 INFO Team.BLUE team acquired 1 resources.
+2018-03-28 12:39:38,781 INFO = Issue Orders phase begins
+2018-03-28 12:39:45,646 INFO RED Colonist at tile (1, 13) with 100 HP was assigned the order 'Order: raise terrain on tile (2, 13)'
+2018-03-28 12:39:45,646 INFO = Move phase begins
+2018-03-28 12:39:45,656 INFO = Build phase begins
+2018-03-28 12:39:45,667 INFO = Combat phase begins
+2018-03-28 12:39:45,677 INFO = Ranged phase begins
+2018-03-28 12:39:45,688 INFO = Special phase begins
+2018-03-28 12:39:45,699 INFO RED Colonist at tile (1, 13) with 100 HP successfully executed 'Order: raise terrain on tile (2, 13)'
+2018-03-28 12:39:45,699 INFO == TURN 3 BEGIN ==
+2018-03-28 12:39:45,699 INFO = Start Turn phase begins
+2018-03-28 12:39:45,709 INFO Team.RED team acquired 2 resources.
+2018-03-28 12:39:45,709 INFO Team.BLUE team acquired 2 resources.
+2018-03-28 12:39:45,710 INFO Team.RED team acquired 1 resources.
+2018-03-28 12:39:45,710 INFO Team.BLUE team acquired 1 resources.
+2018-03-28 12:39:45,710 INFO = Issue Orders phase begins
+2018-03-28 12:39:48,138 INFO RED Colonist at tile (1, 13) with 100 HP was assigned the order 'Order: raise terrain on tile (2, 13)'
+2018-03-28 12:39:48,138 INFO = Move phase begins
+2018-03-28 12:39:48,149 INFO = Build phase begins
+2018-03-28 12:39:48,160 INFO = Combat phase begins
+2018-03-28 12:39:48,170 INFO = Ranged phase begins
+2018-03-28 12:39:48,182 INFO = Special phase begins
+2018-03-28 12:39:48,193 INFO RED Colonist at tile (1, 13) with 100 HP successfully executed 'Order: raise terrain on tile (2, 13)'
+2018-03-28 12:39:48,193 INFO == TURN 4 BEGIN ==
+2018-03-28 12:39:48,193 INFO = Start Turn phase begins
+2018-03-28 12:39:48,203 INFO Team.RED team acquired 2 resources.
+2018-03-28 12:39:48,203 INFO Team.BLUE team acquired 2 resources.
+2018-03-28 12:39:48,203 INFO Team.RED team acquired 1 resources.
+2018-03-28 12:39:48,204 INFO Team.BLUE team acquired 1 resources.
+2018-03-28 12:39:48,204 INFO = Issue Orders phase begins
+2018-03-28 12:40:00,804 INFO == TURN 1 BEGIN ==
+2018-03-28 12:40:00,805 INFO = Issue Orders phase begins
+2018-03-28 12:44:29,644 INFO == TURN 1 BEGIN ==
+2018-03-28 12:44:29,645 INFO = Issue Orders phase begins
+2018-03-28 12:44:46,729 INFO RED Colonist at tile (1, 13) with 100 HP was assigned the order 'Order: Build a Generator on tile (1, 14)'
+2018-03-28 12:44:46,729 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 3)'
+2018-03-28 12:44:46,729 INFO = Move phase begins
+2018-03-28 12:44:46,740 INFO = Build phase begins
+2018-03-28 12:44:46,751 INFO RED Colonist at tile (1, 13) with 100 HP successfully executed 'Order: Build a Generator on tile (1, 14)'
+2018-03-28 12:44:46,751 INFO Team.RED team spent 1 resources.
+2018-03-28 12:44:46,751 INFO BLUE Colonist at tile (18, 2) with 100 HP successfully executed 'Order: Build a Generator on tile (18, 3)'
+2018-03-28 12:44:46,751 INFO Team.BLUE team spent 1 resources.
+2018-03-28 12:44:46,751 INFO = Combat phase begins
+2018-03-28 12:44:46,762 INFO = Ranged phase begins
+2018-03-28 12:44:46,773 INFO = Special phase begins
+2018-03-28 12:44:46,783 INFO == TURN 2 BEGIN ==
+2018-03-28 12:44:46,784 INFO = Start Turn phase begins
+2018-03-28 12:44:46,794 INFO Team.RED team acquired 2 resources.
+2018-03-28 12:44:46,794 INFO Team.BLUE team acquired 2 resources.
+2018-03-28 12:44:46,794 INFO Team.RED team acquired 1 resources.
+2018-03-28 12:44:46,794 INFO Team.BLUE team acquired 1 resources.
+2018-03-28 12:44:46,794 INFO Team.RED team acquired 1 resources.
+2018-03-28 12:44:46,794 INFO Team.BLUE team acquired 1 resources.
+2018-03-28 12:44:46,794 INFO = Issue Orders phase begins

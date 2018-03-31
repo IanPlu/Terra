@@ -1,14 +1,14 @@
+from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
 from terra.engine.gameobject import GameObject
-from terra.event import *
+from terra.event.event import EventType
 from terra.managers.managers import Managers
 from terra.resources.assets import clear_color, spr_cursor, spr_phase_indicator, spr_resource_icon, spr_digit_icons, \
     spr_turn_submitted_indicator, light_color
 from terra.strings import get_text, get_formatted_text, notification_strings, phase_strings
 from terra.ui.toastnotification import ToastNotification
 from terra.util.drawingutil import draw_resource_count
-from terra.battlephase import BattlePhase
 
 
 # Renders a UI at the bottom of the screen
@@ -19,20 +19,37 @@ class PhaseBar(GameObject):
         self.team = team
         self.toast = None
 
+    def destroy(self):
+        super().destroy()
+        if self.toast:
+            self.toast.destroy()
+
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+
+        event_bus.register_handler(EventType.E_INVALID_MOVE_ORDERS, self.create_toast_from_event)
+        event_bus.register_handler(EventType.E_INVALID_BUILD_ORDERS, self.create_toast_from_event)
+        event_bus.register_handler(EventType.E_INVALID_UPGRADE_ORDERS, self.create_toast_from_event)
+        event_bus.register_handler(EventType.NETWORK_CONNECTED_TO_HOST, self.create_toast_from_event)
+        event_bus.register_handler(EventType.NETWORK_DISCONNECTED_FROM_HOST, self.create_toast_from_event)
+
+        event_bus.register_handler(EventType.NETWORK_CLIENT_CONNECTED, self.create_toast_from_network_event)
+        event_bus.register_handler(EventType.NETWORK_CLIENT_DISCONNECTED, self.create_toast_from_network_event)
+
+    def create_toast_from_event(self, event):
+        if event.team == self.team:
+            self.toast = ToastNotification(self, get_text(notification_strings, event.event_type, light=True), self.team)
+
+    def create_toast_from_network_event(self, event):
+        if event.team == self.team:
+            self.toast = ToastNotification(self, get_formatted_text(notification_strings, event.event_type, True, event.nickname), self.team)
+
     def remove_toast_notification(self):
         self.toast = None
 
     def step(self, event):
         if self.toast:
             self.toast.step(event)
-
-        if is_event_type(event, E_INVALID_MOVE_ORDERS, E_INVALID_BUILD_ORDERS, E_INVALID_UPGRADE_ORDERS,
-                         NETWORK_CONNECTED_TO_HOST, NETWORK_DISCONNECTED_FROM_HOST):
-            if event.team == self.team:
-                self.toast = ToastNotification(self, get_text(notification_strings, event.event_type, light=True), self.team)
-        elif is_event_type(event, NETWORK_CLIENT_CONNECTED, NETWORK_CLIENT_DISCONNECTED):
-            if event.team == self.team:
-                self.toast = ToastNotification(self, get_formatted_text(notification_strings, event.event_type, True, event.nickname), self.team)
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

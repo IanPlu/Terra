@@ -1,14 +1,14 @@
-from pygame import KEYDOWN, KEYUP, MOUSEBUTTONDOWN, MOUSEBUTTONUP
-
 from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
+from terra.control.inputcontroller import InputAction
+from terra.control.keybindings import Key
 from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import UpgradeType
 from terra.engine.animatedgameobject import AnimatedGameObject
-from terra.event import *
-from terra.keybindings import KB_MENU2
+from terra.event.event import publish_game_event, EventType
 from terra.managers.managers import Managers
+from terra.menu.option import Option
 from terra.mode import Mode
 from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
@@ -44,7 +44,6 @@ class Piece(AnimatedGameObject):
             self.hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
         self.current_order = None
         self.in_conflict = False
-        self.tile_selection = None
         self.entrenchment = 0
 
         self.temporary_armor = 0
@@ -60,27 +59,53 @@ class Piece(AnimatedGameObject):
         return "{} {} at tile ({}, {}) with {} HP" \
             .format(self.team.name, piece_name_strings[LANGUAGE][self.piece_type], self.gx, self.gy, self.hp)
 
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_BUILD, self.handle_phase_build)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_MOVE, self.handle_phase_move)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_COMBAT, self.handle_phase_combat)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_RANGED, self.handle_phase_ranged)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_SPECIAL, self.handle_phase_special)
+
+        event_bus.register_handler(EventType.END_PHASE_MOVE, self.handle_end_phase_move)
+
+        event_bus.register_handler(EventType.START_PHASE_ORDERS, self.handle_phase_orders)
+        event_bus.register_handler(EventType.START_PHASE_START_TURN, self.handle_phase_start_turn)
+        event_bus.register_handler(EventType.E_CLEANUP, self.cleanup)
+
+        event_bus.register_handler(EventType.E_SELECT, self.select)
+        event_bus.register_handler(EventType.E_CLOSE_MENU, self.close_menu)
+        event_bus.register_handler(EventType.E_SELECT_TILE, self.tile_selected)
+
+    def register_input_handlers(self, input_handler):
+        super().register_input_handlers(input_handler)
+        input_handler.register_handler(InputAction.PRESS, Key.MENU2, self.start_previewing_orders)
+        input_handler.register_handler(InputAction.RELEASE, Key.MENU2, self.stop_previewing_orders)
+
+    def is_accepting_events(self):
+        return Managers.current_mode == Mode.BATTLE
+
     # Return a list of actions to show in the selection UI.
     def get_available_actions(self):
         actions = []
 
         if self.get_movement_range() > 0:
-            actions.append(MENU_MOVE)
+            actions.append(Option.MENU_MOVE)
         if Managers.team_manager.attr(self.team, self.piece_type, Attribute.DAMAGE_TYPE) == DamageType.RANGED:
-            actions.append(MENU_RANGED_ATTACK)
+            actions.append(Option.MENU_RANGED_ATTACK)
         if len(self.get_valid_buildable_pieces()):
-            actions.append(MENU_BUILD_PIECE)
+            actions.append(Option.MENU_BUILD_PIECE)
         if len(self.get_valid_purchaseable_upgrades()):
-            actions.append(MENU_PURCHASE_UPGRADE)
+            actions.append(Option.MENU_PURCHASE_UPGRADE)
         if len(self.get_valid_tiles_for_terraforming(raising=True)):
-            actions.append(MENU_RAISE_TILE)
+            actions.append(Option.MENU_RAISE_TILE)
         if len(self.get_valid_tiles_for_terraforming(raising=False)):
-            actions.append(MENU_LOWER_TILE)
+            actions.append(Option.MENU_LOWER_TILE)
         if self.piece_subtype == PieceSubtype.BUILDING and self.piece_type is not PieceType.BASE:
-            actions.append(MENU_DEMOLISH_SELF)
+            actions.append(Option.MENU_DEMOLISH_SELF)
 
         if len(actions) > 0 and self.current_order:
-            actions.append(MENU_CANCEL_ORDER)
+            actions.append(Option.MENU_CANCEL_ORDER)
 
         return actions
 
@@ -150,7 +175,7 @@ class Piece(AnimatedGameObject):
         return movement_range
 
     # Clean ourselves up at the end of phases, die as appropriate
-    def cleanup(self):
+    def cleanup(self, event):
         if self.hp <= 0:
             self.on_death()
         else:
@@ -161,7 +186,7 @@ class Piece(AnimatedGameObject):
 
     # Do anything special on death
     def on_death(self):
-        publish_game_event(E_PIECE_DEAD, {
+        publish_game_event(EventType.E_PIECE_DEAD, {
             'gx': self.gx,
             'gy': self.gy,
             'team': self.team
@@ -169,7 +194,7 @@ class Piece(AnimatedGameObject):
 
         # Bases being destroyed ends the game
         if self.piece_type == PieceType.BASE:
-            publish_game_event(E_BASE_DESTROYED, {
+            publish_game_event(EventType.E_BASE_DESTROYED, {
                 'team': self.team
             })
 
@@ -187,7 +212,7 @@ class Piece(AnimatedGameObject):
 
     # Cancel our current order, usually if we're contested.
     def abort_order(self):
-        publish_game_event(E_ORDER_CANCELED, {
+        publish_game_event(EventType.E_ORDER_CANCELED, {
             'gx': self.gx,
             'gy': self.gy,
             'team': self.team
@@ -238,7 +263,7 @@ class Piece(AnimatedGameObject):
         max_hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
         if self.hp < max_hp:
             self.hp = min(self.hp + heal, max_hp)
-            publish_game_event(E_PIECE_HEALED, {
+            publish_game_event(EventType.E_PIECE_HEALED, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'team': self.team
@@ -284,7 +309,7 @@ class Piece(AnimatedGameObject):
 
             Managers.combat_logger.log_damage(self, 50, tile_type)
 
-            publish_game_event(E_PIECE_ON_INVALID_TERRAIN, {
+            publish_game_event(EventType.E_PIECE_ON_INVALID_TERRAIN, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'team': self.team
@@ -300,7 +325,7 @@ class Piece(AnimatedGameObject):
                 # Can't build if there's an enemy piece here
                 self.abort_order()
             else:
-                publish_game_event(E_PIECE_BUILT, {
+                publish_game_event(EventType.E_PIECE_BUILT, {
                     'tx': self.current_order.tx,
                     'ty': self.current_order.ty,
                     'team': self.team,
@@ -318,7 +343,7 @@ class Piece(AnimatedGameObject):
     def handle_phase_move(self, event):
         # Execute move orders
         if isinstance(self.current_order, MoveOrder):
-            publish_game_event(E_UNIT_MOVED, {
+            publish_game_event(EventType.E_UNIT_MOVED, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'team': self.team,
@@ -347,7 +372,7 @@ class Piece(AnimatedGameObject):
 
             for ally in adjacent_allies:
                 ally.temporary_armor += Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARMOR_SHARE)
-                publish_game_event(E_ARMOR_GRANTED, {
+                publish_game_event(EventType.E_ARMOR_GRANTED, {
                     'gx': ally.gx,
                     'gy': ally.gy,
                     'team': ally.team
@@ -361,7 +386,7 @@ class Piece(AnimatedGameObject):
         if isinstance(self.current_order, RangedAttackOrder):
             if self.is_contested():
                 # Can't conduct a ranged attack if there's an enemy on our tile
-                publish_game_event(E_ORDER_CANCELED, {
+                publish_game_event(EventType.E_ORDER_CANCELED, {
                     'gx': self.gx,
                     'gy': self.gy,
                     'team': self.team
@@ -372,7 +397,7 @@ class Piece(AnimatedGameObject):
                 # Abort the order
                 self.current_order = None
             else:
-                publish_game_event(E_UNIT_RANGED_ATTACK, {
+                publish_game_event(EventType.E_UNIT_RANGED_ATTACK, {
                     'gx': self.gx,
                     'gy': self.gy,
                     'team': self.team,
@@ -392,7 +417,7 @@ class Piece(AnimatedGameObject):
                 # Can't upgrade if there's an enemy piece here
                 self.abort_order()
             else:
-                publish_game_event(E_UPGRADE_BUILT, {
+                publish_game_event(EventType.E_UPGRADE_BUILT, {
                     'team': self.team,
                     'new_upgrade_type': self.current_order.new_upgrade_type
                 })
@@ -411,7 +436,7 @@ class Piece(AnimatedGameObject):
                 # Can't terraform if there's an enemy piece here
                 self.abort_order()
             else:
-                publish_game_event(E_TILE_TERRAFORMED, {
+                publish_game_event(EventType.E_TILE_TERRAFORMED, {
                     'gx': self.current_order.tx,
                     'gy': self.current_order.ty,
                     'raising': self.current_order.raising
@@ -431,8 +456,8 @@ class Piece(AnimatedGameObject):
 
     # Handle menu events concerning us
     def handle_menu_option(self, event):
-        if event.option == MENU_MOVE:
-            publish_game_event(E_OPEN_TILE_SELECTION, {
+        if event.option == Option.MENU_MOVE:
+            publish_game_event(EventType.E_OPEN_TILE_SELECTION, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'min_range': 1,
@@ -442,8 +467,8 @@ class Piece(AnimatedGameObject):
                 'team': self.team,
                 'option': event.option
             })
-        elif event.option == MENU_RANGED_ATTACK:
-            publish_game_event(E_OPEN_TILE_SELECTION, {
+        elif event.option == Option.MENU_RANGED_ATTACK:
+            publish_game_event(EventType.E_OPEN_TILE_SELECTION, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'min_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MIN_RANGE),
@@ -453,9 +478,9 @@ class Piece(AnimatedGameObject):
                 'team': self.team,
                 'option': event.option
             })
-        elif event.option == MENU_BUILD_PIECE:
+        elif event.option == Option.MENU_BUILD_PIECE:
             # Open the build menu and allow selecting a buildable piece
-            publish_game_event(E_OPEN_BUILD_MENU, {
+            publish_game_event(EventType.E_OPEN_BUILD_MENU, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'team': self.team,
@@ -463,7 +488,7 @@ class Piece(AnimatedGameObject):
             })
         elif event.option in PieceType:
             # Attempting to build something, so open the tile selection
-            publish_game_event(E_OPEN_TILE_SELECTION, {
+            publish_game_event(EventType.E_OPEN_TILE_SELECTION, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'min_range': 1,
@@ -473,22 +498,22 @@ class Piece(AnimatedGameObject):
                 'team': self.team,
                 'option': event.option
             })
-        elif event.option == MENU_PURCHASE_UPGRADE:
+        elif event.option == Option.MENU_PURCHASE_UPGRADE:
             # Open the build menu and allow selecting an upgrade to purchase
-            publish_game_event(E_OPEN_UPGRADE_MENU, {
+            publish_game_event(EventType.E_OPEN_UPGRADE_MENU, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'team': self.team,
                 'options': self.get_valid_purchaseable_upgrades()
             })
-        elif event.option in [MENU_RAISE_TILE, MENU_LOWER_TILE]:
+        elif event.option in [Option.MENU_RAISE_TILE, Option.MENU_LOWER_TILE]:
             # Attempting to terraform, so open the tile selection
-            publish_game_event(E_OPEN_TILE_SELECTION, {
+            publish_game_event(EventType.E_OPEN_TILE_SELECTION, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'min_range': 1,
                 'max_range': 1,
-                'movement_type': MovementType.RAISE if event.option == MENU_RAISE_TILE else MovementType.LOWER,
+                'movement_type': MovementType.RAISE if event.option == Option.MENU_RAISE_TILE else MovementType.LOWER,
                 'piece_type': None,
                 'team': self.team,
                 'option': event.option
@@ -498,96 +523,60 @@ class Piece(AnimatedGameObject):
 
     # Save orders to this piece
     def set_order(self, event):
-        if event.option == MENU_MOVE:
+        if event.option == Option.MENU_MOVE:
             self.current_order = MoveOrder(event.dx, event.dy)
-        elif event.option == MENU_RANGED_ATTACK:
+        elif event.option == Option.MENU_RANGED_ATTACK:
             self.current_order = RangedAttackOrder(event.dx, event.dy)
         elif event.option in PieceType:
             self.current_order = BuildOrder(event.dx, event.dy, event.option)
         elif event.option in UpgradeType:
             self.current_order = UpgradeOrder(event.option)
-        elif event.option == MENU_CANCEL_ORDER:
+        elif event.option == Option.MENU_CANCEL_ORDER:
             self.current_order = None
-        elif event.option == MENU_RAISE_TILE:
+        elif event.option == Option.MENU_RAISE_TILE:
             self.current_order = TerraformOrder(event.dx, event.dy, raising=True)
-        elif event.option == MENU_LOWER_TILE:
+        elif event.option == Option.MENU_LOWER_TILE:
             self.current_order = TerraformOrder(event.dx, event.dy, raising=False)
-        elif event.option == MENU_DEMOLISH_SELF:
+        elif event.option == Option.MENU_DEMOLISH_SELF:
             self.current_order = DemolishOrder()
         else:
             self.current_order = None
 
-    # Handle tile selection events concerning us
-    def handle_tile_selection(self, event):
-        self.set_order(event)
+    # Triggered when this piece might be selected
+    def select(self, event):
+        if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
+            available_actions = self.get_available_actions()
+
+            if not event.selecting_movement and len(available_actions) > 0:
+                publish_game_event(EventType.E_OPEN_MENU, {
+                    'gx': self.gx,
+                    'gy': self.gy,
+                    'team': self.team,
+                    'options': available_actions
+                })
+
+    # Triggered when this piece's menu might have closed
+    def close_menu(self, event):
+        if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
+            self.handle_menu_option(event)
+
+    # Triggered when this piece's tile selection might have closed
+    def tile_selected(self, event):
+        if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
+            self.set_order(event)
 
     def step(self, event):
         super().step(event)
-
-        # Allow our tile selection UI to function if alive
-        if self.tile_selection:
-            self.tile_selection.step(event)
 
         # Check if we're in conflict
         self.in_conflict = Managers.turn_manager.phase == BattlePhase.ORDERS and \
                            len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
 
-        if Managers.current_mode in [Mode.BATTLE]:
-            # React to phase changes
-            if is_event_type(event, START_PHASE_EXECUTE_BUILD):
-                self.handle_phase_build(event)
-            elif is_event_type(event, START_PHASE_EXECUTE_MOVE):
-                self.handle_phase_move(event)
-            elif is_event_type(event, END_PHASE_MOVE):
-                self.handle_end_phase_move(event)
-            elif is_event_type(event, START_PHASE_EXECUTE_COMBAT):
-                self.handle_phase_combat(event)
-            elif is_event_type(event, START_PHASE_EXECUTE_RANGED):
-                self.handle_phase_ranged(event)
-            elif is_event_type(event, START_PHASE_EXECUTE_SPECIAL):
-                self.handle_phase_special(event)
+    def start_previewing_orders(self):
+        self.previewing_order = True
 
-            # Handle start of orders phase, if necessary
-            if is_event_type(event, START_PHASE_ORDERS):
-                self.handle_phase_orders(event)
-            # Handle start of turn
-            elif is_event_type(event, START_PHASE_START_TURN):
-                self.handle_phase_start_turn(event)
-            # Conduct cleanup when prompted
-            elif is_event_type(event, E_CLEANUP):
-                self.cleanup()
-            # Catch selection events and open the orders menu
-            elif is_event_type(event, E_SELECT):
-                if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
-                    available_actions = self.get_available_actions()
-
-                    if not event.selecting_movement and len(available_actions) > 0:
-                        publish_game_event(E_OPEN_MENU, {
-                            'gx': self.gx,
-                            'gy': self.gy,
-                            'team': self.team,
-                            'options': available_actions
-                        })
-            # Catch menu events and set orders if they don't require tile selection or a submenu
-            elif is_event_type(event, E_CLOSE_MENU) and event.option:
-                if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
-                    self.handle_menu_option(event)
-            # Catch tile selection events and set orders involving tile selection
-            elif is_event_type(event, E_SELECT_TILE) and event.option:
-                if event.gx == self.gx and event.gy == self.gy and event.team == self.team:
-                    self.handle_tile_selection(event)
-
-            # Preview orders when the menu2 key is held
-            if self.team == Managers.player_manager.active_team:
-                if (event.type == KEYDOWN and event.key in KB_MENU2) or \
-                        (event.type == MOUSEBUTTONDOWN and event.button in KB_MENU2):
-                    self.previewing_order = True
-                elif (event.type == KEYUP and event.key in KB_MENU2) or \
-                        (event.type == MOUSEBUTTONUP and event.button in KB_MENU2):
-                    self.previewing_order = False
-
-        elif Managers.current_mode == Mode.EDIT:
-            pass
+    def stop_previewing_orders(self):
+        self.previewing_order = False
 
     # Render a preview of the piece's current orders.
     def preview_order(self, game_screen):
@@ -654,10 +643,6 @@ class Piece(AnimatedGameObject):
             if self.current_order and Managers.player_manager.active_team == self.team:
                 game_screen.blit(spr_order_flags[self.current_order.name],
                                  (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
-
-            # Allow our tile selection UI to function if alive
-            if self.tile_selection:
-                self.tile_selection.render(game_screen, ui_screen)
 
             if self.previewing_order:
                 self.preview_order(game_screen)

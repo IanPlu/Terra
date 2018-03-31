@@ -1,7 +1,7 @@
 from terra.constants import GRID_HEIGHT, RESOLUTION_HEIGHT, TICK_RATE
 from terra.engine.gameobject import GameObject
+from terra.event.event import EventType
 from terra.resources.assets import light_color, clear_color
-from terra.event import is_event_type, E_NEXT_PHASE
 
 
 # A toast notification that pops up in the corner of the screen and then dissipates
@@ -19,12 +19,15 @@ class ToastNotification(GameObject):
         # Number of seconds for the notification to live
         self.lifetime = 3 * TICK_RATE
 
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+        event_bus.register_handler(EventType.E_NEXT_PHASE, self.clear_self)
+
+    def clear_self(self, event):
+        self.lifetime = 0
+
     def step(self, event):
         super().step(event)
-
-        # Clear self on phase changes
-        if is_event_type(event, E_NEXT_PHASE):
-            self.lifetime = 0
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

@@ -3,7 +3,7 @@ from collections import Counter
 from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.engine.gameobject import GameObject
-from terra.event import *
+from terra.event.event import EventType, publish_game_event
 from terra.managers.managers import Managers
 from terra.piece.attribute import Attribute
 from terra.piece.orders import MoveOrder, BuildOrder, UpgradeOrder
@@ -31,6 +31,25 @@ class PieceManager(GameObject):
                 hp = int(safe_get_from_list(data, 4)) if safe_get_from_list(data, 4) else None
 
                 self.register_piece(Piece(PieceType[data[3]], Team[data[2]], int(data[0]), int(data[1]), hp))
+
+    def destroy(self):
+        super().destroy()
+
+        if self.pieces:
+            pieces = self.__get_all_pieces__()
+            for piece in pieces:
+                piece.destroy()
+
+            del self.pieces
+            self.pieces = {}
+
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+        event_bus.register_handler(EventType.E_UNIT_MOVED, self.move_piece)
+        event_bus.register_handler(EventType.E_UNIT_RANGED_ATTACK, self.ranged_attack)
+        event_bus.register_handler(EventType.E_PIECE_DEAD, self.destroy_piece)
+        event_bus.register_handler(EventType.E_PIECE_BUILT, self.register_piece_from_event)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_COMBAT, self.resolve_unit_combat)
 
     # Serialize all orders for pieces from the specified team for submission to another player in a network game
     def serialize_orders(self, team):
@@ -157,19 +176,31 @@ class PieceManager(GameObject):
         self.pieces[(piece.gx, piece.gy)].append(piece)
 
     # Unregister a piece with the game map.
-    def remove_piece(self, gx, gy, team):
-        piece = self.get_piece_at(gx, gy, team)
+    # Event should contain the grid coordinates gx and gy, and the team of the piece to be removed.
+    def remove_piece(self, event):
+        piece = self.get_piece_at(event.gx, event.gy, event.team)
         if piece:
-            self.pieces[(gx, gy)].remove(piece)
-            if len(self.pieces[(gx, gy)]) == 0:
-                del self.pieces[(gx, gy)]
+            self.pieces[(event.gx, event.gy)].remove(piece)
+            if len(self.pieces[(event.gx, event.gy)]) == 0:
+                del self.pieces[(event.gx, event.gy)]
 
-    # Move a unit on the game map
-    def move_unit(self, gx, gy, team):
-        unit = self.get_piece_at(gx, gy, team, PieceSubtype.UNIT)
-        if unit:
-            self.register_piece(unit)
-            self.remove_piece(gx, gy, team)
+    # Completely destroy a piece, removing it from the game map.
+    def destroy_piece(self, event):
+        piece = self.get_piece_at(event.gx, event.gy, event.team)
+        if piece:
+            piece.destroy()
+            self.remove_piece(event)
+
+    def register_piece_from_event(self, event):
+        self.register_piece(Piece(event.new_piece_type, event.team, event.tx, event.ty))
+
+    # Move a piece on the game map
+    # Event should contain gx and gy grid coordinates and a team, and the destination grid coords dx and dy.
+    def move_piece(self, event):
+        piece = self.get_piece_at(event.gx, event.gy, event.team, PieceSubtype.UNIT)
+        if piece:
+            self.remove_piece(event)
+            self.register_piece(piece)
 
     # Get lists of all units and buildings, regardless of position or team
     def __get_all_pieces__(self):
@@ -231,21 +262,26 @@ class PieceManager(GameObject):
             # Find and return the coordinates of the collision(s)
             collisions = [k for k, v in Counter(coordinates).items() if v > 1]
 
-            publish_game_event(E_INVALID_MOVE_ORDERS, {
+            publish_game_event(EventType.E_INVALID_MOVE_ORDERS, {
                 'team': team,
                 'invalid_coordinates': collisions
             })
         if not build_orders_valid:
-            publish_game_event(E_INVALID_BUILD_ORDERS, {
+            publish_game_event(EventType.E_INVALID_BUILD_ORDERS, {
                 'team': team,
-                'spent_resources': spent_resources
+                'spent_resources': spent_resources,
+                'affected_pieces': [piece for piece in self.get_all_pieces_for_team(team)
+                                    if isinstance(piece.current_order, (BuildOrder, UpgradeOrder))]
             })
         if not upgrades_bought_valid:
             duplicate_upgrades = [k for k, v in Counter(upgrades_bought).items() if v > 1]
 
-            publish_game_event(E_INVALID_UPGRADE_ORDERS, {
+            publish_game_event(EventType.E_INVALID_UPGRADE_ORDERS, {
                 'team': team,
-                'duplicate_upgrades': duplicate_upgrades
+                'duplicate_upgrades': duplicate_upgrades,
+                'affected_pieces': [piece for piece in self.get_all_pieces_for_team(team)
+                                    if isinstance(piece.current_order, UpgradeOrder) and
+                                    piece.current_order.new_upgrade_type in duplicate_upgrades]
             })
 
         return move_orders_valid and build_orders_valid and upgrades_bought_valid
@@ -256,7 +292,7 @@ class PieceManager(GameObject):
             Managers.combat_logger.log_order_assignment(piece, piece.current_order)
 
     # Check for overlapping enemy units, and resolve their combat
-    def resolve_unit_combat(self):
+    def resolve_unit_combat(self, event):
         # Find conflicting units (opposing team units occupying the same space
         conflicting_pieces = []
         for coordinate in self.pieces:
@@ -269,15 +305,17 @@ class PieceManager(GameObject):
                 conflict = PieceConflict(piece_pair[0], piece_pair[1])
                 conflict.resolve()
 
-    def ranged_attack(self, gx, gy, origin_team, tx, ty):
+    # Conduct a ranged attack.
+    # Event should contain grid coordinates gx and gy, the origin team, and target grid coordinates tx and ty.
+    def ranged_attack(self, event):
         # Find the origin unit and the target pieces
-        origin_unit = self.get_piece_at(gx, gy, origin_team)
-        target_pieces = self.get_enemy_pieces_at(tx, ty, origin_team)
+        origin_unit = self.get_piece_at(event.gx, event.gy, event.origin_team)
+        target_pieces = self.get_enemy_pieces_at(event.tx, event.ty, event.origin_team)
 
         splashed_pieces = []
         aoe_multiplier = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.RANGED_AOE_MULTIPLIER)
         if aoe_multiplier > 0:
-            splashed_pieces.extend(self.get_adjacent_enemies(tx, ty, origin_team))
+            splashed_pieces.extend(self.get_adjacent_enemies(event.tx, event.ty, event.origin_team))
 
         def conduct_ranged_attack(target, modifier):
             attack = origin_unit.get_attack_rating(target)
@@ -302,18 +340,6 @@ class PieceManager(GameObject):
         pieces = self.__get_all_pieces__()
         for piece in pieces:
             piece.step(event)
-
-        if is_event_type(event, E_UNIT_MOVED):
-            self.move_unit(event.gx, event.gy, event.team)
-        elif is_event_type(event, E_UNIT_RANGED_ATTACK):
-            self.ranged_attack(event.gx, event.gy, event.team, event.tx, event.ty)
-        elif is_event_type(event, E_PIECE_DEAD):
-            self.remove_piece(event.gx, event.gy, event.team)
-        elif is_event_type(event, E_PIECE_BUILT):
-            self.register_piece(Piece(event.new_piece_type, event.team, event.tx, event.ty))
-
-        if is_event_type(event, START_PHASE_EXECUTE_COMBAT):
-            self.resolve_unit_combat()
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

@@ -2,12 +2,8 @@ import pygame
 
 from terra.economy.upgradetype import UpgradeType
 from terra.effects.effecttype import EffectType
-from terra.event import MENU_MOVE, MENU_CANCEL_ORDER, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, \
-    MENU_PURCHASE_UPGRADE, MENU_SUBMIT_TURN, MENU_SAVE_GAME, MENU_QUIT_BATTLE, MENU_SAVE_MAP, \
-    MENU_RAISE_TILE, MENU_LOWER_TILE, MENU_REVISE_TURN, MENU_DEMOLISH_SELF, MENU_FILL_WITH_CURRENT_TILE, MENU_CONCEDE, \
-    MENU_MIRROR_X, MENU_MIRROR_Y
-from terra.mainmenu.option import Option
 from terra.map.tiletype import TileType
+from terra.menu.option import Option
 from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assetloading import AssetType, get_asset
@@ -78,23 +74,23 @@ spr_order_options_base = get_sprites_from_strip(pygame.image.load(
     get_asset(AssetType.SPRITE, "ui/Order_MenuOption.png")), 24)
 spr_order_options = {
     Team.RED: {
-        MENU_CANCEL_ORDER: spr_order_options_base[0],
-        MENU_MOVE: spr_order_options_base[1],
-        MENU_RANGED_ATTACK: spr_order_options_base[2],
-        MENU_BUILD_PIECE: spr_order_options_base[3],
-        MENU_PURCHASE_UPGRADE: spr_order_options_base[4],
-        MENU_SUBMIT_TURN: spr_order_options_base[5],
-        MENU_REVISE_TURN: spr_order_options_base[6],
-        MENU_SAVE_GAME: spr_order_options_base[7],
-        MENU_QUIT_BATTLE: spr_order_options_base[8],
-        MENU_SAVE_MAP: spr_order_options_base[9],
-        MENU_RAISE_TILE: spr_order_options_base[10],
-        MENU_LOWER_TILE: spr_order_options_base[11],
-        MENU_DEMOLISH_SELF: spr_order_options_base[12],
-        MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
-        MENU_CONCEDE: spr_order_options_base[0],
-        MENU_MIRROR_X: spr_order_options_base[13],
-        MENU_MIRROR_Y: spr_order_options_base[14],
+        Option.MENU_CANCEL_ORDER: spr_order_options_base[0],
+        Option.MENU_MOVE: spr_order_options_base[1],
+        Option.MENU_RANGED_ATTACK: spr_order_options_base[2],
+        Option.MENU_BUILD_PIECE: spr_order_options_base[3],
+        Option.MENU_PURCHASE_UPGRADE: spr_order_options_base[4],
+        Option.MENU_SUBMIT_TURN: spr_order_options_base[5],
+        Option.MENU_REVISE_TURN: spr_order_options_base[6],
+        Option.MENU_SAVE_GAME: spr_order_options_base[7],
+        Option.MENU_QUIT_BATTLE: spr_order_options_base[8],
+        Option.MENU_SAVE_MAP: spr_order_options_base[9],
+        Option.MENU_RAISE_TILE: spr_order_options_base[10],
+        Option.MENU_LOWER_TILE: spr_order_options_base[11],
+        Option.MENU_DEMOLISH_SELF: spr_order_options_base[12],
+        Option.MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
+        Option.MENU_CONCEDE: spr_order_options_base[0],
+        Option.MENU_MIRROR_X: spr_order_options_base[13],
+        Option.MENU_MIRROR_Y: spr_order_options_base[14],
     }
 }
 
@@ -215,23 +211,23 @@ spr_pieces = {
 
 spr_base_order_flags = get_nine_slice_sprites(pygame.image.load(get_asset(AssetType.SPRITE, "ui/OrderFlags.png")), 8)
 spr_order_flags = {
-    MENU_CANCEL_ORDER: spr_base_order_flags[0],
-    MENU_MOVE: spr_base_order_flags[1],
-    MENU_RANGED_ATTACK: spr_base_order_flags[2],
-    MENU_BUILD_PIECE: spr_base_order_flags[3],
-    MENU_PURCHASE_UPGRADE: spr_base_order_flags[3],
-    MENU_SUBMIT_TURN: spr_base_order_flags[1],
-    MENU_REVISE_TURN: spr_base_order_flags[0],
-    MENU_SAVE_GAME: spr_base_order_flags[3],
-    MENU_QUIT_BATTLE: spr_base_order_flags[0],
-    MENU_SAVE_MAP: spr_base_order_flags[3],
-    MENU_RAISE_TILE: spr_base_order_flags[7],
-    MENU_LOWER_TILE: spr_base_order_flags[7],
-    MENU_DEMOLISH_SELF: spr_base_order_flags[8],
-    MENU_FILL_WITH_CURRENT_TILE: spr_base_order_flags[0],
-    MENU_CONCEDE: spr_base_order_flags[0],
-    MENU_MIRROR_X: spr_base_order_flags[0],
-    MENU_MIRROR_Y: spr_base_order_flags[0],
+    Option.MENU_CANCEL_ORDER: spr_base_order_flags[0],
+    Option.MENU_MOVE: spr_base_order_flags[1],
+    Option.MENU_RANGED_ATTACK: spr_base_order_flags[2],
+    Option.MENU_BUILD_PIECE: spr_base_order_flags[3],
+    Option.MENU_PURCHASE_UPGRADE: spr_base_order_flags[3],
+    Option.MENU_SUBMIT_TURN: spr_base_order_flags[1],
+    Option.MENU_REVISE_TURN: spr_base_order_flags[0],
+    Option.MENU_SAVE_GAME: spr_base_order_flags[3],
+    Option.MENU_QUIT_BATTLE: spr_base_order_flags[0],
+    Option.MENU_SAVE_MAP: spr_base_order_flags[3],
+    Option.MENU_RAISE_TILE: spr_base_order_flags[7],
+    Option.MENU_LOWER_TILE: spr_base_order_flags[7],
+    Option.MENU_DEMOLISH_SELF: spr_base_order_flags[8],
+    Option.MENU_FILL_WITH_CURRENT_TILE: spr_base_order_flags[0],
+    Option.MENU_CONCEDE: spr_base_order_flags[0],
+    Option.MENU_MIRROR_X: spr_base_order_flags[0],
+    Option.MENU_MIRROR_Y: spr_base_order_flags[0],
 }
 
 spr_digit_icons = {

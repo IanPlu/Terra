@@ -1,22 +1,24 @@
 import sys
 
-from pygame.constants import QUIT
+import pygame
 
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, TICK_RATE
 from terra.engine.animatedgameobject import AnimatedGameObject
-from terra.event import *
-from terra.mainmenu.mainmenu import MainMenu
-from terra.mainmenu.option import Option
+from terra.event.event import EventType
+from terra.event.eventbus import EVENT_BUS
 from terra.managers.managers import Managers
+from terra.menu.mainmenu import MainMenu
+from terra.menu.option import Option
 from terra.mode import Mode
 from terra.resources.assetloading import AssetType
 from terra.resources.assets import load_assets, clear_color, spr_game_icon
 from terra.screens.battle import Battle
 from terra.screens.leveleditor import LevelEditor
+from terra.screens.networklobby import NetworkLobby
 from terra.screens.results import ResultsScreen
 from terra.settings import Setting, SETTINGS
 from terra.team import Team
-from terra.screens.networklobby import NetworkLobby
+from terra.control.inputcontroller import INPUT_CONTROLLER
 
 use_network_lobby = False
 
@@ -30,8 +32,20 @@ class Main:
         self.screen_height = None
         self.screen = None
 
-        self.screens = {}
+        self.current_screen = None
         self.set_screen_from_mode(Mode.MAIN_MENU)
+
+        self.register_handlers()
+
+    def register_handlers(self):
+        EVENT_BUS.register_handler(EventType.MENU_SELECT_OPTION, self.handle_menu_selections)
+        EVENT_BUS.register_handler(EventType.E_START_NETWORK_BATTLE, self.handle_network_game_start)
+        EVENT_BUS.register_handler(EventType.E_BATTLE_OVER, self.handle_battle_end)
+        EVENT_BUS.register_multiple_handlers(self.reset_to_menu, EventType.E_QUIT_BATTLE, EventType.E_EXIT_RESULTS,
+                                             EventType.E_EXIT_LOBBY, EventType.E_NETWORKING_ERROR)
+
+    def is_accepting_events(self):
+        return True
 
     def set_screen_from_mode(self, new_mode, mapname=None, address=None, is_host=False, map_type=AssetType.MAP, results=None):
         Managers.set_mode(new_mode)
@@ -55,7 +69,11 @@ class Main:
         else:
             new_screen = None
 
-        self.screens[new_mode] = new_screen
+        # Clean up the old screen, if any
+        if self.current_screen:
+            self.current_screen.destroy()
+        # Swap to the new screen
+        self.current_screen = new_screen
 
     # Set the screen resolution from the screen scale in the settings
     def reset_resolution(self):
@@ -67,10 +85,43 @@ class Main:
         self.screen.fill(clear_color[Team.RED])
 
     # Reset the screens and managers
-    def reset_to_menu(self):
+    def reset_to_menu(self, event):
         Managers.tear_down_managers()
-        self.screens = {}
-        self.set_screen_from_mode(Mode.MAIN_MENU, None)
+        self.set_screen_from_mode(Mode.MAIN_MENU)
+
+    def handle_menu_selections(self, event):
+        if event.option == Option.NEW_GAME:
+            self.set_screen_from_mode(Mode.BATTLE, event.mapname)
+        elif event.option == Option.LOAD_GAME:
+            self.set_screen_from_mode(Mode.BATTLE, event.mapname, map_type=AssetType.SAVE)
+        elif event.option == Option.NEW_NETWORK_GAME:
+            mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
+            self.set_screen_from_mode(mode, event.mapname, event.address, is_host=True)
+        elif event.option == Option.LOAD_NETWORK_GAME:
+            mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
+            self.set_screen_from_mode(mode, event.mapname, event.address, is_host=True, map_type=AssetType.SAVE)
+        elif event.option == Option.JOIN_GAME:
+            mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
+            self.set_screen_from_mode(mode, None, event.address, is_host=False)
+        elif event.option == Option.NEW_MAP:
+            self.set_screen_from_mode(Mode.EDIT, event.mapname)
+        elif event.option == Option.LOAD_MAP:
+            self.set_screen_from_mode(Mode.EDIT, event.mapname)
+        elif event.option == Option.QUIT:
+            self.quit()
+        elif event.option == Option.SAVE_SETTINGS:
+            SETTINGS.save_settings()
+            self.reset_resolution()
+
+    def handle_network_game_start(self, event):
+        self.set_screen_from_mode(Mode.NETWORK_BATTLE)
+
+    def handle_battle_end(self, event):
+        self.set_screen_from_mode(Mode.RESULTS, results={
+            'bases_destroyed': event.bases_destroyed,
+            'team_stats': event.team_stats,
+            'teams': event.teams,
+        })
 
     def quit(self):
         pygame.quit()
@@ -78,41 +129,13 @@ class Main:
 
     # Step phase of game loop - handle events
     def step(self, event):
-        self.screens[Managers.current_mode].step(event)
+        # Allow the input controller to marshal events out
+        INPUT_CONTROLLER.invoke_handlers(event)
 
-        if is_event_type(event, MENU_SELECT_OPTION):
-            if event.option == Option.NEW_GAME:
-                self.set_screen_from_mode(Mode.BATTLE, event.mapname)
-            elif event.option == Option.LOAD_GAME:
-                self.set_screen_from_mode(Mode.BATTLE, event.mapname, map_type=AssetType.SAVE)
-            elif event.option == Option.NEW_NETWORK_GAME:
-                mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
-                self.set_screen_from_mode(mode, event.mapname, event.address, is_host=True)
-            elif event.option == Option.LOAD_NETWORK_GAME:
-                mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
-                self.set_screen_from_mode(mode, event.mapname, event.address, is_host=True, map_type=AssetType.SAVE)
-            elif event.option == Option.JOIN_GAME:
-                mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
-                self.set_screen_from_mode(mode, None, event.address, is_host=False)
-            elif event.option == Option.NEW_MAP:
-                self.set_screen_from_mode(Mode.EDIT, event.mapname)
-            elif event.option == Option.LOAD_MAP:
-                self.set_screen_from_mode(Mode.EDIT, event.mapname)
-            elif event.option == Option.QUIT:
-                self.quit()
-            elif event.option == Option.SAVE_SETTINGS:
-                SETTINGS.save_settings()
-                self.reset_resolution()
-        elif is_event_type(event, E_START_NETWORK_BATTLE):
-            self.set_screen_from_mode(Mode.NETWORK_BATTLE)
-        elif is_event_type(event, E_QUIT_BATTLE, E_EXIT_RESULTS, E_EXIT_LOBBY, E_NETWORKING_ERROR):
-            self.reset_to_menu()
-        elif is_event_type(event, E_BATTLE_OVER):
-            self.set_screen_from_mode(Mode.RESULTS, results={
-                'bases_destroyed': event.bases_destroyed,
-                'team_stats': event.team_stats,
-                'teams': event.teams,
-            })
+        # Allow the event bus to marshal events out
+        EVENT_BUS.invoke_handlers(event)
+
+        self.current_screen.step(event)
 
     # Render phase of game loop - draw to the screen
     # noinspection PyArgumentList
@@ -126,7 +149,7 @@ class Main:
         ui_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
         ui_screen = ui_screen.convert_alpha()
 
-        game_screen = self.screens[Managers.current_mode].render(ui_screen)
+        game_screen = self.current_screen.render(ui_screen)
 
         base_screen.blit(game_screen, (0, 0))
         base_screen.blit(ui_screen, (0, 0))
@@ -159,7 +182,7 @@ class Main:
 
             # Run game logic
             for event in pygame.event.get():
-                if event.type == QUIT:
+                if event.type == pygame.QUIT:
                     self.quit()
 
                 self.step(event)

@@ -1,7 +1,7 @@
-from terra.event import publish_game_event, E_PIECES_IN_CONFLICT
-from terra.piece.damagetype import DamageType
-from terra.piece.attribute import Attribute
+from terra.event.event import publish_game_event, EventType
 from terra.managers.managers import Managers
+from terra.piece.attribute import Attribute
+from terra.piece.damagetype import DamageType
 
 
 # Manager for rounds of melee direct conflict between two pieces.
@@ -28,7 +28,7 @@ class PieceConflict:
 
     # Conduct one round of combat
     def resolve(self):
-        publish_game_event(E_PIECES_IN_CONFLICT, {
+        publish_game_event(EventType.E_PIECES_IN_CONFLICT, {
             'gx': self.piece1.gx,
             'gy': self.piece1.gy,
             'teams': [self.piece1.team, self.piece2.team]

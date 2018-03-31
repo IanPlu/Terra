@@ -1,12 +1,14 @@
-from pygame.constants import KEYDOWN, KEYUP, KMOD_CTRL, MOUSEBUTTONDOWN, MOUSEBUTTONUP
+import pygame
+from pygame.constants import KMOD_CTRL
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT, RESOLUTION_HEIGHT, RESOLUTION_WIDTH
+from terra.control.inputcontroller import InputAction
+from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
-from terra.event import *
-from terra.keybindings import KB_MENU2, KB_SCROLL_UP, KB_SCROLL_DOWN, KB_CONFIRM, KB_CANCEL
+from terra.event.event import publish_game_event, EventType
 from terra.managers.managers import Managers
 from terra.map.tiletype import TileType
-from terra.piece.piece import Piece
+from terra.menu.option import Option
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import clear_color, spr_tiles, spr_cursor, spr_pieces
 from terra.team import Team
@@ -35,59 +37,52 @@ class LevelEditor(GameScreen):
 
         self.allow_placing_multiple = False
 
+    def destroy(self):
+        super().destroy()
+        Managers.tear_down_managers()
+
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+
+        event_bus.register_handler(EventType.E_SELECT, self.confirm)
+        event_bus.register_handler(EventType.E_CANCEL, self.confirm_alt)
+        event_bus.register_handler(EventType.E_CLOSE_MENU, self.handle_menu_selection)
+
+    def register_input_handlers(self, input_handler):
+        super().register_input_handlers(input_handler)
+
+        input_handler.register_handler(InputAction.PRESS, Key.SCROLL_UP, self.scroll_up)
+        input_handler.register_handler(InputAction.PRESS, Key.SCROLL_DOWN, self.scroll_down)
+        input_handler.register_handler(InputAction.PRESS, Key.MENU2, self.swap_placing_mode)
+        input_handler.register_handler(InputAction.PRESS, Key.CONFIRM, self.enable_placing_multiple)
+        input_handler.register_handler(InputAction.PRESS, Key.CANCEL, self.enable_placing_multiple_alt)
+
+        input_handler.register_handler(InputAction.RELEASE, Key.CONFIRM, self.disable_placing_multiple)
+        input_handler.register_handler(InputAction.RELEASE, Key.CANCEL, self.disable_placing_multiple_alt)
+
+    def handle_menu_selection(self, event):
+        if event.option == Option.MENU_SAVE_MAP:
+            Managers.save_map_to_file()
+        elif event.option == Option.MENU_QUIT_BATTLE:
+            publish_game_event(EventType.E_QUIT_BATTLE, {})
+        elif event.option == Option.MENU_FILL_WITH_CURRENT_TILE:
+            self.fill_with_current_tile()
+        elif event.option == Option.MENU_MIRROR_X:
+            self.mirror_map(mirror_x=True, mirror_y=False)
+        elif event.option == Option.MENU_MIRROR_Y:
+            self.mirror_map(mirror_x=False, mirror_y=True)
+
     def step(self, event):
         super().step(event)
 
         Managers.step(event)
 
-        if is_event_type(event, E_SELECT):
-            self.confirm()
-        elif is_event_type(event, E_CANCEL):
-            self.confirm2()
-        elif is_event_type(event, E_CLOSE_MENU) and event.option:
-            if event.option == MENU_SAVE_MAP:
-                Managers.save_map_to_file()
-            elif event.option == MENU_QUIT_BATTLE:
-                publish_game_event(E_QUIT_BATTLE, {})
-            elif event.option == MENU_FILL_WITH_CURRENT_TILE:
-                self.fill_with_current_tile()
-            elif event.option == MENU_MIRROR_X:
-                self.mirror_map(mirror_x=True, mirror_y=False)
-            elif event.option == MENU_MIRROR_Y:
-                self.mirror_map(mirror_x=False, mirror_y=True)
-        elif event.type == KEYDOWN:
-            if event.key in KB_SCROLL_UP:
-                self.scroll(1)
-            elif event.key in KB_SCROLL_DOWN:
-                self.scroll(-1)
-            elif event.key in KB_MENU2:
-                self.swap_placing_mode()
-            elif event.key in KB_CONFIRM and self.allow_placing_multiple:
-                self.placing_multiple = True
-            elif event.key in KB_CANCEL and self.allow_placing_multiple:
-                self.placing_multiple_alt = True
-        elif event.type == MOUSEBUTTONDOWN:
-            if event.button in KB_SCROLL_UP:
-                self.scroll(1)
-            elif event.button in KB_SCROLL_DOWN:
-                self.scroll(-1)
-            elif event.button in KB_CONFIRM and self.allow_placing_multiple:
-                self.placing_multiple = True
-            elif event.button in KB_CANCEL and self.allow_placing_multiple:
-                self.placing_multiple_alt = True
-        elif event.type == KEYUP:
-            self.placing_multiple = False
-            self.placing_multiple_alt = False
-        elif event.type == MOUSEBUTTONUP:
-            self.placing_multiple = False
-            self.placing_multiple_alt = False
-
         if self.placing_multiple:
-            self.confirm()
+            self.confirm(event)
         elif self.placing_multiple_alt:
-            self.confirm2()
+            self.confirm_alt(event)
 
-    def confirm(self):
+    def confirm(self, event):
         if self.placing_tiles:
             cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
             Managers.battle_map.update_tile_type(cursor_x, cursor_y, self.current_tile_type)
@@ -95,17 +90,30 @@ class LevelEditor(GameScreen):
             cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
             if Managers.piece_manager.get_piece_at(cursor_x, cursor_y, self.piece_team):
                 # Delete the existing piece first
-                Managers.piece_manager.remove_piece(cursor_x, cursor_y, self.piece_team)
+                publish_game_event(EventType.E_PIECE_DEAD, {
+                    'gx': cursor_x,
+                    'gy': cursor_y,
+                    'team': self.piece_team
+                })
 
-            Managers.piece_manager.register_piece(Piece(self.piece_type, self.piece_team, cursor_x, cursor_y))
+            publish_game_event(EventType.E_PIECE_BUILT, {
+                'tx': cursor_x,
+                'ty': cursor_y,
+                'team': self.piece_team,
+                'new_piece_type': self.piece_type,
+            })
 
-    def confirm2(self):
+    def confirm_alt(self, event):
         if self.placing_tiles:
             cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
             Managers.battle_map.update_tile_type(cursor_x, cursor_y, self.secondary_tile_type)
         else:
             cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
-            Managers.piece_manager.remove_piece(cursor_x, cursor_y, self.piece_team)
+            publish_game_event(EventType.E_PIECE_DEAD, {
+                'gx': cursor_x,
+                'gy': cursor_y,
+                'team': self.piece_team
+            })
 
     def scroll(self, direction):
         if self.placing_tiles:
@@ -119,8 +127,28 @@ class LevelEditor(GameScreen):
             else:
                 self.piece_type = self.update_piece_type(self.piece_type, direction)
 
+    def scroll_up(self):
+        self.scroll(1)
+
+    def scroll_down(self):
+        self.scroll(-1)
+
     def swap_placing_mode(self):
         self.placing_tiles = not self.placing_tiles
+
+    def enable_placing_multiple(self):
+        if self.allow_placing_multiple:
+            self.placing_multiple = True
+
+    def disable_placing_multiple(self):
+        self.placing_multiple = False
+
+    def enable_placing_multiple_alt(self):
+        if self.allow_placing_multiple:
+            self.placing_multiple_alt = True
+
+    def disable_placing_multiple_alt(self):
+        self.placing_multiple_alt = False
 
     def update_tile_type(self, tiletype, amount):
         new_tile_type = clamp(tiletype.value + amount, 1, len(TileType))

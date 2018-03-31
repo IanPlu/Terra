@@ -1,298 +1,42 @@
-2018-03-26 16:36:43,314 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 16:36:43,315 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 16:36:43,315 ERROR [ERROR]: Exception: 
-argument 1 must be pygame.Surface, not None
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
+2018-03-30 19:19:24,564 ERROR [ERROR]: Caught exception during network step.
+2018-03-30 19:19:24,565 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-03-30 19:19:24,565 ERROR [ERROR]: Exception: 
+[WinError 10054] An existing connection was forcibly closed by the remote host
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 219, in network_step
+    message, address = f.recvfrom(2048)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 159, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 120, in render
-    game_screen = self.screens[Managers.current_mode].render(ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\mainmenu\mainmenu.py", line 246, in render
-    game_screen.blit(get_text(main_menu_strings, self.current_menu[0]), (self.root_x - 12, self.root_y))
-
-2018-03-26 16:40:32,774 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 16:40:32,775 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 16:40:32,775 ERROR [ERROR]: Exception: 
-'Event' object has no attribute 'nickname'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 161, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 77, in step
-    self.screens[Managers.current_mode].step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 33, in step
-    Managers.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 191, in step
-    Managers.team_manager.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\teammanager.py", line 222, in step
-    self.phase_bars[team].step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\phasebar.py", line 35, in step
-    self.toast = ToastNotification(self, get_formatted_text(notification_strings, event.event_type, True, event.nickname), self.team)
-
-2018-03-26 16:52:12,830 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 16:52:12,831 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 16:52:12,831 ERROR [ERROR]: Exception: 
-<Setting.NICKNAME: 'NICKNAME'>
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 164, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 125, in render
-    game_screen = self.screens[Managers.current_mode].render(ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\mainmenu\mainmenu.py", line 292, in render
-    display_string = get_string(formatted_strings, option[0]).format(SETTINGS.get_unsaved(option[0]))
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\strings.py", line 333, in get_string
-    return string_type[LANGUAGE][string_name]
-
-2018-03-26 17:01:49,787 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 17:01:49,787 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 17:01:49,787 ERROR [ERROR]: Exception: 
-<Team.BLUE: '[BLU]'>
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 164, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 125, in render
-    game_screen = self.screens[Managers.current_mode].render(ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\networklobby.py", line 64, in render
-    game_screen.blit(draw_text(Managers.network_manager.filled_teams[team], light_color, dark_color), (position_x + 8, position_y + 4))
-
-2018-03-26 17:04:56,100 ERROR [ERROR]: Caught exception during network step.
-2018-03-26 17:04:56,101 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 17:04:56,101 ERROR [ERROR]: Exception: 
-'Team.BLUE' is not a valid Team
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 213, in network_step
-    self.handle_message(message, address)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 148, in handle_message
-    self.team = Team(body)
-
-  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\enum.py", line 291, in __call__
-    return cls.__new__(cls, value)
-
-  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\enum.py", line 533, in __new__
-    return cls._missing_(value)
-
-  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\enum.py", line 546, in _missing_
-    raise ValueError("%r is not a valid %s" % (value, cls.__name__))
-
-2018-03-26 17:04:56,101 ERROR [ERROR]: Failed to connect to host
-2018-03-26 17:04:56,101 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 17:04:56,101 ERROR [ERROR]: Exception: 
-'NetworkManager' object has no attribute 'team'
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 75, in connect_to_host
+2018-03-30 19:19:24,566 ERROR [ERROR]: Failed to connect to host
+2018-03-30 19:19:24,566 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-03-30 19:19:24,566 ERROR [ERROR]: Exception: 
+[WinError 10054] An existing connection was forcibly closed by the remote host
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 77, in connect_to_host
     self.network_step(blocking=True)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 217, in network_step
-    self.quit_network_game()
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 228, in network_step
+    raise err
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 196, in quit_network_game
-    self.disconnect_from_host(notify_host)
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 219, in network_step
+    message, address = f.recvfrom(2048)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 85, in disconnect_from_host
-    self.send_message(MessageCode.DROP_CONNECTION, self.team, self.nickname)
-
-2018-03-26 17:04:56,101 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 17:04:56,102 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 17:04:56,102 ERROR [ERROR]: Exception: 
-'NoneType' object is not iterable
+2018-03-30 19:19:24,579 ERROR [ERROR]: Caught exception in the launcher.
+2018-03-30 19:19:24,580 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-03-30 19:19:24,580 ERROR [ERROR]: Exception: 
+<Team.NONE: '[NON]'>
   File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
     Main().run()
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 161, in run
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 188, in run
     self.step(event)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 92, in step
-    self.set_screen_from_mode(mode, None, event.address, is_host=False)
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 138, in step
+    self.current_screen.step(event)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 49, in set_screen_from_mode
-    map_name, bitmap, pieces, teams, upgrades, meta = Managers.load_map_setup_network(mapname, address, is_host, map_type)
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 56, in step
+    Managers.step(event)
 
-2018-03-26 17:11:01,114 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 17:11:01,115 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 17:11:01,115 ERROR [ERROR]: Exception: 
-argument 1 must be pygame.Surface, not None
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 198, in step
+    Managers.player_manager.step(event)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 164, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 127, in render
-    base_screen.blit(game_screen, (0, 0))
-
-2018-03-26 17:53:45,074 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 17:53:45,075 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 17:53:45,075 ERROR [ERROR]: Exception: 
-initialize_managers() missing 3 required positional arguments: 'teams', 'upgrades', and 'meta'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 165, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 98, in step
-    self.set_screen_from_mode(Mode.EDIT, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 46, in set_screen_from_mode
-    new_screen = LevelEditor(mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 22, in __init__
-    Managers.initialize_managers(map_name, None, False)
-
-2018-03-26 17:56:52,812 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 17:56:52,813 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 17:56:52,813 ERROR [ERROR]: Exception: 
-'NoneType' object has no attribute 'team'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 165, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 98, in step
-    self.set_screen_from_mode(Mode.EDIT, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 46, in set_screen_from_mode
-    new_screen = LevelEditor(mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 25, in __init__
-    Managers.initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 75, in initialize_managers
-    Managers.player_manager = PlayerManager()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\playermanager.py", line 23, in __init__
-    self.active_team = Managers.network_manager.team
-
-2018-03-26 17:57:22,554 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 17:57:22,555 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 17:57:22,555 ERROR [ERROR]: Exception: 
-'NoneType' object has no attribute 'team'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 165, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 98, in step
-    self.set_screen_from_mode(Mode.EDIT, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 46, in set_screen_from_mode
-    new_screen = LevelEditor(mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 25, in __init__
-    Managers.initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 75, in initialize_managers
-    Managers.player_manager = PlayerManager()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\playermanager.py", line 23, in __init__
-    self.active_team = Managers.network_manager.team
-
-2018-03-26 18:00:04,376 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 18:00:04,377 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 18:00:04,377 ERROR [ERROR]: Exception: 
-<Team.BLUE: '[BLU]'>
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 165, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 81, in step
-    self.screens[Managers.current_mode].step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 43, in step
-    self.confirm()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 99, in confirm
-    Managers.piece_manager.register_piece(Piece(self.piece_type, self.piece_team, cursor_x, cursor_y))
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 37, in __init__
-    self.piece_subtype = Managers.team_manager.attr(self.team, self.piece_type, Attribute.SUBTYPE)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\teammanager.py", line 85, in attr
-    return self.piece_attributes[team][piece_type].get(attribute,
-
-2018-03-26 18:03:35,717 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 18:03:35,718 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 18:03:35,718 ERROR [ERROR]: Exception: 
-None
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 168, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in render
-    game_screen = self.screens[Managers.current_mode].render(ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 189, in render
-    piece_display.fill(clear_color[self.piece_team], (0, 0, GRID_WIDTH, GRID_HEIGHT))
-
-2018-03-26 18:05:46,796 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 18:05:46,796 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 18:05:46,796 ERROR [ERROR]: Exception: 
-None
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 168, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in render
-    game_screen = self.screens[Managers.current_mode].render(ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 189, in render
-    piece_display.fill(clear_color[self.piece_team], (0, 0, GRID_WIDTH, GRID_HEIGHT))
-
-2018-03-26 18:05:57,666 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 18:05:57,668 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 18:05:57,668 ERROR [ERROR]: Exception: 
-None
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 168, in run
-    self.render()
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 129, in render
-    game_screen = self.screens[Managers.current_mode].render(ui_screen)
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\screens\leveleditor.py", line 189, in render
-    piece_display.fill(clear_color[self.piece_team], (0, 0, GRID_WIDTH, GRID_HEIGHT))
-
-2018-03-26 18:07:46,979 ERROR [ERROR]: Caught exception in the launcher.
-2018-03-26 18:07:46,981 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-03-26 18:07:46,981 ERROR [ERROR]: Exception: 
-None
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 9, in <module>
-    Main().run()
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 168, in run
-    self.render()
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 129, in render
-    game_screen = self.screens[Managers.current_mode].render(ui_screen)
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\screens\leveleditor.py", line 189, in render
-    piece_display.fill(clear_color[self.piece_team], (0, 0, GRID_WIDTH, GRID_HEIGHT))
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\playermanager.py", line 48, in step
+    self.cursors[self.active_team].step(event)
 

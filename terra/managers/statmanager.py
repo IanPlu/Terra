@@ -1,7 +1,7 @@
 from enum import Enum
 
 from terra.engine.gameobject import GameObject
-from terra.event import *
+from terra.event.event import is_event_type, EventType
 from terra.team import Team
 
 
@@ -13,6 +13,16 @@ class Stat(Enum):
     PIECES_LOST = "PIECES_LOST"
     PIECES_BUILT = "PIECES_BUILT"
     UPGRADES_RESEARCHED = "UPGRADES_RESEARCHED"
+
+
+event_type_to_stat = {
+    EventType.E_UNIT_MOVED: Stat.TILES_MOVED,
+    EventType.E_UNIT_RANGED_ATTACK: Stat.RANGED_ATTACKS_MADE,
+    EventType.E_PIECES_IN_CONFLICT: Stat.PIECE_CONFLICTS,
+    EventType.E_PIECE_DEAD: Stat.PIECES_LOST,
+    EventType.E_PIECE_BUILT: Stat.PIECES_BUILT,
+    EventType.E_UPGRADE_BUILT: Stat.UPGRADES_RESEARCHED,
+}
 
 
 # Manages recording statistics about a game over the course of the game.
@@ -30,29 +40,25 @@ class StatManager(GameObject):
             for stat in Stat:
                 self.team_stats[team][stat] = 0
 
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+        for event_type, stat in event_type_to_stat.items():
+            event_bus.register_handler(event_type, self.increment_stat_from_event)
+
     def get_results(self):
         return self.team_stats
 
-    def increment_stat(self, team, stat, value=1):
+    def increment_stat(self, team, stat, value):
         self.team_stats[team][stat] += value
 
-    def step(self, event):
-        super().step(event)
+    def increment_stat_from_event(self, event):
+        if is_event_type(event, EventType.E_UNIT_MOVED):
+            value = abs(event.gx - event.dx) + abs(event.gy - event.dy)
+        else:
+            value = 1
 
-        if is_event_type(event, E_UNIT_MOVED):
-            tiles_moved = abs(event.gx - event.dx) + abs(event.gy - event.dy)
-            self.increment_stat(event.team, Stat.TILES_MOVED, value=tiles_moved)
-        elif is_event_type(event, E_UNIT_RANGED_ATTACK):
-            self.increment_stat(event.team, Stat.RANGED_ATTACKS_MADE)
-        elif is_event_type(event, E_PIECES_IN_CONFLICT):
+        if hasattr(event, 'teams'):
             for team in event.teams:
-                self.increment_stat(team, Stat.PIECE_CONFLICTS)
-        elif is_event_type(event, E_PIECE_DEAD):
-            self.increment_stat(event.team, Stat.PIECES_LOST)
-        elif is_event_type(event, E_PIECE_BUILT):
-            self.increment_stat(event.team, Stat.PIECES_BUILT)
-        elif is_event_type(event, E_UPGRADE_BUILT):
-            self.increment_stat(event.team, Stat.UPGRADES_RESEARCHED)
-
-    def render(self, game_screen, ui_screen):
-        super().render(game_screen, ui_screen)
+                self.increment_stat(team, event_type_to_stat[event.event_type], value)
+        else:
+            self.increment_stat(event.team, event_type_to_stat[event.event_type], value)

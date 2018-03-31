@@ -1,11 +1,13 @@
+import pygame
+
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.gameobject import GameObject
-from terra.event import *
+from terra.event.event import publish_game_event, EventType
+from terra.managers.managers import Managers
+from terra.piece.attribute import Attribute
 from terra.piece.movementtype import MovementType
 from terra.piece.piecesubtype import PieceSubtype
 from terra.resources.assets import spr_tile_selectable
-from terra.managers.managers import Managers
-from terra.piece.attribute import Attribute
 
 
 # Controllable tile selection UI.
@@ -34,6 +36,11 @@ class TileSelection(GameObject):
         # Abort immediately if there are no valid selectable tiles
         if len(self.coordinate_set) == 0:
             self.cancel()
+
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+        event_bus.register_handler(EventType.E_SELECT, self.confirm)
+        event_bus.register_handler(EventType.E_CANCEL, self.cancel)
 
     # Return the initial list of coordinates that cannot be selected
     def __generate_excluded_coordinates__(self):
@@ -99,27 +106,22 @@ class TileSelection(GameObject):
         return possible_coordinates - excluded_coordinates
 
     def confirm(self, event):
-        publish_game_event(E_SELECT_TILE, {
-            'gx': self.gx,
-            'gy': self.gy,
-            'option': self.option,
-            'team': self.team,
-            'dx': event.gx,
-            'dy': event.gy,
-        })
+        if (event.gx, event.gy) in self.coordinate_set and \
+                event.team == self.team and event.selecting_movement:
+            publish_game_event(EventType.E_SELECT_TILE, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'option': self.option,
+                'team': self.team,
+                'dx': event.gx,
+                'dy': event.gy,
+            })
 
-    def cancel(self):
-        publish_game_event(E_CANCEL_TILE_SELECTION, {})
+    def cancel(self, event):
+        publish_game_event(EventType.E_CANCEL_TILE_SELECTION, {})
 
     def step(self, event):
         super().step(event)
-
-        if is_event_type(event, E_SELECT):
-            if (event.gx, event.gy) in self.coordinate_set and \
-                    event.team == self.team and event.selecting_movement:
-                self.confirm(event)
-        elif is_event_type(event, E_CANCEL):
-            self.cancel()
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

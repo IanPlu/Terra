@@ -7,7 +7,7 @@ from opensimplex import OpenSimplex
 from pygame import Surface, SRCALPHA
 
 from terra.engine.gameobject import GameObject
-from terra.event import is_event_type, E_TILE_TERRAFORMED
+from terra.event.event import EventType
 from terra.map.tile import Tile
 from terra.map.tiletype import tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
@@ -51,6 +51,9 @@ class MapManager(GameObject):
 
         # Serialize the map to Tile objects (from integers)
         self.tile_grid = self.convert_grid_from_bitmap(self.bitmap)
+
+    def register_handlers(self, event_bus):
+        event_bus.register_handler(EventType.E_TILE_TERRAFORMED, self.terraform_tile)
 
     # Given a 2D array of ints, convert it to a 2D array of Tile objects
     def convert_grid_from_bitmap(self, bitmap):
@@ -135,12 +138,6 @@ class MapManager(GameObject):
                 mx = self.width - 1 - x if mirror_x else x
                 my = self.height - 1 - y if mirror_y else y
                 self.update_tile_type(mx, my, self.get_tile_type_at(x, y))
-
-    def step(self, event):
-        super().step(event)
-
-        if is_event_type(event, E_TILE_TERRAFORMED):
-            self.terraform_tile(event)
 
     # Render the map to the screen
     def render(self, game_screen, ui_screen):

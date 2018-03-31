@@ -2,12 +2,12 @@ from pygame.constants import KEYDOWN
 
 from terra.battlephase import BattlePhase
 from terra.engine.gameobject import GameObject
-from terra.keybindings import KB_DEBUG0
 from terra.managers.managers import Managers
 from terra.mode import Mode
-from terra.team import Team
 from terra.ui.cursor import Cursor
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
+from terra.control.inputcontroller import InputAction
+from terra.control.keybindings import Key
 
 
 # Manager for the current player. Helps handle input, networking, and information that should be hidden
@@ -22,19 +22,30 @@ class PlayerManager(GameObject):
 
         self.active_team = Managers.network_manager.team
 
+    def destroy(self):
+        super().destroy()
+        for team, cursor in self.cursors.items():
+            cursor.destroy()
+
+    def register_input_handlers(self, input_handler):
+        super().register_input_handlers(input_handler)
+        input_handler.register_handler(InputAction.PRESS, Key.DEBUG0, self.__debug_swap_active_team__)
+
+    def is_accepting_input(self):
+        return Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game
+
+    def __debug_swap_active_team__(self):
+        current_index = Managers.team_manager.get_teams().index(self.active_team) + 1
+        if current_index >= len(Managers.team_manager.get_teams()):
+            current_index = 0
+
+        self.active_team = Managers.team_manager.get_teams()[current_index]
+
     def step(self, event):
         super().step(event)
 
         if Managers.turn_manager.phase == BattlePhase.ORDERS:
             self.cursors[self.active_team].step(event)
-
-        if event.type == KEYDOWN and Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game:
-            if event.key in KB_DEBUG0:
-                current_index = Managers.team_manager.get_teams().index(self.active_team) + 1
-                if current_index >= len(Managers.team_manager.get_teams()):
-                    current_index = 0
-
-                self.active_team = Managers.team_manager.get_teams()[current_index]
 
     def get_camera_coords(self):
         return int(self.cursors[self.active_team].camera_x), int(self.cursors[self.active_team].camera_y)

@@ -1,8 +1,11 @@
 import pygame
 
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
+from terra.control.inputcontroller import InputAction
+from terra.control.keybindings import Key
 from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
+from terra.event.event import EventType, publish_game_event
 from terra.managers.managers import Managers
 from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
@@ -28,8 +31,15 @@ class DetailBox(GameObject):
         self.x = (RESOLUTION_WIDTH - subgrid_width * subgrid_size) // 2
         self.y = (RESOLUTION_HEIGHT - subgrid_height * subgrid_size) // 2 - 16
 
-    def step(self, event):
-        super().step(event)
+    def register_input_handlers(self, input_handler):
+        super().register_input_handlers(input_handler)
+
+        input_handler.register_handler(InputAction.PRESS, Key.CANCEL, self.close)
+        input_handler.register_handler(InputAction.PRESS, Key.MENU, self.close)
+        input_handler.register_handler(InputAction.PRESS, Key.MENU2, self.close)
+
+    def close(self):
+        publish_game_event(EventType.E_CLOSE_DETAILBOX, {})
 
     # Return a surface containing a single attribute with icon and value text
     def render_attribute(self, attribute):

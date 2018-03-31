@@ -2,9 +2,9 @@ from enum import Enum
 
 from terra.battlephase import BattlePhase
 from terra.economy.upgradetype import UpgradeType
-from terra.event import *
-from terra.mainmenu.option import Option
+from terra.event.event import EventType
 from terra.managers.statmanager import Stat
+from terra.menu.option import Option
 from terra.piece.movementtype import MovementType
 from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piecetype import PieceType
@@ -22,44 +22,44 @@ LANGUAGE = Language.EN_US
 
 menu_option_strings = {
     Language.EN_US: {
-        MENU_MOVE: "Move",
-        MENU_CANCEL_ORDER: "Cancel Order",
-        MENU_RANGED_ATTACK: "Ranged",
-        MENU_BUILD_PIECE: "Build",
-        MENU_PURCHASE_UPGRADE: "Upgrade",
-        MENU_SUBMIT_TURN: "Submit Turn",
-        MENU_REVISE_TURN: "Revise Turn",
-        MENU_SAVE_GAME: "Save Game",
-        MENU_QUIT_BATTLE: "Quit",
-        MENU_SAVE_MAP: "Save Map",
-        MENU_RAISE_TILE: "Raise Tile",
-        MENU_LOWER_TILE: "Lower Tile",
-        MENU_DEMOLISH_SELF: "Demolish",
-        MENU_FILL_WITH_CURRENT_TILE: "Fill Map",
-        MENU_CONCEDE: "Concede",
-        MENU_MIRROR_X: "Mirror (H)",
-        MENU_MIRROR_Y: "Mirror (V)",
+        Option.MENU_MOVE: "Move",
+        Option.MENU_CANCEL_ORDER: "Cancel Order",
+        Option.MENU_RANGED_ATTACK: "Ranged",
+        Option.MENU_BUILD_PIECE: "Build",
+        Option.MENU_PURCHASE_UPGRADE: "Upgrade",
+        Option.MENU_SUBMIT_TURN: "Submit Turn",
+        Option.MENU_REVISE_TURN: "Revise Turn",
+        Option.MENU_SAVE_GAME: "Save Game",
+        Option.MENU_QUIT_BATTLE: "Quit",
+        Option.MENU_SAVE_MAP: "Save Map",
+        Option.MENU_RAISE_TILE: "Raise Tile",
+        Option.MENU_LOWER_TILE: "Lower Tile",
+        Option.MENU_DEMOLISH_SELF: "Demolish",
+        Option.MENU_FILL_WITH_CURRENT_TILE: "Fill Map",
+        Option.MENU_CONCEDE: "Concede",
+        Option.MENU_MIRROR_X: "Mirror (H)",
+        Option.MENU_MIRROR_Y: "Mirror (V)",
     }
 }
 
 menu_help_strings = {
     Language.EN_US: {
         # Normal Menu Options
-        MENU_MOVE: "* Order this piece to move to a new location.",
-        MENU_CANCEL_ORDER: "* Cancel current order and do nothing this turn.",
-        MENU_RANGED_ATTACK: "* Conduct a ranged attack on a tile. Allies are not harmed.",
-        MENU_BUILD_PIECE: "* Build a new piece on an adjacent tile.",
-        MENU_PURCHASE_UPGRADE: "* Purchase an upgrade, which takes effect on the start of next turn.",
-        MENU_SUBMIT_TURN: "* Submit your turn. Once all turns are submitted, orders are executed.",
-        MENU_REVISE_TURN: "* Cancel turn submission and make changes to your orders.",
-        MENU_SAVE_GAME: "* Save the current battle. You can resume it later.",
-        MENU_QUIT_BATTLE: "* Quit this battle.",
-        MENU_SAVE_MAP: "* Save this map design to a file.",
-        MENU_RAISE_TILE: "* Terraform an adjacent tile. Seas -> Coasts -> Plains -> Hills -> Mountains.",
-        MENU_LOWER_TILE: "* Terraform an adjacent tile. Mountains -> Hills -> Plains -> Coasts -> Seas.",
-        MENU_DEMOLISH_SELF: "* Destroy this piece at the end of the turn, freeing space for other pieces later.",
-        MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
-        MENU_CONCEDE: "* Concede the game. Your opponent wins!",
+        Option.MENU_MOVE: "* Order this piece to move to a new location.",
+        Option.MENU_CANCEL_ORDER: "* Cancel current order and do nothing this turn.",
+        Option.MENU_RANGED_ATTACK: "* Conduct a ranged attack on a tile. Allies are not harmed.",
+        Option.MENU_BUILD_PIECE: "* Build a new piece on an adjacent tile.",
+        Option.MENU_PURCHASE_UPGRADE: "* Purchase an upgrade, which takes effect on the start of next turn.",
+        Option.MENU_SUBMIT_TURN: "* Submit your turn. Once all turns are submitted, orders are executed.",
+        Option.MENU_REVISE_TURN: "* Cancel turn submission and make changes to your orders.",
+        Option.MENU_SAVE_GAME: "* Save the current battle. You can resume it later.",
+        Option.MENU_QUIT_BATTLE: "* Quit this battle.",
+        Option.MENU_SAVE_MAP: "* Save this map design to a file.",
+        Option.MENU_RAISE_TILE: "* Terraform an adjacent tile. Seas -> Coasts -> Plains -> Hills -> Mountains.",
+        Option.MENU_LOWER_TILE: "* Terraform an adjacent tile. Mountains -> Hills -> Plains -> Coasts -> Seas.",
+        Option.MENU_DEMOLISH_SELF: "* Destroy this piece at the end of the turn, freeing space for other pieces later.",
+        Option.MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
+        Option.MENU_CONCEDE: "* Concede the game. Your opponent wins!",
 
         # Pieces
         PieceType.COLONIST: "* Colonists are workers with little combat ability, but can harvest resources and build "
@@ -247,13 +247,13 @@ upgrade_name_strings = {
 
 notification_strings = {
     Language.EN_US: {
-        E_INVALID_MOVE_ORDERS: "Orders result in stacked pieces",
-        E_INVALID_BUILD_ORDERS: "Not enough resources for orders",
-        E_INVALID_UPGRADE_ORDERS: "Can't buy the same upgrade twice",
-        NETWORK_CLIENT_CONNECTED: "{} connected",
-        NETWORK_CLIENT_DISCONNECTED: "{} disconnected",
-        NETWORK_CONNECTED_TO_HOST: "Connected to host",
-        NETWORK_DISCONNECTED_FROM_HOST: "Disconnected from host",
+        EventType.E_INVALID_MOVE_ORDERS: "Orders result in stacked pieces",
+        EventType.E_INVALID_BUILD_ORDERS: "Not enough resources for orders",
+        EventType.E_INVALID_UPGRADE_ORDERS: "Can't buy the same upgrade twice",
+        EventType.NETWORK_CLIENT_CONNECTED: "{} connected",
+        EventType.NETWORK_CLIENT_DISCONNECTED: "{} disconnected",
+        EventType.NETWORK_CONNECTED_TO_HOST: "Connected to host",
+        EventType.NETWORK_DISCONNECTED_FROM_HOST: "Disconnected from host",
     }
 }
 

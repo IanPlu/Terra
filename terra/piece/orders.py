@@ -1,8 +1,7 @@
 from terra.economy.upgradetype import UpgradeType
+from terra.menu.option import Option
 from terra.piece.piecetype import PieceType
 from terra.strings import piece_name_strings, LANGUAGE
-from terra.event import MENU_MOVE, MENU_RANGED_ATTACK, MENU_BUILD_PIECE, MENU_PURCHASE_UPGRADE, MENU_RAISE_TILE, \
-    MENU_DEMOLISH_SELF
 
 
 # An order to be carried out by a piece.
@@ -19,7 +18,7 @@ class Order:
 class MoveOrder(Order):
     # dx, dy: The destination x and y grid coordinates
     def __init__(self, dx, dy):
-        super().__init__(MENU_MOVE)
+        super().__init__(Option.MENU_MOVE)
         self.dx = dx
         self.dy = dy
 
@@ -34,7 +33,7 @@ class MoveOrder(Order):
 class RangedAttackOrder(Order):
     # tx, ty: The targeted grid coordinates to attack
     def __init__(self, tx, ty):
-        super().__init__(MENU_RANGED_ATTACK)
+        super().__init__(Option.MENU_RANGED_ATTACK)
         self.tx = tx
         self.ty = ty
 
@@ -48,7 +47,7 @@ class RangedAttackOrder(Order):
 # An order to build a piece on a specific tile
 class BuildOrder(Order):
     def __init__(self, tx, ty, new_piece_type):
-        super().__init__(MENU_BUILD_PIECE)
+        super().__init__(Option.MENU_BUILD_PIECE)
         self.tx = tx
         self.ty = ty
         self.new_piece_type = new_piece_type
@@ -64,7 +63,7 @@ class BuildOrder(Order):
 # An order to purchase an upgrade for the team
 class UpgradeOrder(Order):
     def __init__(self, new_upgrade_type):
-        super().__init__(MENU_PURCHASE_UPGRADE)
+        super().__init__(Option.MENU_PURCHASE_UPGRADE)
         self.new_upgrade_type = new_upgrade_type
 
     def __str__(self):
@@ -77,7 +76,7 @@ class UpgradeOrder(Order):
 # An order to modify an adjacent tile
 class TerraformOrder(Order):
     def __init__(self, tx, ty, raising=True):
-        super().__init__(MENU_RAISE_TILE)
+        super().__init__(Option.MENU_RAISE_TILE)
         self.tx = tx
         self.ty = ty
         self.raising = raising
@@ -92,7 +91,7 @@ class TerraformOrder(Order):
 # An order for the building to demolish itself.
 class DemolishOrder(Order):
     def __init__(self):
-        super().__init__(MENU_DEMOLISH_SELF)
+        super().__init__(Option.MENU_DEMOLISH_SELF)
 
     def __str__(self):
         return "Order: Demolish self".format()

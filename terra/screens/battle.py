@@ -2,10 +2,8 @@ from pygame import Surface, SRCALPHA
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT
 from terra.engine.gamescreen import GameScreen
-from terra.event import is_event_type, publish_game_event, E_BASE_DESTROYED, E_SAVE_GAME, END_PHASE_SPECIAL, \
-    E_BATTLE_OVER, E_PLAYER_CONCEDED, E_CONCEDE
+from terra.event.event import publish_game_event, EventType
 from terra.managers.managers import Managers
-from terra.resources.assetloading import AssetType
 
 
 # A battle containing a map, players, their resources + input methods, etc.
@@ -17,6 +15,18 @@ class Battle(GameScreen):
         # Store bases as they're destroyed.
         self.bases_destroyed = set()
 
+    def destroy(self):
+        super().destroy()
+        Managers.tear_down_managers()
+
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+
+        event_bus.register_handler(EventType.E_BASE_DESTROYED, self.update_bases_destroyed)
+        event_bus.register_handler(EventType.E_SAVE_GAME, self.trigger_save_game)
+        event_bus.register_handler(EventType.END_PHASE_SPECIAL, self.check_for_battle_end)
+        event_bus.register_handler(EventType.E_CONCEDE, self.handle_player_concession)
+
     def end_battle(self):
         results = {
             'bases_destroyed': self.bases_destroyed,
@@ -24,23 +34,26 @@ class Battle(GameScreen):
             'teams': Managers.team_manager.get_teams(),
         }
 
-        publish_game_event(E_BATTLE_OVER, results)
+        publish_game_event(EventType.E_BATTLE_OVER, results)
+
+    def update_bases_destroyed(self, event):
+        self.bases_destroyed.add(event.team)
+
+    def trigger_save_game(self, event):
+        Managers.save_game_to_file()
+
+    def check_for_battle_end(self, event):
+        if len(self.bases_destroyed) > 0:
+            self.end_battle()
+
+    def handle_player_concession(self, event):
+        self.bases_destroyed.add(event.team)
+        self.end_battle()
 
     def step(self, event):
         super().step(event)
 
         Managers.step(event)
-
-        if is_event_type(event, E_BASE_DESTROYED):
-            self.bases_destroyed.add(event.team)
-        elif is_event_type(event, E_SAVE_GAME):
-            Managers.save_game_to_file()
-        elif is_event_type(event, END_PHASE_SPECIAL):
-            if len(self.bases_destroyed) > 0:
-                self.end_battle()
-        elif is_event_type(event, E_PLAYER_CONCEDED, E_CONCEDE):
-            self.bases_destroyed.add(event.team)
-            self.end_battle()
 
     # Generate a screen with the entire map, subsurfaced to the camera area
     def render(self, ui_screen):

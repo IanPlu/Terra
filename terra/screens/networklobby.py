@@ -1,13 +1,14 @@
-from pygame import Surface, SRCALPHA, KEYDOWN, MOUSEBUTTONDOWN
+from pygame import Surface, SRCALPHA
 
-from terra.keybindings import KB_CONFIRM, KB_CANCEL, KB_MENU
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT, HALF_RES_WIDTH, HALF_RES_HEIGHT
+from terra.control.inputcontroller import InputAction
+from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
+from terra.event.event import publish_game_event, EventType
 from terra.managers.managers import Managers
 from terra.managers.mapmanager import generate_minimap
 from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color
 from terra.team import Team
-from terra.event import publish_game_event, E_EXIT_LOBBY, E_START_BATTLE
 from terra.util.drawingutil import draw_text
 
 menu_width = 168
@@ -32,19 +33,19 @@ class NetworkLobby(GameScreen):
         self.root_x = HALF_RES_WIDTH
         self.root_y = HALF_RES_HEIGHT - 48
 
-    def step(self, event):
-        super().step(event)
+    def register_input_handlers(self, input_handler):
+        super().register_input_handlers(input_handler)
 
-        if event.type == KEYDOWN:
-            if event.key in KB_CONFIRM and Managers.network_manager.is_host:
-                publish_game_event(E_START_BATTLE, {})
-            elif event.key in KB_CANCEL or event.key in KB_MENU:
-                publish_game_event(E_EXIT_LOBBY, {})
-        elif event.type == MOUSEBUTTONDOWN:
-            if event.button in KB_CONFIRM and Managers.network_manager.is_host:
-                publish_game_event(E_START_BATTLE, {})
-            elif event.button in KB_CANCEL or event.button in KB_MENU:
-                publish_game_event(E_EXIT_LOBBY, {})
+        input_handler.register_handler(InputAction.PRESS, Key.CONFIRM, self.confirm)
+        input_handler.register_handler(InputAction.PRESS, Key.CANCEL, self.cancel)
+        input_handler.register_handler(InputAction.PRESS, Key.MENU, self.cancel)
+
+    def confirm(self):
+        if Managers.network_manager.is_host:
+            publish_game_event(EventType.E_START_BATTLE, {})
+
+    def cancel(self):
+        publish_game_event(EventType.E_EXIT_LOBBY, {})
 
     def render(self, ui_screen):
         super().render(ui_screen)

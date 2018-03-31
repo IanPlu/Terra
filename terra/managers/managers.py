@@ -25,7 +25,7 @@ class Managers:
     @staticmethod
     def load_map_setup_network(map_name, address, is_host, map_type=AssetType.MAP):
         from terra.managers.networkmanager import NetworkManager
-        from terra.managers.mapmanager import load_map_from_file, parse_map_from_string
+        from terra.managers.mapmanager import load_map_from_file, parse_map_from_string, generate_map
 
         if map_name:
             # Load the map from a file for a local game (or network game where we're the host)
@@ -38,10 +38,10 @@ class Managers:
             Managers.network_manager = NetworkManager(address, None, is_host)
             map_data = Managers.network_manager.map_data
 
-            # If we still have no map data, just abort and return to the title screen
+            # If we still have no map data, generate a random one, assuming we'll throw it out
+            # TODO: Investigate a cleaner approach to this
             if not map_data:
-                Managers.tear_down_managers()
-                return
+                bitmap, pieces, teams, upgrades, meta = generate_map()
             else:
                 # Load the map from the string representation given to us by the host
                 map_name = "NetworkGame"
@@ -78,17 +78,22 @@ class Managers:
 
     @staticmethod
     def tear_down_managers():
-        del Managers.network_manager
-        del Managers.combat_logger
-        del Managers.effects_manager
+        def safe_destroy(manager):
+            if manager:
+                manager.destroy()
+
+        safe_destroy(Managers.network_manager)
+        safe_destroy(Managers.effects_manager)
+        safe_destroy(Managers.team_manager)
+        safe_destroy(Managers.battle_map)
+        safe_destroy(Managers.piece_manager)
+        safe_destroy(Managers.turn_manager)
+        safe_destroy(Managers.player_manager)
+        safe_destroy(Managers.sound_manager)
+        safe_destroy(Managers.stat_manager)
+
         del Managers.map_name
-        del Managers.team_manager
-        del Managers.battle_map
-        del Managers.piece_manager
-        del Managers.turn_manager
-        del Managers.player_manager
-        del Managers.sound_manager
-        del Managers.stat_manager
+        del Managers.combat_logger
 
         Managers.network_manager = None
         Managers.combat_logger = None

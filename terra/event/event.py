@@ -1,123 +1,98 @@
-import pygame
+from enum import Enum, auto
+from pygame import USEREVENT
+from pygame.event import Event, post
 
 EVENT_TYPE = "event_type"
 FROM_NETWORK = "from_network"
-event_counter = 0
 
 
-def define_event():
-    global event_counter
-    event_counter += 1
-    return event_counter
+class EventType(Enum):
+    # General action events
+    E_OPEN_MENU = auto()
+    E_CLOSE_MENU = auto()
+    E_OPEN_TILE_SELECTION = auto()
+    E_SELECT_TILE = auto()
+    E_CANCEL_TILE_SELECTION = auto()
+    E_SELECT = auto()
+    E_CANCEL = auto()
+    E_OPEN_BUILD_MENU = auto()
+    E_SELECT_BUILD_UNIT = auto()
+    E_CANCEL_BUILD_UNIT = auto()
+    E_OPEN_UPGRADE_MENU = auto()
+    E_SELECT_UPGRADE = auto()
+    E_CANCEL_UPGRADE = auto()
+    E_CLOSE_DETAILBOX = auto()
 
+    E_SUBMIT_TURN = auto()
+    E_CANCEL_TURN = auto()
+    E_TURN_SUBMITTED = auto()
+    E_CANCEL_TURN_SUBMITTED = auto()
+    E_ALL_TURNS_SUBMITTED = auto()
+    E_CONCEDE = auto()
+    E_SAVE_GAME = auto()
+    E_QUIT_BATTLE = auto()
+    E_BATTLE_OVER = auto()
+    E_EXIT_RESULTS = auto()
+    E_START_BATTLE = auto()
+    E_START_NETWORK_BATTLE = auto()
+    E_EXIT_LOBBY = auto()
+    E_NETWORKING_ERROR = auto()
 
-# General action events
-E_OPEN_MENU = define_event()
-E_CLOSE_MENU = define_event()
-E_OPEN_TILE_SELECTION = define_event()
-E_SELECT_TILE = define_event()
-E_CANCEL_TILE_SELECTION = define_event()
-E_SELECT = define_event()
-E_CANCEL = define_event()
-E_OPEN_BUILD_MENU = define_event()
-E_SELECT_BUILD_UNIT = define_event()
-E_CANCEL_BUILD_UNIT = define_event()
-E_OPEN_UPGRADE_MENU = define_event()
-E_SELECT_UPGRADE = define_event()
-E_CANCEL_UPGRADE = define_event()
+    # Notification events
+    E_UNIT_MOVED = auto()
+    E_UNIT_RANGED_ATTACK = auto()
+    E_PIECES_IN_CONFLICT = auto()
+    E_CLEANUP = auto()
+    E_PIECE_DEAD = auto()
+    E_BASE_DESTROYED = auto()
+    E_PIECE_BUILT = auto()
+    E_UPGRADE_BUILT = auto()
+    E_INVALID_MOVE_ORDERS = auto()
+    E_INVALID_BUILD_ORDERS = auto()
+    E_INVALID_UPGRADE_ORDERS = auto()
+    E_ORDER_CANCELED = auto()
+    E_ARMOR_GRANTED = auto()
+    E_PIECE_HEALED = auto()
+    E_PIECE_ON_INVALID_TERRAIN = auto()
+    E_TILE_TERRAFORMED = auto()
+    E_PLAYER_CONCEDED = auto()
 
-E_SUBMIT_TURN = define_event()
-E_CANCEL_TURN = define_event()
-E_TURN_SUBMITTED = define_event()
-E_CANCEL_TURN_SUBMITTED = define_event()
-E_ALL_TURNS_SUBMITTED = define_event()
-E_CONCEDE = define_event()
-E_SAVE_GAME = define_event()
-E_QUIT_BATTLE = define_event()
-E_BATTLE_OVER = define_event()
-E_EXIT_RESULTS = define_event()
-E_START_BATTLE = define_event()
-E_START_NETWORK_BATTLE = define_event()
-E_EXIT_LOBBY = define_event()
-E_NETWORKING_ERROR = define_event()
+    # Phase events
+    START_PHASE_START_TURN = auto()
+    START_PHASE_ORDERS = auto()
+    START_PHASE_EXECUTE_MOVE = auto()
+    START_PHASE_EXECUTE_BUILD = auto()
+    START_PHASE_EXECUTE_COMBAT = auto()
+    START_PHASE_EXECUTE_RANGED = auto()
+    START_PHASE_EXECUTE_SPECIAL = auto()
+    E_NEXT_PHASE = auto()
 
-# Notification events
-E_UNIT_MOVED = define_event()
-E_UNIT_RANGED_ATTACK = define_event()
-E_PIECES_IN_CONFLICT = define_event()
-E_CLEANUP = define_event()
-E_PIECE_DEAD = define_event()
-E_BASE_DESTROYED = define_event()
-E_PIECE_BUILT = define_event()
-E_UPGRADE_BUILT = define_event()
-E_INVALID_MOVE_ORDERS = define_event()
-E_INVALID_BUILD_ORDERS = define_event()
-E_INVALID_UPGRADE_ORDERS = define_event()
-E_ORDER_CANCELED = define_event()
-E_ARMOR_GRANTED = define_event()
-E_PIECE_HEALED = define_event()
-E_PIECE_ON_INVALID_TERRAIN = define_event()
-E_TILE_TERRAFORMED = define_event()
-E_PLAYER_CONCEDED = define_event()
+    END_PHASE_START_TURN = auto()
+    END_PHASE_ORDERS = auto()
+    END_PHASE_MOVE = auto()
+    END_PHASE_BUILD = auto()
+    END_PHASE_COMBAT = auto()
+    END_PHASE_RANGED = auto()
+    END_PHASE_SPECIAL = auto()
 
-# Phase events
-START_PHASE_START_TURN = define_event()
-START_PHASE_ORDERS = define_event()
-START_PHASE_EXECUTE_MOVE = define_event()
-START_PHASE_EXECUTE_BUILD = define_event()
-START_PHASE_EXECUTE_COMBAT = define_event()
-START_PHASE_EXECUTE_RANGED = define_event()
-START_PHASE_EXECUTE_SPECIAL = define_event()
-E_NEXT_PHASE = define_event()
+    MENU_SELECT_OPTION = auto()
 
-END_PHASE_START_TURN = define_event()
-END_PHASE_ORDERS = define_event()
-END_PHASE_MOVE = define_event()
-END_PHASE_BUILD = define_event()
-END_PHASE_COMBAT = define_event()
-END_PHASE_RANGED = define_event()
-END_PHASE_SPECIAL = define_event()
+    # Text input options
+    TEXT_SUBMIT_INPUT = auto()
+    TEXT_CANCEL_INPUT = auto()
 
-# Piece selection menu option events
-MENU_CANCEL_ORDER = define_event()
-MENU_MOVE = define_event()
-MENU_RANGED_ATTACK = define_event()
-MENU_BUILD_PIECE = define_event()
-MENU_PURCHASE_UPGRADE = define_event()
-MENU_RAISE_TILE = define_event()
-MENU_LOWER_TILE = define_event()
-MENU_DEMOLISH_SELF = define_event()
-
-# Pause menu option events
-MENU_SUBMIT_TURN = define_event()
-MENU_REVISE_TURN = define_event()
-MENU_SAVE_GAME = define_event()
-MENU_QUIT_BATTLE = define_event()
-MENU_CONCEDE = define_event()
-
-# Level editor menu option events
-MENU_SAVE_MAP = define_event()
-MENU_FILL_WITH_CURRENT_TILE = define_event()
-MENU_MIRROR_X = define_event()
-MENU_MIRROR_Y = define_event()
-
-# Main menu option events
-MENU_SELECT_OPTION = define_event()
-TEXT_SUBMIT_INPUT = define_event()
-TEXT_CANCEL_INPUT = define_event()
-
-# Network notification events
-NETWORK_CLIENT_CONNECTED = define_event()
-NETWORK_CONNECTED_TO_HOST = define_event()
-NETWORK_CLIENT_DISCONNECTED = define_event()
-NETWORK_DISCONNECTED_FROM_HOST = define_event()
+    # Network notification events
+    NETWORK_CLIENT_CONNECTED = auto()
+    NETWORK_CONNECTED_TO_HOST = auto()
+    NETWORK_CLIENT_DISCONNECTED = auto()
+    NETWORK_DISCONNECTED_FROM_HOST = auto()
 
 
 # Publish the specified game event, with the data provided.
 def publish_game_event(event_type, data):
     data[EVENT_TYPE] = event_type
-    event = pygame.event.Event(pygame.USEREVENT, data)
-    pygame.event.post(event)
+    event = Event(USEREVENT, data)
+    post(event)
 
 
 # Publish the specified game event, with the data provided, and the event marked as being from the network (not local)
@@ -128,9 +103,9 @@ def publish_game_event_from_network(event_type, data):
 
 # Return true if the event is any of the provided types.
 def is_event_type(event, *event_type):
-    return event.type == pygame.USEREVENT and event.event_type in event_type
+    return event.type == USEREVENT and event.event_type in event_type
 
 
 # Return true if the event is of any of the provided types AND it originated here (not from the network)
 def is_local_event_type(event, *event_type):
-    return event.type == pygame.USEREVENT and event.event_type in event_type and not hasattr(event, FROM_NETWORK)
+    return event.type == USEREVENT and event.event_type in event_type and not hasattr(event, FROM_NETWORK)

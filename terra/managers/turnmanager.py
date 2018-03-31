@@ -1,12 +1,8 @@
 from terra.battlephase import BattlePhase
 from terra.engine.gameobject import GameObject
-from terra.event import is_event_type, publish_game_event, E_NEXT_PHASE, E_CLEANUP, START_PHASE_START_TURN, \
-    START_PHASE_ORDERS, START_PHASE_EXECUTE_BUILD, START_PHASE_EXECUTE_MOVE, START_PHASE_EXECUTE_COMBAT, \
-    START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL, E_ALL_TURNS_SUBMITTED, END_PHASE_START_TURN, \
-    END_PHASE_ORDERS, END_PHASE_MOVE, END_PHASE_BUILD, END_PHASE_COMBAT, END_PHASE_RANGED, END_PHASE_SPECIAL
+from terra.event.event import publish_game_event, EventType
 from terra.managers.managers import Managers
 from terra.map.metadatakey import MetadataKey
-from terra.team import Team
 
 
 # Manager for the current phase of the game and marshalling progression through phases.
@@ -25,7 +21,19 @@ class TurnManager(GameObject):
 
         if self.phase == BattlePhase.START_TURN:
             Managers.combat_logger.log_new_turn(self.turn)
-            self.progress_phase()
+            self.progress_phase(None)
+
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+
+        event_bus.register_handler(EventType.START_PHASE_START_TURN, self.progress_phase)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_MOVE, self.progress_phase)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_BUILD, self.progress_phase)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_COMBAT, self.progress_phase)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_RANGED, self.progress_phase)
+        event_bus.register_handler(EventType.START_PHASE_EXECUTE_SPECIAL, self.progress_phase)
+
+        event_bus.register_handler(EventType.E_ALL_TURNS_SUBMITTED, self.progress_phase)
 
     # Validate that it's OK to progress the current phase.
     # Check movement orders, primarily
@@ -43,12 +51,12 @@ class TurnManager(GameObject):
             return True
 
     # Move the phase forward if possible
-    def progress_phase(self):
+    def progress_phase(self, event):
         if not self.validate_phase():
             return
 
         # Clean up units every phase
-        publish_game_event(E_CLEANUP, {})
+        publish_game_event(EventType.E_CLEANUP, {})
 
         # Publish an event for the end of the old phase
         publish_game_event(self.end_events[self.phase], {})
@@ -65,7 +73,7 @@ class TurnManager(GameObject):
 
         Managers.combat_logger.log_new_phase(self.phase)
 
-        publish_game_event(E_NEXT_PHASE, {
+        publish_game_event(EventType.E_NEXT_PHASE, {
             'new_phase': self.phase
         })
 
@@ -75,23 +83,23 @@ class TurnManager(GameObject):
         })
 
     phase_events = {
-        BattlePhase.START_TURN: START_PHASE_START_TURN,
-        BattlePhase.ORDERS: START_PHASE_ORDERS,
-        BattlePhase.EXECUTE_MOVE: START_PHASE_EXECUTE_MOVE,
-        BattlePhase.EXECUTE_BUILD: START_PHASE_EXECUTE_BUILD,
-        BattlePhase.EXECUTE_COMBAT: START_PHASE_EXECUTE_COMBAT,
-        BattlePhase.EXECUTE_RANGED: START_PHASE_EXECUTE_RANGED,
-        BattlePhase.EXECUTE_SPECIAL: START_PHASE_EXECUTE_SPECIAL,
+        BattlePhase.START_TURN: EventType.START_PHASE_START_TURN,
+        BattlePhase.ORDERS: EventType.START_PHASE_ORDERS,
+        BattlePhase.EXECUTE_MOVE: EventType.START_PHASE_EXECUTE_MOVE,
+        BattlePhase.EXECUTE_BUILD: EventType.START_PHASE_EXECUTE_BUILD,
+        BattlePhase.EXECUTE_COMBAT: EventType.START_PHASE_EXECUTE_COMBAT,
+        BattlePhase.EXECUTE_RANGED: EventType.START_PHASE_EXECUTE_RANGED,
+        BattlePhase.EXECUTE_SPECIAL: EventType.START_PHASE_EXECUTE_SPECIAL,
     }
 
     end_events = {
-        BattlePhase.START_TURN: END_PHASE_START_TURN,
-        BattlePhase.ORDERS: END_PHASE_ORDERS,
-        BattlePhase.EXECUTE_MOVE: END_PHASE_MOVE,
-        BattlePhase.EXECUTE_BUILD: END_PHASE_BUILD,
-        BattlePhase.EXECUTE_COMBAT: END_PHASE_COMBAT,
-        BattlePhase.EXECUTE_RANGED: END_PHASE_RANGED,
-        BattlePhase.EXECUTE_SPECIAL: END_PHASE_SPECIAL,
+        BattlePhase.START_TURN: EventType.END_PHASE_START_TURN,
+        BattlePhase.ORDERS: EventType.END_PHASE_ORDERS,
+        BattlePhase.EXECUTE_MOVE: EventType.END_PHASE_MOVE,
+        BattlePhase.EXECUTE_BUILD: EventType.END_PHASE_BUILD,
+        BattlePhase.EXECUTE_COMBAT: EventType.END_PHASE_COMBAT,
+        BattlePhase.EXECUTE_RANGED: EventType.END_PHASE_RANGED,
+        BattlePhase.EXECUTE_SPECIAL: EventType.END_PHASE_SPECIAL,
     }
 
     def serialize_metadata(self):
@@ -99,16 +107,3 @@ class TurnManager(GameObject):
             (MetadataKey.TURN.value, self.turn),
             (MetadataKey.PHASE.value, self.phase.name),
         ]
-
-    def step(self, event):
-        super().step(event)
-
-        if is_event_type(event, START_PHASE_START_TURN, START_PHASE_EXECUTE_MOVE,
-                         START_PHASE_EXECUTE_BUILD, START_PHASE_EXECUTE_COMBAT,
-                         START_PHASE_EXECUTE_RANGED, START_PHASE_EXECUTE_SPECIAL):
-            self.progress_phase()
-        elif is_event_type(event, E_ALL_TURNS_SUBMITTED):
-            self.progress_phase()
-
-    def render(self, game_screen, ui_screen):
-        super().render(game_screen, ui_screen)

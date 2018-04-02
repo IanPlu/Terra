@@ -37,8 +37,8 @@ class CombatLogger:
         self.logger.info("{} failed to execute '{}'".format(str(piece), str(order)))
 
     # Log whenever two or more pieces are contesting the same tile
-    def log_contesting_pieces(self, piece1, piece2):
-        self.logger.info("{} and {} are contesting the tile at ({}, {})!".format(str(piece1), str(piece2), piece1.gx, piece1.gy))
+    def log_contesting_pieces(self, pieces):
+        self.logger.info("{} are contesting the tile at ({}, {})!".format(str(pieces), pieces[0].gx, pieces[0].gy))
 
     # Log whenever a piece takes damage.
     def log_damage(self, piece, damage, source):
@@ -58,14 +58,14 @@ class CombatLogger:
             self.logger.info("{} team spent {} resources.".format(team, abs(amount)))
 
     # Log the end of a game.
-    def log_results(self, teams, losing_teams, team_stats):
+    def log_results(self, winning_teams, all_teams, team_stats):
         self.logger.info("=== BATTLE OVER! ===")
 
-        for team in teams:
-            if team in losing_teams:
-                self.logger.info("{} team has lost their base!".format(team))
+        for team in all_teams:
+            if team in winning_teams:
+                self.logger.info("{} team has won!".format(team))
             else:
-                self.logger.info("{} team survived!".format(team))
+                self.logger.info("{} team has lost.".format(team))
 
             self.logger.info("-- Stats for team {} --".format(team))
             for stat, value in team_stats[team].items():

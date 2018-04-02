@@ -308,7 +308,7 @@ label_strings = {
 formatted_strings = {
     Language.EN_US: {
         "NEW_TURN_MESSAGE": "TURN {}",
-        "RESULTS_HEADER": "{} team lost!",
+        "RESULTS_HEADER": "{} team won!",
 
         Setting.SCREEN_SCALE: "Screen Scale: {}x",
         Setting.SFX_VOLUME: "Sound Volume: {}%",

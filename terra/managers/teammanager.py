@@ -69,6 +69,9 @@ class TeamManager(GameObject):
                 if upgrade:
                     self.purchase_upgrade(team, UpgradeType[upgrade])
 
+        # Create an archive of all teams at the start of battle. This one won't be mutated.
+        self.all_teams = self.teams.copy()
+
     def destroy(self):
         super().destroy()
         for _, bar in self.phase_bars.items():
@@ -89,6 +92,10 @@ class TeamManager(GameObject):
         event_bus.register_handler(EventType.E_CLOSE_MENU, self.handle_menu_option)
         event_bus.register_handler(EventType.E_UPGRADE_BUILT, self.purchase_upgrade_from_event)
 
+        event_bus.register_handler(EventType.E_BASE_DESTROYED, self.handle_base_destroyed)
+        event_bus.register_handler(EventType.E_CONCEDE, self.handle_concession)
+        event_bus.register_handler(EventType.END_PHASE_SPECIAL, self.check_for_remaining_teams)
+
     def register_input_handlers(self, input_handler):
         super().register_input_handlers(input_handler)
         input_handler.register_handler(InputAction.PRESS, Key.DEBUG1, self.__debug_submit_turn_t1__)
@@ -103,9 +110,13 @@ class TeamManager(GameObject):
     def __debug_submit_turn_t2__(self):
         self.try_submitting_turn(self.teams[1])
 
-    # Get the list of teams present in the battle
+    # Get the list of teams currently present in the battle
     def get_teams(self):
         return self.teams
+
+    # Get a list of all teams that have ever been in the battle
+    def get_all_teams(self):
+        return self.all_teams
 
     # Query the piece attributes table for an up to date value for an attribute on a piece
     def attr(self, team, piece_type, attribute):
@@ -249,6 +260,47 @@ class TeamManager(GameObject):
         for team in self.teams:
             self.turn_submitted[team] = False
 
+    # Remove all trace of a team
+    def remove_team(self, team):
+        del self.resources[team]
+        del self.owned_upgrades[team]
+        del self.piece_attributes[team]
+
+        self.phase_bars[team].destroy()
+        del self.phase_bars[team]
+        del self.turn_submitted[team]
+
+        self.teams.remove(team)
+
+        Managers.piece_manager.destroy_all_pieces_for_team(team)
+        Managers.player_manager.handle_team_defeated(team)
+
+        publish_game_event(EventType.E_TEAM_DEFEATED, {
+            'team': team
+        })
+
+        self.check_for_remaining_teams()
+
+    def handle_base_destroyed(self, event):
+        self.remove_team(event.team)
+
+    def handle_concession(self, event):
+        publish_game_event(EventType.E_BASE_DESTROYED, {
+            'team': event.team
+        })
+
+    def check_for_remaining_teams(self, event=None):
+        if len(self.teams) <= 1:
+            results = {
+                'winning_teams': self.get_teams(),
+                'all_teams': self.get_all_teams(),
+                'team_stats': Managers.stat_manager.get_results(),
+            }
+
+            publish_game_event(EventType.E_BATTLE_OVER, {
+                'results': results
+            })
+
     def handle_menu_option(self, event):
         if event.option:
             if event.option == Option.MENU_SUBMIT_TURN:
@@ -272,4 +324,6 @@ class TeamManager(GameObject):
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
-        self.phase_bars[Managers.player_manager.active_team].render(game_screen, ui_screen)
+        phase_bar = self.phase_bars.get(Managers.player_manager.active_team)
+        if phase_bar:
+            phase_bar.render(game_screen, ui_screen)

@@ -262,19 +262,19 @@ light_team_color = {
     Team.RED: (247, 126, 126),
     Team.BLUE: (114, 210, 239),
     Team.GREEN: (84, 158, 91),
-    Team.YELLOW: (242, 230, 150),
+    Team.YELLOW: (196, 178, 94),
 }
 clear_color = {
     Team.RED: (46, 29, 29),
     Team.BLUE: (41, 56, 71),
     Team.GREEN: (26, 23, 10),
-    Team.YELLOW: (26, 14, 2),
+    Team.YELLOW: (41, 27, 10),
 }
 shadow_color = {
     Team.RED: (82, 51, 51),
     Team.BLUE: (67, 87, 107),
     Team.GREEN: (48, 43, 39),
-    Team.YELLOW: (71, 41, 7),
+    Team.YELLOW: (74, 46, 10),
 }
 
 # Audio

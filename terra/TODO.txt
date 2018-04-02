@@ -67,6 +67,8 @@ x Implement unique upgrades as generic attributes
     x Additional defensive bonuses + entrenchment bonuses
     * Whether this piece is affected by parting shots
 
+* Add a 'heal' action? Piece doesn't move and instead works on healing itself by a small amount.
+
 Gameplay considerations
 x Prevent Colonists from occupying enemy buildings
 x Prevent Colonists from contesting enemies

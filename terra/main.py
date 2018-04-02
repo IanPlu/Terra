@@ -117,11 +117,7 @@ class Main:
         self.set_screen_from_mode(Mode.NETWORK_BATTLE)
 
     def handle_battle_end(self, event):
-        self.set_screen_from_mode(Mode.RESULTS, results={
-            'bases_destroyed': event.bases_destroyed,
-            'team_stats': event.team_stats,
-            'teams': event.teams,
-        })
+        self.set_screen_from_mode(Mode.RESULTS, results=event.results)
 
     def quit(self):
         pygame.quit()

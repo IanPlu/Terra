@@ -45,9 +45,9 @@ class PieceManager(GameObject):
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
-        event_bus.register_handler(EventType.E_UNIT_MOVED, self.move_piece)
-        event_bus.register_handler(EventType.E_UNIT_RANGED_ATTACK, self.ranged_attack)
-        event_bus.register_handler(EventType.E_PIECE_DEAD, self.destroy_piece)
+        event_bus.register_handler(EventType.E_UNIT_MOVED, self.move_piece_from_event)
+        event_bus.register_handler(EventType.E_UNIT_RANGED_ATTACK, self.conduct_ranged_attack_from_event)
+        event_bus.register_handler(EventType.E_PIECE_DEAD, self.destroy_piece_from_event)
         event_bus.register_handler(EventType.E_PIECE_BUILT, self.register_piece_from_event)
         event_bus.register_handler(EventType.START_PHASE_EXECUTE_COMBAT, self.resolve_unit_combat)
 
@@ -175,32 +175,54 @@ class PieceManager(GameObject):
             self.pieces[(piece.gx, piece.gy)] = []
         self.pieces[(piece.gx, piece.gy)].append(piece)
 
-    # Unregister a piece with the game map.
-    # Event should contain the grid coordinates gx and gy, and the team of the piece to be removed.
-    def remove_piece(self, event):
-        piece = self.get_piece_at(event.gx, event.gy, event.team)
+    # Unregister a piece with the game map. Note that this does not destroy it.
+    def remove_piece(self, piece):
+        self.pieces[(piece.gx, piece.gy)].remove(piece)
+        if len(self.pieces[(piece.gx, piece.gy)]) == 0:
+            del self.pieces[(piece.gx, piece.gy)]
+
+    # Unregister a piece with the game map by looking it up with grid coordinates and a team.
+    def remove_piece_by_coord(self, gx, gy, team):
+        piece = self.get_piece_at(gx, gy, team)
         if piece:
-            self.pieces[(event.gx, event.gy)].remove(piece)
-            if len(self.pieces[(event.gx, event.gy)]) == 0:
-                del self.pieces[(event.gx, event.gy)]
+            self.remove_piece(piece)
 
     # Completely destroy a piece, removing it from the game map.
-    def destroy_piece(self, event):
-        piece = self.get_piece_at(event.gx, event.gy, event.team)
+    def destroy_piece(self, piece):
+        piece.destroy()
+        self.remove_piece(piece)
+
+    # Completely destroy a piece by looking it up with grid coordinates and a team.
+    def destroy_piece_by_coord(self, gx, gy, team):
+        piece = self.get_piece_at(gx, gy, team)
         if piece:
-            piece.destroy()
-            self.remove_piece(event)
+            self.destroy_piece(piece)
+
+    # Move a piece on the game map
+    def move_piece(self, gx, gy, team, dx, dy):
+        piece = self.get_piece_at(gx, gy, team, PieceSubtype.UNIT)
+        if piece:
+            self.remove_piece_by_coord(gx, gy, team)
+            piece.gx = dx
+            piece.gy = dy
+            self.register_piece(piece)
+
+    # Destroy all pieces belonging to the provided team
+    def destroy_all_pieces_for_team(self, team):
+        for piece in self.get_all_pieces_for_team(team):
+            self.destroy_piece(piece)
 
     def register_piece_from_event(self, event):
         self.register_piece(Piece(event.new_piece_type, event.team, event.tx, event.ty))
 
-    # Move a piece on the game map
-    # Event should contain gx and gy grid coordinates and a team, and the destination grid coords dx and dy.
-    def move_piece(self, event):
-        piece = self.get_piece_at(event.gx, event.gy, event.team, PieceSubtype.UNIT)
-        if piece:
-            self.remove_piece(event)
-            self.register_piece(piece)
+    def remove_piece_from_event(self, event):
+        self.remove_piece_by_coord(event.gx, event.gy, event.team)
+
+    def destroy_piece_from_event(self, event):
+        self.destroy_piece_by_coord(event.gx, event.gy, event.team)
+
+    def move_piece_from_event(self, event):
+        self.move_piece(event.gx, event.gy, event.team, event.dx, event.dy)
 
     # Get lists of all units and buildings, regardless of position or team
     def __get_all_pieces__(self):
@@ -293,7 +315,7 @@ class PieceManager(GameObject):
 
     # Check for overlapping enemy units, and resolve their combat
     def resolve_unit_combat(self, event):
-        # Find conflicting units (opposing team units occupying the same space
+        # Find conflicting units (opposing team units occupying the same space)
         conflicting_pieces = []
         for coordinate in self.pieces:
             if len(self.pieces.get(coordinate)) > 1:
@@ -301,21 +323,21 @@ class PieceManager(GameObject):
 
         # Conflict resolution
         if len(conflicting_pieces) > 0:
-            for piece_pair in conflicting_pieces:
-                conflict = PieceConflict(piece_pair[0], piece_pair[1])
+            for conflicts in conflicting_pieces:
+                conflict = PieceConflict(conflicts)
                 conflict.resolve()
 
     # Conduct a ranged attack.
     # Event should contain grid coordinates gx and gy, the origin team, and target grid coordinates tx and ty.
-    def ranged_attack(self, event):
+    def ranged_attack(self, gx, gy, team, tx, ty):
         # Find the origin unit and the target pieces
-        origin_unit = self.get_piece_at(event.gx, event.gy, event.origin_team)
-        target_pieces = self.get_enemy_pieces_at(event.tx, event.ty, event.origin_team)
+        origin_unit = self.get_piece_at(gx, gy, team)
+        target_pieces = self.get_enemy_pieces_at(tx, ty, team)
 
         splashed_pieces = []
         aoe_multiplier = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.RANGED_AOE_MULTIPLIER)
         if aoe_multiplier > 0:
-            splashed_pieces.extend(self.get_adjacent_enemies(event.tx, event.ty, event.origin_team))
+            splashed_pieces.extend(self.get_adjacent_enemies(tx, ty, team))
 
         def conduct_ranged_attack(target, modifier):
             attack = origin_unit.get_attack_rating(target)
@@ -333,6 +355,9 @@ class PieceManager(GameObject):
             conduct_ranged_attack(target_piece, 1)
         for target_piece in splashed_pieces:
             conduct_ranged_attack(target_piece, aoe_multiplier)
+
+    def conduct_ranged_attack_from_event(self, event):
+        self.ranged_attack(event.gx, event.gy, event.team, event.tx, event.ty)
 
     def step(self, event):
         super().step(event)

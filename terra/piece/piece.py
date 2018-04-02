@@ -34,14 +34,14 @@ class Piece(AnimatedGameObject):
 
         # Look up values based on our piece type
         self.piece_type = piece_type
-        self.piece_subtype = Managers.team_manager.attr(self.team, self.piece_type, Attribute.SUBTYPE)
-        self.piece_archetype = Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARCHETYPE)
+        self.piece_subtype = self.attr(Attribute.SUBTYPE)
+        self.piece_archetype = self.attr(Attribute.ARCHETYPE)
 
         # Interpreted variables. Don't touch!
         if hp:
             self.hp = hp
         else:
-            self.hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
+            self.hp = self.attr(Attribute.MAX_HP)
         self.current_order = None
         self.in_conflict = False
         self.entrenchment = 0
@@ -58,6 +58,10 @@ class Piece(AnimatedGameObject):
     def __str__(self):
         return "{} {} at tile ({}, {}) with {} HP" \
             .format(self.team.name, piece_name_strings[LANGUAGE][self.piece_type], self.gx, self.gy, self.hp)
+
+    # Return an attribute about this piece.
+    def attr(self, attribute):
+        return Managers.team_manager.attr(self.team, self.piece_type, attribute)
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
@@ -91,7 +95,7 @@ class Piece(AnimatedGameObject):
 
         if self.get_movement_range() > 0:
             actions.append(Option.MENU_MOVE)
-        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.DAMAGE_TYPE) == DamageType.RANGED:
+        if self.attr(Attribute.DAMAGE_TYPE) == DamageType.RANGED:
             actions.append(Option.MENU_RANGED_ATTACK)
         if len(self.get_valid_buildable_pieces()):
             actions.append(Option.MENU_BUILD_PIECE)
@@ -123,7 +127,7 @@ class Piece(AnimatedGameObject):
         for tile_x, tile_y in tiles_to_check:
             immobile_allies = []
             for piece in Managers.piece_manager.get_pieces_at(tile_x, tile_y, team=self.team):
-                if Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.MOVEMENT_RANGE) <= 0:
+                if piece.attr(Attribute.MOVEMENT_RANGE) <= 0:
                     immobile_allies.append(piece)
 
             if len(immobile_allies) <= 0:
@@ -131,7 +135,7 @@ class Piece(AnimatedGameObject):
 
         # For each buildable piece, if there exists at least one valid adjacent tile for its movement type that we can
         # place it onto, add it to the list
-        for piece in Managers.team_manager.attr(self.team, self.piece_type, Attribute.BUILDABLE_PIECES):
+        for piece in self.attr(Attribute.BUILDABLE_PIECES):
             valid_tile_types = movement_types[Managers.team_manager.attr(self.team, piece, Attribute.MOVEMENT_TYPE)][MovementAttribute.PASSABLE]
             unoccupied_tile_types = set([Managers.battle_map.get_tile_type_at(coord[0], coord[1]) for coord in unoccupied_tiles])
 
@@ -142,11 +146,11 @@ class Piece(AnimatedGameObject):
 
     # Get the list of upgrades that can be purchased by this piece
     def get_valid_purchaseable_upgrades(self):
-        return Managers.team_manager.attr(self.team, self.piece_type, Attribute.PURCHASEABLE_UPGRADES)
+        return self.attr(Attribute.PURCHASEABLE_UPGRADES)
 
     # Return a list of adjacent tiles that can be traversed by this movement type
     def get_valid_tiles_for_terraforming(self, raising=True):
-        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.TERRAFORMING):
+        if self.attr(Attribute.TERRAFORMING):
             return Managers.battle_map.get_valid_adjacent_tiles_for_movement_type(
                 self.gx, self.gy, MovementType.RAISE if raising else MovementType.LOWER)
         else:
@@ -154,22 +158,22 @@ class Piece(AnimatedGameObject):
 
     # Return this piece's attack strength against a target
     def get_attack_rating(self, target):
-        attack = Managers.team_manager.attr(self.team, self.piece_type, Attribute.ATTACK)
-        multiplier = Managers.team_manager.attr(self.team, self.piece_type, Attribute.ATTACK_MULTIPLIER)[target.piece_archetype]
+        attack = self.attr(Attribute.ATTACK)
+        multiplier = self.attr(Attribute.ATTACK_MULTIPLIER)[target.piece_archetype]
 
         return attack * multiplier
 
     # Return the combination of any innate armor, entrenchment bonuses, etc. this piece has
     def get_defense_rating(self):
         return self.entrenchment + \
-               Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARMOR) + \
+               self.attr(Attribute.ARMOR) + \
                self.temporary_armor
 
     # Get movement range, plus any bonuses
     def get_movement_range(self):
-        movement_range = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE)
+        movement_range = self.attr(Attribute.MOVEMENT_RANGE)
 
-        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.KICKOFF):
+        if self.attr(Attribute.KICKOFF):
             movement_range += len(Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team))
 
         return movement_range
@@ -226,16 +230,16 @@ class Piece(AnimatedGameObject):
     # Return true if this piece is contested by an enemy piece occupying the same tile.
     # Caveats: the enemy might not be able to contest us, or can't be contested
     def is_contested(self):
-        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.IGNORE_CONTESTING):
+        if self.attr(Attribute.IGNORE_CONTESTING):
             return False
         else:
             enemy_pieces = Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)
             contesting_pieces = []
             for piece in enemy_pieces:
                 # Cannot contest if the enemy can't attack a building (and we're a building) or it has no melee attack
-                if Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.ATTACK) > 0 and \
-                        Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.DAMAGE_TYPE) == DamageType.MELEE and not \
-                        (Managers.team_manager.attr(piece.team, piece.piece_type, Attribute.CANT_ATTACK_BUILDINGS) and self.piece_subtype is PieceSubtype.BUILDING):
+                if piece.attr(Attribute.ATTACK) > 0 and \
+                        piece.attr(Attribute.DAMAGE_TYPE) == DamageType.MELEE and not \
+                        (piece.attr(Attribute.CANT_ATTACK_BUILDINGS) and self.piece_subtype is PieceSubtype.BUILDING):
                     contesting_pieces.append(piece)
 
             return len(contesting_pieces) > 0
@@ -248,11 +252,11 @@ class Piece(AnimatedGameObject):
         if source and isinstance(source, Piece):
             self.last_attacker = source
 
-            aoe_on_death_gained = Managers.team_manager.attr(source.team, source.piece_type, Attribute.AOE_ON_KILL)
+            aoe_on_death_gained = source.attr(Attribute.AOE_ON_KILL)
             if aoe_on_death_gained > 0:
                 self.temporary_aoe_on_death = aoe_on_death_gained
 
-            money_lost_on_death_gained = Managers.team_manager.attr(source.team, source.piece_type, Attribute.STEAL)
+            money_lost_on_death_gained = source.attr(Attribute.STEAL)
             if money_lost_on_death_gained > 0:
                 self.temporary_money_lost_on_death = money_lost_on_death_gained
 
@@ -260,7 +264,7 @@ class Piece(AnimatedGameObject):
 
     # Heal this piece for the specified amount
     def heal_hp(self, heal):
-        max_hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
+        max_hp = self.attr(Attribute.MAX_HP)
         if self.hp < max_hp:
             self.hp = min(self.hp + heal, max_hp)
             publish_game_event(EventType.E_PIECE_HEALED, {
@@ -272,38 +276,36 @@ class Piece(AnimatedGameObject):
 
     # Apply an entrenchment bonus per unused movement range (up to 2)
     def apply_entrenchment(self, distance):
-        self.entrenchment = (min(Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_RANGE), 2) - distance) * \
-                            Managers.team_manager.attr(self.team, self.piece_type, Attribute.ENTRENCHMENT_MODIFIER)
+        self.entrenchment = (min(self.attr(Attribute.MOVEMENT_RANGE), 2) - distance) * \
+                            self.attr(Attribute.ENTRENCHMENT_MODIFIER)
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
         # Produce resources
-        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION) > 0:
-            Managers.team_manager.add_resources(self.team, Managers.team_manager.attr(
-                self.team, self.piece_type, Attribute.RESOURCE_PRODUCTION))
+        if self.attr(Attribute.RESOURCE_PRODUCTION) > 0:
+            Managers.team_manager.add_resources(self.team, self.attr(Attribute.RESOURCE_PRODUCTION))
 
         # Regen health
-        regen = Managers.team_manager.attr(self.team, self.piece_type, Attribute.REGEN)
+        regen = self.attr(Attribute.REGEN)
         if regen > 0:
             self.heal_hp(regen)
 
         # Apply medic healing to adjacent allies
-        medic = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MEDIC)
+        medic = self.attr(Attribute.MEDIC)
         if medic > 0:
             adjacent_allies = Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team)
             for ally in adjacent_allies:
                 ally.heal_hp(medic)
 
         # Apply aura damage to adjacent enemies
-        aura = Managers.team_manager.attr(self.team, self.piece_type, Attribute.AURA_DAMAGE)
+        aura = self.attr(Attribute.AURA_DAMAGE)
         if aura > 0 and not self.is_contested():
             adjacent_enemies = Managers.piece_manager.get_adjacent_enemies(self.gx, self.gy, self.team)
             for enemy in adjacent_enemies:
                 enemy.damage_hp(self.get_attack_rating(enemy) * aura, self)
 
         # Pieces occupying tiles they can't traverse take damage each turn.
-        if not Managers.battle_map.is_tile_passable(self.gx, self.gy, Managers.team_manager.attr(
-                self.team, self.piece_type, Attribute.MOVEMENT_TYPE)):
+        if not Managers.battle_map.is_tile_passable(self.gx, self.gy, self.attr(Attribute.MOVEMENT_TYPE)):
             tile_type = Managers.battle_map.get_tile_type_at(self.gx, self.gy)
             self.damage_hp(30, tile_type)
 
@@ -343,6 +345,7 @@ class Piece(AnimatedGameObject):
     def handle_phase_move(self, event):
         # Execute move orders
         if isinstance(self.current_order, MoveOrder):
+            # Note: we don't change our own gx and gy-- the piece manager will do that when it changes our 'address'
             publish_game_event(EventType.E_UNIT_MOVED, {
                 'gx': self.gx,
                 'gy': self.gy,
@@ -354,9 +357,6 @@ class Piece(AnimatedGameObject):
             # Apply entrenchment bonus based on distance moved
             self.apply_entrenchment(abs(self.gx - self.current_order.dx) + abs(self.gy - self.current_order.dy))
 
-            self.gx = self.current_order.dx
-            self.gy = self.current_order.dy
-
             Managers.combat_logger.log_successful_order_execution(self, self.current_order)
 
             # Pop orders once they're executed
@@ -367,11 +367,12 @@ class Piece(AnimatedGameObject):
 
     def handle_end_phase_move(self, event):
         # Apply buffs to allies on adjacent tiles, if necessary
-        if Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARMOR_SHARE) > 0:
+        armor_share = self.attr(Attribute.ARMOR_SHARE)
+        if armor_share > 0:
             adjacent_allies = Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team)
 
             for ally in adjacent_allies:
-                ally.temporary_armor += Managers.team_manager.attr(self.team, self.piece_type, Attribute.ARMOR_SHARE)
+                ally.temporary_armor += armor_share
                 publish_game_event(EventType.E_ARMOR_GRANTED, {
                     'gx': ally.gx,
                     'gy': ally.gy,
@@ -462,7 +463,7 @@ class Piece(AnimatedGameObject):
                 'gy': self.gy,
                 'min_range': 1,
                 'max_range': self.get_movement_range(),
-                'movement_type': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MOVEMENT_TYPE),
+                'movement_type': self.attr(Attribute.MOVEMENT_TYPE),
                 'piece_type': self.piece_type,
                 'team': self.team,
                 'option': event.option
@@ -471,8 +472,8 @@ class Piece(AnimatedGameObject):
             publish_game_event(EventType.E_OPEN_TILE_SELECTION, {
                 'gx': self.gx,
                 'gy': self.gy,
-                'min_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MIN_RANGE),
-                'max_range': Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_RANGE),
+                'min_range': self.attr(Attribute.MIN_RANGE),
+                'max_range': self.attr(Attribute.MAX_RANGE),
                 'movement_type': None,
                 'piece_type': None,
                 'team': self.team,
@@ -622,15 +623,21 @@ class Piece(AnimatedGameObject):
                 if self.team == Team.RED:
                     xoffset = -3
                     yoffset = -3
-                else:
+                elif self.team == Team.BLUE:
                     xoffset = 3
                     yoffset = 3
+                elif self.team == Team.GREEN:
+                    xoffset = -3
+                    yoffset = 3
+                elif self.team == Team.YELLOW:
+                    xoffset = 3
+                    yoffset = -3
 
             # Render the unit
             game_screen.blit(self.sprite, (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
 
             # Render health bar if damaged
-            max_hp = Managers.team_manager.attr(self.team, self.piece_type, Attribute.MAX_HP)
+            max_hp = self.attr(Attribute.MAX_HP)
             if self.hp < max_hp:
                 displayable_hp = int((self.hp / max_hp) * 20)
 

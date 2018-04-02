@@ -1,6 +1,6 @@
-import sys
 from enum import Enum
-from os import path
+from pathlib import Path
+from definitions import ROOT_DIR
 
 
 # External assets are divided into subdirectories by their type
@@ -13,19 +13,9 @@ class AssetType(Enum):
     LOG = "logs/"
 
 
-# Resources might be located somewhere strange depending on how the application is packaged.
-# Locate the directory we ask for regardless of whether we're an executable or not.
-def get_base_path(filename):
-    if getattr(sys, 'frozen', False):
-        # The application is frozen / packaged into an executable
-        datadir = path.dirname(sys.executable)
-    else:
-        # The application is not frozen (debugging or otherwise not packaged)
-        datadir = path.dirname(__file__)
-
-    return path.join(datadir, filename)
-
-
 # Return a properly formatted path to the specified resource
-def get_asset(asset_type, resource_name):
-    return get_base_path(path.abspath(path.join(asset_type.value, resource_name)))
+def get_asset(asset_type, resource_name=None):
+    if resource_name:
+        return str(Path(ROOT_DIR, asset_type.value, resource_name))
+    else:
+        return str(Path(ROOT_DIR, asset_type.value))

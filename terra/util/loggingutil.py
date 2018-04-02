@@ -1,5 +1,5 @@
 import logging
-import os
+from pathlib import Path
 from terra.resources.assetloading import AssetType, get_asset
 
 formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
@@ -7,8 +7,9 @@ formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
 
 # Check if the logging directory exists, creating it if it doesn't
 def check_log_dir_exists():
-    if not os.path.isdir(get_asset(AssetType.LOG, "")):
-        os.mkdir(AssetType.LOG.value)
+    path = Path(get_asset(AssetType.LOG))
+    if not path.exists():
+        path.mkdir(exist_ok=True)
 
 
 # Create and return a new logger

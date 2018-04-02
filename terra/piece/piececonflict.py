@@ -6,18 +6,20 @@ from terra.piece.damagetype import DamageType
 
 # Manager for rounds of melee direct conflict between two pieces.
 class PieceConflict:
-    def __init__(self, piece1, piece2):
+    def __init__(self, pieces):
         super().__init__()
 
-        self.piece1 = piece1
-        self.piece2 = piece2
+        self.pieces = pieces
 
-        Managers.combat_logger.log_contesting_pieces(piece1, piece2)
+        Managers.combat_logger.log_contesting_pieces(pieces)
 
     # Get the attack rating for this piece.
+    # Note that attack damage is divided by the number of enemies in this conflict
     def get_attack_damage(self, piece1, piece2):
-        if Managers.team_manager.attr(piece1.team, piece1.piece_type, Attribute.DAMAGE_TYPE) == DamageType.MELEE:
-            return piece1.get_attack_rating(piece2)
+        num_enemies = len(self.pieces) - 1
+
+        if piece1.attr(Attribute.DAMAGE_TYPE) == DamageType.MELEE:
+            return piece1.get_attack_rating(piece2) / num_enemies
         else:
             # This piece can't fight back in this conflict
             return 0
@@ -26,27 +28,25 @@ class PieceConflict:
     def get_defense_bonuses(self, piece1, piece2):
         return piece1.get_defense_rating()
 
+    def attack(self, piece1, piece2):
+        attack = self.get_attack_damage(piece1, piece2)
+        defense = self.get_defense_bonuses(piece2, piece1)
+
+        return int(attack * (1 - defense / 10))
+
     # Conduct one round of combat
     def resolve(self):
         publish_game_event(EventType.E_PIECES_IN_CONFLICT, {
-            'gx': self.piece1.gx,
-            'gy': self.piece1.gy,
-            'teams': [self.piece1.team, self.piece2.team]
+            'gx': self.pieces[0].gx,
+            'gy': self.pieces[0].gy,
+            'teams': [piece.team for piece in self.pieces]
         })
 
-        # Get the first piece's attack value against the second
-        first_piece_attack = self.get_attack_damage(self.piece1, self.piece2)
-        # Get defense bonuses the first piece has
-        first_piece_defense = self.get_defense_bonuses(self.piece1, self.piece2)
+        # Have each piece fight!
+        for piece in self.pieces:
+            enemy_pieces = self.pieces.copy()
+            enemy_pieces.remove(piece)
 
-        # Get the second piece's attack value against the first
-        second_piece_attack = self.get_attack_damage(self.piece2, self.piece1)
-        # Get defense bonuses the second piece has
-        second_piece_defense = self.get_defense_bonuses(self.piece2, self.piece1)
-
-        # Determine health loss per piece
-        piece1_damage_taken = int(second_piece_attack * (1 - first_piece_defense / 10))
-        piece2_damage_taken = int(first_piece_attack * (1 - second_piece_defense / 10))
-
-        self.piece1.damage_hp(piece1_damage_taken, self.piece2)
-        self.piece2.damage_hp(piece2_damage_taken, self.piece1)
+            for enemy in enemy_pieces:
+                piece.damage_hp(self.attack(enemy, piece), enemy)
+                enemy.damage_hp(self.attack(piece, enemy), piece)

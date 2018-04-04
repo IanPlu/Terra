@@ -44,7 +44,7 @@ class PlayerManager(GameObject):
         self.cursors[team].destroy()
         del self.cursors[team]
 
-        # TODO: What to do when the removed team is the active player?
+        # TODO: What to do when the removed team is the active player, and the game hasn't ended?
 
     def step(self, event):
         super().step(event)
@@ -76,7 +76,6 @@ class PlayerManager(GameObject):
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
 
-        if Managers.turn_manager.phase == BattlePhase.ORDERS:
-            cursor = self.cursors.get(self.active_team)
-            if cursor:
-                cursor.render(game_screen, ui_screen)
+        cursor = self.cursors.get(self.active_team)
+        if cursor:
+            cursor.render(game_screen, ui_screen)

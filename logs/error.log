@@ -1,0 +1,178 @@
+2018-04-03 16:36:04,418 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-03 16:36:04,440 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-03 16:36:04,440 ERROR [ERROR]: Exception: 
+END_PHASE_EXECUTE_MOVE
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 132, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 94, in handle_menu_selections
+    self.set_screen_from_mode(Mode.BATTLE, event.mapname)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 57, in set_screen_from_mode
+    Managers.initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 74, in initialize_managers
+    Managers.turn_manager = TurnManager(meta)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\turnmanager.py", line 16, in __init__
+    super().__init__()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\engine\gameobject.py", line 10, in __init__
+    self.register_handlers(EVENT_BUS)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\turnmanager.py", line 36, in register_handlers
+    event_bus.register_handler(EventType.END_PHASE_EXECUTE_MOVE, self.progress_phase)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\enum.py", line 324, in __getattr__
+    raise AttributeError(name) from None
+
+2018-04-03 16:43:57,467 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-03 16:43:57,468 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-03 16:43:57,468 ERROR [ERROR]: Exception: 
+<Setting.ANIMATION_SPEED: 'ANIMATION_SPEED'>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 187, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 148, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 296, in render
+    display_string = get_string(formatted_strings, option[0]).format(SETTINGS.get_unsaved(option[0]))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\settings.py", line 94, in get_unsaved
+    return self.unsaved_settings[setting]
+
+2018-04-03 16:44:39,611 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-03 16:44:39,616 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-03 16:44:39,616 ERROR [ERROR]: Exception: 
+<Setting.ANIMATION_SPEED: 'ANIMATION_SPEED'>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
+    INPUT_CONTROLLER.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 55, in invoke_handlers
+    handler()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 236, in raise_setting
+    SETTINGS.raise_setting(selection)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\settings.py", line 102, in raise_setting
+    self.set_setting(setting, self.unsaved_settings[setting] + setting_interval[setting])
+
+2018-04-03 16:57:49,689 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-03 16:57:49,694 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-03 16:57:49,694 ERROR [ERROR]: Exception: 
+<Team.BLUE: '[BLU]'>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 187, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 148, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 40, in render
+    Managers.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 209, in render
+    Managers.player_manager.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\playermanager.py", line 81, in render
+    cursor.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\cursor.py", line 238, in render
+    game_screen.blit(spr_wait_icon[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+
+2018-04-03 20:07:00,964 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-03 20:07:00,972 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-03 20:07:00,972 ERROR [ERROR]: Exception: 
+line() takes no keyword arguments
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 187, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 148, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 40, in render
+    Managers.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 205, in render
+    Managers.piece_manager.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\piecemanager.py", line 374, in render
+    piece.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 717, in render
+    (self.current_order.tx * GRID_WIDTH, self.current_order.ty * GRID_HEIGHT), width=2)
+
+2018-04-03 20:07:34,402 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-03 20:07:34,404 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-03 20:07:34,404 ERROR [ERROR]: Exception: 
+invalid color argument
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 187, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 148, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 40, in render
+    Managers.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 205, in render
+    Managers.piece_manager.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\piecemanager.py", line 374, in render
+    piece.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 717, in render
+    (self.current_order.tx * GRID_WIDTH, self.current_order.ty * GRID_HEIGHT), 2)
+
+2018-04-03 20:08:32,373 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-03 20:08:32,374 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-03 20:08:32,374 ERROR [ERROR]: Exception: 
+can only concatenate tuple (not "int") to tuple
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 187, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 148, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 40, in render
+    Managers.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 205, in render
+    Managers.piece_manager.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\piecemanager.py", line 374, in render
+    piece.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 716, in render
+    pygame.draw.line(game_screen, light_team_color[self.team], (self.gx * GRID_WIDTH + 12, self.gy * GRID_HEIGHT) + 12,
+

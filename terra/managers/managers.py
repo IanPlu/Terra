@@ -123,7 +123,6 @@ class Managers:
         # Ask the team manager to serialize its upgrades
         upgrades = Managers.team_manager.serialize_upgrades()
 
-        # TODO: Expand to allow all managers to register k/v pairs to this
         # Ask the turn manager to serialize the current turn
         meta = Managers.serialize_metadata()
 
@@ -165,7 +164,11 @@ class Managers:
 
     @staticmethod
     def serialize_metadata():
-        return Managers.turn_manager.serialize_metadata()
+        metadata = []
+
+        metadata.extend(Managers.turn_manager.serialize_metadata())
+
+        return metadata
 
     @staticmethod
     # Save the current state to a save file

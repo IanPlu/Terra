@@ -29,6 +29,7 @@ class Option(Enum):
     MENU_RAISE_TILE = auto()
     MENU_LOWER_TILE = auto()
     MENU_DEMOLISH_SELF = auto()
+    MENU_HEAL_SELF = auto()
 
     # Pause menu options
     MENU_SUBMIT_TURN = auto()

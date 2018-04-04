@@ -10,6 +10,7 @@ class Setting(Enum):
     SCREEN_SCALE = "SCREEN_SCALE"
     SFX_VOLUME = "SFX_VOLUME"
     BGM_VOLUME = "BGM_VOLUME"
+    ANIMATION_SPEED = "ANIMATION_SPEED"
     NICKNAME = "NICKNAME"
 
 
@@ -17,6 +18,7 @@ numeric_settings = [
     Setting.SCREEN_SCALE,
     Setting.SFX_VOLUME,
     Setting.BGM_VOLUME,
+    Setting.ANIMATION_SPEED,
 ]
 
 
@@ -25,6 +27,7 @@ setting_bounds = {
     Setting.SCREEN_SCALE: (1, 4),
     Setting.SFX_VOLUME: (0, 100),
     Setting.BGM_VOLUME: (0, 100),
+    Setting.ANIMATION_SPEED: (1, 8)
 }
 
 # How much one press modifies the setting
@@ -32,6 +35,7 @@ setting_interval = {
     Setting.SCREEN_SCALE: 1,
     Setting.SFX_VOLUME: 10,
     Setting.BGM_VOLUME: 10,
+    Setting.ANIMATION_SPEED: 1,
 }
 
 # Default values for each setting
@@ -39,7 +43,8 @@ default_settings = {
     Setting.SCREEN_SCALE: 3,
     Setting.SFX_VOLUME: 10,
     Setting.BGM_VOLUME: 0,
-    Setting.NICKNAME: "Colonist"
+    Setting.NICKNAME: "Colonist",
+    Setting.ANIMATION_SPEED: 4,
 }
 
 
@@ -82,11 +87,21 @@ class Settings:
 
     # Return the actual value of the setting
     def get(self, setting):
-        return self.current_settings[setting]
+        value = self.current_settings.get(setting)
+        if value:
+            return value
+        else:
+            self.current_settings[setting] = default_settings[setting]
+            return self.current_settings[setting]
 
     # Return the unsaved value of the setting
     def get_unsaved(self, setting):
-        return self.unsaved_settings[setting]
+        value = self.unsaved_settings.get(setting)
+        if value:
+            return value
+        else:
+            self.unsaved_settings[setting] = default_settings[setting]
+            return self.unsaved_settings[setting]
 
     # Lower the unsaved value of the setting
     def lower_setting(self, setting):

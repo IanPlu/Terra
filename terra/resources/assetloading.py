@@ -11,6 +11,7 @@ class AssetType(Enum):
     SAVE = "resources/saves"
     ATTRIBUTES = "resources/attributes/"
     LOG = "logs/"
+    FONT = "resources/fonts/"
 
 
 # Return a properly formatted path to the specified resource

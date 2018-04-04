@@ -57,6 +57,8 @@ class EventType(Enum):
     E_TILE_TERRAFORMED = auto()
     E_PLAYER_CONCEDED = auto()
     E_TEAM_DEFEATED = auto()
+    E_DEATH_AOE = auto()
+    E_DEATH_MONEY_LOSS = auto()
 
     # Phase events
     START_PHASE_START_TURN = auto()

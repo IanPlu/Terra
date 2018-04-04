@@ -17,6 +17,9 @@ class Tile(AnimatedGameObject):
         super().__init__(spr_tiles[self.tile_type], 24, 1, indexed=self.tile_type in [TileType.COAST],
                          use_global_animation_frame=True)
 
+    def __str__(self):
+        return "{} tile at ({}, {})".format(self.tile_type, self.gx, self.gy)
+
     # Return an index corresponding to the number of adjacent 'land' tiles
     def get_index(self):
         coast_index = super().get_index()

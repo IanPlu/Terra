@@ -92,7 +92,7 @@ class MenuPopup(GameObject):
         input_handler.register_handler(InputAction.MOTION, None, self.set_cursor_pos_to_mouse_coords)
 
     def is_accepting_input(self):
-        return Managers.player_manager.active_team == self.team
+        return Managers.player_manager.active_team == self.team and not self.detailbox
 
     def confirm(self):
         selected_option = self.options[self.option_pos]

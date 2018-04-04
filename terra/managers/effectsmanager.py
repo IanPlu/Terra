@@ -13,6 +13,11 @@ event_type_to_effect = {
     EventType.E_TILE_TERRAFORMED: EffectType.PIECE_DESTROYED,
     EventType.E_INVALID_BUILD_ORDERS: EffectType.NO_MONEY,
     EventType.E_INVALID_UPGRADE_ORDERS: EffectType.DUPLICATE_UPGRADE,
+    # TODO: Create a general hit/damage effect
+    EventType.E_UNIT_RANGED_ATTACK: EffectType.PIECE_DESTROYED,
+    # TODO: Create special effects for these cases
+    EventType.E_DEATH_MONEY_LOSS: EffectType.PIECE_DESTROYED,
+    EventType.E_DEATH_AOE: EffectType.PIECE_DESTROYED,
 }
 
 
@@ -44,6 +49,8 @@ class EffectsManager(GameObject):
         if hasattr(event, 'affected_pieces'):
             for piece in event.affected_pieces:
                 self.create_effect(piece.gx, piece.gy, event_type_to_effect[event.event_type], event.team)
+        elif hasattr(event, 'tx'):
+            self.create_effect(event.tx, event.ty, event_type_to_effect[event.event_type], None)
         else:
             self.create_effect(event.gx, event.gy, event_type_to_effect[event.event_type], None)
 

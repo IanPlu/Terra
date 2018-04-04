@@ -1,5 +1,6 @@
 import pygame
 
+from terra.battlephase import BattlePhase
 from terra.constants import CAMERA_WIDTH, CAMERA_HEIGHT
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.control.inputcontroller import InputAction
@@ -10,7 +11,7 @@ from terra.managers.managers import Managers
 from terra.menu.option import Option
 from terra.mode import Mode
 from terra.piece.piecetype import PieceType
-from terra.resources.assets import spr_cursor, spr_turn_submitted_indicator
+from terra.resources.assets import spr_cursor, spr_turn_submitted_indicator, spr_wait_icon
 from terra.settings import SETTINGS, Setting
 from terra.sound.soundtype import SoundType
 from terra.ui.menupopup import MenuPopup
@@ -85,6 +86,9 @@ class Cursor(GameObject):
     def is_accepting_input(self):
         return self.menu is None and Managers.player_manager.active_team == self.team
 
+    def can_confirm_or_cancel(self):
+        return Managers.turn_manager.phase == BattlePhase.ORDERS
+
     def convert_mouse_coords_to_cursor(self):
         mousex, mousey = pygame.mouse.get_pos()
         # Convert the screen coordinates to the grid coordinates
@@ -112,47 +116,52 @@ class Cursor(GameObject):
             Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
 
     def confirm(self):
-        if not Managers.team_manager.is_turn_submitted(self.team):
-            publish_game_event(EventType.E_SELECT, {
-                'gx': int(self.gx),
-                'gy': int(self.gy),
-                'team': self.team,
-                'selecting_movement': self.move_ui is not None
-            })
+        if self.can_confirm_or_cancel():
+            if not Managers.team_manager.is_turn_submitted(self.team):
+                publish_game_event(EventType.E_SELECT, {
+                    'gx': int(self.gx),
+                    'gy': int(self.gy),
+                    'team': self.team,
+                    'selecting_movement': self.move_ui is not None
+                })
 
-            Managers.sound_manager.play_sound(SoundType.CURSOR_SELECT)
+                Managers.sound_manager.play_sound(SoundType.CURSOR_SELECT)
 
     def cancel(self):
-        if not Managers.team_manager.is_turn_submitted(self.team):
-            publish_game_event(EventType.E_CANCEL, {})
+        if self.can_confirm_or_cancel():
+            if not Managers.team_manager.is_turn_submitted(self.team):
+                publish_game_event(EventType.E_CANCEL, {})
 
-            Managers.sound_manager.play_sound(SoundType.CURSOR_SELECT)
+                Managers.sound_manager.play_sound(SoundType.CURSOR_SELECT)
 
     # Creates a generic menu popup from the provided event.
     def open_menu(self, event):
-        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
+        if self.can_confirm_or_cancel():
+            self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
 
     def close_menu(self, event):
-        if self.menu:
-            self.menu.destroy()
-        self.menu = None
+        if self.can_confirm_or_cancel():
+            if self.menu:
+                self.menu.destroy()
+            self.menu = None
 
     def open_pause_menu(self):
-        if Managers.current_mode in [Mode.BATTLE]:
-            if Managers.team_manager.is_turn_submitted(self.team):
-                menu_options = [Option.MENU_REVISE_TURN]
+        if self.can_confirm_or_cancel():
+            if Managers.current_mode in [Mode.BATTLE]:
+                if Managers.team_manager.is_turn_submitted(self.team):
+                    menu_options = [Option.MENU_REVISE_TURN]
+                else:
+                    menu_options = [Option.MENU_SUBMIT_TURN]
+
+                menu_options.extend([Option.MENU_SAVE_GAME, Option.MENU_CONCEDE, Option.MENU_QUIT_BATTLE])
+            elif Managers.current_mode == Mode.EDIT:
+                menu_options = [Option.MENU_FILL_WITH_CURRENT_TILE, Option.MENU_MIRROR_X, Option.MENU_MIRROR_Y,
+                                Option.MENU_SAVE_MAP, Option.MENU_QUIT_BATTLE]
             else:
-                menu_options = [Option.MENU_SUBMIT_TURN]
+                # Don't open the menu in this mode
+                return
 
-            menu_options.extend([Option.MENU_SAVE_GAME, Option.MENU_CONCEDE, Option.MENU_QUIT_BATTLE])
-        elif Managers.current_mode == Mode.EDIT:
-            menu_options = [Option.MENU_FILL_WITH_CURRENT_TILE, Option.MENU_MIRROR_X, Option.MENU_MIRROR_Y,
-                            Option.MENU_SAVE_MAP, Option.MENU_QUIT_BATTLE]
-        else:
-            # Don't open the menu in this mode
-            return
-
-        self.menu = MenuPopup(self, self.gx, self.gy, self.team, menu_options, centered=True)
+            self.menu = MenuPopup(self, self.gx, self.gy, self.team, menu_options, centered=True)
 
     def open_move_ui(self, event):
         self.move_ui = TileSelection(event.gx, event.gy, event.min_range, event.max_range,
@@ -224,6 +233,9 @@ class Cursor(GameObject):
 
         if Managers.team_manager.is_turn_submitted(self.team):
             game_screen.blit(spr_turn_submitted_indicator[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+
+        if Managers.turn_manager.phase != BattlePhase.ORDERS:
+            game_screen.blit(spr_wait_icon[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
         if self.menu:
             self.menu.render(game_screen, ui_screen)

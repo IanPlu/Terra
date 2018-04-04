@@ -204,7 +204,6 @@ class NetworkManager(GameObject):
                     self.quit_network_game()
 
     # Cleanly exit out of a networked game
-    # TODO: This spins and keeps trying to reconnect-- fix!
     def quit_network_game(self, notify_host=True):
         print("Exiting network game")
         if self.is_host:

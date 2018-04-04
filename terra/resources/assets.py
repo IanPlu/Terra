@@ -70,6 +70,10 @@ spr_turn_submitted_indicator = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Turn_Submitted.png"))
 }
 
+spr_wait_icon = {
+    Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Wait_Indicator.png"))
+}
+
 spr_order_options_base = get_sprites_from_strip(pygame.image.load(
     get_asset(AssetType.SPRITE, "ui/Order_MenuOption.png")), 24)
 spr_order_options = {
@@ -87,6 +91,7 @@ spr_order_options = {
         Option.MENU_RAISE_TILE: spr_order_options_base[10],
         Option.MENU_LOWER_TILE: spr_order_options_base[11],
         Option.MENU_DEMOLISH_SELF: spr_order_options_base[12],
+        Option.MENU_HEAL_SELF: spr_order_options_base[15],
         Option.MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
         Option.MENU_CONCEDE: spr_order_options_base[0],
         Option.MENU_MIRROR_X: spr_order_options_base[13],
@@ -209,7 +214,7 @@ spr_pieces = {
     }
 }
 
-spr_base_order_flags = get_nine_slice_sprites(pygame.image.load(get_asset(AssetType.SPRITE, "ui/OrderFlags.png")), 8)
+spr_base_order_flags = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/OrderFlags.png")), 8)
 spr_order_flags = {
     Option.MENU_CANCEL_ORDER: spr_base_order_flags[0],
     Option.MENU_MOVE: spr_base_order_flags[1],
@@ -224,6 +229,7 @@ spr_order_flags = {
     Option.MENU_RAISE_TILE: spr_base_order_flags[7],
     Option.MENU_LOWER_TILE: spr_base_order_flags[7],
     Option.MENU_DEMOLISH_SELF: spr_base_order_flags[8],
+    Option.MENU_HEAL_SELF: spr_base_order_flags[9],
     Option.MENU_FILL_WITH_CURRENT_TILE: spr_base_order_flags[0],
     Option.MENU_CONCEDE: spr_base_order_flags[0],
     Option.MENU_MIRROR_X: spr_base_order_flags[0],
@@ -283,6 +289,9 @@ sfx_cursor_move = load_sound("cursor/sfx_cursor_move.wav")
 sfx_cursor_select = load_sound("cursor/sfx_cursor_select.wav")
 sfx_cursor_cancel = load_sound("cursor/sfx_cursor_cancel.wav")
 
+# Fonts
+font_pixelmix = pygame.font.Font(get_asset(AssetType.FONT, "pixelmix.ttf"), 8)
+
 
 def load_assets():
     palette_swapped_teams = [Team.BLUE, Team.GREEN, Team.YELLOW]
@@ -299,6 +308,7 @@ def load_assets():
 
         spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED],
                                                           unit_palette[team])
+        spr_wait_icon[team] = swap_palette(spr_wait_icon[Team.RED], unit_palette[team])
         spr_target[team] = swap_palette(spr_target[Team.RED], unit_palette[team])
         spr_menu_option_item_background[team] = swap_palette(spr_menu_option_item_background[Team.RED], unit_palette[team])
 

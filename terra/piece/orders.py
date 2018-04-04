@@ -100,6 +100,18 @@ class DemolishOrder(Order):
         return "[Demol]".format()
 
 
+# An order for the piece to heal itself slightly.
+class HealOrder(Order):
+    def __init__(self):
+        super().__init__(Option.MENU_HEAL_SELF)
+
+    def __str__(self):
+        return "Order: Heal self".format()
+
+    def serialize(self):
+        return "[HealS]".format()
+
+
 # Deserialize an order from a serialized string
 def deserialize_order(order):
     prefix = order[:7]
@@ -116,5 +128,7 @@ def deserialize_order(order):
         return TerraformOrder(int(fields[0]), int(fields[1]), bool(fields[2]))
     elif prefix == "[Demol]":
         return DemolishOrder()
+    elif prefix == "[HealS]":
+        return HealOrder()
     else:
         return None

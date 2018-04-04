@@ -1,14 +1,8 @@
-from enum import Enum
-
 import pygame
 
 from terra.util.mathutil import clamp
 
 pygame.font.init()
-
-
-class Font(Enum):
-    COURIER = pygame.font.SysFont('Arial', 11)
 
 
 # Generate a list of colors in the provided image as a palette
@@ -33,9 +27,11 @@ def swap_multiple_palette(sprites, palette):
 
 # Create a blittable surface with the provided text
 def draw_text(text, color, shadow_color=None):
+    from terra.resources.assets import font_pixelmix
+
     if shadow_color:
-        background = Font.COURIER.value.render(text, False, shadow_color)
-        foreground = Font.COURIER.value.render(text, False, color)
+        background = font_pixelmix.render(text, False, shadow_color)
+        foreground = font_pixelmix.render(text, False, color)
 
         text_size = background.get_size()
         text_surface = pygame.Surface((text_size[0] + 1, text_size[1] + 1), pygame.SRCALPHA, 32)
@@ -45,15 +41,16 @@ def draw_text(text, color, shadow_color=None):
         text_surface.blit(foreground, (0, 0))
         return text_surface
     else:
-        return Font.COURIER.value.render(text, False, color)
+        return font_pixelmix.render(text, False, color)
 
 
 # Create a blittable surface with the provided text. Long text will wrap to the provided width in pixels.
 # https://stackoverflow.com/a/42015712
 def draw_multiline_text(text, color, shadow_color=None, width=192, height=192):
-    font = Font.COURIER.value
+    from terra.resources.assets import font_pixelmix
+
     words = [word.split(' ') for word in text.splitlines()]
-    space = font.size(' ')[0]
+    space = font_pixelmix.size(' ')[0]
 
     text_surface = pygame.Surface((width, height), pygame.SRCALPHA, 32)
 
@@ -62,7 +59,7 @@ def draw_multiline_text(text, color, shadow_color=None, width=192, height=192):
 
     for line in words:
         for word in line:
-            word_surface = font.render(word, False, color)
+            word_surface = font_pixelmix.render(word, False, color)
             word_width, word_height = word_surface.get_size()
 
             # Handle control characters
@@ -75,7 +72,7 @@ def draw_multiline_text(text, color, shadow_color=None, width=192, height=192):
                 y += word_height
 
             if shadow_color:
-                shadow_surface = font.render(word, False, shadow_color)
+                shadow_surface = font_pixelmix.render(word, False, shadow_color)
                 text_surface.blit(shadow_surface, (x + 1, y + 1))
 
             text_surface.blit(word_surface, (x, y))

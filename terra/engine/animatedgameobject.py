@@ -9,12 +9,14 @@ from terra.util.mathutil import clamp
 # Framerate: How many times per second to progress the animation
 # Indexed: Whether the sprite is of the format image[animation_frame][index], instead of just image[animation_frame]
 # Use Global Animation Frame: If true, uses a global frame to keep things synced to the same animation frame
+# Own Frames for Index: If true, will always use own animation frames (not the global frame) when index != 0
 class AnimatedGameObject(GameObject):
     global_animation_frame = 0
     global_animation_framerate = 2
     global_num_frames = 4
 
-    def __init__(self, image, size=24, framerate=1, indexed=False, use_global_animation_frame=False):
+    def __init__(self, image, size=24, framerate=1, indexed=False, use_global_animation_frame=False,
+                 own_frames_for_index=False):
         super().__init__()
         self.image = image
         self.size = size
@@ -24,7 +26,9 @@ class AnimatedGameObject(GameObject):
         self.current_frame = 0
 
         self.indexed = indexed
+        self.index = 0
         self.use_global_animation_frame = use_global_animation_frame
+        self.own_frames_for_index = own_frames_for_index
 
         self.sprite = self.image.subsurface(self.size * int(self.current_frame), 0,
                                             self.size, self.size)
@@ -44,10 +48,15 @@ class AnimatedGameObject(GameObject):
             AnimatedGameObject.global_animation_frame = 0
 
     def update_frame(self):
-        if self.use_global_animation_frame:
+        self.index = self.get_index()
+
+        if self.use_global_animation_frame and not (self.own_frames_for_index and self.index != 0):
             # Use the global frame
             global_frame = AnimatedGameObject.global_animation_frame
-            num_frames = self.image.get_width() // self.size - 1
+            if self.indexed:
+                num_frames = self.image.get_height() // self.size - 1
+            else:
+                num_frames = self.image.get_width() // self.size - 1
 
             self.current_frame = clamp(global_frame, 0, num_frames)
         else:
@@ -64,12 +73,13 @@ class AnimatedGameObject(GameObject):
         super().render(game_screen, ui_screen)
 
         old_frame = self.current_frame
+        old_index = self.index
         self.update_frame()
 
         # Only update the sprite if it's changed
-        if not self.current_frame == old_frame:
+        if not (self.current_frame == old_frame and self.index == old_index):
             if self.indexed:
-                self.sprite = self.image.subsurface(self.size * self.get_index(), self.size * int(self.current_frame),
+                self.sprite = self.image.subsurface(self.size * self.index, self.size * int(self.current_frame),
                                                     self.size, self.size)
             else:
                 # Set the image to display

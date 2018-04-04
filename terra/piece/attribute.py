@@ -35,3 +35,4 @@ class Attribute(Enum):
     KICKOFF = "kickoff"                                 # Whether this gets a movement range bonus from adjacent allies
     STEAL = "steal"                                     # How many resources this piece steals on killing an enemy
     AURA_DAMAGE = "aura_damage"                         # Multiplier on atk dealt to adjacent enemies on turn start
+    HEAL_POWER = "heal_power"                           # How much this HP piece can heal itself with the heal action

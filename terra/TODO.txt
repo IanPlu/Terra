@@ -19,6 +19,7 @@ x Add 'serialize' method to managers, use this when saving or loading the game s
 x Create a separate 'buy' menu better suited to showing lots of upgrades / pieces to purchase, or add a scroll bar
 * Add autosave to battle and level editor
 * Add a prematch lobby where you can assign teams and wait for connections / kick connections, etc.
+* Include a base font for the game
 
 Engineering
 * Write tests!!
@@ -67,7 +68,9 @@ x Implement unique upgrades as generic attributes
     x Additional defensive bonuses + entrenchment bonuses
     * Whether this piece is affected by parting shots
 
-* Add a 'heal' action? Piece doesn't move and instead works on healing itself by a small amount.
+x Add a 'heal' action? Piece doesn't move and instead works on healing itself by a small amount.
+* Determine whether pieces contest a tile if they're moving / leaving that tile.
+    * Because BUILD actions pop before MOVE actions, at start of turn if we're contested, we stay contested even though the enemy moves off of us
 
 Gameplay considerations
 x Prevent Colonists from occupying enemy buildings

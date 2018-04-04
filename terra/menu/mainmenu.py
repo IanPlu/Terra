@@ -64,6 +64,7 @@ def generate_settings_menu():
         (Setting.SCREEN_SCALE, []),
         (Setting.SFX_VOLUME, []),
         (Setting.BGM_VOLUME, []),
+        (Setting.ANIMATION_SPEED, []),
         (Setting.NICKNAME, []),
         (Option.SAVE_SETTINGS, []),
     ]
@@ -104,7 +105,7 @@ class MainMenu(GameScreen):
         input_handler.register_handler(InputAction.PRESS, Key.LEFT, self.lower_setting)
         input_handler.register_handler(InputAction.PRESS, Key.RIGHT, self.raise_setting)
         input_handler.register_handler(InputAction.PRESS, Key.CONFIRM, self.confirm)
-        input_handler.register_handler(InputAction.PRESS, Key.CANCEL, self.reset_menu)
+        input_handler.register_handler(InputAction.PRESS, Key.CANCEL, self.cancel)
         input_handler.register_handler(InputAction.PRESS, Key.MENU, self.reset_menu)
         input_handler.register_handler(InputAction.PRESS, Key.SCROLL_UP, self.scroll_menu_pos_up)
         input_handler.register_handler(InputAction.PRESS, Key.SCROLL_DOWN, self.scroll_menu_pos_down)
@@ -175,6 +176,9 @@ class MainMenu(GameScreen):
                     self.handle_menu_selection(selection)
             elif selection[0] == Setting.NICKNAME:
                 self.text_input = TextInput("NICKNAME_INPUT", selection[0], default_text=SETTINGS.get_unsaved(Setting.NICKNAME), input_filter=FILTER_ALPHANUMERIC)
+
+    def cancel(self):
+        self.reset_menu()
 
     def reset_menu(self):
         if self.current_menu[0] == Option.SETTINGS:

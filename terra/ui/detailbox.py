@@ -82,7 +82,7 @@ class DetailBox(GameObject):
         if self.target in PieceType:
             # Render piece icons
             ui_screen.fill(clear_color[self.team], (self.x + 4, self.y + 12, 16, 16))
-            ui_screen.blit(spr_pieces[self.team][self.target], (self.x + 2, self.y + 8))
+            ui_screen.blit(spr_pieces[self.team][self.target].subsurface(0, 0, 24, 24), (self.x + 2, self.y + 8))
 
             ui_screen.blit(get_text(piece_name_strings, self.target, light=False), (self.x + 24, self.y + 16))
 

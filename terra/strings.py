@@ -35,6 +35,7 @@ menu_option_strings = {
         Option.MENU_RAISE_TILE: "Raise Tile",
         Option.MENU_LOWER_TILE: "Lower Tile",
         Option.MENU_DEMOLISH_SELF: "Demolish",
+        Option.MENU_HEAL_SELF: "Repair",
         Option.MENU_FILL_WITH_CURRENT_TILE: "Fill Map",
         Option.MENU_CONCEDE: "Concede",
         Option.MENU_MIRROR_X: "Mirror (H)",
@@ -58,6 +59,7 @@ menu_help_strings = {
         Option.MENU_RAISE_TILE: "* Terraform an adjacent tile. Seas -> Coasts -> Plains -> Hills -> Mountains.",
         Option.MENU_LOWER_TILE: "* Terraform an adjacent tile. Mountains -> Hills -> Plains -> Coasts -> Seas.",
         Option.MENU_DEMOLISH_SELF: "* Destroy this piece at the end of the turn, freeing space for other pieces later.",
+        Option.MENU_HEAL_SELF: "* Order this piece to heal itself a small amount.",
         Option.MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
         Option.MENU_CONCEDE: "* Concede the game. Your opponent wins!",
 
@@ -314,6 +316,7 @@ formatted_strings = {
         Setting.SFX_VOLUME: "Sound Volume: {}%",
         Setting.BGM_VOLUME: "Music Volume: {}%",
         Setting.NICKNAME: "Nickname: '{}'",
+        Setting.ANIMATION_SPEED: "Animation Speed: {}x",
 
         Stat.TILES_MOVED: "Tiles Moved: {}",
         Stat.RANGED_ATTACKS_MADE: "Ranged Attacks: {}",

@@ -69,7 +69,7 @@ class PhaseBar(GameObject):
 
         # Render phase indicator text
         ui_screen.blit(get_text(phase_strings, Managers.turn_manager.phase),
-                       (4 + GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT + 6))
+                       (3 + GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT + 6))
 
         # Render resource count
         x += 3

@@ -1,3 +1,5 @@
+import pygame
+
 from terra.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.control.inputcontroller import InputAction
@@ -6,6 +8,7 @@ from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import UpgradeType
 from terra.engine.animatedgameobject import AnimatedGameObject
+from terra.engine.animationstate import AnimationState
 from terra.event.event import publish_game_event, EventType
 from terra.managers.managers import Managers
 from terra.menu.option import Option
@@ -13,14 +16,24 @@ from terra.mode import Mode
 from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import MovementType, MovementAttribute, movement_types
-from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, TerraformOrder, DemolishOrder
+from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, TerraformOrder, DemolishOrder, \
+    HealOrder
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
-    spr_target, light_team_color, spr_digit_icons, spr_resource_icon_small
+    spr_target, light_team_color, spr_digit_icons, spr_resource_icon_small, light_color
+from terra.settings import SETTINGS, Setting
 from terra.strings import piece_name_strings, LANGUAGE
 from terra.team import Team
 from terra.util.drawingutil import draw_small_resource_count
+
+
+team_offsets = {
+    Team.RED: (-3, -3),
+    Team.BLUE: (3, 3),
+    Team.GREEN: (-3, 3),
+    Team.YELLOW: (3, -3),
+}
 
 
 # Base object in play belonging to a player, like a unit or a building.
@@ -31,6 +44,14 @@ class Piece(AnimatedGameObject):
         self.team = team
         self.gx = gx
         self.gy = gy
+
+        # Rendered grid coordinates. Will line up with the grid coords over time for smoothish animation.
+        self.rendered_gx = self.gx * GRID_WIDTH
+        self.rendered_gy = self.gy * GRID_HEIGHT
+
+        # How quickly pieces will animate and scroll to their correct locations. Higher number = slower movement
+        self.move_animation_speed = 12 / SETTINGS.get(Setting.ANIMATION_SPEED)
+        self.move_animation_snap_dist = 1
 
         # Look up values based on our piece type
         self.piece_type = piece_type
@@ -53,7 +74,8 @@ class Piece(AnimatedGameObject):
 
         self.previewing_order = False
 
-        super().__init__(spr_pieces[self.team][self.piece_type], 24, 2, indexed=False, use_global_animation_frame=True)
+        super().__init__(spr_pieces[self.team][self.piece_type], 24, 8, indexed=self.piece_type in [PieceType.COLONIST, PieceType.TROOPER],
+                         use_global_animation_frame=True, own_frames_for_index=True)
 
     def __str__(self):
         return "{} {} at tile ({}, {}) with {} HP" \
@@ -89,6 +111,16 @@ class Piece(AnimatedGameObject):
     def is_accepting_events(self):
         return Managers.current_mode == Mode.BATTLE
 
+    # Get the sprite index to display.
+    def get_index(self):
+        if (self.rendered_gx != self.gx * GRID_WIDTH or self.rendered_gy != self.gy * GRID_HEIGHT) or \
+                (isinstance(self.current_order, MoveOrder) and Managers.turn_manager.phase == BattlePhase.EXECUTE_MOVE):
+            animation_state = AnimationState.MOVING
+        else:
+            animation_state = AnimationState.IDLE
+
+        return animation_state.value
+
     # Return a list of actions to show in the selection UI.
     def get_available_actions(self):
         actions = []
@@ -107,6 +139,8 @@ class Piece(AnimatedGameObject):
             actions.append(Option.MENU_LOWER_TILE)
         if self.piece_subtype == PieceSubtype.BUILDING and self.piece_type is not PieceType.BASE:
             actions.append(Option.MENU_DEMOLISH_SELF)
+        if self.hp < self.attr(Attribute.MAX_HP):
+            actions.append(Option.MENU_HEAL_SELF)
 
         if len(actions) > 0 and self.current_order:
             actions.append(Option.MENU_CANCEL_ORDER)
@@ -203,9 +237,14 @@ class Piece(AnimatedGameObject):
             })
 
         if self.last_attacker:
-            # TODO: Add effects for these special cases
             # Explode if we've been hit by a temporary AoE debuff
             if self.temporary_aoe_on_death > 0:
+                publish_game_event(EventType.E_DEATH_AOE, {
+                    'gx': self.gx,
+                    'gy': self.gy,
+                    'team': self.team,
+                })
+
                 for ally in Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team):
                     ally.damage_hp(self.temporary_aoe_on_death, self.last_attacker)
 
@@ -213,6 +252,11 @@ class Piece(AnimatedGameObject):
             if self.temporary_money_lost_on_death > 0:
                 Managers.team_manager.deduct_resources(self.team, self.temporary_money_lost_on_death)
                 Managers.team_manager.add_resources(self.last_attacker.team, self.temporary_money_lost_on_death)
+                publish_game_event(EventType.E_DEATH_MONEY_LOSS, {
+                    'gx': self.gx,
+                    'gy': self.gy,
+                    'team': self.team,
+                })
 
     # Cancel our current order, usually if we're contested.
     def abort_order(self):
@@ -236,10 +280,18 @@ class Piece(AnimatedGameObject):
             enemy_pieces = Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)
             contesting_pieces = []
             for piece in enemy_pieces:
-                # Cannot contest if the enemy can't attack a building (and we're a building) or it has no melee attack
-                if piece.attr(Attribute.ATTACK) > 0 and \
-                        piece.attr(Attribute.DAMAGE_TYPE) == DamageType.MELEE and not \
-                        (piece.attr(Attribute.CANT_ATTACK_BUILDINGS) and self.piece_subtype is PieceSubtype.BUILDING):
+                # Contests if any of the following are true:
+                # - Enemy can attack us (some pieces can't attack buildings, which we might be)
+                # - Enemy deals melee damage (not ranged)
+                # - Enemy has an attack rating (so they'll actually hurt us)
+                # - Enemy is moving to or staying on our tile, not moving away
+                can_attack_us = not (piece.attr(Attribute.CANT_ATTACK_BUILDINGS) and self.piece_subtype is PieceSubtype.BUILDING)
+                is_melee = piece.attr(Attribute.DAMAGE_TYPE) == DamageType.MELEE
+                has_attack_damage = piece.attr(Attribute.ATTACK) > 0
+                is_moving_to_our_tile = piece.current_order is MoveOrder and piece.current_order.dx == self.gx and piece.current_order.dy == self.gy
+                is_staying_on_our_tile = piece.current_order is not MoveOrder and piece.gx == self.gx and piece.gy == self.gy
+
+                if can_attack_us and is_melee and has_attack_damage and (is_moving_to_our_tile or is_staying_on_our_tile):
                     contesting_pieces.append(piece)
 
             return len(contesting_pieces) > 0
@@ -455,6 +507,17 @@ class Piece(AnimatedGameObject):
             Managers.combat_logger.log_successful_order_execution(self, self.current_order)
             self.current_order = None
 
+        # Execute heal orders
+        elif isinstance(self.current_order, HealOrder):
+            if self.is_contested():
+                # Can't heal if there's an enemy piece here
+                self.abort_order()
+            else:
+                self.heal_hp(self.attr(Attribute.HEAL_POWER))
+
+                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
+                self.current_order = None
+
     # Handle menu events concerning us
     def handle_menu_option(self, event):
         if event.option == Option.MENU_MOVE:
@@ -540,6 +603,8 @@ class Piece(AnimatedGameObject):
             self.current_order = TerraformOrder(event.dx, event.dy, raising=False)
         elif event.option == Option.MENU_DEMOLISH_SELF:
             self.current_order = DemolishOrder()
+        elif event.option == Option.MENU_HEAL_SELF:
+            self.current_order = HealOrder()
         else:
             self.current_order = None
 
@@ -616,25 +681,26 @@ class Piece(AnimatedGameObject):
         if Managers.player_manager.is_within_camera_view((self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT, GRID_WIDTH, GRID_HEIGHT)):
             super().render(game_screen, ui_screen)
 
-            xoffset = 0
-            yoffset = 0
+            # Animate pieces moving to their destinations
+            desired_x = self.gx * GRID_WIDTH
+            desired_y = self.gy * GRID_WIDTH
 
-            if self.in_conflict:
-                if self.team == Team.RED:
-                    xoffset = -3
-                    yoffset = -3
-                elif self.team == Team.BLUE:
-                    xoffset = 3
-                    yoffset = 3
-                elif self.team == Team.GREEN:
-                    xoffset = -3
-                    yoffset = 3
-                elif self.team == Team.YELLOW:
-                    xoffset = 3
-                    yoffset = -3
+            if self.rendered_gx != desired_x:
+                self.rendered_gx += (desired_x - self.rendered_gx) / self.move_animation_speed
+                if abs(self.rendered_gx - desired_x) <= self.move_animation_snap_dist:
+                    self.rendered_gx = desired_x
+            if self.rendered_gy != desired_y:
+                self.rendered_gy += (desired_y - self.rendered_gy) / self.move_animation_speed
+                if abs(self.rendered_gy - desired_y) <= self.move_animation_snap_dist:
+                    self.rendered_gy = desired_y
+
+            xoffset, yoffset = team_offsets[self.team] if self.in_conflict else (0, 0)
+
+            actual_x = self.rendered_gx + xoffset
+            actual_y = self.rendered_gy + yoffset
 
             # Render the unit
-            game_screen.blit(self.sprite, (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset))
+            game_screen.blit(self.sprite, (actual_x, actual_y))
 
             # Render health bar if damaged
             max_hp = self.attr(Attribute.MAX_HP)
@@ -642,14 +708,22 @@ class Piece(AnimatedGameObject):
                 displayable_hp = int((self.hp / max_hp) * 20)
 
                 game_screen.fill(clear_color[self.team],
-                                 (self.gx * GRID_WIDTH + xoffset + 2, self.gy * GRID_HEIGHT + yoffset + 21, 18, 3))
+                                 (actual_x + 2, actual_y + 21, 18, 3))
                 game_screen.fill(light_team_color[self.team],
-                                 (self.gx * GRID_WIDTH + xoffset + 2, self.gy * GRID_HEIGHT + yoffset + 21, displayable_hp, 2))
+                                 (actual_x + 2, actual_y + 21, displayable_hp, 2))
 
             # Render order flag
             if self.current_order and Managers.player_manager.active_team == self.team:
                 game_screen.blit(spr_order_flags[self.current_order.name],
-                                 (self.gx * GRID_WIDTH + xoffset, self.gy * GRID_HEIGHT + yoffset + 16))
+                                 (actual_x, actual_y + 16))
 
+            # Render order preview
             if self.previewing_order:
                 self.preview_order(game_screen)
+
+            # Render ranged attacks
+            if Managers.turn_manager.phase == BattlePhase.EXECUTE_COMBAT and isinstance(self.current_order, RangedAttackOrder):
+                pygame.draw.line(game_screen, light_team_color[self.team], (self.gx * GRID_WIDTH + 12, self.gy * GRID_HEIGHT + 12),
+                                 (self.current_order.tx * GRID_WIDTH + 12, self.current_order.ty * GRID_HEIGHT + 12), 3)
+                pygame.draw.line(game_screen, light_color, (self.gx * GRID_WIDTH + 12, self.gy * GRID_HEIGHT + 12),
+                                 (self.current_order.tx * GRID_WIDTH + 12, self.current_order.ty * GRID_HEIGHT + 12), 1)

@@ -1,0 +1,1709 @@
+2018-04-03 14:35:25,098 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-03 14:35:25,099 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 14:35:25,099 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-03 14:35:34,021 INFO Team.RED team researched the upgrade UpgradeType.TROOPER_ATTACK
+2018-04-03 14:36:40,391 INFO BLUE Base at tile (11, 10) with 123 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:36:40,391 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:36:40,391 INFO = Move phase begins
+2018-04-03 14:36:40,401 INFO = Build phase begins
+2018-04-03 14:36:40,401 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:36:40,410 INFO = Combat phase begins
+2018-04-03 14:36:40,411 INFO BLUE Base at tile (11, 10) with 123 HP successfully executed 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:36:40,411 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:36:40,420 INFO = Ranged phase begins
+2018-04-03 14:36:40,420 INFO [<terra.piece.piece.Piece object at 0x09102530>, <terra.piece.piece.Piece object at 0x091025F0>] are contesting the tile at (11, 10)!
+2018-04-03 14:36:40,420 INFO BLUE Base at tile (11, 10) with 87 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:36:40,421 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 87 HP!
+2018-04-03 14:36:40,421 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 87 HP!
+2018-04-03 14:36:40,421 INFO BLUE Base at tile (11, 10) with 51 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:36:40,431 INFO = Special phase begins
+2018-04-03 14:36:40,440 INFO == TURN 20 BEGIN ==
+2018-04-03 14:36:40,441 INFO = Start Turn phase begins
+2018-04-03 14:36:40,451 INFO = Issue Orders phase begins
+2018-04-03 14:36:40,451 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:36:40,452 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:36:43,107 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 14:36:43,107 INFO = Move phase begins
+2018-04-03 14:36:43,117 INFO = Build phase begins
+2018-04-03 14:36:43,117 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 14:36:43,127 INFO = Combat phase begins
+2018-04-03 14:36:43,137 INFO = Ranged phase begins
+2018-04-03 14:36:43,137 INFO [<terra.piece.piece.Piece object at 0x091024D0>, <terra.piece.piece.Piece object at 0x091025F0>] are contesting the tile at (10, 9)!
+2018-04-03 14:36:43,137 INFO BLUE Barracks at tile (10, 9) with 60 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:36:43,138 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 60 HP!
+2018-04-03 14:36:43,138 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 60 HP!
+2018-04-03 14:36:43,138 INFO BLUE Barracks at tile (10, 9) with 20 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:36:43,147 INFO = Special phase begins
+2018-04-03 14:36:43,158 INFO == TURN 21 BEGIN ==
+2018-04-03 14:36:43,158 INFO = Start Turn phase begins
+2018-04-03 14:36:43,168 INFO = Issue Orders phase begins
+2018-04-03 14:36:43,168 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:36:43,169 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:36:47,729 INFO BLUE Barracks at tile (10, 9) with 20 HP was assigned the order 'Order: Build a Trooper on tile (10, 8)'
+2018-04-03 14:36:47,730 INFO = Move phase begins
+2018-04-03 14:36:47,740 INFO = Build phase begins
+2018-04-03 14:36:47,750 INFO = Combat phase begins
+2018-04-03 14:36:47,750 INFO BLUE Barracks at tile (10, 9) with 20 HP failed to execute 'Order: Build a Trooper on tile (10, 8)'
+2018-04-03 14:36:47,760 INFO = Ranged phase begins
+2018-04-03 14:36:47,760 INFO [<terra.piece.piece.Piece object at 0x091024D0>, <terra.piece.piece.Piece object at 0x091025F0>] are contesting the tile at (10, 9)!
+2018-04-03 14:36:47,760 INFO BLUE Barracks at tile (10, 9) with -20 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:36:47,760 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with -20 HP!
+2018-04-03 14:36:47,760 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with -20 HP!
+2018-04-03 14:36:47,760 INFO BLUE Barracks at tile (10, 9) with -60 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:36:47,771 INFO = Special phase begins
+2018-04-03 14:36:47,781 INFO == TURN 22 BEGIN ==
+2018-04-03 14:36:47,781 INFO = Start Turn phase begins
+2018-04-03 14:36:47,792 INFO = Issue Orders phase begins
+2018-04-03 14:36:47,792 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:36:47,792 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:36:56,042 INFO BLUE Base at tile (11, 10) with 51 HP was assigned the order 'Order: Build a Colonist on tile (12, 10)'
+2018-04-03 14:36:56,042 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:36:56,042 INFO = Move phase begins
+2018-04-03 14:36:56,052 INFO = Build phase begins
+2018-04-03 14:36:56,053 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:36:56,063 INFO = Combat phase begins
+2018-04-03 14:36:56,063 INFO BLUE Base at tile (11, 10) with 51 HP successfully executed 'Order: Build a Colonist on tile (12, 10)'
+2018-04-03 14:36:56,063 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:36:56,073 INFO = Ranged phase begins
+2018-04-03 14:36:56,073 INFO [<terra.piece.piece.Piece object at 0x09102530>, <terra.piece.piece.Piece object at 0x091025F0>] are contesting the tile at (11, 10)!
+2018-04-03 14:36:56,073 INFO BLUE Base at tile (11, 10) with 15 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:36:56,074 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 14:36:56,074 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 14:36:56,074 INFO BLUE Base at tile (11, 10) with -21 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:36:56,084 INFO = Special phase begins
+2018-04-03 14:36:56,095 INFO == TURN 23 BEGIN ==
+2018-04-03 14:36:56,095 INFO = Start Turn phase begins
+2018-04-03 14:36:56,104 INFO === BATTLE OVER! ===
+2018-04-03 14:36:56,105 INFO Team.RED team has won!
+2018-04-03 14:36:56,105 INFO -- Stats for team Team.RED --
+2018-04-03 14:36:56,105 INFO   * Tiles Moved: 6
+2018-04-03 14:36:56,105 INFO   * Ranged Attacks: 0
+2018-04-03 14:36:56,105 INFO   * Piece Conflicts: 4
+2018-04-03 14:36:56,105 INFO   * Pieces Lost: 0
+2018-04-03 14:36:56,105 INFO   * Pieces Built: 0
+2018-04-03 14:36:56,105 INFO   * Upgrades Researched: 0
+2018-04-03 14:36:56,106 INFO Team.BLUE team has lost.
+2018-04-03 14:36:56,106 INFO -- Stats for team Team.BLUE --
+2018-04-03 14:36:56,106 INFO   * Tiles Moved: 0
+2018-04-03 14:36:56,106 INFO   * Ranged Attacks: 0
+2018-04-03 14:36:56,106 INFO   * Piece Conflicts: 4
+2018-04-03 14:36:56,106 INFO   * Pieces Lost: 2
+2018-04-03 14:36:56,106 INFO   * Pieces Built: 2
+2018-04-03 14:36:56,106 INFO   * Upgrades Researched: 0
+2018-04-03 14:37:01,328 INFO RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Trooper on tile (4, 5)'
+2018-04-03 14:37:01,328 INFO = Move phase begins
+2018-04-03 14:37:01,339 INFO = Build phase begins
+2018-04-03 14:37:01,349 INFO = Combat phase begins
+2018-04-03 14:37:01,349 INFO RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Trooper on tile (4, 5)'
+2018-04-03 14:37:01,350 INFO Team.RED team spent 3 resources.
+2018-04-03 14:37:01,360 INFO = Ranged phase begins
+2018-04-03 14:37:01,371 INFO = Special phase begins
+2018-04-03 14:37:01,382 INFO == TURN 2 BEGIN ==
+2018-04-03 14:37:01,383 INFO = Start Turn phase begins
+2018-04-03 14:37:01,394 INFO = Issue Orders phase begins
+2018-04-03 14:37:01,394 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:01,394 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:02,416 INFO RED Trooper at tile (4, 5) with 100 HP was assigned the order 'Order: Move to (4, 7)'
+2018-04-03 14:37:02,417 INFO = Move phase begins
+2018-04-03 14:37:02,426 INFO RED Trooper at tile (4, 5) with 100 HP successfully executed 'Order: Move to (4, 7)'
+2018-04-03 14:37:02,427 INFO = Build phase begins
+2018-04-03 14:37:02,437 INFO = Combat phase begins
+2018-04-03 14:37:02,446 INFO = Ranged phase begins
+2018-04-03 14:37:02,456 INFO = Special phase begins
+2018-04-03 14:37:02,466 INFO == TURN 3 BEGIN ==
+2018-04-03 14:37:02,466 INFO = Start Turn phase begins
+2018-04-03 14:37:02,476 INFO = Issue Orders phase begins
+2018-04-03 14:37:02,476 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:02,476 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:03,612 INFO RED Trooper at tile (4, 7) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-04-03 14:37:03,612 INFO = Move phase begins
+2018-04-03 14:37:03,622 INFO RED Trooper at tile (4, 7) with 100 HP successfully executed 'Order: Move to (4, 9)'
+2018-04-03 14:37:03,623 INFO = Build phase begins
+2018-04-03 14:37:03,633 INFO = Combat phase begins
+2018-04-03 14:37:03,644 INFO = Ranged phase begins
+2018-04-03 14:37:03,654 INFO = Special phase begins
+2018-04-03 14:37:03,665 INFO == TURN 4 BEGIN ==
+2018-04-03 14:37:03,665 INFO = Start Turn phase begins
+2018-04-03 14:37:03,675 INFO = Issue Orders phase begins
+2018-04-03 14:37:03,675 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:03,676 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:04,641 INFO RED Trooper at tile (4, 9) with 100 HP was assigned the order 'Order: Move to (6, 9)'
+2018-04-03 14:37:04,641 INFO = Move phase begins
+2018-04-03 14:37:04,652 INFO RED Trooper at tile (4, 9) with 100 HP successfully executed 'Order: Move to (6, 9)'
+2018-04-03 14:37:04,652 INFO = Build phase begins
+2018-04-03 14:37:04,662 INFO = Combat phase begins
+2018-04-03 14:37:04,673 INFO = Ranged phase begins
+2018-04-03 14:37:04,683 INFO = Special phase begins
+2018-04-03 14:37:04,693 INFO == TURN 5 BEGIN ==
+2018-04-03 14:37:04,694 INFO = Start Turn phase begins
+2018-04-03 14:37:04,704 INFO = Issue Orders phase begins
+2018-04-03 14:37:04,704 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:04,704 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:05,666 INFO RED Trooper at tile (6, 9) with 100 HP was assigned the order 'Order: Move to (8, 9)'
+2018-04-03 14:37:05,666 INFO = Move phase begins
+2018-04-03 14:37:05,676 INFO RED Trooper at tile (6, 9) with 100 HP successfully executed 'Order: Move to (8, 9)'
+2018-04-03 14:37:05,676 INFO = Build phase begins
+2018-04-03 14:37:05,686 INFO = Combat phase begins
+2018-04-03 14:37:05,695 INFO = Ranged phase begins
+2018-04-03 14:37:05,706 INFO = Special phase begins
+2018-04-03 14:37:05,715 INFO == TURN 6 BEGIN ==
+2018-04-03 14:37:05,716 INFO = Start Turn phase begins
+2018-04-03 14:37:05,725 INFO = Issue Orders phase begins
+2018-04-03 14:37:05,726 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:05,726 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:06,748 INFO RED Trooper at tile (8, 9) with 100 HP was assigned the order 'Order: Move to (9, 10)'
+2018-04-03 14:37:06,748 INFO = Move phase begins
+2018-04-03 14:37:06,759 INFO RED Trooper at tile (8, 9) with 100 HP successfully executed 'Order: Move to (9, 10)'
+2018-04-03 14:37:06,759 INFO = Build phase begins
+2018-04-03 14:37:06,770 INFO = Combat phase begins
+2018-04-03 14:37:06,780 INFO = Ranged phase begins
+2018-04-03 14:37:06,792 INFO = Special phase begins
+2018-04-03 14:37:06,801 INFO == TURN 7 BEGIN ==
+2018-04-03 14:37:06,802 INFO = Start Turn phase begins
+2018-04-03 14:37:06,812 INFO = Issue Orders phase begins
+2018-04-03 14:37:06,812 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:06,812 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:11,998 INFO BLUE Base at tile (11, 10) with 150 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:37:11,998 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:37:11,998 INFO = Move phase begins
+2018-04-03 14:37:12,008 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:37:12,008 INFO = Build phase begins
+2018-04-03 14:37:12,019 INFO = Combat phase begins
+2018-04-03 14:37:12,020 INFO BLUE Base at tile (11, 10) with 150 HP failed to execute 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:37:12,029 INFO = Ranged phase begins
+2018-04-03 14:37:12,030 INFO [<terra.piece.piece.Piece object at 0x09119CF0>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (11, 10)!
+2018-04-03 14:37:12,030 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:37:12,030 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 14:37:12,030 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 14:37:12,030 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:37:12,040 INFO = Special phase begins
+2018-04-03 14:37:12,051 INFO == TURN 8 BEGIN ==
+2018-04-03 14:37:12,051 INFO = Start Turn phase begins
+2018-04-03 14:37:12,061 INFO = Issue Orders phase begins
+2018-04-03 14:37:12,061 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:12,061 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:22,128 INFO BLUE Base at tile (11, 10) with 96 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:37:22,128 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (9, 10)'
+2018-04-03 14:37:22,129 INFO = Move phase begins
+2018-04-03 14:37:22,138 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (9, 10)'
+2018-04-03 14:37:22,139 INFO = Build phase begins
+2018-04-03 14:37:22,148 INFO = Combat phase begins
+2018-04-03 14:37:22,148 INFO BLUE Base at tile (11, 10) with 96 HP successfully executed 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:37:22,149 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:37:22,159 INFO = Ranged phase begins
+2018-04-03 14:37:22,169 INFO = Special phase begins
+2018-04-03 14:37:22,178 INFO == TURN 9 BEGIN ==
+2018-04-03 14:37:22,178 INFO = Start Turn phase begins
+2018-04-03 14:37:22,189 INFO = Issue Orders phase begins
+2018-04-03 14:37:22,189 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:22,189 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:21,451 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 14:39:21,451 INFO = Move phase begins
+2018-04-03 14:39:21,461 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 14:39:21,461 INFO = Build phase begins
+2018-04-03 14:39:21,472 INFO = Combat phase begins
+2018-04-03 14:39:21,482 INFO = Ranged phase begins
+2018-04-03 14:39:21,482 INFO [<terra.piece.piece.Piece object at 0x09119C90>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (10, 9)!
+2018-04-03 14:39:21,482 INFO BLUE Barracks at tile (10, 9) with 70 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:21,482 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 14:39:21,482 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 14:39:21,482 INFO BLUE Barracks at tile (10, 9) with 40 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:21,493 INFO = Special phase begins
+2018-04-03 14:39:21,503 INFO == TURN 10 BEGIN ==
+2018-04-03 14:39:21,503 INFO = Start Turn phase begins
+2018-04-03 14:39:21,513 INFO = Issue Orders phase begins
+2018-04-03 14:39:21,513 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:21,514 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:24,201 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-03 14:39:24,202 INFO = Move phase begins
+2018-04-03 14:39:24,212 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (10, 11)'
+2018-04-03 14:39:24,212 INFO = Build phase begins
+2018-04-03 14:39:24,223 INFO = Combat phase begins
+2018-04-03 14:39:24,233 INFO = Ranged phase begins
+2018-04-03 14:39:24,244 INFO = Special phase begins
+2018-04-03 14:39:24,255 INFO == TURN 11 BEGIN ==
+2018-04-03 14:39:24,255 INFO = Start Turn phase begins
+2018-04-03 14:39:24,265 INFO = Issue Orders phase begins
+2018-04-03 14:39:24,265 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:24,265 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:27,284 INFO BLUE Base at tile (11, 10) with 96 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:27,284 INFO BLUE Barracks at tile (10, 9) with 40 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:27,284 INFO = Move phase begins
+2018-04-03 14:39:27,294 INFO = Build phase begins
+2018-04-03 14:39:27,304 INFO = Combat phase begins
+2018-04-03 14:39:27,313 INFO = Ranged phase begins
+2018-04-03 14:39:27,323 INFO = Special phase begins
+2018-04-03 14:39:27,333 INFO == TURN 12 BEGIN ==
+2018-04-03 14:39:27,333 INFO = Start Turn phase begins
+2018-04-03 14:39:27,333 INFO BLUE Barracks at tile (10, 9) with 60 HP healed for 20 health.
+2018-04-03 14:39:27,333 INFO BLUE Barracks at tile (10, 9) with 60 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:27,333 INFO BLUE Base at tile (11, 10) with 116 HP healed for 20 health.
+2018-04-03 14:39:27,333 INFO BLUE Base at tile (11, 10) with 116 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:27,343 INFO = Issue Orders phase begins
+2018-04-03 14:39:27,343 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:27,343 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:31,264 INFO BLUE Base at tile (11, 10) with 116 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:31,264 INFO BLUE Barracks at tile (10, 9) with 60 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:31,265 INFO = Move phase begins
+2018-04-03 14:39:31,274 INFO = Build phase begins
+2018-04-03 14:39:31,285 INFO = Combat phase begins
+2018-04-03 14:39:31,295 INFO = Ranged phase begins
+2018-04-03 14:39:31,306 INFO = Special phase begins
+2018-04-03 14:39:31,315 INFO == TURN 13 BEGIN ==
+2018-04-03 14:39:31,316 INFO = Start Turn phase begins
+2018-04-03 14:39:31,316 INFO BLUE Barracks at tile (10, 9) with 80 HP healed for 20 health.
+2018-04-03 14:39:31,316 INFO BLUE Barracks at tile (10, 9) with 80 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:31,316 INFO BLUE Base at tile (11, 10) with 136 HP healed for 20 health.
+2018-04-03 14:39:31,316 INFO BLUE Base at tile (11, 10) with 136 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:31,327 INFO = Issue Orders phase begins
+2018-04-03 14:39:31,327 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:31,327 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:36,207 INFO BLUE Barracks at tile (10, 9) with 80 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:36,207 INFO RED Trooper at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 14:39:36,207 INFO = Move phase begins
+2018-04-03 14:39:36,217 INFO RED Trooper at tile (10, 11) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 14:39:36,217 INFO = Build phase begins
+2018-04-03 14:39:36,227 INFO = Combat phase begins
+2018-04-03 14:39:36,238 INFO = Ranged phase begins
+2018-04-03 14:39:36,238 INFO [<terra.piece.piece.Piece object at 0x09119C90>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (10, 9)!
+2018-04-03 14:39:36,238 INFO BLUE Barracks at tile (10, 9) with 50 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:36,238 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 50 HP!
+2018-04-03 14:39:36,238 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 50 HP!
+2018-04-03 14:39:36,238 INFO BLUE Barracks at tile (10, 9) with 20 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:36,249 INFO = Special phase begins
+2018-04-03 14:39:36,264 INFO == TURN 14 BEGIN ==
+2018-04-03 14:39:36,264 INFO = Start Turn phase begins
+2018-04-03 14:39:36,265 INFO BLUE Barracks at tile (10, 9) with 40 HP healed for 20 health.
+2018-04-03 14:39:36,265 INFO BLUE Barracks at tile (10, 9) with 40 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:36,281 INFO = Issue Orders phase begins
+2018-04-03 14:39:36,282 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:36,282 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:42,314 INFO BLUE Barracks at tile (10, 9) with 40 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:42,314 INFO = Move phase begins
+2018-04-03 14:39:42,324 INFO = Build phase begins
+2018-04-03 14:39:42,334 INFO = Combat phase begins
+2018-04-03 14:39:42,344 INFO = Ranged phase begins
+2018-04-03 14:39:42,344 INFO [<terra.piece.piece.Piece object at 0x09119C90>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (10, 9)!
+2018-04-03 14:39:42,344 INFO BLUE Barracks at tile (10, 9) with 10 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:42,345 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 14:39:42,345 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 14:39:42,345 INFO BLUE Barracks at tile (10, 9) with -20 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:42,355 INFO = Special phase begins
+2018-04-03 14:39:42,364 INFO == TURN 15 BEGIN ==
+2018-04-03 14:39:42,364 INFO = Start Turn phase begins
+2018-04-03 14:39:42,374 INFO = Issue Orders phase begins
+2018-04-03 14:39:42,375 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:42,375 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:46,712 INFO BLUE Base at tile (11, 10) with 136 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:46,712 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:39:46,712 INFO = Move phase begins
+2018-04-03 14:39:46,722 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:39:46,722 INFO = Build phase begins
+2018-04-03 14:39:46,732 INFO = Combat phase begins
+2018-04-03 14:39:46,742 INFO = Ranged phase begins
+2018-04-03 14:39:46,743 INFO [<terra.piece.piece.Piece object at 0x09119CF0>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (11, 10)!
+2018-04-03 14:39:46,743 INFO BLUE Base at tile (11, 10) with 109 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:46,743 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 109 HP!
+2018-04-03 14:39:46,743 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 109 HP!
+2018-04-03 14:39:46,743 INFO BLUE Base at tile (11, 10) with 82 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:46,753 INFO = Special phase begins
+2018-04-03 14:39:46,764 INFO == TURN 16 BEGIN ==
+2018-04-03 14:39:46,764 INFO = Start Turn phase begins
+2018-04-03 14:39:46,764 INFO BLUE Base at tile (11, 10) with 102 HP healed for 20 health.
+2018-04-03 14:39:46,765 INFO BLUE Base at tile (11, 10) with 102 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:46,775 INFO = Issue Orders phase begins
+2018-04-03 14:39:46,775 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:46,775 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:50,175 INFO BLUE Base at tile (11, 10) with 102 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:50,175 INFO = Move phase begins
+2018-04-03 14:39:50,185 INFO = Build phase begins
+2018-04-03 14:39:50,195 INFO = Combat phase begins
+2018-04-03 14:39:50,205 INFO = Ranged phase begins
+2018-04-03 14:39:50,206 INFO [<terra.piece.piece.Piece object at 0x09119CF0>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (11, 10)!
+2018-04-03 14:39:50,206 INFO BLUE Base at tile (11, 10) with 75 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:50,206 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 75 HP!
+2018-04-03 14:39:50,206 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 75 HP!
+2018-04-03 14:39:50,206 INFO BLUE Base at tile (11, 10) with 48 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:50,216 INFO = Special phase begins
+2018-04-03 14:39:50,226 INFO == TURN 17 BEGIN ==
+2018-04-03 14:39:50,226 INFO = Start Turn phase begins
+2018-04-03 14:39:50,226 INFO BLUE Base at tile (11, 10) with 68 HP healed for 20 health.
+2018-04-03 14:39:50,226 INFO BLUE Base at tile (11, 10) with 68 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:50,237 INFO = Issue Orders phase begins
+2018-04-03 14:39:50,237 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:50,238 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:51,860 INFO BLUE Base at tile (11, 10) with 68 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:51,861 INFO = Move phase begins
+2018-04-03 14:39:51,870 INFO = Build phase begins
+2018-04-03 14:39:51,880 INFO = Combat phase begins
+2018-04-03 14:39:51,889 INFO = Ranged phase begins
+2018-04-03 14:39:51,890 INFO [<terra.piece.piece.Piece object at 0x09119CF0>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (11, 10)!
+2018-04-03 14:39:51,890 INFO BLUE Base at tile (11, 10) with 41 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:51,890 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 41 HP!
+2018-04-03 14:39:51,890 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 41 HP!
+2018-04-03 14:39:51,890 INFO BLUE Base at tile (11, 10) with 14 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:51,900 INFO = Special phase begins
+2018-04-03 14:39:51,910 INFO == TURN 18 BEGIN ==
+2018-04-03 14:39:51,911 INFO = Start Turn phase begins
+2018-04-03 14:39:51,911 INFO BLUE Base at tile (11, 10) with 34 HP healed for 20 health.
+2018-04-03 14:39:51,911 INFO BLUE Base at tile (11, 10) with 34 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:51,920 INFO = Issue Orders phase begins
+2018-04-03 14:39:51,921 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:51,921 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:07:00,768 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:07:00,768 INFO = Move phase begins
+2018-04-03 20:07:00,862 INFO = Build phase begins
+2018-04-03 20:07:00,958 INFO = Combat phase begins
+2018-04-03 20:07:34,211 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:07:34,211 INFO = Move phase begins
+2018-04-03 20:07:34,304 INFO = Build phase begins
+2018-04-03 20:07:34,396 INFO = Combat phase begins
+2018-04-03 20:07:49,692 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:07:49,692 INFO = Move phase begins
+2018-04-03 20:07:49,786 INFO = Build phase begins
+2018-04-03 20:07:49,887 INFO = Combat phase begins
+2018-04-03 20:07:50,015 INFO = Ranged phase begins
+2018-04-03 20:07:50,027 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:07:50,109 INFO = Special phase begins
+2018-04-03 20:07:50,203 INFO == TURN 9 BEGIN ==
+2018-04-03 20:07:50,204 INFO = Start Turn phase begins
+2018-04-03 20:07:50,216 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:07:50,216 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:07:50,216 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:07:50,216 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:07:50,296 INFO = Issue Orders phase begins
+2018-04-03 20:08:32,181 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:08:32,182 INFO = Move phase begins
+2018-04-03 20:08:32,274 INFO = Build phase begins
+2018-04-03 20:08:32,366 INFO = Combat phase begins
+2018-04-03 20:08:49,172 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:08:49,172 INFO = Move phase begins
+2018-04-03 20:08:49,267 INFO = Build phase begins
+2018-04-03 20:08:49,363 INFO = Combat phase begins
+2018-04-03 20:08:49,460 INFO = Ranged phase begins
+2018-04-03 20:08:49,472 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:08:49,568 INFO = Special phase begins
+2018-04-03 20:08:49,673 INFO == TURN 9 BEGIN ==
+2018-04-03 20:08:49,673 INFO = Start Turn phase begins
+2018-04-03 20:08:49,686 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:08:49,686 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:08:49,686 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:08:49,686 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:08:49,772 INFO = Issue Orders phase begins
+2018-04-03 20:08:54,351 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:08:54,351 INFO = Move phase begins
+2018-04-03 20:08:54,446 INFO = Build phase begins
+2018-04-03 20:08:54,540 INFO = Combat phase begins
+2018-04-03 20:08:54,636 INFO = Ranged phase begins
+2018-04-03 20:08:54,648 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:08:54,736 INFO = Special phase begins
+2018-04-03 20:08:54,830 INFO == TURN 10 BEGIN ==
+2018-04-03 20:08:54,830 INFO = Start Turn phase begins
+2018-04-03 20:08:54,843 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:08:54,843 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:08:54,843 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:08:54,843 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:08:54,926 INFO = Issue Orders phase begins
+2018-04-03 20:08:58,740 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Ranger on tile (5, 12)'
+2018-04-03 20:08:58,740 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Move to (6, 11)'
+2018-04-03 20:08:58,740 INFO = Move phase begins
+2018-04-03 20:08:58,752 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Move to (6, 11)'
+2018-04-03 20:08:58,834 INFO = Build phase begins
+2018-04-03 20:08:58,846 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Ranger on tile (5, 12)'
+2018-04-03 20:08:58,846 INFO Team.RED team spent 3 resources.
+2018-04-03 20:08:58,927 INFO = Combat phase begins
+2018-04-03 20:08:59,025 INFO = Ranged phase begins
+2018-04-03 20:08:59,122 INFO = Special phase begins
+2018-04-03 20:08:59,216 INFO == TURN 11 BEGIN ==
+2018-04-03 20:08:59,217 INFO = Start Turn phase begins
+2018-04-03 20:08:59,228 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:08:59,228 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:08:59,228 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:08:59,228 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:08:59,311 INFO = Issue Orders phase begins
+2018-04-03 20:09:08,324 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Ranger on tile (6, 13)'
+2018-04-03 20:09:08,324 INFO RED Ghost at tile (6, 13) with 80 HP was assigned the order 'Order: Move to (4, 12)'
+2018-04-03 20:09:08,324 INFO RED Ranger at tile (6, 11) with 90 HP was assigned the order 'Order: Move to (7, 11)'
+2018-04-03 20:09:08,324 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Move to (7, 12)'
+2018-04-03 20:09:08,324 INFO = Move phase begins
+2018-04-03 20:09:08,336 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Move to (7, 12)'
+2018-04-03 20:09:08,336 INFO RED Ghost at tile (6, 13) with 80 HP successfully executed 'Order: Move to (4, 12)'
+2018-04-03 20:09:08,336 INFO RED Ranger at tile (6, 11) with 90 HP successfully executed 'Order: Move to (7, 11)'
+2018-04-03 20:09:08,418 INFO = Build phase begins
+2018-04-03 20:09:08,429 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Ranger on tile (6, 13)'
+2018-04-03 20:09:08,429 INFO Team.RED team spent 3 resources.
+2018-04-03 20:09:08,509 INFO = Combat phase begins
+2018-04-03 20:09:08,600 INFO = Ranged phase begins
+2018-04-03 20:09:08,692 INFO = Special phase begins
+2018-04-03 20:09:08,783 INFO == TURN 12 BEGIN ==
+2018-04-03 20:09:08,783 INFO = Start Turn phase begins
+2018-04-03 20:09:08,795 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:09:08,795 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:09:08,795 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:09:08,795 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:09:08,877 INFO = Issue Orders phase begins
+2018-04-03 20:09:15,794 INFO RED Ranger at tile (7, 12) with 90 HP was assigned the order 'Order: Move to (8, 12)'
+2018-04-03 20:09:15,794 INFO RED Ghost at tile (4, 12) with 80 HP was assigned the order 'Order: Move to (7, 12)'
+2018-04-03 20:09:15,794 INFO RED Ranger at tile (7, 11) with 90 HP was assigned the order 'Order: Move to (8, 11)'
+2018-04-03 20:09:15,794 INFO RED Ranger at tile (6, 13) with 90 HP was assigned the order 'Order: Move to (8, 13)'
+2018-04-03 20:09:15,794 INFO = Move phase begins
+2018-04-03 20:09:15,805 INFO RED Ranger at tile (6, 13) with 90 HP successfully executed 'Order: Move to (8, 13)'
+2018-04-03 20:09:15,806 INFO RED Ranger at tile (7, 12) with 90 HP successfully executed 'Order: Move to (8, 12)'
+2018-04-03 20:09:15,806 INFO RED Ghost at tile (4, 12) with 80 HP successfully executed 'Order: Move to (7, 12)'
+2018-04-03 20:09:15,806 INFO RED Ranger at tile (7, 11) with 90 HP successfully executed 'Order: Move to (8, 11)'
+2018-04-03 20:09:15,906 INFO = Build phase begins
+2018-04-03 20:09:16,011 INFO = Combat phase begins
+2018-04-03 20:09:16,112 INFO = Ranged phase begins
+2018-04-03 20:09:16,212 INFO = Special phase begins
+2018-04-03 20:09:16,309 INFO == TURN 13 BEGIN ==
+2018-04-03 20:09:16,310 INFO = Start Turn phase begins
+2018-04-03 20:09:16,321 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:09:16,321 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:09:16,322 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:09:16,322 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:09:16,402 INFO = Issue Orders phase begins
+2018-04-03 20:09:27,900 INFO RED Ranger at tile (8, 13) with 90 HP was assigned the order 'Order: Ranged attack tile (9, 12)'
+2018-04-03 20:09:27,900 INFO RED Ranger at tile (8, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (9, 12)'
+2018-04-03 20:09:27,900 INFO RED Ranger at tile (8, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (9, 12)'
+2018-04-03 20:09:27,900 INFO = Move phase begins
+2018-04-03 20:09:27,991 INFO = Build phase begins
+2018-04-03 20:09:28,088 INFO = Combat phase begins
+2018-04-03 20:09:28,181 INFO = Ranged phase begins
+2018-04-03 20:09:28,193 INFO RED Ranger at tile (8, 13) with 90 HP successfully executed 'Order: Ranged attack tile (9, 12)'
+2018-04-03 20:09:28,193 INFO RED Ranger at tile (8, 12) with 90 HP successfully executed 'Order: Ranged attack tile (9, 12)'
+2018-04-03 20:09:28,193 INFO RED Ranger at tile (8, 11) with 90 HP successfully executed 'Order: Ranged attack tile (9, 12)'
+2018-04-03 20:09:28,275 INFO = Special phase begins
+2018-04-03 20:09:28,367 INFO == TURN 14 BEGIN ==
+2018-04-03 20:09:28,367 INFO = Start Turn phase begins
+2018-04-03 20:09:28,379 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:09:28,379 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:09:28,380 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:09:28,380 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:09:28,461 INFO = Issue Orders phase begins
+2018-04-03 20:09:41,868 INFO RED Ranger at tile (8, 13) with 90 HP was assigned the order 'Order: Ranged attack tile (8, 11)'
+2018-04-03 20:09:41,868 INFO RED Ranger at tile (8, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:09:41,868 INFO RED Ranger at tile (8, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (9, 11)'
+2018-04-03 20:09:41,868 INFO = Move phase begins
+2018-04-03 20:09:41,961 INFO = Build phase begins
+2018-04-03 20:09:42,058 INFO = Combat phase begins
+2018-04-03 20:09:42,151 INFO = Ranged phase begins
+2018-04-03 20:09:42,164 INFO RED Ranger at tile (8, 13) with 90 HP successfully executed 'Order: Ranged attack tile (8, 11)'
+2018-04-03 20:09:42,164 INFO RED Ranger at tile (8, 12) with 90 HP successfully executed 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:09:42,164 INFO RED Ranger at tile (8, 11) with 90 HP successfully executed 'Order: Ranged attack tile (9, 11)'
+2018-04-03 20:09:42,246 INFO = Special phase begins
+2018-04-03 20:09:42,338 INFO == TURN 15 BEGIN ==
+2018-04-03 20:09:42,338 INFO = Start Turn phase begins
+2018-04-03 20:09:42,350 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:09:42,350 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:09:42,350 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:09:42,350 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:09:42,432 INFO = Issue Orders phase begins
+2018-04-03 20:10:41,126 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:10:41,126 INFO = Move phase begins
+2018-04-03 20:10:41,226 INFO = Build phase begins
+2018-04-03 20:10:41,322 INFO = Combat phase begins
+2018-04-03 20:10:41,418 INFO = Ranged phase begins
+2018-04-03 20:10:41,430 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:10:41,513 INFO = Special phase begins
+2018-04-03 20:10:41,612 INFO == TURN 9 BEGIN ==
+2018-04-03 20:10:41,612 INFO = Start Turn phase begins
+2018-04-03 20:10:41,624 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:10:41,624 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:10:41,625 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:10:41,625 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:10:41,711 INFO = Issue Orders phase begins
+2018-04-03 20:10:44,903 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (6, 11)'
+2018-04-03 20:10:44,903 INFO = Move phase begins
+2018-04-03 20:10:45,003 INFO = Build phase begins
+2018-04-03 20:10:45,099 INFO = Combat phase begins
+2018-04-03 20:10:45,199 INFO = Ranged phase begins
+2018-04-03 20:10:45,211 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (6, 11)'
+2018-04-03 20:10:45,301 INFO = Special phase begins
+2018-04-03 20:10:45,400 INFO == TURN 10 BEGIN ==
+2018-04-03 20:10:45,400 INFO = Start Turn phase begins
+2018-04-03 20:10:45,413 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:10:45,413 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:10:45,413 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:10:45,413 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:10:45,498 INFO = Issue Orders phase begins
+2018-04-03 20:10:47,784 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:10:47,784 INFO = Move phase begins
+2018-04-03 20:10:47,881 INFO = Build phase begins
+2018-04-03 20:10:47,980 INFO = Combat phase begins
+2018-04-03 20:10:48,081 INFO = Ranged phase begins
+2018-04-03 20:10:48,093 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:10:48,178 INFO = Special phase begins
+2018-04-03 20:10:48,276 INFO == TURN 11 BEGIN ==
+2018-04-03 20:10:48,276 INFO = Start Turn phase begins
+2018-04-03 20:10:48,289 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:10:48,289 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:10:48,289 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:10:48,289 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:10:48,374 INFO = Issue Orders phase begins
+2018-04-03 20:10:50,966 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 13)'
+2018-04-03 20:10:50,966 INFO = Move phase begins
+2018-04-03 20:10:51,066 INFO = Build phase begins
+2018-04-03 20:10:51,169 INFO = Combat phase begins
+2018-04-03 20:10:51,266 INFO = Ranged phase begins
+2018-04-03 20:10:51,279 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (4, 13)'
+2018-04-03 20:10:51,364 INFO = Special phase begins
+2018-04-03 20:10:51,467 INFO == TURN 12 BEGIN ==
+2018-04-03 20:10:51,467 INFO = Start Turn phase begins
+2018-04-03 20:10:51,480 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:10:51,480 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:10:51,481 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:10:51,481 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:10:51,572 INFO = Issue Orders phase begins
+2018-04-03 20:10:54,029 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (5, 14)'
+2018-04-03 20:10:54,030 INFO = Move phase begins
+2018-04-03 20:10:54,130 INFO = Build phase begins
+2018-04-03 20:10:54,228 INFO = Combat phase begins
+2018-04-03 20:10:54,324 INFO = Ranged phase begins
+2018-04-03 20:10:54,336 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (5, 14)'
+2018-04-03 20:10:54,421 INFO = Special phase begins
+2018-04-03 20:10:54,516 INFO == TURN 13 BEGIN ==
+2018-04-03 20:10:54,516 INFO = Start Turn phase begins
+2018-04-03 20:10:54,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:10:54,529 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:10:54,529 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:10:54,529 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:10:54,615 INFO = Issue Orders phase begins
+2018-04-03 20:11:08,064 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:11:08,065 INFO = Move phase begins
+2018-04-03 20:11:08,172 INFO = Build phase begins
+2018-04-03 20:11:08,274 INFO = Combat phase begins
+2018-04-03 20:11:08,375 INFO = Ranged phase begins
+2018-04-03 20:11:08,387 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:11:08,475 INFO = Special phase begins
+2018-04-03 20:11:08,573 INFO == TURN 9 BEGIN ==
+2018-04-03 20:11:08,573 INFO = Start Turn phase begins
+2018-04-03 20:11:08,594 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:08,594 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:08,594 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:08,594 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:08,689 INFO = Issue Orders phase begins
+2018-04-03 20:11:10,679 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (6, 11)'
+2018-04-03 20:11:10,679 INFO = Move phase begins
+2018-04-03 20:11:10,776 INFO = Build phase begins
+2018-04-03 20:11:10,874 INFO = Combat phase begins
+2018-04-03 20:11:10,971 INFO = Ranged phase begins
+2018-04-03 20:11:10,983 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (6, 11)'
+2018-04-03 20:11:11,070 INFO = Special phase begins
+2018-04-03 20:11:11,168 INFO == TURN 10 BEGIN ==
+2018-04-03 20:11:11,169 INFO = Start Turn phase begins
+2018-04-03 20:11:11,180 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:11,181 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:11,181 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:11,181 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:11,266 INFO = Issue Orders phase begins
+2018-04-03 20:11:13,918 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (6, 13)'
+2018-04-03 20:11:13,918 INFO = Move phase begins
+2018-04-03 20:11:14,018 INFO = Build phase begins
+2018-04-03 20:11:14,116 INFO = Combat phase begins
+2018-04-03 20:11:14,213 INFO = Ranged phase begins
+2018-04-03 20:11:14,225 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (6, 13)'
+2018-04-03 20:11:14,311 INFO = Special phase begins
+2018-04-03 20:11:14,408 INFO == TURN 11 BEGIN ==
+2018-04-03 20:11:14,408 INFO = Start Turn phase begins
+2018-04-03 20:11:14,421 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:14,421 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:14,421 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:14,421 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:14,506 INFO = Issue Orders phase begins
+2018-04-03 20:11:20,823 INFO RED Colonist at tile (4, 13) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (3, 13)'
+2018-04-03 20:11:20,823 INFO RED Colonist at tile (4, 13) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (3, 13)'
+2018-04-03 20:11:20,823 INFO = Move phase begins
+2018-04-03 20:11:20,823 INFO = Move phase begins
+2018-04-03 20:11:20,919 INFO = Build phase begins
+2018-04-03 20:11:20,919 INFO = Build phase begins
+2018-04-03 20:11:20,930 INFO RED Colonist at tile (4, 13) with 100 HP successfully executed 'Order: Build a Tech Lab on tile (3, 13)'
+2018-04-03 20:11:20,930 INFO RED Colonist at tile (4, 13) with 100 HP successfully executed 'Order: Build a Tech Lab on tile (3, 13)'
+2018-04-03 20:11:20,930 INFO Team.RED team spent 2 resources.
+2018-04-03 20:11:20,930 INFO Team.RED team spent 2 resources.
+2018-04-03 20:11:21,016 INFO = Combat phase begins
+2018-04-03 20:11:21,016 INFO = Combat phase begins
+2018-04-03 20:11:21,116 INFO = Ranged phase begins
+2018-04-03 20:11:21,116 INFO = Ranged phase begins
+2018-04-03 20:11:21,213 INFO = Special phase begins
+2018-04-03 20:11:21,213 INFO = Special phase begins
+2018-04-03 20:11:21,309 INFO == TURN 9 BEGIN ==
+2018-04-03 20:11:21,309 INFO == TURN 9 BEGIN ==
+2018-04-03 20:11:21,309 INFO = Start Turn phase begins
+2018-04-03 20:11:21,309 INFO = Start Turn phase begins
+2018-04-03 20:11:21,323 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:21,323 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:21,324 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:21,324 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:21,324 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:21,324 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:21,324 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:21,324 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:21,409 INFO = Issue Orders phase begins
+2018-04-03 20:11:21,409 INFO = Issue Orders phase begins
+2018-04-03 20:11:24,873 INFO RED Tech Lab at tile (3, 13) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+2018-04-03 20:11:24,873 INFO RED Tech Lab at tile (3, 13) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+2018-04-03 20:11:24,873 INFO = Move phase begins
+2018-04-03 20:11:24,873 INFO = Move phase begins
+2018-04-03 20:11:24,965 INFO = Build phase begins
+2018-04-03 20:11:24,965 INFO = Build phase begins
+2018-04-03 20:11:25,060 INFO = Combat phase begins
+2018-04-03 20:11:25,060 INFO = Combat phase begins
+2018-04-03 20:11:25,154 INFO = Ranged phase begins
+2018-04-03 20:11:25,154 INFO = Ranged phase begins
+2018-04-03 20:11:25,248 INFO = Special phase begins
+2018-04-03 20:11:25,248 INFO = Special phase begins
+2018-04-03 20:11:25,260 INFO RED Tech Lab at tile (3, 13) with 50 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+2018-04-03 20:11:25,260 INFO RED Tech Lab at tile (3, 13) with 50 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+2018-04-03 20:11:25,260 INFO Team.RED team spent 6 resources.
+2018-04-03 20:11:25,260 INFO Team.RED team spent 6 resources.
+2018-04-03 20:11:25,272 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:11:25,272 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:11:25,344 INFO == TURN 10 BEGIN ==
+2018-04-03 20:11:25,344 INFO == TURN 10 BEGIN ==
+2018-04-03 20:11:25,344 INFO = Start Turn phase begins
+2018-04-03 20:11:25,344 INFO = Start Turn phase begins
+2018-04-03 20:11:25,356 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:25,356 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:25,356 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:25,356 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:25,357 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:25,357 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:25,357 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:25,357 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:25,440 INFO = Issue Orders phase begins
+2018-04-03 20:11:25,440 INFO = Issue Orders phase begins
+2018-04-03 20:11:30,229 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Boltcaster on tile (6, 13)'
+2018-04-03 20:11:30,229 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Boltcaster on tile (6, 13)'
+2018-04-03 20:11:30,229 INFO RED Ghost at tile (6, 13) with 80 HP was assigned the order 'Order: Move to (7, 15)'
+2018-04-03 20:11:30,229 INFO RED Ghost at tile (6, 13) with 80 HP was assigned the order 'Order: Move to (7, 15)'
+2018-04-03 20:11:30,229 INFO = Move phase begins
+2018-04-03 20:11:30,229 INFO = Move phase begins
+2018-04-03 20:11:30,241 INFO RED Ghost at tile (6, 13) with 80 HP successfully executed 'Order: Move to (7, 15)'
+2018-04-03 20:11:30,241 INFO RED Ghost at tile (6, 13) with 80 HP successfully executed 'Order: Move to (7, 15)'
+2018-04-03 20:11:30,322 INFO = Build phase begins
+2018-04-03 20:11:30,322 INFO = Build phase begins
+2018-04-03 20:11:30,334 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Boltcaster on tile (6, 13)'
+2018-04-03 20:11:30,334 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Boltcaster on tile (6, 13)'
+2018-04-03 20:11:30,334 INFO Team.RED team spent 5 resources.
+2018-04-03 20:11:30,334 INFO Team.RED team spent 5 resources.
+2018-04-03 20:11:30,415 INFO = Combat phase begins
+2018-04-03 20:11:30,415 INFO = Combat phase begins
+2018-04-03 20:11:30,510 INFO = Ranged phase begins
+2018-04-03 20:11:30,510 INFO = Ranged phase begins
+2018-04-03 20:11:30,602 INFO = Special phase begins
+2018-04-03 20:11:30,602 INFO = Special phase begins
+2018-04-03 20:11:30,695 INFO == TURN 11 BEGIN ==
+2018-04-03 20:11:30,695 INFO == TURN 11 BEGIN ==
+2018-04-03 20:11:30,695 INFO = Start Turn phase begins
+2018-04-03 20:11:30,695 INFO = Start Turn phase begins
+2018-04-03 20:11:30,708 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:30,708 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:30,708 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:30,708 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:30,709 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:30,709 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:30,709 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:30,709 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:30,806 INFO = Issue Orders phase begins
+2018-04-03 20:11:30,806 INFO = Issue Orders phase begins
+2018-04-03 20:11:34,408 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (8, 10)'
+2018-04-03 20:11:34,408 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (8, 10)'
+2018-04-03 20:11:34,409 INFO = Move phase begins
+2018-04-03 20:11:34,409 INFO = Move phase begins
+2018-04-03 20:11:34,503 INFO = Build phase begins
+2018-04-03 20:11:34,503 INFO = Build phase begins
+2018-04-03 20:11:34,595 INFO = Combat phase begins
+2018-04-03 20:11:34,595 INFO = Combat phase begins
+2018-04-03 20:11:34,689 INFO = Ranged phase begins
+2018-04-03 20:11:34,689 INFO = Ranged phase begins
+2018-04-03 20:11:34,700 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (8, 10)'
+2018-04-03 20:11:34,700 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (8, 10)'
+2018-04-03 20:11:34,783 INFO = Special phase begins
+2018-04-03 20:11:34,783 INFO = Special phase begins
+2018-04-03 20:11:34,877 INFO == TURN 12 BEGIN ==
+2018-04-03 20:11:34,877 INFO == TURN 12 BEGIN ==
+2018-04-03 20:11:34,878 INFO = Start Turn phase begins
+2018-04-03 20:11:34,878 INFO = Start Turn phase begins
+2018-04-03 20:11:34,889 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:34,889 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:34,890 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:34,890 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:34,890 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:34,890 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:34,890 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:34,890 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:34,970 INFO = Issue Orders phase begins
+2018-04-03 20:11:34,970 INFO = Issue Orders phase begins
+2018-04-03 20:11:36,973 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (8, 12)'
+2018-04-03 20:11:36,973 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (8, 12)'
+2018-04-03 20:11:36,974 INFO = Move phase begins
+2018-04-03 20:11:36,974 INFO = Move phase begins
+2018-04-03 20:11:37,093 INFO = Build phase begins
+2018-04-03 20:11:37,093 INFO = Build phase begins
+2018-04-03 20:11:37,191 INFO = Combat phase begins
+2018-04-03 20:11:37,191 INFO = Combat phase begins
+2018-04-03 20:11:37,288 INFO = Ranged phase begins
+2018-04-03 20:11:37,288 INFO = Ranged phase begins
+2018-04-03 20:11:37,300 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (8, 12)'
+2018-04-03 20:11:37,300 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (8, 12)'
+2018-04-03 20:11:37,383 INFO = Special phase begins
+2018-04-03 20:11:37,383 INFO = Special phase begins
+2018-04-03 20:11:37,478 INFO == TURN 13 BEGIN ==
+2018-04-03 20:11:37,478 INFO == TURN 13 BEGIN ==
+2018-04-03 20:11:37,478 INFO = Start Turn phase begins
+2018-04-03 20:11:37,478 INFO = Start Turn phase begins
+2018-04-03 20:11:37,491 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:37,491 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:37,491 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:37,491 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:37,491 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:37,491 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:37,491 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:37,491 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:37,575 INFO = Issue Orders phase begins
+2018-04-03 20:11:37,575 INFO = Issue Orders phase begins
+2018-04-03 20:11:39,421 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 10)'
+2018-04-03 20:11:39,421 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (6, 10)'
+2018-04-03 20:11:39,421 INFO = Move phase begins
+2018-04-03 20:11:39,421 INFO = Move phase begins
+2018-04-03 20:11:39,516 INFO = Build phase begins
+2018-04-03 20:11:39,516 INFO = Build phase begins
+2018-04-03 20:11:39,614 INFO = Combat phase begins
+2018-04-03 20:11:39,614 INFO = Combat phase begins
+2018-04-03 20:11:39,717 INFO = Ranged phase begins
+2018-04-03 20:11:39,717 INFO = Ranged phase begins
+2018-04-03 20:11:39,729 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (6, 10)'
+2018-04-03 20:11:39,729 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (6, 10)'
+2018-04-03 20:11:39,813 INFO = Special phase begins
+2018-04-03 20:11:39,813 INFO = Special phase begins
+2018-04-03 20:11:39,909 INFO == TURN 14 BEGIN ==
+2018-04-03 20:11:39,909 INFO == TURN 14 BEGIN ==
+2018-04-03 20:11:39,909 INFO = Start Turn phase begins
+2018-04-03 20:11:39,909 INFO = Start Turn phase begins
+2018-04-03 20:11:39,921 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:39,921 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:39,921 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:39,921 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:39,921 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:39,921 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:39,921 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:39,921 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:40,002 INFO = Issue Orders phase begins
+2018-04-03 20:11:40,002 INFO = Issue Orders phase begins
+2018-04-03 20:11:42,618 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:11:42,618 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:11:42,618 INFO = Move phase begins
+2018-04-03 20:11:42,618 INFO = Move phase begins
+2018-04-03 20:11:42,713 INFO = Build phase begins
+2018-04-03 20:11:42,713 INFO = Build phase begins
+2018-04-03 20:11:42,807 INFO = Combat phase begins
+2018-04-03 20:11:42,807 INFO = Combat phase begins
+2018-04-03 20:11:42,900 INFO = Ranged phase begins
+2018-04-03 20:11:42,900 INFO = Ranged phase begins
+2018-04-03 20:11:42,912 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:11:42,912 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:11:42,995 INFO = Special phase begins
+2018-04-03 20:11:42,995 INFO = Special phase begins
+2018-04-03 20:11:43,092 INFO == TURN 15 BEGIN ==
+2018-04-03 20:11:43,092 INFO == TURN 15 BEGIN ==
+2018-04-03 20:11:43,092 INFO = Start Turn phase begins
+2018-04-03 20:11:43,092 INFO = Start Turn phase begins
+2018-04-03 20:11:43,104 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:43,104 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:43,104 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:43,104 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:43,104 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:43,104 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:43,104 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:43,104 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:43,189 INFO = Issue Orders phase begins
+2018-04-03 20:11:43,189 INFO = Issue Orders phase begins
+2018-04-03 20:11:45,837 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:11:45,837 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:11:45,837 INFO = Move phase begins
+2018-04-03 20:11:45,837 INFO = Move phase begins
+2018-04-03 20:11:45,932 INFO = Build phase begins
+2018-04-03 20:11:45,932 INFO = Build phase begins
+2018-04-03 20:11:46,025 INFO = Combat phase begins
+2018-04-03 20:11:46,025 INFO = Combat phase begins
+2018-04-03 20:11:46,135 INFO = Ranged phase begins
+2018-04-03 20:11:46,135 INFO = Ranged phase begins
+2018-04-03 20:11:46,147 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:11:46,147 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:11:46,230 INFO = Special phase begins
+2018-04-03 20:11:46,230 INFO = Special phase begins
+2018-04-03 20:11:46,325 INFO == TURN 16 BEGIN ==
+2018-04-03 20:11:46,325 INFO == TURN 16 BEGIN ==
+2018-04-03 20:11:46,325 INFO = Start Turn phase begins
+2018-04-03 20:11:46,325 INFO = Start Turn phase begins
+2018-04-03 20:11:46,337 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:46,337 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:11:46,338 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:46,338 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:11:46,338 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:46,338 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:11:46,338 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:46,338 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:11:46,421 INFO = Issue Orders phase begins
+2018-04-03 20:11:46,421 INFO = Issue Orders phase begins
+2018-04-03 20:13:20,499 INFO RED Colonist at tile (4, 13) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (3, 13)'
+2018-04-03 20:13:20,499 INFO = Move phase begins
+2018-04-03 20:13:20,596 INFO = Build phase begins
+2018-04-03 20:13:20,608 INFO RED Colonist at tile (4, 13) with 100 HP successfully executed 'Order: Build a Tech Lab on tile (3, 13)'
+2018-04-03 20:13:20,609 INFO Team.RED team spent 2 resources.
+2018-04-03 20:13:20,693 INFO = Combat phase begins
+2018-04-03 20:13:20,794 INFO = Ranged phase begins
+2018-04-03 20:13:20,892 INFO = Special phase begins
+2018-04-03 20:13:20,987 INFO == TURN 9 BEGIN ==
+2018-04-03 20:13:20,987 INFO = Start Turn phase begins
+2018-04-03 20:13:21,000 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:13:21,000 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:13:21,000 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:13:21,000 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:13:21,087 INFO = Issue Orders phase begins
+2018-04-03 20:13:23,648 INFO RED Tech Lab at tile (3, 13) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+2018-04-03 20:13:23,648 INFO = Move phase begins
+2018-04-03 20:13:23,747 INFO = Build phase begins
+2018-04-03 20:13:23,847 INFO = Combat phase begins
+2018-04-03 20:13:23,945 INFO = Ranged phase begins
+2018-04-03 20:13:24,046 INFO = Special phase begins
+2018-04-03 20:13:24,058 INFO RED Tech Lab at tile (3, 13) with 50 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_BOLTCASTER'
+2018-04-03 20:13:24,059 INFO Team.RED team spent 6 resources.
+2018-04-03 20:13:24,071 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:13:24,145 INFO == TURN 10 BEGIN ==
+2018-04-03 20:13:24,145 INFO = Start Turn phase begins
+2018-04-03 20:13:24,158 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:13:24,158 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:13:24,158 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:13:24,158 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:13:24,246 INFO = Issue Orders phase begins
+2018-04-03 20:13:28,776 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Boltcaster on tile (6, 13)'
+2018-04-03 20:13:28,777 INFO RED Ghost at tile (6, 13) with 80 HP was assigned the order 'Order: Move to (7, 15)'
+2018-04-03 20:13:28,777 INFO = Move phase begins
+2018-04-03 20:13:28,789 INFO RED Ghost at tile (6, 13) with 80 HP successfully executed 'Order: Move to (7, 15)'
+2018-04-03 20:13:28,882 INFO = Build phase begins
+2018-04-03 20:13:28,894 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Boltcaster on tile (6, 13)'
+2018-04-03 20:13:28,895 INFO Team.RED team spent 5 resources.
+2018-04-03 20:13:28,991 INFO = Combat phase begins
+2018-04-03 20:13:29,108 INFO = Ranged phase begins
+2018-04-03 20:13:29,208 INFO = Special phase begins
+2018-04-03 20:13:29,306 INFO == TURN 11 BEGIN ==
+2018-04-03 20:13:29,306 INFO = Start Turn phase begins
+2018-04-03 20:13:29,318 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:13:29,318 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:13:29,318 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:13:29,318 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:13:29,404 INFO = Issue Orders phase begins
+2018-04-03 20:13:33,343 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (8, 11)'
+2018-04-03 20:13:33,344 INFO = Move phase begins
+2018-04-03 20:13:33,442 INFO = Build phase begins
+2018-04-03 20:13:33,539 INFO = Combat phase begins
+2018-04-03 20:13:33,636 INFO = Ranged phase begins
+2018-04-03 20:13:33,648 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (8, 11)'
+2018-04-03 20:13:33,733 INFO = Special phase begins
+2018-04-03 20:13:33,842 INFO == TURN 12 BEGIN ==
+2018-04-03 20:13:33,842 INFO = Start Turn phase begins
+2018-04-03 20:13:33,860 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:13:33,860 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:13:33,860 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:13:33,860 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:13:33,950 INFO = Issue Orders phase begins
+2018-04-03 20:13:36,845 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:13:36,845 INFO = Move phase begins
+2018-04-03 20:13:36,941 INFO = Build phase begins
+2018-04-03 20:13:37,047 INFO = Combat phase begins
+2018-04-03 20:13:37,145 INFO = Ranged phase begins
+2018-04-03 20:13:37,159 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:13:37,245 INFO = Special phase begins
+2018-04-03 20:13:37,342 INFO == TURN 13 BEGIN ==
+2018-04-03 20:13:37,343 INFO = Start Turn phase begins
+2018-04-03 20:13:37,355 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:13:37,355 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:13:37,355 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:13:37,355 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:13:37,441 INFO = Issue Orders phase begins
+2018-04-03 20:13:40,083 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:13:40,083 INFO = Move phase begins
+2018-04-03 20:13:40,180 INFO = Build phase begins
+2018-04-03 20:13:40,276 INFO = Combat phase begins
+2018-04-03 20:13:40,371 INFO = Ranged phase begins
+2018-04-03 20:13:40,383 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:13:40,468 INFO = Special phase begins
+2018-04-03 20:13:40,562 INFO == TURN 14 BEGIN ==
+2018-04-03 20:13:40,562 INFO = Start Turn phase begins
+2018-04-03 20:13:40,575 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:13:40,575 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:13:40,575 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:13:40,575 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:13:40,658 INFO = Issue Orders phase begins
+2018-04-03 20:13:44,030 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:13:44,030 INFO = Move phase begins
+2018-04-03 20:13:44,127 INFO = Build phase begins
+2018-04-03 20:13:44,227 INFO = Combat phase begins
+2018-04-03 20:13:44,325 INFO = Ranged phase begins
+2018-04-03 20:13:44,337 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:13:44,419 INFO = Special phase begins
+2018-04-03 20:13:44,513 INFO == TURN 15 BEGIN ==
+2018-04-03 20:13:44,513 INFO = Start Turn phase begins
+2018-04-03 20:13:44,525 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:13:44,525 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:13:44,525 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:13:44,525 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:13:44,608 INFO = Issue Orders phase begins
+2018-04-03 20:13:57,739 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:13:57,739 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:14:00,911 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:14:00,911 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:14:00,911 INFO = Move phase begins
+2018-04-03 20:14:00,911 INFO = Move phase begins
+2018-04-03 20:14:01,118 INFO = Build phase begins
+2018-04-03 20:14:01,118 INFO = Build phase begins
+2018-04-03 20:14:01,313 INFO = Combat phase begins
+2018-04-03 20:14:01,313 INFO = Combat phase begins
+2018-04-03 20:14:01,511 INFO = Ranged phase begins
+2018-04-03 20:14:01,511 INFO = Ranged phase begins
+2018-04-03 20:14:01,523 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:14:01,523 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:14:01,705 INFO = Special phase begins
+2018-04-03 20:14:01,705 INFO = Special phase begins
+2018-04-03 20:14:01,899 INFO == TURN 12 BEGIN ==
+2018-04-03 20:14:01,899 INFO == TURN 12 BEGIN ==
+2018-04-03 20:14:01,899 INFO = Start Turn phase begins
+2018-04-03 20:14:01,899 INFO = Start Turn phase begins
+2018-04-03 20:14:01,912 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:14:01,912 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:14:01,912 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:14:01,912 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:14:01,912 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:14:01,912 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:14:01,912 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:14:01,912 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:14:02,095 INFO = Issue Orders phase begins
+2018-04-03 20:14:02,095 INFO = Issue Orders phase begins
+2018-04-03 20:14:12,386 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:14:17,063 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:14:17,063 INFO = Move phase begins
+2018-04-03 20:14:17,199 INFO = Build phase begins
+2018-04-03 20:14:17,333 INFO = Combat phase begins
+2018-04-03 20:14:17,467 INFO = Ranged phase begins
+2018-04-03 20:14:17,479 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:14:17,600 INFO = Special phase begins
+2018-04-03 20:14:17,734 INFO == TURN 12 BEGIN ==
+2018-04-03 20:14:17,734 INFO = Start Turn phase begins
+2018-04-03 20:14:17,747 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:14:17,747 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:14:17,747 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:14:17,747 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:14:17,870 INFO = Issue Orders phase begins
+2018-04-03 20:14:19,511 INFO = Move phase begins
+2018-04-03 20:14:19,644 INFO = Build phase begins
+2018-04-03 20:14:19,777 INFO = Combat phase begins
+2018-04-03 20:14:19,912 INFO = Ranged phase begins
+2018-04-03 20:14:20,050 INFO = Special phase begins
+2018-04-03 20:14:20,186 INFO == TURN 13 BEGIN ==
+2018-04-03 20:14:20,186 INFO = Start Turn phase begins
+2018-04-03 20:14:20,198 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:14:20,198 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:14:20,198 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:14:20,199 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:14:20,318 INFO = Issue Orders phase begins
+2018-04-03 20:14:50,289 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:14:54,049 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:14:54,049 INFO = Move phase begins
+2018-04-03 20:14:54,203 INFO = Build phase begins
+2018-04-03 20:14:54,339 INFO = Combat phase begins
+2018-04-03 20:14:54,477 INFO = Ranged phase begins
+2018-04-03 20:14:54,490 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:14:54,611 INFO = Special phase begins
+2018-04-03 20:14:54,747 INFO == TURN 12 BEGIN ==
+2018-04-03 20:14:54,747 INFO = Start Turn phase begins
+2018-04-03 20:14:54,761 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:14:54,761 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:14:54,761 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:14:54,761 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:14:54,893 INFO = Issue Orders phase begins
+2018-04-03 20:15:01,407 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:15:01,407 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:15:07,823 INFO RED Trooper at tile (4, 11) with 100 HP was assigned the order 'Order: Move to (6, 11)'
+2018-04-03 20:15:07,823 INFO RED Trooper at tile (4, 11) with 100 HP was assigned the order 'Order: Move to (6, 11)'
+2018-04-03 20:15:07,823 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:15:07,823 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:15:07,824 INFO = Move phase begins
+2018-04-03 20:15:07,824 INFO = Move phase begins
+2018-04-03 20:15:07,837 INFO RED Trooper at tile (4, 11) with 100 HP successfully executed 'Order: Move to (6, 11)'
+2018-04-03 20:15:07,837 INFO RED Trooper at tile (4, 11) with 100 HP successfully executed 'Order: Move to (6, 11)'
+2018-04-03 20:15:07,873 INFO = Build phase begins
+2018-04-03 20:15:07,873 INFO = Build phase begins
+2018-04-03 20:15:07,921 INFO = Combat phase begins
+2018-04-03 20:15:07,921 INFO = Combat phase begins
+2018-04-03 20:15:07,968 INFO = Ranged phase begins
+2018-04-03 20:15:07,968 INFO = Ranged phase begins
+2018-04-03 20:15:07,980 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:15:07,980 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:15:08,017 INFO = Special phase begins
+2018-04-03 20:15:08,017 INFO = Special phase begins
+2018-04-03 20:15:08,066 INFO == TURN 12 BEGIN ==
+2018-04-03 20:15:08,066 INFO == TURN 12 BEGIN ==
+2018-04-03 20:15:08,066 INFO = Start Turn phase begins
+2018-04-03 20:15:08,066 INFO = Start Turn phase begins
+2018-04-03 20:15:08,079 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:15:08,079 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:15:08,079 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:15:08,079 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:15:08,080 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:15:08,080 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:15:08,080 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:15:08,080 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:15:08,116 INFO = Issue Orders phase begins
+2018-04-03 20:15:08,116 INFO = Issue Orders phase begins
+2018-04-03 20:15:12,633 INFO RED Trooper at tile (6, 11) with 100 HP was assigned the order 'Order: Move to (8, 11)'
+2018-04-03 20:15:12,633 INFO RED Trooper at tile (6, 11) with 100 HP was assigned the order 'Order: Move to (8, 11)'
+2018-04-03 20:15:12,633 INFO = Move phase begins
+2018-04-03 20:15:12,633 INFO = Move phase begins
+2018-04-03 20:15:12,645 INFO RED Trooper at tile (6, 11) with 100 HP successfully executed 'Order: Move to (8, 11)'
+2018-04-03 20:15:12,645 INFO RED Trooper at tile (6, 11) with 100 HP successfully executed 'Order: Move to (8, 11)'
+2018-04-03 20:15:12,682 INFO = Build phase begins
+2018-04-03 20:15:12,682 INFO = Build phase begins
+2018-04-03 20:15:12,733 INFO = Combat phase begins
+2018-04-03 20:15:12,733 INFO = Combat phase begins
+2018-04-03 20:15:12,788 INFO = Ranged phase begins
+2018-04-03 20:15:12,788 INFO = Ranged phase begins
+2018-04-03 20:15:12,838 INFO = Special phase begins
+2018-04-03 20:15:12,838 INFO = Special phase begins
+2018-04-03 20:15:12,886 INFO == TURN 13 BEGIN ==
+2018-04-03 20:15:12,886 INFO == TURN 13 BEGIN ==
+2018-04-03 20:15:12,887 INFO = Start Turn phase begins
+2018-04-03 20:15:12,887 INFO = Start Turn phase begins
+2018-04-03 20:15:12,899 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:15:12,899 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:15:12,900 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:15:12,900 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:15:12,900 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:15:12,900 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:15:12,900 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:15:12,900 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:15:12,936 INFO = Issue Orders phase begins
+2018-04-03 20:15:12,936 INFO = Issue Orders phase begins
+2018-04-03 20:15:15,955 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 11)'
+2018-04-03 20:15:15,955 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 11)'
+2018-04-03 20:15:15,955 INFO = Move phase begins
+2018-04-03 20:15:15,955 INFO = Move phase begins
+2018-04-03 20:15:16,003 INFO = Build phase begins
+2018-04-03 20:15:16,003 INFO = Build phase begins
+2018-04-03 20:15:16,053 INFO = Combat phase begins
+2018-04-03 20:15:16,053 INFO = Combat phase begins
+2018-04-03 20:15:16,102 INFO = Ranged phase begins
+2018-04-03 20:15:16,102 INFO = Ranged phase begins
+2018-04-03 20:15:16,115 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 11)'
+2018-04-03 20:15:16,115 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 11)'
+2018-04-03 20:15:16,151 INFO = Special phase begins
+2018-04-03 20:15:16,151 INFO = Special phase begins
+2018-04-03 20:15:16,199 INFO == TURN 14 BEGIN ==
+2018-04-03 20:15:16,199 INFO == TURN 14 BEGIN ==
+2018-04-03 20:15:16,199 INFO = Start Turn phase begins
+2018-04-03 20:15:16,199 INFO = Start Turn phase begins
+2018-04-03 20:15:16,211 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:15:16,211 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:15:16,211 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:15:16,211 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:15:16,211 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:15:16,211 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:15:16,212 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:15:16,212 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:15:16,247 INFO = Issue Orders phase begins
+2018-04-03 20:15:16,247 INFO = Issue Orders phase begins
+2018-04-03 20:15:19,992 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:15:19,992 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:15:19,992 INFO = Move phase begins
+2018-04-03 20:15:19,992 INFO = Move phase begins
+2018-04-03 20:15:20,045 INFO = Build phase begins
+2018-04-03 20:15:20,045 INFO = Build phase begins
+2018-04-03 20:15:20,095 INFO = Combat phase begins
+2018-04-03 20:15:20,095 INFO = Combat phase begins
+2018-04-03 20:15:20,143 INFO = Ranged phase begins
+2018-04-03 20:15:20,143 INFO = Ranged phase begins
+2018-04-03 20:15:20,155 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:15:20,155 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:15:20,193 INFO = Special phase begins
+2018-04-03 20:15:20,193 INFO = Special phase begins
+2018-04-03 20:15:20,241 INFO == TURN 15 BEGIN ==
+2018-04-03 20:15:20,241 INFO == TURN 15 BEGIN ==
+2018-04-03 20:15:20,241 INFO = Start Turn phase begins
+2018-04-03 20:15:20,241 INFO = Start Turn phase begins
+2018-04-03 20:15:20,254 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:15:20,254 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:15:20,254 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:15:20,254 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:15:20,254 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:15:20,254 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:15:20,254 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:15:20,254 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:15:20,289 INFO = Issue Orders phase begins
+2018-04-03 20:15:20,289 INFO = Issue Orders phase begins
+2018-04-03 20:16:01,030 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:17:11,283 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-03 20:17:14,951 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:17:14,951 INFO = Move phase begins
+2018-04-03 20:17:15,001 INFO = Build phase begins
+2018-04-03 20:17:15,051 INFO = Combat phase begins
+2018-04-03 20:17:15,100 INFO = Ranged phase begins
+2018-04-03 20:17:15,113 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (9, 14)'
+2018-04-03 20:17:15,149 INFO = Special phase begins
+2018-04-03 20:17:15,199 INFO == TURN 12 BEGIN ==
+2018-04-03 20:17:15,199 INFO = Start Turn phase begins
+2018-04-03 20:17:15,211 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:17:15,212 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:17:15,212 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:17:15,212 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:17:15,249 INFO = Issue Orders phase begins
+2018-04-03 20:17:22,555 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:17:22,555 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:17:22,555 INFO = Move phase begins
+2018-04-03 20:17:22,605 INFO = Build phase begins
+2018-04-03 20:17:22,656 INFO = Combat phase begins
+2018-04-03 20:17:22,706 INFO = Ranged phase begins
+2018-04-03 20:17:22,718 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 14)'
+2018-04-03 20:17:22,718 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (7, 12)'
+2018-04-03 20:17:22,756 INFO = Special phase begins
+2018-04-03 20:17:22,805 INFO == TURN 13 BEGIN ==
+2018-04-03 20:17:22,806 INFO = Start Turn phase begins
+2018-04-03 20:17:22,819 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:17:22,819 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:17:22,819 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:17:22,819 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:17:22,857 INFO = Issue Orders phase begins
+2018-04-03 20:17:29,560 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:17:29,560 INFO = Move phase begins
+2018-04-03 20:17:29,609 INFO = Build phase begins
+2018-04-03 20:17:29,659 INFO = Combat phase begins
+2018-04-03 20:17:29,707 INFO = Ranged phase begins
+2018-04-03 20:17:29,719 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (10, 12)'
+2018-04-03 20:17:29,757 INFO = Special phase begins
+2018-04-03 20:17:29,808 INFO == TURN 14 BEGIN ==
+2018-04-03 20:17:29,808 INFO = Start Turn phase begins
+2018-04-03 20:17:29,821 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:17:29,821 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:17:29,821 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:17:29,821 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:17:29,859 INFO = Issue Orders phase begins
+2018-04-03 20:19:32,510 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Move to (7, 13)'
+2018-04-03 20:19:32,510 INFO = Move phase begins
+2018-04-03 20:19:32,522 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Move to (7, 13)'
+2018-04-03 20:19:32,557 INFO = Build phase begins
+2018-04-03 20:19:32,605 INFO = Combat phase begins
+2018-04-03 20:19:32,653 INFO = Ranged phase begins
+2018-04-03 20:19:32,704 INFO = Special phase begins
+2018-04-03 20:19:32,752 INFO == TURN 15 BEGIN ==
+2018-04-03 20:19:32,752 INFO = Start Turn phase begins
+2018-04-03 20:19:32,764 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:19:32,765 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:19:32,765 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:19:32,765 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:19:32,803 INFO = Issue Orders phase begins
+2018-04-03 20:19:37,466 INFO RED Ghost at tile (7, 15) with 80 HP was assigned the order 'Order: Move to (8, 13)'
+2018-04-03 20:19:37,466 INFO RED Boltcaster at tile (7, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (11, 12)'
+2018-04-03 20:19:37,466 INFO = Move phase begins
+2018-04-03 20:19:37,478 INFO RED Ghost at tile (7, 15) with 80 HP successfully executed 'Order: Move to (8, 13)'
+2018-04-03 20:19:37,513 INFO = Build phase begins
+2018-04-03 20:19:37,561 INFO = Combat phase begins
+2018-04-03 20:19:37,608 INFO = Ranged phase begins
+2018-04-03 20:19:37,619 INFO RED Boltcaster at tile (7, 13) with 60 HP successfully executed 'Order: Ranged attack tile (11, 12)'
+2018-04-03 20:19:37,655 INFO = Special phase begins
+2018-04-03 20:19:37,703 INFO == TURN 16 BEGIN ==
+2018-04-03 20:19:37,704 INFO = Start Turn phase begins
+2018-04-03 20:19:37,717 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:19:37,717 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:19:37,717 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:19:37,717 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:19:37,752 INFO = Issue Orders phase begins
+2018-04-03 20:19:39,004 INFO = Move phase begins
+2018-04-03 20:19:39,055 INFO = Build phase begins
+2018-04-03 20:19:39,104 INFO = Combat phase begins
+2018-04-03 20:19:39,151 INFO = Ranged phase begins
+2018-04-03 20:19:39,199 INFO = Special phase begins
+2018-04-03 20:19:39,246 INFO == TURN 17 BEGIN ==
+2018-04-03 20:19:39,246 INFO = Start Turn phase begins
+2018-04-03 20:19:39,259 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:19:39,259 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:19:39,259 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:19:39,259 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:19:39,295 INFO = Issue Orders phase begins
+2018-04-03 20:19:39,676 INFO = Move phase begins
+2018-04-03 20:19:39,724 INFO = Build phase begins
+2018-04-03 20:19:39,775 INFO = Combat phase begins
+2018-04-03 20:19:39,821 INFO = Ranged phase begins
+2018-04-03 20:19:39,869 INFO = Special phase begins
+2018-04-03 20:19:39,917 INFO == TURN 18 BEGIN ==
+2018-04-03 20:19:39,917 INFO = Start Turn phase begins
+2018-04-03 20:19:39,929 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:19:39,929 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:19:39,929 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:19:39,929 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:19:39,965 INFO = Issue Orders phase begins
+2018-04-03 20:19:40,317 INFO = Move phase begins
+2018-04-03 20:19:40,366 INFO = Build phase begins
+2018-04-03 20:19:40,413 INFO = Combat phase begins
+2018-04-03 20:19:40,460 INFO = Ranged phase begins
+2018-04-03 20:19:40,506 INFO = Special phase begins
+2018-04-03 20:19:40,553 INFO == TURN 19 BEGIN ==
+2018-04-03 20:19:40,553 INFO = Start Turn phase begins
+2018-04-03 20:19:40,565 INFO Team.BLUE team acquired 1 resources.
+2018-04-03 20:19:40,565 INFO Team.RED team acquired 1 resources.
+2018-04-03 20:19:40,565 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 20:19:40,565 INFO Team.RED team acquired 2 resources.
+2018-04-03 20:19:40,599 INFO = Issue Orders phase begins
+2018-04-04 13:53:40,948 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 13:53:50,783 INFO RED Tech Lab at tile (3, 13) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+2018-04-04 13:53:50,783 INFO = Move phase begins
+2018-04-04 13:53:50,967 INFO = Build phase begins
+2018-04-04 13:53:51,169 INFO = Combat phase begins
+2018-04-04 13:53:51,353 INFO = Ranged phase begins
+2018-04-04 13:53:51,565 INFO = Special phase begins
+2018-04-04 13:53:51,580 INFO RED Tech Lab at tile (3, 13) with 50 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_GUARDIAN'
+2018-04-04 13:53:51,580 INFO Team.RED team spent 6 resources.
+2018-04-04 13:53:51,591 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 13:53:51,755 INFO == TURN 12 BEGIN ==
+2018-04-04 13:53:51,755 INFO = Start Turn phase begins
+2018-04-04 13:53:51,766 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 13:53:51,766 INFO Team.RED team acquired 1 resources.
+2018-04-04 13:53:51,767 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 13:53:51,767 INFO Team.RED team acquired 2 resources.
+2018-04-04 13:53:51,949 INFO = Issue Orders phase begins
+2018-04-04 13:53:55,756 INFO RED Tech Lab at tile (3, 13) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESEARCH_BANSHEE'
+2018-04-04 13:53:55,756 INFO = Move phase begins
+2018-04-04 13:53:55,942 INFO = Build phase begins
+2018-04-04 13:53:56,130 INFO = Combat phase begins
+2018-04-04 13:53:56,333 INFO = Ranged phase begins
+2018-04-04 13:53:56,536 INFO = Special phase begins
+2018-04-04 13:53:56,548 INFO RED Tech Lab at tile (3, 13) with 50 HP successfully executed 'Order: purchase upgrade UpgradeType.RESEARCH_BANSHEE'
+2018-04-04 13:53:56,548 INFO Team.RED team spent 6 resources.
+2018-04-04 13:53:56,560 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 13:53:56,720 INFO == TURN 13 BEGIN ==
+2018-04-04 13:53:56,720 INFO = Start Turn phase begins
+2018-04-04 13:53:56,732 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 13:53:56,732 INFO Team.RED team acquired 1 resources.
+2018-04-04 13:53:56,732 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 13:53:56,733 INFO Team.RED team acquired 2 resources.
+2018-04-04 13:53:56,913 INFO = Issue Orders phase begins
+2018-04-04 14:55:05,222 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 14:55:05,222 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 14:55:05,222 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 14:57:34,861 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 14:57:34,862 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 14:57:34,862 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 15:32:27,089 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 15:32:27,089 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 15:32:27,089 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 15:33:22,933 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 15:33:22,933 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 15:33:22,933 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 15:36:39,745 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 15:36:39,745 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 15:36:39,745 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 15:37:05,705 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (6, 11)'
+2018-04-04 15:37:05,705 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Ranged attack tile (8, 10)'
+2018-04-04 15:37:05,705 INFO = Move phase begins
+2018-04-04 15:37:05,898 INFO = Build phase begins
+2018-04-04 15:37:06,090 INFO = Combat phase begins
+2018-04-04 15:37:06,279 INFO = Ranged phase begins
+2018-04-04 15:37:06,291 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Ranged attack tile (8, 10)'
+2018-04-04 15:37:06,291 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Ranged attack tile (6, 11)'
+2018-04-04 15:37:06,473 INFO = Special phase begins
+2018-04-04 15:37:06,668 INFO == TURN 14 BEGIN ==
+2018-04-04 15:37:06,668 INFO = Start Turn phase begins
+2018-04-04 15:37:06,680 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 15:37:06,680 INFO Team.RED team acquired 1 resources.
+2018-04-04 15:37:06,680 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 15:37:06,681 INFO Team.RED team acquired 2 resources.
+2018-04-04 15:37:06,862 INFO = Issue Orders phase begins
+2018-04-04 16:00:32,406 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 16:00:32,407 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 16:00:32,407 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 16:01:13,117 INFO == TURN 1 BEGIN ==
+2018-04-04 16:01:13,118 INFO = Issue Orders phase begins
+2018-04-04 16:01:25,035 INFO RED Colonist at tile (1, 13) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (2, 13)'
+2018-04-04 16:01:25,035 INFO = Move phase begins
+2018-04-04 16:01:25,218 INFO = Build phase begins
+2018-04-04 16:01:25,230 INFO RED Colonist at tile (1, 13) with 100 HP successfully executed 'Order: Build a Tech Lab on tile (2, 13)'
+2018-04-04 16:01:25,230 INFO Team.RED team spent 2 resources.
+2018-04-04 16:01:25,403 INFO = Combat phase begins
+2018-04-04 16:01:25,589 INFO = Ranged phase begins
+2018-04-04 16:01:25,771 INFO = Special phase begins
+2018-04-04 16:01:25,953 INFO == TURN 2 BEGIN ==
+2018-04-04 16:01:25,953 INFO = Start Turn phase begins
+2018-04-04 16:01:25,965 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:01:25,966 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:01:25,966 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:01:25,966 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:01:26,139 INFO = Issue Orders phase begins
+2018-04-04 16:47:48,078 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 16:47:48,078 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 16:47:48,078 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 16:47:58,876 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Move to (7, 12)'
+2018-04-04 16:47:58,876 INFO RED Trooper at tile (4, 11) with 100 HP was assigned the order 'Order: Move to (6, 11)'
+2018-04-04 16:47:58,876 INFO RED Colonist at tile (4, 13) with 100 HP was assigned the order 'Order: Move to (6, 12)'
+2018-04-04 16:47:58,876 INFO RED Ghost at tile (7, 15) with 80 HP was assigned the order 'Order: Move to (7, 13)'
+2018-04-04 16:47:58,876 INFO = Move phase begins
+2018-04-04 16:47:58,888 INFO RED Ghost at tile (7, 15) with 80 HP successfully executed 'Order: Move to (7, 13)'
+2018-04-04 16:47:58,888 INFO RED Colonist at tile (4, 13) with 100 HP successfully executed 'Order: Move to (6, 12)'
+2018-04-04 16:47:58,888 INFO RED Trooper at tile (4, 11) with 100 HP successfully executed 'Order: Move to (6, 11)'
+2018-04-04 16:47:58,888 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Move to (7, 12)'
+2018-04-04 16:47:59,242 INFO = Build phase begins
+2018-04-04 16:47:59,609 INFO = Combat phase begins
+2018-04-04 16:47:59,979 INFO = Ranged phase begins
+2018-04-04 16:48:00,352 INFO = Special phase begins
+2018-04-04 16:48:00,729 INFO == TURN 14 BEGIN ==
+2018-04-04 16:48:00,729 INFO = Start Turn phase begins
+2018-04-04 16:48:00,742 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:00,742 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:00,742 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:00,742 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:01,116 INFO = Issue Orders phase begins
+2018-04-04 16:48:07,465 INFO RED Ghost at tile (7, 13) with 80 HP was assigned the order 'Order: Move to (8, 13)'
+2018-04-04 16:48:07,465 INFO RED Colonist at tile (6, 12) with 100 HP was assigned the order 'Order: Move to (7, 12)'
+2018-04-04 16:48:07,465 INFO RED Trooper at tile (6, 11) with 100 HP was assigned the order 'Order: Move to (8, 11)'
+2018-04-04 16:48:07,465 INFO RED Ranger at tile (7, 12) with 90 HP was assigned the order 'Order: Move to (8, 12)'
+2018-04-04 16:48:07,465 INFO = Move phase begins
+2018-04-04 16:48:07,477 INFO RED Ghost at tile (7, 13) with 80 HP successfully executed 'Order: Move to (8, 13)'
+2018-04-04 16:48:07,477 INFO RED Colonist at tile (6, 12) with 100 HP successfully executed 'Order: Move to (7, 12)'
+2018-04-04 16:48:07,478 INFO RED Trooper at tile (6, 11) with 100 HP successfully executed 'Order: Move to (8, 11)'
+2018-04-04 16:48:07,478 INFO RED Ranger at tile (7, 12) with 90 HP successfully executed 'Order: Move to (8, 12)'
+2018-04-04 16:48:07,847 INFO = Build phase begins
+2018-04-04 16:48:08,213 INFO = Combat phase begins
+2018-04-04 16:48:08,582 INFO = Ranged phase begins
+2018-04-04 16:48:08,954 INFO = Special phase begins
+2018-04-04 16:48:09,323 INFO == TURN 15 BEGIN ==
+2018-04-04 16:48:09,323 INFO = Start Turn phase begins
+2018-04-04 16:48:09,335 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:09,335 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:09,336 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:09,336 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:09,697 INFO = Issue Orders phase begins
+2018-04-04 16:48:13,490 INFO RED Ghost at tile (8, 13) with 80 HP was assigned the order 'Order: Move to (9, 13)'
+2018-04-04 16:48:13,490 INFO RED Trooper at tile (8, 11) with 100 HP was assigned the order 'Order: Move to (9, 11)'
+2018-04-04 16:48:13,490 INFO RED Ranger at tile (8, 12) with 90 HP was assigned the order 'Order: Move to (9, 12)'
+2018-04-04 16:48:13,490 INFO = Move phase begins
+2018-04-04 16:48:13,503 INFO RED Ghost at tile (8, 13) with 80 HP successfully executed 'Order: Move to (9, 13)'
+2018-04-04 16:48:13,503 INFO RED Trooper at tile (8, 11) with 100 HP successfully executed 'Order: Move to (9, 11)'
+2018-04-04 16:48:13,503 INFO RED Ranger at tile (8, 12) with 90 HP successfully executed 'Order: Move to (9, 12)'
+2018-04-04 16:48:13,873 INFO = Build phase begins
+2018-04-04 16:48:14,245 INFO = Combat phase begins
+2018-04-04 16:48:14,612 INFO = Ranged phase begins
+2018-04-04 16:48:14,976 INFO = Special phase begins
+2018-04-04 16:48:15,347 INFO == TURN 16 BEGIN ==
+2018-04-04 16:48:15,347 INFO = Start Turn phase begins
+2018-04-04 16:48:15,359 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:15,359 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:15,359 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:15,359 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:15,726 INFO = Issue Orders phase begins
+2018-04-04 16:48:20,646 INFO RED Ghost at tile (9, 13) with 80 HP was assigned the order 'Order: Move to (8, 13)'
+2018-04-04 16:48:20,646 INFO RED Trooper at tile (9, 11) with 100 HP was assigned the order 'Order: Move to (8, 11)'
+2018-04-04 16:48:20,646 INFO RED Ranger at tile (9, 12) with 90 HP was assigned the order 'Order: Move to (8, 12)'
+2018-04-04 16:48:20,646 INFO = Move phase begins
+2018-04-04 16:48:20,658 INFO RED Ghost at tile (9, 13) with 80 HP successfully executed 'Order: Move to (8, 13)'
+2018-04-04 16:48:20,658 INFO RED Trooper at tile (9, 11) with 100 HP successfully executed 'Order: Move to (8, 11)'
+2018-04-04 16:48:20,658 INFO RED Ranger at tile (9, 12) with 90 HP successfully executed 'Order: Move to (8, 12)'
+2018-04-04 16:48:21,014 INFO = Build phase begins
+2018-04-04 16:48:21,381 INFO = Combat phase begins
+2018-04-04 16:48:21,749 INFO = Ranged phase begins
+2018-04-04 16:48:22,118 INFO = Special phase begins
+2018-04-04 16:48:22,483 INFO == TURN 17 BEGIN ==
+2018-04-04 16:48:22,483 INFO = Start Turn phase begins
+2018-04-04 16:48:22,495 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:22,495 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:22,495 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:22,495 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:22,856 INFO = Issue Orders phase begins
+2018-04-04 16:48:36,823 INFO RED Ghost at tile (8, 13) with 80 HP was assigned the order 'Order: Move to (10, 14)'
+2018-04-04 16:48:36,823 INFO RED Trooper at tile (8, 11) with 100 HP was assigned the order 'Order: Move to (9, 12)'
+2018-04-04 16:48:36,823 INFO RED Ranger at tile (8, 12) with 90 HP was assigned the order 'Order: Move to (9, 13)'
+2018-04-04 16:48:36,823 INFO = Move phase begins
+2018-04-04 16:48:36,836 INFO RED Ghost at tile (8, 13) with 80 HP successfully executed 'Order: Move to (10, 14)'
+2018-04-04 16:48:36,837 INFO RED Trooper at tile (8, 11) with 100 HP successfully executed 'Order: Move to (9, 12)'
+2018-04-04 16:48:36,837 INFO RED Ranger at tile (8, 12) with 90 HP successfully executed 'Order: Move to (9, 13)'
+2018-04-04 16:48:37,196 INFO = Build phase begins
+2018-04-04 16:48:37,567 INFO = Combat phase begins
+2018-04-04 16:48:37,939 INFO = Ranged phase begins
+2018-04-04 16:48:38,310 INFO = Special phase begins
+2018-04-04 16:48:38,672 INFO == TURN 18 BEGIN ==
+2018-04-04 16:48:38,672 INFO = Start Turn phase begins
+2018-04-04 16:48:38,684 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:38,684 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:38,684 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:38,684 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:39,045 INFO = Issue Orders phase begins
+2018-04-04 16:48:41,547 INFO RED Ranger at tile (9, 13) with 90 HP was assigned the order 'Order: Move to (7, 13)'
+2018-04-04 16:48:41,547 INFO = Move phase begins
+2018-04-04 16:48:41,560 INFO RED Ranger at tile (9, 13) with 90 HP successfully executed 'Order: Move to (7, 13)'
+2018-04-04 16:48:41,913 INFO = Build phase begins
+2018-04-04 16:48:42,284 INFO = Combat phase begins
+2018-04-04 16:48:42,648 INFO = Ranged phase begins
+2018-04-04 16:48:43,016 INFO = Special phase begins
+2018-04-04 16:48:43,383 INFO == TURN 19 BEGIN ==
+2018-04-04 16:48:43,383 INFO = Start Turn phase begins
+2018-04-04 16:48:43,395 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:43,396 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:43,396 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:43,396 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:43,752 INFO = Issue Orders phase begins
+2018-04-04 16:48:45,622 INFO RED Ranger at tile (7, 13) with 90 HP was assigned the order 'Order: Move to (7, 11)'
+2018-04-04 16:48:45,622 INFO = Move phase begins
+2018-04-04 16:48:45,634 INFO RED Ranger at tile (7, 13) with 90 HP successfully executed 'Order: Move to (7, 11)'
+2018-04-04 16:48:45,993 INFO = Build phase begins
+2018-04-04 16:48:46,365 INFO = Combat phase begins
+2018-04-04 16:48:46,731 INFO = Ranged phase begins
+2018-04-04 16:48:47,100 INFO = Special phase begins
+2018-04-04 16:48:47,463 INFO == TURN 20 BEGIN ==
+2018-04-04 16:48:47,463 INFO = Start Turn phase begins
+2018-04-04 16:48:47,475 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:47,476 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:47,476 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:47,476 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:47,827 INFO = Issue Orders phase begins
+2018-04-04 16:48:49,855 INFO RED Ranger at tile (7, 11) with 90 HP was assigned the order 'Order: Move to (7, 9)'
+2018-04-04 16:48:49,855 INFO = Move phase begins
+2018-04-04 16:48:49,867 INFO RED Ranger at tile (7, 11) with 90 HP successfully executed 'Order: Move to (7, 9)'
+2018-04-04 16:48:50,222 INFO = Build phase begins
+2018-04-04 16:48:50,588 INFO = Combat phase begins
+2018-04-04 16:48:50,970 INFO = Ranged phase begins
+2018-04-04 16:48:51,335 INFO = Special phase begins
+2018-04-04 16:48:51,704 INFO == TURN 21 BEGIN ==
+2018-04-04 16:48:51,704 INFO = Start Turn phase begins
+2018-04-04 16:48:51,716 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:51,716 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:51,717 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:51,717 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:52,076 INFO = Issue Orders phase begins
+2018-04-04 16:48:53,761 INFO RED Ranger at tile (7, 9) with 90 HP was assigned the order 'Order: Move to (7, 11)'
+2018-04-04 16:48:53,761 INFO = Move phase begins
+2018-04-04 16:48:53,773 INFO RED Ranger at tile (7, 9) with 90 HP successfully executed 'Order: Move to (7, 11)'
+2018-04-04 16:48:54,128 INFO = Build phase begins
+2018-04-04 16:48:54,492 INFO = Combat phase begins
+2018-04-04 16:48:54,859 INFO = Ranged phase begins
+2018-04-04 16:48:55,228 INFO = Special phase begins
+2018-04-04 16:48:55,600 INFO == TURN 22 BEGIN ==
+2018-04-04 16:48:55,601 INFO = Start Turn phase begins
+2018-04-04 16:48:55,613 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:48:55,613 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:48:55,613 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:48:55,613 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:48:55,980 INFO = Issue Orders phase begins
+2018-04-04 16:49:01,073 INFO RED Colonist at tile (7, 12) with 100 HP was assigned the order 'Order: Move to (4, 12)'
+2018-04-04 16:49:01,073 INFO = Move phase begins
+2018-04-04 16:49:01,085 INFO RED Colonist at tile (7, 12) with 100 HP successfully executed 'Order: Move to (4, 12)'
+2018-04-04 16:49:01,443 INFO = Build phase begins
+2018-04-04 16:49:01,821 INFO = Combat phase begins
+2018-04-04 16:49:02,189 INFO = Ranged phase begins
+2018-04-04 16:49:02,556 INFO = Special phase begins
+2018-04-04 16:49:02,916 INFO == TURN 23 BEGIN ==
+2018-04-04 16:49:02,916 INFO = Start Turn phase begins
+2018-04-04 16:49:02,928 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 16:49:02,928 INFO Team.RED team acquired 1 resources.
+2018-04-04 16:49:02,928 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 16:49:02,928 INFO Team.RED team acquired 2 resources.
+2018-04-04 16:49:03,284 INFO = Issue Orders phase begins
+2018-04-04 17:01:27,267 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 17:01:27,267 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 17:01:27,267 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 17:01:31,234 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Guardian on tile (5, 14)'
+2018-04-04 17:01:31,234 INFO = Move phase begins
+2018-04-04 17:01:31,611 INFO = Build phase begins
+2018-04-04 17:01:31,624 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Guardian on tile (5, 14)'
+2018-04-04 17:01:31,624 INFO Team.RED team spent 5 resources.
+2018-04-04 17:01:31,991 INFO = Combat phase begins
+2018-04-04 17:01:32,371 INFO = Ranged phase begins
+2018-04-04 17:01:32,763 INFO = Special phase begins
+2018-04-04 17:01:33,154 INFO == TURN 14 BEGIN ==
+2018-04-04 17:01:33,154 INFO = Start Turn phase begins
+2018-04-04 17:01:33,167 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:01:33,167 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:01:33,167 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:01:33,167 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:01:33,526 INFO = Issue Orders phase begins
+2018-04-04 17:01:37,988 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Move to (7, 13)'
+2018-04-04 17:01:37,988 INFO RED Guardian at tile (5, 14) with 80 HP was assigned the order 'Order: Move to (7, 14)'
+2018-04-04 17:01:37,988 INFO = Move phase begins
+2018-04-04 17:01:38,001 INFO RED Guardian at tile (5, 14) with 80 HP successfully executed 'Order: Move to (7, 14)'
+2018-04-04 17:01:38,001 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Move to (7, 13)'
+2018-04-04 17:01:38,367 INFO = Build phase begins
+2018-04-04 17:01:38,748 INFO = Combat phase begins
+2018-04-04 17:01:39,125 INFO = Ranged phase begins
+2018-04-04 17:01:39,494 INFO = Special phase begins
+2018-04-04 17:01:39,873 INFO == TURN 15 BEGIN ==
+2018-04-04 17:01:39,873 INFO = Start Turn phase begins
+2018-04-04 17:01:39,885 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:01:39,885 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:01:39,885 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:01:39,885 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:01:40,242 INFO = Issue Orders phase begins
+2018-04-04 17:01:42,070 INFO RED Guardian at tile (7, 14) with 80 HP was assigned the order 'Order: Move to (9, 14)'
+2018-04-04 17:01:42,070 INFO = Move phase begins
+2018-04-04 17:01:42,082 INFO RED Guardian at tile (7, 14) with 80 HP successfully executed 'Order: Move to (9, 14)'
+2018-04-04 17:01:42,432 INFO = Build phase begins
+2018-04-04 17:01:42,795 INFO = Combat phase begins
+2018-04-04 17:01:43,166 INFO = Ranged phase begins
+2018-04-04 17:01:43,536 INFO = Special phase begins
+2018-04-04 17:01:43,905 INFO == TURN 16 BEGIN ==
+2018-04-04 17:01:43,906 INFO = Start Turn phase begins
+2018-04-04 17:01:43,918 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:01:43,918 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:01:43,918 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:01:43,918 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:01:44,277 INFO = Issue Orders phase begins
+2018-04-04 17:01:46,074 INFO RED Guardian at tile (9, 14) with 80 HP was assigned the order 'Order: Move to (7, 14)'
+2018-04-04 17:01:46,075 INFO = Move phase begins
+2018-04-04 17:01:46,086 INFO RED Guardian at tile (9, 14) with 80 HP successfully executed 'Order: Move to (7, 14)'
+2018-04-04 17:01:46,440 INFO = Build phase begins
+2018-04-04 17:01:46,811 INFO = Combat phase begins
+2018-04-04 17:01:47,178 INFO = Ranged phase begins
+2018-04-04 17:01:47,543 INFO = Special phase begins
+2018-04-04 17:01:47,912 INFO == TURN 17 BEGIN ==
+2018-04-04 17:01:47,912 INFO = Start Turn phase begins
+2018-04-04 17:01:47,925 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:01:47,925 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:01:47,925 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:01:47,925 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:01:48,276 INFO = Issue Orders phase begins
+2018-04-04 17:01:50,125 INFO RED Boltcaster at tile (7, 13) with 60 HP was assigned the order 'Order: Move to (6, 13)'
+2018-04-04 17:01:50,125 INFO = Move phase begins
+2018-04-04 17:01:50,137 INFO RED Boltcaster at tile (7, 13) with 60 HP successfully executed 'Order: Move to (6, 13)'
+2018-04-04 17:01:50,489 INFO = Build phase begins
+2018-04-04 17:01:50,854 INFO = Combat phase begins
+2018-04-04 17:01:51,217 INFO = Ranged phase begins
+2018-04-04 17:01:51,582 INFO = Special phase begins
+2018-04-04 17:01:51,953 INFO == TURN 18 BEGIN ==
+2018-04-04 17:01:51,953 INFO = Start Turn phase begins
+2018-04-04 17:01:51,965 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:01:51,965 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:01:51,965 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:01:51,965 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:01:52,320 INFO = Issue Orders phase begins
+2018-04-04 17:01:54,982 INFO RED Guardian at tile (7, 14) with 80 HP was assigned the order 'Order: Move to (8, 13)'
+2018-04-04 17:01:54,982 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Move to (7, 13)'
+2018-04-04 17:01:54,982 INFO = Move phase begins
+2018-04-04 17:01:54,994 INFO RED Guardian at tile (7, 14) with 80 HP successfully executed 'Order: Move to (8, 13)'
+2018-04-04 17:01:54,994 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Move to (7, 13)'
+2018-04-04 17:01:55,349 INFO = Build phase begins
+2018-04-04 17:01:55,738 INFO = Combat phase begins
+2018-04-04 17:01:56,108 INFO = Ranged phase begins
+2018-04-04 17:01:56,477 INFO = Special phase begins
+2018-04-04 17:01:56,847 INFO == TURN 19 BEGIN ==
+2018-04-04 17:01:56,847 INFO = Start Turn phase begins
+2018-04-04 17:01:56,859 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:01:56,859 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:01:56,860 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:01:56,860 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:01:57,211 INFO = Issue Orders phase begins
+2018-04-04 17:02:10,262 INFO RED Ranger at tile (5, 12) with 90 HP was assigned the order 'Order: Move to (6, 13)'
+2018-04-04 17:02:10,262 INFO RED Trooper at tile (4, 11) with 100 HP was assigned the order 'Order: Move to (5, 12)'
+2018-04-04 17:02:10,262 INFO RED Colonist at tile (4, 13) with 100 HP was assigned the order 'Order: Move to (6, 14)'
+2018-04-04 17:02:10,262 INFO RED Ghost at tile (7, 15) with 80 HP was assigned the order 'Order: Move to (9, 14)'
+2018-04-04 17:02:10,262 INFO RED Guardian at tile (8, 13) with 80 HP was assigned the order 'Order: Move to (8, 14)'
+2018-04-04 17:02:10,262 INFO RED Boltcaster at tile (7, 13) with 60 HP was assigned the order 'Order: Move to (7, 14)'
+2018-04-04 17:02:10,263 INFO = Move phase begins
+2018-04-04 17:02:10,275 INFO RED Guardian at tile (8, 13) with 80 HP successfully executed 'Order: Move to (8, 14)'
+2018-04-04 17:02:10,275 INFO RED Boltcaster at tile (7, 13) with 60 HP successfully executed 'Order: Move to (7, 14)'
+2018-04-04 17:02:10,275 INFO RED Ghost at tile (7, 15) with 80 HP successfully executed 'Order: Move to (9, 14)'
+2018-04-04 17:02:10,275 INFO RED Colonist at tile (4, 13) with 100 HP successfully executed 'Order: Move to (6, 14)'
+2018-04-04 17:02:10,275 INFO RED Trooper at tile (4, 11) with 100 HP successfully executed 'Order: Move to (5, 12)'
+2018-04-04 17:02:10,275 INFO RED Ranger at tile (5, 12) with 90 HP successfully executed 'Order: Move to (6, 13)'
+2018-04-04 17:02:10,635 INFO = Build phase begins
+2018-04-04 17:02:11,005 INFO = Combat phase begins
+2018-04-04 17:02:11,373 INFO = Ranged phase begins
+2018-04-04 17:02:11,739 INFO = Special phase begins
+2018-04-04 17:02:12,108 INFO == TURN 20 BEGIN ==
+2018-04-04 17:02:12,108 INFO = Start Turn phase begins
+2018-04-04 17:02:12,119 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:02:12,120 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:02:12,120 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:02:12,120 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:02:12,473 INFO = Issue Orders phase begins
+2018-04-04 17:06:20,130 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BOLTCASTER
+2018-04-04 17:06:20,131 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_GUARDIAN
+2018-04-04 17:06:20,131 INFO Team.RED team researched the upgrade UpgradeType.RESEARCH_BANSHEE
+2018-04-04 17:06:22,937 INFO RED Barracks at tile (5, 13) with 100 HP was assigned the order 'Order: Build a Banshee on tile (5, 14)'
+2018-04-04 17:06:22,937 INFO = Move phase begins
+2018-04-04 17:06:23,320 INFO = Build phase begins
+2018-04-04 17:06:23,332 INFO RED Barracks at tile (5, 13) with 100 HP successfully executed 'Order: Build a Banshee on tile (5, 14)'
+2018-04-04 17:06:23,332 INFO Team.RED team spent 5 resources.
+2018-04-04 17:06:23,694 INFO = Combat phase begins
+2018-04-04 17:06:24,076 INFO = Ranged phase begins
+2018-04-04 17:06:24,460 INFO = Special phase begins
+2018-04-04 17:06:24,840 INFO == TURN 14 BEGIN ==
+2018-04-04 17:06:24,841 INFO = Start Turn phase begins
+2018-04-04 17:06:24,853 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:06:24,854 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:06:24,854 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:06:24,854 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:06:25,222 INFO = Issue Orders phase begins
+2018-04-04 17:06:27,383 INFO RED Banshee at tile (5, 14) with 40 HP was assigned the order 'Order: Move to (7, 12)'
+2018-04-04 17:06:27,383 INFO = Move phase begins
+2018-04-04 17:06:27,395 INFO RED Banshee at tile (5, 14) with 40 HP successfully executed 'Order: Move to (7, 12)'
+2018-04-04 17:06:27,755 INFO = Build phase begins
+2018-04-04 17:06:28,139 INFO = Combat phase begins
+2018-04-04 17:06:28,522 INFO = Ranged phase begins
+2018-04-04 17:06:28,904 INFO = Special phase begins
+2018-04-04 17:06:29,278 INFO == TURN 15 BEGIN ==
+2018-04-04 17:06:29,278 INFO = Start Turn phase begins
+2018-04-04 17:06:29,290 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:06:29,290 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:06:29,290 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:06:29,290 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:06:29,647 INFO = Issue Orders phase begins
+2018-04-04 17:06:32,003 INFO RED Banshee at tile (7, 12) with 40 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-04 17:06:32,004 INFO = Move phase begins
+2018-04-04 17:06:32,016 INFO RED Banshee at tile (7, 12) with 40 HP successfully executed 'Order: Move to (7, 8)'
+2018-04-04 17:06:32,372 INFO = Build phase begins
+2018-04-04 17:06:32,737 INFO = Combat phase begins
+2018-04-04 17:06:33,131 INFO = Ranged phase begins
+2018-04-04 17:06:33,539 INFO = Special phase begins
+2018-04-04 17:06:33,954 INFO == TURN 16 BEGIN ==
+2018-04-04 17:06:33,954 INFO = Start Turn phase begins
+2018-04-04 17:06:33,967 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:06:33,967 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:06:33,968 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:06:33,968 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:06:34,368 INFO = Issue Orders phase begins
+2018-04-04 17:06:36,271 INFO RED Banshee at tile (7, 8) with 40 HP was assigned the order 'Order: Move to (8, 5)'
+2018-04-04 17:06:36,271 INFO = Move phase begins
+2018-04-04 17:06:36,284 INFO RED Banshee at tile (7, 8) with 40 HP successfully executed 'Order: Move to (8, 5)'
+2018-04-04 17:06:36,683 INFO = Build phase begins
+2018-04-04 17:06:37,099 INFO = Combat phase begins
+2018-04-04 17:06:37,510 INFO = Ranged phase begins
+2018-04-04 17:06:37,920 INFO = Special phase begins
+2018-04-04 17:06:38,332 INFO == TURN 17 BEGIN ==
+2018-04-04 17:06:38,332 INFO = Start Turn phase begins
+2018-04-04 17:06:38,346 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:06:38,346 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:06:38,346 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:06:38,346 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:06:38,742 INFO = Issue Orders phase begins
+2018-04-04 17:06:44,205 INFO RED Boltcaster at tile (6, 13) with 60 HP was assigned the order 'Order: Move to (7, 13)'
+2018-04-04 17:06:44,205 INFO = Move phase begins
+2018-04-04 17:06:44,218 INFO RED Boltcaster at tile (6, 13) with 60 HP successfully executed 'Order: Move to (7, 13)'
+2018-04-04 17:06:44,576 INFO = Build phase begins
+2018-04-04 17:06:44,940 INFO = Combat phase begins
+2018-04-04 17:06:45,307 INFO = Ranged phase begins
+2018-04-04 17:06:45,676 INFO = Special phase begins
+2018-04-04 17:06:46,052 INFO == TURN 18 BEGIN ==
+2018-04-04 17:06:46,052 INFO = Start Turn phase begins
+2018-04-04 17:06:46,065 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:06:46,065 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:06:46,065 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:06:46,065 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:06:46,423 INFO = Issue Orders phase begins
+2018-04-04 17:06:49,172 INFO RED Boltcaster at tile (7, 13) with 60 HP was assigned the order 'Order: Move to (8, 13)'
+2018-04-04 17:06:49,172 INFO = Move phase begins
+2018-04-04 17:06:49,184 INFO RED Boltcaster at tile (7, 13) with 60 HP successfully executed 'Order: Move to (8, 13)'
+2018-04-04 17:06:49,548 INFO = Build phase begins
+2018-04-04 17:06:49,915 INFO = Combat phase begins
+2018-04-04 17:06:50,284 INFO = Ranged phase begins
+2018-04-04 17:06:50,654 INFO = Special phase begins
+2018-04-04 17:06:51,078 INFO == TURN 19 BEGIN ==
+2018-04-04 17:06:51,078 INFO = Start Turn phase begins
+2018-04-04 17:06:51,091 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 17:06:51,091 INFO Team.RED team acquired 1 resources.
+2018-04-04 17:06:51,091 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 17:06:51,091 INFO Team.RED team acquired 2 resources.
+2018-04-04 17:06:51,447 INFO = Issue Orders phase begins

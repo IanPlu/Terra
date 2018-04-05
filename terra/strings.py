@@ -5,6 +5,7 @@ from terra.economy.upgradetype import UpgradeType
 from terra.event.event import EventType
 from terra.managers.statmanager import Stat
 from terra.menu.option import Option
+from terra.piece.attribute import Attribute
 from terra.piece.movementtype import MovementType
 from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piecetype import PieceType
@@ -133,7 +134,7 @@ menu_help_strings = {
                                        "ground forces.",
         UpgradeType.RESEARCH_BOLTCASTER: "* Allows building Boltcasters at Barracks. Boltcasters are powerful ranged "
                                          "specialty units.",
-        UpgradeType.RESEARCH_BANSHEE: "* Allows building Banshees at Barracks. Banshees are high mobility specialty"
+        UpgradeType.RESEARCH_BANSHEE: "* Allows building Banshees at Barracks. Banshees are high mobility specialty "
                                       "units.",
 
         UpgradeType.GUARDIAN_ENTRENCHMENT: "* Guardians now benefit even more from entrenchment bonuses.",
@@ -279,6 +280,41 @@ main_menu_strings = {
     }
 }
 
+attribute_label_strings = {
+    Language.EN_US: {
+        Attribute.SUBTYPE: "Subtype",
+        Attribute.ARCHETYPE: "Class",
+        Attribute.MAX_HP: "Max HP",
+        Attribute.BUILDABLE_PIECES: "Buildable Pieces",
+        Attribute.ATTACK: "Attack",
+        Attribute.ATTACK_MULTIPLIER: "Attack Multiplier",
+        Attribute.DAMAGE_TYPE: "Damage Type",
+        Attribute.ARMOR: "Armor",
+        Attribute.ENTRENCHMENT_MODIFIER: "Entrenchment Modifier",
+        Attribute.MIN_RANGE: "Minimum Range",
+        Attribute.MAX_RANGE: "Maximum Range",
+        Attribute.MOVEMENT_TYPE: "Movement Type",
+        Attribute.MOVEMENT_RANGE: "Movement Range",
+        Attribute.PRICE: "Price",
+        Attribute.RESOURCE_PRODUCTION: "Resource Production",
+
+        Attribute.ARMOR_SHARE: "Armor Share",
+        Attribute.RANGED_AOE_MULTIPLIER: "Ranged AOE Multiplier",
+        Attribute.IGNORE_IMPEDANCE: "Ignore Impedance",
+        Attribute.CANT_ATTACK_BUILDINGS: "Can't Attack Buildings",
+        Attribute.IGNORE_CONTESTING: "Ignore Enemies Contesting",
+        Attribute.REGEN: "Regeneration",
+        Attribute.TERRAFORMING: "Can Terraform",
+        Attribute.MEDIC: "Heal Allies",
+        Attribute.ARMOR_PIERCING: "Pierces Armor",
+        Attribute.AOE_ON_KILL: "AOE Damage on Kill",
+        Attribute.KICKOFF: "+1 Movement Per Ally",
+        Attribute.STEAL: "Resources Stolen on Kill",
+        Attribute.AURA_DAMAGE: "Aura Damage",
+        Attribute.HEAL_POWER: "Healing Power",
+    }
+}
+
 attribute_value_strings = {
     Language.EN_US: {
         MovementType.GROUND: "Ground",
@@ -311,6 +347,7 @@ formatted_strings = {
     Language.EN_US: {
         "NEW_TURN_MESSAGE": "TURN {}",
         "RESULTS_HEADER": "{} team won!",
+        "QUANTITY": "{}x",
 
         Setting.SCREEN_SCALE: "Screen Scale: {}x",
         Setting.SFX_VOLUME: "Sound Volume: {}%",

@@ -1,0 +1,1292 @@
+2018-04-03 14:19:32,521 INFO Team.RED team researched the upgrade UpgradeType.TROOPER_ATTACK
+2018-04-03 14:20:01,764 INFO Team.RED team researched the upgrade UpgradeType.TROOPER_ATTACK
+2018-04-03 14:20:07,002 INFO BLUE Base at tile (11, 10) with 123 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:20:07,002 INFO = Move phase begins
+2018-04-03 14:20:07,014 INFO = Build phase begins
+2018-04-03 14:20:07,026 INFO = Combat phase begins
+2018-04-03 14:20:07,038 INFO = Ranged phase begins
+2018-04-03 14:20:07,050 INFO = Special phase begins
+2018-04-03 14:20:07,062 INFO == TURN 20 BEGIN ==
+2018-04-03 14:20:07,062 INFO = Start Turn phase begins
+2018-04-03 14:20:07,062 INFO BLUE Base at tile (11, 10) with 133 HP healed for 10 health.
+2018-04-03 14:20:07,062 INFO BLUE Base at tile (11, 10) with 133 HP successfully executed 'Order: Heal self'
+2018-04-03 14:20:07,073 INFO = Issue Orders phase begins
+2018-04-03 14:20:07,073 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:20:07,073 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:20:09,568 INFO BLUE Base at tile (11, 10) with 133 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:20:09,569 INFO = Move phase begins
+2018-04-03 14:20:09,579 INFO = Build phase begins
+2018-04-03 14:20:09,589 INFO = Combat phase begins
+2018-04-03 14:20:09,599 INFO = Ranged phase begins
+2018-04-03 14:20:09,610 INFO = Special phase begins
+2018-04-03 14:20:09,621 INFO == TURN 21 BEGIN ==
+2018-04-03 14:20:09,621 INFO = Start Turn phase begins
+2018-04-03 14:20:09,621 INFO BLUE Base at tile (11, 10) with 143 HP healed for 10 health.
+2018-04-03 14:20:09,621 INFO BLUE Base at tile (11, 10) with 143 HP successfully executed 'Order: Heal self'
+2018-04-03 14:20:09,631 INFO = Issue Orders phase begins
+2018-04-03 14:20:09,631 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:20:09,632 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:20:12,023 INFO BLUE Base at tile (11, 10) with 143 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:20:12,023 INFO = Move phase begins
+2018-04-03 14:20:12,034 INFO = Build phase begins
+2018-04-03 14:20:12,044 INFO = Combat phase begins
+2018-04-03 14:20:12,054 INFO = Ranged phase begins
+2018-04-03 14:20:12,064 INFO = Special phase begins
+2018-04-03 14:20:12,075 INFO == TURN 22 BEGIN ==
+2018-04-03 14:20:12,075 INFO = Start Turn phase begins
+2018-04-03 14:20:12,075 INFO BLUE Base at tile (11, 10) with 150 HP healed for 10 health.
+2018-04-03 14:20:12,075 INFO BLUE Base at tile (11, 10) with 150 HP successfully executed 'Order: Heal self'
+2018-04-03 14:20:12,086 INFO = Issue Orders phase begins
+2018-04-03 14:20:12,086 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:20:12,086 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:20:18,793 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 14:20:18,793 INFO = Move phase begins
+2018-04-03 14:20:18,803 INFO = Build phase begins
+2018-04-03 14:20:18,803 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 14:20:18,814 INFO = Combat phase begins
+2018-04-03 14:20:18,824 INFO = Ranged phase begins
+2018-04-03 14:20:18,824 INFO [<terra.piece.piece.Piece object at 0x093C5650>, <terra.piece.piece.Piece object at 0x093C5730>] are contesting the tile at (10, 9)!
+2018-04-03 14:20:18,824 INFO BLUE Barracks at tile (10, 9) with 60 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:20:18,824 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 60 HP!
+2018-04-03 14:20:18,824 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 60 HP!
+2018-04-03 14:20:18,825 INFO BLUE Barracks at tile (10, 9) with 20 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:20:18,835 INFO = Special phase begins
+2018-04-03 14:20:18,846 INFO == TURN 23 BEGIN ==
+2018-04-03 14:20:18,846 INFO = Start Turn phase begins
+2018-04-03 14:20:18,856 INFO = Issue Orders phase begins
+2018-04-03 14:20:18,857 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:20:18,857 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:20:24,236 INFO BLUE Barracks at tile (10, 9) with 20 HP was assigned the order 'Order: Build a Trooper on tile (10, 10)'
+2018-04-03 14:20:24,236 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 10)'
+2018-04-03 14:20:24,236 INFO = Move phase begins
+2018-04-03 14:20:24,249 INFO = Build phase begins
+2018-04-03 14:20:24,249 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (9, 10)'
+2018-04-03 14:20:24,260 INFO = Combat phase begins
+2018-04-03 14:20:24,260 INFO BLUE Barracks at tile (10, 9) with 20 HP failed to execute 'Order: Build a Trooper on tile (10, 10)'
+2018-04-03 14:20:24,272 INFO = Ranged phase begins
+2018-04-03 14:20:24,282 INFO = Special phase begins
+2018-04-03 14:20:24,293 INFO == TURN 24 BEGIN ==
+2018-04-03 14:20:24,293 INFO = Start Turn phase begins
+2018-04-03 14:20:24,303 INFO = Issue Orders phase begins
+2018-04-03 14:20:24,303 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:20:24,303 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:20:41,066 INFO BLUE Barracks at tile (10, 9) with 20 HP was assigned the order 'Order: Build a Trooper on tile (10, 10)'
+2018-04-03 14:20:41,066 INFO = Move phase begins
+2018-04-03 14:20:41,076 INFO = Build phase begins
+2018-04-03 14:20:41,087 INFO = Combat phase begins
+2018-04-03 14:20:41,087 INFO BLUE Barracks at tile (10, 9) with 20 HP successfully executed 'Order: Build a Trooper on tile (10, 10)'
+2018-04-03 14:20:41,087 INFO Team.BLUE team spent 3 resources.
+2018-04-03 14:20:41,097 INFO = Ranged phase begins
+2018-04-03 14:20:41,108 INFO = Special phase begins
+2018-04-03 14:20:41,118 INFO == TURN 25 BEGIN ==
+2018-04-03 14:20:41,118 INFO = Start Turn phase begins
+2018-04-03 14:20:41,130 INFO = Issue Orders phase begins
+2018-04-03 14:20:41,131 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:20:41,131 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:22:48,713 INFO BLUE Trooper at tile (10, 10) with 100 HP was assigned the order 'Order: Move to (9, 10)'
+2018-04-03 14:22:48,714 INFO = Move phase begins
+2018-04-03 14:22:48,733 INFO BLUE Trooper at tile (10, 10) with 100 HP successfully executed 'Order: Move to (9, 10)'
+2018-04-03 14:22:48,733 INFO = Build phase begins
+2018-04-03 14:22:48,743 INFO = Combat phase begins
+2018-04-03 14:22:48,753 INFO = Ranged phase begins
+2018-04-03 14:22:48,753 INFO [<terra.piece.piece.Piece object at 0x093C5730>, <terra.piece.piece.Piece object at 0x08D61B70>] are contesting the tile at (9, 10)!
+2018-04-03 14:22:48,753 INFO RED Trooper at tile (9, 10) with 76 HP took 24 damage from BLUE Trooper at tile (9, 10) with 100 HP!
+2018-04-03 14:22:48,753 INFO BLUE Trooper at tile (9, 10) with 64 HP took 36 damage from RED Trooper at tile (9, 10) with 76 HP!
+2018-04-03 14:22:48,753 INFO BLUE Trooper at tile (9, 10) with 28 HP took 36 damage from RED Trooper at tile (9, 10) with 76 HP!
+2018-04-03 14:22:48,753 INFO RED Trooper at tile (9, 10) with 52 HP took 24 damage from BLUE Trooper at tile (9, 10) with 28 HP!
+2018-04-03 14:22:48,764 INFO = Special phase begins
+2018-04-03 14:22:48,774 INFO == TURN 26 BEGIN ==
+2018-04-03 14:22:48,774 INFO = Start Turn phase begins
+2018-04-03 14:22:48,785 INFO = Issue Orders phase begins
+2018-04-03 14:22:48,786 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:22:48,786 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:22:54,163 INFO RED Trooper at tile (9, 10) with 52 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:22:54,163 INFO BLUE Trooper at tile (9, 10) with 28 HP was assigned the order 'Order: Move to (10, 10)'
+2018-04-03 14:22:54,164 INFO = Move phase begins
+2018-04-03 14:22:54,174 INFO BLUE Trooper at tile (9, 10) with 28 HP successfully executed 'Order: Move to (10, 10)'
+2018-04-03 14:22:54,174 INFO = Build phase begins
+2018-04-03 14:22:54,184 INFO = Combat phase begins
+2018-04-03 14:22:54,195 INFO = Ranged phase begins
+2018-04-03 14:22:54,205 INFO = Special phase begins
+2018-04-03 14:22:54,215 INFO == TURN 27 BEGIN ==
+2018-04-03 14:22:54,215 INFO = Start Turn phase begins
+2018-04-03 14:22:54,215 INFO RED Trooper at tile (9, 10) with 62 HP healed for 10 health.
+2018-04-03 14:22:54,215 INFO RED Trooper at tile (9, 10) with 62 HP successfully executed 'Order: Heal self'
+2018-04-03 14:22:54,226 INFO = Issue Orders phase begins
+2018-04-03 14:22:54,226 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:22:54,226 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:22:59,729 INFO BLUE Barracks at tile (10, 9) with 20 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:22:59,729 INFO RED Trooper at tile (9, 10) with 62 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:22:59,729 INFO BLUE Trooper at tile (10, 10) with 28 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:22:59,729 INFO = Move phase begins
+2018-04-03 14:22:59,739 INFO = Build phase begins
+2018-04-03 14:22:59,749 INFO = Combat phase begins
+2018-04-03 14:22:59,759 INFO = Ranged phase begins
+2018-04-03 14:22:59,769 INFO = Special phase begins
+2018-04-03 14:22:59,779 INFO BLUE Trooper at tile (10, 10) with 38 HP healed for 10 health.
+2018-04-03 14:22:59,779 INFO BLUE Trooper at tile (10, 10) with 38 HP successfully executed 'Order: Heal self'
+2018-04-03 14:22:59,780 INFO == TURN 28 BEGIN ==
+2018-04-03 14:22:59,780 INFO = Start Turn phase begins
+2018-04-03 14:22:59,780 INFO RED Trooper at tile (9, 10) with 72 HP healed for 10 health.
+2018-04-03 14:22:59,780 INFO RED Trooper at tile (9, 10) with 72 HP successfully executed 'Order: Heal self'
+2018-04-03 14:22:59,780 INFO BLUE Barracks at tile (10, 9) with 30 HP healed for 10 health.
+2018-04-03 14:22:59,780 INFO BLUE Barracks at tile (10, 9) with 30 HP successfully executed 'Order: Heal self'
+2018-04-03 14:22:59,790 INFO = Issue Orders phase begins
+2018-04-03 14:22:59,790 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:22:59,791 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:23:04,530 INFO BLUE Barracks at tile (10, 9) with 30 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:04,530 INFO RED Trooper at tile (9, 10) with 72 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:04,530 INFO BLUE Trooper at tile (10, 10) with 38 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:04,530 INFO = Move phase begins
+2018-04-03 14:23:04,540 INFO = Build phase begins
+2018-04-03 14:23:04,550 INFO = Combat phase begins
+2018-04-03 14:23:04,560 INFO = Ranged phase begins
+2018-04-03 14:23:04,571 INFO = Special phase begins
+2018-04-03 14:23:04,580 INFO BLUE Trooper at tile (10, 10) with 48 HP healed for 10 health.
+2018-04-03 14:23:04,581 INFO BLUE Trooper at tile (10, 10) with 48 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:04,581 INFO == TURN 29 BEGIN ==
+2018-04-03 14:23:04,581 INFO = Start Turn phase begins
+2018-04-03 14:23:04,581 INFO RED Trooper at tile (9, 10) with 82 HP healed for 10 health.
+2018-04-03 14:23:04,581 INFO RED Trooper at tile (9, 10) with 82 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:04,581 INFO BLUE Barracks at tile (10, 9) with 40 HP healed for 10 health.
+2018-04-03 14:23:04,581 INFO BLUE Barracks at tile (10, 9) with 40 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:04,592 INFO = Issue Orders phase begins
+2018-04-03 14:23:04,592 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:23:04,592 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:23:09,096 INFO BLUE Barracks at tile (10, 9) with 40 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:09,096 INFO RED Trooper at tile (9, 10) with 82 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:09,097 INFO BLUE Trooper at tile (10, 10) with 48 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:09,097 INFO = Move phase begins
+2018-04-03 14:23:09,106 INFO = Build phase begins
+2018-04-03 14:23:09,116 INFO = Combat phase begins
+2018-04-03 14:23:09,127 INFO = Ranged phase begins
+2018-04-03 14:23:09,137 INFO = Special phase begins
+2018-04-03 14:23:09,148 INFO BLUE Trooper at tile (10, 10) with 58 HP healed for 10 health.
+2018-04-03 14:23:09,148 INFO BLUE Trooper at tile (10, 10) with 58 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:09,148 INFO == TURN 30 BEGIN ==
+2018-04-03 14:23:09,148 INFO = Start Turn phase begins
+2018-04-03 14:23:09,148 INFO RED Trooper at tile (9, 10) with 92 HP healed for 10 health.
+2018-04-03 14:23:09,148 INFO RED Trooper at tile (9, 10) with 92 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:09,148 INFO BLUE Barracks at tile (10, 9) with 50 HP healed for 10 health.
+2018-04-03 14:23:09,148 INFO BLUE Barracks at tile (10, 9) with 50 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:09,158 INFO = Issue Orders phase begins
+2018-04-03 14:23:09,158 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:23:09,158 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:23:15,125 INFO BLUE Barracks at tile (10, 9) with 50 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:15,125 INFO RED Trooper at tile (9, 10) with 92 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:15,125 INFO BLUE Trooper at tile (10, 10) with 58 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:15,125 INFO = Move phase begins
+2018-04-03 14:23:15,136 INFO = Build phase begins
+2018-04-03 14:23:15,146 INFO = Combat phase begins
+2018-04-03 14:23:15,155 INFO = Ranged phase begins
+2018-04-03 14:23:15,166 INFO = Special phase begins
+2018-04-03 14:23:15,176 INFO BLUE Trooper at tile (10, 10) with 68 HP healed for 10 health.
+2018-04-03 14:23:15,176 INFO BLUE Trooper at tile (10, 10) with 68 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:15,176 INFO == TURN 31 BEGIN ==
+2018-04-03 14:23:15,176 INFO = Start Turn phase begins
+2018-04-03 14:23:15,176 INFO RED Trooper at tile (9, 10) with 100 HP healed for 10 health.
+2018-04-03 14:23:15,176 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:15,176 INFO BLUE Barracks at tile (10, 9) with 60 HP healed for 10 health.
+2018-04-03 14:23:15,176 INFO BLUE Barracks at tile (10, 9) with 60 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:15,186 INFO = Issue Orders phase begins
+2018-04-03 14:23:15,186 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:23:15,186 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:23:19,625 INFO BLUE Barracks at tile (10, 9) with 60 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:19,625 INFO BLUE Trooper at tile (10, 10) with 68 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:23:19,625 INFO = Move phase begins
+2018-04-03 14:23:19,635 INFO = Build phase begins
+2018-04-03 14:23:19,645 INFO = Combat phase begins
+2018-04-03 14:23:19,655 INFO = Ranged phase begins
+2018-04-03 14:23:19,665 INFO = Special phase begins
+2018-04-03 14:23:19,675 INFO BLUE Trooper at tile (10, 10) with 78 HP healed for 10 health.
+2018-04-03 14:23:19,675 INFO BLUE Trooper at tile (10, 10) with 78 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:19,675 INFO == TURN 32 BEGIN ==
+2018-04-03 14:23:19,675 INFO = Start Turn phase begins
+2018-04-03 14:23:19,675 INFO BLUE Barracks at tile (10, 9) with 70 HP healed for 10 health.
+2018-04-03 14:23:19,675 INFO BLUE Barracks at tile (10, 9) with 70 HP successfully executed 'Order: Heal self'
+2018-04-03 14:23:19,685 INFO = Issue Orders phase begins
+2018-04-03 14:23:19,685 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:23:19,685 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:29:31,298 INFO Team.RED team researched the upgrade UpgradeType.TROOPER_ATTACK
+2018-04-03 14:29:34,108 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 14:29:34,108 INFO = Move phase begins
+2018-04-03 14:29:34,119 INFO = Build phase begins
+2018-04-03 14:29:34,119 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 14:29:34,131 INFO = Combat phase begins
+2018-04-03 14:29:34,142 INFO = Ranged phase begins
+2018-04-03 14:29:34,142 INFO [<terra.piece.piece.Piece object at 0x087E3690>, <terra.piece.piece.Piece object at 0x087E3790>] are contesting the tile at (10, 9)!
+2018-04-03 14:29:34,142 INFO BLUE Barracks at tile (10, 9) with 60 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:29:34,142 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 60 HP!
+2018-04-03 14:29:34,142 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 60 HP!
+2018-04-03 14:29:34,142 INFO BLUE Barracks at tile (10, 9) with 20 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:29:34,153 INFO = Special phase begins
+2018-04-03 14:29:34,164 INFO == TURN 20 BEGIN ==
+2018-04-03 14:29:34,165 INFO = Start Turn phase begins
+2018-04-03 14:29:34,176 INFO = Issue Orders phase begins
+2018-04-03 14:29:34,176 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:29:34,176 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:29:37,724 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 10)'
+2018-04-03 14:29:37,725 INFO = Move phase begins
+2018-04-03 14:29:37,735 INFO = Build phase begins
+2018-04-03 14:29:37,735 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (9, 10)'
+2018-04-03 14:29:37,746 INFO = Combat phase begins
+2018-04-03 14:29:37,756 INFO = Ranged phase begins
+2018-04-03 14:29:37,767 INFO = Special phase begins
+2018-04-03 14:29:37,778 INFO == TURN 21 BEGIN ==
+2018-04-03 14:29:37,778 INFO = Start Turn phase begins
+2018-04-03 14:29:37,790 INFO = Issue Orders phase begins
+2018-04-03 14:29:37,790 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:29:37,790 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:29:43,227 INFO BLUE Base at tile (11, 10) with 123 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:29:43,227 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:29:43,227 INFO = Move phase begins
+2018-04-03 14:29:43,237 INFO = Build phase begins
+2018-04-03 14:29:43,237 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:29:43,247 INFO = Combat phase begins
+2018-04-03 14:29:43,248 INFO BLUE Base at tile (11, 10) with 123 HP successfully executed 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:29:43,248 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:29:43,258 INFO = Ranged phase begins
+2018-04-03 14:29:43,258 INFO [<terra.piece.piece.Piece object at 0x087E36D0>, <terra.piece.piece.Piece object at 0x087E3790>] are contesting the tile at (11, 10)!
+2018-04-03 14:29:43,258 INFO BLUE Base at tile (11, 10) with 87 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:29:43,258 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 87 HP!
+2018-04-03 14:29:43,258 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 87 HP!
+2018-04-03 14:29:43,258 INFO BLUE Base at tile (11, 10) with 51 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:29:43,270 INFO = Special phase begins
+2018-04-03 14:29:43,291 INFO == TURN 22 BEGIN ==
+2018-04-03 14:29:43,291 INFO = Start Turn phase begins
+2018-04-03 14:29:43,307 INFO = Issue Orders phase begins
+2018-04-03 14:29:43,307 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:29:43,307 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:33:31,612 INFO Team.RED team researched the upgrade UpgradeType.TROOPER_ATTACK
+2018-04-03 14:33:36,504 INFO BLUE Base at tile (11, 10) with 123 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:33:36,504 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:33:36,504 INFO = Move phase begins
+2018-04-03 14:33:36,516 INFO = Build phase begins
+2018-04-03 14:33:36,516 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:33:36,527 INFO = Combat phase begins
+2018-04-03 14:33:36,527 INFO BLUE Base at tile (11, 10) with 123 HP successfully executed 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:33:36,527 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:33:36,538 INFO = Ranged phase begins
+2018-04-03 14:33:36,538 INFO [<terra.piece.piece.Piece object at 0x08DB2CB0>, <terra.piece.piece.Piece object at 0x08E247F0>] are contesting the tile at (11, 10)!
+2018-04-03 14:33:36,538 INFO BLUE Base at tile (11, 10) with 87 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:33:36,538 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 87 HP!
+2018-04-03 14:33:36,538 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 87 HP!
+2018-04-03 14:33:36,538 INFO BLUE Base at tile (11, 10) with 51 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:33:36,549 INFO = Special phase begins
+2018-04-03 14:33:36,559 INFO == TURN 20 BEGIN ==
+2018-04-03 14:33:36,559 INFO = Start Turn phase begins
+2018-04-03 14:33:36,570 INFO = Issue Orders phase begins
+2018-04-03 14:33:36,570 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:33:36,570 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:33:41,118 INFO BLUE Base at tile (11, 10) with 51 HP was assigned the order 'Order: Build a Colonist on tile (12, 10)'
+2018-04-03 14:33:41,118 INFO = Move phase begins
+2018-04-03 14:33:41,129 INFO = Build phase begins
+2018-04-03 14:33:41,141 INFO = Combat phase begins
+2018-04-03 14:33:41,141 INFO BLUE Base at tile (11, 10) with 51 HP failed to execute 'Order: Build a Colonist on tile (12, 10)'
+2018-04-03 14:33:41,154 INFO = Ranged phase begins
+2018-04-03 14:33:41,154 INFO [<terra.piece.piece.Piece object at 0x08DB2CB0>, <terra.piece.piece.Piece object at 0x08E247F0>] are contesting the tile at (11, 10)!
+2018-04-03 14:33:41,154 INFO BLUE Base at tile (11, 10) with 15 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:33:41,154 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 14:33:41,154 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 14:33:41,154 INFO BLUE Base at tile (11, 10) with -21 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:33:41,167 INFO = Special phase begins
+2018-04-03 14:33:41,180 INFO == TURN 21 BEGIN ==
+2018-04-03 14:33:41,180 INFO = Start Turn phase begins
+2018-04-03 14:33:41,191 INFO === BATTLE OVER! ===
+2018-04-03 14:33:41,192 INFO Team.RED team has won!
+2018-04-03 14:33:41,192 INFO -- Stats for team Team.RED --
+2018-04-03 14:33:41,192 INFO   * Tiles Moved: 2
+2018-04-03 14:33:41,192 INFO   * Ranged Attacks: 0
+2018-04-03 14:33:41,192 INFO   * Piece Conflicts: 2
+2018-04-03 14:33:41,192 INFO   * Pieces Lost: 0
+2018-04-03 14:33:41,192 INFO   * Pieces Built: 0
+2018-04-03 14:33:41,192 INFO   * Upgrades Researched: 0
+2018-04-03 14:33:41,192 INFO Team.BLUE team has lost.
+2018-04-03 14:33:41,192 INFO -- Stats for team Team.BLUE --
+2018-04-03 14:33:41,192 INFO   * Tiles Moved: 0
+2018-04-03 14:33:41,192 INFO   * Ranged Attacks: 0
+2018-04-03 14:33:41,192 INFO   * Piece Conflicts: 2
+2018-04-03 14:33:41,192 INFO   * Pieces Lost: 1
+2018-04-03 14:33:41,192 INFO   * Pieces Built: 1
+2018-04-03 14:33:41,192 INFO   * Upgrades Researched: 0
+2018-04-03 14:33:45,602 INFO Team.RED team researched the upgrade UpgradeType.TROOPER_ATTACK
+2018-04-03 14:33:45,602 INFO Team.RED team researched the upgrade UpgradeType.TROOPER_ATTACK
+2018-04-03 14:35:34,021 INFO Team.RED team researched the upgrade UpgradeType.TROOPER_ATTACK
+2018-04-03 14:36:40,391 INFO BLUE Base at tile (11, 10) with 123 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:36:40,391 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:36:40,391 INFO = Move phase begins
+2018-04-03 14:36:40,401 INFO = Build phase begins
+2018-04-03 14:36:40,401 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:36:40,410 INFO = Combat phase begins
+2018-04-03 14:36:40,411 INFO BLUE Base at tile (11, 10) with 123 HP successfully executed 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:36:40,411 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:36:40,420 INFO = Ranged phase begins
+2018-04-03 14:36:40,420 INFO [<terra.piece.piece.Piece object at 0x09102530>, <terra.piece.piece.Piece object at 0x091025F0>] are contesting the tile at (11, 10)!
+2018-04-03 14:36:40,420 INFO BLUE Base at tile (11, 10) with 87 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:36:40,421 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 87 HP!
+2018-04-03 14:36:40,421 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 87 HP!
+2018-04-03 14:36:40,421 INFO BLUE Base at tile (11, 10) with 51 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:36:40,431 INFO = Special phase begins
+2018-04-03 14:36:40,440 INFO == TURN 20 BEGIN ==
+2018-04-03 14:36:40,441 INFO = Start Turn phase begins
+2018-04-03 14:36:40,451 INFO = Issue Orders phase begins
+2018-04-03 14:36:40,451 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:36:40,452 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:36:43,107 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 14:36:43,107 INFO = Move phase begins
+2018-04-03 14:36:43,117 INFO = Build phase begins
+2018-04-03 14:36:43,117 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 14:36:43,127 INFO = Combat phase begins
+2018-04-03 14:36:43,137 INFO = Ranged phase begins
+2018-04-03 14:36:43,137 INFO [<terra.piece.piece.Piece object at 0x091024D0>, <terra.piece.piece.Piece object at 0x091025F0>] are contesting the tile at (10, 9)!
+2018-04-03 14:36:43,137 INFO BLUE Barracks at tile (10, 9) with 60 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:36:43,138 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 60 HP!
+2018-04-03 14:36:43,138 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 60 HP!
+2018-04-03 14:36:43,138 INFO BLUE Barracks at tile (10, 9) with 20 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:36:43,147 INFO = Special phase begins
+2018-04-03 14:36:43,158 INFO == TURN 21 BEGIN ==
+2018-04-03 14:36:43,158 INFO = Start Turn phase begins
+2018-04-03 14:36:43,168 INFO = Issue Orders phase begins
+2018-04-03 14:36:43,168 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:36:43,169 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:36:47,729 INFO BLUE Barracks at tile (10, 9) with 20 HP was assigned the order 'Order: Build a Trooper on tile (10, 8)'
+2018-04-03 14:36:47,730 INFO = Move phase begins
+2018-04-03 14:36:47,740 INFO = Build phase begins
+2018-04-03 14:36:47,750 INFO = Combat phase begins
+2018-04-03 14:36:47,750 INFO BLUE Barracks at tile (10, 9) with 20 HP failed to execute 'Order: Build a Trooper on tile (10, 8)'
+2018-04-03 14:36:47,760 INFO = Ranged phase begins
+2018-04-03 14:36:47,760 INFO [<terra.piece.piece.Piece object at 0x091024D0>, <terra.piece.piece.Piece object at 0x091025F0>] are contesting the tile at (10, 9)!
+2018-04-03 14:36:47,760 INFO BLUE Barracks at tile (10, 9) with -20 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:36:47,760 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with -20 HP!
+2018-04-03 14:36:47,760 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with -20 HP!
+2018-04-03 14:36:47,760 INFO BLUE Barracks at tile (10, 9) with -60 HP took 40 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:36:47,771 INFO = Special phase begins
+2018-04-03 14:36:47,781 INFO == TURN 22 BEGIN ==
+2018-04-03 14:36:47,781 INFO = Start Turn phase begins
+2018-04-03 14:36:47,792 INFO = Issue Orders phase begins
+2018-04-03 14:36:47,792 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:36:47,792 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:36:56,042 INFO BLUE Base at tile (11, 10) with 51 HP was assigned the order 'Order: Build a Colonist on tile (12, 10)'
+2018-04-03 14:36:56,042 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:36:56,042 INFO = Move phase begins
+2018-04-03 14:36:56,052 INFO = Build phase begins
+2018-04-03 14:36:56,053 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:36:56,063 INFO = Combat phase begins
+2018-04-03 14:36:56,063 INFO BLUE Base at tile (11, 10) with 51 HP successfully executed 'Order: Build a Colonist on tile (12, 10)'
+2018-04-03 14:36:56,063 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:36:56,073 INFO = Ranged phase begins
+2018-04-03 14:36:56,073 INFO [<terra.piece.piece.Piece object at 0x09102530>, <terra.piece.piece.Piece object at 0x091025F0>] are contesting the tile at (11, 10)!
+2018-04-03 14:36:56,073 INFO BLUE Base at tile (11, 10) with 15 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:36:56,074 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 14:36:56,074 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 14:36:56,074 INFO BLUE Base at tile (11, 10) with -21 HP took 36 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:36:56,084 INFO = Special phase begins
+2018-04-03 14:36:56,095 INFO == TURN 23 BEGIN ==
+2018-04-03 14:36:56,095 INFO = Start Turn phase begins
+2018-04-03 14:36:56,104 INFO === BATTLE OVER! ===
+2018-04-03 14:36:56,105 INFO Team.RED team has won!
+2018-04-03 14:36:56,105 INFO -- Stats for team Team.RED --
+2018-04-03 14:36:56,105 INFO   * Tiles Moved: 6
+2018-04-03 14:36:56,105 INFO   * Ranged Attacks: 0
+2018-04-03 14:36:56,105 INFO   * Piece Conflicts: 4
+2018-04-03 14:36:56,105 INFO   * Pieces Lost: 0
+2018-04-03 14:36:56,105 INFO   * Pieces Built: 0
+2018-04-03 14:36:56,105 INFO   * Upgrades Researched: 0
+2018-04-03 14:36:56,106 INFO Team.BLUE team has lost.
+2018-04-03 14:36:56,106 INFO -- Stats for team Team.BLUE --
+2018-04-03 14:36:56,106 INFO   * Tiles Moved: 0
+2018-04-03 14:36:56,106 INFO   * Ranged Attacks: 0
+2018-04-03 14:36:56,106 INFO   * Piece Conflicts: 4
+2018-04-03 14:36:56,106 INFO   * Pieces Lost: 2
+2018-04-03 14:36:56,106 INFO   * Pieces Built: 2
+2018-04-03 14:36:56,106 INFO   * Upgrades Researched: 0
+2018-04-03 14:37:01,328 INFO RED Barracks at tile (4, 4) with 100 HP was assigned the order 'Order: Build a Trooper on tile (4, 5)'
+2018-04-03 14:37:01,328 INFO = Move phase begins
+2018-04-03 14:37:01,339 INFO = Build phase begins
+2018-04-03 14:37:01,349 INFO = Combat phase begins
+2018-04-03 14:37:01,349 INFO RED Barracks at tile (4, 4) with 100 HP successfully executed 'Order: Build a Trooper on tile (4, 5)'
+2018-04-03 14:37:01,350 INFO Team.RED team spent 3 resources.
+2018-04-03 14:37:01,360 INFO = Ranged phase begins
+2018-04-03 14:37:01,371 INFO = Special phase begins
+2018-04-03 14:37:01,382 INFO == TURN 2 BEGIN ==
+2018-04-03 14:37:01,383 INFO = Start Turn phase begins
+2018-04-03 14:37:01,394 INFO = Issue Orders phase begins
+2018-04-03 14:37:01,394 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:01,394 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:02,416 INFO RED Trooper at tile (4, 5) with 100 HP was assigned the order 'Order: Move to (4, 7)'
+2018-04-03 14:37:02,417 INFO = Move phase begins
+2018-04-03 14:37:02,426 INFO RED Trooper at tile (4, 5) with 100 HP successfully executed 'Order: Move to (4, 7)'
+2018-04-03 14:37:02,427 INFO = Build phase begins
+2018-04-03 14:37:02,437 INFO = Combat phase begins
+2018-04-03 14:37:02,446 INFO = Ranged phase begins
+2018-04-03 14:37:02,456 INFO = Special phase begins
+2018-04-03 14:37:02,466 INFO == TURN 3 BEGIN ==
+2018-04-03 14:37:02,466 INFO = Start Turn phase begins
+2018-04-03 14:37:02,476 INFO = Issue Orders phase begins
+2018-04-03 14:37:02,476 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:02,476 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:03,612 INFO RED Trooper at tile (4, 7) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-04-03 14:37:03,612 INFO = Move phase begins
+2018-04-03 14:37:03,622 INFO RED Trooper at tile (4, 7) with 100 HP successfully executed 'Order: Move to (4, 9)'
+2018-04-03 14:37:03,623 INFO = Build phase begins
+2018-04-03 14:37:03,633 INFO = Combat phase begins
+2018-04-03 14:37:03,644 INFO = Ranged phase begins
+2018-04-03 14:37:03,654 INFO = Special phase begins
+2018-04-03 14:37:03,665 INFO == TURN 4 BEGIN ==
+2018-04-03 14:37:03,665 INFO = Start Turn phase begins
+2018-04-03 14:37:03,675 INFO = Issue Orders phase begins
+2018-04-03 14:37:03,675 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:03,676 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:04,641 INFO RED Trooper at tile (4, 9) with 100 HP was assigned the order 'Order: Move to (6, 9)'
+2018-04-03 14:37:04,641 INFO = Move phase begins
+2018-04-03 14:37:04,652 INFO RED Trooper at tile (4, 9) with 100 HP successfully executed 'Order: Move to (6, 9)'
+2018-04-03 14:37:04,652 INFO = Build phase begins
+2018-04-03 14:37:04,662 INFO = Combat phase begins
+2018-04-03 14:37:04,673 INFO = Ranged phase begins
+2018-04-03 14:37:04,683 INFO = Special phase begins
+2018-04-03 14:37:04,693 INFO == TURN 5 BEGIN ==
+2018-04-03 14:37:04,694 INFO = Start Turn phase begins
+2018-04-03 14:37:04,704 INFO = Issue Orders phase begins
+2018-04-03 14:37:04,704 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:04,704 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:05,666 INFO RED Trooper at tile (6, 9) with 100 HP was assigned the order 'Order: Move to (8, 9)'
+2018-04-03 14:37:05,666 INFO = Move phase begins
+2018-04-03 14:37:05,676 INFO RED Trooper at tile (6, 9) with 100 HP successfully executed 'Order: Move to (8, 9)'
+2018-04-03 14:37:05,676 INFO = Build phase begins
+2018-04-03 14:37:05,686 INFO = Combat phase begins
+2018-04-03 14:37:05,695 INFO = Ranged phase begins
+2018-04-03 14:37:05,706 INFO = Special phase begins
+2018-04-03 14:37:05,715 INFO == TURN 6 BEGIN ==
+2018-04-03 14:37:05,716 INFO = Start Turn phase begins
+2018-04-03 14:37:05,725 INFO = Issue Orders phase begins
+2018-04-03 14:37:05,726 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:05,726 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:06,748 INFO RED Trooper at tile (8, 9) with 100 HP was assigned the order 'Order: Move to (9, 10)'
+2018-04-03 14:37:06,748 INFO = Move phase begins
+2018-04-03 14:37:06,759 INFO RED Trooper at tile (8, 9) with 100 HP successfully executed 'Order: Move to (9, 10)'
+2018-04-03 14:37:06,759 INFO = Build phase begins
+2018-04-03 14:37:06,770 INFO = Combat phase begins
+2018-04-03 14:37:06,780 INFO = Ranged phase begins
+2018-04-03 14:37:06,792 INFO = Special phase begins
+2018-04-03 14:37:06,801 INFO == TURN 7 BEGIN ==
+2018-04-03 14:37:06,802 INFO = Start Turn phase begins
+2018-04-03 14:37:06,812 INFO = Issue Orders phase begins
+2018-04-03 14:37:06,812 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:06,812 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:11,998 INFO BLUE Base at tile (11, 10) with 150 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:37:11,998 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:37:11,998 INFO = Move phase begins
+2018-04-03 14:37:12,008 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:37:12,008 INFO = Build phase begins
+2018-04-03 14:37:12,019 INFO = Combat phase begins
+2018-04-03 14:37:12,020 INFO BLUE Base at tile (11, 10) with 150 HP failed to execute 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:37:12,029 INFO = Ranged phase begins
+2018-04-03 14:37:12,030 INFO [<terra.piece.piece.Piece object at 0x09119CF0>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (11, 10)!
+2018-04-03 14:37:12,030 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:37:12,030 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 14:37:12,030 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 14:37:12,030 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:37:12,040 INFO = Special phase begins
+2018-04-03 14:37:12,051 INFO == TURN 8 BEGIN ==
+2018-04-03 14:37:12,051 INFO = Start Turn phase begins
+2018-04-03 14:37:12,061 INFO = Issue Orders phase begins
+2018-04-03 14:37:12,061 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:12,061 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:37:22,128 INFO BLUE Base at tile (11, 10) with 96 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:37:22,128 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (9, 10)'
+2018-04-03 14:37:22,129 INFO = Move phase begins
+2018-04-03 14:37:22,138 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (9, 10)'
+2018-04-03 14:37:22,139 INFO = Build phase begins
+2018-04-03 14:37:22,148 INFO = Combat phase begins
+2018-04-03 14:37:22,148 INFO BLUE Base at tile (11, 10) with 96 HP successfully executed 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:37:22,149 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:37:22,159 INFO = Ranged phase begins
+2018-04-03 14:37:22,169 INFO = Special phase begins
+2018-04-03 14:37:22,178 INFO == TURN 9 BEGIN ==
+2018-04-03 14:37:22,178 INFO = Start Turn phase begins
+2018-04-03 14:37:22,189 INFO = Issue Orders phase begins
+2018-04-03 14:37:22,189 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:37:22,189 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:21,451 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 14:39:21,451 INFO = Move phase begins
+2018-04-03 14:39:21,461 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 14:39:21,461 INFO = Build phase begins
+2018-04-03 14:39:21,472 INFO = Combat phase begins
+2018-04-03 14:39:21,482 INFO = Ranged phase begins
+2018-04-03 14:39:21,482 INFO [<terra.piece.piece.Piece object at 0x09119C90>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (10, 9)!
+2018-04-03 14:39:21,482 INFO BLUE Barracks at tile (10, 9) with 70 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:21,482 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 14:39:21,482 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 14:39:21,482 INFO BLUE Barracks at tile (10, 9) with 40 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:21,493 INFO = Special phase begins
+2018-04-03 14:39:21,503 INFO == TURN 10 BEGIN ==
+2018-04-03 14:39:21,503 INFO = Start Turn phase begins
+2018-04-03 14:39:21,513 INFO = Issue Orders phase begins
+2018-04-03 14:39:21,513 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:21,514 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:24,201 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-03 14:39:24,202 INFO = Move phase begins
+2018-04-03 14:39:24,212 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (10, 11)'
+2018-04-03 14:39:24,212 INFO = Build phase begins
+2018-04-03 14:39:24,223 INFO = Combat phase begins
+2018-04-03 14:39:24,233 INFO = Ranged phase begins
+2018-04-03 14:39:24,244 INFO = Special phase begins
+2018-04-03 14:39:24,255 INFO == TURN 11 BEGIN ==
+2018-04-03 14:39:24,255 INFO = Start Turn phase begins
+2018-04-03 14:39:24,265 INFO = Issue Orders phase begins
+2018-04-03 14:39:24,265 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:24,265 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:27,284 INFO BLUE Base at tile (11, 10) with 96 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:27,284 INFO BLUE Barracks at tile (10, 9) with 40 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:27,284 INFO = Move phase begins
+2018-04-03 14:39:27,294 INFO = Build phase begins
+2018-04-03 14:39:27,304 INFO = Combat phase begins
+2018-04-03 14:39:27,313 INFO = Ranged phase begins
+2018-04-03 14:39:27,323 INFO = Special phase begins
+2018-04-03 14:39:27,333 INFO == TURN 12 BEGIN ==
+2018-04-03 14:39:27,333 INFO = Start Turn phase begins
+2018-04-03 14:39:27,333 INFO BLUE Barracks at tile (10, 9) with 60 HP healed for 20 health.
+2018-04-03 14:39:27,333 INFO BLUE Barracks at tile (10, 9) with 60 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:27,333 INFO BLUE Base at tile (11, 10) with 116 HP healed for 20 health.
+2018-04-03 14:39:27,333 INFO BLUE Base at tile (11, 10) with 116 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:27,343 INFO = Issue Orders phase begins
+2018-04-03 14:39:27,343 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:27,343 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:31,264 INFO BLUE Base at tile (11, 10) with 116 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:31,264 INFO BLUE Barracks at tile (10, 9) with 60 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:31,265 INFO = Move phase begins
+2018-04-03 14:39:31,274 INFO = Build phase begins
+2018-04-03 14:39:31,285 INFO = Combat phase begins
+2018-04-03 14:39:31,295 INFO = Ranged phase begins
+2018-04-03 14:39:31,306 INFO = Special phase begins
+2018-04-03 14:39:31,315 INFO == TURN 13 BEGIN ==
+2018-04-03 14:39:31,316 INFO = Start Turn phase begins
+2018-04-03 14:39:31,316 INFO BLUE Barracks at tile (10, 9) with 80 HP healed for 20 health.
+2018-04-03 14:39:31,316 INFO BLUE Barracks at tile (10, 9) with 80 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:31,316 INFO BLUE Base at tile (11, 10) with 136 HP healed for 20 health.
+2018-04-03 14:39:31,316 INFO BLUE Base at tile (11, 10) with 136 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:31,327 INFO = Issue Orders phase begins
+2018-04-03 14:39:31,327 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:31,327 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:36,207 INFO BLUE Barracks at tile (10, 9) with 80 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:36,207 INFO RED Trooper at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 14:39:36,207 INFO = Move phase begins
+2018-04-03 14:39:36,217 INFO RED Trooper at tile (10, 11) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 14:39:36,217 INFO = Build phase begins
+2018-04-03 14:39:36,227 INFO = Combat phase begins
+2018-04-03 14:39:36,238 INFO = Ranged phase begins
+2018-04-03 14:39:36,238 INFO [<terra.piece.piece.Piece object at 0x09119C90>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (10, 9)!
+2018-04-03 14:39:36,238 INFO BLUE Barracks at tile (10, 9) with 50 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:36,238 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 50 HP!
+2018-04-03 14:39:36,238 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 50 HP!
+2018-04-03 14:39:36,238 INFO BLUE Barracks at tile (10, 9) with 20 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:36,249 INFO = Special phase begins
+2018-04-03 14:39:36,264 INFO == TURN 14 BEGIN ==
+2018-04-03 14:39:36,264 INFO = Start Turn phase begins
+2018-04-03 14:39:36,265 INFO BLUE Barracks at tile (10, 9) with 40 HP healed for 20 health.
+2018-04-03 14:39:36,265 INFO BLUE Barracks at tile (10, 9) with 40 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:36,281 INFO = Issue Orders phase begins
+2018-04-03 14:39:36,282 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:36,282 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:42,314 INFO BLUE Barracks at tile (10, 9) with 40 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:42,314 INFO = Move phase begins
+2018-04-03 14:39:42,324 INFO = Build phase begins
+2018-04-03 14:39:42,334 INFO = Combat phase begins
+2018-04-03 14:39:42,344 INFO = Ranged phase begins
+2018-04-03 14:39:42,344 INFO [<terra.piece.piece.Piece object at 0x09119C90>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (10, 9)!
+2018-04-03 14:39:42,344 INFO BLUE Barracks at tile (10, 9) with 10 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:42,345 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 14:39:42,345 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 14:39:42,345 INFO BLUE Barracks at tile (10, 9) with -20 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 14:39:42,355 INFO = Special phase begins
+2018-04-03 14:39:42,364 INFO == TURN 15 BEGIN ==
+2018-04-03 14:39:42,364 INFO = Start Turn phase begins
+2018-04-03 14:39:42,374 INFO = Issue Orders phase begins
+2018-04-03 14:39:42,375 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:42,375 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:46,712 INFO BLUE Base at tile (11, 10) with 136 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:46,712 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:39:46,712 INFO = Move phase begins
+2018-04-03 14:39:46,722 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:39:46,722 INFO = Build phase begins
+2018-04-03 14:39:46,732 INFO = Combat phase begins
+2018-04-03 14:39:46,742 INFO = Ranged phase begins
+2018-04-03 14:39:46,743 INFO [<terra.piece.piece.Piece object at 0x09119CF0>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (11, 10)!
+2018-04-03 14:39:46,743 INFO BLUE Base at tile (11, 10) with 109 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:46,743 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 109 HP!
+2018-04-03 14:39:46,743 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 109 HP!
+2018-04-03 14:39:46,743 INFO BLUE Base at tile (11, 10) with 82 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:46,753 INFO = Special phase begins
+2018-04-03 14:39:46,764 INFO == TURN 16 BEGIN ==
+2018-04-03 14:39:46,764 INFO = Start Turn phase begins
+2018-04-03 14:39:46,764 INFO BLUE Base at tile (11, 10) with 102 HP healed for 20 health.
+2018-04-03 14:39:46,765 INFO BLUE Base at tile (11, 10) with 102 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:46,775 INFO = Issue Orders phase begins
+2018-04-03 14:39:46,775 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:46,775 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:50,175 INFO BLUE Base at tile (11, 10) with 102 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:50,175 INFO = Move phase begins
+2018-04-03 14:39:50,185 INFO = Build phase begins
+2018-04-03 14:39:50,195 INFO = Combat phase begins
+2018-04-03 14:39:50,205 INFO = Ranged phase begins
+2018-04-03 14:39:50,206 INFO [<terra.piece.piece.Piece object at 0x09119CF0>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (11, 10)!
+2018-04-03 14:39:50,206 INFO BLUE Base at tile (11, 10) with 75 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:50,206 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 75 HP!
+2018-04-03 14:39:50,206 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 75 HP!
+2018-04-03 14:39:50,206 INFO BLUE Base at tile (11, 10) with 48 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:50,216 INFO = Special phase begins
+2018-04-03 14:39:50,226 INFO == TURN 17 BEGIN ==
+2018-04-03 14:39:50,226 INFO = Start Turn phase begins
+2018-04-03 14:39:50,226 INFO BLUE Base at tile (11, 10) with 68 HP healed for 20 health.
+2018-04-03 14:39:50,226 INFO BLUE Base at tile (11, 10) with 68 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:50,237 INFO = Issue Orders phase begins
+2018-04-03 14:39:50,237 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:50,238 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:39:51,860 INFO BLUE Base at tile (11, 10) with 68 HP was assigned the order 'Order: Heal self'
+2018-04-03 14:39:51,861 INFO = Move phase begins
+2018-04-03 14:39:51,870 INFO = Build phase begins
+2018-04-03 14:39:51,880 INFO = Combat phase begins
+2018-04-03 14:39:51,889 INFO = Ranged phase begins
+2018-04-03 14:39:51,890 INFO [<terra.piece.piece.Piece object at 0x09119CF0>, <terra.piece.piece.Piece object at 0x091115B0>] are contesting the tile at (11, 10)!
+2018-04-03 14:39:51,890 INFO BLUE Base at tile (11, 10) with 41 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:51,890 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 41 HP!
+2018-04-03 14:39:51,890 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 41 HP!
+2018-04-03 14:39:51,890 INFO BLUE Base at tile (11, 10) with 14 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:39:51,900 INFO = Special phase begins
+2018-04-03 14:39:51,910 INFO == TURN 18 BEGIN ==
+2018-04-03 14:39:51,911 INFO = Start Turn phase begins
+2018-04-03 14:39:51,911 INFO BLUE Base at tile (11, 10) with 34 HP healed for 20 health.
+2018-04-03 14:39:51,911 INFO BLUE Base at tile (11, 10) with 34 HP successfully executed 'Order: Heal self'
+2018-04-03 14:39:51,920 INFO = Issue Orders phase begins
+2018-04-03 14:39:51,921 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:39:51,921 INFO Team.RED team acquired 2 resources.
+2018-04-03 14:43:26,000 INFO BLUE Base at tile (11, 10) with 150 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:43:26,002 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 14:43:28,682 INFO = Move phase begins
+2018-04-03 14:43:29,896 INFO = Build phase begins
+2018-04-03 14:43:29,897 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 14:43:31,686 INFO = Combat phase begins
+2018-04-03 14:43:31,688 INFO BLUE Base at tile (11, 10) with 150 HP successfully executed 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 14:43:31,689 INFO Team.BLUE team spent 5 resources.
+2018-04-03 14:43:34,161 INFO = Ranged phase begins
+2018-04-03 14:43:34,162 INFO [<terra.piece.piece.Piece object at 0x09624870>, <terra.piece.piece.Piece object at 0x09624930>] are contesting the tile at (11, 10)!
+2018-04-03 14:43:34,165 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:43:34,166 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 14:43:34,168 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 14:43:34,170 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 14:43:40,976 INFO = Special phase begins
+2018-04-03 14:43:41,659 INFO == TURN 8 BEGIN ==
+2018-04-03 14:43:41,660 INFO = Start Turn phase begins
+2018-04-03 14:43:42,827 INFO = Issue Orders phase begins
+2018-04-03 14:43:42,830 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 14:43:42,833 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:21:49,580 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:21:49,580 INFO = Move phase begins
+2018-04-03 19:21:49,591 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:21:49,928 INFO = Build phase begins
+2018-04-03 19:21:50,279 INFO = Combat phase begins
+2018-04-03 19:21:50,290 INFO [<terra.piece.piece.Piece object at 0x08F71590>, <terra.piece.piece.Piece object at 0x08F716B0>] are contesting the tile at (10, 9)!
+2018-04-03 19:21:50,291 INFO BLUE Barracks at tile (10, 9) with 70 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:21:50,291 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:21:50,291 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:21:50,291 INFO BLUE Barracks at tile (10, 9) with 40 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:21:50,627 INFO = Ranged phase begins
+2018-04-03 19:21:50,987 INFO = Special phase begins
+2018-04-03 19:21:51,340 INFO == TURN 8 BEGIN ==
+2018-04-03 19:21:51,341 INFO = Start Turn phase begins
+2018-04-03 19:21:51,353 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:21:51,353 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:21:51,709 INFO = Issue Orders phase begins
+2018-04-03 19:22:25,939 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:22:25,939 INFO = Move phase begins
+2018-04-03 19:22:25,952 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:22:26,297 INFO = Build phase begins
+2018-04-03 19:22:26,671 INFO = Combat phase begins
+2018-04-03 19:22:26,692 INFO [<terra.piece.piece.Piece object at 0x09311690>, <terra.piece.piece.Piece object at 0x093117B0>] are contesting the tile at (10, 9)!
+2018-04-03 19:22:26,692 INFO BLUE Barracks at tile (10, 9) with 70 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:22:26,692 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:22:26,692 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:22:26,693 INFO BLUE Barracks at tile (10, 9) with 40 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:22:27,071 INFO = Ranged phase begins
+2018-04-03 19:22:27,434 INFO = Special phase begins
+2018-04-03 19:22:27,799 INFO == TURN 8 BEGIN ==
+2018-04-03 19:22:27,799 INFO = Start Turn phase begins
+2018-04-03 19:22:27,812 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:22:27,812 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:22:28,165 INFO = Issue Orders phase begins
+2018-04-03 19:22:39,019 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:22:39,019 INFO = Move phase begins
+2018-04-03 19:22:39,031 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:22:39,363 INFO = Build phase begins
+2018-04-03 19:22:39,710 INFO = Combat phase begins
+2018-04-03 19:22:39,722 INFO [<terra.piece.piece.Piece object at 0x093116F0>, <terra.piece.piece.Piece object at 0x093117B0>] are contesting the tile at (11, 10)!
+2018-04-03 19:22:39,723 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:22:39,723 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:22:39,723 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:22:39,723 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:22:40,069 INFO = Ranged phase begins
+2018-04-03 19:22:40,421 INFO = Special phase begins
+2018-04-03 19:22:40,781 INFO == TURN 9 BEGIN ==
+2018-04-03 19:22:40,782 INFO = Start Turn phase begins
+2018-04-03 19:22:40,793 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:22:40,793 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:22:41,139 INFO = Issue Orders phase begins
+2018-04-03 19:23:11,874 INFO = Move phase begins
+2018-04-03 19:23:12,220 INFO = Build phase begins
+2018-04-03 19:23:12,561 INFO = Combat phase begins
+2018-04-03 19:23:12,579 INFO [<terra.piece.piece.Piece object at 0x093116F0>, <terra.piece.piece.Piece object at 0x093117B0>] are contesting the tile at (11, 10)!
+2018-04-03 19:23:12,579 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:23:12,579 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:23:12,580 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:23:12,580 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:23:12,917 INFO = Ranged phase begins
+2018-04-03 19:23:13,266 INFO = Special phase begins
+2018-04-03 19:23:13,615 INFO == TURN 10 BEGIN ==
+2018-04-03 19:23:13,616 INFO = Start Turn phase begins
+2018-04-03 19:23:13,627 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:23:13,627 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:23:13,963 INFO = Issue Orders phase begins
+2018-04-03 19:24:00,808 INFO BLUE Base at tile (11, 10) with 42 HP was assigned the order 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 19:24:00,808 INFO = Move phase begins
+2018-04-03 19:24:01,151 INFO = Build phase begins
+2018-04-03 19:24:01,163 INFO BLUE Base at tile (11, 10) with 42 HP failed to execute 'Order: Build a Colonist on tile (11, 9)'
+2018-04-03 19:24:01,479 INFO = Combat phase begins
+2018-04-03 19:24:01,490 INFO [<terra.piece.piece.Piece object at 0x093116F0>, <terra.piece.piece.Piece object at 0x093117B0>] are contesting the tile at (11, 10)!
+2018-04-03 19:24:01,491 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:24:01,491 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:24:01,491 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:24:01,491 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:24:01,811 INFO = Ranged phase begins
+2018-04-03 19:24:01,846 INFO === BATTLE OVER! ===
+2018-04-03 19:24:01,846 INFO Team.RED team has won!
+2018-04-03 19:24:01,846 INFO -- Stats for team Team.RED --
+2018-04-03 19:24:01,846 INFO   * Tiles Moved: 4
+2018-04-03 19:24:01,846 INFO   * Ranged Attacks: 0
+2018-04-03 19:24:01,846 INFO   * Piece Conflicts: 4
+2018-04-03 19:24:01,846 INFO   * Pieces Lost: 0
+2018-04-03 19:24:01,846 INFO   * Pieces Built: 0
+2018-04-03 19:24:01,846 INFO   * Upgrades Researched: 0
+2018-04-03 19:24:01,847 INFO Team.BLUE team has lost.
+2018-04-03 19:24:01,847 INFO -- Stats for team Team.BLUE --
+2018-04-03 19:24:01,847 INFO   * Tiles Moved: 0
+2018-04-03 19:24:01,847 INFO   * Ranged Attacks: 0
+2018-04-03 19:24:01,847 INFO   * Piece Conflicts: 4
+2018-04-03 19:24:01,847 INFO   * Pieces Lost: 1
+2018-04-03 19:24:01,847 INFO   * Pieces Built: 0
+2018-04-03 19:24:01,847 INFO   * Upgrades Researched: 0
+2018-04-03 19:47:24,780 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:47:24,781 INFO = Move phase begins
+2018-04-03 19:47:24,792 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:47:25,143 INFO = Build phase begins
+2018-04-03 19:47:25,497 INFO = Combat phase begins
+2018-04-03 19:47:25,509 INFO [<terra.piece.piece.Piece object at 0x080BD490>, <terra.piece.piece.Piece object at 0x080BD550>] are contesting the tile at (11, 10)!
+2018-04-03 19:47:25,509 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:47:25,509 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:47:25,509 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:47:25,509 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:47:25,852 INFO = Ranged phase begins
+2018-04-03 19:47:26,198 INFO = Special phase begins
+2018-04-03 19:47:26,550 INFO == TURN 8 BEGIN ==
+2018-04-03 19:47:26,550 INFO = Start Turn phase begins
+2018-04-03 19:47:26,562 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:47:26,562 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:47:26,908 INFO = Issue Orders phase begins
+2018-04-03 19:47:33,632 INFO BLUE Base at tile (11, 10) with 96 HP was assigned the order 'Order: Heal self'
+2018-04-03 19:47:33,632 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:47:33,632 INFO = Move phase begins
+2018-04-03 19:47:33,644 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:47:33,975 INFO = Build phase begins
+2018-04-03 19:47:34,312 INFO = Combat phase begins
+2018-04-03 19:47:34,324 INFO [<terra.piece.piece.Piece object at 0x080BD430>, <terra.piece.piece.Piece object at 0x080BD550>] are contesting the tile at (10, 9)!
+2018-04-03 19:47:34,324 INFO BLUE Barracks at tile (10, 9) with 70 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:47:34,324 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:47:34,324 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:47:34,324 INFO BLUE Barracks at tile (10, 9) with 40 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:47:34,661 INFO = Ranged phase begins
+2018-04-03 19:47:35,014 INFO = Special phase begins
+2018-04-03 19:47:35,026 INFO BLUE Base at tile (11, 10) with 116 HP healed for 20 health.
+2018-04-03 19:47:35,026 INFO BLUE Base at tile (11, 10) with 116 HP successfully executed 'Order: Heal self'
+2018-04-03 19:47:35,362 INFO == TURN 9 BEGIN ==
+2018-04-03 19:47:35,363 INFO = Start Turn phase begins
+2018-04-03 19:47:35,374 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:47:35,375 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:47:35,710 INFO = Issue Orders phase begins
+2018-04-03 19:50:18,395 INFO = Move phase begins
+2018-04-03 19:50:18,738 INFO = Build phase begins
+2018-04-03 19:50:19,074 INFO = Combat phase begins
+2018-04-03 19:50:19,084 INFO [<terra.piece.piece.Piece object at 0x080BD430>, <terra.piece.piece.Piece object at 0x080BD550>] are contesting the tile at (10, 9)!
+2018-04-03 19:50:19,085 INFO BLUE Barracks at tile (10, 9) with 10 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:50:19,085 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 19:50:19,085 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 19:50:19,085 INFO BLUE Barracks at tile (10, 9) with -20 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:50:19,411 INFO = Ranged phase begins
+2018-04-03 19:50:19,748 INFO = Special phase begins
+2018-04-03 19:50:20,083 INFO == TURN 10 BEGIN ==
+2018-04-03 19:50:20,083 INFO = Start Turn phase begins
+2018-04-03 19:50:20,094 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:50:20,094 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:50:20,412 INFO = Issue Orders phase begins
+2018-04-03 19:50:22,741 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:50:22,741 INFO = Move phase begins
+2018-04-03 19:50:22,751 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:50:23,067 INFO = Build phase begins
+2018-04-03 19:50:23,397 INFO = Combat phase begins
+2018-04-03 19:50:23,408 INFO [<terra.piece.piece.Piece object at 0x080BD490>, <terra.piece.piece.Piece object at 0x080BD550>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:23,409 INFO BLUE Base at tile (11, 10) with 89 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:23,409 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 89 HP!
+2018-04-03 19:50:23,409 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 89 HP!
+2018-04-03 19:50:23,409 INFO BLUE Base at tile (11, 10) with 62 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:23,732 INFO = Ranged phase begins
+2018-04-03 19:50:24,071 INFO = Special phase begins
+2018-04-03 19:50:24,410 INFO == TURN 11 BEGIN ==
+2018-04-03 19:50:24,410 INFO = Start Turn phase begins
+2018-04-03 19:50:24,421 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:50:24,421 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:50:24,755 INFO = Issue Orders phase begins
+2018-04-03 19:50:26,562 INFO = Move phase begins
+2018-04-03 19:50:26,898 INFO = Build phase begins
+2018-04-03 19:50:27,232 INFO = Combat phase begins
+2018-04-03 19:50:27,243 INFO [<terra.piece.piece.Piece object at 0x080BD490>, <terra.piece.piece.Piece object at 0x080BD550>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:27,243 INFO BLUE Base at tile (11, 10) with 35 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:27,243 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 35 HP!
+2018-04-03 19:50:27,243 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 35 HP!
+2018-04-03 19:50:27,243 INFO BLUE Base at tile (11, 10) with 8 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:27,565 INFO = Ranged phase begins
+2018-04-03 19:50:27,895 INFO = Special phase begins
+2018-04-03 19:50:28,217 INFO == TURN 12 BEGIN ==
+2018-04-03 19:50:28,217 INFO = Start Turn phase begins
+2018-04-03 19:50:28,240 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:50:28,240 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:50:28,570 INFO = Issue Orders phase begins
+2018-04-03 19:50:30,024 INFO = Move phase begins
+2018-04-03 19:50:30,373 INFO = Build phase begins
+2018-04-03 19:50:30,715 INFO = Combat phase begins
+2018-04-03 19:50:30,726 INFO [<terra.piece.piece.Piece object at 0x080BD490>, <terra.piece.piece.Piece object at 0x080BD550>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:30,726 INFO BLUE Base at tile (11, 10) with -19 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:30,726 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with -19 HP!
+2018-04-03 19:50:30,726 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with -19 HP!
+2018-04-03 19:50:30,727 INFO BLUE Base at tile (11, 10) with -46 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:31,048 INFO = Ranged phase begins
+2018-04-03 19:50:31,081 INFO === BATTLE OVER! ===
+2018-04-03 19:50:31,081 INFO Team.RED team has won!
+2018-04-03 19:50:31,081 INFO -- Stats for team Team.RED --
+2018-04-03 19:50:31,081 INFO   * Tiles Moved: 6
+2018-04-03 19:50:31,081 INFO   * Ranged Attacks: 0
+2018-04-03 19:50:31,081 INFO   * Piece Conflicts: 6
+2018-04-03 19:50:31,081 INFO   * Pieces Lost: 0
+2018-04-03 19:50:31,081 INFO   * Pieces Built: 0
+2018-04-03 19:50:31,081 INFO   * Upgrades Researched: 0
+2018-04-03 19:50:31,081 INFO Team.BLUE team has lost.
+2018-04-03 19:50:31,081 INFO -- Stats for team Team.BLUE --
+2018-04-03 19:50:31,082 INFO   * Tiles Moved: 0
+2018-04-03 19:50:31,082 INFO   * Ranged Attacks: 0
+2018-04-03 19:50:31,082 INFO   * Piece Conflicts: 6
+2018-04-03 19:50:31,082 INFO   * Pieces Lost: 2
+2018-04-03 19:50:31,082 INFO   * Pieces Built: 0
+2018-04-03 19:50:31,082 INFO   * Upgrades Researched: 0
+2018-04-03 19:50:36,736 INFO == TURN 1 BEGIN ==
+2018-04-03 19:50:36,736 INFO = Issue Orders phase begins
+2018-04-03 19:50:45,210 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:50:45,210 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:50:45,210 INFO = Move phase begins
+2018-04-03 19:50:45,210 INFO = Move phase begins
+2018-04-03 19:50:45,221 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:50:45,221 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:50:45,401 INFO = Build phase begins
+2018-04-03 19:50:45,401 INFO = Build phase begins
+2018-04-03 19:50:45,603 INFO = Combat phase begins
+2018-04-03 19:50:45,603 INFO = Combat phase begins
+2018-04-03 19:50:45,616 INFO [<terra.piece.piece.Piece object at 0x080C5FB0>, <terra.piece.piece.Piece object at 0x080C5C50>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:45,616 INFO [<terra.piece.piece.Piece object at 0x080C5FB0>, <terra.piece.piece.Piece object at 0x080C5C50>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:45,616 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:45,616 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:45,616 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:45,616 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:45,616 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:45,616 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:45,616 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:45,616 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:45,784 INFO = Ranged phase begins
+2018-04-03 19:50:45,784 INFO = Ranged phase begins
+2018-04-03 19:50:45,964 INFO = Special phase begins
+2018-04-03 19:50:45,964 INFO = Special phase begins
+2018-04-03 19:50:46,148 INFO == TURN 8 BEGIN ==
+2018-04-03 19:50:46,148 INFO == TURN 8 BEGIN ==
+2018-04-03 19:50:46,148 INFO = Start Turn phase begins
+2018-04-03 19:50:46,148 INFO = Start Turn phase begins
+2018-04-03 19:50:46,159 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:50:46,159 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:50:46,159 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:50:46,159 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:50:46,325 INFO = Issue Orders phase begins
+2018-04-03 19:50:46,325 INFO = Issue Orders phase begins
+2018-04-03 19:50:47,623 INFO = Move phase begins
+2018-04-03 19:50:47,623 INFO = Move phase begins
+2018-04-03 19:50:47,801 INFO = Build phase begins
+2018-04-03 19:50:47,801 INFO = Build phase begins
+2018-04-03 19:50:47,979 INFO = Combat phase begins
+2018-04-03 19:50:47,979 INFO = Combat phase begins
+2018-04-03 19:50:47,991 INFO [<terra.piece.piece.Piece object at 0x080C5FB0>, <terra.piece.piece.Piece object at 0x080C5C50>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:47,991 INFO [<terra.piece.piece.Piece object at 0x080C5FB0>, <terra.piece.piece.Piece object at 0x080C5C50>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:47,991 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:47,991 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:47,991 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:50:47,991 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:50:47,991 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:50:47,991 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:50:47,991 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:47,991 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:48,164 INFO = Ranged phase begins
+2018-04-03 19:50:48,164 INFO = Ranged phase begins
+2018-04-03 19:50:48,345 INFO = Special phase begins
+2018-04-03 19:50:48,345 INFO = Special phase begins
+2018-04-03 19:50:48,533 INFO == TURN 9 BEGIN ==
+2018-04-03 19:50:48,533 INFO == TURN 9 BEGIN ==
+2018-04-03 19:50:48,533 INFO = Start Turn phase begins
+2018-04-03 19:50:48,533 INFO = Start Turn phase begins
+2018-04-03 19:50:48,544 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:50:48,544 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:50:48,544 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:50:48,544 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:50:48,712 INFO = Issue Orders phase begins
+2018-04-03 19:50:48,712 INFO = Issue Orders phase begins
+2018-04-03 19:50:49,893 INFO = Move phase begins
+2018-04-03 19:50:49,893 INFO = Move phase begins
+2018-04-03 19:50:50,069 INFO = Build phase begins
+2018-04-03 19:50:50,069 INFO = Build phase begins
+2018-04-03 19:50:50,245 INFO = Combat phase begins
+2018-04-03 19:50:50,245 INFO = Combat phase begins
+2018-04-03 19:50:50,257 INFO [<terra.piece.piece.Piece object at 0x080C5FB0>, <terra.piece.piece.Piece object at 0x080C5C50>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:50,257 INFO [<terra.piece.piece.Piece object at 0x080C5FB0>, <terra.piece.piece.Piece object at 0x080C5C50>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:50,257 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:50,257 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:50,257 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:50:50,257 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:50:50,257 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:50:50,257 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:50:50,257 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:50,257 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:50,430 INFO = Ranged phase begins
+2018-04-03 19:50:50,430 INFO = Ranged phase begins
+2018-04-03 19:50:50,466 INFO === BATTLE OVER! ===
+2018-04-03 19:50:50,466 INFO === BATTLE OVER! ===
+2018-04-03 19:50:50,466 INFO Team.RED team has won!
+2018-04-03 19:50:50,466 INFO Team.RED team has won!
+2018-04-03 19:50:50,466 INFO -- Stats for team Team.RED --
+2018-04-03 19:50:50,466 INFO -- Stats for team Team.RED --
+2018-04-03 19:50:50,466 INFO   * Tiles Moved: 2
+2018-04-03 19:50:50,466 INFO   * Tiles Moved: 2
+2018-04-03 19:50:50,466 INFO   * Ranged Attacks: 0
+2018-04-03 19:50:50,466 INFO   * Ranged Attacks: 0
+2018-04-03 19:50:50,467 INFO   * Piece Conflicts: 3
+2018-04-03 19:50:50,467 INFO   * Piece Conflicts: 3
+2018-04-03 19:50:50,467 INFO   * Pieces Lost: 0
+2018-04-03 19:50:50,467 INFO   * Pieces Lost: 0
+2018-04-03 19:50:50,467 INFO   * Pieces Built: 0
+2018-04-03 19:50:50,467 INFO   * Pieces Built: 0
+2018-04-03 19:50:50,467 INFO   * Upgrades Researched: 0
+2018-04-03 19:50:50,467 INFO   * Upgrades Researched: 0
+2018-04-03 19:50:50,467 INFO Team.BLUE team has lost.
+2018-04-03 19:50:50,467 INFO Team.BLUE team has lost.
+2018-04-03 19:50:50,467 INFO -- Stats for team Team.BLUE --
+2018-04-03 19:50:50,467 INFO -- Stats for team Team.BLUE --
+2018-04-03 19:50:50,467 INFO   * Tiles Moved: 0
+2018-04-03 19:50:50,467 INFO   * Tiles Moved: 0
+2018-04-03 19:50:50,467 INFO   * Ranged Attacks: 0
+2018-04-03 19:50:50,467 INFO   * Ranged Attacks: 0
+2018-04-03 19:50:50,467 INFO   * Piece Conflicts: 3
+2018-04-03 19:50:50,467 INFO   * Piece Conflicts: 3
+2018-04-03 19:50:50,468 INFO   * Pieces Lost: 1
+2018-04-03 19:50:50,468 INFO   * Pieces Lost: 1
+2018-04-03 19:50:50,468 INFO   * Pieces Built: 0
+2018-04-03 19:50:50,468 INFO   * Pieces Built: 0
+2018-04-03 19:50:50,468 INFO   * Upgrades Researched: 0
+2018-04-03 19:50:50,468 INFO   * Upgrades Researched: 0
+2018-04-03 19:50:59,593 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:50:59,593 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:50:59,593 INFO RED Trooper at tile (9, 10) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:50:59,593 INFO = Move phase begins
+2018-04-03 19:50:59,593 INFO = Move phase begins
+2018-04-03 19:50:59,593 INFO = Move phase begins
+2018-04-03 19:50:59,604 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:50:59,604 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:50:59,604 INFO RED Trooper at tile (9, 10) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:50:59,682 INFO = Build phase begins
+2018-04-03 19:50:59,682 INFO = Build phase begins
+2018-04-03 19:50:59,682 INFO = Build phase begins
+2018-04-03 19:50:59,785 INFO = Combat phase begins
+2018-04-03 19:50:59,785 INFO = Combat phase begins
+2018-04-03 19:50:59,785 INFO = Combat phase begins
+2018-04-03 19:50:59,798 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:59,798 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:59,798 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:50:59,798 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:59,798 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:59,798 INFO BLUE Base at tile (11, 10) with 123 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:59,799 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:59,799 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:59,799 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:59,799 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:59,799 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:59,799 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 123 HP!
+2018-04-03 19:50:59,799 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:59,799 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:59,799 INFO BLUE Base at tile (11, 10) with 96 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:50:59,878 INFO = Ranged phase begins
+2018-04-03 19:50:59,878 INFO = Ranged phase begins
+2018-04-03 19:50:59,878 INFO = Ranged phase begins
+2018-04-03 19:50:59,964 INFO = Special phase begins
+2018-04-03 19:50:59,964 INFO = Special phase begins
+2018-04-03 19:50:59,964 INFO = Special phase begins
+2018-04-03 19:51:00,052 INFO == TURN 8 BEGIN ==
+2018-04-03 19:51:00,052 INFO == TURN 8 BEGIN ==
+2018-04-03 19:51:00,052 INFO == TURN 8 BEGIN ==
+2018-04-03 19:51:00,053 INFO = Start Turn phase begins
+2018-04-03 19:51:00,053 INFO = Start Turn phase begins
+2018-04-03 19:51:00,053 INFO = Start Turn phase begins
+2018-04-03 19:51:00,065 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:00,065 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:00,065 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:00,065 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:00,065 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:00,065 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:00,143 INFO = Issue Orders phase begins
+2018-04-03 19:51:00,143 INFO = Issue Orders phase begins
+2018-04-03 19:51:00,143 INFO = Issue Orders phase begins
+2018-04-03 19:51:05,530 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:51:05,530 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:51:05,530 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:51:05,530 INFO = Move phase begins
+2018-04-03 19:51:05,530 INFO = Move phase begins
+2018-04-03 19:51:05,530 INFO = Move phase begins
+2018-04-03 19:51:05,542 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:51:05,542 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:51:05,542 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:51:05,618 INFO = Build phase begins
+2018-04-03 19:51:05,618 INFO = Build phase begins
+2018-04-03 19:51:05,618 INFO = Build phase begins
+2018-04-03 19:51:05,706 INFO = Combat phase begins
+2018-04-03 19:51:05,706 INFO = Combat phase begins
+2018-04-03 19:51:05,706 INFO = Combat phase begins
+2018-04-03 19:51:05,718 INFO [<terra.piece.piece.Piece object at 0x080BAEB0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (10, 9)!
+2018-04-03 19:51:05,718 INFO [<terra.piece.piece.Piece object at 0x080BAEB0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (10, 9)!
+2018-04-03 19:51:05,718 INFO [<terra.piece.piece.Piece object at 0x080BAEB0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (10, 9)!
+2018-04-03 19:51:05,718 INFO BLUE Barracks at tile (10, 9) with 70 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:05,718 INFO BLUE Barracks at tile (10, 9) with 70 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:05,718 INFO BLUE Barracks at tile (10, 9) with 70 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:05,718 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:51:05,718 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:51:05,718 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:51:05,718 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:51:05,718 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:51:05,718 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 70 HP!
+2018-04-03 19:51:05,719 INFO BLUE Barracks at tile (10, 9) with 40 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:05,719 INFO BLUE Barracks at tile (10, 9) with 40 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:05,719 INFO BLUE Barracks at tile (10, 9) with 40 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:05,793 INFO = Ranged phase begins
+2018-04-03 19:51:05,793 INFO = Ranged phase begins
+2018-04-03 19:51:05,793 INFO = Ranged phase begins
+2018-04-03 19:51:05,880 INFO = Special phase begins
+2018-04-03 19:51:05,880 INFO = Special phase begins
+2018-04-03 19:51:05,880 INFO = Special phase begins
+2018-04-03 19:51:05,968 INFO == TURN 9 BEGIN ==
+2018-04-03 19:51:05,968 INFO == TURN 9 BEGIN ==
+2018-04-03 19:51:05,968 INFO == TURN 9 BEGIN ==
+2018-04-03 19:51:05,969 INFO = Start Turn phase begins
+2018-04-03 19:51:05,969 INFO = Start Turn phase begins
+2018-04-03 19:51:05,969 INFO = Start Turn phase begins
+2018-04-03 19:51:05,980 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:05,980 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:05,980 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:05,980 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:05,980 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:05,980 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:06,057 INFO = Issue Orders phase begins
+2018-04-03 19:51:06,057 INFO = Issue Orders phase begins
+2018-04-03 19:51:06,057 INFO = Issue Orders phase begins
+2018-04-03 19:51:08,867 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:51:08,867 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:51:08,867 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:51:08,868 INFO = Move phase begins
+2018-04-03 19:51:08,868 INFO = Move phase begins
+2018-04-03 19:51:08,868 INFO = Move phase begins
+2018-04-03 19:51:08,880 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:51:08,880 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:51:08,880 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:51:08,956 INFO = Build phase begins
+2018-04-03 19:51:08,956 INFO = Build phase begins
+2018-04-03 19:51:08,956 INFO = Build phase begins
+2018-04-03 19:51:09,044 INFO = Combat phase begins
+2018-04-03 19:51:09,044 INFO = Combat phase begins
+2018-04-03 19:51:09,044 INFO = Combat phase begins
+2018-04-03 19:51:09,054 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:51:09,054 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:51:09,054 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:51:09,055 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:09,055 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:09,055 INFO BLUE Base at tile (11, 10) with 69 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:09,055 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:51:09,055 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:51:09,055 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:51:09,055 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:51:09,055 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:51:09,055 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 69 HP!
+2018-04-03 19:51:09,055 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:09,055 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:09,055 INFO BLUE Base at tile (11, 10) with 42 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:09,132 INFO = Ranged phase begins
+2018-04-03 19:51:09,132 INFO = Ranged phase begins
+2018-04-03 19:51:09,132 INFO = Ranged phase begins
+2018-04-03 19:51:09,219 INFO = Special phase begins
+2018-04-03 19:51:09,219 INFO = Special phase begins
+2018-04-03 19:51:09,219 INFO = Special phase begins
+2018-04-03 19:51:09,305 INFO == TURN 10 BEGIN ==
+2018-04-03 19:51:09,305 INFO == TURN 10 BEGIN ==
+2018-04-03 19:51:09,305 INFO == TURN 10 BEGIN ==
+2018-04-03 19:51:09,305 INFO = Start Turn phase begins
+2018-04-03 19:51:09,305 INFO = Start Turn phase begins
+2018-04-03 19:51:09,305 INFO = Start Turn phase begins
+2018-04-03 19:51:09,316 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:09,316 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:09,316 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:09,316 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:09,316 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:09,316 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:09,391 INFO = Issue Orders phase begins
+2018-04-03 19:51:09,391 INFO = Issue Orders phase begins
+2018-04-03 19:51:09,391 INFO = Issue Orders phase begins
+2018-04-03 19:51:12,207 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:51:12,207 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:51:12,207 INFO RED Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-03 19:51:12,207 INFO = Move phase begins
+2018-04-03 19:51:12,207 INFO = Move phase begins
+2018-04-03 19:51:12,207 INFO = Move phase begins
+2018-04-03 19:51:12,218 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:51:12,218 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:51:12,218 INFO RED Trooper at tile (11, 10) with 100 HP successfully executed 'Order: Move to (10, 9)'
+2018-04-03 19:51:12,292 INFO = Build phase begins
+2018-04-03 19:51:12,292 INFO = Build phase begins
+2018-04-03 19:51:12,292 INFO = Build phase begins
+2018-04-03 19:51:12,377 INFO = Combat phase begins
+2018-04-03 19:51:12,377 INFO = Combat phase begins
+2018-04-03 19:51:12,377 INFO = Combat phase begins
+2018-04-03 19:51:12,387 INFO [<terra.piece.piece.Piece object at 0x080BAEB0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (10, 9)!
+2018-04-03 19:51:12,387 INFO [<terra.piece.piece.Piece object at 0x080BAEB0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (10, 9)!
+2018-04-03 19:51:12,387 INFO [<terra.piece.piece.Piece object at 0x080BAEB0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (10, 9)!
+2018-04-03 19:51:12,388 INFO BLUE Barracks at tile (10, 9) with 10 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:12,388 INFO BLUE Barracks at tile (10, 9) with 10 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:12,388 INFO BLUE Barracks at tile (10, 9) with 10 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:12,388 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 19:51:12,388 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 19:51:12,388 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 19:51:12,388 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 19:51:12,388 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 19:51:12,388 INFO RED Trooper at tile (10, 9) with 100 HP took 0 damage from BLUE Barracks at tile (10, 9) with 10 HP!
+2018-04-03 19:51:12,388 INFO BLUE Barracks at tile (10, 9) with -20 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:12,388 INFO BLUE Barracks at tile (10, 9) with -20 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:12,388 INFO BLUE Barracks at tile (10, 9) with -20 HP took 30 damage from RED Trooper at tile (10, 9) with 100 HP!
+2018-04-03 19:51:12,460 INFO = Ranged phase begins
+2018-04-03 19:51:12,460 INFO = Ranged phase begins
+2018-04-03 19:51:12,460 INFO = Ranged phase begins
+2018-04-03 19:51:12,543 INFO = Special phase begins
+2018-04-03 19:51:12,543 INFO = Special phase begins
+2018-04-03 19:51:12,543 INFO = Special phase begins
+2018-04-03 19:51:12,629 INFO == TURN 11 BEGIN ==
+2018-04-03 19:51:12,629 INFO == TURN 11 BEGIN ==
+2018-04-03 19:51:12,629 INFO == TURN 11 BEGIN ==
+2018-04-03 19:51:12,629 INFO = Start Turn phase begins
+2018-04-03 19:51:12,629 INFO = Start Turn phase begins
+2018-04-03 19:51:12,629 INFO = Start Turn phase begins
+2018-04-03 19:51:12,640 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:12,640 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:12,640 INFO Team.BLUE team acquired 2 resources.
+2018-04-03 19:51:12,640 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:12,640 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:12,640 INFO Team.RED team acquired 2 resources.
+2018-04-03 19:51:12,715 INFO = Issue Orders phase begins
+2018-04-03 19:51:12,715 INFO = Issue Orders phase begins
+2018-04-03 19:51:12,715 INFO = Issue Orders phase begins
+2018-04-03 19:51:14,535 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:51:14,535 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:51:14,535 INFO RED Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-03 19:51:14,535 INFO = Move phase begins
+2018-04-03 19:51:14,535 INFO = Move phase begins
+2018-04-03 19:51:14,535 INFO = Move phase begins
+2018-04-03 19:51:14,547 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:51:14,547 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:51:14,547 INFO RED Trooper at tile (10, 9) with 100 HP successfully executed 'Order: Move to (11, 10)'
+2018-04-03 19:51:14,622 INFO = Build phase begins
+2018-04-03 19:51:14,622 INFO = Build phase begins
+2018-04-03 19:51:14,622 INFO = Build phase begins
+2018-04-03 19:51:14,710 INFO = Combat phase begins
+2018-04-03 19:51:14,710 INFO = Combat phase begins
+2018-04-03 19:51:14,710 INFO = Combat phase begins
+2018-04-03 19:51:14,722 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:51:14,722 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:51:14,722 INFO [<terra.piece.piece.Piece object at 0x080BADD0>, <terra.piece.piece.Piece object at 0x080BAC10>] are contesting the tile at (11, 10)!
+2018-04-03 19:51:14,722 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:14,722 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:14,722 INFO BLUE Base at tile (11, 10) with 15 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:14,722 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:51:14,722 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:51:14,722 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:51:14,722 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:51:14,722 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:51:14,722 INFO RED Trooper at tile (11, 10) with 100 HP took 0 damage from BLUE Base at tile (11, 10) with 15 HP!
+2018-04-03 19:51:14,723 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:14,723 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:14,723 INFO BLUE Base at tile (11, 10) with -12 HP took 27 damage from RED Trooper at tile (11, 10) with 100 HP!
+2018-04-03 19:51:14,797 INFO = Ranged phase begins
+2018-04-03 19:51:14,797 INFO = Ranged phase begins
+2018-04-03 19:51:14,797 INFO = Ranged phase begins
+2018-04-03 19:51:14,830 INFO === BATTLE OVER! ===
+2018-04-03 19:51:14,830 INFO === BATTLE OVER! ===
+2018-04-03 19:51:14,830 INFO === BATTLE OVER! ===
+2018-04-03 19:51:14,831 INFO Team.RED team has won!
+2018-04-03 19:51:14,831 INFO Team.RED team has won!
+2018-04-03 19:51:14,831 INFO Team.RED team has won!
+2018-04-03 19:51:14,831 INFO -- Stats for team Team.RED --
+2018-04-03 19:51:14,831 INFO -- Stats for team Team.RED --
+2018-04-03 19:51:14,831 INFO -- Stats for team Team.RED --
+2018-04-03 19:51:14,831 INFO   * Tiles Moved: 10
+2018-04-03 19:51:14,831 INFO   * Tiles Moved: 10
+2018-04-03 19:51:14,831 INFO   * Tiles Moved: 10
+2018-04-03 19:51:14,831 INFO   * Ranged Attacks: 0
+2018-04-03 19:51:14,831 INFO   * Ranged Attacks: 0
+2018-04-03 19:51:14,831 INFO   * Ranged Attacks: 0
+2018-04-03 19:51:14,832 INFO   * Piece Conflicts: 5
+2018-04-03 19:51:14,832 INFO   * Piece Conflicts: 5
+2018-04-03 19:51:14,832 INFO   * Piece Conflicts: 5
+2018-04-03 19:51:14,832 INFO   * Pieces Lost: 0
+2018-04-03 19:51:14,832 INFO   * Pieces Lost: 0
+2018-04-03 19:51:14,832 INFO   * Pieces Lost: 0
+2018-04-03 19:51:14,832 INFO   * Pieces Built: 0
+2018-04-03 19:51:14,832 INFO   * Pieces Built: 0
+2018-04-03 19:51:14,832 INFO   * Pieces Built: 0
+2018-04-03 19:51:14,832 INFO   * Upgrades Researched: 0
+2018-04-03 19:51:14,832 INFO   * Upgrades Researched: 0
+2018-04-03 19:51:14,832 INFO   * Upgrades Researched: 0
+2018-04-03 19:51:14,832 INFO Team.BLUE team has lost.
+2018-04-03 19:51:14,832 INFO Team.BLUE team has lost.
+2018-04-03 19:51:14,832 INFO Team.BLUE team has lost.
+2018-04-03 19:51:14,832 INFO -- Stats for team Team.BLUE --
+2018-04-03 19:51:14,832 INFO -- Stats for team Team.BLUE --
+2018-04-03 19:51:14,832 INFO -- Stats for team Team.BLUE --
+2018-04-03 19:51:14,832 INFO   * Tiles Moved: 0
+2018-04-03 19:51:14,832 INFO   * Tiles Moved: 0
+2018-04-03 19:51:14,832 INFO   * Tiles Moved: 0
+2018-04-03 19:51:14,832 INFO   * Ranged Attacks: 0
+2018-04-03 19:51:14,832 INFO   * Ranged Attacks: 0
+2018-04-03 19:51:14,832 INFO   * Ranged Attacks: 0
+2018-04-03 19:51:14,833 INFO   * Piece Conflicts: 5
+2018-04-03 19:51:14,833 INFO   * Piece Conflicts: 5
+2018-04-03 19:51:14,833 INFO   * Piece Conflicts: 5
+2018-04-03 19:51:14,833 INFO   * Pieces Lost: 2
+2018-04-03 19:51:14,833 INFO   * Pieces Lost: 2
+2018-04-03 19:51:14,833 INFO   * Pieces Lost: 2
+2018-04-03 19:51:14,833 INFO   * Pieces Built: 0
+2018-04-03 19:51:14,833 INFO   * Pieces Built: 0
+2018-04-03 19:51:14,833 INFO   * Pieces Built: 0
+2018-04-03 19:51:14,833 INFO   * Upgrades Researched: 0
+2018-04-03 19:51:14,833 INFO   * Upgrades Researched: 0
+2018-04-03 19:51:14,833 INFO   * Upgrades Researched: 0

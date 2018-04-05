@@ -12,7 +12,6 @@ from terra.map.tile import Tile
 from terra.map.tiletype import tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
 from terra.resources.assetloading import AssetType, get_asset
-from terra.resources.assets import spr_tiles_mini
 from terra.util.mathutil import clamp
 
 
@@ -303,7 +302,11 @@ def generate_bitmap_from_simplex_noise(width, height, mirror_x=False, mirror_y=F
 
 
 # Generate a surface containing a minimap of the passed in bitmap
-def generate_minimap(bitmap):
+# Optionally, render blips for pieces
+def generate_minimap(bitmap, pieces=None):
+    from terra.resources.assets import team_color, clear_color, spr_tiles_mini
+    from terra.team import Team
+
     height = len(bitmap)
     width = len(bitmap[0])
 
@@ -312,5 +315,14 @@ def generate_minimap(bitmap):
     for x in range(width):
         for y in range(height):
             minimap.blit(spr_tiles_mini[bitmap[y][x]], (x * 4, y * 4))
+
+    # Generate team-colored blips on the map for each piece
+    if pieces:
+        for piece in pieces:
+            data = piece.split(' ')
+            team = Team[data[2]]
+            x, y = int(data[0]), int(data[1])
+            minimap.fill(team_color[team], (x * 4 + 1, y * 4 + 1, 2, 2))
+            minimap.fill(clear_color[team], (x * 4 + 1, y * 4 + 3, 2, 1))
 
     return minimap

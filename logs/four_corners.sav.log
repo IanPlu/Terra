@@ -1,0 +1,24 @@
+2018-04-04 13:39:18,559 INFO BLUE Trooper at tile (9, 7) with 100 HP was assigned the order 'Order: Move to (7, 7)'
+2018-04-04 13:39:18,559 INFO GREEN Trooper at tile (10, 7) with 100 HP was assigned the order 'Order: Move to (11, 7)'
+2018-04-04 13:39:18,559 INFO RED Trooper at tile (8, 6) with 100 HP was assigned the order 'Order: Move to (9, 5)'
+2018-04-04 13:39:18,559 INFO YELLOW Trooper at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (8, 7)'
+2018-04-04 13:39:18,559 INFO = Move phase begins
+2018-04-04 13:39:18,575 INFO YELLOW Trooper at tile (8, 8) with 100 HP successfully executed 'Order: Move to (8, 7)'
+2018-04-04 13:39:18,575 INFO RED Trooper at tile (8, 6) with 100 HP successfully executed 'Order: Move to (9, 5)'
+2018-04-04 13:39:18,575 INFO GREEN Trooper at tile (10, 7) with 100 HP successfully executed 'Order: Move to (11, 7)'
+2018-04-04 13:39:18,575 INFO BLUE Trooper at tile (9, 7) with 100 HP successfully executed 'Order: Move to (7, 7)'
+2018-04-04 13:39:18,795 INFO = Build phase begins
+2018-04-04 13:39:19,027 INFO = Combat phase begins
+2018-04-04 13:39:19,258 INFO = Ranged phase begins
+2018-04-04 13:39:19,486 INFO = Special phase begins
+2018-04-04 13:39:19,714 INFO == TURN 11 BEGIN ==
+2018-04-04 13:39:19,714 INFO = Start Turn phase begins
+2018-04-04 13:39:19,728 INFO Team.BLUE team acquired 1 resources.
+2018-04-04 13:39:19,729 INFO Team.RED team acquired 1 resources.
+2018-04-04 13:39:19,729 INFO Team.GREEN team acquired 1 resources.
+2018-04-04 13:39:19,729 INFO Team.YELLOW team acquired 1 resources.
+2018-04-04 13:39:19,729 INFO Team.GREEN team acquired 2 resources.
+2018-04-04 13:39:19,729 INFO Team.YELLOW team acquired 2 resources.
+2018-04-04 13:39:19,729 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 13:39:19,729 INFO Team.RED team acquired 2 resources.
+2018-04-04 13:39:19,948 INFO = Issue Orders phase begins

@@ -1,0 +1,69 @@
+2018-04-04 13:42:42,026 INFO RED Colonist at tile (4, 5) with 100 HP was assigned the order 'Order: Move to (5, 7)'
+2018-04-04 13:42:42,026 INFO BLUE Colonist at tile (4, 5) with 100 HP was assigned the order 'Order: Move to (3, 3)'
+2018-04-04 13:42:42,026 INFO RED Colonist at tile (5, 5) with 100 HP was assigned the order 'Order: Move to (4, 7)'
+2018-04-04 13:42:42,026 INFO BLUE Colonist at tile (5, 5) with 100 HP was assigned the order 'Order: Move to (3, 6)'
+2018-04-04 13:42:42,027 INFO RED Colonist at tile (11, 5) with 100 HP was assigned the order 'Order: Move to (10, 5)'
+2018-04-04 13:42:42,029 INFO BLUE Colonist at tile (11, 5) with 100 HP was assigned the order 'Order: Move to (10, 5)'
+2018-04-04 13:42:42,029 INFO RED Colonist at tile (10, 5) with 100 HP was assigned the order 'Order: Move to (9, 7)'
+2018-04-04 13:42:42,029 INFO BLUE Colonist at tile (10, 5) with 100 HP was assigned the order 'Order: Move to (9, 7)'
+2018-04-04 13:42:42,029 INFO RED Colonist at tile (9, 5) with 100 HP was assigned the order 'Order: Move to (9, 6)'
+2018-04-04 13:42:42,029 INFO BLUE Colonist at tile (9, 5) with 100 HP was assigned the order 'Order: Move to (7, 6)'
+2018-04-04 13:42:42,029 INFO RED Colonist at tile (8, 5) with 100 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-04 13:42:42,029 INFO BLUE Colonist at tile (8, 5) with 100 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-04 13:42:42,029 INFO RED Colonist at tile (7, 5) with 100 HP was assigned the order 'Order: Move to (8, 7)'
+2018-04-04 13:42:42,030 INFO BLUE Colonist at tile (7, 5) with 100 HP was assigned the order 'Order: Move to (9, 6)'
+2018-04-04 13:42:42,030 INFO RED Colonist at tile (6, 5) with 100 HP was assigned the order 'Order: Move to (5, 5)'
+2018-04-04 13:42:42,030 INFO BLUE Colonist at tile (6, 5) with 100 HP was assigned the order 'Order: Move to (5, 5)'
+2018-04-04 13:42:42,030 INFO BLUE Colonist at tile (9, 6) with 100 HP was assigned the order 'Order: Move to (10, 7)'
+2018-04-04 13:42:42,030 INFO = Move phase begins
+2018-04-04 13:42:42,056 INFO BLUE Colonist at tile (9, 6) with 100 HP successfully executed 'Order: Move to (10, 7)'
+2018-04-04 13:42:42,056 INFO BLUE Colonist at tile (6, 5) with 100 HP successfully executed 'Order: Move to (5, 5)'
+2018-04-04 13:42:42,057 INFO RED Colonist at tile (6, 5) with 100 HP successfully executed 'Order: Move to (5, 5)'
+2018-04-04 13:42:42,057 INFO BLUE Colonist at tile (7, 5) with 100 HP successfully executed 'Order: Move to (9, 6)'
+2018-04-04 13:42:42,057 INFO RED Colonist at tile (7, 5) with 100 HP successfully executed 'Order: Move to (8, 7)'
+2018-04-04 13:42:42,057 INFO BLUE Colonist at tile (8, 5) with 100 HP successfully executed 'Order: Move to (8, 8)'
+2018-04-04 13:42:42,057 INFO RED Colonist at tile (8, 5) with 100 HP successfully executed 'Order: Move to (8, 8)'
+2018-04-04 13:42:42,057 INFO BLUE Colonist at tile (9, 5) with 100 HP successfully executed 'Order: Move to (7, 6)'
+2018-04-04 13:42:42,057 INFO RED Colonist at tile (9, 5) with 100 HP successfully executed 'Order: Move to (9, 6)'
+2018-04-04 13:42:42,057 INFO BLUE Colonist at tile (10, 5) with 100 HP successfully executed 'Order: Move to (9, 7)'
+2018-04-04 13:42:42,057 INFO RED Colonist at tile (10, 5) with 100 HP successfully executed 'Order: Move to (9, 7)'
+2018-04-04 13:42:42,057 INFO BLUE Colonist at tile (11, 5) with 100 HP successfully executed 'Order: Move to (10, 5)'
+2018-04-04 13:42:42,057 INFO RED Colonist at tile (11, 5) with 100 HP successfully executed 'Order: Move to (10, 5)'
+2018-04-04 13:42:42,058 INFO BLUE Colonist at tile (5, 5) with 100 HP successfully executed 'Order: Move to (3, 6)'
+2018-04-04 13:42:42,058 INFO RED Colonist at tile (5, 5) with 100 HP successfully executed 'Order: Move to (4, 7)'
+2018-04-04 13:42:42,058 INFO BLUE Colonist at tile (4, 5) with 100 HP successfully executed 'Order: Move to (3, 3)'
+2018-04-04 13:42:42,058 INFO RED Colonist at tile (4, 5) with 100 HP successfully executed 'Order: Move to (5, 7)'
+2018-04-04 13:42:42,430 INFO = Build phase begins
+2018-04-04 13:42:42,812 INFO = Combat phase begins
+2018-04-04 13:42:42,843 INFO [<terra.piece.piece.Piece object at 0x087BCDB0>, <terra.piece.piece.Piece object at 0x087BCD70>] are contesting the tile at (5, 5)!
+2018-04-04 13:42:42,843 INFO BLUE Colonist at tile (5, 5) with 100 HP took 0 damage from RED Colonist at tile (5, 5) with 100 HP!
+2018-04-04 13:42:42,843 INFO RED Colonist at tile (5, 5) with 100 HP took 0 damage from BLUE Colonist at tile (5, 5) with 100 HP!
+2018-04-04 13:42:42,843 INFO RED Colonist at tile (5, 5) with 100 HP took 0 damage from BLUE Colonist at tile (5, 5) with 100 HP!
+2018-04-04 13:42:42,843 INFO BLUE Colonist at tile (5, 5) with 100 HP took 0 damage from RED Colonist at tile (5, 5) with 100 HP!
+2018-04-04 13:42:42,843 INFO [<terra.piece.piece.Piece object at 0x087BCD30>, <terra.piece.piece.Piece object at 0x087BCBD0>] are contesting the tile at (9, 6)!
+2018-04-04 13:42:42,843 INFO BLUE Colonist at tile (9, 6) with 100 HP took 0 damage from RED Colonist at tile (9, 6) with 100 HP!
+2018-04-04 13:42:42,843 INFO RED Colonist at tile (9, 6) with 100 HP took 0 damage from BLUE Colonist at tile (9, 6) with 100 HP!
+2018-04-04 13:42:42,844 INFO RED Colonist at tile (9, 6) with 100 HP took 0 damage from BLUE Colonist at tile (9, 6) with 100 HP!
+2018-04-04 13:42:42,844 INFO BLUE Colonist at tile (9, 6) with 100 HP took 0 damage from RED Colonist at tile (9, 6) with 100 HP!
+2018-04-04 13:42:42,844 INFO [<terra.piece.piece.Piece object at 0x087BCCB0>, <terra.piece.piece.Piece object at 0x087BCC50>] are contesting the tile at (8, 8)!
+2018-04-04 13:42:42,844 INFO BLUE Colonist at tile (8, 8) with 100 HP took 0 damage from RED Colonist at tile (8, 8) with 100 HP!
+2018-04-04 13:42:42,844 INFO RED Colonist at tile (8, 8) with 100 HP took 0 damage from BLUE Colonist at tile (8, 8) with 100 HP!
+2018-04-04 13:42:42,844 INFO RED Colonist at tile (8, 8) with 100 HP took 0 damage from BLUE Colonist at tile (8, 8) with 100 HP!
+2018-04-04 13:42:42,844 INFO BLUE Colonist at tile (8, 8) with 100 HP took 0 damage from RED Colonist at tile (8, 8) with 100 HP!
+2018-04-04 13:42:42,844 INFO [<terra.piece.piece.Piece object at 0x087BCB70>, <terra.piece.piece.Piece object at 0x087BCB90>] are contesting the tile at (9, 7)!
+2018-04-04 13:42:42,844 INFO BLUE Colonist at tile (9, 7) with 100 HP took 0 damage from RED Colonist at tile (9, 7) with 100 HP!
+2018-04-04 13:42:42,844 INFO RED Colonist at tile (9, 7) with 100 HP took 0 damage from BLUE Colonist at tile (9, 7) with 100 HP!
+2018-04-04 13:42:42,844 INFO RED Colonist at tile (9, 7) with 100 HP took 0 damage from BLUE Colonist at tile (9, 7) with 100 HP!
+2018-04-04 13:42:42,844 INFO BLUE Colonist at tile (9, 7) with 100 HP took 0 damage from RED Colonist at tile (9, 7) with 100 HP!
+2018-04-04 13:42:42,844 INFO [<terra.piece.piece.Piece object at 0x087BCB30>, <terra.piece.piece.Piece object at 0x087BCAF0>] are contesting the tile at (10, 5)!
+2018-04-04 13:42:42,845 INFO BLUE Colonist at tile (10, 5) with 100 HP took 0 damage from RED Colonist at tile (10, 5) with 100 HP!
+2018-04-04 13:42:42,845 INFO RED Colonist at tile (10, 5) with 100 HP took 0 damage from BLUE Colonist at tile (10, 5) with 100 HP!
+2018-04-04 13:42:42,845 INFO RED Colonist at tile (10, 5) with 100 HP took 0 damage from BLUE Colonist at tile (10, 5) with 100 HP!
+2018-04-04 13:42:42,845 INFO BLUE Colonist at tile (10, 5) with 100 HP took 0 damage from RED Colonist at tile (10, 5) with 100 HP!
+2018-04-04 13:42:43,220 INFO = Ranged phase begins
+2018-04-04 13:42:43,606 INFO = Special phase begins
+2018-04-04 13:42:43,986 INFO == TURN 2 BEGIN ==
+2018-04-04 13:42:43,986 INFO = Start Turn phase begins
+2018-04-04 13:42:44,012 INFO Team.BLUE team acquired 2 resources.
+2018-04-04 13:42:44,012 INFO Team.RED team acquired 2 resources.
+2018-04-04 13:42:44,380 INFO = Issue Orders phase begins

@@ -15,6 +15,10 @@ class MovementType(Enum):
     RAISE = auto()
     LOWER = auto()
 
+    def __str__(self):
+        from terra.strings import attribute_value_strings, get_string
+        return get_string(attribute_value_strings, self)
+
 
 class MovementAttribute(Enum):
     PASSABLE = "PASSABLE"

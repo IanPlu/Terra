@@ -74,7 +74,9 @@ class Piece(AnimatedGameObject):
 
         self.previewing_order = False
 
-        super().__init__(spr_pieces[self.team][self.piece_type], 24, 8, indexed=self.piece_type in [PieceType.COLONIST, PieceType.TROOPER],
+        indexed_pieces = [PieceType.COLONIST, PieceType.TROOPER, PieceType.RANGER, PieceType.GHOST,
+                          PieceType.GUARDIAN, PieceType.BOLTCASTER, PieceType.BANSHEE]
+        super().__init__(spr_pieces[self.team][self.piece_type], 24, 8, indexed=self.piece_type in indexed_pieces,
                          use_global_animation_frame=True, own_frames_for_index=True)
 
     def __str__(self):

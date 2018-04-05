@@ -99,6 +99,13 @@ spr_order_options = {
     }
 }
 
+spr_combat_icon = {
+    Team.RED: spr_main_menu_option[Option.NEW_GAME]
+}
+spr_build_icon = {
+    Team.RED: spr_order_options[Team.RED][Option.MENU_BUILD_PIECE]
+}
+
 spr_menu_option_item_background = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/MenuOption_PieceBackground.png"))
 }
@@ -270,6 +277,12 @@ light_team_color = {
     Team.GREEN: (84, 158, 91),
     Team.YELLOW: (196, 178, 94),
 }
+team_color = {
+    Team.RED: (230, 53, 53),
+    Team.BLUE: (56, 154, 226),
+    Team.GREEN: (33, 117, 62),
+    Team.YELLOW: (156, 132, 62),
+}
 clear_color = {
     Team.RED: (46, 29, 29),
     Team.BLUE: (41, 56, 71),
@@ -311,6 +324,9 @@ def load_assets():
         spr_wait_icon[team] = swap_palette(spr_wait_icon[Team.RED], unit_palette[team])
         spr_target[team] = swap_palette(spr_target[Team.RED], unit_palette[team])
         spr_menu_option_item_background[team] = swap_palette(spr_menu_option_item_background[Team.RED], unit_palette[team])
+
+        spr_combat_icon[team] = swap_palette(spr_combat_icon[Team.RED], unit_palette[team])
+        spr_build_icon[team] = swap_palette(spr_build_icon[Team.RED], unit_palette[team])
 
         spr_pieces[team] = {}
         for piece_type in PieceType:

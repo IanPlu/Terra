@@ -277,6 +277,9 @@ main_menu_strings = {
         Option.NEW_MAP: "New Map",
         Option.LOAD_MAP: "Load Map",
         Option.SAVE_SETTINGS: "Apply Settings",
+
+        Option.LEAVE_LOBBY: "Leave Lobby",
+        Option.START_BATTLE: "Start Battle",
     }
 }
 
@@ -339,6 +342,7 @@ label_strings = {
         "NICKNAME_INPUT": "Enter a new nickname:",
         "MAPNAME_INPUT": "Enter new map name:",
         "RESULTS_PROMPT": "Press the CONFIRM key to continue",
+        "OPEN_TEAM": "-OPEN-",
     }
 }
 

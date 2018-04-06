@@ -11,3 +11,5 @@ class MessageCode(Enum):
     PLAYER_CONCEDED = "[CONCEDE]"
     SET_TEAM = "[SET_TEA]"
     START_BATTLE = "[STA_BAT]"
+    TEAM_FILLED = "[TEAM_FI]"
+    TEAM_EMPTIED = "[TEAM_EM]"

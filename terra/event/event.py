@@ -38,6 +38,9 @@ class EventType(Enum):
     E_EXIT_LOBBY = auto()
     E_NETWORKING_ERROR = auto()
 
+    E_ALL_TEAMS_FILLED = auto()
+    E_TEAM_LEFT = auto()
+
     # Notification events
     E_UNIT_MOVED = auto()
     E_UNIT_RANGED_ATTACK = auto()

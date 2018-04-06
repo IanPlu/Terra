@@ -20,7 +20,7 @@ from terra.settings import Setting, SETTINGS
 from terra.team import Team
 from terra.control.inputcontroller import INPUT_CONTROLLER
 
-use_network_lobby = False
+use_network_lobby = True
 
 
 # Main entry point for the game.

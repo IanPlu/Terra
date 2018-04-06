@@ -20,6 +20,10 @@ class Option(Enum):
     LOAD_MAP = auto()
     SAVE_SETTINGS = auto()
 
+    # Network lobby options
+    LEAVE_LOBBY = auto()
+    START_BATTLE = auto()
+
     # Piece selection options
     MENU_CANCEL_ORDER = auto()
     MENU_MOVE = auto()

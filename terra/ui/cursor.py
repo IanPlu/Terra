@@ -81,10 +81,12 @@ class Cursor(GameObject):
         input_handler.register_handler(InputAction.MOTION, None, self.convert_mouse_coords_to_cursor)
 
     def is_accepting_events(self):
-        return Managers.player_manager.active_team == self.team
+        return Managers.player_manager.active_team == self.team \
+               and Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]
 
     def is_accepting_input(self):
-        return self.menu is None and Managers.player_manager.active_team == self.team
+        return self.menu is None and Managers.player_manager.active_team == self.team \
+               and Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]
 
     def can_confirm_or_cancel(self):
         return Managers.turn_manager.phase == BattlePhase.ORDERS
@@ -147,7 +149,7 @@ class Cursor(GameObject):
 
     def open_pause_menu(self):
         if self.can_confirm_or_cancel():
-            if Managers.current_mode in [Mode.BATTLE]:
+            if Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]:
                 if Managers.team_manager.is_turn_submitted(self.team):
                     menu_options = [Option.MENU_REVISE_TURN]
                 else:

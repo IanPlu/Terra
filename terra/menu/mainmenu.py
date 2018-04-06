@@ -5,18 +5,18 @@ from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import EventType, publish_game_event
-from terra.managers.mapmanager import get_loadable_maps, load_map_from_file, generate_minimap
+from terra.managers.mapmanager import get_loadable_maps
+from terra.map.minimap import draw_map_preview_from_file
 from terra.menu.option import Option
 from terra.menu.textinput import TextInput, FILTER_IP, FILTER_FILENAME, FILTER_ALPHANUMERIC
 from terra.resources.assetloading import AssetType
 from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, spr_main_menu_option, \
-    spr_title_text, spr_pieces
+    spr_title_text
 from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
 from terra.team import Team
 from terra.util.drawingutil import draw_text
 from terra.util.mathutil import clamp
-from terra.piece.piecetype import PieceType
 
 displayable_buffer = 1
 max_displayable_options = 5
@@ -65,7 +65,7 @@ def generate_settings_menu():
         (Setting.SCREEN_SCALE, []),
         (Setting.SFX_VOLUME, []),
         # (Setting.BGM_VOLUME, []),
-        (Setting.ANIMATION_SPEED, []),
+        # (Setting.ANIMATION_SPEED, []),
         (Setting.NICKNAME, []),
         (Option.SAVE_SETTINGS, []),
     ]
@@ -245,66 +245,6 @@ class MainMenu(GameScreen):
         if self.text_input:
             self.text_input.step(event)
 
-    # Render a preview of the map, and data about what kind of teams, pieces, and upgrades are present
-    def render_map_preview(self, screen, mapname):
-        asset_type = AssetType.MAP if self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
-                                                               Option.NEW_NETWORK_GAME, Option.LOAD_MAP] else AssetType.SAVE
-
-        bitmap, pieces, teams, upgrades, meta = load_map_from_file(mapname, asset_type=asset_type)
-
-        translated_teams = {}
-        piece_totals = {}
-        # Determine the teams in the game
-        for team in teams:
-            data = team.split(' ')
-            team = Team[data[0]]
-            translated_teams[team] = int(data[1])
-            piece_totals[team] = 0
-
-        # Determine how many pieces each team has
-        for piece in pieces:
-            data = piece.split(' ')
-            piece_totals[Team[data[2]]] += 1
-
-        # Render a container for the whole thing
-        container_height = 24 * max_displayable_options
-        container_width = menu_width - 24
-        screen.fill(light_color, (self.root_x - 1 - container_width - 24, self.root_y - 1 + 24,
-                                  container_width + 2, container_height))
-        screen.fill(shadow_color[Team.RED], (self.root_x - container_width - 24, self.root_y + 24,
-                                             container_width, container_height - 3))
-
-        # Render the minimap
-        minimap = generate_minimap(bitmap, pieces)
-
-        # Trim giant maps to fit in the window
-        if minimap.get_width() > container_width - 8:
-            minimap = minimap.subsurface(0, 0, container_width - 8, minimap.get_width())
-        if minimap.get_height() > container_height - 32:
-            minimap = minimap.subsurface(0, 0, minimap.get_width(), container_height - 32)
-
-        minimap_x_offset = (container_width - minimap.get_width()) / 2
-        screen.blit(minimap, (self.root_x - 25 - minimap.get_width() - minimap_x_offset, self.root_y + 51))
-        screen.fill(clear_color[Team.RED], (self.root_x - 25 - minimap.get_width() - minimap_x_offset,
-                                             self.root_y + 51 + minimap.get_height(), minimap.get_width(), 2))
-
-        xoffset = 0
-        # Render teams + piece counts
-        screen.fill(light_color, (self.root_x - container_width - 24, self.root_y + 45,
-                                                 container_width, 2))
-        screen.fill(light_team_color[Team.RED], (self.root_x - container_width - 24, self.root_y + 24,
-                                                 container_width, 21))
-
-        for team, resource_count in translated_teams.items():
-            piece_count = piece_totals[team]
-            screen.blit(spr_pieces[team][PieceType.TROOPER].subsurface(0, 0, 24, 24), (self.root_x - 48 + xoffset, self.root_y + 21))
-
-            display_string = get_string(formatted_strings, "QUANTITY").format(piece_count)
-            screen.blit(draw_text(display_string, light_color, shadow_color[Team.RED]),
-                        (self.root_x - 36 + xoffset, self.root_y + 35))
-
-            xoffset -= 24
-
     def render(self, ui_screen):
         super().render(ui_screen)
         game_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
@@ -357,11 +297,20 @@ class MainMenu(GameScreen):
                     if is_selected and self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
                                                                 Option.LOAD_GAME, Option.LOAD_MAP,
                                                                 Option.NEW_NETWORK_GAME, Option.LOAD_NETWORK_GAME]:
-                        self.render_map_preview(game_screen, option[0])
+                        asset_type = AssetType.MAP if self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
+                                                                               Option.NEW_NETWORK_GAME, Option.LOAD_MAP] else AssetType.SAVE
+
+                        container_height = 24 * max_displayable_options
+                        container_width = menu_width - 24
+
+                        map_preview = draw_map_preview_from_file(container_width, container_height, option[0], asset_type=asset_type)
+                        game_screen.blit(map_preview, (self.root_x - container_width - 24, self.root_y + 23))
+
                 elif option[0] in Setting:
                     # Display the setting prompt and the current value
                     display_string = get_string(formatted_strings, option[0]).format(SETTINGS.get_unsaved(option[0]))
                     game_screen.blit(draw_text(display_string, light_color, shadow_color[Team.RED]), (position_x + 24, position_y + 4))
+
                 else:
                     # Display the icon for the option
                     game_screen.blit(spr_main_menu_option[option[0]], (position_x - 24 + x_offset, position_y))

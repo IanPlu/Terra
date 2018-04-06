@@ -29,6 +29,7 @@ x Improve rendering performance
     x Rendering large maps chugs. Look into pygame.display.update, and only updating the portion around the camera viewport? (note: this would be minimal, since large portions of the screen are updated at a time)
     x Cull rendering for entities outside the camera? (note: this was a huuuuuge boost)
     x Optimize animation to use scrolling surfaces and not lists of surfs (note: this was a minor boost)
+* Create common 'menu' class? Auto support for scrolling, setting mouse pos to menu pos, etc.
 
 Bug fixes
 x Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
@@ -69,8 +70,8 @@ x Implement unique upgrades as generic attributes
     * Whether this piece is affected by parting shots
 
 x Add a 'heal' action? Piece doesn't move and instead works on healing itself by a small amount.
-* Determine whether pieces contest a tile if they're moving / leaving that tile.
-    * Because BUILD actions pop before MOVE actions, at start of turn if we're contested, we stay contested even though the enemy moves off of us
+x Determine whether pieces contest a tile if they're moving / leaving that tile.
+    x Because BUILD actions pop before MOVE actions, at start of turn if we're contested, we stay contested even though the enemy moves off of us
 
 Gameplay considerations
 x Prevent Colonists from occupying enemy buildings
@@ -86,6 +87,8 @@ x Gracefully handle connects / disconnects
 x Support for connecting to a custom IP
 x Check that victory checking + conceding works
 * Support marking events as coming from the network or local. Use this when deciding whether to forward an event on to the network
+* Handle different animation speeds in network games-- can cause desync
+    - Add a 'waiting for other player'? Or just lock the animation speed setting?
 
 Kegan's Special to do list
 x Allow ESC to cancel out of menus

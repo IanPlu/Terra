@@ -111,7 +111,7 @@ class Piece(AnimatedGameObject):
         input_handler.register_handler(InputAction.RELEASE, Key.MENU2, self.stop_previewing_orders)
 
     def is_accepting_events(self):
-        return Managers.current_mode == Mode.BATTLE
+        return Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]
 
     # Get the sprite index to display.
     def get_index(self):

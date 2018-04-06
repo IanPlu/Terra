@@ -18,9 +18,12 @@ class NetworkManager(GameObject):
     def __init__(self, address, open_teams, is_host=True):
         super().__init__()
 
-        self.open_teams = open_teams
-        self.filled_teams = {}
         self.team = Team.NONE
+        if open_teams:
+            self.open_teams = open_teams
+        else:
+            self.open_teams = []
+        self.filled_teams = {}
 
         if not address:
             # Don't do any networking.
@@ -28,7 +31,7 @@ class NetworkManager(GameObject):
             self.team = self.get_next_open_team()
         else:
             self.networked_game = True
-            self.open_teams = open_teams
+
             self.is_host = is_host
             self.address = address
             self.server_port = SERVER_PORT
@@ -69,15 +72,32 @@ class NetworkManager(GameObject):
     def is_accepting_events(self):
         return self.networked_game
 
-    def get_next_open_team(self, nickname=None):
+    def get_next_open_team(self, nickname=None, notify=True):
         team = self.open_teams[0]
-        self.open_teams.remove(team)
-        self.filled_teams[team] = nickname
+        self.fill_team(team, nickname)
+        if notify:
+            self.send_message(MessageCode.TEAM_FILLED, team, str(nickname))
+
         return team
 
-    def add_open_team(self, team):
+    def fill_team(self, team, nickname):
+        if team in self.open_teams:
+            self.open_teams.remove(team)
+        self.filled_teams[team] = nickname
+
+        if len(self.open_teams) == 0:
+            publish_game_event(EventType.E_ALL_TEAMS_FILLED, {})
+
+    def remove_team(self, team, notify=True):
         self.open_teams.append(team)
         del self.filled_teams[team]
+
+        publish_game_event(EventType.E_TEAM_LEFT, {
+            'team': team
+        })
+
+        if notify:
+            self.send_message(MessageCode.TEAM_EMPTIED, team, "")
 
     # Initialize a connection to the host
     def connect_to_host(self):
@@ -109,6 +129,7 @@ class NetworkManager(GameObject):
     def send_game_state_to_client(self, game_state, team):
         self.send_message(MessageCode.SET_TEAM, self.team, str(team))
         self.send_message(MessageCode.SET_GAME_STATE, self.team, game_state)
+        self.send_message(MessageCode.TEAM_FILLED, self.team, self.nickname)
 
     # Handle incoming messages from either the client or the host
     def handle_message(self, message, address):
@@ -133,7 +154,7 @@ class NetworkManager(GameObject):
         elif command == MessageCode.DROP_CONNECTION.value:
             print("Connection dropped for: " + str(address))
             self.clients.remove(address)
-            self.add_open_team(team)
+            self.remove_team(team)
             publish_game_event(EventType.NETWORK_CLIENT_DISCONNECTED, {
                 'team': self.team,
                 'nickname': str(body)
@@ -177,6 +198,12 @@ class NetworkManager(GameObject):
         elif command == MessageCode.START_BATTLE.value:
             print("Network has started the battle")
             publish_game_event_from_network(EventType.E_START_NETWORK_BATTLE, {})
+        elif command == MessageCode.TEAM_FILLED.value:
+            print("Got filled team from network")
+            self.fill_team(team, body)
+        elif command == MessageCode.TEAM_EMPTIED.value:
+            print("Emptied team from network")
+            self.remove_team(team, notify=False)
 
     # Send the provided message on to the other player
     def send_message(self, code, team, message):

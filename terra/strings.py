@@ -86,9 +86,13 @@ menu_help_strings = {
                            "can traverse (but not end the turn in) normally impassible terrain. Like Ghosts, they're "
                            "not impeded by enemies when moving. Notably low health pool.",
 
-        # PieceType.TITAN: "Titan",
-        # PieceType.EARTHRENDER: "Earthrender",
-        # PieceType.DEMON: "Demon",
+        PieceType.TITAN: "* Titans are defensive super units. They have a wealth of health and armor, and provide"
+                         " healing and bonus armor to adjacent allies every turn. Adjacent enemies take damage as well.",
+        PieceType.EARTHRENDER: "* Earthrenders are ranged super units. They have an extremely far effective range, deal"
+                               " damage in an area, and cannot be interrupted when firing. ",
+        PieceType.DEMON: "* Demons are mobility super units. They have a very high movement range, and ignore terrain. "
+                         "Unlike Ghosts, they can attack buildings. Demons also function as a portal-- allies can "
+                         "travel to a Demon's tile as if it were adjacent to the Base. ",
 
         PieceType.BASE: "* Your Base is the only building capable of producing Colonists, and can research non-combat "
                         "unit upgrades. If destroyed, you lose!",
@@ -96,7 +100,6 @@ menu_help_strings = {
         PieceType.BARRACKS: "* Barracks produce combat units, and can research upgrades to your combat units.",
         PieceType.TOWER: "* Towers are immobile defensive structures. They damage all adjacent enemies at the start of "
                          "each turn, if they're not contested. Has a weak melee attack for defense.",
-        # PieceType.WAYSTATION: "Waystation",
         PieceType.TECHLAB: "* Tech Labs are able to research new tiers of units. Additionally, they're a second place "
                            "to purchase upgrades of all types, including upgrades normally bought at the Base. "
                            "Tech Labs heal adjacent allies for a small amount each turn.",
@@ -153,6 +156,11 @@ menu_help_strings = {
         UpgradeType.BANSHEE_STRIKEFORMATION: "* Banshees now gain additional movement range for each adjacent ally.",
         UpgradeType.BANSHEE_LURK: "* Banshees are now able to move and end turn on all terrain, including normally "
                                   "impassible terrain like Seas or Mountains.",
+
+        UpgradeType.RESEARCH_TITAN: "* Allows building Titans at Barracks. Titans are defensive super units.",
+        UpgradeType.RESEARCH_EARTHRENDER: "* Allows building Earthrenders at Barracks. Earthrenders are ranged "
+                                          "super units.",
+        UpgradeType.RESEARCH_DEMON: "* Allows building Demons at Barracks. Demons are mobility super units.",
     }
 }
 
@@ -191,15 +199,14 @@ piece_name_strings = {
         PieceType.BOLTCASTER: "Boltcaster",
         PieceType.BANSHEE: "Banshee",
 
-        # PieceType.TITAN: "Titan",
-        # PieceType.EARTHRENDER: "Earthrender",
-        # PieceType.DEMON: "Demon",
+        PieceType.TITAN: "Titan",
+        PieceType.EARTHRENDER: "Earthrender",
+        PieceType.DEMON: "Demon",
 
         PieceType.BASE: "Base",
         PieceType.GENERATOR: "Generator",
         PieceType.BARRACKS: "Barracks",
         PieceType.TOWER: "Tower",
-        # PieceType.WAYSTATION: "Waystation",
         PieceType.TECHLAB: "Tech Lab",
 
     }
@@ -245,6 +252,10 @@ upgrade_name_strings = {
         UpgradeType.BANSHEE_SABOTAGE: "[Ba] Sabotage",
         UpgradeType.BANSHEE_STRIKEFORMATION: "[Ba] Strike",
         UpgradeType.BANSHEE_LURK: "[Ba] Lurk",
+
+        UpgradeType.RESEARCH_TITAN: "Unlock Unit",
+        UpgradeType.RESEARCH_EARTHRENDER: "Unlock Unit",
+        UpgradeType.RESEARCH_DEMON: "Unlock Unit",
     }
 }
 

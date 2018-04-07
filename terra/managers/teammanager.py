@@ -18,10 +18,12 @@ from terra.ui.phasebar import PhaseBar
 from terra.util.mathutil import clamp
 
 # Max number of any given resource a player can hold.
-MAX_RESOURCES = 1000
+MAX_RESOURCES = 999
 
 
-# Contains and manages all resources and upgrades for all teams
+# Manager for resources, upgrades, and piece stats for all teams.
+# Handles moving resources around, and handles purchasing + triggering upgrades.
+# Is the source of truth for what attributes the pieces from a particular team have.
 class TeamManager(GameObject):
     def __init__(self, teams, upgrades):
         super().__init__()
@@ -69,7 +71,8 @@ class TeamManager(GameObject):
                 if upgrade:
                     self.purchase_upgrade(team, UpgradeType[upgrade])
 
-        # Create an archive of all teams at the start of battle. This one won't be mutated.
+        # Create an archive of all teams at the start of battle.
+        # When players lose or are removed, they'll stay in this list.
         self.all_teams = self.teams.copy()
 
     def destroy(self):
@@ -180,6 +183,7 @@ class TeamManager(GameObject):
 
         Managers.combat_logger.log_upgrade(upgrade_type, team)
 
+    # When an upgrade is purchased, trigger any effects it may have. Modify piece stats, add new abilities, etc.
     def on_upgrade_purchase(self, team, upgrade_type):
         upgrade = base_upgrades[upgrade_type]
 

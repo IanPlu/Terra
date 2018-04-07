@@ -18,8 +18,9 @@ x Game end screens / match review with statistics(?)
 x Add 'serialize' method to managers, use this when saving or loading the game state
 x Create a separate 'buy' menu better suited to showing lots of upgrades / pieces to purchase, or add a scroll bar
 * Add autosave to battle and level editor
-* Add a prematch lobby where you can assign teams and wait for connections / kick connections, etc.
-* Include a base font for the game
+x Add a prematch lobby where you can assign teams and wait for connections / kick connections, etc.
+x Include a base font for the game
+* Add support for rebinding controls
 
 Engineering
 * Write tests!!
@@ -29,7 +30,10 @@ x Improve rendering performance
     x Rendering large maps chugs. Look into pygame.display.update, and only updating the portion around the camera viewport? (note: this would be minimal, since large portions of the screen are updated at a time)
     x Cull rendering for entities outside the camera? (note: this was a huuuuuge boost)
     x Optimize animation to use scrolling surfaces and not lists of surfs (note: this was a minor boost)
+* Improve performance of tile selection
+    - Use A* pathfinding, remove redundancy
 * Create common 'menu' class? Auto support for scrolling, setting mouse pos to menu pos, etc.
+* Support bundling and distributing the VC redist!
 
 Bug fixes
 x Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
@@ -45,6 +49,7 @@ x Fix the loggers not outputting to separate files: https://stackoverflow.com/qu
 x Fix team assumptions from the network manager -- because it's loaded before the map, it can't know what teams are in the game
     x Loaded map ahead of time, and network manager gains a team from the host when polling for the map data
 * Fix window gaining focus + clicking on a menu option confirms that menu option
+x Fix level editor not responding to any button inputs
 
 
 Gameplay

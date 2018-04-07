@@ -17,14 +17,13 @@ class PieceType(Enum):
     BANSHEE = 7
 
     # Tier 3 Units
-    # TITAN = 8
-    # EARTHRENDER = 9
-    # DEMON = 10
+    TITAN = 8
+    EARTHRENDER = 9
+    DEMON = 10
 
     # Buildings
-    BASE = 8
-    GENERATOR = 9
-    BARRACKS = 10
-    TOWER = 11
-    # WAYSTATION = 17
-    TECHLAB = 12
+    BASE = 11
+    GENERATOR = 12
+    BARRACKS = 13
+    TOWER = 14
+    TECHLAB = 15

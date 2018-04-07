@@ -67,7 +67,7 @@ class MapManager(GameObject):
 
         return grid
 
-    # Serialize ourselves into a bitmap
+    # Serialize ourselves into a bitmap (2D array of ints)
     def convert_bitmap_from_grid(self):
         bitmap = []
         for y in range(self.height):

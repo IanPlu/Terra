@@ -54,9 +54,11 @@ class EffectsManager(GameObject):
         else:
             self.create_effect(event.gx, event.gy, event_type_to_effect[event.event_type], None)
 
+    # Create a 'new turn' TurnBanner effect.
     def create_turn_banner(self, event):
         self.effects.append(TurnBanner(self, event.turn_number))
 
+    # Create effects on each set of invalid coordinates from an invalid move orders event.
     def create_invalid_coordinate_effects(self, event):
         for coordinate in event.invalid_coordinates:
             self.create_effect(coordinate[0], coordinate[1], EffectType.ALERT, event.team)

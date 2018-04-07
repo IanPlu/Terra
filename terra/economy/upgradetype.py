@@ -1,13 +1,19 @@
 from enum import Enum, auto
 
 
+# Constants for upgrade names.
 class UpgradeType(Enum):
     # General tech + unit research
     RESOURCE_PRODUCTION_1 = auto()
     RESOURCE_PRODUCTION_2 = auto()
+
     RESEARCH_GUARDIAN = auto()
     RESEARCH_BOLTCASTER = auto()
     RESEARCH_BANSHEE = auto()
+
+    RESEARCH_TITAN = auto()
+    RESEARCH_EARTHRENDER = auto()
+    RESEARCH_DEMON = auto()
 
     # Colonist
     COLONIST_ATTACK = auto()

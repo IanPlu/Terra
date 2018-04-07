@@ -6,6 +6,8 @@ from terra.team import Team
 
 # Container for the various -manager objects.
 # The initialize method must be called first when a battle is being set up.
+# TODO: Refactor this to be less clunky. Create a 'session' type object, with its own managers.
+#       Put knowledge of Managers in GameObject.
 class Managers:
     error_logger = ErrorLogger()
     combat_logger = None

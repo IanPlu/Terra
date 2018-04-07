@@ -166,6 +166,10 @@ spr_upgrade_icons = {
         UpgradeType.BANSHEE_SABOTAGE: spr_upgrade_icons_base[27],
         UpgradeType.BANSHEE_STRIKEFORMATION: spr_upgrade_icons_base[28],
         UpgradeType.BANSHEE_LURK: spr_upgrade_icons_base[29],
+
+        UpgradeType.RESEARCH_TITAN: spr_upgrade_icons_base[29],
+        UpgradeType.RESEARCH_EARTHRENDER: spr_upgrade_icons_base[29],
+        UpgradeType.RESEARCH_DEMON: spr_upgrade_icons_base[29],
     }
 }
 
@@ -207,16 +211,15 @@ spr_pieces = {
         PieceType.BANSHEE: pygame.image.load(get_asset(AssetType.SPRITE, "units/Banshee.png")),
 
         # Tier 3 Units
-        # PieceType.TITAN: pygame.image.load(get_asset(AssetType.SPRITE, "units/Titan.png")),
-        # PieceType.EARTHRENDER: pygame.image.load(get_asset(AssetType.SPRITE, "units/Earthrender.png")),
-        # PieceType.DEMON: pygame.image.load(get_asset(AssetType.SPRITE, "units/Demon.png")),
+        PieceType.TITAN: pygame.image.load(get_asset(AssetType.SPRITE, "units/Titan.png")),
+        PieceType.EARTHRENDER: pygame.image.load(get_asset(AssetType.SPRITE, "units/Earthrender.png")),
+        PieceType.DEMON: pygame.image.load(get_asset(AssetType.SPRITE, "units/Demon.png")),
 
         # Buildings
         PieceType.BASE: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Base.png")),
         PieceType.GENERATOR: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Generator.png")),
         PieceType.BARRACKS: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Barracks.png")),
         PieceType.TOWER: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Tower.png")),
-        # PieceType.WAYSTATION: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Waystation.png")),
         PieceType.TECHLAB: pygame.image.load(get_asset(AssetType.SPRITE, "buildings/Techlab.png")),
     }
 }

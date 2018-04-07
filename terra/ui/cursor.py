@@ -82,11 +82,11 @@ class Cursor(GameObject):
 
     def is_accepting_events(self):
         return Managers.player_manager.active_team == self.team \
-               and Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]
+               and Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
 
     def is_accepting_input(self):
         return self.menu is None and Managers.player_manager.active_team == self.team \
-               and Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]
+               and Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
 
     def can_confirm_or_cancel(self):
         return Managers.turn_manager.phase == BattlePhase.ORDERS

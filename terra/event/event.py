@@ -6,6 +6,8 @@ EVENT_TYPE = "event_type"
 FROM_NETWORK = "from_network"
 
 
+# Identifiers for various event objects.
+# TODO: Formalize what parameters belong to each event
 class EventType(Enum):
     # General action events
     E_OPEN_MENU = auto()
@@ -95,6 +97,7 @@ class EventType(Enum):
 
 
 # Publish the specified game event, with the data provided.
+# Usage: publish_game_event(EventType.MY_EVENT_TYPE, {'data': my_data})
 def publish_game_event(event_type, data):
     data[EVENT_TYPE] = event_type
     event = Event(USEREVENT, data)
@@ -102,16 +105,19 @@ def publish_game_event(event_type, data):
 
 
 # Publish the specified game event, with the data provided, and the event marked as being from the network (not local)
+# Usage: publish_game_event(EventType.MY_EVENT_TYPE, {'data': my_data})
 def publish_game_event_from_network(event_type, data):
     data[FROM_NETWORK] = True
     publish_game_event(event_type, data)
 
 
 # Return true if the event is any of the provided types.
+# Usage: is_event_type(event, EventType.MY_EVENT_TYPE1, EventType.MY_EVENT_TYPE2, ...)
 def is_event_type(event, *event_type):
     return event.type == USEREVENT and event.event_type in event_type
 
 
 # Return true if the event is of any of the provided types AND it originated here (not from the network)
+# Usage: is_event_type(event, EventType.MY_EVENT_TYPE1, EventType.MY_EVENT_TYPE2, ...)
 def is_local_event_type(event, *event_type):
     return event.type == USEREVENT and event.event_type in event_type and not hasattr(event, FROM_NETWORK)

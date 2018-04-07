@@ -15,7 +15,8 @@ from terra.team import Team
 from terra.util.collectionutil import safe_get_from_list
 
 
-# Contains and manages all pieces from all teams
+# Manager for all pieces from all teams.
+# Contains methods for accessing, filtering, and modifying pieces.
 class PieceManager(GameObject):
     def __init__(self, pieces=None):
         super().__init__()
@@ -24,7 +25,7 @@ class PieceManager(GameObject):
         # Key pairs look like: (gx, gy): [unit1, unit2, building1...]
         self.pieces = {}
 
-        # Generate units from the provided Roster, if any
+        # Generate units from the provided text roster, if any
         if pieces:
             for piece in pieces:
                 data = piece.split(' ')
@@ -169,13 +170,17 @@ class PieceManager(GameObject):
         else:
             return all_pieces
 
+    # Return all pieces for the specified team, where the provided piece attribute is True.
+    def get_all_pieces_with_attribute(self, team, attribute):
+        return [piece for piece in self.get_all_pieces_for_team(team) if piece.attr(attribute)]
+
     # Register a piece with the game map.
     def register_piece(self, piece):
         if not self.pieces.get((piece.gx, piece.gy)):
             self.pieces[(piece.gx, piece.gy)] = []
         self.pieces[(piece.gx, piece.gy)].append(piece)
 
-    # Unregister a piece with the game map. Note that this does not destroy it.
+    # Unregister a piece with the game map. Note that this does not destroy it, just removes it from the grid.
     def remove_piece(self, piece):
         self.pieces[(piece.gx, piece.gy)].remove(piece)
         if len(self.pieces[(piece.gx, piece.gy)]) == 0:
@@ -198,7 +203,7 @@ class PieceManager(GameObject):
         if piece:
             self.destroy_piece(piece)
 
-    # Move a piece on the game map
+    # Move a piece on the game map from (gx, gy) to new coords (dx, dy)
     def move_piece(self, gx, gy, team, dx, dy):
         piece = self.get_piece_at(gx, gy, team, PieceSubtype.UNIT)
         if piece:
@@ -244,8 +249,12 @@ class PieceManager(GameObject):
                                                          piece.hp))
         return piece_strings
 
-    # Return true if all movement and build orders for the provided team are valid
-    # (no friendly units end up in the same tile)
+    # Return true if all movement and build orders for the provided team are valid together.
+    # This doesn't check for obviously illegal moves, like moving farther than your movement range allows.
+    # Orders are all valid if:
+    #       * No friendly units end up on the same tile
+    #       * There are enough resources to build + research everything we want to build + research
+    #       * Not attempting to research the same upgrade multiple times
     def validate_orders(self, team):
         coordinates = []
         spent_resources = []
@@ -273,7 +282,7 @@ class PieceManager(GameObject):
         # Move orders are valid if all the coordinates are unique-- no duplicates are removed
         move_orders_valid = len(coordinates) == len(set(coordinates))
 
-        # Build orders are valid if there's enough resources to satisfy all orders
+        # Build + upgrade orders are valid if there's enough resources to satisfy all orders
         build_orders_valid = Managers.team_manager.can_spend_resources(team, spent_resources)
 
         # Upgrade orders are valid if all upgrades being bought are unique

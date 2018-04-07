@@ -4,7 +4,8 @@ from terra.strings import get_string, phase_strings, formatted_strings
 from terra.util.loggingutil import get_logger, check_log_dir_exists
 
 
-# Logs events that occur over the course of the game
+# Logs events that occur over the course of a battle.
+# TODO: Move logging out of other classes, and have this listen for events to log
 class CombatLogger:
     def __init__(self, mapname=None):
         super().__init__()
@@ -17,9 +18,11 @@ class CombatLogger:
         check_log_dir_exists()
         self.logger = get_logger("CombatLogger", logging.INFO, filename)
 
+    # Log the start of new turns.
     def log_new_turn(self, turn_number):
         self.logger.info("== TURN {} BEGIN ==".format(turn_number))
 
+    # Log the start of a new phase.
     def log_new_phase(self, phase):
         self.logger.info("= {} phase begins".format(get_string(phase_strings, phase)))
 

@@ -72,7 +72,7 @@ def generate_settings_menu():
 
 
 # Main menu for the game.
-# Allows player to load or start games, access the level editor, and so on
+# Allows player to load or start games, access the level editor, and change settings.
 class MainMenu(GameScreen):
     def __init__(self):
         super().__init__()

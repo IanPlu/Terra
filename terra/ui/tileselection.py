@@ -61,8 +61,14 @@ class TileSelection(GameObject):
 
         return excluded_coordinates
 
+    # Return the list of coordinates where we have pieces with the 'PORTAL' attribute
+    def __generate_portal_coordinates__(self):
+        return [(piece.gx, piece.gy) for piece in Managers.piece_manager.get_all_pieces_with_attribute(Attribute.PORTAL)]
+
     # Generate a list of the coordinates of all tiles available to select
     def __generate_coordinate_set__(self):
+        # TODO: Follow the A* algorithm
+        confirmed_coordinates = set()
         possible_coordinates = {(self.gx, self.gy)}
         excluded_coordinates = self.__generate_excluded_coordinates__()
 
@@ -86,6 +92,9 @@ class TileSelection(GameObject):
                         not first_move and piece_type and movement_type and \
                         not Managers.team_manager.attr(team, piece_type, Attribute.IGNORE_IMPEDANCE):
                         return
+
+                # If there's a friendly Base building here, check if we have any potential portal targets to evaluate.
+                # TODO:
 
                 traverse_tile(gx + 1, gy, remaining_range - 1, min_range, max_range,
                               movement_type, piece_type, team, False)

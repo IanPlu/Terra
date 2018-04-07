@@ -3,6 +3,7 @@ from terra.settings import SETTINGS, Setting
 from terra.resources.assets import all_sounds
 
 
+# Manager for playing sound effects.
 class SoundManager(GameObject):
     def __init__(self):
         super().__init__()

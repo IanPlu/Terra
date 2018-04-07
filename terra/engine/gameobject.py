@@ -4,7 +4,7 @@ from terra.control.inputcontroller import INPUT_CONTROLLER
 
 # Base game object class.
 # Objects that should be part of the game loop cycle (step, render, etc.)
-# should extend from this and implement its methods.
+# should extend from this and implement its methods. Provides hooks to the event bus and input handler.
 class GameObject:
     def __init__(self):
         self.register_handlers(EVENT_BUS)
@@ -14,7 +14,7 @@ class GameObject:
         self.destroy()
 
     # Called when the screen is no longer being used.
-    # Screens should ensure that their child objects also call destroy down the component tree.
+    # Screens should ensure that their child objects also call destroy()!
     def destroy(self):
         EVENT_BUS.unregister_handlers(self)
         INPUT_CONTROLLER.unregister_handlers(self)

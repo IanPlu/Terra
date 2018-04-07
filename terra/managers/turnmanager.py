@@ -43,7 +43,6 @@ class TurnManager(GameObject):
         event_bus.register_handler(EventType.E_ALL_TURNS_SUBMITTED, self.progress_phase)
 
     # Validate that it's OK to progress the current phase.
-    # Check movement orders, primarily
     def validate_phase(self):
         if self.phase == BattlePhase.ORDERS:
             # Validate that all orders for all teams are correct before moving on

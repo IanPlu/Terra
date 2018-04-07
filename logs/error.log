@@ -1,0 +1,51 @@
+2018-04-06 14:46:35,590 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-06 14:46:35,590 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-06 15:15:34,547 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-06 15:15:34,547 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-06 16:41:55,647 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-06 16:41:55,647 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-06 16:41:55,684 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-06 16:41:55,704 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-06 16:41:55,704 ERROR [ERROR]: Exception: 
+Expecting property name enclosed in double quotes: line 1 column 12367 (char 12366)
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 132, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 94, in handle_menu_selections
+    self.set_screen_from_mode(Mode.BATTLE, event.mapname)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 57, in set_screen_from_mode
+    Managers.initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 62, in initialize_managers
+    from terra.managers.piecemanager import PieceManager
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\piecemanager.py", line 4, in <module>
+    from terra.economy.upgrades import base_upgrades
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\economy\upgrades.py", line 21, in <module>
+    base_upgrades = read_upgrade_attributes_from_file()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\economy\upgrades.py", line 14, in read_upgrade_attributes_from_file
+    return json.loads(attributes_file.read().replace('\n', ''), object_hook=as_enum)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\json\__init__.py", line 367, in loads
+    return cls(**kw).decode(s)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\json\decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+
+2018-04-06 16:42:22,814 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-06 16:42:22,814 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.

@@ -16,7 +16,7 @@ class GameScreen:
         self.destroy()
 
     # Called when the screen is no longer being used.
-    # Screens should ensure that their child objects also call destroy down the component tree.
+    # Screens should ensure that their child objects also call destroy()!
     def destroy(self):
         EVENT_BUS.unregister_handlers(self)
         INPUT_CONTROLLER.unregister_handlers(self)

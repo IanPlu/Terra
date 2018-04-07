@@ -26,7 +26,7 @@ event_type_to_stat = {
 
 
 # Manages recording statistics about a game over the course of the game.
-# Listens for events and then records their occurrences
+# Listens for events and then records their occurrences.
 class StatManager(GameObject):
     def __init__(self, teams):
         super().__init__()

@@ -1,6 +1,7 @@
 from enum import Enum, auto
 
 
+# Identifiers for different animated effects.
 class EffectType(Enum):
     ALERT = auto()
     PIECE_DESTROYED = auto()

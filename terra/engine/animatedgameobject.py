@@ -7,8 +7,9 @@ from terra.util.mathutil import clamp
 # Automatically ticks the frame to display over time.
 # Size: H&W of each frame of animation. The image passed in is assumed to be a horizontal strip of square frames.
 # Framerate: How many times per second to progress the animation
-# Indexed: Whether the sprite is of the format image[animation_frame][index], instead of just image[animation_frame]
-# Use Global Animation Frame: If true, uses a global frame to keep things synced to the same animation frame
+# Indexed: Whether the sprite has multiple subimages or subtypes it can use. Should be multiple vertical strips of
+#           square frames, with each column corresponding to a separate index.
+# Use Global Animation Frame: If true, uses a global frame to keep everything synced to the same animation frame
 # Own Frames for Index: If true, will always use own animation frames (not the global frame) when index != 0
 class AnimatedGameObject(GameObject):
     global_animation_frame = 0

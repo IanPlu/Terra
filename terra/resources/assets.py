@@ -96,6 +96,7 @@ spr_order_options = {
         Option.MENU_CONCEDE: spr_order_options_base[0],
         Option.MENU_MIRROR_X: spr_order_options_base[13],
         Option.MENU_MIRROR_Y: spr_order_options_base[14],
+        Option.MENU_SWAP_ACTIVE_PLAYER: spr_order_options_base[16],
     }
 }
 

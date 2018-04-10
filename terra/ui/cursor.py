@@ -7,7 +7,7 @@ from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType, publish_game_event
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.menu.option import Option
 from terra.mode import Mode
 from terra.piece.piecetype import PieceType
@@ -31,7 +31,7 @@ class Cursor(GameObject):
         super().__init__()
 
         # Cursors start on their team's base
-        base = Managers.piece_manager.get_all_pieces_for_team(team, piece_type=PieceType.BASE)
+        base = self.get_manager(Manager.PIECE).get_all_pieces_for_team(team, piece_type=PieceType.BASE)
         if len(base):
             self.gx = base[0].gx
             self.gy = base[0].gy
@@ -81,15 +81,15 @@ class Cursor(GameObject):
         input_handler.register_handler(InputAction.MOTION, None, self.convert_mouse_coords_to_cursor)
 
     def is_accepting_events(self):
-        return Managers.player_manager.active_team == self.team \
-               and Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
+        return self.get_manager(Manager.PLAYER).active_team == self.team \
+               and self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
 
     def is_accepting_input(self):
-        return self.menu is None and Managers.player_manager.active_team == self.team \
-               and Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
+        return self.menu is None and self.get_manager(Manager.PLAYER).active_team == self.team \
+               and self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
 
     def can_confirm_or_cancel(self):
-        return Managers.turn_manager.phase == BattlePhase.ORDERS
+        return self.get_manager(Manager.TURN).phase == BattlePhase.ORDERS
 
     def convert_mouse_coords_to_cursor(self):
         mousex, mousey = pygame.mouse.get_pos()
@@ -100,41 +100,46 @@ class Cursor(GameObject):
     def move_up(self):
         if self.gy > 0:
             self.gy -= 1
-            Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
+            self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_MOVE)
 
     def move_down(self):
-        if self.gy < Managers.battle_map.height - 1:
+        if self.gy < self.get_manager(Manager.MAP).height - 1:
             self.gy += 1
-            Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
+            self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_MOVE)
 
     def move_left(self):
         if self.gx > 0:
             self.gx -= 1
-            Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
+            self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_MOVE)
 
     def move_right(self):
-        if self.gx < Managers.battle_map.width - 1:
+        if self.gx < self.get_manager(Manager.MAP).width - 1:
             self.gx += 1
-            Managers.sound_manager.play_sound(SoundType.CURSOR_MOVE)
+            self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_MOVE)
 
     def confirm(self):
         if self.can_confirm_or_cancel():
-            if not Managers.team_manager.is_turn_submitted(self.team):
-                publish_game_event(EventType.E_SELECT, {
-                    'gx': int(self.gx),
-                    'gy': int(self.gy),
-                    'team': self.team,
-                    'selecting_movement': self.move_ui is not None
-                })
+            if not self.get_manager(Manager.TEAM).is_turn_submitted(self.team):
+                if self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE] and \
+                        not self.get_manager(Manager.PIECE).get_piece_at(int(self.gx), int(self.gy), self.team) and \
+                        not self.move_ui:
+                    self.open_pause_menu()
+                else:
+                    publish_game_event(EventType.E_SELECT, {
+                        'gx': int(self.gx),
+                        'gy': int(self.gy),
+                        'team': self.team,
+                        'selecting_movement': self.move_ui is not None
+                    })
 
-                Managers.sound_manager.play_sound(SoundType.CURSOR_SELECT)
+                    self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_SELECT)
 
     def cancel(self):
         if self.can_confirm_or_cancel():
-            if not Managers.team_manager.is_turn_submitted(self.team):
+            if not self.get_manager(Manager.TEAM).is_turn_submitted(self.team):
                 publish_game_event(EventType.E_CANCEL, {})
 
-                Managers.sound_manager.play_sound(SoundType.CURSOR_SELECT)
+                self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_SELECT)
 
     # Creates a generic menu popup from the provided event.
     def open_menu(self, event):
@@ -149,14 +154,17 @@ class Cursor(GameObject):
 
     def open_pause_menu(self):
         if self.can_confirm_or_cancel():
-            if Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]:
-                if Managers.team_manager.is_turn_submitted(self.team):
+            if self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE]:
+                if self.get_manager(Manager.TEAM).is_turn_submitted(self.team):
                     menu_options = [Option.MENU_REVISE_TURN]
                 else:
                     menu_options = [Option.MENU_SUBMIT_TURN]
 
+                if self.get_manager(Manager.PLAYER).hotseat_mode:
+                    menu_options.append(Option.MENU_SWAP_ACTIVE_PLAYER)
+
                 menu_options.extend([Option.MENU_SAVE_GAME, Option.MENU_CONCEDE, Option.MENU_QUIT_BATTLE])
-            elif Managers.current_mode == Mode.EDIT:
+            elif self.get_mode() == Mode.EDIT:
                 menu_options = [Option.MENU_FILL_WITH_CURRENT_TILE, Option.MENU_MIRROR_X, Option.MENU_MIRROR_Y,
                                 Option.MENU_SAVE_MAP, Option.MENU_QUIT_BATTLE]
             else:
@@ -190,11 +198,13 @@ class Cursor(GameObject):
 
     # Clamp gx and gy, and scroll camera as appropriate
     def scroll_camera(self):
+        map = self.get_manager(Manager.MAP)
+
         if not self.menu and pygame.mouse.get_focused():
             mousex, mousey = pygame.mouse.get_pos()
             # Convert the screen coordinates to the grid coordinates
-            self.gx = clamp((mousex / SETTINGS.get(Setting.SCREEN_SCALE) + self.camera_x) // GRID_WIDTH, 0, Managers.battle_map.width - 1)
-            self.gy = clamp((mousey / SETTINGS.get(Setting.SCREEN_SCALE) + self.camera_y) // GRID_HEIGHT, 0, Managers.battle_map.height - 1)
+            self.gx = clamp((mousex / SETTINGS.get(Setting.SCREEN_SCALE) + self.camera_x) // GRID_WIDTH, 0, map.width - 1)
+            self.gy = clamp((mousey / SETTINGS.get(Setting.SCREEN_SCALE) + self.camera_y) // GRID_HEIGHT, 0, map.height - 1)
 
         camera_min_gx = self.camera_dest_x // GRID_WIDTH
         camera_min_gy = self.camera_dest_y // GRID_HEIGHT
@@ -210,8 +220,8 @@ class Cursor(GameObject):
         if self.gy <= camera_min_gy + camera_scroll_border:
             self.camera_dest_y -= GRID_HEIGHT
 
-        self.camera_dest_x = clamp(self.camera_dest_x, 0, Managers.battle_map.width * GRID_WIDTH - CAMERA_WIDTH)
-        self.camera_dest_y = clamp(self.camera_dest_y, 0, Managers.battle_map.height * GRID_HEIGHT - CAMERA_HEIGHT)
+        self.camera_dest_x = clamp(self.camera_dest_x, 0, map.width * GRID_WIDTH - CAMERA_WIDTH)
+        self.camera_dest_y = clamp(self.camera_dest_y, 0, map.height * GRID_HEIGHT - CAMERA_HEIGHT)
 
         # Scroll the actual camera position to the destination coords
         if self.camera_x != self.camera_dest_x:
@@ -233,10 +243,10 @@ class Cursor(GameObject):
 
         game_screen.blit(spr_cursor[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
-        if Managers.team_manager.is_turn_submitted(self.team):
+        if self.get_manager(Manager.TEAM).is_turn_submitted(self.team):
             game_screen.blit(spr_turn_submitted_indicator[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
-        if Managers.turn_manager.phase != BattlePhase.ORDERS:
+        if self.get_manager(Manager.TURN).phase != BattlePhase.ORDERS:
             game_screen.blit(spr_wait_icon[self.team], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 
         if self.menu:

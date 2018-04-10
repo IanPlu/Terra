@@ -1,6 +1,6 @@
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, TICK_RATE
 from terra.engine.animatedgameobject import AnimatedGameObject
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.resources.assets import spr_effects
 
 
@@ -28,6 +28,6 @@ class AnimatedEffect(AnimatedGameObject):
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
 
-        if self.is_alive and (Managers.player_manager.active_team == self.team or not self.team):
+        if self.is_alive and (self.get_manager(Manager.PLAYER).active_team == self.team or not self.team):
             game_screen.blit(self.sprite, (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
 

@@ -1,6 +1,7 @@
 import unittest
 
 from terra.managers.mapmanager import *
+from terra.map.maputils import *
 
 
 class MapManagerTest(unittest.TestCase):

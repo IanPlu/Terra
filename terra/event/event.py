@@ -39,6 +39,7 @@ class EventType(Enum):
     E_START_NETWORK_BATTLE = auto()
     E_EXIT_LOBBY = auto()
     E_NETWORKING_ERROR = auto()
+    E_SWAP_ACTIVE_PLAYER = auto()
 
     E_ALL_TEAMS_FILLED = auto()
     E_TEAM_LEFT = auto()
@@ -64,6 +65,10 @@ class EventType(Enum):
     E_TEAM_DEFEATED = auto()
     E_DEATH_AOE = auto()
     E_DEATH_MONEY_LOSS = auto()
+    E_RESOURCES_GAINED = auto()
+    E_RESOURCES_LOST = auto()
+    E_PIECE_DAMAGED = auto()
+    E_PIECE_DEMOLISHED = auto()
 
     # Phase events
     START_PHASE_START_TURN = auto()

@@ -4,7 +4,7 @@ from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType, publish_game_event
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.piece.attribute import Attribute
 from terra.piece.orders import MoveOrder, BuildOrder, UpgradeOrder
 from terra.piece.piece import Piece
@@ -270,7 +270,7 @@ class PieceManager(GameObject):
                     coordinates.append((piece.gx, piece.gy))
 
                     # Check that a team isn't spending more than they have
-                    spent_resources.append(Managers.team_manager.attr(piece.team, piece.current_order.new_piece_type, Attribute.PRICE))
+                    spent_resources.append(self.get_manager(Manager.TEAM).attr(piece.team, piece.current_order.new_piece_type, Attribute.PRICE))
                 elif isinstance(piece.current_order, UpgradeOrder):
                     # Check that a team isn't spending more than they have
                     spent_resources.append(base_upgrades[piece.current_order.new_upgrade_type][UpgradeAttribute.UPGRADE_PRICE])
@@ -283,7 +283,7 @@ class PieceManager(GameObject):
         move_orders_valid = len(coordinates) == len(set(coordinates))
 
         # Build + upgrade orders are valid if there's enough resources to satisfy all orders
-        build_orders_valid = Managers.team_manager.can_spend_resources(team, spent_resources)
+        build_orders_valid = self.get_manager(Manager.TEAM).can_spend_resources(team, spent_resources)
 
         # Upgrade orders are valid if all upgrades being bought are unique
         upgrades_bought_valid = len([k for k, v in Counter(upgrades_bought).items() if v > 1]) <= 0
@@ -317,11 +317,6 @@ class PieceManager(GameObject):
 
         return move_orders_valid and build_orders_valid and upgrades_bought_valid
 
-    # Log the current orders for all pieces
-    def log_orders(self):
-        for piece in self.__get_all_pieces__():
-            Managers.combat_logger.log_order_assignment(piece, piece.current_order)
-
     # Check for overlapping enemy units, and resolve their combat
     def resolve_unit_combat(self, event):
         # Find conflicting units (opposing team units occupying the same space)
@@ -344,14 +339,14 @@ class PieceManager(GameObject):
         target_pieces = self.get_enemy_pieces_at(tx, ty, team)
 
         splashed_pieces = []
-        aoe_multiplier = Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.RANGED_AOE_MULTIPLIER)
+        aoe_multiplier = self.get_manager(Manager.TEAM).attr(origin_unit.team, origin_unit.piece_type, Attribute.RANGED_AOE_MULTIPLIER)
         if aoe_multiplier > 0:
             splashed_pieces.extend(self.get_adjacent_enemies(tx, ty, team))
 
         def conduct_ranged_attack(target, modifier):
             attack = origin_unit.get_attack_rating(target)
             # Pieces with armor-piercing ignore defensive bonuses
-            if Managers.team_manager.attr(origin_unit.team, origin_unit.piece_type, Attribute.ARMOR_PIERCING):
+            if self.get_manager(Manager.TEAM).attr(origin_unit.team, origin_unit.piece_type, Attribute.ARMOR_PIERCING):
                 defense = 0
             else:
                 defense = target.get_defense_rating()

@@ -8,7 +8,7 @@ from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, clear_color, spr_digit_icons, spr_upgrade_icons, \
@@ -92,7 +92,7 @@ class MenuPopup(GameObject):
         input_handler.register_handler(InputAction.MOTION, None, self.set_cursor_pos_to_mouse_coords)
 
     def is_accepting_input(self):
-        return Managers.player_manager.active_team == self.team and not self.detailbox
+        return self.get_manager(Manager.PLAYER).active_team == self.team and not self.detailbox
 
     def confirm(self):
         selected_option = self.options[self.option_pos]
@@ -167,8 +167,9 @@ class MenuPopup(GameObject):
         self.detailbox = DetailBox(self.team, self.options[self.option_pos])
 
     def close_detailbox(self, event):
-        self.detailbox.destroy()
-        self.detailbox = None
+        if self.detailbox:
+            self.detailbox.destroy()
+            self.detailbox = None
 
     def step(self, event):
         super().step(event)
@@ -216,7 +217,7 @@ class MenuPopup(GameObject):
 
                     # if self.option_pos == row_y + self.option_min:
                     ui_screen.blit(draw_resource_count(spr_resource_icon, spr_digit_icons, self.team,
-                                                       Managers.team_manager.attr(self.team, option, Attribute.PRICE)),
+                                                       self.get_manager(Manager.TEAM).attr(self.team, option, Attribute.PRICE)),
                                    (self.x + self.width - 20,
                                     self.y + row_y * option_height))
 

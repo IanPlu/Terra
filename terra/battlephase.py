@@ -10,4 +10,3 @@ class BattlePhase(Enum):
     EXECUTE_COMBAT = 4
     EXECUTE_RANGED = 5
     EXECUTE_SPECIAL = 6
-1

@@ -5,7 +5,6 @@ from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
 from terra.resources.assets import clear_color, light_color, shadow_color
 from terra.strings import get_string, get_text, formatted_strings, team_name_strings, label_strings
 from terra.team import Team
@@ -21,8 +20,6 @@ class ResultsScreen(GameScreen):
         self.winning_teams = results["winning_teams"]
         self.all_teams = results["all_teams"]
         self.team_stats = results["team_stats"]
-
-        Managers.combat_logger.log_results(self.winning_teams, self.all_teams, self.team_stats)
 
     def register_input_handlers(self, input_handler):
         super().register_input_handlers(input_handler)

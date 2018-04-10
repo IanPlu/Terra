@@ -3,7 +3,7 @@ from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.resources.assets import clear_color, spr_cursor, spr_phase_indicator, spr_resource_icon, spr_digit_icons, \
     spr_turn_submitted_indicator, light_color
 from terra.strings import get_text, get_formatted_text, notification_strings, phase_strings
@@ -65,21 +65,21 @@ class PhaseBar(GameObject):
         for phase in BattlePhase:
             ui_screen.blit(spr_phase_indicator[self.team][phase.value], (x * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
             x += 1
-        ui_screen.blit(spr_cursor[self.team], (Managers.turn_manager.phase.value * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
+        ui_screen.blit(spr_cursor[self.team], (self.get_manager(Manager.TURN).phase.value * GRID_WIDTH, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Render phase indicator text
-        ui_screen.blit(get_text(phase_strings, Managers.turn_manager.phase),
+        ui_screen.blit(get_text(phase_strings, self.get_manager(Manager.TURN).phase),
                        (3 + GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT + 6))
 
         # Render resource count
         x += 3
         ui_screen.blit(draw_resource_count(spr_resource_icon, spr_digit_icons, self.team,
-                                           Managers.team_manager.resources[self.team]),
+                                           self.get_manager(Manager.TEAM).resources[self.team]),
                        (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Render turn submission status
         x += 1
-        for team in Managers.team_manager.get_teams():
-            if Managers.team_manager.turn_submitted[team]:
+        for team in self.get_manager(Manager.TEAM).get_teams():
+            if self.get_manager(Manager.TEAM).turn_submitted[team]:
                 ui_screen.blit(spr_turn_submitted_indicator[team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
                 x += 1

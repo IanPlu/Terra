@@ -1,9 +1,7 @@
 import itertools
 import unittest
-from unittest.mock import Mock
 from math import ceil
 
-from terra.managers.managers import Managers
 from terra.piece.attribute import Attribute
 from terra.piece.piece import Piece
 from terra.piece.pieceattributes import base_piece_attributes
@@ -20,13 +18,16 @@ piece_strings = {
     PieceType.BOLTCASTER:   "[BOLTCAST]",
     PieceType.BANSHEE:      "[BANSHEE ]",
 
+    PieceType.TITAN:        "[TITAN   ]",
+    PieceType.EARTHRENDER:  "[EARTHREN]",
+    PieceType.DEMON:      "[DEMON   ]",
+
     PieceType.BASE:         "[BASE    ]",
     PieceType.GENERATOR:    "[GENERATO]",
     PieceType.BARRACKS:     "[BARRACKS]",
     PieceType.TOWER:        "[TOWER   ]",
     PieceType.TECHLAB:      "[TECHLAB ]",
 }
-
 
 
 class MockPiece:
@@ -58,9 +59,6 @@ class CombatValuesTest(unittest.TestCase):
             return "  "
 
     def test_combat_values(self):
-        # Mock out the combat logger
-        Managers.combat_logger = Mock()
-
         # Generate combinations of pieces
         input = [member for member in PieceType if member is not PieceType.DEFAULT]
         itertools.combinations(input, 2)

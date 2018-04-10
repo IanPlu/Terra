@@ -1,5 +1,6 @@
 from terra.event.eventbus import EVENT_BUS
 from terra.control.inputcontroller import INPUT_CONTROLLER
+from terra.managers.session import SESSION, Manager
 
 
 # Base game object class.
@@ -38,6 +39,14 @@ class GameObject:
     # Objects that only want to react to events while they're 'active' should override this method
     def is_accepting_events(self):
         return True
+
+    # Get a reference to a manager object in the Session.
+    def get_manager(self, manager_type):
+        return SESSION.get(manager_type)
+
+    # Return the current game mode.
+    def get_mode(self):
+        return SESSION.current_mode
 
     # Invoked for every event on the queue.
     # Do state changes and any logic that should run for every event and logic loop tick

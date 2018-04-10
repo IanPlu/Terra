@@ -1,13 +1,11 @@
 from copy import deepcopy
 
-from terra.control.inputcontroller import InputAction
-from terra.control.keybindings import Key
 from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.menu.option import Option
 from terra.mode import Mode
 from terra.piece.attribute import Attribute
@@ -99,19 +97,8 @@ class TeamManager(GameObject):
         event_bus.register_handler(EventType.E_CONCEDE, self.handle_concession)
         event_bus.register_handler(EventType.END_PHASE_SPECIAL, self.check_for_remaining_teams)
 
-    def register_input_handlers(self, input_handler):
-        super().register_input_handlers(input_handler)
-        input_handler.register_handler(InputAction.PRESS, Key.DEBUG1, self.__debug_submit_turn_t1__)
-        input_handler.register_handler(InputAction.PRESS, Key.DEBUG2, self.__debug_submit_turn_t2__)
-
     def is_accepting_input(self):
-        return Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game
-
-    def __debug_submit_turn_t1__(self):
-        self.try_submitting_turn(self.teams[0])
-
-    def __debug_submit_turn_t2__(self):
-        self.try_submitting_turn(self.teams[1])
+        return self.get_mode() in [Mode.BATTLE] and not self.get_manager(Manager.NETWORK).networked_game
 
     # Get the list of teams currently present in the battle
     def get_teams(self):
@@ -146,12 +133,18 @@ class TeamManager(GameObject):
     # Add new resources to the specified team. new_resources should be formatted as a tuple: (1, 2, 3)
     def add_resources(self, team, new_resources):
         self.resources[team] = clamp(self.resources[team] + new_resources, 0, MAX_RESOURCES)
-        Managers.combat_logger.log_resource_acquisition(new_resources, team)
+        publish_game_event(EventType.E_RESOURCES_GAINED, {
+            'team': team,
+            'new_resources': new_resources
+        })
 
     # Deduct resources from the specified team. resource_deduction should be formatted as a tuple: (1, 2, 3)
     def deduct_resources(self, team, resource_deduction):
         self.resources[team] = max(self.resources[team] - resource_deduction, 0)
-        Managers.combat_logger.log_resource_acquisition(-resource_deduction, team)
+        publish_game_event(EventType.E_RESOURCES_LOST, {
+            'team': team,
+            'resources_lost': resource_deduction
+        })
 
     # Return true if the specified team is able to spend the provided list of amounts.
     # Each amount in amounts should be formatted as a tuple: (1, 2, 3)
@@ -180,8 +173,6 @@ class TeamManager(GameObject):
         # 4. Remove the chosen upgrade from the purchaseable list
         for bought_by_piece in base_upgrades[upgrade_type][UpgradeAttribute.BOUGHT_BY]:
             self.piece_attributes[team][bought_by_piece][Attribute.PURCHASEABLE_UPGRADES].remove(upgrade_type)
-
-        Managers.combat_logger.log_upgrade(upgrade_type, team)
 
     # When an upgrade is purchased, trigger any effects it may have. Modify piece stats, add new abilities, etc.
     def on_upgrade_purchase(self, team, upgrade_type):
@@ -227,11 +218,11 @@ class TeamManager(GameObject):
 
     # Attempt to submit the turn for the specified team. Orders are validated before submission is allowed.
     def try_submitting_turn(self, team):
-        if not self.is_turn_submitted(team) and Managers.piece_manager.validate_orders(team):
+        if not self.is_turn_submitted(team) and self.get_manager(Manager.PIECE).validate_orders(team):
             self.turn_submitted[team] = True
             publish_game_event(EventType.E_TURN_SUBMITTED, {
                 'team': team,
-                'orders': Managers.piece_manager.serialize_orders(team)
+                'orders': self.get_manager(Manager.PIECE).serialize_orders(team)
             })
 
             if self.check_if_ready_to_submit_turns():
@@ -276,8 +267,8 @@ class TeamManager(GameObject):
 
         self.teams.remove(team)
 
-        Managers.piece_manager.destroy_all_pieces_for_team(team)
-        Managers.player_manager.handle_team_defeated(team)
+        self.get_manager(Manager.PIECE).destroy_all_pieces_for_team(team)
+        self.get_manager(Manager.PLAYER).handle_team_defeated(team)
 
         publish_game_event(EventType.E_TEAM_DEFEATED, {
             'team': team
@@ -298,7 +289,7 @@ class TeamManager(GameObject):
             results = {
                 'winning_teams': self.get_teams(),
                 'all_teams': self.get_all_teams(),
-                'team_stats': Managers.stat_manager.get_results(),
+                'team_stats': self.get_manager(Manager.STAT).get_results(),
             }
 
             publish_game_event(EventType.E_BATTLE_OVER, {
@@ -319,6 +310,8 @@ class TeamManager(GameObject):
                 publish_game_event(EventType.E_CONCEDE, {
                     'team': event.team
                 })
+            elif event.option == Option.MENU_SWAP_ACTIVE_PLAYER:
+                publish_game_event(EventType.E_SWAP_ACTIVE_PLAYER, {})
 
     def step(self, event):
         super().step(event)
@@ -328,6 +321,6 @@ class TeamManager(GameObject):
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
-        phase_bar = self.phase_bars.get(Managers.player_manager.active_team)
+        phase_bar = self.phase_bars.get(self.get_manager(Manager.PLAYER).active_team)
         if phase_bar:
             phase_bar.render(game_screen, ui_screen)

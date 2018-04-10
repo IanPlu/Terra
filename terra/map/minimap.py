@@ -1,7 +1,6 @@
 from pygame import Surface, SRCALPHA
 
-from terra.managers.mapmanager import load_map_from_file
-from terra.menu.option import Option
+from terra.map.maputils import load_map_from_file
 from terra.piece.piecetype import PieceType
 from terra.resources.assetloading import AssetType
 from terra.resources.assets import team_color, clear_color, light_color, shadow_color, light_team_color, \

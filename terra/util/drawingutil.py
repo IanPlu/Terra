@@ -56,6 +56,7 @@ def draw_multiline_text(text, color, shadow_color=None, width=192, height=192):
 
     x = 0
     y = 0
+    word_height = 0
 
     for line in words:
         for word in line:

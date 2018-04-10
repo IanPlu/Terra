@@ -6,15 +6,15 @@ from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
 from terra.map.minimap import draw_map_preview
-from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color
-from terra.team import Team
-from terra.util.drawingutil import draw_text
 from terra.menu.option import Option
-from terra.util.mathutil import clamp
+from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color
 from terra.settings import SETTINGS, Setting
 from terra.strings import get_text, label_strings, main_menu_strings
+from terra.team import Team
+from terra.util.drawingutil import draw_text
+from terra.util.mathutil import clamp
+from terra.managers.session import Session, Manager
 
 menu_width = 168
 
@@ -22,18 +22,17 @@ menu_width = 168
 # Pre-match screen for network games.
 # Gives room for players to trickle into an online game, change team assignments, etc.
 class NetworkLobby(GameScreen):
-    def __init__(self, map_name, bitmap, pieces, teams, upgrades, meta):
+    def __init__(self, is_host, map_name=None, map_type=None, address=None):
         super().__init__()
 
-        self.map_name = map_name
-        self.bitmap = bitmap
-        self.pieces = pieces
-        self.team_data = teams
-        self.teams = [Team[team.split(' ')[0]] for team in teams]
-        self.upgrades = upgrades
-        self.meta = meta
+        if is_host:
+            self.map_name, self.bitmap, self.pieces, self.team_data, self.upgrades, self.meta = \
+                Session.set_up_network_game_as_host(map_name, map_type, address)
+        else:
+            self.map_name, self.bitmap, self.pieces, self.team_data, self.upgrades, self.meta = \
+                Session.set_up_network_game_as_client(address)
 
-        Managers.initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta)
+        self.teams = [Team[team.split(' ')[0]] for team in self.teams]
 
         self.root_x = HALF_RES_WIDTH
         self.root_y = HALF_RES_HEIGHT - 48
@@ -58,7 +57,7 @@ class NetworkLobby(GameScreen):
         input_handler.register_handler(InputAction.MOTION, None, self.set_cursor_pos_to_mouse_coords)
 
     def on_all_teams_filled(self, event):
-        if Managers.network_manager.is_host:
+        if self.get_manager(Manager.NETWORK).is_host:
             self.options.insert(0, Option.START_BATTLE)
 
     def on_team_left(self, event):
@@ -123,15 +122,17 @@ class NetworkLobby(GameScreen):
         row_y = 1
         for team in self.teams:
             position_x, position_y = self.root_x, self.root_y + row_y * 24
-            is_filled = team in Managers.network_manager.filled_teams.keys()
+
+            filled_teams = self.get_manager(Manager.NETWORK).filled_teams
+            is_filled = team in filled_teams.keys()
             x_offset = 0 if is_filled else 16
 
             game_screen.fill(light_color, (position_x - 24 - 1 + x_offset, position_y - 1, menu_width + 3 - x_offset, 24))
             game_screen.fill(light_team_color[team] if is_filled else shadow_color[team],
                              (position_x - 24 + x_offset, position_y, menu_width - x_offset, 21))
 
-            if team in Managers.network_manager.filled_teams:
-                game_screen.blit(draw_text(Managers.network_manager.filled_teams[team], light_color, dark_color), (position_x + 8, position_y + 4))
+            if team in filled_teams:
+                game_screen.blit(draw_text(filled_teams[team], light_color, dark_color), (position_x + 8, position_y + 4))
             else:
                 game_screen.blit(get_text(label_strings, "OPEN_TEAM"), (position_x + 8, position_y + 4))
 

@@ -10,7 +10,7 @@ from terra.economy.upgradetype import UpgradeType
 from terra.engine.animatedgameobject import AnimatedGameObject
 from terra.engine.animationstate import AnimationState
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.menu.option import Option
 from terra.mode import Mode
 from terra.piece.attribute import Attribute
@@ -85,7 +85,7 @@ class Piece(AnimatedGameObject):
 
     # Return an attribute about this piece.
     def attr(self, attribute):
-        return Managers.team_manager.attr(self.team, self.piece_type, attribute)
+        return self.get_manager(Manager.TEAM).attr(self.team, self.piece_type, attribute)
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
@@ -111,12 +111,12 @@ class Piece(AnimatedGameObject):
         input_handler.register_handler(InputAction.RELEASE, Key.MENU2, self.stop_previewing_orders)
 
     def is_accepting_events(self):
-        return Managers.current_mode in [Mode.BATTLE, Mode.NETWORK_BATTLE]
+        return self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE]
 
     # Get the sprite index to display.
     def get_index(self):
         if (self.rendered_gx != self.gx * GRID_WIDTH or self.rendered_gy != self.gy * GRID_HEIGHT) or \
-                (isinstance(self.current_order, MoveOrder) and Managers.turn_manager.phase == BattlePhase.EXECUTE_MOVE):
+                (isinstance(self.current_order, MoveOrder) and self.get_manager(Manager.TURN).phase == BattlePhase.EXECUTE_MOVE):
             animation_state = AnimationState.MOVING
         else:
             animation_state = AnimationState.IDLE
@@ -126,7 +126,6 @@ class Piece(AnimatedGameObject):
     # Return a list of actions to show in the selection UI.
     def get_available_actions(self):
         actions = []
-
         if self.get_movement_range() > 0:
             actions.append(Option.MENU_MOVE)
         if self.attr(Attribute.DAMAGE_TYPE) == DamageType.RANGED:
@@ -162,7 +161,7 @@ class Piece(AnimatedGameObject):
         # Remove tiles that already have allies on it that can't move
         for tile_x, tile_y in tiles_to_check:
             immobile_allies = []
-            for piece in Managers.piece_manager.get_pieces_at(tile_x, tile_y, team=self.team):
+            for piece in self.get_manager(Manager.PIECE).get_pieces_at(tile_x, tile_y, team=self.team):
                 if piece.attr(Attribute.MOVEMENT_RANGE) <= 0:
                     immobile_allies.append(piece)
 
@@ -172,8 +171,8 @@ class Piece(AnimatedGameObject):
         # For each buildable piece, if there exists at least one valid adjacent tile for its movement type that we can
         # place it onto, add it to the list
         for piece in self.attr(Attribute.BUILDABLE_PIECES):
-            valid_tile_types = movement_types[Managers.team_manager.attr(self.team, piece, Attribute.MOVEMENT_TYPE)][MovementAttribute.PASSABLE]
-            unoccupied_tile_types = set([Managers.battle_map.get_tile_type_at(coord[0], coord[1]) for coord in unoccupied_tiles])
+            valid_tile_types = movement_types[self.get_manager(Manager.TEAM).attr(self.team, piece, Attribute.MOVEMENT_TYPE)][MovementAttribute.PASSABLE]
+            unoccupied_tile_types = set([self.get_manager(Manager.MAP).get_tile_type_at(coord[0], coord[1]) for coord in unoccupied_tiles])
 
             if not unoccupied_tile_types.isdisjoint(valid_tile_types):
                 valid_pieces.append(piece)
@@ -187,7 +186,7 @@ class Piece(AnimatedGameObject):
     # Return a list of adjacent tiles that can be traversed by this movement type
     def get_valid_tiles_for_terraforming(self, raising=True):
         if self.attr(Attribute.TERRAFORMING):
-            return Managers.battle_map.get_valid_adjacent_tiles_for_movement_type(
+            return self.get_manager(Manager.MAP).get_valid_adjacent_tiles_for_movement_type(
                 self.gx, self.gy, MovementType.RAISE if raising else MovementType.LOWER)
         else:
             return []
@@ -210,7 +209,7 @@ class Piece(AnimatedGameObject):
         movement_range = self.attr(Attribute.MOVEMENT_RANGE)
 
         if self.attr(Attribute.KICKOFF):
-            movement_range += len(Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team))
+            movement_range += len(self.get_manager(Manager.PIECE).get_adjacent_pieces(self.gx, self.gy, self.team))
 
         return movement_range
 
@@ -247,13 +246,13 @@ class Piece(AnimatedGameObject):
                     'team': self.team,
                 })
 
-                for ally in Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team):
+                for ally in self.get_manager(Manager.PIECE).get_adjacent_pieces(self.gx, self.gy, self.team):
                     ally.damage_hp(self.temporary_aoe_on_death, self.last_attacker)
 
             # Drain resources when killed if we've been hit by the steal debuff
             if self.temporary_money_lost_on_death > 0:
-                Managers.team_manager.deduct_resources(self.team, self.temporary_money_lost_on_death)
-                Managers.team_manager.add_resources(self.last_attacker.team, self.temporary_money_lost_on_death)
+                self.get_manager(Manager.TEAM).deduct_resources(self.team, self.temporary_money_lost_on_death)
+                self.get_manager(Manager.TEAM).add_resources(self.last_attacker.team, self.temporary_money_lost_on_death)
                 publish_game_event(EventType.E_DEATH_MONEY_LOSS, {
                     'gx': self.gx,
                     'gy': self.gy,
@@ -268,8 +267,6 @@ class Piece(AnimatedGameObject):
             'team': self.team
         })
 
-        Managers.combat_logger.log_failed_order_execution(self, self.current_order)
-
         # Abort the order
         self.current_order = None
 
@@ -279,7 +276,7 @@ class Piece(AnimatedGameObject):
         if self.attr(Attribute.IGNORE_CONTESTING):
             return False
         else:
-            enemy_pieces = Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)
+            enemy_pieces = self.get_manager(Manager.PIECE).get_enemy_pieces_at(self.gx, self.gy, self.team)
             contesting_pieces = []
             for piece in enemy_pieces:
                 # Contests if any of the following are true:
@@ -314,7 +311,11 @@ class Piece(AnimatedGameObject):
             if money_lost_on_death_gained > 0:
                 self.temporary_money_lost_on_death = money_lost_on_death_gained
 
-        Managers.combat_logger.log_damage(self, damage, source)
+        publish_game_event(EventType.E_PIECE_DAMAGED, {
+            'piece': self,
+            'damage': damage,
+            'source': source,
+        })
 
     # Heal this piece for the specified amount
     def heal_hp(self, heal):
@@ -324,9 +325,9 @@ class Piece(AnimatedGameObject):
             publish_game_event(EventType.E_PIECE_HEALED, {
                 'gx': self.gx,
                 'gy': self.gy,
-                'team': self.team
+                'team': self.team,
+                'health': heal
             })
-            Managers.combat_logger.log_healing(self, heal)
 
     # Apply an entrenchment bonus per unused movement range (up to 2)
     def apply_entrenchment(self, distance):
@@ -337,7 +338,7 @@ class Piece(AnimatedGameObject):
     def handle_phase_start_turn(self, event):
         # Produce resources
         if self.attr(Attribute.RESOURCE_PRODUCTION) > 0:
-            Managers.team_manager.add_resources(self.team, self.attr(Attribute.RESOURCE_PRODUCTION))
+            self.get_manager(Manager.TEAM).add_resources(self.team, self.attr(Attribute.RESOURCE_PRODUCTION))
 
         # Regen health
         regen = self.attr(Attribute.REGEN)
@@ -347,23 +348,22 @@ class Piece(AnimatedGameObject):
         # Apply medic healing to adjacent allies
         medic = self.attr(Attribute.MEDIC)
         if medic > 0:
-            adjacent_allies = Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team)
+            adjacent_allies = self.get_manager(Manager.PIECE).get_adjacent_pieces(self.gx, self.gy, self.team)
             for ally in adjacent_allies:
                 ally.heal_hp(medic)
 
         # Apply aura damage to adjacent enemies
         aura = self.attr(Attribute.AURA_DAMAGE)
         if aura > 0 and not self.is_contested():
-            adjacent_enemies = Managers.piece_manager.get_adjacent_enemies(self.gx, self.gy, self.team)
+            adjacent_enemies = self.get_manager(Manager.PIECE).get_adjacent_enemies(self.gx, self.gy, self.team)
             for enemy in adjacent_enemies:
                 enemy.damage_hp(self.get_attack_rating(enemy) * aura, self)
 
         # Pieces occupying tiles they can't traverse take damage each turn.
-        if not Managers.battle_map.is_tile_passable(self.gx, self.gy, self.attr(Attribute.MOVEMENT_TYPE)):
-            tile_type = Managers.battle_map.get_tile_type_at(self.gx, self.gy)
-            self.damage_hp(30, tile_type)
-
-            Managers.combat_logger.log_damage(self, 50, tile_type)
+        if not self.get_manager(Manager.MAP).is_tile_passable(self.gx, self.gy, self.attr(Attribute.MOVEMENT_TYPE)):
+            tile_type = self.get_manager(Manager.MAP).get_tile_type_at(self.gx, self.gy)
+            damage = 30
+            self.damage_hp(damage, tile_type)
 
             publish_game_event(EventType.E_PIECE_ON_INVALID_TERRAIN, {
                 'gx': self.gx,
@@ -388,11 +388,9 @@ class Piece(AnimatedGameObject):
                     'new_piece_type': self.current_order.new_piece_type
                 })
 
-                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
-
                 # Deduct unit price
-                Managers.team_manager.deduct_resources(
-                    self.team, Managers.team_manager.attr(self.team, self.current_order.new_piece_type, Attribute.PRICE))
+                self.get_manager(Manager.TEAM).deduct_resources(
+                    self.team, self.get_manager(Manager.TEAM).attr(self.team, self.current_order.new_piece_type, Attribute.PRICE))
                 # Pop orders once they're executed
                 self.current_order = None
 
@@ -411,8 +409,6 @@ class Piece(AnimatedGameObject):
             # Apply entrenchment bonus based on distance moved
             self.apply_entrenchment(abs(self.gx - self.current_order.dx) + abs(self.gy - self.current_order.dy))
 
-            Managers.combat_logger.log_successful_order_execution(self, self.current_order)
-
             # Pop orders once they're executed
             self.current_order = None
         else:
@@ -423,7 +419,7 @@ class Piece(AnimatedGameObject):
         # Apply buffs to allies on adjacent tiles, if necessary
         armor_share = self.attr(Attribute.ARMOR_SHARE)
         if armor_share > 0:
-            adjacent_allies = Managers.piece_manager.get_adjacent_pieces(self.gx, self.gy, self.team)
+            adjacent_allies = self.get_manager(Manager.PIECE).get_adjacent_pieces(self.gx, self.gy, self.team)
 
             for ally in adjacent_allies:
                 ally.temporary_armor += armor_share
@@ -447,8 +443,6 @@ class Piece(AnimatedGameObject):
                     'team': self.team
                 })
 
-                Managers.combat_logger.log_failed_order_execution(self, self.current_order)
-
                 # Abort the order
                 self.current_order = None
             else:
@@ -459,8 +453,6 @@ class Piece(AnimatedGameObject):
                     'tx': self.current_order.tx,
                     'ty': self.current_order.ty
                 })
-
-                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
 
                 # Pop orders once they're executed
                 self.current_order = None
@@ -477,10 +469,8 @@ class Piece(AnimatedGameObject):
                     'new_upgrade_type': self.current_order.new_upgrade_type
                 })
 
-                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
-
                 # Deduct upgrade price
-                Managers.team_manager.deduct_resources(self.team, base_upgrades[self.current_order.new_upgrade_type][UpgradeAttribute.UPGRADE_PRICE])
+                self.get_manager(Manager.TEAM).deduct_resources(self.team, base_upgrades[self.current_order.new_upgrade_type][UpgradeAttribute.UPGRADE_PRICE])
 
                 # Pop orders once they're executed
                 self.current_order = None
@@ -497,8 +487,6 @@ class Piece(AnimatedGameObject):
                     'raising': self.current_order.raising
                 })
 
-                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
-
                 # Pop orders once they're executed
                 self.current_order = None
 
@@ -506,7 +494,12 @@ class Piece(AnimatedGameObject):
         elif isinstance(self.current_order, DemolishOrder):
             self.damage_hp(self.hp)
 
-            Managers.combat_logger.log_successful_order_execution(self, self.current_order)
+            publish_game_event(EventType.E_PIECE_DEMOLISHED, {
+                'gx': self.gx,
+                'gy': self.gy,
+                'team': self.team
+            })
+
             self.current_order = None
 
         # Execute heal orders
@@ -516,8 +509,6 @@ class Piece(AnimatedGameObject):
                 self.abort_order()
             else:
                 self.heal_hp(self.attr(Attribute.HEAL_POWER))
-
-                Managers.combat_logger.log_successful_order_execution(self, self.current_order)
                 self.current_order = None
 
     # Handle menu events concerning us
@@ -559,7 +550,7 @@ class Piece(AnimatedGameObject):
                 'gy': self.gy,
                 'min_range': 1,
                 'max_range': 1,
-                'movement_type': Managers.team_manager.attr(self.team, event.option, Attribute.MOVEMENT_TYPE),
+                'movement_type': self.get_manager(Manager.TEAM).attr(self.team, event.option, Attribute.MOVEMENT_TYPE),
                 'piece_type': event.option,
                 'team': self.team,
                 'option': event.option
@@ -637,8 +628,8 @@ class Piece(AnimatedGameObject):
         super().step(event)
 
         # Check if we're in conflict
-        self.in_conflict = Managers.turn_manager.phase == BattlePhase.ORDERS and \
-                           len(Managers.piece_manager.get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
+        self.in_conflict = self.get_manager(Manager.TURN).phase == BattlePhase.ORDERS and \
+                           len(self.get_manager(Manager.PIECE).get_enemy_pieces_at(self.gx, self.gy, self.team)) > 0
 
     def start_previewing_orders(self):
         self.previewing_order = True
@@ -665,7 +656,7 @@ class Piece(AnimatedGameObject):
                 game_screen.blit(target_sprite, (self.current_order.tx * GRID_WIDTH,
                                                  self.current_order.ty * GRID_HEIGHT))
                 game_screen.blit(draw_small_resource_count(clear_color, spr_resource_icon_small, spr_digit_icons, self.team,
-                                                 Managers.team_manager.attr(self.team, self.current_order.new_piece_type, Attribute.PRICE)),
+                                                           self.get_manager(Manager.TEAM).attr(self.team, self.current_order.new_piece_type, Attribute.PRICE)),
                                  (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
 
             elif isinstance(self.current_order, UpgradeOrder):
@@ -680,7 +671,7 @@ class Piece(AnimatedGameObject):
     # Ask the Unit to render itself
     def render(self, game_screen, ui_screen):
         # Only render if we're within the camera view
-        if Managers.player_manager.is_within_camera_view((self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT, GRID_WIDTH, GRID_HEIGHT)):
+        if self.get_manager(Manager.PLAYER).is_within_camera_view((self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT, GRID_WIDTH, GRID_HEIGHT)):
             super().render(game_screen, ui_screen)
 
             # Animate pieces moving to their destinations
@@ -715,7 +706,7 @@ class Piece(AnimatedGameObject):
                                  (actual_x + 2, actual_y + 21, displayable_hp, 2))
 
             # Render order flag
-            if self.current_order and Managers.player_manager.active_team == self.team:
+            if self.current_order and self.get_manager(Manager.PLAYER).active_team == self.team:
                 game_screen.blit(spr_order_flags[self.current_order.name],
                                  (actual_x, actual_y + 16))
 
@@ -724,7 +715,7 @@ class Piece(AnimatedGameObject):
                 self.preview_order(game_screen)
 
             # Render ranged attacks
-            if Managers.turn_manager.phase == BattlePhase.EXECUTE_COMBAT and isinstance(self.current_order, RangedAttackOrder):
+            if self.get_manager(Manager.TURN).phase == BattlePhase.EXECUTE_COMBAT and isinstance(self.current_order, RangedAttackOrder):
                 pygame.draw.line(game_screen, light_team_color[self.team], (self.gx * GRID_WIDTH + 12, self.gy * GRID_HEIGHT + 12),
                                  (self.current_order.tx * GRID_WIDTH + 12, self.current_order.ty * GRID_HEIGHT + 12), 3)
                 pygame.draw.line(game_screen, light_color, (self.gx * GRID_WIDTH + 12, self.gy * GRID_HEIGHT + 12),

@@ -1,12 +1,15 @@
+from queue import PriorityQueue
+
 import pygame
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.piece.attribute import Attribute
 from terra.piece.movementtype import MovementType
 from terra.piece.piecesubtype import PieceSubtype
+from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_tile_selectable
 
 
@@ -31,16 +34,57 @@ class TileSelection(GameObject):
         # Menu option event to fire back on completion
         self.option = option
 
-        self.coordinate_set = self.__generate_coordinate_set__()
+        self.coordinate_set = self.__navigate__()
 
         # Abort immediately if there are no valid selectable tiles
         if len(self.coordinate_set) == 0:
-            self.cancel()
+            self.cancel(None)
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
         event_bus.register_handler(EventType.E_SELECT, self.confirm)
         event_bus.register_handler(EventType.E_CANCEL, self.cancel)
+
+    def __can_be_impeded__(self):
+        return self.piece_type and self.movement_type and not self.get_manager(Manager.TEAM).attr(self.team, self.piece_type, Attribute.IGNORE_IMPEDANCE)
+
+    # Use Dijkstra's algorithm to navigate the map for tile selection, with some rules caveats
+    # https://www.redblobgames.com/pathfinding/a-star/introduction.html
+    def __navigate__(self):
+        frontier = PriorityQueue()
+        frontier.put((self.gx, self.gy), 0)
+        cost_so_far = {(self.gx, self.gy): 0}
+        traversable = set()
+        excluded_coordinates = self.__generate_excluded_coordinates__()
+
+        # If we have a piece with the 'PORTAL' attribute, we need to look out for potential portal tiles
+        portal_coords = self.__generate_portal_coordinates__()
+
+        while not frontier.empty():
+            current = frontier.get()
+            neighbors = self.get_manager(Manager.MAP).get_valid_adjacent_tiles_for_movement_type(current[0], current[1], self.movement_type)
+
+            # If there's a friendly base on this tile, add any portal coords to the neighbors
+            if len(portal_coords) > 0 and len(self.get_manager(Manager.PIECE).get_pieces_at(current[0], current[1],
+                                                                                   PieceType.BASE, self.team)) > 0:
+                neighbors.extend(portal_coords)
+
+            for next in neighbors:
+                new_cost = cost_so_far[current] + 1
+                if (next not in cost_so_far or new_cost < cost_so_far[next]) and new_cost <= self.max_range:
+                    cost_so_far[next] = new_cost
+                    traversable.add(next)
+
+                    # If there's an enemy on this tile, and we are susceptible to impedance, don't investigate past it
+                    if not (len(self.get_manager(Manager.PIECE).get_enemy_pieces_at(next[0], next[1], self.team)) > 0 and self.__can_be_impeded__()):
+                        frontier.put(next, new_cost)
+
+                    # If this tile is within our minimum range, add it to the exclusion list
+                    if new_cost < self.min_range:
+                        excluded_coordinates.add(next)
+
+        # Remove previously excluded coordinates from the list
+        return traversable - excluded_coordinates
 
     # Return the initial list of coordinates that cannot be selected
     def __generate_excluded_coordinates__(self):
@@ -51,68 +95,19 @@ class TileSelection(GameObject):
             return {(self.gx, self.gy)}
         # Otherwise exclude friendly buildings from selection
         else:
-            for building in Managers.piece_manager.get_all_pieces_for_team(self.team, PieceSubtype.BUILDING):
+            for building in self.get_manager(Manager.PIECE).get_all_pieces_for_team(self.team, PieceSubtype.BUILDING):
                 excluded_coordinates.add((building.gx, building.gy))
 
             # Some pieces cannot occupy the same space as enemy buildings
-            if self.piece_type and Managers.team_manager.attr(self.team, self.piece_type, Attribute.CANT_ATTACK_BUILDINGS):
-                for building in Managers.piece_manager.get_all_enemy_pieces(self.team, PieceSubtype.BUILDING):
+            if self.piece_type and self.get_manager(Manager.TEAM).attr(self.team, self.piece_type, Attribute.CANT_ATTACK_BUILDINGS):
+                for building in self.get_manager(Manager.PIECE).get_all_enemy_pieces(self.team, PieceSubtype.BUILDING):
                     excluded_coordinates.add((building.gx, building.gy))
 
         return excluded_coordinates
 
     # Return the list of coordinates where we have pieces with the 'PORTAL' attribute
     def __generate_portal_coordinates__(self):
-        return [(piece.gx, piece.gy) for piece in Managers.piece_manager.get_all_pieces_with_attribute(Attribute.PORTAL)]
-
-    # Generate a list of the coordinates of all tiles available to select
-    def __generate_coordinate_set__(self):
-        # TODO: Follow the A* algorithm
-        confirmed_coordinates = set()
-        possible_coordinates = {(self.gx, self.gy)}
-        excluded_coordinates = self.__generate_excluded_coordinates__()
-
-        def traverse_tile(gx, gy, remaining_range, min_range, max_range, movement_type, piece_type, team, first_move):
-            # If we're out of tile range to use, return
-            if remaining_range <= 0:
-                return
-            # If the tile is passable, add the current tile to the selectable list, and iterate in all four directions
-            elif Managers.battle_map.is_tile_passable(gx, gy, movement_type) or \
-                    Managers.battle_map.is_tile_traversable(gx, gy, movement_type) or first_move:
-                possible_coordinates.add((gx, gy))
-
-                # Caveat: if the tile is inside the minimum range, add it to the exclusion set
-                # Also add it to the exclusion set if it's only traversable, not passable
-                if remaining_range > max_range + 1 - min_range or \
-                        Managers.battle_map.is_tile_traversable(gx, gy, movement_type):
-                    excluded_coordinates.add((gx, gy))
-
-                # If there's an enemy unit on this tile, we can move onto it but no further (unless we ignore impedance)
-                if len(Managers.piece_manager.get_enemy_pieces_at(gx, gy, team)) > 0 and \
-                        not first_move and piece_type and movement_type and \
-                        not Managers.team_manager.attr(team, piece_type, Attribute.IGNORE_IMPEDANCE):
-                        return
-
-                # If there's a friendly Base building here, check if we have any potential portal targets to evaluate.
-                # TODO:
-
-                traverse_tile(gx + 1, gy, remaining_range - 1, min_range, max_range,
-                              movement_type, piece_type, team, False)
-                traverse_tile(gx - 1, gy, remaining_range - 1, min_range, max_range,
-                              movement_type, piece_type, team, False)
-                traverse_tile(gx, gy + 1, remaining_range - 1, min_range, max_range,
-                              movement_type, piece_type, team, False)
-                traverse_tile(gx, gy - 1, remaining_range - 1, min_range, max_range,
-                              movement_type, piece_type, team, False)
-
-            # If the tile isn't passable or traversable, end iteration here and return
-            else:
-                return
-
-        traverse_tile(self.gx, self.gy, self.max_range + 1, self.min_range, self.max_range,
-                      self.movement_type, self.piece_type, self.team, True)
-
-        return possible_coordinates - excluded_coordinates
+        return [(piece.gx, piece.gy) for piece in self.get_manager(Manager.PIECE).get_all_pieces_with_attribute(self.team, Attribute.PORTAL)]
 
     def confirm(self, event):
         if (event.gx, event.gy) in self.coordinate_set and \

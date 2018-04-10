@@ -2,7 +2,7 @@ from pygame import KEYDOWN, MOUSEBUTTONDOWN
 
 from terra.constants import HALF_RES_WIDTH, HALF_RES_HEIGHT, TICK_RATE
 from terra.engine.gameobject import GameObject
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.resources.assets import clear_color, light_color
 from terra.strings import formatted_strings, get_string
 from terra.util.drawingutil import draw_text
@@ -46,7 +46,7 @@ class TurnBanner(GameObject):
             self.finish_animation()
 
         ui_screen.fill(light_color, (0 + HALF_RES_WIDTH / 2, HALF_RES_HEIGHT - self.height // 2, HALF_RES_WIDTH, self.height))
-        ui_screen.fill(clear_color[Managers.player_manager.active_team], (1 + HALF_RES_WIDTH / 2, HALF_RES_HEIGHT + 1 - self.height // 2, HALF_RES_WIDTH - 2, self.height - 3))
+        ui_screen.fill(clear_color[self.get_manager(Manager.PLAYER).active_team], (1 + HALF_RES_WIDTH / 2, HALF_RES_HEIGHT + 1 - self.height // 2, HALF_RES_WIDTH - 2, self.height - 3))
 
         if self.height == self.max_height:
             text_surface = draw_text(get_string(formatted_strings, "NEW_TURN_MESSAGE").format(self.turn_number), light_color)

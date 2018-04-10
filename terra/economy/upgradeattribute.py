@@ -9,6 +9,7 @@ from enum import Enum, auto
 #   - TIER: Depth in the tech tree. Tier 0 upgrades are available from the start, without any prereqs.
 #   - UNLOCKS: List of other upgrades that will be unlocked upon researching this upgrade.
 #   - BOUGHT_BY: What piece is able to research this upgrade as an action. Usually a building.
+#   - DISPLAY_FOR: Mostly cosmetic. What piece(s) to display this upgrade for on piece detail displays.
 class UpgradeAttribute(Enum):
     NEW_STAT = auto()
     NEW_TYPE = auto()
@@ -18,3 +19,4 @@ class UpgradeAttribute(Enum):
     TIER = auto()
     UNLOCKS = auto()
     BOUGHT_BY = auto()
+    DISPLAY_FOR = auto()

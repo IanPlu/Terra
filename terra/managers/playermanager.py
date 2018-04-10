@@ -1,9 +1,8 @@
 from terra.battlephase import BattlePhase
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
-from terra.control.inputcontroller import InputAction
-from terra.control.keybindings import Key
 from terra.engine.gameobject import GameObject
-from terra.managers.managers import Managers
+from terra.event.event import EventType
+from terra.managers.session import Manager
 from terra.mode import Mode
 from terra.ui.cursor import Cursor
 
@@ -15,29 +14,36 @@ class PlayerManager(GameObject):
         super().__init__()
 
         self.cursors = {}
-        for team in Managers.team_manager.get_teams():
+        for team in self.get_manager(Manager.TEAM).get_teams():
             self.cursors[team] = Cursor(team)
 
-        self.active_team = Managers.network_manager.team
+        self.active_team = self.get_manager(Manager.NETWORK).team
+        self.hotseat_mode = not self.get_manager(Manager.NETWORK).networked_game
 
     def destroy(self):
         super().destroy()
         for team, cursor in self.cursors.items():
             cursor.destroy()
 
-    def register_input_handlers(self, input_handler):
-        super().register_input_handlers(input_handler)
-        input_handler.register_handler(InputAction.PRESS, Key.DEBUG0, self.__debug_swap_active_team__)
+    def register_handlers(self, event_bus):
+        super().register_handlers(event_bus)
+        event_bus.register_handler(EventType.E_TURN_SUBMITTED, self.pass_control_to_next_team)
+        event_bus.register_handler(EventType.E_SWAP_ACTIVE_PLAYER, self.pass_control_to_next_team)
 
     def is_accepting_input(self):
-        return Managers.current_mode in [Mode.BATTLE] and not Managers.network_manager.networked_game
+        return self.get_mode() in [Mode.BATTLE] and not self.get_manager(Manager.NETWORK).networked_game
 
-    def __debug_swap_active_team__(self):
-        current_index = Managers.team_manager.get_teams().index(self.active_team) + 1
-        if current_index >= len(Managers.team_manager.get_teams()):
-            current_index = 0
+    # Once a player submits their turn, if we're in hotseat / sequential mode,
+    # swap the active team to let the other player take a turn
+    def pass_control_to_next_team(self, event):
+        if self.hotseat_mode:
+            team_manager = self.get_manager(Manager.TEAM)
 
-        self.active_team = Managers.team_manager.get_teams()[current_index]
+            current_index = team_manager.get_teams().index(self.active_team) + 1
+            if current_index >= len(team_manager.get_teams()):
+                current_index = 0
+
+            self.active_team = team_manager.get_teams()[current_index]
 
     def handle_team_defeated(self, team):
         pass
@@ -49,7 +55,7 @@ class PlayerManager(GameObject):
     def step(self, event):
         super().step(event)
 
-        if Managers.turn_manager.phase == BattlePhase.ORDERS:
+        if self.get_manager(Manager.TURN).phase == BattlePhase.ORDERS:
             cursor = self.cursors.get(self.active_team)
             if cursor:
                 cursor.step(event)

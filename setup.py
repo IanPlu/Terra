@@ -18,6 +18,7 @@ setup(name="Terra",
       version="0.1",
       description="Terra game",
       options=options,
+      requires=['pygame'],
       executables=[Executable("launcher.py", base="Win32GUI")])
 
 # Zip up the created file

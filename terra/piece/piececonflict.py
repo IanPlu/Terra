@@ -1,5 +1,4 @@
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
 from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
 
@@ -10,8 +9,6 @@ class PieceConflict:
         super().__init__()
 
         self.pieces = pieces
-
-        Managers.combat_logger.log_contesting_pieces(pieces)
 
     # Get the attack rating for this piece.
     # Note that attack damage is divided by the number of enemies in this conflict

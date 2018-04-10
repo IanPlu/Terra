@@ -8,7 +8,7 @@ from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType, publish_game_event
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.piece.attribute import Attribute
 from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piecetype import PieceType
@@ -59,7 +59,7 @@ class DetailBox(GameObject):
         surface = pygame.Surface((96, 12), pygame.SRCALPHA, 32)
         surface.blit(spr_piece_attribute_icons[self.team][attribute], (0, 0))
 
-        value = Managers.team_manager.attr(self.team, self.target, attribute)
+        value = self.get_manager(Manager.TEAM).attr(self.team, self.target, attribute)
         if attribute in [Attribute.ARCHETYPE, Attribute.MOVEMENT_TYPE]:
             surface.blit(get_text(attribute_value_strings, value, light=False), (14, 0))
         else:
@@ -192,6 +192,14 @@ class DetailBox(GameObject):
             y_offset = 16
 
         # Render the description text
-        ui_screen.blit(get_multiline_text(menu_help_strings, self.target, light=False,
-                                            width=subgrid_width * subgrid_size - 8),
-                         (self.x + 4, self.y + 16 + y_offset))
+        description = get_multiline_text(menu_help_strings, self.target, light=False, width=subgrid_width * subgrid_size - 8)
+        ui_screen.blit(description, (self.x + 4, self.y + 16 + y_offset))
+
+        # Render any bought upgrades for this piece
+        relevant_upgrades = [upgrade for upgrade in self.get_manager(Manager.TEAM).get_owned_upgrades(self.team)
+                             if self.target in base_upgrades[upgrade][UpgradeAttribute.DISPLAY_FOR]]
+
+        x_offset = 0
+        for upgrade in relevant_upgrades:
+            ui_screen.blit(spr_upgrade_icons[self.team][upgrade], (self.x + 4 + x_offset, self.y + subgrid_size * subgrid_height - 4))
+            x_offset += 24

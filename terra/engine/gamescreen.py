@@ -1,6 +1,7 @@
 from terra.event.eventbus import EVENT_BUS
 # TODO: Game screens shouldn't need the input controller-- input should be handled by a delegate
 from terra.control.inputcontroller import INPUT_CONTROLLER
+from terra.managers.session import SESSION
 
 
 # Base game screen class.
@@ -40,6 +41,10 @@ class GameScreen:
     # Objects that only want to react to events while they're 'active' should override this method
     def is_accepting_events(self):
         return True
+
+    # Get a reference to a manager object in the Session.
+    def get_manager(self, manager_type):
+        return SESSION.get(manager_type)
 
     def step(self, event):
         pass

@@ -6,24 +6,23 @@ from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
 from terra.map.tiletype import TileType
 from terra.menu.option import Option
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import clear_color, spr_tiles, spr_cursor, spr_pieces
 from terra.team import Team
 from terra.util.mathutil import clamp
+from terra.managers.session import SESSION, Session, Manager
 
 
 # A map editor for Terra maps.
 # Allows placing tiles of different types and saving / loading maps.
 class LevelEditor(GameScreen):
-    def __init__(self, map_name="edited_map.map"):
+    def __init__(self, map_name):
         super().__init__()
 
-        map_name, bitmap, pieces, team_data, upgrades, meta = Managers.load_map_setup_network(map_name, None, False)
+        bitmap, pieces, team_data, upgrades, meta = Session.set_up_level_editor(map_name)
         self.teams = [Team[team.split(' ')[0]] for team in team_data]
-        Managers.initialize_managers(map_name, bitmap, pieces, team_data, upgrades, meta)
 
         self.current_tile_type = TileType.GRASS
         self.secondary_tile_type = TileType.SEA
@@ -39,7 +38,8 @@ class LevelEditor(GameScreen):
 
     def destroy(self):
         super().destroy()
-        Managers.tear_down_managers()
+        if SESSION:
+            SESSION.reset()
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
@@ -62,7 +62,7 @@ class LevelEditor(GameScreen):
 
     def handle_menu_selection(self, event):
         if event.option == Option.MENU_SAVE_MAP:
-            Managers.save_map_to_file()
+            SESSION.save_map_to_file()
         elif event.option == Option.MENU_QUIT_BATTLE:
             publish_game_event(EventType.E_QUIT_BATTLE, {})
         elif event.option == Option.MENU_FILL_WITH_CURRENT_TILE:
@@ -75,7 +75,7 @@ class LevelEditor(GameScreen):
     def step(self, event):
         super().step(event)
 
-        Managers.step(event)
+        SESSION.step(event)
 
         if self.placing_multiple:
             self.confirm(event)
@@ -83,12 +83,11 @@ class LevelEditor(GameScreen):
             self.confirm_alt(event)
 
     def confirm(self, event):
+        cursor_x, cursor_y = self.get_manager(Manager.PLAYER).get_cursor_coords()
         if self.placing_tiles:
-            cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
-            Managers.battle_map.update_tile_type(cursor_x, cursor_y, self.current_tile_type)
+            self.get_manager(Manager.MAP).update_tile_type(cursor_x, cursor_y, self.current_tile_type)
         else:
-            cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
-            if Managers.piece_manager.get_piece_at(cursor_x, cursor_y, self.piece_team):
+            if self.get_manager(Manager.PIECE).get_piece_at(cursor_x, cursor_y, self.piece_team):
                 # Delete the existing piece first
                 publish_game_event(EventType.E_PIECE_DEAD, {
                     'gx': cursor_x,
@@ -104,11 +103,10 @@ class LevelEditor(GameScreen):
             })
 
     def confirm_alt(self, event):
+        cursor_x, cursor_y = self.get_manager(Manager.PLAYER).get_cursor_coords()
         if self.placing_tiles:
-            cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
-            Managers.battle_map.update_tile_type(cursor_x, cursor_y, self.secondary_tile_type)
+            self.get_manager(Manager.MAP).update_tile_type(cursor_x, cursor_y, self.secondary_tile_type)
         else:
-            cursor_x, cursor_y = Managers.player_manager.get_cursor_coords()
             publish_game_event(EventType.E_PIECE_DEAD, {
                 'gx': cursor_x,
                 'gy': cursor_y,
@@ -186,17 +184,18 @@ class LevelEditor(GameScreen):
         return spr_pieces[self.piece_team][piecetype]
 
     def fill_with_current_tile(self):
-        Managers.battle_map.fill_map_with_tile(self.current_tile_type)
+        self.get_manager(Manager.MAP).fill_map_with_tile(self.current_tile_type)
 
     def mirror_map(self, mirror_x=True, mirror_y=False):
-        Managers.battle_map.mirror_map(mirror_x, mirror_y)
+        self.get_manager(Manager.MAP).mirror_map(mirror_x, mirror_y)
 
     def render(self, ui_screen):
         super().render(ui_screen)
 
         # Generate a screen of the size of the map
-        map_screen = pygame.Surface((Managers.battle_map.width * GRID_WIDTH, Managers.battle_map.height * GRID_HEIGHT), pygame.SRCALPHA, 32)
-        Managers.render(map_screen, ui_screen)
+        map = self.get_manager(Manager.MAP)
+        map_screen = pygame.Surface((map.width * GRID_WIDTH, map.height * GRID_HEIGHT), pygame.SRCALPHA, 32)
+        SESSION.render(map_screen, ui_screen)
 
         # Render the current tile at the bottom of the screen
         ui_screen.fill(clear_color[Team.RED], (0, RESOLUTION_HEIGHT - GRID_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT))
@@ -223,7 +222,7 @@ class LevelEditor(GameScreen):
         ui_screen.blit(piece_display, (GRID_WIDTH * 3, RESOLUTION_HEIGHT - GRID_HEIGHT))
 
         # Trim the screen to just the camera area
-        camera_x, camera_y = Managers.player_manager.get_camera_coords()
+        camera_x, camera_y = self.get_manager(Manager.PLAYER).get_camera_coords()
         return map_screen.subsurface((camera_x, camera_y,
                                       min(CAMERA_WIDTH, map_screen.get_size()[0]),
                                       min(CAMERA_HEIGHT, map_screen.get_size()[1])))

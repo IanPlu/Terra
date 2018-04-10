@@ -8,7 +8,8 @@ x Add a preview order key and a preview all key-- when pressed, display whatever
 x Display prices in menus for building units and buildings
     x Display prices for units
     x Display prices for buildings (unify build orders for all pieces?)
-* Add an intersitial screen when swapping active players for local coop, to hide moves
+x Add an intersitial screen when swapping active players for local coop, to hide moves
+    x no need to hide moves, added an autoswap / hotseat mode
 x Improve the main menu
 x Add context menu to battle screen for submitting turn, saving, quitting to menu, etc
 x Game end screens / match review with statistics(?)
@@ -30,8 +31,8 @@ x Improve rendering performance
     x Rendering large maps chugs. Look into pygame.display.update, and only updating the portion around the camera viewport? (note: this would be minimal, since large portions of the screen are updated at a time)
     x Cull rendering for entities outside the camera? (note: this was a huuuuuge boost)
     x Optimize animation to use scrolling surfaces and not lists of surfs (note: this was a minor boost)
-* Improve performance of tile selection
-    - Use A* pathfinding, remove redundancy
+x Improve performance of tile selection
+    x Used Dijkstra's algorithm
 * Create common 'menu' class? Auto support for scrolling, setting mouse pos to menu pos, etc.
 * Support bundling and distributing the VC redist!
 
@@ -44,7 +45,7 @@ x Fix trying to RAISE or LOWER terrain past the edge of the tile types
 x fix not being able to issue BUILD orders when an ally is on the required tile (e.g. ally on an adjacent resource tile)
 x Fix the loggers not outputting to separate files: https://stackoverflow.com/questions/11232230/logging-to-two-files-with-different-settings
 * Fix level editor click+hold taking effect when clicking the pause menu
-* Fix level editor generating new maps via an error in loading files, rather than an explicit action?
+x Fix level editor generating new maps via an error in loading files, rather than an explicit action?
 * Fix level editor scrolling piece types when scrolling the pause menu
 x Fix team assumptions from the network manager -- because it's loaded before the map, it can't know what teams are in the game
     x Loaded map ahead of time, and network manager gains a team from the host when polling for the map data

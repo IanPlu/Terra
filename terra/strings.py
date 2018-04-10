@@ -41,6 +41,7 @@ menu_option_strings = {
         Option.MENU_CONCEDE: "Concede",
         Option.MENU_MIRROR_X: "Mirror (H)",
         Option.MENU_MIRROR_Y: "Mirror (V)",
+        Option.MENU_SWAP_ACTIVE_PLAYER: "Swap Player",
     }
 }
 
@@ -63,6 +64,7 @@ menu_help_strings = {
         Option.MENU_HEAL_SELF: "* Order this piece to heal itself a small amount.",
         Option.MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
         Option.MENU_CONCEDE: "* Concede the game. Your opponent wins!",
+        Option.MENU_SWAP_ACTIVE_PLAYER: "* Swap the currently active player in hotseat mode, without passing the turn.",
 
         # Pieces
         PieceType.COLONIST: "* Colonists are workers with little combat ability, but can harvest resources and build "
@@ -91,7 +93,7 @@ menu_help_strings = {
         PieceType.EARTHRENDER: "* Earthrenders are ranged super units. They have an extremely far effective range, deal"
                                " damage in an area, and cannot be interrupted when firing. ",
         PieceType.DEMON: "* Demons are mobility super units. They have a very high movement range, and ignore terrain. "
-                         "Unlike Ghosts, they can attack buildings. Demons also function as a portal-- allies can "
+                         "Like Ghosts, they can't attack buildings. Demons function as a portal-- allies can "
                          "travel to a Demon's tile as if it were adjacent to the Base. ",
 
         PieceType.BASE: "* Your Base is the only building capable of producing Colonists, and can research non-combat "

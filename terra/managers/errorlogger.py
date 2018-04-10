@@ -4,7 +4,7 @@ import traceback
 from terra.util.loggingutil import get_logger, check_log_dir_exists
 
 
-# Logs errors or crashes that occur during the operation of the game
+# Logs errors or crashes that occur during the operation of the game.
 class ErrorLogger:
     def __init__(self):
         super().__init__()
@@ -25,3 +25,7 @@ class ErrorLogger:
         stacktrace = "\n".join(traceback.format_tb(exc.__traceback__))
         self.error("!=== Caught a fatal exception: ===!")
         self.error("Exception: \n{}\n{}".format(exc, stacktrace))
+
+
+# Import and use this instead of creating a new ErrorLogger.
+ERROR_LOGGER = ErrorLogger()

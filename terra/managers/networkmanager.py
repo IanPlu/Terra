@@ -6,7 +6,8 @@ from ast import literal_eval
 from terra.constants import SERVER_PORT
 from terra.engine.gameobject import GameObject
 from terra.event.event import publish_game_event, EventType, publish_game_event_from_network
-from terra.managers.managers import Managers
+from terra.managers.errorlogger import ERROR_LOGGER
+from terra.managers.session import SESSION, Manager
 from terra.network.messagecode import MessageCode
 from terra.piece.orders import deserialize_order
 from terra.settings import SETTINGS, Setting
@@ -15,10 +16,11 @@ from terra.team import Team
 
 # Manager for synchronizing and messaging the game state back and forth in a network game.
 class NetworkManager(GameObject):
-    def __init__(self, address, open_teams, is_host=True):
+    def __init__(self, address, teams, is_host=True):
         super().__init__()
 
-        self.team = Team.NONE
+        open_teams = [Team[team.split(' ')[0]] for team in teams]
+
         if open_teams:
             self.open_teams = open_teams
         else:
@@ -58,6 +60,7 @@ class NetworkManager(GameObject):
 
                 # We don't know our team or what map we're on yet!
                 # Wait for a message to come back telling us who and where we are
+                self.team = None
                 self.connect_to_host()
 
     def register_handlers(self, event_bus):
@@ -109,8 +112,8 @@ class NetworkManager(GameObject):
                 self.network_step(blocking=True)
             except Exception as err:
                 print("Failed to connect to host. Aborting.")
-                Managers.error_logger.exception("Failed to connect to host", err)
-                Managers.tear_down_managers()
+                ERROR_LOGGER.exception("Failed to connect to host", err)
+                SESSION.reset()
                 publish_game_event(EventType.E_QUIT_BATTLE, {})
                 break
 
@@ -144,8 +147,7 @@ class NetworkManager(GameObject):
             self.clients.append(address)
             client_team = self.get_next_open_team(body)
 
-            # TODO: What if Managers aren't initialized?
-            self.send_game_state_to_client(Managers.save_game_to_string()[0], client_team.value)
+            self.send_game_state_to_client(SESSION.save_game_to_string()[0], client_team.value)
 
             publish_game_event(EventType.NETWORK_CLIENT_CONNECTED, {
                 'team': self.team,
@@ -175,7 +177,7 @@ class NetworkManager(GameObject):
                 else:
                     parsed_orders[coord] = None
 
-            Managers.piece_manager.set_orders(team, parsed_orders)
+            self.get_manager(Manager.PIECE).set_orders(team, parsed_orders)
             publish_game_event_from_network(EventType.E_SUBMIT_TURN, {
                 'team': team
             })
@@ -223,10 +225,10 @@ class NetworkManager(GameObject):
                 break
             except Exception as err:
                 attempt += 1
-                Managers.error_logger.warn("Caught exception while sending message '{}'. Retry {} of {}.".format(full_message, attempt, attempt_limit))
+                ERROR_LOGGER.warn("Caught exception while sending message '{}'. Retry {} of {}.".format(full_message, attempt, attempt_limit))
 
                 if attempt > attempt_limit:
-                    Managers.error_logger.exception("Too many attempts failed. Aborting sending message '{}'".format(full_message), err)
+                    ERROR_LOGGER.exception("Too many attempts failed. Aborting sending message '{}'".format(full_message), err)
                     # For now, just abort the game
                     self.quit_network_game()
 
@@ -258,7 +260,7 @@ class NetworkManager(GameObject):
                         self.handle_message(message, address)
             except Exception as err:
                 print("Caught exception during networking step. ")
-                Managers.error_logger.exception("Caught exception during network step.", err)
+                ERROR_LOGGER.exception("Caught exception during network step.", err)
                 self.quit_network_game()
 
                 # If an error occurs when we're blocking for this message, need to bubble it upward

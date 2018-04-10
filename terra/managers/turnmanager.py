@@ -1,7 +1,7 @@
 from terra.battlephase import BattlePhase
 from terra.engine.gameobject import GameObject
 from terra.event.event import publish_game_event, EventType
-from terra.managers.managers import Managers
+from terra.managers.session import Manager
 from terra.map.metadatakey import MetadataKey
 from terra.constants import TICK_RATE
 from terra.settings import SETTINGS, Setting
@@ -27,7 +27,6 @@ class TurnManager(GameObject):
                 self.phase = BattlePhase[value]
 
         if self.phase == BattlePhase.START_TURN:
-            Managers.combat_logger.log_new_turn(self.turn)
             self.progress_phase(None)
 
     def register_handlers(self, event_bus):
@@ -46,11 +45,9 @@ class TurnManager(GameObject):
     def validate_phase(self):
         if self.phase == BattlePhase.ORDERS:
             # Validate that all orders for all teams are correct before moving on
-            for team in Managers.team_manager.get_teams():
-                if not Managers.piece_manager.validate_orders(team):
+            for team in self.get_manager(Manager.TEAM).get_teams():
+                if not self.get_manager(Manager.PIECE).validate_orders(team):
                     return False
-
-            Managers.piece_manager.log_orders()
             return True
         else:
             # Other phases have no validation at the moment
@@ -77,10 +74,8 @@ class TurnManager(GameObject):
         # Log the start of a new round, if necessary
         if self.phase == BattlePhase.START_TURN:
             self.turn += 1
-            Managers.combat_logger.log_new_turn(self.turn)
 
         # Publish events for the new phase
-        Managers.combat_logger.log_new_phase(self.phase)
         publish_game_event(EventType.E_NEXT_PHASE, {
             'new_phase': self.phase
         })

@@ -5,7 +5,7 @@ from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import EventType, publish_game_event
-from terra.managers.mapmanager import get_loadable_maps
+from terra.map.maputils import get_loadable_maps
 from terra.map.minimap import draw_map_preview_from_file
 from terra.menu.option import Option
 from terra.menu.textinput import TextInput, FILTER_IP, FILTER_FILENAME, FILTER_ALPHANUMERIC

@@ -1,8 +1,8 @@
-from terra.constants import GRID_WIDTH, GRID_HEIGHT, RESOLUTION_WIDTH, RESOLUTION_HEIGHT
+from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.animatedgameobject import AnimatedGameObject
+from terra.managers.session import Manager
 from terra.map.tiletype import TileType
 from terra.resources.assets import spr_tiles, spr_coast_detail
-from terra.managers.managers import Managers
 
 
 # A single tile on the map.
@@ -47,7 +47,8 @@ class Tile(AnimatedGameObject):
     # Ask the Tile to render itself.
     def render(self, game_screen, ui_screen):
         # Only render if we're within the camera view
-        if Managers.player_manager.is_within_camera_view((self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT, GRID_WIDTH, GRID_HEIGHT)):
+
+        if self.get_manager(Manager.PLAYER).is_within_camera_view((self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT, GRID_WIDTH, GRID_HEIGHT)):
             super().render(game_screen, ui_screen)
 
             game_screen.blit(self.sprite, (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))

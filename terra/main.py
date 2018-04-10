@@ -3,10 +3,12 @@ import sys
 import pygame
 
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, TICK_RATE
+from terra.control.inputcontroller import INPUT_CONTROLLER
 from terra.engine.animatedgameobject import AnimatedGameObject
+from terra.engine.debug import DebugController
 from terra.event.event import EventType
 from terra.event.eventbus import EVENT_BUS
-from terra.managers.managers import Managers
+from terra.managers.session import SESSION, Manager
 from terra.menu.mainmenu import MainMenu
 from terra.menu.option import Option
 from terra.mode import Mode
@@ -18,7 +20,6 @@ from terra.screens.networklobby import NetworkLobby
 from terra.screens.results import ResultsScreen
 from terra.settings import Setting, SETTINGS
 from terra.team import Team
-from terra.control.inputcontroller import INPUT_CONTROLLER
 
 use_network_lobby = True
 
@@ -37,6 +38,8 @@ class Main:
 
         self.register_handlers()
 
+        self.debug_handler = DebugController()
+
     def register_handlers(self):
         EVENT_BUS.register_handler(EventType.MENU_SELECT_OPTION, self.handle_menu_selections)
         EVENT_BUS.register_handler(EventType.E_START_NETWORK_BATTLE, self.handle_network_game_start)
@@ -47,27 +50,24 @@ class Main:
     def is_accepting_events(self):
         return True
 
-    def set_screen_from_mode(self, new_mode, mapname=None, address=None, is_host=False, map_type=AssetType.MAP, results=None):
-        Managers.set_mode(new_mode)
-
+    def set_screen_from_mode(self, new_mode, map_name=None, address=None, is_host=False, map_type=AssetType.MAP, results=None):
         if new_mode == Mode.MAIN_MENU:
             new_screen = MainMenu()
         elif new_mode == Mode.BATTLE:
-            map_name, bitmap, pieces, teams, upgrades, meta = Managers.load_map_setup_network(mapname, address, is_host, map_type)
-            Managers.initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta)
-            new_screen = Battle()
+            new_screen = Battle(map_name, map_type)
         elif new_mode == Mode.EDIT:
-            new_screen = LevelEditor(mapname)
+            new_screen = LevelEditor(map_name)
         elif new_mode == Mode.RESULTS:
             new_screen = ResultsScreen(results)
         elif new_mode == Mode.NETWORK_LOBBY:
-            map_name, bitmap, pieces, teams, upgrades, meta = Managers.load_map_setup_network(mapname, address, is_host, map_type)
-            new_screen = NetworkLobby(map_name, bitmap, pieces, teams, upgrades, meta)
+            new_screen = NetworkLobby(is_host, map_name, map_type, address)
         elif new_mode == Mode.NETWORK_BATTLE:
             # Managers are already initialized by the lobby
-            new_screen = Battle()
+            new_screen = Battle(create_session=False)
         else:
             new_screen = None
+
+        SESSION.set_mode(new_mode)
 
         # Clean up the old screen, if any
         if self.current_screen:
@@ -86,7 +86,7 @@ class Main:
 
     # Reset the screens and managers
     def reset_to_menu(self, event):
-        Managers.tear_down_managers()
+        SESSION.reset()
         self.set_screen_from_mode(Mode.MAIN_MENU)
 
     def handle_menu_selections(self, event):
@@ -173,8 +173,8 @@ class Main:
             clock.tick(TICK_RATE)
 
             # Plumb for network messages if necessary
-            if Managers.network_manager:
-                Managers.network_manager.network_step()
+            if SESSION.is_network_game:
+                SESSION.get(Manager.NETWORK).network_step()
 
             # Run game logic
             for event in pygame.event.get():

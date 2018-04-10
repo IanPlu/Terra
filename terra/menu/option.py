@@ -41,6 +41,7 @@ class Option(Enum):
     MENU_SAVE_GAME = auto()
     MENU_QUIT_BATTLE = auto()
     MENU_CONCEDE = auto()
+    MENU_SWAP_ACTIVE_PLAYER = auto()
 
     # Level editor options
     MENU_SAVE_MAP = auto()

@@ -8,7 +8,7 @@ from terra.engine.gameobject import GameObject
 from terra.event.event import EventType, publish_game_event
 from terra.resources.assets import shadow_color, light_color
 from terra.strings import get_text, label_strings
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.drawingutil import draw_text
 
 # Common input filter strings

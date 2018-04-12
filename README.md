@@ -49,10 +49,10 @@ Menus & Battles:
 * ESCAPE: Open the pause menu, back out of menus
 
 Level Editor:
-Left click / ENTER: Place terrain / pieces
-Right click / SHIFT: Place the secondary terrain type / Remove pieces
-Mouse wheel / PGUP / PGDOWN: Scroll currently placed terrain or piece type
-CTRL + Mouse wheel / PGUP / PGDOWN: Scroll the secondary terrain type / change piece teams
-TAB: Switch between placing terrain and pieces
-ESCAPE: Open the pause menu
+* Left click / ENTER: Place terrain / pieces
+* Right click / SHIFT: Place the secondary terrain type / Remove pieces
+* Mouse wheel / PGUP / PGDOWN: Scroll currently placed terrain or piece type
+* CTRL + Mouse wheel / PGUP / PGDOWN: Scroll the secondary terrain type / change piece teams
+* TAB: Switch between placing terrain and pieces
+* ESCAPE: Open the pause menu
 

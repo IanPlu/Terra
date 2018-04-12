@@ -45,5 +45,13 @@ class PieceConflict:
             enemy_pieces.remove(piece)
 
             for enemy in enemy_pieces:
-                piece.damage_hp(self.attack(enemy, piece), enemy)
-                enemy.damage_hp(self.attack(piece, enemy), piece)
+                piece_attack = self.attack(piece, enemy)
+                enemy_attack = self.attack(enemy, piece)
+
+                piece.damage_hp(enemy_attack, enemy)
+                enemy.damage_hp(piece_attack, piece)
+
+                if piece_attack > 0:
+                    piece.on_damaging_enemy(piece_attack, enemy)
+                if enemy_attack > 0:
+                    enemy.on_damaging_enemy(enemy_attack, piece)

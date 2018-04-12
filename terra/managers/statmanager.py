@@ -2,7 +2,7 @@ from enum import Enum
 
 from terra.engine.gameobject import GameObject
 from terra.event.event import is_event_type, EventType
-from terra.team import Team
+from terra.team.team import Team
 
 
 # Labels for recorded statistics

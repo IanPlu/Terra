@@ -11,7 +11,7 @@ from terra.managers.session import SESSION, Manager
 from terra.network.messagecode import MessageCode
 from terra.piece.orders import deserialize_order
 from terra.settings import SETTINGS, Setting
-from terra.team import Team
+from terra.team.team import Team
 
 
 # Manager for synchronizing and messaging the game state back and forth in a network game.

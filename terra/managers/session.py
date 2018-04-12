@@ -35,11 +35,12 @@ class Session:
     # Set up a local game, either a new game with a .map file, or loading a saved game from a .sav file.
     @staticmethod
     def set_up_local_game(map_name, map_type=AssetType.MAP):
-        from terra.managers.networkmanager import NetworkManager
+        from terra.network.networkmanager import NetworkManager
 
         bitmap, pieces, teams, upgrades, meta = load_map_from_file(map_name, map_type)
 
         global SESSION
+        SESSION.reset()
         SESSION.managers[Manager.NETWORK] = NetworkManager(None, teams)
         SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
 
@@ -48,11 +49,12 @@ class Session:
     # Set up a network game, where we're the host.
     @staticmethod
     def set_up_network_game_as_host(map_name, map_type=AssetType.MAP, address="localhost"):
-        from terra.managers.networkmanager import NetworkManager
+        from terra.network.networkmanager import NetworkManager
 
         bitmap, pieces, teams, upgrades, meta = load_map_from_file(map_name, map_type)
 
         global SESSION
+        SESSION.reset()
         SESSION.is_network_game = True
         SESSION.managers[Manager.NETWORK] = NetworkManager(address, teams, is_host=True)
         SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
@@ -62,9 +64,10 @@ class Session:
     # Set up a network game, where we're just a client. Ping the host to get the map data.
     @staticmethod
     def set_up_network_game_as_client(address):
-        from terra.managers.networkmanager import NetworkManager
+        from terra.network.networkmanager import NetworkManager
 
         global SESSION
+        SESSION.reset()
         SESSION.is_network_game = True
         SESSION.managers[Manager.NETWORK] = NetworkManager(address, None, is_host=False)
         bitmap, pieces, teams, upgrades, meta = parse_map_from_string(SESSION.get(Manager.NETWORK).map_data)
@@ -75,7 +78,7 @@ class Session:
     # Set up a level editor sessions, creating a new map if needed.
     @staticmethod
     def set_up_level_editor(map_name):
-        from terra.managers.networkmanager import NetworkManager
+        from terra.network.networkmanager import NetworkManager
 
         if map_exists(map_name):
             bitmap, pieces, teams, upgrades, meta = load_map_from_file(map_name, AssetType.MAP)
@@ -83,6 +86,7 @@ class Session:
             bitmap, pieces, teams, upgrades, meta = generate_map()
 
         global SESSION
+        SESSION.reset()
         SESSION.managers[Manager.NETWORK] = NetworkManager(None, teams)
         SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
 
@@ -93,22 +97,22 @@ class Session:
         for key, manager in self.managers.items():
             manager.destroy()
 
+        del self.managers
+        self.managers = {}
+
     # Set up non-network managers, given a map, pieces, teams, etc.
     def __set_up__(self, map_name, bitmap, pieces, teams, upgrades, meta):
         # Dodging circular dependencies. It's usually OK for managers to rely on one another.
         # NOTE: Creation order for managers matters as a result!
         from terra.managers.combatlogger import CombatLogger
-        from terra.managers.effectsmanager import EffectsManager
-        from terra.managers.mapmanager import MapManager
-        from terra.managers.piecemanager import PieceManager
-        from terra.managers.playermanager import PlayerManager
-        from terra.managers.soundmanager import SoundManager
+        from terra.effects.effectsmanager import EffectsManager
+        from terra.map.mapmanager import MapManager
+        from terra.piece.piecemanager import PieceManager
+        from terra.team.playermanager import PlayerManager
+        from terra.sound.soundmanager import SoundManager
         from terra.managers.statmanager import StatManager
-        from terra.managers.teammanager import TeamManager
-        from terra.managers.turnmanager import TurnManager
-
-        if len(self.managers.values()) > 0:
-            self.reset()
+        from terra.team.teammanager import TeamManager
+        from terra.turn.turnmanager import TurnManager
 
         self.map_name = map_name
         self.managers[Manager.COMBAT_LOGGER] = CombatLogger(map_name)

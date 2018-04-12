@@ -36,12 +36,21 @@ class EffectsManager(GameObject):
         event_bus.register_handler(EventType.START_PHASE_START_TURN, self.create_turn_banner)
         event_bus.register_handler(EventType.E_INVALID_MOVE_ORDERS, self.create_invalid_coordinate_effects)
 
+    def destroy(self):
+        super().destroy()
+        for effect in self.effects:
+            effect.destroy()
+
+        del self.effects
+        self.effects = []
+
     # Create an effect of the specified type.
     def create_effect(self, gx, gy, effect_type, team):
         self.effects.append(AnimatedEffect(self, effect_type, gx, gy, team))
 
     # Remove and delete the provided effect.
     def destroy_effect(self, effect):
+        effect.destroy()
         self.effects.remove(effect)
 
     # Create an effect from a notification event.

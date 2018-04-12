@@ -8,7 +8,7 @@ from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
 from terra.resources.assetloading import AssetType, get_asset
 from terra.settings import SETTINGS, Setting
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.drawingutil import get_nine_slice_sprites, get_sprites_from_strip, \
     swap_palette, generate_palette_list, swap_multiple_palette
 
@@ -168,9 +168,18 @@ spr_upgrade_icons = {
         UpgradeType.BANSHEE_STRIKEFORMATION: spr_upgrade_icons_base[28],
         UpgradeType.BANSHEE_LURK: spr_upgrade_icons_base[29],
 
-        UpgradeType.RESEARCH_TITAN: spr_upgrade_icons_base[29],
-        UpgradeType.RESEARCH_EARTHRENDER: spr_upgrade_icons_base[29],
-        UpgradeType.RESEARCH_DEMON: spr_upgrade_icons_base[29],
+        UpgradeType.RESEARCH_TITAN: spr_upgrade_icons_base[30],
+        UpgradeType.RESEARCH_EARTHRENDER: spr_upgrade_icons_base[31],
+        UpgradeType.RESEARCH_DEMON: spr_upgrade_icons_base[32],
+
+        UpgradeType.TITAN_LIFESTEAL: spr_upgrade_icons_base[33],
+        UpgradeType.TITAN_AURA_DAMAGE: spr_upgrade_icons_base[34],
+
+        UpgradeType.EARTHRENDER_CRATERING: spr_upgrade_icons_base[35],
+        UpgradeType.EARTHRENDER_DAMAGE: spr_upgrade_icons_base[36],
+
+        UpgradeType.DEMON_CAN_BUILD: spr_upgrade_icons_base[37],
+        UpgradeType.DEMON_BASE_ATTACK: spr_upgrade_icons_base[38],
     }
 }
 

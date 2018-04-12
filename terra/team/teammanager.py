@@ -11,7 +11,7 @@ from terra.mode import Mode
 from terra.piece.attribute import Attribute
 from terra.piece.pieceattributes import base_piece_attributes
 from terra.piece.piecetype import PieceType
-from terra.team import Team
+from terra.team.team import Team
 from terra.ui.phasebar import PhaseBar
 from terra.util.mathutil import clamp
 

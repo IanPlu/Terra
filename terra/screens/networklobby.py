@@ -11,7 +11,7 @@ from terra.menu.option import Option
 from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color
 from terra.settings import SETTINGS, Setting
 from terra.strings import get_text, label_strings, main_menu_strings
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.drawingutil import draw_text
 from terra.util.mathutil import clamp
 from terra.managers.session import Session, Manager

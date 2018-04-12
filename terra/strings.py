@@ -1,6 +1,6 @@
 from enum import Enum
 
-from terra.battlephase import BattlePhase
+from terra.turn.battlephase import BattlePhase
 from terra.economy.upgradetype import UpgradeType
 from terra.event.event import EventType
 from terra.managers.statmanager import Stat
@@ -11,7 +11,7 @@ from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import light_color, dark_color
 from terra.settings import Setting
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.drawingutil import draw_text, draw_multiline_text
 
 
@@ -163,6 +163,15 @@ menu_help_strings = {
         UpgradeType.RESEARCH_EARTHRENDER: "* Allows building Earthrenders at Barracks. Earthrenders are ranged "
                                           "super units.",
         UpgradeType.RESEARCH_DEMON: "* Allows building Demons at Barracks. Demons are mobility super units.",
+
+        UpgradeType.TITAN_LIFESTEAL: "* Titans now heal for a portion of damage they deal with their normal attack. ",
+        UpgradeType.TITAN_AURA_DAMAGE: "* Titans now deal more damage to adjacent enemies at the end of turn. ",
+
+        UpgradeType.EARTHRENDER_CRATERING: "* Earthrenders now LOWER the tile they target with ranged attacks. ",
+        UpgradeType.EARTHRENDER_DAMAGE: "* Earthrenders now do significantly more damage, and have a longer range. ",
+
+        UpgradeType.DEMON_CAN_BUILD: "* Demons now gain the ability to construct T1 units. ",
+        UpgradeType.DEMON_BASE_ATTACK: "* Demons gain the ability to attack buildings. ",
     }
 }
 
@@ -258,6 +267,15 @@ upgrade_name_strings = {
         UpgradeType.RESEARCH_TITAN: "Unlock Unit",
         UpgradeType.RESEARCH_EARTHRENDER: "Unlock Unit",
         UpgradeType.RESEARCH_DEMON: "Unlock Unit",
+
+        UpgradeType.TITAN_LIFESTEAL: "[Ti] Flux Engine",
+        UpgradeType.TITAN_AURA_DAMAGE: "[Ti] Devastation",
+
+        UpgradeType.EARTHRENDER_CRATERING: "[Ea] Meteor",
+        UpgradeType.EARTHRENDER_DAMAGE: "[Ea] Long Gun",
+
+        UpgradeType.DEMON_CAN_BUILD: "[De] Summoning",
+        UpgradeType.DEMON_BASE_ATTACK: "[De] Regicide",
     }
 }
 
@@ -328,6 +346,9 @@ attribute_label_strings = {
         Attribute.STEAL: "Resources Stolen on Kill",
         Attribute.AURA_DAMAGE: "Aura Damage",
         Attribute.HEAL_POWER: "Healing Power",
+        Attribute.PORTAL: "Acts as a Portal",
+        Attribute.LIFESTEAL: "Lifesteal",
+        Attribute.CRATERING: "Ranged attacks Terraform",
     }
 }
 

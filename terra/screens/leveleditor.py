@@ -10,7 +10,7 @@ from terra.map.tiletype import TileType
 from terra.menu.option import Option
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import clear_color, spr_tiles, spr_cursor, spr_pieces
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.mathutil import clamp
 from terra.managers.session import SESSION, Session, Manager
 

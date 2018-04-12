@@ -1,4 +1,4 @@
-from terra.battlephase import BattlePhase
+from terra.turn.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
 from terra.engine.gameobject import GameObject

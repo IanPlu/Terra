@@ -7,7 +7,7 @@ from terra.engine.gamescreen import GameScreen
 from terra.event.event import publish_game_event, EventType
 from terra.resources.assets import clear_color, light_color, shadow_color
 from terra.strings import get_string, get_text, formatted_strings, team_name_strings, label_strings
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.drawingutil import draw_text
 
 

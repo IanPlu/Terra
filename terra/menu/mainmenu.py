@@ -14,7 +14,7 @@ from terra.resources.assets import clear_color, light_color, shadow_color, light
     spr_title_text
 from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.drawingutil import draw_text
 from terra.util.mathutil import clamp
 

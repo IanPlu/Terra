@@ -6,7 +6,7 @@ from terra.resources.assetloading import AssetType
 from terra.resources.assets import team_color, clear_color, light_color, shadow_color, light_team_color, \
     spr_pieces, spr_tiles_mini
 from terra.strings import get_string, formatted_strings, draw_text
-from terra.team import Team
+from terra.team.team import Team
 
 
 # Generate a surface containing a minimap of the passed in bitmap

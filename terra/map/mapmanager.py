@@ -1,10 +1,10 @@
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
+from terra.map.maputils import generate_bitmap_from_simplex_noise
 from terra.map.tile import Tile
 from terra.map.tiletype import tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
 from terra.util.mathutil import clamp
-from terra.map.maputils import generate_bitmap_from_simplex_noise
 
 
 # A single map containing tiles, organized into a grid.
@@ -24,6 +24,18 @@ class MapManager(GameObject):
 
         # Serialize the map to Tile objects (from integers)
         self.tile_grid = self.convert_grid_from_bitmap(self.bitmap)
+
+    def destroy(self):
+        super().destroy()
+        for row in self.tile_grid:
+            for tile in row:
+                tile.destroy()
+
+            del row
+
+        del self.tile_grid
+        self.tile_grid = []
+
 
     def register_handlers(self, event_bus):
         event_bus.register_handler(EventType.E_TILE_TERRAFORMED, self.terraform_tile)
@@ -91,12 +103,17 @@ class MapManager(GameObject):
     # Terraform a tile according to an event
     def terraform_tile(self, event):
         tile_type = self.get_tile_type_at(event.gx, event.gy)
-        if event.raising:
-            new_tile_type_index = tile_height_order.index(tile_type) + 1
-        else:
-            new_tile_type_index = tile_height_order.index(tile_type) - 1
 
-        self.update_tile_type(event.gx, event.gy, tile_height_order[clamp(new_tile_type_index, 0, len(tile_height_order) - 1)])
+        # Ignore tiles not in the tile heightmap
+        if tile_type not in tile_height_order:
+            return
+        else:
+            if event.raising:
+                new_tile_type_index = tile_height_order.index(tile_type) + 1
+            else:
+                new_tile_type_index = tile_height_order.index(tile_type) - 1
+
+            self.update_tile_type(event.gx, event.gy, tile_height_order[clamp(new_tile_type_index, 0, len(tile_height_order) - 1)])
 
     # Replace all tiles with the provided tiletype.
     def fill_map_with_tile(self, new_tile_type):

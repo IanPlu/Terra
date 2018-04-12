@@ -11,7 +11,7 @@ from terra.piece.piece import Piece
 from terra.piece.piececonflict import PieceConflict
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.collectionutil import safe_get_from_list
 
 
@@ -352,13 +352,24 @@ class PieceManager(GameObject):
                 defense = target.get_defense_rating()
 
             damage = int(attack * modifier * (1 - defense / 10))
+            lifesteal = damage * origin_unit.attr(Attribute.LIFESTEAL)
 
             target.damage_hp(damage, origin_unit)
+            if lifesteal > 0:
+                origin_unit.heal(lifesteal)
 
         for target_piece in target_pieces:
             conduct_ranged_attack(target_piece, 1)
         for target_piece in splashed_pieces:
             conduct_ranged_attack(target_piece, aoe_multiplier)
+
+        # Do any extra effects
+        if origin_unit.attr(Attribute.CRATERING):
+            publish_game_event(EventType.E_TILE_TERRAFORMED, {
+                'gx': tx,
+                'gy': ty,
+                'raising': False
+            })
 
     def conduct_ranged_attack_from_event(self, event):
         self.ranged_attack(event.gx, event.gy, event.team, event.tx, event.ty)

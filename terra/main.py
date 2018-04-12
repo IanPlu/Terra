@@ -1,5 +1,3 @@
-import sys
-
 import pygame
 
 from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, TICK_RATE
@@ -19,7 +17,7 @@ from terra.screens.leveleditor import LevelEditor
 from terra.screens.networklobby import NetworkLobby
 from terra.screens.results import ResultsScreen
 from terra.settings import Setting, SETTINGS
-from terra.team import Team
+from terra.team.team import Team
 
 use_network_lobby = True
 
@@ -39,6 +37,7 @@ class Main:
         self.register_handlers()
 
         self.debug_handler = DebugController()
+        self.should_quit = False
 
     def register_handlers(self):
         EVENT_BUS.register_handler(EventType.MENU_SELECT_OPTION, self.handle_menu_selections)
@@ -121,7 +120,7 @@ class Main:
 
     def quit(self):
         pygame.quit()
-        sys.exit()
+        self.should_quit = True
 
     # Step phase of game loop - handle events
     def step(self, event):
@@ -180,8 +179,12 @@ class Main:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.quit()
+                    break
 
                 self.step(event)
+
+            if self.should_quit:
+                break
 
             # Render to the screen
             self.render()

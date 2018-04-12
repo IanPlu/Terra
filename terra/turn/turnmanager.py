@@ -1,4 +1,4 @@
-from terra.battlephase import BattlePhase
+from terra.turn.battlephase import BattlePhase
 from terra.engine.gameobject import GameObject
 from terra.event.event import publish_game_event, EventType
 from terra.managers.session import Manager

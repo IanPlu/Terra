@@ -1,35 +1,691 @@
-2018-04-06 14:46:35,590 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-06 14:46:35,590 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-06 15:15:34,547 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-06 15:15:34,547 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-06 16:41:55,647 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-06 16:41:55,647 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-06 16:41:55,684 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-06 16:41:55,704 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-06 16:41:55,704 ERROR [ERROR]: Exception: 
-Expecting property name enclosed in double quotes: line 1 column 12367 (char 12366)
+2018-04-10 11:51:26,889 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 11:51:26,889 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 11:51:58,780 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 11:51:58,781 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:08:15,713 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:08:15,713 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:08:18,834 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:08:18,835 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:14:56,391 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:14:56,392 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:15:00,498 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:15:00,498 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:15:38,326 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-10 12:15:38,327 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-10 12:15:38,327 ERROR [ERROR]: Exception: 
+'Main' object has no attribute 'quit'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\site-packages\memory_profiler.py", line 1072, in wrapper
+    val = prof(func)(*args, **kwargs)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\site-packages\memory_profiler.py", line 659, in f
+    return func(*args, **kwds)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 130, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 113, in handle_menu_selections
+    self.quit()
+
+2018-04-10 12:17:04,440 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-10 12:17:04,444 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-10 12:17:04,445 ERROR [ERROR]: Exception: 
+cannot convert without pygame.display initialized
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\site-packages\memory_profiler.py", line 1072, in wrapper
+    val = prof(func)(*args, **kwargs)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\site-packages\memory_profiler.py", line 659, in f
+    return func(*args, **kwds)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 191, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 149, in render
+    ui_screen = ui_screen.convert_alpha()
+
+2018-04-10 12:17:14,891 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-10 12:17:14,896 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-10 12:17:14,897 ERROR [ERROR]: Exception: 
+cannot convert without pygame.display initialized
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\site-packages\memory_profiler.py", line 1072, in wrapper
+    val = prof(func)(*args, **kwargs)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\site-packages\memory_profiler.py", line 659, in f
+    return func(*args, **kwds)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 192, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 149, in render
+    ui_screen = ui_screen.convert_alpha()
+
+2018-04-10 12:18:32,393 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:18:32,393 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:18:35,757 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:18:35,757 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:19:28,874 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:19:28,874 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:19:31,719 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:19:31,720 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:21:08,775 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:21:08,775 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:21:15,428 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:21:15,428 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:21:20,991 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:21:20,991 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:21:27,369 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:21:27,369 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:21:35,045 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:21:35,045 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:21:54,859 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:21:54,859 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:22:09,703 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:22:09,703 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:22:53,304 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:22:53,304 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:26:24,050 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:26:24,050 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:27:11,830 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:27:11,830 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:46:33,157 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:46:33,158 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:47:00,009 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:47:00,010 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:47:47,340 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:47:47,342 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:48:03,529 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:48:03,532 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:48:26,247 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:48:26,248 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:49:40,706 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:49:40,706 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:49:48,022 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:49:48,022 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:49:48,164 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:49:48,164 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:49:48,299 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:49:48,299 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:49:52,361 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:49:52,362 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:49:52,503 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:49:52,503 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:49:52,640 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:49:52,640 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:50:19,193 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:50:19,193 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:50:19,338 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:50:19,338 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:50:19,473 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:50:19,474 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:50:19,536 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:50:19,536 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:50:19,600 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:50:19,601 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:04,357 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:04,357 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:04,495 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:04,496 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:04,646 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:04,647 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:04,716 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:04,716 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:04,783 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:04,784 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:04,844 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:04,845 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:04,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:04,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:05,067 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:05,068 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:05,128 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:05,128 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:05,192 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:05,193 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:05,290 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:05,290 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:05,409 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:05,410 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:05,482 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:05,482 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:05,544 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:05,544 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:05,661 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:05,662 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:06,727 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:06,727 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:06,829 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:06,829 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:06,933 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:06,933 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:06,992 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:06,993 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,134 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,135 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,195 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,196 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,295 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,296 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,363 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,364 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,448 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,449 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,535 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,536 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,683 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,684 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,758 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,758 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,827 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,827 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,890 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,890 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:07,954 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:07,954 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:08,055 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:08,056 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:09,418 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:09,419 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:09,488 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:09,488 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:09,549 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:09,549 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:09,688 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:09,689 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:09,805 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:09,806 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:09,913 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:09,914 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:09,981 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:09,981 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,041 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,042 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,105 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,106 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,224 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,225 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,304 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,305 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,381 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,381 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,441 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,442 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,548 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,548 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,624 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,624 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,726 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,726 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:10,793 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:10,793 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:11,638 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:11,638 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:11,702 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:11,703 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:32,362 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:32,363 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:32,505 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:32,506 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:32,657 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:32,657 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:32,719 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:32,719 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:32,782 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:32,783 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:32,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:32,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:32,976 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:32,976 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:33,047 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:33,047 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:33,108 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:33,108 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:33,172 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:33,173 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:33,290 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:33,290 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:33,416 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:33,417 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:33,510 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:33,510 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:33,571 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:33,571 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:33,678 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:33,678 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:34,661 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:34,661 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:34,730 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:34,731 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:34,798 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:34,799 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:34,868 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:34,869 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:34,983 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:34,983 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:35,045 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:35,045 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:35,146 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:35,146 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:35,215 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:35,216 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:35,276 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:35,276 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:51:35,339 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:51:35,339 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,246 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,247 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,388 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,389 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,561 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,562 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,629 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,629 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,693 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,694 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,755 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,755 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,856 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,857 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,926 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,926 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:46,996 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:46,996 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:47,066 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:47,066 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:47,152 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:47,152 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:47,223 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:47,224 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:47,294 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:47,294 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:47,926 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:47,927 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:47,995 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:47,996 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,066 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,067 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,137 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,137 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,207 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,207 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,277 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,278 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,347 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,347 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,417 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,417 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,487 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,487 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,557 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,557 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,627 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,627 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:48,697 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:48,697 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:49,533 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:49,533 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:49,601 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:49,602 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:49,691 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:49,691 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:49,760 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:49,760 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:49,830 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:49,830 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:49,898 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:49,899 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:49,969 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:49,969 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:50,039 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:50,040 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:50,109 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:50,109 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:50,178 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:50,178 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:50,248 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:50,248 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:50,316 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:50,316 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:51,698 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:51,698 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:51,768 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:51,768 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:51,838 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:51,839 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:51,913 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:51,913 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:51,990 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:51,991 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:52,064 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:52,065 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:52,133 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:52,134 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:52,203 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:52,203 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:52,273 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:52,274 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:52:52,362 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:52:52,362 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:45,368 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:45,369 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:45,514 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:45,515 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:45,652 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:45,652 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:45,718 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:45,718 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:45,782 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:45,782 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:45,842 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:45,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:45,942 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:45,943 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:46,011 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:46,012 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:46,081 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:46,081 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:46,151 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:46,151 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:46,238 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:46,239 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:46,308 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:46,308 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:46,425 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:46,425 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,079 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,080 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,159 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,159 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,231 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,232 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,300 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,301 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,370 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,371 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,441 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,442 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,512 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,512 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,581 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,582 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,651 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,651 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,720 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,721 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,792 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,792 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:53:47,862 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:53:47,863 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:05,599 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:05,600 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:05,739 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:05,740 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:05,872 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:05,873 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:05,933 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:05,933 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:05,995 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:05,995 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:06,057 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:06,057 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:06,167 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:06,168 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:06,240 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:06,240 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:06,308 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:06,309 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:06,377 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:06,377 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:06,445 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:06,445 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:06,512 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:06,513 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:06,582 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:06,582 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,229 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,230 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,297 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,297 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,365 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,365 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,432 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,433 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,501 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,501 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,571 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,572 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,640 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,640 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,708 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,709 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,776 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,776 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,919 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,920 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:07,991 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:07,992 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:08,783 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:08,784 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:08,850 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:08,851 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:08,919 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:08,920 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:08,987 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:08,988 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:09,058 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:09,058 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:09,130 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:09,130 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:09,202 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:09,203 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:09,271 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:09,271 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:09,345 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:09,345 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 12:54:09,413 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 12:54:09,414 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:05,789 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:05,790 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:31,062 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:31,063 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:31,460 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:31,460 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:31,785 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:31,786 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:31,976 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:31,976 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:32,199 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:32,200 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:32,361 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:32,362 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:32,681 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:32,682 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:32,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:32,998 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:33,303 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:33,304 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:33,609 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:33,609 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:33,916 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:33,917 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:34,226 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:34,227 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:34,533 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:34,533 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:34,842 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:34,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:35,145 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:35,145 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:35,451 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:35,452 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:35,765 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:35,766 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:36,077 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:36,078 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:36,386 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:36,386 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:36,691 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:36,692 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:36,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:36,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:37,302 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:37,302 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:59,564 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:59,565 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:03:59,969 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:03:59,970 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:00,275 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:00,276 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:00,454 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:00,454 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:00,666 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:00,666 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:00,821 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:00,821 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:01,124 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:01,124 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:01,426 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:01,426 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:01,730 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:01,731 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:02,030 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:02,031 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:02,332 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:02,333 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:02,633 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:02,633 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:02,937 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:02,938 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:03,256 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:03,257 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:03,559 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:03,559 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:03,863 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:03,864 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:04,164 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:04,164 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:04,463 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:04,464 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:04,774 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:04,774 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:05,102 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:05,102 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:05,406 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:05,406 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:05,738 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:05,739 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:06,058 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:06,058 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:06,357 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:06,358 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:06,668 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:06,669 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:06,973 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:06,974 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:07,280 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:07,280 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:07,588 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:07,588 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:07,904 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:07,905 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:08,223 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:08,223 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:08,528 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:08,529 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:08,841 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:08,842 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:09,150 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:09,150 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:09,458 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:09,458 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:04:09,760 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:04:09,761 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:30:47,934 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:30:47,934 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:30:51,511 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:30:51,512 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:35:13,242 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:35:13,242 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 13:35:57,923 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 13:35:57,923 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 15:22:36,085 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 15:22:36,085 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 15:29:18,747 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 15:29:18,747 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 15:31:07,591 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-10 15:31:07,592 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-10 15:31:07,592 ERROR [ERROR]: Exception: 
+<TileType.WOODS: 3> is not in list
   File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
     Main().run()
 
   File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
     self.step(event)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 132, in step
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 131, in step
     EVENT_BUS.invoke_handlers(event)
 
   File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
     handler(event)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 94, in handle_menu_selections
-    self.set_screen_from_mode(Mode.BATTLE, event.mapname)
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\map\mapmanager.py", line 109, in terraform_tile
+    new_tile_type_index = tile_height_order.index(tile_type) - 1
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 57, in set_screen_from_mode
-    Managers.initialize_managers(map_name, bitmap, pieces, teams, upgrades, meta)
+2018-04-10 15:33:04,992 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 15:33:04,992 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 15:34:01,968 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 15:34:01,968 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 15:34:05,169 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 15:34:05,169 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 16:51:28,678 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 16:51:28,678 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 16:51:28,687 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-10 16:51:28,702 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-10 16:51:28,702 ERROR [ERROR]: Exception: 
+Expecting property name enclosed in double quotes: line 1 column 17110 (char 17109)
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 62, in initialize_managers
-    from terra.managers.piecemanager import PieceManager
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
+    self.step(event)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\piecemanager.py", line 4, in <module>
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 131, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 95, in handle_menu_selections
+    self.set_screen_from_mode(Mode.BATTLE, event.mapname, map_type=AssetType.SAVE)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 56, in set_screen_from_mode
+    new_screen = Battle(map_name, map_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 16, in __init__
+    Session.set_up_local_game(map_name, map_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 45, in set_up_local_game
+    SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 110, in __set_up__
+    from terra.piece.piecemanager import PieceManager
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piecemanager.py", line 4, in <module>
     from terra.economy.upgrades import base_upgrades
 
   File "C:\Users\Ian\Documents\GitHub\Terra\terra\economy\upgrades.py", line 21, in <module>
@@ -47,705 +703,56 @@ Expecting property name enclosed in double quotes: line 1 column 12367 (char 123
   File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\json\decoder.py", line 355, in raw_decode
     obj, end = self.scan_once(s, idx)
 
-2018-04-06 16:42:22,814 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-06 16:42:22,814 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:34:30,696 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:34:30,697 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:34:34,993 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 13:34:35,001 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 13:34:35,001 ERROR [ERROR]: Exception: 
-preview_on() missing 1 required positional argument: 'event'
+2018-04-10 16:52:10,841 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 16:52:10,841 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 16:54:20,522 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-10 16:54:20,523 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-10 16:54:20,523 ERROR [ERROR]: Exception: 
+<Attribute.BUILDABLE_PIECES: 'buildable_pieces'>
   File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
     Main().run()
 
   File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
     self.step(event)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    INPUT_CONTROLLER.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 55, in invoke_handlers
-    handler()
-
-2018-04-09 13:34:56,151 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:34:56,152 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:36:42,586 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:36:42,586 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:37:23,748 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:37:23,748 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:37:57,574 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:37:57,574 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:38:06,960 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:38:06,960 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:38:25,020 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:38:25,020 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:38:31,315 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:38:31,315 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:38:41,698 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:38:41,698 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:40:19,260 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:40:19,260 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:44:32,973 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:44:32,973 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:46:10,724 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:46:10,724 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:51:49,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:51:49,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:51:52,616 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:51:52,616 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:52:19,860 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:52:19,861 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:53:17,211 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:53:17,211 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:54:49,819 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:54:49,819 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:55:59,313 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:55:59,313 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:56:20,746 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:56:20,746 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 13:56:27,810 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 13:56:27,810 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:01:52,266 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:01:52,266 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:07:34,353 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:07:34,353 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:07:59,916 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 14:07:59,925 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 14:07:59,925 ERROR [ERROR]: Exception: 
-get_all_pieces_with_attribute() missing 1 required positional argument: 'attribute'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 132, in step
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 131, in step
     EVENT_BUS.invoke_handlers(event)
 
   File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
     handler(event)
 
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\cursor.py", line 170, in open_move_ui
-    event.movement_type, event.piece_type, event.team, event.option)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\tileselection.py", line 37, in __init__
-    self.coordinate_set = self.__navigate__()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\tileselection.py", line 61, in __navigate__
-    portal_coords = self.__generate_portal_coordinates__()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\tileselection.py", line 110, in __generate_portal_coordinates__
-    return [(piece.gx, piece.gy) for piece in Managers.piece_manager.get_all_pieces_with_attribute(Attribute.PORTAL)]
-
-2018-04-09 14:08:32,458 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:08:32,459 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:08:43,165 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 14:08:43,176 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 14:08:43,176 ERROR [ERROR]: Exception: 
-<Attribute.PORTAL: 'portal'>
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 132, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\cursor.py", line 170, in open_move_ui
-    event.movement_type, event.piece_type, event.team, event.option)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\tileselection.py", line 37, in __init__
-    self.coordinate_set = self.__navigate__()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\tileselection.py", line 61, in __navigate__
-    portal_coords = self.__generate_portal_coordinates__()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\tileselection.py", line 110, in __generate_portal_coordinates__
-    return [(piece.gx, piece.gy) for piece in Managers.piece_manager.get_all_pieces_with_attribute(self.team, Attribute.PORTAL)]
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\piecemanager.py", line 175, in get_all_pieces_with_attribute
-    return [piece for piece in self.get_all_pieces_for_team(team) if piece.attr(attribute)]
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\piecemanager.py", line 175, in <listcomp>
-    return [piece for piece in self.get_all_pieces_for_team(team) if piece.attr(attribute)]
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 88, in attr
-    return Managers.team_manager.attr(self.team, self.piece_type, attribute)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\teammanager.py", line 127, in attr
-    self.piece_attributes[team][PieceType.DEFAULT][attribute])
-
-2018-04-09 14:09:23,297 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:09:23,298 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:18:00,693 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:18:00,693 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:18:26,381 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 14:18:26,381 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 14:18:26,381 ERROR [ERROR]: Exception: 
-pass_control_to_next_team() missing 1 required positional argument: 'event'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    INPUT_CONTROLLER.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 55, in invoke_handlers
-    handler()
-
-2018-04-09 14:19:21,042 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:19:21,042 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:19:28,201 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:19:28,201 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:23:55,377 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:23:55,377 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:23:56,295 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 14:23:56,296 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 14:23:56,296 ERROR [ERROR]: Exception: 
-object of type 'NoneType' has no len()
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    INPUT_CONTROLLER.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 55, in invoke_handlers
-    handler()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\cursor.py", line 123, in confirm
-    selecting_piece = len(Managers.piece_manager.get_piece_at(int(self.gx), int(self.gy), self.team)) > 0
-
-2018-04-09 14:24:16,246 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:24:16,246 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:26:02,844 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:26:02,844 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:27:36,004 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:27:36,004 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:28:53,974 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:28:53,974 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:28:59,591 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:28:59,591 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 14:31:04,253 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 14:31:04,253 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 15:12:11,310 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 15:12:11,310 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 15:18:01,422 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 15:18:01,422 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 15:21:48,366 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 15:21:48,366 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 15:23:03,413 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 15:23:03,413 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 15:32:59,044 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 15:32:59,044 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 15:57:46,625 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 15:57:46,625 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 15:58:01,366 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 15:58:01,381 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 15:58:01,381 ERROR [ERROR]: Exception: 
-<UpgradeAttribute.DISPLAY_FOR: 9>
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 187, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 148, in render
-    game_screen = self.current_screen.render(ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 40, in render
-    Managers.render(map_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 214, in render
-    Managers.player_manager.render(map_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\playermanager.py", line 97, in render
-    cursor.render(game_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\cursor.py", line 248, in render
-    self.menu.render(game_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\menupopup.py", line 184, in render
-    self.detailbox.render(game_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\detailbox.py", line 201, in render
-    relevant_upgrades = [upgrade for upgrade in Managers.team_manager.get_owned_upgrades(self.team)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\detailbox.py", line 202, in <listcomp>
-    if base_upgrades[upgrade][UpgradeAttribute.DISPLAY_FOR] == self.target]
-
-2018-04-09 15:59:04,203 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 15:59:04,203 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 16:00:06,332 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 16:00:06,332 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 16:00:20,757 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 16:00:20,760 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 16:00:20,760 ERROR [ERROR]: Exception: 
-<UpgradeType.COLONIST_ATTACK: 9>
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 187, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 148, in render
-    game_screen = self.current_screen.render(ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 40, in render
-    Managers.render(map_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 214, in render
-    Managers.player_manager.render(map_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\playermanager.py", line 97, in render
-    cursor.render(game_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\cursor.py", line 248, in render
-    self.menu.render(game_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\menupopup.py", line 184, in render
-    self.detailbox.render(game_screen, ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\detailbox.py", line 206, in render
-    ui_screen.blit(spr_upgrade_icons[upgrade], (self.x + 4 + x_offset, self.y + y_offset + 4))
-
-2018-04-09 16:00:36,698 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 16:00:36,698 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 16:01:02,645 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 16:01:02,646 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 16:02:24,408 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 16:02:24,408 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 16:02:37,211 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 16:02:37,211 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 16:03:54,321 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 16:03:54,322 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 16:03:54,322 ERROR [ERROR]: Exception: 
-'NoneType' object has no attribute 'destroy'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 132, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\menupopup.py", line 170, in close_detailbox
-    self.detailbox.destroy()
-
-2018-04-09 16:13:38,852 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 16:13:38,852 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 16:13:57,130 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 16:13:57,130 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 17:28:15,097 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 17:28:15,097 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 17:28:15,098 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 17:28:15,098 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 17:28:15,098 ERROR [ERROR]: Exception: 
-'Team' object has no attribute 'split'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 132, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 94, in handle_menu_selections
-    self.set_screen_from_mode(Mode.BATTLE, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 56, in set_screen_from_mode
-    map_name, bitmap, pieces, teams, upgrades, meta = Managers.load_map_setup_network(mapname, address, is_host, map_type)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 37, in load_map_setup_network
-    Managers.network_manager = NetworkManager(address, open_teams, is_host)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 22, in __init__
-    open_teams = [Team[team.split(' ')[0]] for team in teams]
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 22, in <listcomp>
-    open_teams = [Team[team.split(' ')[0]] for team in teams]
-
-2018-04-09 17:28:15,098 ERROR [ERROR]: Exception: 
-'Team' object has no attribute 'split'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 132, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 94, in handle_menu_selections
-    self.set_screen_from_mode(Mode.BATTLE, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 56, in set_screen_from_mode
-    map_name, bitmap, pieces, teams, upgrades, meta = Managers.load_map_setup_network(mapname, address, is_host, map_type)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\managers.py", line 37, in load_map_setup_network
-    Managers.network_manager = NetworkManager(address, open_teams, is_host)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 22, in __init__
-    open_teams = [Team[team.split(' ')[0]] for team in teams]
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\networkmanager.py", line 22, in <listcomp>
-    open_teams = [Team[team.split(' ')[0]] for team in teams]
-
-2018-04-09 17:29:00,350 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 17:29:00,350 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 17:29:00,351 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 17:29:00,351 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 17:29:08,505 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 17:29:08,505 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 17:29:08,505 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 17:29:08,505 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 17:34:53,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 17:34:53,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 17:34:53,844 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 17:34:53,844 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 17:36:01,896 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 17:36:01,896 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 17:36:01,896 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 17:36:01,896 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:53:09,913 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:53:09,913 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:53:09,984 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:53:09,985 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:53:09,985 ERROR [ERROR]: Exception: 
-No module named 'terra.managers.managers'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 91, in handle_menu_selections
-    self.set_screen_from_mode(Mode.BATTLE, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 54, in set_screen_from_mode
-    new_screen = Battle(map_name, map_type)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 16, in __init__
-    Session.set_up_local_game(map_name, map_type)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 47, in set_up_local_game
-    SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 96, in __set_up__
-    from terra.managers.piecemanager import PieceManager
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\piecemanager.py", line 11, in <module>
-    from terra.piece.piececonflict import PieceConflict
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piececonflict.py", line 2, in <module>
-    from terra.managers.managers import Managers
-
-2018-04-09 18:53:26,154 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:53:26,154 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:53:26,250 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:53:26,252 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:53:26,252 ERROR [ERROR]: Exception: 
-'NoneType' object has no attribute 'destroy'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 91, in handle_menu_selections
-    self.set_screen_from_mode(Mode.BATTLE, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 54, in set_screen_from_mode
-    new_screen = Battle(map_name, map_type)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 16, in __init__
-    Session.set_up_local_game(map_name, map_type)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 47, in set_up_local_game
-    SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 104, in __set_up__
-    self.reset()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 86, in reset
-    manager.destroy()
-
-2018-04-09 18:53:46,211 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:53:46,211 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:53:46,227 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:53:46,228 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:53:46,228 ERROR [ERROR]: Exception: 
-dictionary changed size during iteration
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 91, in handle_menu_selections
-    self.set_screen_from_mode(Mode.BATTLE, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 54, in set_screen_from_mode
-    new_screen = Battle(map_name, map_type)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 16, in __init__
-    Session.set_up_local_game(map_name, map_type)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 44, in set_up_local_game
-    SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 101, in __set_up__
-    self.reset()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 82, in reset
-    for key, manager in self.managers.items():
-
-2018-04-09 18:53:57,529 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:53:57,529 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:53:57,551 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:53:57,551 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:53:57,551 ERROR [ERROR]: Exception: 
-'MapManager' object has no attribute 'battle_map'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 184, in run
-    self.render()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 145, in render
-    game_screen = self.current_screen.render(ui_screen)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 41, in render
-    map_screen = Surface((map.width * GRID_WIDTH, map.battle_map.height * GRID_HEIGHT), SRCALPHA, 32)
-
-2018-04-09 18:54:11,519 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:54:11,519 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:54:17,207 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:54:17,208 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:54:17,208 ERROR [ERROR]: Exception: 
-'Event' object has no attribute 'new_resources'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\combatlogger.py", line 111, in log_resource_loss
-    self.log_resource_change(event.team, event.new_resources)
-
-2018-04-09 18:55:26,406 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:55:26,406 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:55:36,747 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:55:36,748 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:55:36,748 ERROR [ERROR]: Exception: 
-'>' not supported between instances of 'Team' and 'int'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\combatlogger.py", line 114, in log_resource_loss
-    self.log_resource_change(event.team, -event.resources_lost)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\combatlogger.py", line 105, in log_resource_change
-    if amount > 0:
-
-2018-04-09 18:55:55,738 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:55:55,738 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:56:21,697 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:56:21,698 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:56:21,698 ERROR [ERROR]: Exception: 
-'Session' object has no attribute 'tear_down_managers'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 87, in reset_to_menu
-    self.set_screen_from_mode(Mode.MAIN_MENU)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 71, in set_screen_from_mode
-    self.current_screen.destroy()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 20, in destroy
-    SESSION.tear_down_managers()
-
-2018-04-09 18:57:12,494 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:57:12,494 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:57:13,511 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:57:13,512 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:57:13,512 ERROR [ERROR]: Exception: 
-'Session' object has no attribute 'tear_down_managers'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 87, in reset_to_menu
-    self.set_screen_from_mode(Mode.MAIN_MENU)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 71, in set_screen_from_mode
-    self.current_screen.destroy()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 21, in destroy
-    SESSION.tear_down_managers()
-
-2018-04-09 18:57:24,767 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:57:24,768 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:57:26,420 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:57:26,422 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:57:26,422 ERROR [ERROR]: Exception: 
-'Session' object has no attribute 'tear_down_managers'
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 87, in reset_to_menu
-    self.set_screen_from_mode(Mode.MAIN_MENU)
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 71, in set_screen_from_mode
-    self.current_screen.destroy()
-
-  File "C:/Users/Ian/Documents/GitHub/Terra\terra\screens\battle.py", line 21, in destroy
-    SESSION.tear_down_managers()
-
-2018-04-09 18:58:03,665 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:58:03,665 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:58:06,660 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:58:06,660 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:58:10,128 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:58:10,128 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:58:31,779 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 18:58:31,779 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 18:58:38,865 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 18:58:38,866 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 18:58:38,866 ERROR [ERROR]: Exception: 
-'NoneType' object is not iterable
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 104, in handle_menu_selections
-    self.set_screen_from_mode(Mode.EDIT, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 56, in set_screen_from_mode
-    new_screen = LevelEditor(map_name)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 24, in __init__
-    map_name, bitmap, pieces, team_data, upgrades, meta = Session.set_up_level_editor(map_name)
-
-2018-04-09 19:03:16,197 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 19:03:16,197 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 19:03:16,219 ERROR [ERROR]: Caught exception in the launcher.
-2018-04-09 19:03:16,220 ERROR [ERROR]: !=== Caught a fatal exception: ===!
-2018-04-09 19:03:16,220 ERROR [ERROR]: Exception: 
-not enough values to unpack (expected 6, got 5)
-  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
-    Main().run()
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 181, in run
-    self.step(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 129, in step
-    EVENT_BUS.invoke_handlers(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
-    handler(event)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 104, in handle_menu_selections
-    self.set_screen_from_mode(Mode.EDIT, event.mapname)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 56, in set_screen_from_mode
-    new_screen = LevelEditor(map_name)
-
-  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 24, in __init__
-    map_name, bitmap, pieces, team_data, upgrades, meta = Session.set_up_level_editor(map_name)
-
-2018-04-09 19:03:43,761 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 19:03:43,762 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 19:03:58,009 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 19:03:58,009 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 19:07:57,976 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 19:07:57,976 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
-2018-04-09 19:19:15,820 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
-2018-04-09 19:19:15,821 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\teammanager.py", line 207, in purchase_upgrade_from_event
+    self.purchase_upgrade(event.team, event.new_upgrade_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\teammanager.py", line 164, in purchase_upgrade
+    self.on_upgrade_purchase(team, upgrade_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\teammanager.py", line 201, in on_upgrade_purchase
+    self.piece_attributes[team][piece_type][Attribute.BUILDABLE_PIECES].extend(new_pieces)
+
+2018-04-10 16:55:02,532 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 16:55:02,532 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-10 16:58:18,447 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-10 16:58:18,447 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 14:43:31,738 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 14:43:31,738 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 14:43:38,542 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 14:43:38,542 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 15:26:37,393 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 15:26:37,393 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 16:11:12,344 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 16:11:12,344 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 16:12:53,534 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 16:12:53,534 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 16:44:28,295 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 16:44:28,295 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 16:46:37,820 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 16:46:37,820 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 16:48:09,474 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 16:48:09,474 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 16:49:57,474 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 16:49:57,475 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 16:51:00,735 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 16:51:00,735 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-11 16:51:51,708 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-11 16:51:51,708 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.

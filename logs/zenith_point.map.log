@@ -1,0 +1,27 @@
+2018-04-09 23:16:29,944 INFO = Issue Orders phase begins
+2018-04-09 23:22:01,423 INFO Team.RED PieceType.BASE was built on (3, 1). 
+2018-04-09 23:22:02,497 INFO Team.BLUE PieceType.BASE was built on (6, 1). 
+2018-04-09 23:22:05,866 INFO Team.RED PieceType.GENERATOR was built on (2, 1). 
+2018-04-09 23:22:06,274 INFO Team.RED PieceType.GENERATOR was built on (2, 2). 
+2018-04-09 23:22:06,639 INFO Team.RED PieceType.GENERATOR was built on (1, 2). 
+2018-04-09 23:22:08,338 INFO Team.BLUE PieceType.GENERATOR was built on (7, 1). 
+2018-04-09 23:22:08,771 INFO Team.BLUE PieceType.GENERATOR was built on (8, 2). 
+2018-04-09 23:22:48,165 INFO Team.BLUE PieceType.BARRACKS was built on (8, 6). 
+2018-04-09 23:22:49,855 INFO Team.RED PieceType.BARRACKS was built on (1, 6). 
+2018-04-09 23:24:20,568 INFO === BATTLE OVER! ===
+2018-04-09 23:24:20,568 INFO Team.RED team has lost.
+2018-04-09 23:24:20,569 INFO -- Stats for team Team.RED --
+2018-04-09 23:24:20,569 INFO   * Tiles Moved: 0
+2018-04-09 23:24:20,569 INFO   * Ranged Attacks: 0
+2018-04-09 23:24:20,569 INFO   * Piece Conflicts: 0
+2018-04-09 23:24:20,569 INFO   * Pieces Lost: 0
+2018-04-09 23:24:20,569 INFO   * Pieces Built: 0
+2018-04-09 23:24:20,569 INFO   * Upgrades Researched: 0
+2018-04-09 23:24:20,569 INFO Team.BLUE team has won!
+2018-04-09 23:24:20,569 INFO -- Stats for team Team.BLUE --
+2018-04-09 23:24:20,569 INFO   * Tiles Moved: 0
+2018-04-09 23:24:20,569 INFO   * Ranged Attacks: 0
+2018-04-09 23:24:20,570 INFO   * Piece Conflicts: 0
+2018-04-09 23:24:20,570 INFO   * Pieces Lost: 0
+2018-04-09 23:24:20,570 INFO   * Pieces Built: 0
+2018-04-09 23:24:20,570 INFO   * Upgrades Researched: 0

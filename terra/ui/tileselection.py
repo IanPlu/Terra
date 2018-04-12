@@ -107,7 +107,10 @@ class TileSelection(GameObject):
 
     # Return the list of coordinates where we have pieces with the 'PORTAL' attribute
     def __generate_portal_coordinates__(self):
-        return [(piece.gx, piece.gy) for piece in self.get_manager(Manager.PIECE).get_all_pieces_with_attribute(self.team, Attribute.PORTAL)]
+        if self.movement_type and self.piece_type:
+            return [(piece.gx, piece.gy) for piece in self.get_manager(Manager.PIECE).get_all_pieces_with_attribute(self.team, Attribute.PORTAL)]
+        else:
+            return []
 
     def confirm(self, event):
         if (event.gx, event.gy) in self.coordinate_set and \

@@ -53,3 +53,15 @@ class UpgradeType(Enum):
     BANSHEE_SABOTAGE = auto()
     BANSHEE_STRIKEFORMATION = auto()
     BANSHEE_LURK = auto()
+
+    # Titan
+    TITAN_LIFESTEAL = auto()
+    TITAN_AURA_DAMAGE = auto()
+
+    # Earthrender
+    EARTHRENDER_CRATERING = auto()
+    EARTHRENDER_DAMAGE = auto()
+
+    # Demon
+    DEMON_CAN_BUILD = auto()
+    DEMON_BASE_ATTACK = auto()

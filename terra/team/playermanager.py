@@ -1,4 +1,4 @@
-from terra.battlephase import BattlePhase
+from terra.turn.battlephase import BattlePhase
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType

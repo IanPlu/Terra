@@ -1,6 +1,6 @@
 import pygame
 
-from terra.battlephase import BattlePhase
+from terra.turn.battlephase import BattlePhase
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
@@ -24,7 +24,7 @@ from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr
     spr_target, light_team_color, spr_digit_icons, spr_resource_icon_small, light_color
 from terra.settings import SETTINGS, Setting
 from terra.strings import piece_name_strings, LANGUAGE
-from terra.team import Team
+from terra.team.team import Team
 from terra.util.drawingutil import draw_small_resource_count
 
 
@@ -75,7 +75,8 @@ class Piece(AnimatedGameObject):
         self.previewing_order = False
 
         indexed_pieces = [PieceType.COLONIST, PieceType.TROOPER, PieceType.RANGER, PieceType.GHOST,
-                          PieceType.GUARDIAN, PieceType.BOLTCASTER, PieceType.BANSHEE]
+                          PieceType.GUARDIAN, PieceType.BOLTCASTER, PieceType.BANSHEE,
+                          PieceType.TITAN, PieceType.EARTHRENDER, PieceType.DEMON]
         super().__init__(spr_pieces[self.team][self.piece_type], 24, 8, indexed=self.piece_type in indexed_pieces,
                          use_global_animation_frame=True, own_frames_for_index=True)
 
@@ -294,6 +295,12 @@ class Piece(AnimatedGameObject):
                     contesting_pieces.append(piece)
 
             return len(contesting_pieces) > 0
+
+    # Hook for any effects that should trigger on dealing damage, like lifesteal
+    def on_damaging_enemy(self, damage, enemy):
+        lifesteal = damage * self.attr(Attribute.LIFESTEAL)
+        if lifesteal > 0:
+            self.heal_hp(lifesteal)
 
     # Deal damage to this piece
     def damage_hp(self, damage, source=None):

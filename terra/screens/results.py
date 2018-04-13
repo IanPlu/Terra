@@ -1,11 +1,12 @@
 from pygame import Surface, SRCALPHA
 
-from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT, HALF_RES_WIDTH
+from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import publish_game_event, EventType
-from terra.resources.assets import clear_color, light_color, shadow_color
+from terra.menu.menu import Menu
+from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color
 from terra.strings import get_string, get_text, formatted_strings, team_name_strings, label_strings
 from terra.team.team import Team
 from terra.util.drawingutil import draw_text
@@ -17,7 +18,7 @@ class ResultsScreen(GameScreen):
     def __init__(self, results):
         super().__init__()
 
-        self.winning_teams = results["winning_teams"]
+        self.winning_team = results["winning_team"]
         self.all_teams = results["all_teams"]
         self.team_stats = results["team_stats"]
 
@@ -37,27 +38,32 @@ class ResultsScreen(GameScreen):
         game_screen.fill(clear_color[Team.RED])
 
         base_x = 24
+        base_y = 24
 
-        y = 0
-        for team in self.winning_teams:
-            game_screen.blit(draw_text(get_string(formatted_strings, "RESULTS_HEADER").format(get_string(team_name_strings, team)),
-                                       light_color, shadow_color[Team.RED]), (base_x, y * 24))
-            y += 1
+        # Draw winning team
+        game_screen.blit(Menu.draw_menu_box(RESOLUTION_WIDTH - 48, 24, background=light_team_color, team=self.winning_team), (base_x, base_y))
+        game_screen.blit(draw_text(get_string(formatted_strings, "RESULTS_HEADER").format(get_string(team_name_strings, self.winning_team)),
+                                   light_color, shadow_color[Team.RED]), (base_x + 8, base_y + 8))
 
         x = 0
-        last_y = y
+        y = 2
+        team_box_width = (RESOLUTION_WIDTH - (36 * len(self.all_teams))) // len(self.all_teams)
         for team in self.all_teams:
-            y = last_y + 1
-            game_screen.blit(get_text(team_name_strings, team), (base_x + x, y * 24))
+            stats = self.team_stats[team].items()
+
+            game_screen.blit(Menu.draw_menu_box(team_box_width, (len(stats) + 1) * 24, team=team), (base_x + x, base_y + (y * 24)))
+            game_screen.blit(get_text(team_name_strings, team), (base_x + x + 8, base_y + (y * 24) + 8))
 
             y += 1
-            for stat, value in self.team_stats[team].items():
+            for stat, value in stats:
                 game_screen.blit(draw_text(get_string(formatted_strings, stat).format(value),
-                                           light_color, shadow_color[Team.RED]), (base_x + x, y * 24))
+                                           light_color, shadow_color[Team.RED]), (base_x + x + 8, base_y + (y * 24) + 8))
                 y += 1
 
-            x += HALF_RES_WIDTH
+            x += team_box_width + 24
+            y = 2
 
-        game_screen.blit(draw_text(get_string(label_strings, "RESULTS_PROMPT"), light_color, shadow_color[Team.RED]), (base_x, y * 24))
+        results_text = draw_text(get_string(label_strings, "RESULTS_PROMPT"), light_color, shadow_color[Team.RED])
+        game_screen.blit(results_text, (RESOLUTION_WIDTH - results_text.get_width() - 24, RESOLUTION_HEIGHT - 16))
 
         return game_screen

@@ -116,12 +116,12 @@ class CombatLogger(GameObject):
     # Log the end of a game.
     def log_results(self, event):
         self.logger.info("=== BATTLE OVER! ===")
-        winning_teams = event.results["winning_teams"]
+        winning_team = event.results["winning_team"]
         all_teams = event.results["all_teams"]
         team_stats = event.results["team_stats"]
 
         for team in all_teams:
-            if team in winning_teams:
+            if team == winning_team:
                 self.logger.info("{} team has won!".format(team))
             else:
                 self.logger.info("{} team has lost.".format(team))

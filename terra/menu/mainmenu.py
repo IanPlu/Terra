@@ -1,26 +1,18 @@
-import pygame
-
-from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT, HALF_RES_WIDTH, HALF_RES_HEIGHT
+from terra.constants import HALF_RES_WIDTH, HALF_RES_HEIGHT
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
-from terra.engine.gamescreen import GameScreen
 from terra.event.event import EventType, publish_game_event
 from terra.map.maputils import get_loadable_maps
 from terra.map.minimap import draw_map_preview_from_file
+from terra.menu.menu import Menu
 from terra.menu.option import Option
 from terra.menu.textinput import TextInput, FILTER_IP, FILTER_FILENAME, FILTER_ALPHANUMERIC
 from terra.resources.assetloading import AssetType
-from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, spr_main_menu_option, \
-    spr_title_text
+from terra.resources.assets import light_color, shadow_color, light_team_color, spr_main_menu_option
 from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
 from terra.team.team import Team
 from terra.util.drawingutil import draw_text
-from terra.util.mathutil import clamp
-
-displayable_buffer = 1
-max_displayable_options = 5
-menu_width = 168
 
 
 # Convert a list of loadable maps to selectable options: [(display name, filename), (...)]
@@ -73,20 +65,18 @@ def generate_settings_menu():
 
 # Main menu for the game.
 # Allows player to load or start games, access the level editor, and change settings.
-class MainMenu(GameScreen):
+class MainMenu(Menu):
     def __init__(self):
-        super().__init__()
-
         self.current_menu = generate_menu()
-        self.current_menu_pos = 0
-        self.num_options = len(self.current_menu[1])
-        self.current_menu_min = 0
-        self.current_menu_max = self.num_options
-
-        self.root_x = HALF_RES_WIDTH
-        self.root_y = HALF_RES_HEIGHT - 48
-
         self.text_input = None
+
+        super().__init__(num_options=len(self.current_menu[1]),
+                         max_displayable_options=5,
+                         displayable_buffer=1,
+                         root_x=HALF_RES_WIDTH,
+                         root_y=HALF_RES_HEIGHT - 24,
+                         width=168,
+                         option_height=24)
 
     def destroy(self):
         super().destroy()
@@ -101,84 +91,35 @@ class MainMenu(GameScreen):
 
     def register_input_handlers(self, input_handler):
         super().register_input_handlers(input_handler)
-        input_handler.register_handler(InputAction.PRESS, Key.UP, self.cursor_up)
-        input_handler.register_handler(InputAction.PRESS, Key.DOWN, self.cursor_down)
         input_handler.register_handler(InputAction.PRESS, Key.LEFT, self.lower_setting)
         input_handler.register_handler(InputAction.PRESS, Key.RIGHT, self.raise_setting)
-        input_handler.register_handler(InputAction.PRESS, Key.CONFIRM, self.confirm)
-        input_handler.register_handler(InputAction.PRESS, Key.CANCEL, self.cancel)
         input_handler.register_handler(InputAction.PRESS, Key.MENU, self.reset_menu)
-        input_handler.register_handler(InputAction.PRESS, Key.SCROLL_UP, self.scroll_menu_pos_up)
-        input_handler.register_handler(InputAction.PRESS, Key.SCROLL_DOWN, self.scroll_menu_pos_down)
-        input_handler.register_handler(InputAction.MOTION, None, self.set_cursor_pos_to_mouse_coords)
 
     def is_accepting_input(self):
         return self.text_input is None
 
-    def cursor_up(self):
-        self.current_menu_pos -= 1
-        self.normalize_menu_pos()
-
-    def cursor_down(self):
-        self.current_menu_pos += 1
-        self.normalize_menu_pos()
-
-    def normalize_menu_pos(self):
-        if self.current_menu_pos < 0:
-            self.current_menu_pos = self.num_options - 1
-        if self.current_menu_pos > self.num_options - 1:
-            self.current_menu_pos = 0
-
-        # Scroll the displayable area
-        if self.current_menu_pos < self.current_menu_min + displayable_buffer:
-            self.current_menu_min = self.current_menu_pos - displayable_buffer
-        if self.current_menu_pos >= self.current_menu_max - displayable_buffer:
-            self.current_menu_min = self.current_menu_pos + displayable_buffer - max_displayable_options + 1
-
-        # Clamp to the bounds of the option list
-        self.clamp_menu_bounds()
-
-    def cursor_in_menu_bounds(self):
-        mouse_x = pygame.mouse.get_pos()[0] / SETTINGS.get(Setting.SCREEN_SCALE)
-        mouse_y = pygame.mouse.get_pos()[1] / SETTINGS.get(Setting.SCREEN_SCALE)
-        return self.root_x - 24 <= mouse_x <= self.root_x + menu_width - 24 and \
-               self.root_y <= mouse_y <= self.root_y + 24 * min(max_displayable_options, self.num_options) + 24
-
-    def set_cursor_pos_to_mouse_coords(self):
-        if self.cursor_in_menu_bounds():
-            self.current_menu_pos = clamp((int(pygame.mouse.get_pos()[1] / SETTINGS.get(Setting.SCREEN_SCALE))
-                                           - self.root_y - 24) // 24 + self.current_menu_min, self.current_menu_min, self.current_menu_max)
-
-    def scroll_menu_pos_up(self):
-        self.current_menu_min = clamp(self.current_menu_min - 1, 0, self.num_options - max_displayable_options)
-        self.clamp_menu_bounds()
-        self.set_cursor_pos_to_mouse_coords()
-
-    def scroll_menu_pos_down(self):
-        self.current_menu_min = clamp(self.current_menu_min + 1, 0, self.num_options - max_displayable_options)
-        self.clamp_menu_bounds()
-        self.set_cursor_pos_to_mouse_coords()
-
-    def clamp_menu_bounds(self):
-        self.current_menu_min = clamp(self.current_menu_min, 0, self.num_options - max_displayable_options)
-        self.current_menu_max = clamp(self.current_menu_min + max_displayable_options, 0, self.num_options)
-
     def confirm(self):
-        if 0 <= self.current_menu_pos < self.num_options:
-            selection = self.current_menu[1][self.current_menu_pos]
+        super().confirm()
+
+        if 0 <= self.menu_pos < self.num_options:
+            selection = self.current_menu[1][self.menu_pos]
 
             if not selection[0] in Setting:
                 if len(selection[1]) > 0:
                     self.current_menu = selection
-                    self.current_menu_pos = 0
+                    self.menu_pos = 0
                     self.num_options = len(selection[1])
                     self.clamp_menu_bounds()
                 else:
                     self.handle_menu_selection(selection)
             elif selection[0] == Setting.NICKNAME:
-                self.text_input = TextInput("NICKNAME_INPUT", selection[0], default_text=SETTINGS.get_unsaved(Setting.NICKNAME), input_filter=FILTER_ALPHANUMERIC)
+                self.text_input = TextInput("NICKNAME_INPUT", selection[0],
+                                            default_text=SETTINGS.get_unsaved(Setting.NICKNAME),
+                                            input_filter=FILTER_ALPHANUMERIC)
 
     def cancel(self):
+        super().cancel()
+
         self.reset_menu()
 
     def reset_menu(self):
@@ -186,7 +127,7 @@ class MainMenu(GameScreen):
             SETTINGS.reset_settings()
 
         self.current_menu = generate_menu()
-        self.current_menu_pos = 0
+        self.menu_pos = 0
         self.num_options = len(self.current_menu[1])
         self.clamp_menu_bounds()
 
@@ -229,13 +170,15 @@ class MainMenu(GameScreen):
             elif event.tag == Setting.NICKNAME:
                 SETTINGS.set_nonnumeric_setting(Setting.NICKNAME, event.input)
 
+    # Lower a setting in the settings submenu
     def lower_setting(self):
-        selection, _ = self.current_menu[1][self.current_menu_pos]
+        selection, _ = self.current_menu[1][self.menu_pos]
         if selection in numeric_settings:
             SETTINGS.lower_setting(selection)
 
+    # Raise a setting in the settings submenu
     def raise_setting(self):
-        selection, _ = self.current_menu[1][self.current_menu_pos]
+        selection, _ = self.current_menu[1][self.menu_pos]
         if selection in numeric_settings:
             SETTINGS.raise_setting(selection)
 
@@ -245,41 +188,33 @@ class MainMenu(GameScreen):
         if self.text_input:
             self.text_input.step(event)
 
-    def render(self, ui_screen):
-        super().render(ui_screen)
-        game_screen = pygame.Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), pygame.SRCALPHA, 32)
-        game_screen.fill(clear_color[Team.RED])
-
-        game_screen.blit(spr_title_text, (self.root_x - spr_title_text.get_width() // 2, 24))
+    def render(self, game_screen, ui_screen):
+        super().render(game_screen, ui_screen)
 
         if self.text_input:
             self.text_input.render(game_screen, ui_screen)
         else:
             # Draw text for the menu title
-            game_screen.blit(get_text(main_menu_strings, self.current_menu[0]), (self.root_x - 12, self.root_y))
+            game_screen.blit(get_text(main_menu_strings, self.current_menu[0]), (self.root_x - 12, self.root_y - 24))
 
             # Draw a scrollbar if necessary
-            percentage_shown = max_displayable_options / self.num_options
-            if percentage_shown < 1:
-                height = 24 * min(max_displayable_options, self.num_options)
-                game_screen.fill(light_color, (self.root_x + menu_width - 22, self.root_y + 23, 4, height))
-                game_screen.fill(shadow_color[Team.RED], (self.root_x + menu_width - 22, self.root_y + 24, 3, height - 3))
-
-                game_screen.fill(light_color, (self.root_x + menu_width - 22,
-                                               self.root_y + 23 + (height * self.current_menu_min / self.num_options),
-                                               4, percentage_shown * height))
+            if self.should_show_scroll_bar(self.max_displayable_options, self.num_options):
+                width = 8
+                height = self.option_height * min(self.max_displayable_options, self.num_options)
+                game_screen.blit(self.draw_scroll_bar(width, height, self.max_displayable_options, self.menu_min, self.num_options),
+                                 (self.root_x + self.width - 24, self.root_y))
 
             # Draw each menu option
-            row_y = 1
-            displayable_options = self.current_menu[1][self.current_menu_min:self.current_menu_max]
+            row_y = 0
+            displayable_options = self.current_menu[1][self.menu_min:self.menu_max]
             for option in displayable_options:
-                is_selected = self.current_menu_pos == self.current_menu[1].index(option)
+                is_selected = self.menu_pos == self.current_menu[1].index(option)
                 x_offset = 0 if is_selected else 16
 
-                position_x, position_y = self.root_x, self.root_y + row_y * 24
-                game_screen.fill(light_color, (position_x - 24 - 1 + x_offset, position_y - 1, menu_width + 3 - x_offset, 24))
-                game_screen.fill(light_team_color[Team.RED] if is_selected else shadow_color[Team.RED],
-                                 (position_x - 24 + x_offset, position_y, menu_width - x_offset, 21))
+                position_x, position_y = self.root_x, self.root_y + row_y * self.option_height
+                box = self.draw_menu_box(self.width - x_offset, self.option_height,
+                                         background=light_team_color if is_selected else shadow_color)
+                game_screen.blit(box, (position_x - 24 + x_offset, position_y))
 
                 if isinstance(option[0], str):
                     # Render arbitrary text
@@ -291,7 +226,7 @@ class MainMenu(GameScreen):
                         .title()
 
                     # Render arbitrary text
-                    game_screen.blit(draw_text(text, light_color, shadow_color[Team.RED]), (position_x + 8, position_y + 4))
+                    game_screen.blit(draw_text(text, light_color, shadow_color[Team.RED]), (position_x + 8, position_y + 8))
 
                     # Render map previews if we're trying to select a map
                     if is_selected and self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
@@ -300,23 +235,21 @@ class MainMenu(GameScreen):
                         asset_type = AssetType.MAP if self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
                                                                                Option.NEW_NETWORK_GAME, Option.LOAD_MAP] else AssetType.SAVE
 
-                        container_height = 24 * max_displayable_options
-                        container_width = menu_width - 24
+                        container_height = 24 * self.max_displayable_options
+                        container_width = self.width - 24
 
                         map_preview = draw_map_preview_from_file(container_width, container_height, option[0], asset_type=asset_type)
-                        game_screen.blit(map_preview, (self.root_x - container_width - 24, self.root_y + 23))
+                        game_screen.blit(map_preview, (self.root_x - container_width - 24, self.root_y))
 
                 elif option[0] in Setting:
                     # Display the setting prompt and the current value
                     display_string = get_string(formatted_strings, option[0]).format(SETTINGS.get_unsaved(option[0]))
-                    game_screen.blit(draw_text(display_string, light_color, shadow_color[Team.RED]), (position_x + 24, position_y + 4))
+                    game_screen.blit(draw_text(display_string, light_color, shadow_color[Team.RED]), (position_x + 24, position_y + 8))
 
                 else:
                     # Display the icon for the option
                     game_screen.blit(spr_main_menu_option[option[0]], (position_x - 24 + x_offset, position_y))
                     # Display prerendered text
-                    game_screen.blit(get_text(main_menu_strings, option[0]), (position_x + 24, position_y + 4))
+                    game_screen.blit(get_text(main_menu_strings, option[0]), (position_x + 24, position_y + 8))
 
                 row_y += 1
-
-        return game_screen

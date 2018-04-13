@@ -287,7 +287,7 @@ class TeamManager(GameObject):
     def check_for_remaining_teams(self, event=None):
         if len(self.teams) <= 1:
             results = {
-                'winning_teams': self.get_teams(),
+                'winning_team': self.get_teams()[0],
                 'all_teams': self.get_all_teams(),
                 'team_stats': self.get_manager(Manager.STAT).get_results(),
             }

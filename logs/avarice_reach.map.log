@@ -274,3 +274,560 @@
 2018-04-10 15:36:04,553 INFO Team.BLUE team acquired 2 resources.
 2018-04-10 15:36:04,553 INFO Team.RED team acquired 2 resources.
 2018-04-10 15:36:04,734 INFO = Issue Orders phase begins
+2018-04-12 19:12:16,152 INFO === BATTLE OVER! ===
+2018-04-12 19:12:16,153 INFO Team.RED team has lost.
+2018-04-12 19:12:16,153 INFO -- Stats for team Team.RED --
+2018-04-12 19:12:16,153 INFO   * Tiles Moved: 0
+2018-04-12 19:12:16,153 INFO   * Ranged Attacks: 0
+2018-04-12 19:12:16,153 INFO   * Piece Conflicts: 0
+2018-04-12 19:12:16,153 INFO   * Pieces Lost: 0
+2018-04-12 19:12:16,153 INFO   * Pieces Built: 0
+2018-04-12 19:12:16,153 INFO   * Upgrades Researched: 0
+2018-04-12 19:12:16,153 INFO Team.BLUE team has won!
+2018-04-12 19:12:16,153 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:12:16,153 INFO   * Tiles Moved: 0
+2018-04-12 19:12:16,153 INFO   * Ranged Attacks: 0
+2018-04-12 19:12:16,153 INFO   * Piece Conflicts: 0
+2018-04-12 19:12:16,153 INFO   * Pieces Lost: 0
+2018-04-12 19:12:16,154 INFO   * Pieces Built: 0
+2018-04-12 19:12:16,154 INFO   * Upgrades Researched: 0
+2018-04-12 19:14:22,317 INFO === BATTLE OVER! ===
+2018-04-12 19:14:22,317 INFO Team.RED team has lost.
+2018-04-12 19:14:22,317 INFO -- Stats for team Team.RED --
+2018-04-12 19:14:22,317 INFO   * Tiles Moved: 0
+2018-04-12 19:14:22,318 INFO   * Ranged Attacks: 0
+2018-04-12 19:14:22,318 INFO   * Piece Conflicts: 0
+2018-04-12 19:14:22,318 INFO   * Pieces Lost: 0
+2018-04-12 19:14:22,318 INFO   * Pieces Built: 0
+2018-04-12 19:14:22,318 INFO   * Upgrades Researched: 0
+2018-04-12 19:14:22,318 INFO Team.BLUE team has won!
+2018-04-12 19:14:22,318 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:14:22,318 INFO   * Tiles Moved: 0
+2018-04-12 19:14:22,318 INFO   * Ranged Attacks: 0
+2018-04-12 19:14:22,318 INFO   * Piece Conflicts: 0
+2018-04-12 19:14:22,318 INFO   * Pieces Lost: 0
+2018-04-12 19:14:22,318 INFO   * Pieces Built: 0
+2018-04-12 19:14:22,318 INFO   * Upgrades Researched: 0
+2018-04-12 19:14:45,663 INFO === BATTLE OVER! ===
+2018-04-12 19:14:45,663 INFO Team.RED team has lost.
+2018-04-12 19:14:45,664 INFO -- Stats for team Team.RED --
+2018-04-12 19:14:45,664 INFO   * Tiles Moved: 0
+2018-04-12 19:14:45,664 INFO   * Ranged Attacks: 0
+2018-04-12 19:14:45,664 INFO   * Piece Conflicts: 0
+2018-04-12 19:14:45,664 INFO   * Pieces Lost: 0
+2018-04-12 19:14:45,664 INFO   * Pieces Built: 0
+2018-04-12 19:14:45,664 INFO   * Upgrades Researched: 0
+2018-04-12 19:14:45,664 INFO Team.BLUE team has won!
+2018-04-12 19:14:45,664 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:14:45,664 INFO   * Tiles Moved: 0
+2018-04-12 19:14:45,664 INFO   * Ranged Attacks: 0
+2018-04-12 19:14:45,664 INFO   * Piece Conflicts: 0
+2018-04-12 19:14:45,664 INFO   * Pieces Lost: 0
+2018-04-12 19:14:45,664 INFO   * Pieces Built: 0
+2018-04-12 19:14:45,664 INFO   * Upgrades Researched: 0
+2018-04-12 19:15:03,883 INFO === BATTLE OVER! ===
+2018-04-12 19:15:03,883 INFO Team.RED team has lost.
+2018-04-12 19:15:03,883 INFO -- Stats for team Team.RED --
+2018-04-12 19:15:03,883 INFO   * Tiles Moved: 0
+2018-04-12 19:15:03,883 INFO   * Ranged Attacks: 0
+2018-04-12 19:15:03,883 INFO   * Piece Conflicts: 0
+2018-04-12 19:15:03,883 INFO   * Pieces Lost: 0
+2018-04-12 19:15:03,883 INFO   * Pieces Built: 0
+2018-04-12 19:15:03,883 INFO   * Upgrades Researched: 0
+2018-04-12 19:15:03,883 INFO Team.BLUE team has won!
+2018-04-12 19:15:03,883 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:15:03,884 INFO   * Tiles Moved: 0
+2018-04-12 19:15:03,884 INFO   * Ranged Attacks: 0
+2018-04-12 19:15:03,884 INFO   * Piece Conflicts: 0
+2018-04-12 19:15:03,884 INFO   * Pieces Lost: 0
+2018-04-12 19:15:03,884 INFO   * Pieces Built: 0
+2018-04-12 19:15:03,884 INFO   * Upgrades Researched: 0
+2018-04-12 19:15:19,403 INFO === BATTLE OVER! ===
+2018-04-12 19:15:19,404 INFO Team.RED team has lost.
+2018-04-12 19:15:19,404 INFO -- Stats for team Team.RED --
+2018-04-12 19:15:19,404 INFO   * Tiles Moved: 0
+2018-04-12 19:15:19,404 INFO   * Ranged Attacks: 0
+2018-04-12 19:15:19,404 INFO   * Piece Conflicts: 0
+2018-04-12 19:15:19,404 INFO   * Pieces Lost: 0
+2018-04-12 19:15:19,404 INFO   * Pieces Built: 0
+2018-04-12 19:15:19,404 INFO   * Upgrades Researched: 0
+2018-04-12 19:15:19,404 INFO Team.BLUE team has won!
+2018-04-12 19:15:19,404 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:15:19,404 INFO   * Tiles Moved: 0
+2018-04-12 19:15:19,404 INFO   * Ranged Attacks: 0
+2018-04-12 19:15:19,404 INFO   * Piece Conflicts: 0
+2018-04-12 19:15:19,404 INFO   * Pieces Lost: 0
+2018-04-12 19:15:19,404 INFO   * Pieces Built: 0
+2018-04-12 19:15:19,404 INFO   * Upgrades Researched: 0
+2018-04-12 19:16:37,042 INFO === BATTLE OVER! ===
+2018-04-12 19:16:37,042 INFO Team.RED team has lost.
+2018-04-12 19:16:37,042 INFO -- Stats for team Team.RED --
+2018-04-12 19:16:37,043 INFO   * Tiles Moved: 0
+2018-04-12 19:16:37,043 INFO   * Ranged Attacks: 0
+2018-04-12 19:16:37,043 INFO   * Piece Conflicts: 0
+2018-04-12 19:16:37,043 INFO   * Pieces Lost: 0
+2018-04-12 19:16:37,043 INFO   * Pieces Built: 0
+2018-04-12 19:16:37,043 INFO   * Upgrades Researched: 0
+2018-04-12 19:16:37,043 INFO Team.BLUE team has won!
+2018-04-12 19:16:37,043 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:16:37,043 INFO   * Tiles Moved: 0
+2018-04-12 19:16:37,043 INFO   * Ranged Attacks: 0
+2018-04-12 19:16:37,043 INFO   * Piece Conflicts: 0
+2018-04-12 19:16:37,043 INFO   * Pieces Lost: 0
+2018-04-12 19:16:37,043 INFO   * Pieces Built: 0
+2018-04-12 19:16:37,043 INFO   * Upgrades Researched: 0
+2018-04-12 19:16:46,255 INFO === BATTLE OVER! ===
+2018-04-12 19:16:46,255 INFO Team.RED team has lost.
+2018-04-12 19:16:46,255 INFO -- Stats for team Team.RED --
+2018-04-12 19:16:46,255 INFO   * Tiles Moved: 0
+2018-04-12 19:16:46,255 INFO   * Ranged Attacks: 0
+2018-04-12 19:16:46,255 INFO   * Piece Conflicts: 0
+2018-04-12 19:16:46,255 INFO   * Pieces Lost: 0
+2018-04-12 19:16:46,255 INFO   * Pieces Built: 0
+2018-04-12 19:16:46,255 INFO   * Upgrades Researched: 0
+2018-04-12 19:16:46,256 INFO Team.BLUE team has won!
+2018-04-12 19:16:46,256 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:16:46,256 INFO   * Tiles Moved: 0
+2018-04-12 19:16:46,256 INFO   * Ranged Attacks: 0
+2018-04-12 19:16:46,256 INFO   * Piece Conflicts: 0
+2018-04-12 19:16:46,256 INFO   * Pieces Lost: 0
+2018-04-12 19:16:46,256 INFO   * Pieces Built: 0
+2018-04-12 19:16:46,256 INFO   * Upgrades Researched: 0
+2018-04-12 19:21:30,118 INFO === BATTLE OVER! ===
+2018-04-12 19:21:30,118 INFO Team.RED team has lost.
+2018-04-12 19:21:30,118 INFO -- Stats for team Team.RED --
+2018-04-12 19:21:30,118 INFO   * Tiles Moved: 0
+2018-04-12 19:21:30,118 INFO   * Ranged Attacks: 0
+2018-04-12 19:21:30,118 INFO   * Piece Conflicts: 0
+2018-04-12 19:21:30,118 INFO   * Pieces Lost: 0
+2018-04-12 19:21:30,118 INFO   * Pieces Built: 0
+2018-04-12 19:21:30,118 INFO   * Upgrades Researched: 0
+2018-04-12 19:21:30,118 INFO Team.BLUE team has won!
+2018-04-12 19:21:30,118 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:21:30,118 INFO   * Tiles Moved: 0
+2018-04-12 19:21:30,118 INFO   * Ranged Attacks: 0
+2018-04-12 19:21:30,119 INFO   * Piece Conflicts: 0
+2018-04-12 19:21:30,119 INFO   * Pieces Lost: 0
+2018-04-12 19:21:30,119 INFO   * Pieces Built: 0
+2018-04-12 19:21:30,119 INFO   * Upgrades Researched: 0
+2018-04-12 19:22:28,975 INFO === BATTLE OVER! ===
+2018-04-12 19:22:28,976 INFO Team.RED team has lost.
+2018-04-12 19:22:28,976 INFO -- Stats for team Team.RED --
+2018-04-12 19:22:28,976 INFO   * Tiles Moved: 0
+2018-04-12 19:22:28,976 INFO   * Ranged Attacks: 0
+2018-04-12 19:22:28,976 INFO   * Piece Conflicts: 0
+2018-04-12 19:22:28,976 INFO   * Pieces Lost: 0
+2018-04-12 19:22:28,976 INFO   * Pieces Built: 0
+2018-04-12 19:22:28,976 INFO   * Upgrades Researched: 0
+2018-04-12 19:22:28,976 INFO Team.BLUE team has won!
+2018-04-12 19:22:28,976 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:22:28,976 INFO   * Tiles Moved: 0
+2018-04-12 19:22:28,976 INFO   * Ranged Attacks: 0
+2018-04-12 19:22:28,976 INFO   * Piece Conflicts: 0
+2018-04-12 19:22:28,976 INFO   * Pieces Lost: 0
+2018-04-12 19:22:28,976 INFO   * Pieces Built: 0
+2018-04-12 19:22:28,976 INFO   * Upgrades Researched: 0
+2018-04-12 19:22:55,848 INFO === BATTLE OVER! ===
+2018-04-12 19:22:55,848 INFO Team.RED team has lost.
+2018-04-12 19:22:55,848 INFO -- Stats for team Team.RED --
+2018-04-12 19:22:55,848 INFO   * Tiles Moved: 0
+2018-04-12 19:22:55,848 INFO   * Ranged Attacks: 0
+2018-04-12 19:22:55,848 INFO   * Piece Conflicts: 0
+2018-04-12 19:22:55,848 INFO   * Pieces Lost: 0
+2018-04-12 19:22:55,848 INFO   * Pieces Built: 0
+2018-04-12 19:22:55,848 INFO   * Upgrades Researched: 0
+2018-04-12 19:22:55,848 INFO Team.BLUE team has won!
+2018-04-12 19:22:55,848 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:22:55,848 INFO   * Tiles Moved: 0
+2018-04-12 19:22:55,848 INFO   * Ranged Attacks: 0
+2018-04-12 19:22:55,848 INFO   * Piece Conflicts: 0
+2018-04-12 19:22:55,849 INFO   * Pieces Lost: 0
+2018-04-12 19:22:55,849 INFO   * Pieces Built: 0
+2018-04-12 19:22:55,849 INFO   * Upgrades Researched: 0
+2018-04-12 19:23:51,420 INFO === BATTLE OVER! ===
+2018-04-12 19:23:51,420 INFO Team.RED team has lost.
+2018-04-12 19:23:51,420 INFO -- Stats for team Team.RED --
+2018-04-12 19:23:51,420 INFO   * Tiles Moved: 0
+2018-04-12 19:23:51,420 INFO   * Ranged Attacks: 0
+2018-04-12 19:23:51,420 INFO   * Piece Conflicts: 0
+2018-04-12 19:23:51,420 INFO   * Pieces Lost: 0
+2018-04-12 19:23:51,420 INFO   * Pieces Built: 0
+2018-04-12 19:23:51,420 INFO   * Upgrades Researched: 0
+2018-04-12 19:23:51,421 INFO Team.BLUE team has won!
+2018-04-12 19:23:51,421 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:23:51,421 INFO   * Tiles Moved: 0
+2018-04-12 19:23:51,421 INFO   * Ranged Attacks: 0
+2018-04-12 19:23:51,421 INFO   * Piece Conflicts: 0
+2018-04-12 19:23:51,421 INFO   * Pieces Lost: 0
+2018-04-12 19:23:51,421 INFO   * Pieces Built: 0
+2018-04-12 19:23:51,421 INFO   * Upgrades Researched: 0
+2018-04-12 19:24:00,500 INFO === BATTLE OVER! ===
+2018-04-12 19:24:00,500 INFO Team.RED team has lost.
+2018-04-12 19:24:00,500 INFO -- Stats for team Team.RED --
+2018-04-12 19:24:00,500 INFO   * Tiles Moved: 0
+2018-04-12 19:24:00,500 INFO   * Ranged Attacks: 0
+2018-04-12 19:24:00,500 INFO   * Piece Conflicts: 0
+2018-04-12 19:24:00,500 INFO   * Pieces Lost: 0
+2018-04-12 19:24:00,500 INFO   * Pieces Built: 0
+2018-04-12 19:24:00,500 INFO   * Upgrades Researched: 0
+2018-04-12 19:24:00,500 INFO Team.BLUE team has won!
+2018-04-12 19:24:00,500 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:24:00,500 INFO   * Tiles Moved: 0
+2018-04-12 19:24:00,500 INFO   * Ranged Attacks: 0
+2018-04-12 19:24:00,500 INFO   * Piece Conflicts: 0
+2018-04-12 19:24:00,501 INFO   * Pieces Lost: 0
+2018-04-12 19:24:00,501 INFO   * Pieces Built: 0
+2018-04-12 19:24:00,501 INFO   * Upgrades Researched: 0
+2018-04-12 19:25:01,083 INFO === BATTLE OVER! ===
+2018-04-12 19:25:01,083 INFO Team.RED team has lost.
+2018-04-12 19:25:01,083 INFO -- Stats for team Team.RED --
+2018-04-12 19:25:01,084 INFO   * Tiles Moved: 0
+2018-04-12 19:25:01,084 INFO   * Ranged Attacks: 0
+2018-04-12 19:25:01,084 INFO   * Piece Conflicts: 0
+2018-04-12 19:25:01,084 INFO   * Pieces Lost: 0
+2018-04-12 19:25:01,084 INFO   * Pieces Built: 0
+2018-04-12 19:25:01,084 INFO   * Upgrades Researched: 0
+2018-04-12 19:25:01,084 INFO Team.BLUE team has won!
+2018-04-12 19:25:01,084 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:25:01,084 INFO   * Tiles Moved: 0
+2018-04-12 19:25:01,084 INFO   * Ranged Attacks: 0
+2018-04-12 19:25:01,084 INFO   * Piece Conflicts: 0
+2018-04-12 19:25:01,084 INFO   * Pieces Lost: 0
+2018-04-12 19:25:01,084 INFO   * Pieces Built: 0
+2018-04-12 19:25:01,084 INFO   * Upgrades Researched: 0
+2018-04-12 19:25:17,589 INFO === BATTLE OVER! ===
+2018-04-12 19:25:17,589 INFO Team.RED team has lost.
+2018-04-12 19:25:17,589 INFO -- Stats for team Team.RED --
+2018-04-12 19:25:17,589 INFO   * Tiles Moved: 0
+2018-04-12 19:25:17,589 INFO   * Ranged Attacks: 0
+2018-04-12 19:25:17,590 INFO   * Piece Conflicts: 0
+2018-04-12 19:25:17,590 INFO   * Pieces Lost: 0
+2018-04-12 19:25:17,590 INFO   * Pieces Built: 0
+2018-04-12 19:25:17,590 INFO   * Upgrades Researched: 0
+2018-04-12 19:25:17,590 INFO Team.BLUE team has won!
+2018-04-12 19:25:17,590 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:25:17,590 INFO   * Tiles Moved: 0
+2018-04-12 19:25:17,590 INFO   * Ranged Attacks: 0
+2018-04-12 19:25:17,590 INFO   * Piece Conflicts: 0
+2018-04-12 19:25:17,590 INFO   * Pieces Lost: 0
+2018-04-12 19:25:17,590 INFO   * Pieces Built: 0
+2018-04-12 19:25:17,590 INFO   * Upgrades Researched: 0
+2018-04-12 19:25:29,431 INFO === BATTLE OVER! ===
+2018-04-12 19:25:29,432 INFO Team.RED team has lost.
+2018-04-12 19:25:29,432 INFO -- Stats for team Team.RED --
+2018-04-12 19:25:29,432 INFO   * Tiles Moved: 0
+2018-04-12 19:25:29,432 INFO   * Ranged Attacks: 0
+2018-04-12 19:25:29,432 INFO   * Piece Conflicts: 0
+2018-04-12 19:25:29,432 INFO   * Pieces Lost: 0
+2018-04-12 19:25:29,432 INFO   * Pieces Built: 0
+2018-04-12 19:25:29,432 INFO   * Upgrades Researched: 0
+2018-04-12 19:25:29,432 INFO Team.BLUE team has won!
+2018-04-12 19:25:29,432 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:25:29,432 INFO   * Tiles Moved: 0
+2018-04-12 19:25:29,432 INFO   * Ranged Attacks: 0
+2018-04-12 19:25:29,432 INFO   * Piece Conflicts: 0
+2018-04-12 19:25:29,432 INFO   * Pieces Lost: 0
+2018-04-12 19:25:29,432 INFO   * Pieces Built: 0
+2018-04-12 19:25:29,432 INFO   * Upgrades Researched: 0
+2018-04-12 19:26:41,584 INFO === BATTLE OVER! ===
+2018-04-12 19:26:41,584 INFO Team.RED team has lost.
+2018-04-12 19:26:41,584 INFO -- Stats for team Team.RED --
+2018-04-12 19:26:41,584 INFO   * Tiles Moved: 0
+2018-04-12 19:26:41,584 INFO   * Ranged Attacks: 0
+2018-04-12 19:26:41,584 INFO   * Piece Conflicts: 0
+2018-04-12 19:26:41,584 INFO   * Pieces Lost: 0
+2018-04-12 19:26:41,584 INFO   * Pieces Built: 0
+2018-04-12 19:26:41,585 INFO   * Upgrades Researched: 0
+2018-04-12 19:26:41,585 INFO Team.BLUE team has won!
+2018-04-12 19:26:41,585 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:26:41,585 INFO   * Tiles Moved: 0
+2018-04-12 19:26:41,585 INFO   * Ranged Attacks: 0
+2018-04-12 19:26:41,585 INFO   * Piece Conflicts: 0
+2018-04-12 19:26:41,585 INFO   * Pieces Lost: 0
+2018-04-12 19:26:41,585 INFO   * Pieces Built: 0
+2018-04-12 19:26:41,585 INFO   * Upgrades Researched: 0
+2018-04-12 19:26:46,268 INFO === BATTLE OVER! ===
+2018-04-12 19:26:46,268 INFO === BATTLE OVER! ===
+2018-04-12 19:26:46,268 INFO Team.RED team has won!
+2018-04-12 19:26:46,268 INFO Team.RED team has won!
+2018-04-12 19:26:46,268 INFO -- Stats for team Team.RED --
+2018-04-12 19:26:46,268 INFO -- Stats for team Team.RED --
+2018-04-12 19:26:46,269 INFO   * Tiles Moved: 0
+2018-04-12 19:26:46,269 INFO   * Tiles Moved: 0
+2018-04-12 19:26:46,269 INFO   * Ranged Attacks: 0
+2018-04-12 19:26:46,269 INFO   * Ranged Attacks: 0
+2018-04-12 19:26:46,269 INFO   * Piece Conflicts: 0
+2018-04-12 19:26:46,269 INFO   * Piece Conflicts: 0
+2018-04-12 19:26:46,269 INFO   * Pieces Lost: 0
+2018-04-12 19:26:46,269 INFO   * Pieces Lost: 0
+2018-04-12 19:26:46,269 INFO   * Pieces Built: 0
+2018-04-12 19:26:46,269 INFO   * Pieces Built: 0
+2018-04-12 19:26:46,269 INFO   * Upgrades Researched: 0
+2018-04-12 19:26:46,269 INFO   * Upgrades Researched: 0
+2018-04-12 19:26:46,269 INFO Team.BLUE team has lost.
+2018-04-12 19:26:46,269 INFO Team.BLUE team has lost.
+2018-04-12 19:26:46,269 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:26:46,269 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:26:46,269 INFO   * Tiles Moved: 0
+2018-04-12 19:26:46,269 INFO   * Tiles Moved: 0
+2018-04-12 19:26:46,269 INFO   * Ranged Attacks: 0
+2018-04-12 19:26:46,269 INFO   * Ranged Attacks: 0
+2018-04-12 19:26:46,269 INFO   * Piece Conflicts: 0
+2018-04-12 19:26:46,269 INFO   * Piece Conflicts: 0
+2018-04-12 19:26:46,269 INFO   * Pieces Lost: 0
+2018-04-12 19:26:46,269 INFO   * Pieces Lost: 0
+2018-04-12 19:26:46,269 INFO   * Pieces Built: 0
+2018-04-12 19:26:46,269 INFO   * Pieces Built: 0
+2018-04-12 19:26:46,269 INFO   * Upgrades Researched: 0
+2018-04-12 19:26:46,269 INFO   * Upgrades Researched: 0
+2018-04-12 19:28:12,114 INFO === BATTLE OVER! ===
+2018-04-12 19:28:12,114 INFO === BATTLE OVER! ===
+2018-04-12 19:28:12,114 INFO === BATTLE OVER! ===
+2018-04-12 19:28:12,115 INFO Team.RED team has lost.
+2018-04-12 19:28:12,115 INFO Team.RED team has lost.
+2018-04-12 19:28:12,115 INFO Team.RED team has lost.
+2018-04-12 19:28:12,115 INFO -- Stats for team Team.RED --
+2018-04-12 19:28:12,115 INFO -- Stats for team Team.RED --
+2018-04-12 19:28:12,115 INFO -- Stats for team Team.RED --
+2018-04-12 19:28:12,115 INFO   * Tiles Moved: 0
+2018-04-12 19:28:12,115 INFO   * Tiles Moved: 0
+2018-04-12 19:28:12,115 INFO   * Tiles Moved: 0
+2018-04-12 19:28:12,115 INFO   * Ranged Attacks: 0
+2018-04-12 19:28:12,115 INFO   * Ranged Attacks: 0
+2018-04-12 19:28:12,115 INFO   * Ranged Attacks: 0
+2018-04-12 19:28:12,115 INFO   * Piece Conflicts: 0
+2018-04-12 19:28:12,115 INFO   * Piece Conflicts: 0
+2018-04-12 19:28:12,115 INFO   * Piece Conflicts: 0
+2018-04-12 19:28:12,115 INFO   * Pieces Lost: 0
+2018-04-12 19:28:12,115 INFO   * Pieces Lost: 0
+2018-04-12 19:28:12,115 INFO   * Pieces Lost: 0
+2018-04-12 19:28:12,115 INFO   * Pieces Built: 0
+2018-04-12 19:28:12,115 INFO   * Pieces Built: 0
+2018-04-12 19:28:12,115 INFO   * Pieces Built: 0
+2018-04-12 19:28:12,115 INFO   * Upgrades Researched: 0
+2018-04-12 19:28:12,115 INFO   * Upgrades Researched: 0
+2018-04-12 19:28:12,115 INFO   * Upgrades Researched: 0
+2018-04-12 19:28:12,115 INFO Team.BLUE team has won!
+2018-04-12 19:28:12,115 INFO Team.BLUE team has won!
+2018-04-12 19:28:12,115 INFO Team.BLUE team has won!
+2018-04-12 19:28:12,115 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:28:12,115 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:28:12,115 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:28:12,115 INFO   * Tiles Moved: 0
+2018-04-12 19:28:12,115 INFO   * Tiles Moved: 0
+2018-04-12 19:28:12,115 INFO   * Tiles Moved: 0
+2018-04-12 19:28:12,116 INFO   * Ranged Attacks: 0
+2018-04-12 19:28:12,116 INFO   * Ranged Attacks: 0
+2018-04-12 19:28:12,116 INFO   * Ranged Attacks: 0
+2018-04-12 19:28:12,116 INFO   * Piece Conflicts: 0
+2018-04-12 19:28:12,116 INFO   * Piece Conflicts: 0
+2018-04-12 19:28:12,116 INFO   * Piece Conflicts: 0
+2018-04-12 19:28:12,116 INFO   * Pieces Lost: 0
+2018-04-12 19:28:12,116 INFO   * Pieces Lost: 0
+2018-04-12 19:28:12,116 INFO   * Pieces Lost: 0
+2018-04-12 19:28:12,116 INFO   * Pieces Built: 0
+2018-04-12 19:28:12,116 INFO   * Pieces Built: 0
+2018-04-12 19:28:12,116 INFO   * Pieces Built: 0
+2018-04-12 19:28:12,116 INFO   * Upgrades Researched: 0
+2018-04-12 19:28:12,116 INFO   * Upgrades Researched: 0
+2018-04-12 19:28:12,116 INFO   * Upgrades Researched: 0
+2018-04-12 19:29:53,634 INFO === BATTLE OVER! ===
+2018-04-12 19:29:53,634 INFO === BATTLE OVER! ===
+2018-04-12 19:29:53,634 INFO === BATTLE OVER! ===
+2018-04-12 19:29:53,634 INFO Team.RED team has lost.
+2018-04-12 19:29:53,634 INFO Team.RED team has lost.
+2018-04-12 19:29:53,634 INFO Team.RED team has lost.
+2018-04-12 19:29:53,634 INFO -- Stats for team Team.RED --
+2018-04-12 19:29:53,634 INFO -- Stats for team Team.RED --
+2018-04-12 19:29:53,634 INFO -- Stats for team Team.RED --
+2018-04-12 19:29:53,634 INFO   * Tiles Moved: 0
+2018-04-12 19:29:53,634 INFO   * Tiles Moved: 0
+2018-04-12 19:29:53,634 INFO   * Tiles Moved: 0
+2018-04-12 19:29:53,634 INFO   * Ranged Attacks: 0
+2018-04-12 19:29:53,634 INFO   * Ranged Attacks: 0
+2018-04-12 19:29:53,634 INFO   * Ranged Attacks: 0
+2018-04-12 19:29:53,634 INFO   * Piece Conflicts: 0
+2018-04-12 19:29:53,634 INFO   * Piece Conflicts: 0
+2018-04-12 19:29:53,634 INFO   * Piece Conflicts: 0
+2018-04-12 19:29:53,635 INFO   * Pieces Lost: 0
+2018-04-12 19:29:53,635 INFO   * Pieces Lost: 0
+2018-04-12 19:29:53,635 INFO   * Pieces Lost: 0
+2018-04-12 19:29:53,635 INFO   * Pieces Built: 0
+2018-04-12 19:29:53,635 INFO   * Pieces Built: 0
+2018-04-12 19:29:53,635 INFO   * Pieces Built: 0
+2018-04-12 19:29:53,635 INFO   * Upgrades Researched: 0
+2018-04-12 19:29:53,635 INFO   * Upgrades Researched: 0
+2018-04-12 19:29:53,635 INFO   * Upgrades Researched: 0
+2018-04-12 19:29:53,635 INFO Team.BLUE team has won!
+2018-04-12 19:29:53,635 INFO Team.BLUE team has won!
+2018-04-12 19:29:53,635 INFO Team.BLUE team has won!
+2018-04-12 19:29:53,635 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:29:53,635 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:29:53,635 INFO -- Stats for team Team.BLUE --
+2018-04-12 19:29:53,635 INFO   * Tiles Moved: 0
+2018-04-12 19:29:53,635 INFO   * Tiles Moved: 0
+2018-04-12 19:29:53,635 INFO   * Tiles Moved: 0
+2018-04-12 19:29:53,636 INFO   * Ranged Attacks: 0
+2018-04-12 19:29:53,636 INFO   * Ranged Attacks: 0
+2018-04-12 19:29:53,636 INFO   * Ranged Attacks: 0
+2018-04-12 19:29:53,636 INFO   * Piece Conflicts: 0
+2018-04-12 19:29:53,636 INFO   * Piece Conflicts: 0
+2018-04-12 19:29:53,636 INFO   * Piece Conflicts: 0
+2018-04-12 19:29:53,636 INFO   * Pieces Lost: 0
+2018-04-12 19:29:53,636 INFO   * Pieces Lost: 0
+2018-04-12 19:29:53,636 INFO   * Pieces Lost: 0
+2018-04-12 19:29:53,636 INFO   * Pieces Built: 0
+2018-04-12 19:29:53,636 INFO   * Pieces Built: 0
+2018-04-12 19:29:53,636 INFO   * Pieces Built: 0
+2018-04-12 19:29:53,636 INFO   * Upgrades Researched: 0
+2018-04-12 19:29:53,636 INFO   * Upgrades Researched: 0
+2018-04-12 19:29:53,636 INFO   * Upgrades Researched: 0
+2018-04-12 19:38:17,451 INFO Team.RED PieceType.BASE was built on (3, 11). 
+2018-04-12 19:38:17,451 INFO Team.RED PieceType.BASE was built on (3, 11). 
+2018-04-12 19:38:17,451 INFO Team.RED PieceType.BASE was built on (3, 11). 
+2018-04-12 19:38:17,451 INFO Team.RED PieceType.BASE was built on (3, 11). 
+2018-04-12 19:38:17,451 INFO Team.RED PieceType.BASE was built on (3, 11). 
+2018-04-12 19:38:17,451 INFO Team.RED PieceType.BASE was built on (3, 11). 
+2018-04-12 19:38:18,924 INFO Team.BLUE PieceType.BASE was built on (11, 11). 
+2018-04-12 19:38:18,924 INFO Team.BLUE PieceType.BASE was built on (11, 11). 
+2018-04-12 19:38:18,924 INFO Team.BLUE PieceType.BASE was built on (11, 11). 
+2018-04-12 19:38:18,924 INFO Team.BLUE PieceType.BASE was built on (11, 11). 
+2018-04-12 19:38:18,924 INFO Team.BLUE PieceType.BASE was built on (11, 11). 
+2018-04-12 19:38:18,924 INFO Team.BLUE PieceType.BASE was built on (11, 11). 
+2018-04-12 19:38:22,865 INFO Team.BLUE PieceType.GENERATOR was built on (11, 13). 
+2018-04-12 19:38:22,865 INFO Team.BLUE PieceType.GENERATOR was built on (11, 13). 
+2018-04-12 19:38:22,865 INFO Team.BLUE PieceType.GENERATOR was built on (11, 13). 
+2018-04-12 19:38:22,865 INFO Team.BLUE PieceType.GENERATOR was built on (11, 13). 
+2018-04-12 19:38:22,865 INFO Team.BLUE PieceType.GENERATOR was built on (11, 13). 
+2018-04-12 19:38:22,865 INFO Team.BLUE PieceType.GENERATOR was built on (11, 13). 
+2018-04-12 19:38:25,019 INFO Team.RED PieceType.GENERATOR was built on (3, 13). 
+2018-04-12 19:38:25,019 INFO Team.RED PieceType.GENERATOR was built on (3, 13). 
+2018-04-12 19:38:25,019 INFO Team.RED PieceType.GENERATOR was built on (3, 13). 
+2018-04-12 19:38:25,019 INFO Team.RED PieceType.GENERATOR was built on (3, 13). 
+2018-04-12 19:38:25,019 INFO Team.RED PieceType.GENERATOR was built on (3, 13). 
+2018-04-12 19:38:25,019 INFO Team.RED PieceType.GENERATOR was built on (3, 13). 
+2018-04-12 19:38:28,223 INFO Team.RED PieceType.BARRACKS was built on (4, 10). 
+2018-04-12 19:38:28,223 INFO Team.RED PieceType.BARRACKS was built on (4, 10). 
+2018-04-12 19:38:28,223 INFO Team.RED PieceType.BARRACKS was built on (4, 10). 
+2018-04-12 19:38:28,223 INFO Team.RED PieceType.BARRACKS was built on (4, 10). 
+2018-04-12 19:38:28,223 INFO Team.RED PieceType.BARRACKS was built on (4, 10). 
+2018-04-12 19:38:28,223 INFO Team.RED PieceType.BARRACKS was built on (4, 10). 
+2018-04-12 19:38:29,778 INFO Team.BLUE PieceType.BARRACKS was built on (10, 10). 
+2018-04-12 19:38:29,778 INFO Team.BLUE PieceType.BARRACKS was built on (10, 10). 
+2018-04-12 19:38:29,778 INFO Team.BLUE PieceType.BARRACKS was built on (10, 10). 
+2018-04-12 19:38:29,778 INFO Team.BLUE PieceType.BARRACKS was built on (10, 10). 
+2018-04-12 19:38:29,778 INFO Team.BLUE PieceType.BARRACKS was built on (10, 10). 
+2018-04-12 19:38:29,778 INFO Team.BLUE PieceType.BARRACKS was built on (10, 10). 
+2018-04-12 19:38:34,514 INFO Team.BLUE PieceType.COLONIST was built on (11, 12). 
+2018-04-12 19:38:34,514 INFO Team.BLUE PieceType.COLONIST was built on (11, 12). 
+2018-04-12 19:38:34,514 INFO Team.BLUE PieceType.COLONIST was built on (11, 12). 
+2018-04-12 19:38:34,514 INFO Team.BLUE PieceType.COLONIST was built on (11, 12). 
+2018-04-12 19:38:34,514 INFO Team.BLUE PieceType.COLONIST was built on (11, 12). 
+2018-04-12 19:38:34,514 INFO Team.BLUE PieceType.COLONIST was built on (11, 12). 
+2018-04-12 19:38:35,738 INFO Team.RED PieceType.COLONIST was built on (3, 12). 
+2018-04-12 19:38:35,738 INFO Team.RED PieceType.COLONIST was built on (3, 12). 
+2018-04-12 19:38:35,738 INFO Team.RED PieceType.COLONIST was built on (3, 12). 
+2018-04-12 19:38:35,738 INFO Team.RED PieceType.COLONIST was built on (3, 12). 
+2018-04-12 19:38:35,738 INFO Team.RED PieceType.COLONIST was built on (3, 12). 
+2018-04-12 19:38:35,738 INFO Team.RED PieceType.COLONIST was built on (3, 12). 
+2018-04-12 19:39:40,939 INFO = Move phase begins
+2018-04-12 19:39:40,939 INFO = Move phase begins
+2018-04-12 19:39:40,939 INFO = Move phase begins
+2018-04-12 19:39:40,939 INFO = Move phase begins
+2018-04-12 19:39:40,939 INFO = Move phase begins
+2018-04-12 19:39:40,939 INFO = Move phase begins
+2018-04-12 19:39:40,939 INFO = Move phase begins
+2018-04-12 19:39:41,150 INFO = Build phase begins
+2018-04-12 19:39:41,150 INFO = Build phase begins
+2018-04-12 19:39:41,150 INFO = Build phase begins
+2018-04-12 19:39:41,150 INFO = Build phase begins
+2018-04-12 19:39:41,150 INFO = Build phase begins
+2018-04-12 19:39:41,150 INFO = Build phase begins
+2018-04-12 19:39:41,150 INFO = Build phase begins
+2018-04-12 19:39:41,340 INFO = Combat phase begins
+2018-04-12 19:39:41,340 INFO = Combat phase begins
+2018-04-12 19:39:41,340 INFO = Combat phase begins
+2018-04-12 19:39:41,340 INFO = Combat phase begins
+2018-04-12 19:39:41,340 INFO = Combat phase begins
+2018-04-12 19:39:41,340 INFO = Combat phase begins
+2018-04-12 19:39:41,340 INFO = Combat phase begins
+2018-04-12 19:39:41,527 INFO = Ranged phase begins
+2018-04-12 19:39:41,527 INFO = Ranged phase begins
+2018-04-12 19:39:41,527 INFO = Ranged phase begins
+2018-04-12 19:39:41,527 INFO = Ranged phase begins
+2018-04-12 19:39:41,527 INFO = Ranged phase begins
+2018-04-12 19:39:41,527 INFO = Ranged phase begins
+2018-04-12 19:39:41,527 INFO = Ranged phase begins
+2018-04-12 19:39:41,718 INFO = Special phase begins
+2018-04-12 19:39:41,718 INFO = Special phase begins
+2018-04-12 19:39:41,718 INFO = Special phase begins
+2018-04-12 19:39:41,718 INFO = Special phase begins
+2018-04-12 19:39:41,718 INFO = Special phase begins
+2018-04-12 19:39:41,718 INFO = Special phase begins
+2018-04-12 19:39:41,718 INFO = Special phase begins
+2018-04-12 19:39:41,913 INFO = Start Turn phase begins
+2018-04-12 19:39:41,913 INFO = Start Turn phase begins
+2018-04-12 19:39:41,913 INFO = Start Turn phase begins
+2018-04-12 19:39:41,913 INFO = Start Turn phase begins
+2018-04-12 19:39:41,913 INFO = Start Turn phase begins
+2018-04-12 19:39:41,913 INFO = Start Turn phase begins
+2018-04-12 19:39:41,913 INFO = Start Turn phase begins
+2018-04-12 19:39:41,913 INFO == TURN 2 BEGIN ==
+2018-04-12 19:39:41,913 INFO == TURN 2 BEGIN ==
+2018-04-12 19:39:41,913 INFO == TURN 2 BEGIN ==
+2018-04-12 19:39:41,913 INFO == TURN 2 BEGIN ==
+2018-04-12 19:39:41,913 INFO == TURN 2 BEGIN ==
+2018-04-12 19:39:41,913 INFO == TURN 2 BEGIN ==
+2018-04-12 19:39:41,913 INFO == TURN 2 BEGIN ==
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 1 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.BLUE team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 2 resources.
+2018-04-12 19:39:41,925 INFO Team.RED team acquired 2 resources.
+2018-04-12 19:39:42,110 INFO = Issue Orders phase begins
+2018-04-12 19:39:42,110 INFO = Issue Orders phase begins
+2018-04-12 19:39:42,110 INFO = Issue Orders phase begins
+2018-04-12 19:39:42,110 INFO = Issue Orders phase begins
+2018-04-12 19:39:42,110 INFO = Issue Orders phase begins
+2018-04-12 19:39:42,110 INFO = Issue Orders phase begins
+2018-04-12 19:39:42,110 INFO = Issue Orders phase begins
+2018-04-12 20:01:20,288 INFO === BATTLE OVER! ===
+2018-04-12 20:01:20,289 INFO Team.RED team has lost.
+2018-04-12 20:01:20,289 INFO -- Stats for team Team.RED --
+2018-04-12 20:01:20,289 INFO   * Tiles Moved: 0
+2018-04-12 20:01:20,289 INFO   * Ranged Attacks: 0
+2018-04-12 20:01:20,289 INFO   * Piece Conflicts: 0
+2018-04-12 20:01:20,289 INFO   * Pieces Lost: 0
+2018-04-12 20:01:20,289 INFO   * Pieces Built: 0
+2018-04-12 20:01:20,289 INFO   * Upgrades Researched: 0
+2018-04-12 20:01:20,289 INFO Team.BLUE team has won!
+2018-04-12 20:01:20,289 INFO -- Stats for team Team.BLUE --
+2018-04-12 20:01:20,289 INFO   * Tiles Moved: 0
+2018-04-12 20:01:20,289 INFO   * Ranged Attacks: 0
+2018-04-12 20:01:20,289 INFO   * Piece Conflicts: 0
+2018-04-12 20:01:20,289 INFO   * Pieces Lost: 0
+2018-04-12 20:01:20,289 INFO   * Pieces Built: 0
+2018-04-12 20:01:20,289 INFO   * Upgrades Researched: 0

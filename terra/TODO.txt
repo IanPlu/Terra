@@ -33,7 +33,7 @@ x Improve rendering performance
     x Optimize animation to use scrolling surfaces and not lists of surfs (note: this was a minor boost)
 x Improve performance of tile selection
     x Used Dijkstra's algorithm
-* Create common 'menu' class? Auto support for scrolling, setting mouse pos to menu pos, etc.
+x Create common 'menu' class? Auto support for scrolling, setting mouse pos to menu pos, etc.
 * Support bundling and distributing the VC redist!
 
 Bug fixes

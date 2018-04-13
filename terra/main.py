@@ -7,7 +7,7 @@ from terra.engine.debug import DebugController
 from terra.event.event import EventType
 from terra.event.eventbus import EVENT_BUS
 from terra.managers.session import SESSION, Manager
-from terra.menu.mainmenu import MainMenu
+from terra.menu.titlescreen import TitleScreen
 from terra.menu.option import Option
 from terra.mode import Mode
 from terra.resources.assetloading import AssetType
@@ -51,7 +51,7 @@ class Main:
 
     def set_screen_from_mode(self, new_mode, map_name=None, address=None, is_host=False, map_type=AssetType.MAP, results=None):
         if new_mode == Mode.MAIN_MENU:
-            new_screen = MainMenu()
+            new_screen = TitleScreen()
         elif new_mode == Mode.BATTLE:
             new_screen = Battle(map_name, map_type)
         elif new_mode == Mode.EDIT:

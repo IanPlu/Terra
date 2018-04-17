@@ -32,13 +32,15 @@ class StatManager(GameObject):
         super().__init__()
         self.team_stats = {}
 
-        for team in teams:
-            data = team.split(' ')
-            team = Team[data[0]]
-
+        def prep_stats(team):
             self.team_stats[team] = {}
             for stat in Stat:
                 self.team_stats[team][stat] = 0
+
+        for team in teams:
+            data = team.split(' ')
+            prep_stats(Team[data[0]])
+        prep_stats(Team.NONE)
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)

@@ -22,7 +22,7 @@ class LevelEditor(GameScreen):
         super().__init__()
 
         bitmap, pieces, team_data, upgrades, meta = Session.set_up_level_editor(map_name)
-        self.teams = [Team[team.split(' ')[0]] for team in team_data]
+        self.teams = [Team[team.split(' ')[0]] for team in team_data] + [Team.NONE]
 
         self.current_tile_type = TileType.GRASS
         self.secondary_tile_type = TileType.SEA

@@ -46,6 +46,14 @@ class GameScreen:
     def get_manager(self, manager_type):
         return SESSION.get(manager_type)
 
+    # Return the current game mode.
+    def get_mode(self):
+        return SESSION.current_mode
+
+    # Return whether this is a network game or not
+    def is_network_game(self):
+        return SESSION.is_network_game
+
     def step(self, event):
         pass
 

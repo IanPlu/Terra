@@ -48,6 +48,10 @@ class GameObject:
     def get_mode(self):
         return SESSION.current_mode
 
+    # Return whether this is a network game or not
+    def is_network_game(self):
+        return SESSION.is_network_game
+
     # Invoked for every event on the queue.
     # Do state changes and any logic that should run for every event and logic loop tick
     def step(self, event):

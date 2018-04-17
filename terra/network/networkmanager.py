@@ -19,10 +19,8 @@ class NetworkManager(GameObject):
     def __init__(self, address, teams, is_host=True):
         super().__init__()
 
-        open_teams = [Team[team.split(' ')[0]] for team in teams]
-
-        if open_teams:
-            self.open_teams = open_teams
+        if teams:
+            self.open_teams = [Team[team.split(' ')[0]] for team in teams]
         else:
             self.open_teams = []
         self.filled_teams = {}
@@ -71,6 +69,7 @@ class NetworkManager(GameObject):
         event_bus.register_handler(EventType.E_START_BATTLE, self.start_battle)
         event_bus.register_handler(EventType.E_QUIT_BATTLE, self.quit_battle)
         event_bus.register_handler(EventType.E_EXIT_RESULTS, self.quit_results)
+        event_bus.register_handler(EventType.E_EXIT_LOBBY, self.quit_battle)
 
     def is_accepting_events(self):
         return self.networked_game
@@ -277,8 +276,9 @@ class NetworkManager(GameObject):
         self.send_message(MessageCode.PLAYER_CONCEDED, event.team, "")
 
     def start_battle(self, event):
-        self.send_message(MessageCode.START_BATTLE, event.team, "")
-        publish_game_event(EventType.E_START_NETWORK_BATTLE, {})
+        if self.networked_game:
+            self.send_message(MessageCode.START_BATTLE, self.team, "")
+            publish_game_event(EventType.E_START_NETWORK_BATTLE, {})
 
     def quit_battle(self, event):
         self.quit_network_game(notify_host=True)

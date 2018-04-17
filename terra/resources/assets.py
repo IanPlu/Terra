@@ -30,6 +30,7 @@ unit_palette = {
     Team.BLUE: generate_palette_list(pygame.image.load(get_asset(AssetType.SPRITE, "palettes/Blue-Palette.png"))),
     Team.GREEN: generate_palette_list(pygame.image.load(get_asset(AssetType.SPRITE, "palettes/Green-Palette.png"))),
     Team.YELLOW: generate_palette_list(pygame.image.load(get_asset(AssetType.SPRITE, "palettes/Yellow-Palette.png"))),
+    Team.NONE: generate_palette_list(pygame.image.load(get_asset(AssetType.SPRITE, "palettes/Neutral-Palette.png"))),
 }
 
 # UI
@@ -54,6 +55,8 @@ spr_main_menu_option = {
     Option.NEW_MAP: spr_main_menu_option_base[2],
     Option.LOAD_MAP: spr_main_menu_option_base[6],
     Option.SAVE_SETTINGS: spr_main_menu_option_base[6],
+    Option.START_BATTLE: spr_main_menu_option_base[0],
+    Option.LEAVE_LOBBY: spr_main_menu_option_base[4],
 }
 
 spr_cursor = {
@@ -282,31 +285,36 @@ spr_effects = {
 
 # Colors
 light_color = (248, 240, 211)
-dark_color = (82, 51, 51)
-darker_color = (46, 29, 29)
+dark_color = (51, 46, 46)
+darker_color = (13, 12, 12)
+
 light_team_color = {
     Team.RED: (247, 126, 126),
     Team.BLUE: (114, 210, 239),
     Team.GREEN: (84, 158, 91),
     Team.YELLOW: (196, 178, 94),
+    Team.NONE: (219, 218, 224),
 }
 team_color = {
     Team.RED: (230, 53, 53),
     Team.BLUE: (56, 154, 226),
     Team.GREEN: (33, 117, 62),
     Team.YELLOW: (156, 132, 62),
+    Team.NONE: (185, 181, 196),
 }
 clear_color = {
     Team.RED: (46, 29, 29),
     Team.BLUE: (41, 56, 71),
     Team.GREEN: (26, 23, 10),
     Team.YELLOW: (41, 27, 10),
+    Team.NONE: (45, 38, 51),
 }
 shadow_color = {
     Team.RED: (82, 51, 51),
     Team.BLUE: (67, 87, 107),
     Team.GREEN: (48, 43, 39),
     Team.YELLOW: (74, 46, 10),
+    Team.NONE: (74, 63, 84),
 }
 
 # Audio
@@ -320,7 +328,7 @@ font_pixelmix = pygame.font.Font(get_asset(AssetType.FONT, "pixelmix.ttf"), 8)
 
 
 def load_assets():
-    palette_swapped_teams = [Team.BLUE, Team.GREEN, Team.YELLOW]
+    palette_swapped_teams = [Team.BLUE, Team.GREEN, Team.YELLOW, Team.NONE]
 
     # Generate palette swaps for other teams
     for team in palette_swapped_teams:

@@ -7,7 +7,6 @@ FROM_NETWORK = "from_network"
 
 
 # Identifiers for various event objects.
-# TODO: Formalize what parameters belong to each event
 class EventType(Enum):
     # General action events
     E_OPEN_MENU = auto()

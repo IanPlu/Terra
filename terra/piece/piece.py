@@ -33,6 +33,7 @@ team_offsets = {
     Team.BLUE: (3, 3),
     Team.GREEN: (-3, 3),
     Team.YELLOW: (3, -3),
+    Team.NONE: (-2, 2)
 }
 
 
@@ -77,8 +78,11 @@ class Piece(AnimatedGameObject):
         indexed_pieces = [PieceType.COLONIST, PieceType.TROOPER, PieceType.RANGER, PieceType.GHOST,
                           PieceType.GUARDIAN, PieceType.BOLTCASTER, PieceType.BANSHEE,
                           PieceType.TITAN, PieceType.EARTHRENDER, PieceType.DEMON]
-        super().__init__(spr_pieces[self.team][self.piece_type], 24, 8, indexed=self.piece_type in indexed_pieces,
-                         use_global_animation_frame=True, own_frames_for_index=True)
+
+        framerate = 8 if team is not Team.NONE else 0
+
+        super().__init__(spr_pieces[self.team][self.piece_type], 24, framerate, indexed=self.piece_type in indexed_pieces,
+                         use_global_animation_frame=team is not Team.NONE, own_frames_for_index=True)
 
     def __str__(self):
         return "{} {} at tile ({}, {}) with {} HP" \

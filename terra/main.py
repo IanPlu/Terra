@@ -14,7 +14,7 @@ from terra.resources.assetloading import AssetType
 from terra.resources.assets import load_assets, clear_color, spr_game_icon
 from terra.screens.battle import Battle
 from terra.screens.leveleditor import LevelEditor
-from terra.screens.networklobby import NetworkLobby
+from terra.screens.lobby import Lobby
 from terra.screens.results import ResultsScreen
 from terra.settings import Setting, SETTINGS
 from terra.team.team import Team
@@ -42,6 +42,7 @@ class Main:
     def register_handlers(self):
         EVENT_BUS.register_handler(EventType.MENU_SELECT_OPTION, self.handle_menu_selections)
         EVENT_BUS.register_handler(EventType.E_START_NETWORK_BATTLE, self.handle_network_game_start)
+        EVENT_BUS.register_handler(EventType.E_START_BATTLE, self.handle_local_game_start)
         EVENT_BUS.register_handler(EventType.E_BATTLE_OVER, self.handle_battle_end)
         EVENT_BUS.register_multiple_handlers(self.reset_to_menu, EventType.E_QUIT_BATTLE, EventType.E_EXIT_RESULTS,
                                              EventType.E_EXIT_LOBBY, EventType.E_NETWORKING_ERROR)
@@ -53,13 +54,16 @@ class Main:
         if new_mode == Mode.MAIN_MENU:
             new_screen = TitleScreen()
         elif new_mode == Mode.BATTLE:
-            new_screen = Battle(map_name, map_type)
+            # Managers are already initialized by the lobby
+            new_screen = Battle(create_session=False)
         elif new_mode == Mode.EDIT:
             new_screen = LevelEditor(map_name)
         elif new_mode == Mode.RESULTS:
             new_screen = ResultsScreen(results)
+        elif new_mode == Mode.LOBBY:
+            new_screen = Lobby(False, map_name, map_type)
         elif new_mode == Mode.NETWORK_LOBBY:
-            new_screen = NetworkLobby(is_host, map_name, map_type, address)
+            new_screen = Lobby(is_host, map_name, map_type, address)
         elif new_mode == Mode.NETWORK_BATTLE:
             # Managers are already initialized by the lobby
             new_screen = Battle(create_session=False)
@@ -90,9 +94,9 @@ class Main:
 
     def handle_menu_selections(self, event):
         if event.option == Option.NEW_GAME:
-            self.set_screen_from_mode(Mode.BATTLE, event.mapname)
+            self.set_screen_from_mode(Mode.LOBBY, event.mapname)
         elif event.option == Option.LOAD_GAME:
-            self.set_screen_from_mode(Mode.BATTLE, event.mapname, map_type=AssetType.SAVE)
+            self.set_screen_from_mode(Mode.LOBBY, event.mapname, map_type=AssetType.SAVE)
         elif event.option == Option.NEW_NETWORK_GAME:
             mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
             self.set_screen_from_mode(mode, event.mapname, event.address, is_host=True)
@@ -113,7 +117,12 @@ class Main:
             self.reset_resolution()
 
     def handle_network_game_start(self, event):
-        self.set_screen_from_mode(Mode.NETWORK_BATTLE)
+        if SESSION.is_network_game:
+            self.set_screen_from_mode(Mode.NETWORK_BATTLE)
+
+    def handle_local_game_start(self, event):
+        if not SESSION.is_network_game:
+            self.set_screen_from_mode(Mode.BATTLE)
 
     def handle_battle_end(self, event):
         self.set_screen_from_mode(Mode.RESULTS, results=event.results)

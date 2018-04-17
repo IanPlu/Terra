@@ -1,8 +1,21 @@
 from enum import Enum
 from io import StringIO
+from random import randint
 
 from terra.resources.assetloading import get_asset, AssetType
 from terra.util.mathutil import clamp
+
+
+# Return a default nickname for the player
+def get_nickname():
+    names = [
+        "Colonist",
+        "Trooper",
+        "Ranger",
+        "Ghost",
+    ]
+
+    return names[randint(0, len(names) - 1)]
 
 
 # Individual settings the player can change on the main menu.
@@ -43,7 +56,7 @@ default_settings = {
     Setting.SCREEN_SCALE: 3,
     Setting.SFX_VOLUME: 10,
     Setting.BGM_VOLUME: 0,
-    Setting.NICKNAME: "Colonist",
+    Setting.NICKNAME: get_nickname(),
     Setting.ANIMATION_SPEED: 4,
 }
 

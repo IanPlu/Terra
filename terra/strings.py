@@ -1,6 +1,5 @@
 from enum import Enum
 
-from terra.turn.battlephase import BattlePhase
 from terra.economy.upgradetype import UpgradeType
 from terra.event.event import EventType
 from terra.managers.statmanager import Stat
@@ -12,6 +11,7 @@ from terra.piece.piecetype import PieceType
 from terra.resources.assets import light_color, dark_color
 from terra.settings import Setting
 from terra.team.team import Team
+from terra.turn.battlephase import BattlePhase
 from terra.util.drawingutil import draw_text, draw_multiline_text
 
 
@@ -447,4 +447,3 @@ def get_multiline_text(string_type, string_name, light=True, width=192, height=1
         new_text = draw_multiline_text(string, color, background, width, height)
         multiline_text_objects[(string, color, width, height)] = new_text
         return new_text
-

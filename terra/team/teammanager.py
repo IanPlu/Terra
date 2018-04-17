@@ -49,6 +49,10 @@ class TeamManager(GameObject):
             # Set the base values for piece attributes
             self.piece_attributes[team] = deepcopy(base_piece_attributes)
 
+        # Initialize neutral attributes
+        self.piece_attributes[Team.NONE] = deepcopy(base_piece_attributes)
+        self.resources[Team.NONE] = 100
+
         # Initialize upgrades
         for team_upgrades in upgrades:
             # Parse the upgrades. Looks like: 'RED|UPGRADE1 UPGRADE2', with team color and then upgrade names.
@@ -203,6 +207,9 @@ class TeamManager(GameObject):
     def get_owned_upgrades(self, team):
         return self.owned_upgrades[team]
 
+    def has_upgrade(self, team, upgrade):
+        return upgrade in self.get_owned_upgrades(team)
+
     def purchase_upgrade_from_event(self, event):
         self.purchase_upgrade(event.team, event.new_upgrade_type)
 
@@ -277,7 +284,8 @@ class TeamManager(GameObject):
         self.check_for_remaining_teams()
 
     def handle_base_destroyed(self, event):
-        self.remove_team(event.team)
+        if event.team is not Team.NONE:
+            self.remove_team(event.team)
 
     def handle_concession(self, event):
         publish_game_event(EventType.E_BASE_DESTROYED, {

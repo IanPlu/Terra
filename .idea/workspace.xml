@@ -1,26 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="894e41a0-738f-4e5f-8a18-3f971581210e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/resources/maps/fractured_fen.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/terra/menu/menu.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/terra/menu/titlescreen.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/terra/team/__init__.py" />
+    <list default="true" id="894e41a0-738f-4e5f-8a18-3f971581210e" name="Default" comment="4/16 Progress&#10;- Added the rest of the initial set of maps&#10;-">
+      <change beforePath="" afterPath="$PROJECT_DIR$/resources/maps/lazy_lake.map" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/resources/maps/yarn_falls.map" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/resources/sprites/palettes/Neutral-Palette.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/logs/avarice_reach.map.log" afterPath="$PROJECT_DIR$/logs/avarice_reach.map.log" />
-      <change beforePath="$PROJECT_DIR$/logs/bristle_plains.map.log" afterPath="$PROJECT_DIR$/logs/bristle_plains.map.log" />
-      <change beforePath="$PROJECT_DIR$/logs/bristle_plains.sav.log" afterPath="$PROJECT_DIR$/logs/bristle_plains.sav.log" />
-      <change beforePath="$PROJECT_DIR$/logs/cross_strait.map.log" afterPath="$PROJECT_DIR$/logs/cross_strait.map.log" />
-      <change beforePath="$PROJECT_DIR$/logs/error.log" afterPath="$PROJECT_DIR$/logs/error.log" />
-      <change beforePath="$PROJECT_DIR$/logs/new_map.map.log" afterPath="$PROJECT_DIR$/logs/new_map.map.log" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/avarice_reach.map" afterPath="$PROJECT_DIR$/resources/maps/avarice_reach.map" />
-      <change beforePath="$PROJECT_DIR$/terra/TODO.txt" afterPath="$PROJECT_DIR$/terra/TODO.txt" />
+      <change beforePath="$PROJECT_DIR$/Terra.zip" afterPath="$PROJECT_DIR$/Terra.zip" />
+      <change beforePath="$PROJECT_DIR$/logs/avarice_reach.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/bristle_plains.log" afterPath="$PROJECT_DIR$/terra/menu/lobbymenu.py" />
+      <change beforePath="$PROJECT_DIR$/logs/bristle_plains.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/bristle_plains.sav.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/cross_strait.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/cross_strait.sav.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/cycle_island.map.log" afterPath="$PROJECT_DIR$/terra/menu/lobbysettings.py" />
+      <change beforePath="$PROJECT_DIR$/logs/cycle_island.sav.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/deep_wood.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/deep_wood.sav.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/electric_hills.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/electric_steppes.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/error.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/four_corners.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/four_corners.sav.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/fractured_fen.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/goldrush.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/handsome_hills.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/idiots_isle.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/jelly_.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/jelly_fields.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/ladle_grounds.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/mt_eager.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/new_map.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/nova_knoll.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/oracle_meadows.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/palisade_glade.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/piece_tester.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/quarantine.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/rival_isles.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/swindle_river.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/test_demo.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/twin_lagoon.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/underhanded_gorge.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/vibrant_vale.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/wobble_wilds.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/xyloid_frontier.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/yarn_creek.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/logs/zenith_point.map.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/attributes/settings.cfg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/cycle_island.map" afterPath="$PROJECT_DIR$/resources/maps/cycle_island.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/four_corners.map" afterPath="$PROJECT_DIR$/resources/testmaps/four_corners.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/handsome_hills.map" afterPath="$PROJECT_DIR$/resources/maps/handsome_hills.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/jelly_fields.map" afterPath="$PROJECT_DIR$/resources/maps/jelly_fields.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/ladle_grounds.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/mt_eager.map" afterPath="$PROJECT_DIR$/resources/maps/mt_eager.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/nova_knoll.map" afterPath="$PROJECT_DIR$/resources/maps/nova_knoll.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/oracle_meadows.map" afterPath="$PROJECT_DIR$/resources/maps/oracle_meadows.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/palisade_glade.map" afterPath="$PROJECT_DIR$/resources/maps/palisade_glade.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/quarantine.map" afterPath="$PROJECT_DIR$/resources/maps/quarantine.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/twin_lagoon.map" afterPath="$PROJECT_DIR$/resources/maps/twin_lagoon.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/underhanded_gorge.map" afterPath="$PROJECT_DIR$/resources/maps/underhanded_gorge.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/vibrant_vale.map" afterPath="$PROJECT_DIR$/resources/maps/vibrant_vale.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/wobble_wilds.map" afterPath="$PROJECT_DIR$/resources/maps/wobble_wilds.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/xyloid_frontier.map" afterPath="$PROJECT_DIR$/resources/maps/xyloid_frontier.map" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/yarn_creek.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/zenith_point.map" afterPath="$PROJECT_DIR$/resources/maps/zenith_point.map" />
+      <change beforePath="$PROJECT_DIR$/resources/saves/Network.sav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/saves/bristle_plains.sav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/saves/cross_strait.sav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/saves/cycle_island.sav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/saves/deep_wood.sav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/saves/four_corners.sav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/saves/spann_island.sav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/terra/constants.py" afterPath="$PROJECT_DIR$/terra/constants.py" />
+      <change beforePath="$PROJECT_DIR$/terra/engine/debug.py" afterPath="$PROJECT_DIR$/terra/engine/debug.py" />
+      <change beforePath="$PROJECT_DIR$/terra/engine/gameobject.py" afterPath="$PROJECT_DIR$/terra/engine/gameobject.py" />
+      <change beforePath="$PROJECT_DIR$/terra/engine/gamescreen.py" afterPath="$PROJECT_DIR$/terra/engine/gamescreen.py" />
+      <change beforePath="$PROJECT_DIR$/terra/event/event.py" afterPath="$PROJECT_DIR$/terra/event/event.py" />
       <change beforePath="$PROJECT_DIR$/terra/main.py" afterPath="$PROJECT_DIR$/terra/main.py" />
-      <change beforePath="$PROJECT_DIR$/terra/managers/combatlogger.py" afterPath="$PROJECT_DIR$/terra/managers/combatlogger.py" />
+      <change beforePath="$PROJECT_DIR$/terra/managers/session.py" afterPath="$PROJECT_DIR$/terra/managers/session.py" />
+      <change beforePath="$PROJECT_DIR$/terra/managers/statmanager.py" afterPath="$PROJECT_DIR$/terra/managers/statmanager.py" />
+      <change beforePath="$PROJECT_DIR$/terra/map/minimap.py" afterPath="$PROJECT_DIR$/terra/map/minimap.py" />
       <change beforePath="$PROJECT_DIR$/terra/menu/mainmenu.py" afterPath="$PROJECT_DIR$/terra/menu/mainmenu.py" />
+      <change beforePath="$PROJECT_DIR$/terra/mode.py" afterPath="$PROJECT_DIR$/terra/mode.py" />
+      <change beforePath="$PROJECT_DIR$/terra/network/networkmanager.py" afterPath="$PROJECT_DIR$/terra/network/networkmanager.py" />
+      <change beforePath="$PROJECT_DIR$/terra/piece/piece.py" afterPath="$PROJECT_DIR$/terra/piece/piece.py" />
+      <change beforePath="$PROJECT_DIR$/terra/resources/assets.py" afterPath="$PROJECT_DIR$/terra/resources/assets.py" />
+      <change beforePath="$PROJECT_DIR$/terra/screens/leveleditor.py" afterPath="$PROJECT_DIR$/terra/screens/leveleditor.py" />
+      <change beforePath="$PROJECT_DIR$/terra/screens/networklobby.py" afterPath="$PROJECT_DIR$/terra/screens/lobby.py" />
       <change beforePath="$PROJECT_DIR$/terra/screens/results.py" afterPath="$PROJECT_DIR$/terra/screens/results.py" />
+      <change beforePath="$PROJECT_DIR$/terra/settings.py" afterPath="$PROJECT_DIR$/terra/settings.py" />
+      <change beforePath="$PROJECT_DIR$/terra/strings.py" afterPath="$PROJECT_DIR$/terra/strings.py" />
+      <change beforePath="$PROJECT_DIR$/terra/team/playermanager.py" afterPath="$PROJECT_DIR$/terra/team/playermanager.py" />
+      <change beforePath="$PROJECT_DIR$/terra/team/team.py" afterPath="$PROJECT_DIR$/terra/team/team.py" />
       <change beforePath="$PROJECT_DIR$/terra/team/teammanager.py" afterPath="$PROJECT_DIR$/terra/team/teammanager.py" />
-      <change beforePath="$PROJECT_DIR$/terra/ui/menupopup.py" afterPath="$PROJECT_DIR$/terra/ui/menupopup.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +103,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,36 +115,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Managers.</find>
-      <find>Managers</find>
-      <find>E_RESOURCES_LOST</find>
-      <find>log_resource_loss</find>
-      <find>resources_lost</find>
-      <find>log_resource_acquisition</find>
-      <find>E_RESOURCES_GAINED</find>
-      <find>tear_down</find>
-      <find>LevelEditor</find>
-      <find>EDIT</find>
-      <find>DEBUG</find>
-      <find>TODO</find>
-      <find>try_submitting_turn</find>
-      <find>load_assets</find>
-      <find>from terra.team import Team</find>
-      <find>import Team</find>
-      <find>damage</find>
-      <find>attack</find>
-      <find>ranged</find>
-      <find>terraform</find>
-      <find>UpgradeType</find>
-      <find>Attribute</find>
-      <find>clamp_menu_bounds</find>
       <find>mainmenu</find>
       <find>self.height</find>
       <find>self.y</find>
       <find>root_y</find>
       <find>shadow</find>
       <find>winning_teams</find>
+      <find>darker_color</find>
+      <find>dark_color</find>
+      <find>shadow_color[Team.RED]</find>
+      <find>set_up_network_game_as_host</find>
+      <find>set_up_network_game_as_client</find>
+      <find>set_up_local_game</find>
+      <find>NetworkManager</find>
+      <find>E_EXIT_LOBBY</find>
+      <find>address</find>
+      <find>on_all_teams_filled</find>
+      <find>Option.</find>
+      <find>Lobby</find>
+      <find>set_screen_from_mode</find>
+      <find>is_network_game</find>
+      <find>reset</find>
+      <find>E_START_BATTLE</find>
+      <find>options</find>
       <find>TERRA</find>
+      <find>remove_team</find>
+      <find>TOWER</find>
+      <find>teams</find>
+      <find>todo</find>
+      <find>NICKNAME</find>
+      <find>default_settings</find>
     </findStrings>
     <replaceStrings>
       <replace>(100, 100, 100)</replace>
@@ -111,8 +183,9 @@
       <dir>C:\Users\Ian\Documents\GitHub\Terra\terra\piece</dir>
       <dir>C:\Users\Ian\Documents\GitHub\Terra</dir>
       <dir>C:\Users\Ian\Documents\GitHub\Terra\resources</dir>
-      <dir>C:\Users\Ian\Documents\GitHub\Terra\terra</dir>
+      <dir>C:\Users\Ian\Documents\GitHub\Terra\terra\screens</dir>
       <dir>C:\Users\Ian\Documents\GitHub\Terra\resources\maps</dir>
+      <dir>C:\Users\Ian\Documents\GitHub\Terra\terra</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -134,57 +207,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/terra/managers/playermanager.py" />
-        <option value="$PROJECT_DIR$/terra/engine/debug.py" />
-        <option value="$PROJECT_DIR$/terra/managers/teammanager.py" />
-        <option value="$PROJECT_DIR$/terra/engine/gamescreen.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/terra/battlephase.py" />
-        <option value="$PROJECT_DIR$/terra/util/drawingutil.py" />
-        <option value="$PROJECT_DIR$/test/managers/test_mapmanager.py" />
-        <option value="$PROJECT_DIR$/test/piece/test_piececombatvalues.py" />
-        <option value="$PROJECT_DIR$/resources/maps/goldrush.map" />
-        <option value="$PROJECT_DIR$/resources/maps/swindle_river.map" />
-        <option value="$PROJECT_DIR$/resources/maps/rival_isles.map" />
-        <option value="$PROJECT_DIR$/resources/maps/idiots_isle.map" />
-        <option value="$PROJECT_DIR$/resources/maps/electric_steppes.map" />
-        <option value="$PROJECT_DIR$/terra/managers/session.py" />
-        <option value="$PROJECT_DIR$/launcher.py" />
-        <option value="$PROJECT_DIR$/terra/screens/battle.py" />
-        <option value="$PROJECT_DIR$/resources/maps/palisade_glade.map" />
-        <option value="$PROJECT_DIR$/test/managers/test_session.py" />
-        <option value="$PROJECT_DIR$/terra/managers/effectsmanager.py" />
-        <option value="$PROJECT_DIR$/terra/managers/mapmanager.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/terra/managers/statmanager.py" />
-        <option value="$PROJECT_DIR$/terra/map/minimap.py" />
-        <option value="$PROJECT_DIR$/terra/menu/textinput.py" />
-        <option value="$PROJECT_DIR$/terra/network/networkmanager.py" />
-        <option value="$PROJECT_DIR$/terra/screens/leveleditor.py" />
-        <option value="$PROJECT_DIR$/terra/screens/networklobby.py" />
-        <option value="$PROJECT_DIR$/terra/piece/piececonflict.py" />
-        <option value="$PROJECT_DIR$/terra/piece/attribute.py" />
-        <option value="$PROJECT_DIR$/terra/piece/piecemanager.py" />
-        <option value="$PROJECT_DIR$/terra/map/mapmanager.py" />
         <option value="$PROJECT_DIR$/terra/economy/upgradetype.py" />
-        <option value="$PROJECT_DIR$/terra/strings.py" />
         <option value="$PROJECT_DIR$/resources/attributes/upgradeattributes.cfg" />
         <option value="$PROJECT_DIR$/resources/attributes/pieceattributes.cfg" />
         <option value="$PROJECT_DIR$/terra/ui/tileselection.py" />
-        <option value="$PROJECT_DIR$/terra/piece/piece.py" />
-        <option value="$PROJECT_DIR$/terra/resources/assets.py" />
         <option value="$PROJECT_DIR$/resources/maps/piece_tester.map" />
-        <option value="$PROJECT_DIR$/terra/main.py" />
         <option value="$PROJECT_DIR$/terra/menu/menu.py" />
-        <option value="$PROJECT_DIR$/terra/menu/mainmenu.py" />
         <option value="$PROJECT_DIR$/terra/ui/menupopup.py" />
-        <option value="$PROJECT_DIR$/terra/team/teammanager.py" />
         <option value="$PROJECT_DIR$/terra/managers/combatlogger.py" />
-        <option value="$PROJECT_DIR$/terra/screens/results.py" />
         <option value="$PROJECT_DIR$/resources/maps/avarice_reach.map" />
         <option value="$PROJECT_DIR$/terra/menu/titlescreen.py" />
         <option value="$PROJECT_DIR$/resources/maps/fractured_fen.map" />
         <option value="$PROJECT_DIR$/terra/TODO.txt" />
+        <option value="$PROJECT_DIR$/terra/screens/results.py" />
+        <option value="$PROJECT_DIR$/terra/managers/session.py" />
+        <option value="$PROJECT_DIR$/terra/mode.py" />
+        <option value="$PROJECT_DIR$/terra/engine/gameobject.py" />
+        <option value="$PROJECT_DIR$/terra/engine/gamescreen.py" />
+        <option value="$PROJECT_DIR$/terra/network/networkmanager.py" />
+        <option value="$PROJECT_DIR$/terra/main.py" />
+        <option value="$PROJECT_DIR$/terra/screens/lobby.py" />
+        <option value="$PROJECT_DIR$/terra/menu/lobbysettings.py" />
+        <option value="$PROJECT_DIR$/terra/menu/lobbymenu.py" />
+        <option value="$PROJECT_DIR$/resources/maps/handsome_hills.map" />
+        <option value="$PROJECT_DIR$/resources/maps/mt_eager.map" />
+        <option value="$PROJECT_DIR$/resources/maps/quarantine.map" />
+        <option value="$PROJECT_DIR$/resources/maps/lake_.map" />
+        <option value="$PROJECT_DIR$/resources/maps/nova_knoll.map" />
+        <option value="$PROJECT_DIR$/terra/team/team.py" />
+        <option value="$PROJECT_DIR$/terra/map/minimap.py" />
+        <option value="$PROJECT_DIR$/terra/resources/assets.py" />
+        <option value="$PROJECT_DIR$/terra/managers/statmanager.py" />
+        <option value="$PROJECT_DIR$/resources/maps/oracle_meadows.map" />
+        <option value="$PROJECT_DIR$/terra/screens/leveleditor.py" />
+        <option value="$PROJECT_DIR$/resources/maps/twin_lagoon.map" />
+        <option value="$PROJECT_DIR$/resources/maps/xyloid_frontier.map" />
+        <option value="$PROJECT_DIR$/terra/piece/piece.py" />
+        <option value="$PROJECT_DIR$/resources/maps/wobble_wilds.map" />
+        <option value="$PROJECT_DIR$/resources/maps/zenith_point.map" />
+        <option value="$PROJECT_DIR$/resources/maps/underhanded_gorge.map" />
+        <option value="$PROJECT_DIR$/resources/maps/vibrant_vale.map" />
+        <option value="$PROJECT_DIR$/resources/maps/yarn_creek.map" />
+        <option value="$PROJECT_DIR$/terra/constants.py" />
+        <option value="$PROJECT_DIR$/terra/event/event.py" />
+        <option value="$PROJECT_DIR$/terra/team/playermanager.py" />
+        <option value="$PROJECT_DIR$/terra/menu/mainmenu.py" />
+        <option value="$PROJECT_DIR$/terra/team/teammanager.py" />
+        <option value="$PROJECT_DIR$/terra/engine/debug.py" />
+        <option value="$PROJECT_DIR$/terra/settings.py" />
+        <option value="$PROJECT_DIR$/terra/strings.py" />
+        <option value="$PROJECT_DIR$/resources/attributes/settings.cfg" />
+        <option value="$PROJECT_DIR$/logs/error.log" />
       </list>
     </option>
   </component>
@@ -195,10 +268,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="960" />
-    <option name="height" value="527" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -316,7 +388,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -351,6 +422,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -368,19 +440,19 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Ian/Documents/GitHub/Terra/terra/mainmenu/mainmenu.py" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ian\Documents\GitHub\Terra\resources\testmaps" />
-      <recent name="C:\Users\Ian\Documents\GitHub\Terra\terra\turn" />
-      <recent name="C:\Users\Ian\Documents\GitHub\Terra\terra\team" />
-      <recent name="C:\Users\Ian\Documents\GitHub\Terra\terra\sound" />
-      <recent name="C:\Users\Ian\Documents\GitHub\Terra\terra\piece" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ian\Documents\GitHub\Terra\resources\sprites\palettes" />
       <recent name="C:\Users\Ian\Documents\GitHub\Terra\resources\maps" />
       <recent name="C:\Users\Ian\Documents\GitHub\Terra\resources\sprites\ui" />
       <recent name="C:\Users\Ian\Documents\GitHub\Terra\resources\sprites\units" />
       <recent name="C:\Users\Ian\Documents\GitHub\Terra\terra\turn" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ian\Documents\GitHub\Terra\test" />
+      <recent name="C:\Users\Ian\Documents\GitHub\Terra\resources\testmaps" />
+      <recent name="C:\Users\Ian\Documents\GitHub\Terra\terra\turn" />
       <recent name="C:\Users\Ian\Documents\GitHub\Terra\terra\team" />
+      <recent name="C:\Users\Ian\Documents\GitHub\Terra\terra\sound" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -395,7 +467,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.launcher">
+  <component name="RunManager" selected="Python.Build .exe">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -490,6 +562,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="strings" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/terra" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Terra" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/terra/strings.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -544,20 +634,6 @@
       <option name="_new_target" value="&quot;test_session.SessionTest&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Unittests in test" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Terra" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
     <configuration name="Unittests in test_session.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -576,17 +652,17 @@
       <item index="0" class="java.lang.String" itemvalue="Python.launcher (profiled)" />
       <item index="1" class="java.lang.String" itemvalue="Python.Build .exe" />
       <item index="2" class="java.lang.String" itemvalue="Python.launcher" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for test_session.SessionTest" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in test_session.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for test_session.SessionTest" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test_session.py" />
+      <item index="5" class="java.lang.String" itemvalue="Python.strings" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.launcher" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Build .exe" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_session.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for test_session.SessionTest" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Build .exe" />
+        <item index="1" class="java.lang.String" itemvalue="Python.launcher" />
+        <item index="2" class="java.lang.String" itemvalue="Python.strings" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_session.py" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for test_session.SessionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -608,13 +684,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1515187251870</updated>
-    </task>
-    <task id="LOCAL-00012" summary="1/22/18 Progress&#10;- Added support for 1-shot effects (unit deaths, indicators, etc)&#10;- Polished up toast notifications&#10;- Refactors to support turn-based local play&#10;  - Reorganizing what the 'current team' is. All teams must mark their orders submitted before the phase progresses.&#10;  - Each team has their own cursor + camera">
-      <created>1516663853042</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1516663853042</updated>
     </task>
     <task id="LOCAL-00013" summary="1/23/18 Progress&#10;- Small update.&#10;- Revised Colonist building to not consume the Colonist on build. Added support for selecting only the valid tiles.">
       <created>1516745610230</created>
@@ -952,7 +1021,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523492649182</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="4/12 Progress&#10;- Added Menu base class, refactored popup menus and the main menu to use it&#10;- Prettied up the stats screen a bit&#10;- Added a map or two">
+      <created>1523588758906</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1523588758907</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1001,7 +1077,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1012,9 +1087,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15511727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20788912" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22934783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1027,6 +1101,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25543478" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1070,7 +1146,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="3/4/18 Progress&#10;- Added all missing upgrades&#10;    - Added upgrades for all tier 2 units, and filled in missing tier 1 upgrades&#10;    - Added unique effects for ignoring contesting, regen, terraforming, healing adjacent, armor piercing,&#10;      AOE on kill and steal on kill effects, and movement buffs from allies.&#10;- Fixed invalid orders where you could try to buy the same upgrade multiple times&#10;- Added support for terraforming! Terraforming raises or lowers a tile, changing its type.&#10;    - Pieces that end the turn on impassible terrain take lots of damage.&#10;- Standardized damaging and healing pieces in the piece class" />
     <MESSAGE value="3/5/18 Progress&#10;- Added Coast tiles, which use an indexed sprite (like sea borders), and have 4 frames of animation.&#10;- Added HEAVY movement type, which allows traversal over coasts and hills but not stopping on them.&#10;- Added support for animated indexed sprites, like coasts.&#10;- Added global animation sync for 4-frame animations, like tiles&#10;- Added rudimentary sound effects&#10;- Major fixes for level editor&#10;    - Support for adding and removing pieces&#10;    - Some bugfixes for keybindings and behavior that should only happen during a real battle" />
     <MESSAGE value="3/7/18 Progress&#10;- Added detail box, which can display description text for options, and details about a piece or upgrade&#10;    - Using this, added full descriptions for all menu options, upgrades, and pieces&#10;- Added utilities for caching and drawing text more easily, as well as utilities for drawing multi line text&#10;- Split game screen and UI screen better, and fixed support for smaller maps" />
     <MESSAGE value="Hotfix for missing init file&#10;- Fixed that the sound module didn't have an init file." />
@@ -1095,26 +1170,15 @@
     <MESSAGE value="4/6 Bugfix&#10;- Minor bugfix for level editor not responding to inputs&#10;- Added basic T3 units. No sprites for any of it, but the basic stats are implemented&#10;- Code quality-- added comments here and there, and some TODOs" />
     <MESSAGE value="4/9 Progress&#10;- Refactored 'managers' objects into a Session container. Cleaned up how games / modes are initialized.&#10;- Reworked tile selection to use Dijkstra's algorithm&#10;- Added debug controller, which fires events based on debug key inputs. Removed other debug inputs.&#10;- Added upgrade display to piece detail box&#10;- Refactored error logging to always exist (and not be a part of managers)&#10;- Refactored combat logger to just listen for events, and not be manually invoked&#10;- Refactored map util methods out of map manager" />
     <MESSAGE value="4/11 Progress&#10;- Added sprites and upgrades for all T3 units&#10;  - Added new attributes for lifesteal and ranged cratering&#10;- Profiling -&gt; plugging some memory leaks to do with Session and managers&#10;- Some refactoring to move stuff to their own directories&#10;- Added shells for maps to correspond with the letters of the alphabet" />
-    <option name="LAST_COMMIT_MESSAGE" value="4/11 Progress&#10;- Added sprites and upgrades for all T3 units&#10;  - Added new attributes for lifesteal and ranged cratering&#10;- Profiling -&gt; plugging some memory leaks to do with Session and managers&#10;- Some refactoring to move stuff to their own directories&#10;- Added shells for maps to correspond with the letters of the alphabet" />
+    <MESSAGE value="4/12 Progress&#10;- Added Menu base class, refactored popup menus and the main menu to use it&#10;- Prettied up the stats screen a bit&#10;- Added a map or two" />
+    <option name="LAST_COMMIT_MESSAGE" value="4/12 Progress&#10;- Added Menu base class, refactored popup menus and the main menu to use it&#10;- Prettied up the stats screen a bit&#10;- Added a map or two" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/terra/network/networkmanager.py</url>
-          <line>198</line>
-          <option name="timeStamp" value="619" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/terra/network/networkmanager.py</url>
-          <line>204</line>
-          <option name="timeStamp" value="621" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="639" />
+      <option name="time" value="645" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1124,6 +1188,26 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>clear_color</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>piece_totals</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Team[data[2]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.options[1]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>RESOLUTION_WIDTH</expression-string>
         <language-id>Python</language-id>
@@ -1147,26 +1231,6 @@ RESOLUTION_WIDTH</expression-string>
       </expression>
       <expression>
         <expression-string>Managers.current_mode</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Managers.team_manager.is_turn_submitted(self.team)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Managers.turn_manager.phase</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Managers.player_manager.active_team</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>upgrade[UpgradeAttribute.NEW_ATTACK_MULTIPLIER].items()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -1277,353 +1341,184 @@ RESOLUTION_WIDTH</expression-string>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/terra/resources/assetloading.py">
+    <entry file="file://$PROJECT_DIR$/terra/menu/lobbysettings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="442">
+          <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#32#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/managers/test_session.py">
+    <entry file="file://$PROJECT_DIR$/terra/menu/lobbymenu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="680">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#59#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/map/tile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/piece/test_piececombatvalues.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/handsome_hills.map">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/turn/turnmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#46#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/sound/soundmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#46#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/team/playermanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/effects/animatedeffect.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/mt_eager.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        <state relative-caret-position="187">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/effects/effectsmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#55#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/team/__init__.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/goldrush.map">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/turn/__init__.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/fractured_fen.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="391">
+          <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="663">
-            <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/resources/maps/avarice_reach.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="29" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/maps/quarantine.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/maps/lazy_lake.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/terra/managers/statmanager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/network/networkmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#13#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/screens/leveleditor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        <state relative-caret-position="192">
+          <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/screens/networklobby.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/nova_knoll.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        <state relative-caret-position="561">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/constants.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/oracle_meadows.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/mode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/definitions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/control/test_inputcontroller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1280">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/logs/error.log" />
-    <entry file="file://$PROJECT_DIR$/terra/managers/errorlogger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="9" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/piece/piececonflict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="50" column="52" lean-forward="true" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/map/tiletype.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/map/mapmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/piece/piecemanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="343" column="24" lean-forward="true" selection-start-line="343" selection-start-column="24" selection-end-line="343" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/ui/tileselection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="110" column="47" lean-forward="false" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/attributes/upgradeattributes.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="430" column="5" lean-forward="true" selection-start-line="430" selection-start-column="5" selection-end-line="430" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/strings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="264" column="46" lean-forward="true" selection-start-line="264" selection-start-column="46" selection-end-line="264" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/attributes/pieceattributes.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="252" column="39" lean-forward="false" selection-start-line="252" selection-start-column="39" selection-end-line="252" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/economy/upgradetype.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="66" column="21" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/piece/attribute.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="15" column="46" lean-forward="true" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/piece/piece.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="77" column="61" lean-forward="false" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#13#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/testmaps/piece_tester.map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/resources/assets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="174" column="64" lean-forward="true" selection-start-line="174" selection-start-column="64" selection-end-line="174" selection-end-column="64" />
+        <state relative-caret-position="357">
+          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/terra/map/minimap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="55" column="91" lean-forward="false" selection-start-line="55" selection-start-column="91" selection-end-line="55" selection-end-column="91" />
+        <state relative-caret-position="119">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/managers/session.py">
+    <entry file="file://$PROJECT_DIR$/terra/team/team.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="122" column="55" lean-forward="true" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
+        <state relative-caret-position="170">
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/ui/menupopup.py">
+    <entry file="file://$PROJECT_DIR$/terra/screens/leveleditor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="161" column="38" lean-forward="false" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#88#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/screens/results.py">
+    <entry file="file://$APPLICATION_PLUGINS_DIR$/python-ce/helpers/typeshed/third_party/3/werkzeug/debug/console.pyi">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-617">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/managers/combatlogger.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/twin_lagoon.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="125" column="17" lean-forward="true" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terra/team/teammanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="289" column="52" lean-forward="true" selection-start-line="289" selection-start-column="52" selection-end-line="289" selection-end-column="52" />
+        <state relative-caret-position="595">
+          <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/menu/menu.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/wobble_wilds.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="579">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/maps/avarice_reach.map">
+    <entry file="file://$PROJECT_DIR$/resources/maps/xyloid_frontier.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="27" lean-forward="false" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        <state relative-caret-position="0">
+          <caret line="0" column="37" lean-forward="true" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/piece/piece.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/maps/zenith_point.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/attributes/pieceattributes.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="349" column="0" lean-forward="true" selection-start-line="349" selection-start-column="0" selection-end-line="349" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1636,56 +1531,236 @@ RESOLUTION_WIDTH</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/menu/titlescreen.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/underhanded_gorge.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        <state relative-caret-position="306">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/maps/vibrant_vale.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/maps/yarn_falls.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/testmaps/test_map.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/testmaps/test_demo.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/testmaps/test_biggest_boy.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/testmaps/spann_island2.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/testmaps/piece_tester.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/event/event.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/team/playermanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="53" column="27" lean-forward="true" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/engine/gamescreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/effects/effectsmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/managers/combatlogger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#14#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/map/maputils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/resources/assets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/terra/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
+        <state relative-caret-position="219">
+          <caret line="98" column="45" lean-forward="false" selection-start-line="98" selection-start-column="45" selection-end-line="98" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/menu/textinput.py">
+    <entry file="file://$PROJECT_DIR$/terra/team/teammanager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="311">
+          <caret line="209" column="19" lean-forward="false" selection-start-line="209" selection-start-column="8" selection-end-line="209" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/terra/menu/mainmenu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="188" column="39" lean-forward="true" selection-start-line="188" selection-start-column="39" selection-end-line="188" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/maps/fractured_fen.map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        <state relative-caret-position="187">
+          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terra/TODO.txt">
+    <entry file="file://$PROJECT_DIR$/terra/strings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        <state relative-caret-position="562">
+          <caret line="448" column="23" lean-forward="false" selection-start-line="448" selection-start-column="23" selection-end-line="448" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#21#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/settings.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/attributes/settings.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#21#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/engine/debug.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#53#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terra/util/loggingutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/error.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/saves/PLACEHOLDER">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/saves/no_limits.sav">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>

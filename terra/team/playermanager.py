@@ -50,8 +50,6 @@ class PlayerManager(GameObject):
         self.cursors[team].destroy()
         del self.cursors[team]
 
-        # TODO: What to do when the removed team is the active player, and the game hasn't ended?
-
     def step(self, event):
         super().step(event)
 

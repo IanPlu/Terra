@@ -7,5 +7,5 @@ class Team(Enum):
     BLUE = "[BLU]"
     GREEN = "[GRN]"
     YELLOW = "[YLO]"
-    # Only used when setting up network games, when we don't HAVE a team yet
+    # Not a playable team. Neutral units & when we don't have a team yet for network games
     NONE = "[NON]"

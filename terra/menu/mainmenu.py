@@ -8,10 +8,9 @@ from terra.menu.menu import Menu
 from terra.menu.option import Option
 from terra.menu.textinput import TextInput, FILTER_IP, FILTER_FILENAME, FILTER_ALPHANUMERIC
 from terra.resources.assetloading import AssetType
-from terra.resources.assets import light_color, shadow_color, light_team_color, spr_main_menu_option
+from terra.resources.assets import light_color, shadow_color, light_team_color, spr_main_menu_option, dark_color
 from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
-from terra.team.team import Team
 from terra.util.drawingutil import draw_text
 
 
@@ -28,16 +27,20 @@ def generate_menu():
     loadable_maps = convert_loadable_maps_to_options(AssetType.MAP)
     loadable_saves = convert_loadable_maps_to_options(AssetType.SAVE)
 
+    local_option = (Option.LOCAL, [(Option.NEW_GAME, loadable_maps)])
+    if len(loadable_saves) > 0:
+        local_option[1].append((Option.LOAD_GAME, loadable_saves))
+
+    host_option = (Option.HOST_GAME, [
+        (Option.NEW_NETWORK_GAME, loadable_maps)
+    ])
+    if len(loadable_saves) > 0:
+        host_option[1].append((Option.LOAD_NETWORK_GAME, loadable_saves))
+
     start_menu_options = [
-        (Option.LOCAL, [
-            (Option.NEW_GAME, loadable_maps),
-            (Option.LOAD_GAME, loadable_saves)
-        ]),
+        local_option,
         (Option.NETWORK, [
-            (Option.HOST_GAME, [
-                (Option.NEW_NETWORK_GAME, loadable_maps),
-                (Option.LOAD_NETWORK_GAME, loadable_saves)
-            ]),
+            host_option,
             (Option.JOIN_GAME, [])
         ]),
         (Option.LEVEL_EDITOR, [
@@ -71,7 +74,7 @@ class MainMenu(Menu):
         self.text_input = None
 
         super().__init__(num_options=len(self.current_menu[1]),
-                         max_displayable_options=5,
+                         max_displayable_options=6,
                          displayable_buffer=1,
                          root_x=HALF_RES_WIDTH,
                          root_y=HALF_RES_HEIGHT - 24,
@@ -226,7 +229,7 @@ class MainMenu(Menu):
                         .title()
 
                     # Render arbitrary text
-                    game_screen.blit(draw_text(text, light_color, shadow_color[Team.RED]), (position_x + 8, position_y + 8))
+                    game_screen.blit(draw_text(text, light_color, dark_color), (position_x + 8, position_y + 8))
 
                     # Render map previews if we're trying to select a map
                     if is_selected and self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
@@ -244,7 +247,7 @@ class MainMenu(Menu):
                 elif option[0] in Setting:
                     # Display the setting prompt and the current value
                     display_string = get_string(formatted_strings, option[0]).format(SETTINGS.get_unsaved(option[0]))
-                    game_screen.blit(draw_text(display_string, light_color, shadow_color[Team.RED]), (position_x + 24, position_y + 8))
+                    game_screen.blit(draw_text(display_string, light_color, dark_color), (position_x + 24, position_y + 8))
 
                 else:
                     # Display the icon for the option

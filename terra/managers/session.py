@@ -44,7 +44,7 @@ class Session:
         SESSION.managers[Manager.NETWORK] = NetworkManager(None, teams)
         SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
 
-        return bitmap, pieces, teams, upgrades, meta
+        return map_name, bitmap, pieces, teams, upgrades, meta
 
     # Set up a network game, where we're the host.
     @staticmethod
@@ -59,7 +59,7 @@ class Session:
         SESSION.managers[Manager.NETWORK] = NetworkManager(address, teams, is_host=True)
         SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
 
-        return bitmap, pieces, teams, upgrades, meta
+        return map_name, bitmap, pieces, teams, upgrades, meta
 
     # Set up a network game, where we're just a client. Ping the host to get the map data.
     @staticmethod
@@ -73,7 +73,7 @@ class Session:
         bitmap, pieces, teams, upgrades, meta = parse_map_from_string(SESSION.get(Manager.NETWORK).map_data)
         SESSION.__set_up__("NetworkGame", bitmap, pieces, teams, upgrades, meta)
 
-        return bitmap, pieces, teams, upgrades, meta
+        return "NetworkGame", bitmap, pieces, teams, upgrades, meta
 
     # Set up a level editor sessions, creating a new map if needed.
     @staticmethod
@@ -94,6 +94,8 @@ class Session:
 
     # Remove and delete our managers, starting over.
     def reset(self):
+        self.is_network_game = False
+
         for key, manager in self.managers.items():
             manager.destroy()
 

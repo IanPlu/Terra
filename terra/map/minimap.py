@@ -49,7 +49,9 @@ def draw_map_preview(container_width, container_height, bitmap, pieces, teams):
     # Determine how many pieces each team has
     for piece in pieces:
         data = piece.split(' ')
-        piece_totals[Team[data[2]]] += 1
+        team = Team[data[2]]
+        if team in piece_totals:
+            piece_totals[team] += 1
 
     # Render a container for the whole thing
     container.fill(light_color, (0, 0, container_width, container_height))

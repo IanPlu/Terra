@@ -6,7 +6,7 @@ from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import publish_game_event, EventType
 from terra.menu.menu import Menu
-from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color
+from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color
 from terra.strings import get_string, get_text, formatted_strings, team_name_strings, label_strings
 from terra.team.team import Team
 from terra.util.drawingutil import draw_text
@@ -43,7 +43,7 @@ class ResultsScreen(GameScreen):
         # Draw winning team
         game_screen.blit(Menu.draw_menu_box(RESOLUTION_WIDTH - 48, 24, background=light_team_color, team=self.winning_team), (base_x, base_y))
         game_screen.blit(draw_text(get_string(formatted_strings, "RESULTS_HEADER").format(get_string(team_name_strings, self.winning_team)),
-                                   light_color, shadow_color[Team.RED]), (base_x + 8, base_y + 8))
+                                   light_color, dark_color), (base_x + 8, base_y + 8))
 
         x = 0
         y = 2
@@ -57,7 +57,7 @@ class ResultsScreen(GameScreen):
             y += 1
             for stat, value in stats:
                 game_screen.blit(draw_text(get_string(formatted_strings, stat).format(value),
-                                           light_color, shadow_color[Team.RED]), (base_x + x + 8, base_y + (y * 24) + 8))
+                                           light_color, dark_color), (base_x + x + 8, base_y + (y * 24) + 8))
                 y += 1
 
             x += team_box_width + 24

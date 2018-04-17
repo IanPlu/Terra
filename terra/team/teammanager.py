@@ -294,10 +294,13 @@ class TeamManager(GameObject):
 
     def check_for_remaining_teams(self, event=None):
         if len(self.teams) <= 1:
+            winning_team = self.get_teams()[0]
+
             results = {
-                'winning_team': self.get_teams()[0],
+                'winning_team': winning_team,
                 'all_teams': self.get_all_teams(),
                 'team_stats': self.get_manager(Manager.STAT).get_results(),
+                'winning_pieces': self.get_manager(Manager.PIECE).get_all_pieces_for_team(winning_team)
             }
 
             publish_game_event(EventType.E_BATTLE_OVER, {

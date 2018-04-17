@@ -13,7 +13,7 @@ x Add an intersitial screen when swapping active players for local coop, to hide
 x Improve the main menu
 x Add context menu to battle screen for submitting turn, saving, quitting to menu, etc
 x Game end screens / match review with statistics(?)
-    * Improve the look and feel of the stats screen
+    x Improve the look and feel of the stats screen
 * Add UI to unit popup menus to indicate you're attempting to take an action that will be contested
   (e.g. trying to build while contested)
 x Add 'serialize' method to managers, use this when saving or loading the game state
@@ -59,7 +59,7 @@ x Build support for upgrades, enable purchasing them from the base
     x Fill out more upgrades now that the framework is in place
     x Fill out basic T2 unit upgrades
 x Add additional tiers for units
-* Add ultimate tiers for units
+x Add ultimate tiers for units
 x Modify GHOST movement type to be unable to stop on the same tile as enemy buildings
 x Decide where the BUILD phase should slot into the order. Currently impossible to interrupt production
 x Decide whether GHOSTS should be able to contest buildings-- currently can't enter, but if they do they can block it forever
@@ -92,7 +92,7 @@ x Upon submitting a turn, don't allow modifying the turn unless you cancel submi
 x Gracefully handle connects / disconnects
 x Support for connecting to a custom IP
 x Check that victory checking + conceding works
-* Support marking events as coming from the network or local. Use this when deciding whether to forward an event on to the network
+x Support marking events as coming from the network or local. Use this when deciding whether to forward an event on to the network
 * Handle different animation speeds in network games-- can cause desync
     - Add a 'waiting for other player'? Or just lock the animation speed setting?
 

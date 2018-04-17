@@ -3,8 +3,8 @@ Asking nicely if you could have full control of a newly discovered planet didn't
 galactic megacorporation! So we're down to the old-fashioned way-- lots of fighting, and lots of lasers!
 
 Terra is a turn-based strategy game set on an alien world, where multiple corporate armies are fighting for control, so they can get back to their usual business of
-building office parks and digging out landfills for massive amounts of paperwork. Players spend time giving orders to each of their units, and turns are executed simultaneously.
-Successful CEOs are able to think ahead, anticipate their opponent's moves, and deploy their troops effectly. 
+building office parks and digging out landfills for massive amounts of paperwork. Players give orders to each of their units, and turns are executed simultaneously.
+Successful CEOs are able to think ahead, anticipate their opponent's moves, and deploy their troops effectively. 
 
 Currently, there's a local battle mode, a rough online mode against friends, and a level editor for designing new maps.
 

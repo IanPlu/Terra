@@ -13,11 +13,10 @@ event_type_to_effect = {
     EventType.E_TILE_TERRAFORMED: EffectType.PIECE_DESTROYED,
     EventType.E_INVALID_BUILD_ORDERS: EffectType.NO_MONEY,
     EventType.E_INVALID_UPGRADE_ORDERS: EffectType.DUPLICATE_UPGRADE,
-    # TODO: Create a general hit/damage effect
-    EventType.E_UNIT_RANGED_ATTACK: EffectType.PIECE_DESTROYED,
-    # TODO: Create special effects for these cases
-    EventType.E_DEATH_MONEY_LOSS: EffectType.PIECE_DESTROYED,
-    EventType.E_DEATH_AOE: EffectType.PIECE_DESTROYED,
+    EventType.E_UNIT_RANGED_ATTACK: EffectType.PIECE_CONFLICT,
+    EventType.E_PIECES_IN_CONFLICT: EffectType.PIECE_CONFLICT,
+    EventType.E_DEATH_MONEY_LOSS: EffectType.MONEY_LOST,
+    EventType.E_DEATH_AOE: EffectType.DEATH_AOE,
 }
 
 

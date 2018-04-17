@@ -1,0 +1,175 @@
+2018-04-17 11:07:01,455 INFO === BATTLE OVER! ===
+2018-04-17 11:07:01,455 INFO Team.RED team has lost.
+2018-04-17 11:07:01,456 INFO -- Stats for team Team.RED --
+2018-04-17 11:07:01,456 INFO   * Tiles Moved: 0
+2018-04-17 11:07:01,456 INFO   * Ranged Attacks: 0
+2018-04-17 11:07:01,456 INFO   * Piece Conflicts: 0
+2018-04-17 11:07:01,456 INFO   * Pieces Lost: 0
+2018-04-17 11:07:01,456 INFO   * Pieces Built: 0
+2018-04-17 11:07:01,456 INFO   * Upgrades Researched: 0
+2018-04-17 11:07:01,456 INFO Team.BLUE team has won!
+2018-04-17 11:07:01,457 INFO -- Stats for team Team.BLUE --
+2018-04-17 11:07:01,457 INFO   * Tiles Moved: 0
+2018-04-17 11:07:01,457 INFO   * Ranged Attacks: 0
+2018-04-17 11:07:01,457 INFO   * Piece Conflicts: 0
+2018-04-17 11:07:01,457 INFO   * Pieces Lost: 0
+2018-04-17 11:07:01,457 INFO   * Pieces Built: 0
+2018-04-17 11:07:01,457 INFO   * Upgrades Researched: 0
+2018-04-17 11:10:53,776 INFO = Issue Orders phase begins
+2018-04-17 14:18:24,109 INFO RED Ghost at tile (8, 4) with 80 HP was assigned the order 'Order: Move to (9, 4)'
+2018-04-17 14:18:24,109 INFO BLUE Ranger at tile (10, 5) with 90 HP was assigned the order 'Order: Move to (9, 4)'
+2018-04-17 14:18:24,109 INFO = Move phase begins
+2018-04-17 14:18:24,120 INFO None moved to (9, 4)
+2018-04-17 14:18:24,120 INFO None moved to (9, 4)
+2018-04-17 14:18:24,271 INFO = Build phase begins
+2018-04-17 14:18:24,430 INFO = Combat phase begins
+2018-04-17 14:18:24,440 INFO [<terra.piece.piece.Piece object at 0x087766F0>, <terra.piece.piece.Piece object at 0x08776710>] are contesting the tile at (9, 4)!
+2018-04-17 14:18:24,440 INFO BLUE Ranger at tile (9, 4) with 0 HP took 45 damage from RED Ghost at tile (9, 4) with 80 HP!
+2018-04-17 14:18:24,441 INFO RED Ghost at tile (9, 4) with 80 HP took 0 damage from BLUE Ranger at tile (9, 4) with 0 HP!
+2018-04-17 14:18:24,441 INFO RED Ghost at tile (9, 4) with 80 HP took 0 damage from BLUE Ranger at tile (9, 4) with 0 HP!
+2018-04-17 14:18:24,441 INFO BLUE Ranger at tile (9, 4) with 0 HP took 45 damage from RED Ghost at tile (9, 4) with 80 HP!
+2018-04-17 14:18:24,592 INFO = Ranged phase begins
+2018-04-17 14:18:24,603 INFO Team.BLUE team spent 2 resources.
+2018-04-17 14:18:24,603 INFO Team.RED team acquired 2 resources.
+2018-04-17 14:18:24,761 INFO = Special phase begins
+2018-04-17 14:18:24,927 INFO = Start Turn phase begins
+2018-04-17 14:18:24,927 INFO == TURN 9 BEGIN ==
+2018-04-17 14:18:24,938 INFO Team.BLUE team acquired 1 resources.
+2018-04-17 14:18:24,939 INFO Team.BLUE team acquired 1 resources.
+2018-04-17 14:18:24,939 INFO Team.RED team acquired 1 resources.
+2018-04-17 14:18:24,939 INFO Team.RED team acquired 1 resources.
+2018-04-17 14:18:24,939 INFO Team.BLUE team acquired 2 resources.
+2018-04-17 14:18:24,939 INFO Team.RED team acquired 2 resources.
+2018-04-17 14:18:25,101 INFO = Issue Orders phase begins
+2018-04-17 14:18:47,696 INFO BLUE Barracks at tile (10, 6) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 5)'
+2018-04-17 14:18:47,696 INFO RED Barracks at tile (3, 6) with 100 HP was assigned the order 'Order: Build a Banshee on tile (3, 5)'
+2018-04-17 14:18:47,696 INFO RED Tech Lab at tile (4, 2) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.BANSHEE_SABOTAGE'
+2018-04-17 14:18:47,696 INFO = Move phase begins
+2018-04-17 14:18:47,860 INFO = Build phase begins
+2018-04-17 14:18:47,871 INFO Team.RED PieceType.BANSHEE was built on (3, 5). 
+2018-04-17 14:18:47,872 INFO Team.RED team spent 5 resources.
+2018-04-17 14:18:47,872 INFO Team.BLUE PieceType.RANGER was built on (10, 5). 
+2018-04-17 14:18:47,872 INFO Team.BLUE team spent 3 resources.
+2018-04-17 14:18:48,028 INFO = Combat phase begins
+2018-04-17 14:18:48,195 INFO = Ranged phase begins
+2018-04-17 14:18:48,362 INFO = Special phase begins
+2018-04-17 14:18:48,373 INFO Team.RED team researched the upgrade UpgradeType.BANSHEE_SABOTAGE
+2018-04-17 14:18:48,373 INFO Team.RED team spent 6 resources.
+2018-04-17 14:18:48,533 INFO = Start Turn phase begins
+2018-04-17 14:18:48,534 INFO == TURN 10 BEGIN ==
+2018-04-17 14:18:48,544 INFO Team.BLUE team acquired 1 resources.
+2018-04-17 14:18:48,545 INFO Team.BLUE team acquired 1 resources.
+2018-04-17 14:18:48,545 INFO Team.RED team acquired 1 resources.
+2018-04-17 14:18:48,545 INFO Team.RED team acquired 1 resources.
+2018-04-17 14:18:48,545 INFO Team.BLUE team acquired 2 resources.
+2018-04-17 14:18:48,545 INFO Team.RED team acquired 2 resources.
+2018-04-17 14:18:48,701 INFO = Issue Orders phase begins
+2018-04-17 14:19:02,674 INFO RED Ghost at tile (9, 4) with 80 HP was assigned the order 'Order: Move to (8, 2)'
+2018-04-17 14:19:02,674 INFO RED Banshee at tile (3, 5) with 40 HP was assigned the order 'Order: Move to (6, 4)'
+2018-04-17 14:19:02,674 INFO BLUE Ranger at tile (10, 5) with 90 HP was assigned the order 'Order: Move to (9, 4)'
+2018-04-17 14:19:02,675 INFO = Move phase begins
+2018-04-17 14:19:02,686 INFO None moved to (9, 4)
+2018-04-17 14:19:02,686 INFO None moved to (6, 4)
+2018-04-17 14:19:02,686 INFO None moved to (8, 2)
+2018-04-17 14:19:02,839 INFO = Build phase begins
+2018-04-17 14:19:03,004 INFO = Combat phase begins
+2018-04-17 14:19:03,167 INFO = Ranged phase begins
+2018-04-17 14:19:03,327 INFO = Special phase begins
+2018-04-17 14:19:03,491 INFO = Start Turn phase begins
+2018-04-17 14:19:03,492 INFO == TURN 11 BEGIN ==
+2018-04-17 14:19:03,503 INFO Team.BLUE team acquired 1 resources.
+2018-04-17 14:19:03,503 INFO Team.BLUE team acquired 1 resources.
+2018-04-17 14:19:03,503 INFO Team.RED team acquired 1 resources.
+2018-04-17 14:19:03,503 INFO Team.RED team acquired 1 resources.
+2018-04-17 14:19:03,504 INFO Team.BLUE team acquired 2 resources.
+2018-04-17 14:19:03,504 INFO Team.RED team acquired 2 resources.
+2018-04-17 14:19:03,659 INFO = Issue Orders phase begins
+2018-04-17 14:19:07,259 INFO RED Banshee at tile (6, 4) with 40 HP was assigned the order 'Order: Move to (9, 4)'
+2018-04-17 14:19:07,260 INFO = Move phase begins
+2018-04-17 14:19:07,270 INFO None moved to (9, 4)
+2018-04-17 14:19:07,416 INFO = Build phase begins
+2018-04-17 14:19:07,577 INFO = Combat phase begins
+2018-04-17 14:19:07,587 INFO [<terra.piece.piece.Piece object at 0x08776AF0>, <terra.piece.piece.Piece object at 0x0876DB30>] are contesting the tile at (9, 4)!
+2018-04-17 14:19:07,587 INFO BLUE Ranger at tile (9, 4) with -38 HP took 64 damage from RED Banshee at tile (9, 4) with 40 HP!
+2018-04-17 14:19:07,587 INFO RED Banshee at tile (9, 4) with 40 HP took 0 damage from BLUE Ranger at tile (9, 4) with -38 HP!
+2018-04-17 14:19:07,587 INFO RED Banshee at tile (9, 4) with 40 HP took 0 damage from BLUE Ranger at tile (9, 4) with -38 HP!
+2018-04-17 14:19:07,587 INFO BLUE Ranger at tile (9, 4) with -38 HP took 64 damage from RED Banshee at tile (9, 4) with 40 HP!
+2018-04-17 14:19:07,744 INFO = Ranged phase begins
+2018-04-17 14:19:07,911 INFO = Special phase begins
+2018-04-17 14:19:08,080 INFO = Start Turn phase begins
+2018-04-17 14:19:08,080 INFO == TURN 12 BEGIN ==
+2018-04-17 14:19:08,090 INFO Team.BLUE team acquired 1 resources.
+2018-04-17 14:19:08,090 INFO Team.BLUE team acquired 1 resources.
+2018-04-17 14:19:08,090 INFO Team.RED team acquired 1 resources.
+2018-04-17 14:19:08,091 INFO Team.RED team acquired 1 resources.
+2018-04-17 14:19:08,091 INFO Team.BLUE team acquired 2 resources.
+2018-04-17 14:19:08,091 INFO Team.RED team acquired 2 resources.
+2018-04-17 14:19:08,251 INFO = Issue Orders phase begins
+2018-04-17 14:44:43,544 INFO === BATTLE OVER! ===
+2018-04-17 14:44:43,545 INFO Team.RED team has lost.
+2018-04-17 14:44:43,545 INFO -- Stats for team Team.RED --
+2018-04-17 14:44:43,545 INFO   * Tiles Moved: 0
+2018-04-17 14:44:43,545 INFO   * Ranged Attacks: 0
+2018-04-17 14:44:43,545 INFO   * Piece Conflicts: 0
+2018-04-17 14:44:43,545 INFO   * Pieces Lost: 0
+2018-04-17 14:44:43,545 INFO   * Pieces Built: 0
+2018-04-17 14:44:43,545 INFO   * Upgrades Researched: 0
+2018-04-17 14:44:43,545 INFO Team.BLUE team has won!
+2018-04-17 14:44:43,545 INFO -- Stats for team Team.BLUE --
+2018-04-17 14:44:43,545 INFO   * Tiles Moved: 0
+2018-04-17 14:44:43,545 INFO   * Ranged Attacks: 0
+2018-04-17 14:44:43,545 INFO   * Piece Conflicts: 0
+2018-04-17 14:44:43,545 INFO   * Pieces Lost: 0
+2018-04-17 14:44:43,545 INFO   * Pieces Built: 0
+2018-04-17 14:44:43,545 INFO   * Upgrades Researched: 0
+2018-04-17 14:44:58,284 INFO === BATTLE OVER! ===
+2018-04-17 14:44:58,284 INFO Team.RED team has lost.
+2018-04-17 14:44:58,285 INFO -- Stats for team Team.RED --
+2018-04-17 14:44:58,285 INFO   * Tiles Moved: 0
+2018-04-17 14:44:58,285 INFO   * Ranged Attacks: 0
+2018-04-17 14:44:58,285 INFO   * Piece Conflicts: 0
+2018-04-17 14:44:58,285 INFO   * Pieces Lost: 0
+2018-04-17 14:44:58,285 INFO   * Pieces Built: 0
+2018-04-17 14:44:58,285 INFO   * Upgrades Researched: 0
+2018-04-17 14:44:58,285 INFO Team.BLUE team has won!
+2018-04-17 14:44:58,285 INFO -- Stats for team Team.BLUE --
+2018-04-17 14:44:58,285 INFO   * Tiles Moved: 0
+2018-04-17 14:44:58,286 INFO   * Ranged Attacks: 0
+2018-04-17 14:44:58,286 INFO   * Piece Conflicts: 0
+2018-04-17 14:44:58,286 INFO   * Pieces Lost: 0
+2018-04-17 14:44:58,286 INFO   * Pieces Built: 0
+2018-04-17 14:44:58,286 INFO   * Upgrades Researched: 0
+2018-04-17 14:47:59,987 INFO === BATTLE OVER! ===
+2018-04-17 14:47:59,987 INFO Team.RED team has lost.
+2018-04-17 14:47:59,987 INFO -- Stats for team Team.RED --
+2018-04-17 14:47:59,987 INFO   * Tiles Moved: 0
+2018-04-17 14:47:59,987 INFO   * Ranged Attacks: 0
+2018-04-17 14:47:59,987 INFO   * Piece Conflicts: 0
+2018-04-17 14:47:59,987 INFO   * Pieces Lost: 0
+2018-04-17 14:47:59,987 INFO   * Pieces Built: 0
+2018-04-17 14:47:59,988 INFO   * Upgrades Researched: 0
+2018-04-17 14:47:59,988 INFO Team.BLUE team has won!
+2018-04-17 14:47:59,988 INFO -- Stats for team Team.BLUE --
+2018-04-17 14:47:59,988 INFO   * Tiles Moved: 0
+2018-04-17 14:47:59,988 INFO   * Ranged Attacks: 0
+2018-04-17 14:47:59,988 INFO   * Piece Conflicts: 0
+2018-04-17 14:47:59,988 INFO   * Pieces Lost: 0
+2018-04-17 14:47:59,988 INFO   * Pieces Built: 0
+2018-04-17 14:47:59,988 INFO   * Upgrades Researched: 0
+2018-04-17 14:48:30,675 INFO === BATTLE OVER! ===
+2018-04-17 14:48:30,676 INFO Team.RED team has lost.
+2018-04-17 14:48:30,676 INFO -- Stats for team Team.RED --
+2018-04-17 14:48:30,676 INFO   * Tiles Moved: 0
+2018-04-17 14:48:30,676 INFO   * Ranged Attacks: 0
+2018-04-17 14:48:30,676 INFO   * Piece Conflicts: 0
+2018-04-17 14:48:30,676 INFO   * Pieces Lost: 0
+2018-04-17 14:48:30,676 INFO   * Pieces Built: 0
+2018-04-17 14:48:30,676 INFO   * Upgrades Researched: 0
+2018-04-17 14:48:30,676 INFO Team.BLUE team has won!
+2018-04-17 14:48:30,676 INFO -- Stats for team Team.BLUE --
+2018-04-17 14:48:30,676 INFO   * Tiles Moved: 0
+2018-04-17 14:48:30,676 INFO   * Ranged Attacks: 0
+2018-04-17 14:48:30,676 INFO   * Piece Conflicts: 0
+2018-04-17 14:48:30,676 INFO   * Pieces Lost: 0
+2018-04-17 14:48:30,676 INFO   * Pieces Built: 0
+2018-04-17 14:48:30,676 INFO   * Upgrades Researched: 0

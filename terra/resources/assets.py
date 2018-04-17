@@ -57,6 +57,7 @@ spr_main_menu_option = {
     Option.SAVE_SETTINGS: spr_main_menu_option_base[6],
     Option.START_BATTLE: spr_main_menu_option_base[0],
     Option.LEAVE_LOBBY: spr_main_menu_option_base[4],
+    Option.TUTORIAL: spr_main_menu_option_base[5],
 }
 
 spr_cursor = {
@@ -280,6 +281,9 @@ spr_effects = {
     EffectType.ARMOR_GRANTED: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Armor_Granted.png")),
     EffectType.HP_HEALED: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_HP_Healed.png")),
     EffectType.DUPLICATE_UPGRADE: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Duplicate_Upgrade.png")),
+    EffectType.DEATH_AOE: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Poison_AOE.png")),
+    EffectType.MONEY_LOST: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Money_Lost.png")),
+    EffectType.PIECE_CONFLICT: pygame.image.load(get_asset(AssetType.SPRITE, "effects/FX_Piece_Hit.png")),
 }
 
 

@@ -12,6 +12,7 @@ from terra.resources.assets import light_color, shadow_color, light_team_color, 
 from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
 from terra.util.drawingutil import draw_text
+from terra.menu.tutorial import Tutorial
 
 
 # Convert a list of loadable maps to selectable options: [(display name, filename), (...)]
@@ -48,6 +49,7 @@ def generate_menu():
             (Option.LOAD_MAP, loadable_maps)
         ]),
         (Option.SETTINGS, generate_settings_menu()),
+        (Option.TUTORIAL, []),
         (Option.QUIT, [])
     ]
 
@@ -72,6 +74,7 @@ class MainMenu(Menu):
     def __init__(self):
         self.current_menu = generate_menu()
         self.text_input = None
+        self.tutorial = None
 
         super().__init__(num_options=len(self.current_menu[1]),
                          max_displayable_options=6,
@@ -86,11 +89,14 @@ class MainMenu(Menu):
 
         if self.text_input:
             self.text_input.destroy()
+        if self.tutorial:
+            self.tutorial.destroy()
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
         event_bus.register_handler(EventType.TEXT_CANCEL_INPUT, self.handle_text_input)
         event_bus.register_handler(EventType.TEXT_SUBMIT_INPUT, self.handle_text_input)
+        event_bus.register_handler(EventType.TUTORIAL_EXIT, self.close_tutorial)
 
     def register_input_handlers(self, input_handler):
         super().register_input_handlers(input_handler)
@@ -99,7 +105,7 @@ class MainMenu(Menu):
         input_handler.register_handler(InputAction.PRESS, Key.MENU, self.reset_menu)
 
     def is_accepting_input(self):
-        return self.text_input is None
+        return self.text_input is None and self.tutorial is None
 
     def confirm(self):
         super().confirm()
@@ -150,6 +156,8 @@ class MainMenu(Menu):
             self.text_input = TextInput("IP_INPUT", option[0], default_text="localhost", input_filter=FILTER_IP)
         elif option[0] == Option.NEW_MAP:
             self.text_input = TextInput("MAPNAME_INPUT", option[0], default_text="new_map", input_filter=FILTER_FILENAME)
+        elif option[0] == Option.TUTORIAL:
+            self.tutorial = Tutorial()
         else:
             publish_game_event(EventType.MENU_SELECT_OPTION, {
                 'option': option[0]
@@ -172,6 +180,12 @@ class MainMenu(Menu):
                 })
             elif event.tag == Setting.NICKNAME:
                 SETTINGS.set_nonnumeric_setting(Setting.NICKNAME, event.input)
+
+    def close_tutorial(self, event):
+        self.tutorial.destroy()
+        self.tutorial = None
+
+        self.reset_menu()
 
     # Lower a setting in the settings submenu
     def lower_setting(self):
@@ -196,9 +210,14 @@ class MainMenu(Menu):
 
         if self.text_input:
             self.text_input.render(game_screen, ui_screen)
+        elif self.tutorial:
+            self.tutorial.render(game_screen, ui_screen)
         else:
             # Draw text for the menu title
-            game_screen.blit(get_text(main_menu_strings, self.current_menu[0]), (self.root_x - 12, self.root_y - 24))
+            menu_title_text = get_text(main_menu_strings, self.current_menu[0])
+            game_screen.blit(self.draw_menu_box(self.width - 16, 24, background=light_team_color),
+                             (self.root_x - 8, self.root_y - 16))
+            game_screen.blit(menu_title_text, (self.root_x + 24, self.root_y - 12))
 
             # Draw a scrollbar if necessary
             if self.should_show_scroll_bar(self.max_displayable_options, self.num_options):

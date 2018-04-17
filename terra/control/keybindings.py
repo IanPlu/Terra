@@ -47,8 +47,11 @@ def translate_input(input):
 
 # Translate a pygame mouse button into to a keybinding constant
 def translate_mouse_button(input):
-    button = MouseConstant(input)
-    return translate_input(button)
+    try:
+        button = MouseConstant(input)
+        return translate_input(button)
+    except ValueError:
+        return None
 
 
 

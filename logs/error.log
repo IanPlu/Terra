@@ -28,3 +28,499 @@ list index out of range
 
 2018-04-16 18:45:46,871 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
 2018-04-16 18:45:46,871 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 11:06:27,228 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 11:06:27,229 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 11:06:58,942 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 11:06:58,942 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 11:10:20,315 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 11:10:20,315 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 11:10:53,762 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 11:10:53,763 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 11:11:08,229 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 11:11:08,229 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 11:42:27,901 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 11:42:27,911 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 11:42:27,911 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 51, in render
+    scrolled_text = text.subsurface((0, self.scroll_pos, self.width, self.height))
+
+2018-04-17 12:33:15,854 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 12:33:15,860 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 12:33:15,860 ERROR [ERROR]: Exception: 
+6
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 137, in step
+    INPUT_CONTROLLER.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 55, in invoke_handlers
+    handler()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 57, in confirm
+    self.page_right()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 76, in page_right
+    self.text = get_multiline_text(tutorial_strings, self.current_page, width=self.width - 24, height=self.height * 2)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\strings.py", line 506, in get_multiline_text
+    string = string_type[LANGUAGE][string_name]
+
+2018-04-17 12:34:28,923 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 12:34:28,923 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 13:05:58,857 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:05:58,859 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:05:58,859 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 90, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:15:36,423 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:15:36,425 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:15:36,425 ERROR [ERROR]: Exception: 
+Invalid resolution for Surface
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 137, in step
+    INPUT_CONTROLLER.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 55, in invoke_handlers
+    handler()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 123, in confirm
+    self.handle_menu_selection(selection)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 160, in handle_menu_selection
+    self.tutorial = Tutorial()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 28, in __init__
+    self.change_page(0)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 73, in change_page
+    self.text = get_multiline_text(tutorial_strings, self.current_page, width=self.width - 24, height=-1)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\strings.py", line 513, in get_multiline_text
+    new_text = draw_multiline_text(string, color, background, width, height)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\util\drawingutil.py", line 55, in draw_multiline_text
+    text_surface = pygame.Surface((width, height), pygame.SRCALPHA, 32)
+
+2018-04-17 13:16:21,364 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:16:21,365 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:16:21,365 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 90, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:16:50,203 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:16:50,205 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:16:50,205 ERROR [ERROR]: Exception: 
+Invalid resolution for Surface
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 137, in step
+    INPUT_CONTROLLER.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 55, in invoke_handlers
+    handler()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 123, in confirm
+    self.handle_menu_selection(selection)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 160, in handle_menu_selection
+    self.tutorial = Tutorial()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 28, in __init__
+    self.change_page(0)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 73, in change_page
+    self.text = get_multiline_text(tutorial_strings, self.current_page, width=self.width - 24, height=-1)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\strings.py", line 513, in get_multiline_text
+    new_text = draw_multiline_text(string, color, background, width, height)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\util\drawingutil.py", line 55, in draw_multiline_text
+    text_surface = pygame.Surface((width, height), pygame.SRCALPHA, 32)
+
+2018-04-17 13:17:00,026 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:17:00,028 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:17:00,028 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 90, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:19:36,547 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:19:36,548 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:19:36,548 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 90, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:19:55,948 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:19:55,950 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:19:55,950 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\tutorial.py", line 90, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:20:06,753 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:20:06,755 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:20:06,755 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 90, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:21:04,611 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:21:04,613 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:21:04,613 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 94, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:22:16,413 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:22:16,414 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:22:16,415 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\tutorial.py", line 94, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:22:21,654 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:22:21,656 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:22:21,656 ERROR [ERROR]: Exception: 
+subsurface rectangle outside surface area
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\mainmenu.py", line 214, in render
+    self.tutorial.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\tutorial.py", line 94, in render
+    self.text.get_width(), text_height))
+
+2018-04-17 13:42:31,270 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 13:42:31,270 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 13:45:33,280 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 13:45:33,280 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 13:46:45,953 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 13:46:45,965 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 13:46:45,965 ERROR [ERROR]: Exception: 
+7 is not a valid MouseConstant
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 137, in step
+    INPUT_CONTROLLER.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 44, in invoke_handlers
+    event_handlers = self.__subscribers__.get((InputAction.PRESS, translate_mouse_button(event.button)))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\keybindings.py", line 50, in translate_mouse_button
+    button = MouseConstant(input)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\enum.py", line 291, in __call__
+    return cls.__new__(cls, value)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\enum.py", line 533, in __new__
+    return cls._missing_(value)
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\enum.py", line 546, in _missing_
+    raise ValueError("%r is not a valid %s" % (value, cls.__name__))
+
+2018-04-17 13:48:06,842 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 13:48:06,842 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:07:15,494 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:07:15,495 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:08:58,254 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:08:58,254 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:09:58,050 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:09:58,051 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:11:15,146 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:11:15,146 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:12:01,554 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:12:01,554 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:12:21,389 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:12:21,389 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:12:39,137 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:12:39,137 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:13:45,475 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:13:45,475 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:13:51,076 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 14:13:51,081 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 14:13:51,081 ERROR [ERROR]: Exception: 
+must be str, not EffectType
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\effects\effectsmanager.py", line 61, in create_piece_effect_from_event
+    self.create_effect(event.tx, event.ty, event_type_to_effect[event.event_type], None)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\effects\effectsmanager.py", line 48, in create_effect
+    self.effects.append(AnimatedEffect(self, effect_type, gx, gy, team))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\effects\animatedeffect.py", line 19, in __init__
+    print("AnimatedEffect created: " + self.effect_type)
+
+2018-04-17 14:14:01,052 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:14:01,052 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:14:50,117 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:14:50,117 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:16:08,937 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:16:08,938 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:17:16,702 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:17:16,703 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:17:53,309 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:17:53,309 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:18:18,388 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:18:18,388 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:23:17,168 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:23:17,168 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:26:01,881 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:26:01,881 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:29:54,457 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:29:54,457 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:30:21,784 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:30:21,784 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:39:20,128 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:39:20,128 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:42:21,971 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:42:21,971 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:44:41,835 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:44:41,836 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:44:43,554 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 14:44:43,559 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 14:44:43,559 ERROR [ERROR]: Exception: 
+<Manager.PIECE: 'piece'>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\results.py", line 50, in render
+    for piece in self.get_manager(Manager.PIECE).get_all_pieces_for_team(self.winning_team):
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\engine\gamescreen.py", line 47, in get_manager
+    return SESSION.get(manager_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 33, in get
+    return self.managers[manager_type]
+
+2018-04-17 14:44:56,010 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:44:56,011 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:46:00,344 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 14:46:00,346 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 14:46:00,346 ERROR [ERROR]: Exception: 
+<Manager.PIECE: 'piece'>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\screens\results.py", line 50, in render
+    for piece in self.get_manager(Manager.PIECE).get_all_pieces_for_team(self.winning_team):
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\engine\gamescreen.py", line 47, in get_manager
+    return SESSION.get(manager_type)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\managers\session.py", line 33, in get
+    return self.managers[manager_type]
+
+2018-04-17 14:47:56,520 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:47:56,520 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:47:59,997 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-17 14:47:59,997 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-17 14:47:59,997 ERROR [ERROR]: Exception: 
+<PieceType.BASE: 11>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\results.py", line 51, in render
+    game_screen.blit(spr_pieces[piece.piece_type].subsurface(0, 0, 24, 24), (base_x + x, base_y + 24))
+
+2018-04-17 14:48:28,974 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:48:28,975 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:48:51,887 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:48:51,887 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-17 14:49:02,000 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-17 14:49:02,000 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.

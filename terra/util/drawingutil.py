@@ -57,6 +57,7 @@ def draw_multiline_text(text, color, shadow_color=None, width=192, height=192):
     x = 0
     y = 0
     word_height = 0
+    total_height = 0
 
     for line in words:
         for word in line:
@@ -67,10 +68,12 @@ def draw_multiline_text(text, color, shadow_color=None, width=192, height=192):
             if word == "\n":
                 x = 0
                 y += word_height
+                total_height += word_height
 
             if x + word_width >= width:
                 x = 0
                 y += word_height
+                total_height += word_height
 
             if shadow_color:
                 shadow_surface = font_pixelmix.render(word, False, shadow_color)
@@ -82,8 +85,13 @@ def draw_multiline_text(text, color, shadow_color=None, width=192, height=192):
 
         x = 0
         y += word_height
+        total_height += word_height
 
-    return text_surface
+    if total_height < height:
+        # Trim the surface, with a little wiggle room
+        return text_surface.subsurface((0, 0, width, total_height + 24))
+    else:
+        return text_surface
 
 
 # Return a list of sprites of the provided width from a sprite strip.

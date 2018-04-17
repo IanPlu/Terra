@@ -19,6 +19,7 @@ class Option(Enum):
     NEW_MAP = auto()
     LOAD_MAP = auto()
     SAVE_SETTINGS = auto()
+    TUTORIAL = auto()
 
     # Network lobby options
     LEAVE_LOBBY = auto()

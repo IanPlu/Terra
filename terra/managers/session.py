@@ -118,7 +118,6 @@ class Session:
 
         self.map_name = map_name
         self.managers[Manager.COMBAT_LOGGER] = CombatLogger(map_name)
-        self.managers[Manager.EFFECTS] = EffectsManager()
         self.managers[Manager.TEAM] = TeamManager(teams, upgrades)
         self.managers[Manager.MAP] = MapManager(bitmap)
         self.managers[Manager.PIECE] = PieceManager(pieces)
@@ -126,6 +125,7 @@ class Session:
         self.managers[Manager.PLAYER] = PlayerManager()
         self.managers[Manager.SOUND] = SoundManager()
         self.managers[Manager.STAT] = StatManager(teams)
+        self.managers[Manager.EFFECTS] = EffectsManager()
 
     def step(self, event):
         for key, manager in self.managers.items():

@@ -36,8 +36,8 @@ class LobbyMenu(Menu):
     def generate_menu_options(self):
         options = [Option.LEAVE_LOBBY]
 
-        if self.is_host:
-            options.append(Option.SETTINGS)
+        # if self.is_host:
+        #     options.append(Option.SETTINGS)
 
         if not self.is_network_game():
             options.append(Option.START_BATTLE)

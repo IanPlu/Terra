@@ -132,7 +132,7 @@ menu_help_strings = {
 
         UpgradeType.GHOST_MOVEMENT: "* Ghosts can now move farther in one turn.",
         UpgradeType.GHOST_ATTACK: "* Ghosts now deal more damage in direct combat.",
-        UpgradeType.GHOST_ANTI_COLONIST: "* Ghosts now deal upsetting damage to Colonists, killing them in one hit.",
+        UpgradeType.GHOST_ANTI_COLONIST: "* Ghosts now deal tremendous damage to Colonists, killing them in one hit.",
         UpgradeType.GHOST_STEAL: "* Ghosts now steal some resources when killing enemies.",
 
         UpgradeType.RESEARCH_GUARDIAN: "* Allows building Guardians at Barracks. Guardians are powerful defensive "
@@ -172,6 +172,70 @@ menu_help_strings = {
 
         UpgradeType.DEMON_CAN_BUILD: "* Demons now gain the ability to construct T1 units. ",
         UpgradeType.DEMON_BASE_ATTACK: "* Demons gain the ability to attack buildings. ",
+    }
+}
+
+tutorial_strings = {
+    Language.EN_US: {
+        0: "TERRA"
+           "\n\n"
+           "Asking nicely if you could have full control of a newly discovered planet didn't work. "
+           "Neither did sending your legions of space-lawyers to argue the case for your galactic megacorporation! "
+           "So we're down to the old-fashioned way-- lots of fighting, and lots of lasers!"
+           "\n\n"
+           "Terra is a turn-based strategy game set on an alien world, where multiple corporate armies are fighting"
+           " for control, so they can get back to their usual business of building office parks and digging out "
+           "landfills for massive amounts of paperwork. Players give orders to each of their units, "
+           "and turns are executed simultaneously. Successful CEOs are able to think ahead, anticipate their "
+           "opponent's moves, and deploy their troops effectively.",
+        1: "Overview"
+           "\n\n"
+           "Your goal is to be the last corporation standing. Eliminate the enemy HQ! "
+           "Turns in Terra are executed simultaneously. This means each player will simultaneously give secret "
+           "orders to each of their units, and then those orders will be played out at the same time. If two units "
+           "occupy the same tile, they'll fight! "
+           "\n"
+           "Once you've issued orders to all of your units, open the pause menu and 'submit' your turn to "
+           "continue. "
+           "\n"
+           "You'll need to expand your base, harvest resources, build new buildings, research upgrades, and raise "
+           "an army to defeat your opponent. Units have strengths and weaknesses, so a balanced army composition "
+           "is recommended (unless you're very confident your enemy is specializing in one type or another!).",
+        2: "Buildings"
+           "\n\n"
+           "[HQ]: Your base! Can produce Colonists and research economic upgrades. If destroyed, you lose!\n\n"
+           "[Generator]: Automatically harvests resources from crystal resource tiles each turn.\n\n"
+           "[Barracks]: Can spend resources to produce combat units, and research upgrades for them.\n\n"
+           "[Tech Lab]: Can spend resources to research combat and economic upgrades, and is the only building that can"
+           " research new types of units. Slightly heals adjacent allies every turn.\n\n"
+           "[Tower]: A defensive structure. Damages adjacent enemies each turn, and has a weak melee attack.",
+        3: "Units"
+           "\n\n"
+           "[Colonist]: Your economic worker unit. Can build buildings, including Generators to collect resources.\n\n"
+           "[Trooper]: A bread-and-butter ground combat unit. Strong against buildings and mobility units, but notably"
+           " weak to ranged attacks.\n\n"
+           "[Ranger]: A basic ranged unit, it can target a distant tile to attack without counterattack. Weak to "
+           "mobility units, their ranged attack can be contested and canceled by occupying their tile.\n\n"
+           "[Ghost]: A high-mobility glass cannon unit, who can move through enemy units to get at the back line. "
+           "Strong against Colonists and ranged units, but easily defeated by most ground forces."
+           "\n\n"
+           "There are more unit types to research! Build a Tech Lab to improve your army and field new units before "
+           "your enemy can!",
+        4: "Battle Controls"
+           "\n\n"
+           "[Left click / ENTER]: Make selections, confirm\n"
+           "[Right click / SHIFT]: Cancel selections, back out of menus\n"
+           "[Middle click / TAB]: Open contextual menus, like showing order previews, seeing menu help, or viewing unit"
+           " info. \n"
+           "[ESCAPE]: Open the pause menu, back out of menus",
+        5: "Level Editor Controls"
+           "\n\n"
+           "[Left click / ENTER]: Place terrain / pieces\n"
+           "[Right click / SHIFT]: Place the secondary terrain type / remove pieces\n"
+           "[Mouse wheel / PGUP / PGDOWN]: Scroll the current terrain or piece type\n"
+           "[CTRL + Mouse wheel / PGUP / PGDOWN]: Scroll the secondary terrain or change piece team\n"
+           "[TAB]: Switch between placing terrain and placing pieces\n"
+           "[ESCAPE]: Open the pause menu",
     }
 }
 
@@ -308,6 +372,7 @@ main_menu_strings = {
         Option.NEW_MAP: "New Map",
         Option.LOAD_MAP: "Load Map",
         Option.SAVE_SETTINGS: "Apply Settings",
+        Option.TUTORIAL: "Manual",
 
         Option.LEAVE_LOBBY: "Leave Lobby",
         Option.START_BATTLE: "Start Battle",
@@ -377,6 +442,7 @@ label_strings = {
         "MAPNAME_INPUT": "Enter new map name:",
         "RESULTS_PROMPT": "Press the CONFIRM key to continue",
         "OPEN_TEAM": "-OPEN-",
+        "TUTORIAL_PROMPT": "Press the CONFIRM key to continue",
     }
 }
 

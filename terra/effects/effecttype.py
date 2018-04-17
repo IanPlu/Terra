@@ -10,3 +10,6 @@ class EffectType(Enum):
     ARMOR_GRANTED = auto()
     HP_HEALED = auto()
     DUPLICATE_UPGRADE = auto()
+    DEATH_AOE = auto()
+    MONEY_LOST = auto()
+    PIECE_CONFLICT = auto()

@@ -93,6 +93,9 @@ class EventType(Enum):
     TEXT_SUBMIT_INPUT = auto()
     TEXT_CANCEL_INPUT = auto()
 
+    # Tutorial menu events
+    TUTORIAL_EXIT = auto()
+
     # Network notification events
     NETWORK_CLIENT_CONNECTED = auto()
     NETWORK_CONNECTED_TO_HOST = auto()

@@ -5,6 +5,7 @@ from terra.event.event import EventType
 from terra.managers.session import Manager
 from terra.mode import Mode
 from terra.ui.cursor import Cursor
+from terra.ai.aiplayer import AIPlayer
 
 
 # Manager for the current player. Helps handle input, networking, and information that should be hidden
@@ -14,16 +15,23 @@ class PlayerManager(GameObject):
         super().__init__()
 
         self.cursors = {}
-        for team in self.get_manager(Manager.TEAM).get_teams():
+        self.ais = {}
+        for team in self.get_manager(Manager.TEAM).get_human_teams():
             self.cursors[team] = Cursor(team)
 
+        for team in self.get_manager(Manager.TEAM).get_ai_teams():
+            self.ais[team] = AIPlayer(team)
+
         self.active_team = self.get_manager(Manager.NETWORK).team
-        self.hotseat_mode = not self.get_manager(Manager.NETWORK).networked_game
+        self.hotseat_mode = not self.get_manager(Manager.NETWORK).networked_game and len(self.ais.keys()) == 0
 
     def destroy(self):
         super().destroy()
         for team, cursor in self.cursors.items():
             cursor.destroy()
+
+        for team, ai in self.ais.items():
+            ai.destroy()
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
@@ -58,6 +66,9 @@ class PlayerManager(GameObject):
             if cursor:
                 cursor.step(event)
 
+        for _, ai_player in self.ais.items():
+            ai_player.step(event)
+
     def get_camera_coords(self):
         cursor = self.cursors.get(self.active_team)
         if cursor:
@@ -83,3 +94,6 @@ class PlayerManager(GameObject):
         cursor = self.cursors.get(self.active_team)
         if cursor:
             cursor.render(game_screen, ui_screen)
+
+        for _, ai_player in self.ais.items():
+            ai_player.render(game_screen, ui_screen)

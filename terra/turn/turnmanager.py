@@ -12,7 +12,7 @@ class TurnManager(GameObject):
     def __init__(self, meta):
         super().__init__()
         self.turn = 1
-        self.phase = BattlePhase.ORDERS
+        self.phase = BattlePhase.START_TURN
         self.timer = 0
 
         # How long each phase's animation should take (in seconds)
@@ -25,6 +25,9 @@ class TurnManager(GameObject):
                 self.turn = int(value)
             elif key == MetadataKey.PHASE.value:
                 self.phase = BattlePhase[value]
+                publish_game_event(self.phase_events[self.phase], {
+                    "turn_number": self.turn
+                })
 
         if self.phase == BattlePhase.START_TURN:
             self.progress_phase(None)
@@ -54,7 +57,7 @@ class TurnManager(GameObject):
             return True
 
     # Move the phase forward if possible
-    def progress_phase(self, event):
+    def progress_phase(self, event=None):
         if not self.validate_phase():
             return
 

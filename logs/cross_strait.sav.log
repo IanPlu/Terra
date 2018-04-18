@@ -1,0 +1,409 @@
+2018-04-18 14:04:19,429 INFO BLUE Colonist at tile (8, 8) with 100 HP was assigned the order 'Order: Build a Generator on tile (7, 8)'
+2018-04-18 14:04:19,432 INFO = Move phase begins
+2018-04-18 14:04:20,087 INFO = Build phase begins
+2018-04-18 14:04:20,254 INFO Team.BLUE PieceType.GENERATOR was built on (7, 8). 
+2018-04-18 14:04:20,258 INFO Team.BLUE team spent 1 resources.
+2018-04-18 14:04:20,742 INFO = Combat phase begins
+2018-04-18 14:04:21,390 INFO = Ranged phase begins
+2018-04-18 14:04:22,048 INFO = Special phase begins
+2018-04-18 14:04:22,697 INFO = Start Turn phase begins
+2018-04-18 14:04:22,723 INFO == TURN 18 BEGIN ==
+2018-04-18 14:04:22,892 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,895 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,899 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,902 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,906 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,909 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,913 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,916 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,920 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:22,923 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:04:22,927 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:04:23,416 INFO = Issue Orders phase begins
+2018-04-18 14:04:31,316 INFO BLUE Colonist at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (6, 7)'
+2018-04-18 14:04:31,320 INFO = Move phase begins
+2018-04-18 14:04:31,489 INFO None moved to (6, 7)
+2018-04-18 14:04:31,969 INFO = Build phase begins
+2018-04-18 14:04:32,590 INFO = Combat phase begins
+2018-04-18 14:04:33,203 INFO = Ranged phase begins
+2018-04-18 14:04:33,821 INFO = Special phase begins
+2018-04-18 14:04:34,434 INFO = Start Turn phase begins
+2018-04-18 14:04:34,460 INFO == TURN 19 BEGIN ==
+2018-04-18 14:04:34,613 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,616 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,620 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,624 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,627 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,630 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,634 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,637 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,641 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:34,644 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:04:34,647 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:04:35,113 INFO = Issue Orders phase begins
+2018-04-18 14:04:40,121 INFO BLUE Colonist at tile (6, 7) with 100 HP was assigned the order 'Order: Move to (6, 6)'
+2018-04-18 14:04:40,125 INFO = Move phase begins
+2018-04-18 14:04:40,289 INFO None moved to (6, 6)
+2018-04-18 14:04:40,763 INFO = Build phase begins
+2018-04-18 14:04:41,384 INFO = Combat phase begins
+2018-04-18 14:04:42,005 INFO = Ranged phase begins
+2018-04-18 14:04:42,637 INFO = Special phase begins
+2018-04-18 14:04:43,253 INFO = Start Turn phase begins
+2018-04-18 14:04:43,278 INFO == TURN 20 BEGIN ==
+2018-04-18 14:04:43,467 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,473 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,477 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,481 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,484 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,488 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,492 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,495 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,499 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:43,505 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:04:43,511 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:04:43,991 INFO = Issue Orders phase begins
+2018-04-18 14:04:51,237 INFO BLUE Colonist at tile (6, 6) with 100 HP was assigned the order 'Order: Build a Generator on tile (5, 6)'
+2018-04-18 14:04:51,243 INFO = Move phase begins
+2018-04-18 14:04:51,899 INFO = Build phase begins
+2018-04-18 14:04:52,055 INFO Team.BLUE PieceType.GENERATOR was built on (5, 6). 
+2018-04-18 14:04:52,059 INFO Team.BLUE team spent 1 resources.
+2018-04-18 14:04:52,519 INFO = Combat phase begins
+2018-04-18 14:04:53,146 INFO = Ranged phase begins
+2018-04-18 14:04:53,767 INFO = Special phase begins
+2018-04-18 14:04:54,390 INFO = Start Turn phase begins
+2018-04-18 14:04:54,418 INFO == TURN 21 BEGIN ==
+2018-04-18 14:04:54,581 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,584 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,588 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,592 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,595 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,599 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,602 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,606 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,610 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,613 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:04:54,617 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:04:54,620 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:04:55,101 INFO = Issue Orders phase begins
+2018-04-18 14:05:12,666 INFO BLUE Colonist at tile (6, 6) with 100 HP was assigned the order 'Order: Move to (3, 6)'
+2018-04-18 14:05:12,670 INFO = Move phase begins
+2018-04-18 14:05:12,837 INFO None moved to (3, 6)
+2018-04-18 14:05:13,305 INFO = Build phase begins
+2018-04-18 14:05:13,932 INFO = Combat phase begins
+2018-04-18 14:05:14,555 INFO = Ranged phase begins
+2018-04-18 14:05:15,177 INFO = Special phase begins
+2018-04-18 14:05:15,803 INFO = Start Turn phase begins
+2018-04-18 14:05:15,833 INFO == TURN 22 BEGIN ==
+2018-04-18 14:05:15,990 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:15,995 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:15,998 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:16,002 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:16,006 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:16,009 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:16,013 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:16,016 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:16,020 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:16,024 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:16,028 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:05:16,031 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:05:16,512 INFO = Issue Orders phase begins
+2018-04-18 14:05:32,381 INFO BLUE Colonist at tile (3, 6) with 100 HP was assigned the order 'Order: Move to (3, 4)'
+2018-04-18 14:05:32,384 INFO = Move phase begins
+2018-04-18 14:05:32,549 INFO None moved to (3, 4)
+2018-04-18 14:05:33,032 INFO = Build phase begins
+2018-04-18 14:05:33,692 INFO = Combat phase begins
+2018-04-18 14:05:34,320 INFO = Ranged phase begins
+2018-04-18 14:05:34,939 INFO = Special phase begins
+2018-04-18 14:05:35,589 INFO = Start Turn phase begins
+2018-04-18 14:05:35,616 INFO == TURN 23 BEGIN ==
+2018-04-18 14:05:35,774 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,777 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,781 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,784 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,788 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,791 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,795 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,798 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,802 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,805 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:35,809 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:05:35,812 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:05:36,285 INFO = Issue Orders phase begins
+2018-04-18 14:05:38,878 INFO BLUE Colonist at tile (3, 4) with 100 HP was assigned the order 'Order: Build a Generator on tile (2, 4)'
+2018-04-18 14:05:38,881 INFO = Move phase begins
+2018-04-18 14:05:39,505 INFO = Build phase begins
+2018-04-18 14:05:39,670 INFO Team.BLUE PieceType.GENERATOR was built on (2, 4). 
+2018-04-18 14:05:39,673 INFO Team.BLUE team spent 1 resources.
+2018-04-18 14:05:40,150 INFO = Combat phase begins
+2018-04-18 14:05:40,771 INFO = Ranged phase begins
+2018-04-18 14:05:41,403 INFO = Special phase begins
+2018-04-18 14:05:42,060 INFO = Start Turn phase begins
+2018-04-18 14:05:42,089 INFO == TURN 24 BEGIN ==
+2018-04-18 14:05:42,244 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,249 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,252 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,256 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,260 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,264 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,267 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,271 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,275 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,279 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,283 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:05:42,286 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:05:42,290 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:05:42,768 INFO = Issue Orders phase begins
+2018-04-18 14:07:13,800 INFO BLUE Colonist at tile (3, 6) with 100 HP was assigned the order 'Order: Move to (3, 4)'
+2018-04-18 14:07:13,801 INFO = Move phase begins
+2018-04-18 14:07:13,817 INFO None moved to (3, 4)
+2018-04-18 14:07:13,865 INFO = Build phase begins
+2018-04-18 14:07:13,923 INFO = Combat phase begins
+2018-04-18 14:07:13,984 INFO = Ranged phase begins
+2018-04-18 14:07:14,050 INFO = Special phase begins
+2018-04-18 14:07:14,112 INFO = Start Turn phase begins
+2018-04-18 14:07:14,113 INFO == TURN 23 BEGIN ==
+2018-04-18 14:07:14,128 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,128 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:14,129 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:07:14,130 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:07:14,176 INFO = Issue Orders phase begins
+2018-04-18 14:07:15,209 INFO BLUE Colonist at tile (3, 4) with 100 HP was assigned the order 'Order: Build a Generator on tile (2, 4)'
+2018-04-18 14:07:15,209 INFO = Move phase begins
+2018-04-18 14:07:15,270 INFO = Build phase begins
+2018-04-18 14:07:15,285 INFO Team.BLUE PieceType.GENERATOR was built on (2, 4). 
+2018-04-18 14:07:15,286 INFO Team.BLUE team spent 1 resources.
+2018-04-18 14:07:15,333 INFO = Combat phase begins
+2018-04-18 14:07:15,394 INFO = Ranged phase begins
+2018-04-18 14:07:15,455 INFO = Special phase begins
+2018-04-18 14:07:15,518 INFO = Start Turn phase begins
+2018-04-18 14:07:15,519 INFO == TURN 24 BEGIN ==
+2018-04-18 14:07:15,534 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,534 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,535 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,535 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,535 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,535 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,535 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,535 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,535 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,535 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,536 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:15,536 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:07:15,536 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:07:15,582 INFO = Issue Orders phase begins
+2018-04-18 14:07:17,669 INFO = Move phase begins
+2018-04-18 14:07:17,732 INFO = Build phase begins
+2018-04-18 14:07:17,792 INFO = Combat phase begins
+2018-04-18 14:07:17,851 INFO = Ranged phase begins
+2018-04-18 14:07:17,911 INFO = Special phase begins
+2018-04-18 14:07:17,970 INFO = Start Turn phase begins
+2018-04-18 14:07:17,971 INFO == TURN 25 BEGIN ==
+2018-04-18 14:07:17,985 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,985 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,985 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,985 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:07:17,986 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:07:17,986 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:07:18,034 INFO = Issue Orders phase begins
+2018-04-18 14:08:07,116 INFO BLUE Colonist at tile (3, 6) with 100 HP was assigned the order 'Order: Move to (3, 4)'
+2018-04-18 14:08:07,116 INFO = Move phase begins
+2018-04-18 14:08:07,133 INFO None moved to (3, 4)
+2018-04-18 14:08:07,180 INFO = Build phase begins
+2018-04-18 14:08:07,243 INFO = Combat phase begins
+2018-04-18 14:08:07,304 INFO = Ranged phase begins
+2018-04-18 14:08:07,364 INFO = Special phase begins
+2018-04-18 14:08:07,424 INFO = Start Turn phase begins
+2018-04-18 14:08:07,425 INFO == TURN 23 BEGIN ==
+2018-04-18 14:08:07,441 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,441 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,441 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,441 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,441 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,441 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,442 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,442 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,442 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,442 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:07,442 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:07,442 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:07,487 INFO = Issue Orders phase begins
+2018-04-18 14:08:09,575 INFO BLUE Colonist at tile (3, 4) with 100 HP was assigned the order 'Order: Build a Generator on tile (2, 4)'
+2018-04-18 14:08:09,575 INFO = Move phase begins
+2018-04-18 14:08:09,636 INFO = Build phase begins
+2018-04-18 14:08:09,652 INFO Team.BLUE PieceType.GENERATOR was built on (2, 4). 
+2018-04-18 14:08:09,652 INFO Team.BLUE team spent 1 resources.
+2018-04-18 14:08:09,697 INFO = Combat phase begins
+2018-04-18 14:08:09,762 INFO = Ranged phase begins
+2018-04-18 14:08:09,823 INFO = Special phase begins
+2018-04-18 14:08:09,885 INFO = Start Turn phase begins
+2018-04-18 14:08:09,886 INFO == TURN 24 BEGIN ==
+2018-04-18 14:08:09,900 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,901 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,901 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,901 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,902 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,902 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,902 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,902 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,902 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,902 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,902 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:09,902 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:09,903 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:09,949 INFO = Issue Orders phase begins
+2018-04-18 14:08:13,200 INFO = Move phase begins
+2018-04-18 14:08:13,265 INFO = Build phase begins
+2018-04-18 14:08:13,327 INFO = Combat phase begins
+2018-04-18 14:08:13,388 INFO = Ranged phase begins
+2018-04-18 14:08:13,449 INFO = Special phase begins
+2018-04-18 14:08:13,512 INFO = Start Turn phase begins
+2018-04-18 14:08:13,513 INFO == TURN 25 BEGIN ==
+2018-04-18 14:08:13,528 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,529 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,530 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:13,530 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:13,530 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:13,575 INFO = Issue Orders phase begins
+2018-04-18 14:08:23,333 INFO = Move phase begins
+2018-04-18 14:08:23,397 INFO = Build phase begins
+2018-04-18 14:08:23,458 INFO = Combat phase begins
+2018-04-18 14:08:23,521 INFO = Ranged phase begins
+2018-04-18 14:08:23,585 INFO = Special phase begins
+2018-04-18 14:08:23,647 INFO = Start Turn phase begins
+2018-04-18 14:08:23,648 INFO == TURN 26 BEGIN ==
+2018-04-18 14:08:23,665 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,665 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,665 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,665 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,665 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,666 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,666 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,666 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,666 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,666 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,666 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:23,666 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:23,666 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:23,715 INFO = Issue Orders phase begins
+2018-04-18 14:08:27,974 INFO == TURN 1 BEGIN ==
+2018-04-18 14:08:27,974 INFO = Issue Orders phase begins
+2018-04-18 14:08:31,066 INFO = Move phase begins
+2018-04-18 14:08:31,107 INFO = Build phase begins
+2018-04-18 14:08:31,149 INFO = Combat phase begins
+2018-04-18 14:08:31,190 INFO = Ranged phase begins
+2018-04-18 14:08:31,231 INFO = Special phase begins
+2018-04-18 14:08:31,271 INFO = Start Turn phase begins
+2018-04-18 14:08:31,272 INFO == TURN 2 BEGIN ==
+2018-04-18 14:08:31,282 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:31,282 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:31,282 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:31,283 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:31,283 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:31,283 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:31,316 INFO = Issue Orders phase begins
+2018-04-18 14:08:36,468 INFO == TURN 1 BEGIN ==
+2018-04-18 14:08:36,468 INFO = Issue Orders phase begins
+2018-04-18 14:08:38,518 INFO BLUE Colonist at tile (15, 3) with 100 HP was assigned the order 'Order: Build a Generator on tile (14, 3)'
+2018-04-18 14:08:38,518 INFO = Move phase begins
+2018-04-18 14:08:38,573 INFO = Build phase begins
+2018-04-18 14:08:38,587 INFO Team.BLUE PieceType.GENERATOR was built on (14, 3). 
+2018-04-18 14:08:38,587 INFO Team.BLUE team spent 1 resources.
+2018-04-18 14:08:38,628 INFO = Combat phase begins
+2018-04-18 14:08:38,685 INFO = Ranged phase begins
+2018-04-18 14:08:38,742 INFO = Special phase begins
+2018-04-18 14:08:38,798 INFO = Start Turn phase begins
+2018-04-18 14:08:38,798 INFO == TURN 2 BEGIN ==
+2018-04-18 14:08:38,813 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:38,813 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:38,814 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:38,814 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:38,814 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:38,814 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:38,814 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:38,815 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:38,815 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:38,857 INFO = Issue Orders phase begins
+2018-04-18 14:08:39,825 INFO BLUE Colonist at tile (15, 3) with 100 HP was assigned the order 'Order: Build a Generator on tile (15, 4)'
+2018-04-18 14:08:39,825 INFO = Move phase begins
+2018-04-18 14:08:39,879 INFO = Build phase begins
+2018-04-18 14:08:39,893 INFO Team.BLUE PieceType.GENERATOR was built on (15, 4). 
+2018-04-18 14:08:39,894 INFO Team.BLUE team spent 1 resources.
+2018-04-18 14:08:39,936 INFO = Combat phase begins
+2018-04-18 14:08:39,996 INFO = Ranged phase begins
+2018-04-18 14:08:40,054 INFO = Special phase begins
+2018-04-18 14:08:40,108 INFO = Start Turn phase begins
+2018-04-18 14:08:40,109 INFO == TURN 3 BEGIN ==
+2018-04-18 14:08:40,122 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:40,123 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:40,123 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:40,123 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:40,123 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:40,123 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:40,123 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:40,123 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:40,124 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:40,124 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:40,164 INFO = Issue Orders phase begins
+2018-04-18 14:08:40,938 INFO BLUE Colonist at tile (15, 3) with 100 HP was assigned the order 'Order: Move to (12, 3)'
+2018-04-18 14:08:40,938 INFO = Move phase begins
+2018-04-18 14:08:40,951 INFO None moved to (12, 3)
+2018-04-18 14:08:40,991 INFO = Build phase begins
+2018-04-18 14:08:41,046 INFO = Combat phase begins
+2018-04-18 14:08:41,101 INFO = Ranged phase begins
+2018-04-18 14:08:41,155 INFO = Special phase begins
+2018-04-18 14:08:41,210 INFO = Start Turn phase begins
+2018-04-18 14:08:41,211 INFO == TURN 4 BEGIN ==
+2018-04-18 14:08:41,226 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:41,227 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:41,227 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:41,227 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:41,227 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:41,227 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:41,228 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:41,228 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:41,228 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:41,228 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:41,271 INFO = Issue Orders phase begins
+2018-04-18 14:08:42,437 INFO BLUE Colonist at tile (12, 3) with 100 HP was assigned the order 'Order: Move to (11, 4)'
+2018-04-18 14:08:42,438 INFO = Move phase begins
+2018-04-18 14:08:42,452 INFO None moved to (11, 4)
+2018-04-18 14:08:42,492 INFO = Build phase begins
+2018-04-18 14:08:42,546 INFO = Combat phase begins
+2018-04-18 14:08:42,600 INFO = Ranged phase begins
+2018-04-18 14:08:42,656 INFO = Special phase begins
+2018-04-18 14:08:42,713 INFO = Start Turn phase begins
+2018-04-18 14:08:42,714 INFO == TURN 5 BEGIN ==
+2018-04-18 14:08:42,728 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:42,728 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:42,728 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:42,729 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:42,729 INFO Team.BLUE team acquired 1 resources.
+2018-04-18 14:08:42,730 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:42,730 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:42,730 INFO Team.RED team acquired 1 resources.
+2018-04-18 14:08:42,730 INFO Team.BLUE team acquired 2 resources.
+2018-04-18 14:08:42,730 INFO Team.RED team acquired 2 resources.
+2018-04-18 14:08:42,771 INFO = Issue Orders phase begins

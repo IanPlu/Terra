@@ -1,6 +1,6 @@
 import pygame
 
-from terra.turn.battlephase import BattlePhase
+from terra.ai.pathfinder import get_path_to_destination
 from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
@@ -21,12 +21,12 @@ from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, Upgrade
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
-    spr_target, light_team_color, spr_digit_icons, spr_resource_icon_small, light_color
+    spr_target, light_team_color, spr_digit_icons, spr_resource_icon_small, light_color, spr_cursor
 from terra.settings import SETTINGS, Setting
 from terra.strings import piece_name_strings, LANGUAGE
 from terra.team.team import Team
+from terra.turn.battlephase import BattlePhase
 from terra.util.drawingutil import draw_small_resource_count
-
 
 team_offsets = {
     Team.RED: (-3, -3),
@@ -74,6 +74,10 @@ class Piece(AnimatedGameObject):
         self.temporary_money_lost_on_death = 0
 
         self.previewing_order = False
+
+        # AI pathfinding caching
+        self.current_goal = None
+        self.current_path = None
 
         indexed_pieces = [PieceType.COLONIST, PieceType.TROOPER, PieceType.RANGER, PieceType.GHOST,
                           PieceType.GUARDIAN, PieceType.BOLTCASTER, PieceType.BANSHEE,
@@ -344,6 +348,56 @@ class Piece(AnimatedGameObject):
     def apply_entrenchment(self, distance):
         self.entrenchment = (min(self.attr(Attribute.MOVEMENT_RANGE), 2) - distance) * \
                             self.attr(Attribute.ENTRENCHMENT_MODIFIER)
+
+    # Return a score for moving from tile A to tile B
+    def get_move_score(self, a, b):
+        piece_manager = self.get_manager(Manager.PIECE)
+        x1, y1 = a
+        x2, y2 = b
+
+        distance = abs(x1 - x2) + abs(y1 - y2)
+        ally_building_score = 10 if piece_manager.get_piece_at(x2, y2, self.team, PieceSubtype.BUILDING) else 0
+
+        return distance + ally_building_score
+
+    def is_enemy_at_tile(self, tile):
+        return len(self.get_manager(Manager.PIECE).get_enemy_pieces_at(tile[0], tile[1], self.team)) > 0 \
+                             and not self.attr(Attribute.IGNORE_IMPEDANCE)
+
+    # Return true if this piece can move to and occupy this tile
+    def is_tile_occupyable(self, tile):
+        return not self.get_manager(Manager.PIECE).get_piece_at(tile[0], tile[1], self.team, PieceSubtype.BUILDING)
+
+    def get_path_to_destinations(self, destinations):
+        paths = []
+        for destination in destinations:
+            possible_path = get_path_to_destination((self.gx, self.gy), destination, self.get_manager(Manager.MAP), self)
+            if possible_path:
+                paths.append(possible_path)
+
+        if len(paths) > 0:
+            self.current_path = min(paths, key=lambda p: len(p))
+        else:
+            self.current_path = None
+
+        return self.current_path
+
+    # Figure out how many steps along the path we can take, return the end point
+    def step_along_path(self, path):
+        # Start at the max number of steps we can take
+        steps = min(self.attr(Attribute.MOVEMENT_RANGE), len(path) - 1)
+        destination = None
+        while not destination and steps > 0:
+            # Check the possible destination
+            pdest = path[steps]
+
+            # If the tile is clear of allies, lock it in
+            if self.get_manager(Manager.PIECE).get_piece_at(pdest[0], pdest[1], self.team):
+                steps -= 1
+            else:
+                destination = pdest
+
+        return destination
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
@@ -679,6 +733,10 @@ class Piece(AnimatedGameObject):
                                                            base_upgrades[self.current_order.new_upgrade_type][UpgradeAttribute.UPGRADE_PRICE]),
                                  (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
 
+    def preview_path(self, game_screen):
+        for tile in self.current_path:
+            game_screen.blit(spr_cursor[self.team], (tile[0] * 24, tile[1] * 24))
+
     # Ask the Unit to render itself
     def render(self, game_screen, ui_screen):
         # Only render if we're within the camera view
@@ -724,6 +782,9 @@ class Piece(AnimatedGameObject):
             # Render order preview
             if self.previewing_order:
                 self.preview_order(game_screen)
+
+            if self.current_path:
+                self.preview_path(game_screen)
 
             # Render ranged attacks
             if self.get_manager(Manager.TURN).phase == BattlePhase.EXECUTE_COMBAT and isinstance(self.current_order, RangedAttackOrder):

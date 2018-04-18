@@ -174,6 +174,9 @@ class PieceManager(GameObject):
     def get_all_pieces_with_attribute(self, team, attribute):
         return [piece for piece in self.get_all_pieces_for_team(team) if piece.attr(attribute)]
 
+    def get_all_pieces_by_archetype(self, team, archetype):
+        return [piece for piece in self.get_all_pieces_for_team(team) if piece.piece_archetype == archetype]
+
     # Register a piece with the game map.
     def register_piece(self, piece):
         if not self.pieces.get((piece.gx, piece.gy)):

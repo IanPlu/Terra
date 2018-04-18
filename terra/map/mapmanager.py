@@ -36,7 +36,6 @@ class MapManager(GameObject):
         del self.tile_grid
         self.tile_grid = []
 
-
     def register_handlers(self, event_bus):
         event_bus.register_handler(EventType.E_TILE_TERRAFORMED, self.terraform_tile)
 
@@ -95,6 +94,16 @@ class MapManager(GameObject):
 
         return [(tile_x, tile_y) for tile_x, tile_y in tiles_to_check
                 if self.is_tile_passable(tile_x, tile_y, movement_type)]
+
+    # Return a list of coordinates of tiles of the specified type
+    def find_tiles_by_type(self, tile_type):
+        coords = []
+        for y in range(self.height):
+            for x in range(self.width):
+                if self.get_tile_type_at(x, y) == tile_type:
+                    coords.append((x, y))
+
+        return coords
 
     # Update the tile at the specified location to the new type
     def update_tile_type(self, gx, gy, new_tile_type):

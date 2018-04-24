@@ -300,6 +300,7 @@ class PieceManager(GameObject):
                 'team': team,
                 'invalid_coordinates': collisions
             })
+            print("Invalid move orders: {}".format(collisions))
         if not build_orders_valid:
             publish_game_event(EventType.E_INVALID_BUILD_ORDERS, {
                 'team': team,
@@ -307,6 +308,7 @@ class PieceManager(GameObject):
                 'affected_pieces': [piece for piece in self.get_all_pieces_for_team(team)
                                     if isinstance(piece.current_order, (BuildOrder, UpgradeOrder))]
             })
+            print("Invalid build orders: {}".format(spent_resources))
         if not upgrades_bought_valid:
             duplicate_upgrades = [k for k, v in Counter(upgrades_bought).items() if v > 1]
 
@@ -317,6 +319,7 @@ class PieceManager(GameObject):
                                     if isinstance(piece.current_order, UpgradeOrder) and
                                     piece.current_order.new_upgrade_type in duplicate_upgrades]
             })
+            print("Invalid upgrade orders. Duplicates: {}".format(duplicate_upgrades))
 
         return move_orders_valid and build_orders_valid and upgrades_bought_valid
 

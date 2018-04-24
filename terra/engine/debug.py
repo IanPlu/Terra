@@ -24,7 +24,7 @@ class DebugController(GameObject):
 
     # Manually swap control to the next player
     def pass_control(self):
-        self.get_manager(Manager.PLAYER).pass_control_to_next_team(None)
+        self.get_manager(Manager.PLAYER).pass_control_to_next_team()
 
     # Manually submit team 1's turn (respecting order validation)
     def submit_turn_team_1(self):

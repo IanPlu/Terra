@@ -6,6 +6,7 @@ from terra.control.keybindings import Key
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import publish_game_event, EventType
 from terra.menu.menu import Menu
+from terra.piece.piecesubtype import PieceSubtype
 from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color, spr_pieces
 from terra.strings import get_string, get_text, formatted_strings, team_name_strings, label_strings
 from terra.team.team import Team
@@ -19,7 +20,7 @@ class ResultsScreen(GameScreen):
         super().__init__()
 
         self.winning_team = results["winning_team"]
-        self.winning_pieces = results["winning_pieces"]
+        self.winning_pieces = [piece for piece in results["winning_pieces"] if piece.piece_subtype == PieceSubtype.UNIT]
         self.all_teams = results["all_teams"]
         self.team_stats = results["team_stats"]
 

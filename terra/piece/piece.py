@@ -26,7 +26,7 @@ from terra.settings import SETTINGS, Setting
 from terra.strings import piece_name_strings, LANGUAGE
 from terra.team.team import Team
 from terra.turn.battlephase import BattlePhase
-from terra.util.drawingutil import draw_small_resource_count
+from terra.util.drawingutil import draw_small_resource_count, draw_text
 
 team_offsets = {
     Team.RED: (-3, -3),
@@ -161,21 +161,7 @@ class Piece(AnimatedGameObject):
     def get_valid_buildable_pieces(self):
         valid_pieces = []
 
-        tiles_to_check = [(self.gx + 1, self.gy),
-                          (self.gx - 1, self.gy),
-                          (self.gx, self.gy + 1),
-                          (self.gx, self.gy - 1)]
-        unoccupied_tiles = []
-
-        # Remove tiles that already have allies on it that can't move
-        for tile_x, tile_y in tiles_to_check:
-            immobile_allies = []
-            for piece in self.get_manager(Manager.PIECE).get_pieces_at(tile_x, tile_y, team=self.team):
-                if piece.attr(Attribute.MOVEMENT_RANGE) <= 0:
-                    immobile_allies.append(piece)
-
-            if len(immobile_allies) <= 0:
-                unoccupied_tiles.append((tile_x, tile_y))
+        unoccupied_tiles = self.get_base_buildable_tiles()
 
         # For each buildable piece, if there exists at least one valid adjacent tile for its movement type that we can
         # place it onto, add it to the list
@@ -187,6 +173,34 @@ class Piece(AnimatedGameObject):
                 valid_pieces.append(piece)
 
         return valid_pieces
+
+    # Return a list of the adjacent tiles we could potentially build onto
+    def get_base_buildable_tiles(self):
+        tiles_to_check = [(self.gx + 1, self.gy),
+                          (self.gx - 1, self.gy),
+                          (self.gx, self.gy + 1),
+                          (self.gx, self.gy - 1)]
+        unoccupied_tiles = []
+
+        # Remove tiles that already have allies on it that can't move, and tiles that are off the map
+        for tile_x, tile_y in tiles_to_check:
+            if self.get_manager(Manager.MAP).get_tile_at(tile_x, tile_y):
+                immobile_allies = []
+                for piece in self.get_manager(Manager.PIECE).get_pieces_at(tile_x, tile_y, team=self.team):
+                    if piece.attr(Attribute.MOVEMENT_RANGE) <= 0:
+                        immobile_allies.append(piece)
+
+                if len(immobile_allies) <= 0:
+                    unoccupied_tiles.append((tile_x, tile_y))
+
+        return unoccupied_tiles
+
+    # Return true if the provided piece type could be built onto the specified tile
+    def can_build_piece_onto_tile(self, piece_type, tile):
+        valid_tile_types = movement_types[self.get_manager(Manager.TEAM).attr(self.team, piece_type, Attribute.MOVEMENT_TYPE)][MovementAttribute.PASSABLE]
+        tile_type = self.get_manager(Manager.MAP).get_tile_type_at(tile[0], tile[1])
+
+        return tile_type in valid_tile_types
 
     # Get the list of upgrades that can be purchased by this piece
     def get_valid_purchaseable_upgrades(self):
@@ -204,8 +218,9 @@ class Piece(AnimatedGameObject):
     def get_attack_rating(self, target):
         attack = self.attr(Attribute.ATTACK)
         multiplier = self.attr(Attribute.ATTACK_MULTIPLIER)[target.piece_archetype]
+        health_modifier = self.hp / self.attr(Attribute.MAX_HP)
 
-        return attack * multiplier
+        return attack * multiplier * health_modifier
 
     # Return the combination of any innate armor, entrenchment bonuses, etc. this piece has
     def get_defense_rating(self):
@@ -349,7 +364,7 @@ class Piece(AnimatedGameObject):
         self.entrenchment = (min(self.attr(Attribute.MOVEMENT_RANGE), 2) - distance) * \
                             self.attr(Attribute.ENTRENCHMENT_MODIFIER)
 
-    # Return a score for moving from tile A to tile B
+    # Return a score for moving from tile A to tile B. Lower numbers are preferred.
     def get_move_score(self, a, b):
         piece_manager = self.get_manager(Manager.PIECE)
         x1, y1 = a
@@ -358,7 +373,16 @@ class Piece(AnimatedGameObject):
         distance = abs(x1 - x2) + abs(y1 - y2)
         ally_building_score = 10 if piece_manager.get_piece_at(x2, y2, self.team, PieceSubtype.BUILDING) else 0
 
-        return distance + ally_building_score
+        enemies = piece_manager.get_enemy_pieces_at(x2, y2, self.team)
+        enemy_score = 0
+        for enemy in enemies:
+            multiplier = self.attr(Attribute.ATTACK_MULTIPLIER)[enemy.piece_archetype]
+            if multiplier >= 1:
+                enemy_score -= 1 * multiplier
+            else:
+                enemy_score += 2 * multiplier
+
+        return distance + ally_building_score + enemy_score
 
     def is_enemy_at_tile(self, tile):
         return len(self.get_manager(Manager.PIECE).get_enemy_pieces_at(tile[0], tile[1], self.team)) > 0 \
@@ -384,20 +408,38 @@ class Piece(AnimatedGameObject):
 
     # Figure out how many steps along the path we can take, return the end point
     def step_along_path(self, path):
-        # Start at the max number of steps we can take
-        steps = min(self.attr(Attribute.MOVEMENT_RANGE), len(path) - 1)
-        destination = None
-        while not destination and steps > 0:
-            # Check the possible destination
-            pdest = path[steps]
+        current_steps = 0
+        max_steps = min(self.attr(Attribute.MOVEMENT_RANGE), len(path) - 1)
+        last_possible_destination = (self.gx, self.gy)
+        while current_steps <= max_steps:
+            path_dest = path[current_steps]
 
-            # If the tile is clear of allies, lock it in
-            if self.get_manager(Manager.PIECE).get_piece_at(pdest[0], pdest[1], self.team):
-                steps -= 1
+            # If the tile is clear of allies, mark our last possible destination
+            if not self.get_manager(Manager.PIECE).get_piece_at(path_dest[0], path_dest[1], self.team):
+                last_possible_destination = path_dest
+
+            # If there's no impedance in our way, continue stepping forward
+            if not self.is_enemy_at_tile(path_dest):
+                current_steps += 1
             else:
-                destination = pdest
+                break
 
-        return destination
+        return last_possible_destination
+        #
+        # # Start at the max number of steps we can take
+        # steps = min(self.attr(Attribute.MOVEMENT_RANGE), len(path) - 1)
+        # destination = None
+        # while not destination and steps > 0:
+        #     # Check the possible destination
+        #     pdest = path[steps]
+        #
+        #     # If the tile is clear of allies, lock it in
+        #     if self.get_manager(Manager.PIECE).get_piece_at(pdest[0], pdest[1], self.team):
+        #         steps -= 1
+        #     else:
+        #         destination = pdest
+        #
+        # return destination
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
@@ -737,6 +779,11 @@ class Piece(AnimatedGameObject):
         for tile in self.current_path:
             game_screen.blit(spr_cursor[self.team], (tile[0] * 24, tile[1] * 24))
 
+        # for x in range(self.get_manager(Manager.MAP).width):
+        #     for y in range(self.get_manager(Manager.MAP).height):
+        #         score = draw_text(str(self.get_move_score((self.gx, self.gy), (x, y))), light_color)
+        #         game_screen.blit(score, (x * 24 + 8, y * 24 + 8))
+
     # Ask the Unit to render itself
     def render(self, game_screen, ui_screen):
         # Only render if we're within the camera view
@@ -783,8 +830,8 @@ class Piece(AnimatedGameObject):
             if self.previewing_order:
                 self.preview_order(game_screen)
 
-            if self.current_path:
-                self.preview_path(game_screen)
+                if self.current_path:
+                    self.preview_path(game_screen)
 
             # Render ranged attacks
             if self.get_manager(Manager.TURN).phase == BattlePhase.EXECUTE_COMBAT and isinstance(self.current_order, RangedAttackOrder):

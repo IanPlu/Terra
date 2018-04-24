@@ -51,6 +51,8 @@ class Main:
         return True
 
     def set_screen_from_mode(self, new_mode, map_name=None, address=None, is_host=False, map_type=AssetType.MAP, results=None):
+        SESSION.set_mode(new_mode)
+
         if new_mode == Mode.MAIN_MENU:
             new_screen = TitleScreen()
         elif new_mode == Mode.BATTLE:
@@ -69,8 +71,6 @@ class Main:
             new_screen = Battle(create_session=False)
         else:
             new_screen = None
-
-        SESSION.set_mode(new_mode)
 
         # Clean up the old screen, if any
         if self.current_screen:

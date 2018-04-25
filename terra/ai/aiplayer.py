@@ -3,7 +3,7 @@ from math import floor
 from pygame import USEREVENT
 from pygame.event import Event
 
-from terra.ai.personality import create_defensive_personality
+from terra.ai.personality import create_default_personality
 from terra.ai.task import Task, TaskType, Assignment
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
@@ -14,6 +14,7 @@ from terra.mode import Mode
 from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
 from terra.piece.piecetype import PieceType
+from terra.piece.piecearchetype import PieceArchetype
 
 
 # An AI player, in charge of giving orders to a team.
@@ -33,7 +34,7 @@ class AIPlayer(GameObject):
         self.enemy_pieces = None
         self.map = None
 
-        self.personality = create_defensive_personality()
+        self.personality = create_default_personality()
 
         self.debug_print_tasks = True
         self.debug_print_assignments = True
@@ -63,6 +64,11 @@ class AIPlayer(GameObject):
         tasks.extend(self.generate_economic_tasks())
 
         # TODO: Sort tasks by priority
+
+        if self.debug_print_tasks:
+            print("== Tasks ==")
+            for task in tasks:
+                print(task)
 
         return tasks
 
@@ -114,10 +120,9 @@ class AIPlayer(GameObject):
         if current_num_colonists < desired_num_colonists:
             tasks.append(self.create_build_colonist_task())
 
-        # Build new military units whenever possible
-        barracks = piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.BARRACKS)
-        for _ in barracks:
-            tasks.append(self.create_build_military_task())
+        # Build new military units whenever possible, at each barracks
+        for _ in piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.BARRACKS):
+            tasks.extend(self.create_build_military_tasks())
 
         return tasks
 
@@ -149,9 +154,28 @@ class AIPlayer(GameObject):
         else:
             return None
 
-    def create_build_military_task(self):
-        # TODO: Determine what type of unit to build here. For now, just build Troopers
-        return Task(self.team, TaskType.BUILD_UNIT, target=PieceType.TROOPER)
+    def create_build_military_tasks(self):
+        # TODO: Add weighting for piece types based on personality
+        tasks = []
+        counts = self.get_manager(Manager.PIECE).get_archetype_counts(self.team, units_only=True)
+        target_archetype = PieceArchetype.GROUND
+
+        if len(counts) > 0:
+            target_archetype, amount = counts[-1]
+
+        for piece_type in self.get_buildable_pieces(target_archetype):
+            tasks.append(Task(self.team, TaskType.BUILD_UNIT, target=piece_type))
+
+        return tasks
+
+    # Return a list of pieces we can build for this archetype
+    # TODO: Query for upgrades and higher tier units
+    def get_buildable_pieces(self, piece_archetype):
+        return {
+            PieceArchetype.GROUND: [PieceType.TROOPER],
+            PieceArchetype.RANGED: [PieceType.RANGER],
+            PieceArchetype.MOBILITY: [PieceType.GHOST],
+        }[piece_archetype]
 
     # Create assignments for each task
     # TODO: Add weighting factors, run this multiple times to get different 'best' turns
@@ -167,6 +191,12 @@ class AIPlayer(GameObject):
 
         # Sort assignments by their score (lowest scores first)
         assignments.sort(key=lambda assignment: assignment.value)
+
+        if self.debug_print_assignments:
+            print("== Assignments ==")
+            for assignment in assignments:
+                print(assignment)
+
         return assignments
 
     def create_assignment(self, piece, task):
@@ -319,24 +349,20 @@ class AIPlayer(GameObject):
     def handle_orders_phase(self, event):
         self.parse_board_state()
 
+        # TODO new planning strategy:
+        # - Generate tasks
+        # - Generate assignments (do NOT path towards the target, or do very minimal pathing)
+        # - Confirm assignments in order of importance (either via piece or via task)
+        #       * Do full pathing and planning here, so we can account for the planned occupied tiles better
+
         tasks = self.generate_tasks()
 
-        if self.debug_print_tasks:
-            print("== Tasks ==")
-            for task in tasks:
-                print(task)
-
         assignments = self.assign_tasks(tasks)
-
-        if self.debug_print_assignments:
-            print("== Assignments ==")
-            for assignment in assignments:
-                print(assignment)
 
         assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
 
         # TODO: Handle any unclaimed tasks?
-        leftover_tasks = [task for task in tasks if task not in assigned_tasks]
+        # leftover_tasks = [task for task in tasks if task not in assigned_tasks]
 
         # TODO: Fill in unspent resources?
 

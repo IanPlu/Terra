@@ -52,6 +52,8 @@ x Fix team assumptions from the network manager -- because it's loaded before th
 * Fix window gaining focus + clicking on a menu option confirms that menu option
 x Fix level editor not responding to any button inputs
 
+* Fix double building generators
+
 
 Gameplay
 x Build support for upgrades, enable purchasing them from the base

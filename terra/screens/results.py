@@ -50,7 +50,7 @@ class ResultsScreen(GameScreen):
         x = 0
         for piece in self.winning_pieces:
             game_screen.blit(spr_pieces[piece.team][piece.piece_type].subsurface(0, 0, 24, 24), (base_x + x, base_y + 24))
-            x += 16
+            x += 12
 
         x = 0
         y = 2

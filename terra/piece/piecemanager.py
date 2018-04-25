@@ -8,6 +8,7 @@ from terra.managers.session import Manager
 from terra.piece.attribute import Attribute
 from terra.piece.orders import MoveOrder, BuildOrder, UpgradeOrder
 from terra.piece.piece import Piece
+from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piececonflict import PieceConflict
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
@@ -174,8 +175,23 @@ class PieceManager(GameObject):
     def get_all_pieces_with_attribute(self, team, attribute):
         return [piece for piece in self.get_all_pieces_for_team(team) if piece.attr(attribute)]
 
+    # Return all pieces belonging to the provided archetype and team
     def get_all_pieces_by_archetype(self, team, archetype):
         return [piece for piece in self.get_all_pieces_for_team(team) if piece.piece_archetype == archetype]
+
+    # Return a count of how many pieces this team has per archetype
+    def get_archetype_counts(self, team, units_only=False):
+        counts = Counter({
+            PieceArchetype.GROUND: 0,
+            PieceArchetype.RANGED: 0,
+            PieceArchetype.MOBILITY: 0,
+        })
+        counts.update(Counter([piece.piece_archetype for piece in self.get_all_pieces_for_team(team)]))
+
+        if units_only:
+            return list(filter(lambda pair: pair[0] in [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY], counts.most_common()))
+        else:
+            return counts.most_common()
 
     # Register a piece with the game map.
     def register_piece(self, piece):
@@ -249,7 +265,7 @@ class PieceManager(GameObject):
             piece_strings.append("{} {} {} {} {}".format(piece.gx, piece.gy,
                                                          piece.team.name,
                                                          piece.piece_type.name,
-                                                         piece.hp))
+                                                         int(piece.hp)))
         return piece_strings
 
     # Return true if all movement and build orders for the provided team are valid together.

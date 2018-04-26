@@ -243,7 +243,7 @@ class PieceManager(GameObject):
         self.remove_piece_by_coord(event.gx, event.gy, event.team)
 
     def destroy_piece_from_event(self, event):
-        self.destroy_piece_by_coord(event.gx, event.gy, event.team)
+        self.destroy_piece(event.piece)
 
     def move_piece_from_event(self, event):
         self.move_piece(event.gx, event.gy, event.team, event.dx, event.dy)
@@ -341,7 +341,7 @@ class PieceManager(GameObject):
 
     # Check for overlapping enemy units, and resolve their combat
     def resolve_unit_combat(self, event):
-        # Find conflicting units (opposing team units occupying the same space)
+        # Find conflicting units (units occupying the same space)
         conflicting_pieces = []
         for coordinate in self.pieces:
             if len(self.pieces.get(coordinate)) > 1:
@@ -350,8 +350,12 @@ class PieceManager(GameObject):
         # Conflict resolution
         if len(conflicting_pieces) > 0:
             for conflicts in conflicting_pieces:
-                conflict = PieceConflict(conflicts)
-                conflict.resolve()
+                teams = set([piece.team for piece in conflicts])
+                # Edge case: two allied pieces briefly occupying the same location
+                # This happens from building a new unit onto a tile where a piece is demolishing itself
+                if len(teams) > 1:
+                    conflict = PieceConflict(conflicts)
+                    conflict.resolve()
 
     # Conduct a ranged attack.
     # Event should contain grid coordinates gx and gy, the origin team, and target grid coordinates tx and ty.

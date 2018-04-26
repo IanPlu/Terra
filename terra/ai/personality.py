@@ -1,3 +1,4 @@
+from terra.piece.piecearchetype import PieceArchetype
 
 
 # Container for AI 'personality'. Controls thresholds for various behavior, how aggressive / defensive to act, etc.
@@ -5,17 +6,20 @@
 #   * Defensive - How likely this AI is to take defensive actions
 #   * Constructive - How likely this AI is to build and expand
 #   * Retreat Threshold - What health percentage this AI will start ordering units to retreat
+#   * Unit Construction Weight - How this AI prioritizes buildings piece archetypes. e.x.: {PieceArchetype.GROUND: 1.0}
 class Personality:
     def __init__(self, aggressive=1.0, defensive=1.0, constructive=1.0, retreat_threshold=0.6,
-                 ground_weight=1.0, ranged_weight=1.0, mobility_weight=1.0):
+                 unit_construction_weight=None):
         self.aggressive = aggressive
         self.defensive = defensive
         self.constructive = constructive
         self.retreat_threshold = retreat_threshold
 
-        self.ground_weight = ground_weight
-        self.ranged_weight = ranged_weight
-        self.mobility_weight = mobility_weight
+        self.unit_construction_weight = unit_construction_weight if unit_construction_weight else {
+            PieceArchetype.GROUND: 1.0,
+            PieceArchetype.RANGED: 1.0,
+            PieceArchetype.MOBILITY: 1.0,
+        }
 
 
 # Create a default balanced personality.

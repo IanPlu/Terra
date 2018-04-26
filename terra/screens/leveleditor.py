@@ -87,12 +87,14 @@ class LevelEditor(GameScreen):
         if self.placing_tiles:
             self.get_manager(Manager.MAP).update_tile_type(cursor_x, cursor_y, self.current_tile_type)
         else:
-            if self.get_manager(Manager.PIECE).get_piece_at(cursor_x, cursor_y, self.piece_team):
+            piece = self.get_manager(Manager.PIECE).get_piece_at(cursor_x, cursor_y, self.piece_team)
+            if piece:
                 # Delete the existing piece first
                 publish_game_event(EventType.E_PIECE_DEAD, {
                     'gx': cursor_x,
                     'gy': cursor_y,
-                    'team': self.piece_team
+                    'team': self.piece_team,
+                    'piece': piece
                 })
 
             publish_game_event(EventType.E_PIECE_BUILT, {
@@ -107,11 +109,14 @@ class LevelEditor(GameScreen):
         if self.placing_tiles:
             self.get_manager(Manager.MAP).update_tile_type(cursor_x, cursor_y, self.secondary_tile_type)
         else:
-            publish_game_event(EventType.E_PIECE_DEAD, {
-                'gx': cursor_x,
-                'gy': cursor_y,
-                'team': self.piece_team
-            })
+            piece = self.get_manager(Manager.PIECE).get_piece_at(cursor_x, cursor_y, self.piece_team)
+            if piece:
+                publish_game_event(EventType.E_PIECE_DEAD, {
+                    'gx': cursor_x,
+                    'gy': cursor_y,
+                    'team': self.piece_team,
+                    'piece': piece,
+                })
 
     def scroll(self, direction):
         if self.placing_tiles:

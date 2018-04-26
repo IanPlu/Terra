@@ -87,13 +87,18 @@ class MapManager(GameObject):
 
     # From the tiles adjacent to (gx, gy), return any that are passable for the provided movement type
     def get_valid_adjacent_tiles_for_movement_type(self, gx, gy, movement_type):
-        tiles_to_check = [(gx + 1, gy),
-                          (gx, gy + 1),
-                          (gx - 1, gy),
-                          (gx, gy - 1)]
+        return self.get_tiles_in_range(gx, gy, 1, 1, movement_type)
 
-        return [(tile_x, tile_y) for tile_x, tile_y in tiles_to_check
-                if self.is_tile_passable(tile_x, tile_y, movement_type)]
+    # Return tile types for all tiles within the min and max range of the center coord
+    def get_tiles_in_range(self, cx, cy, min_range, max_range, movement_type=None):
+        tiles = []
+        for y in range(self.height):
+            for x in range(self.width):
+                distance = abs(cx - x) + abs(cy - y)
+                if min_range <= distance <= max_range and (not movement_type or self.is_tile_passable(x, y, movement_type)):
+                    tiles.append((x, y))
+
+        return tiles
 
     # Return a list of coordinates of tiles of the specified type
     def find_tiles_by_type(self, tile_type):

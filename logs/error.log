@@ -2348,3 +2348,909 @@ invalid literal for int() with base 10: '56.0'
 2018-04-24 11:41:06,231 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
 2018-04-24 11:41:14,503 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
 2018-04-24 11:41:14,504 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 15:55:34,110 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 15:55:34,110 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 15:56:14,808 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 15:56:14,808 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 15:57:18,194 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 15:57:18,195 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 15:58:26,898 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 15:58:26,899 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 15:58:26,968 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 15:58:26,978 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 15:58:26,978 ERROR [ERROR]: Exception: 
+list index out of range
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 302, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 234, in confirm_assignments
+    self.set_order_for_task(assignment)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 265, in set_order_for_task
+    dx, dy = assignment.end_pos[0]
+
+2018-04-25 15:59:53,708 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 15:59:53,708 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:02:49,908 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:02:49,909 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:03:05,251 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:03:05,252 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:03:42,900 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:03:42,901 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:04:25,285 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:04:25,285 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:06:14,565 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:06:14,566 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:09:24,514 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:09:24,515 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:12:00,011 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:12:00,011 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:12:06,841 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:12:06,841 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:13:48,331 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:13:48,332 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:13:48,411 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 16:13:48,412 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 16:13:48,412 ERROR [ERROR]: Exception: 
+'NoneType' object is not iterable
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 304, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 239, in confirm_assignments
+    self.planned_occupied_coords.extend(newly_occupied_tiles)
+
+2018-04-25 16:15:22,398 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:15:22,399 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:17:21,246 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:17:21,246 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:18:57,244 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:18:57,244 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:20:49,509 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:20:49,510 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:21:42,238 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:21:42,238 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:23:17,771 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:23:17,771 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:24:10,022 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:24:10,022 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:25:54,323 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:25:54,323 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:27:48,831 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:27:48,832 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:29:22,475 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:29:22,476 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:30:27,690 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:30:27,691 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:31:50,898 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:31:50,899 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:34:47,634 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:34:47,634 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:34:47,687 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 16:34:47,689 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 16:34:47,689 ERROR [ERROR]: Exception: 
+'NoneType' object is not iterable
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 307, in handle_orders_phase
+    self.parse_board_state()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 55, in parse_board_state
+    self.planned_occupied_coords = [(piece.gx, piece.gy) for piece in self.my_pieces
+
+2018-04-25 16:35:11,704 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:35:11,704 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:38:10,122 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:38:10,122 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:42:54,631 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:42:54,632 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:50:33,843 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:50:33,844 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:54:39,798 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:54:39,798 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:57:01,289 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:57:01,290 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:57:47,504 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:57:47,505 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 16:59:00,606 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 16:59:00,607 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:00:36,291 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:00:36,292 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:02:37,445 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:02:37,446 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:02:39,380 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 17:02:39,381 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 17:02:39,381 ERROR [ERROR]: Exception: 
+'list' object has no attribute 'team'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piecemanager.py", line 353, in resolve_unit_combat
+    teams = set([piece.team for piece in conflicting_pieces])
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piecemanager.py", line 353, in <listcomp>
+    teams = set([piece.team for piece in conflicting_pieces])
+
+2018-04-25 17:03:00,722 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:03:00,722 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:03:02,796 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 17:03:02,797 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 17:03:02,797 ERROR [ERROR]: Exception: 
+'list' object has no attribute 'team'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\piece\piecemanager.py", line 353, in resolve_unit_combat
+    teams = set([piece.team for piece in conflicting_pieces])
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\piece\piecemanager.py", line 353, in <listcomp>
+    teams = set([piece.team for piece in conflicting_pieces])
+
+2018-04-25 17:03:30,089 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:03:30,090 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:03:53,330 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:03:53,330 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:04:18,007 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:04:18,007 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:04:37,420 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:04:37,421 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:05:31,556 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:05:31,556 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:06:19,370 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:06:19,371 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:13:35,926 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:13:35,926 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 17:14:41,898 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 17:14:41,898 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:23:19,582 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:23:19,582 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:23:19,655 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 18:23:19,658 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 18:23:19,658 ERROR [ERROR]: Exception: 
+'int' object is not iterable
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 337, in handle_orders_phase
+    assignments = self.assign_tasks(tasks)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 191, in assign_tasks
+    score, end_pos = task.score_piece_for_task(eligible_piece, self.get_manager(Manager.MAP))
+
+2018-04-25 18:25:53,128 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:25:53,129 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:26:20,051 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:26:20,052 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:27:10,938 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:27:10,938 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:28:05,287 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:28:05,287 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:32:00,153 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:32:00,153 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:32:48,829 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:32:48,829 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:34:06,628 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:34:06,628 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:34:11,438 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 18:34:11,439 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 18:34:11,439 ERROR [ERROR]: Exception: 
+'Event' object has no attribute 'piece'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piecemanager.py", line 246, in destroy_piece_from_event
+    self.destroy_piece(event.piece)
+
+2018-04-25 18:35:16,851 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:35:16,852 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:35:20,346 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 18:35:20,348 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 18:35:20,348 ERROR [ERROR]: Exception: 
+'Event' object has no attribute 'piece'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piecemanager.py", line 246, in destroy_piece_from_event
+    self.destroy_piece(event.piece)
+
+2018-04-25 18:35:52,511 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:35:52,511 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:35:55,357 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 18:35:55,359 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 18:35:55,359 ERROR [ERROR]: Exception: 
+'NoneType' object has no attribute 'destroy'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piecemanager.py", line 246, in destroy_piece_from_event
+    self.destroy_piece(event.piece)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piecemanager.py", line 216, in destroy_piece
+    piece.destroy()
+
+2018-04-25 18:36:15,350 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:36:15,350 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:36:32,244 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:36:32,244 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:36:42,327 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:36:42,328 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:42:03,698 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:42:03,698 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:42:25,314 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:42:25,315 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:42:45,900 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:42:45,901 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:45:19,174 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:45:19,174 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:46:38,185 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:46:38,185 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:46:53,009 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:46:53,009 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:46:53,026 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 18:46:53,027 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 18:46:53,027 ERROR [ERROR]: Exception: 
+'PieceType' object has no attribute 'gx'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 332, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 245, in confirm_assignments
+    self.set_order_for_task(assignment)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 274, in set_order_for_task
+    distance = abs(task.target.gx - piece.gx) + abs(task.target.gy - piece.gy) if task.target else 0
+
+2018-04-25 18:47:45,554 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:47:45,555 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:50:23,649 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:50:23,649 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:50:58,729 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:50:58,730 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:51:12,587 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:51:12,587 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:51:26,914 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:51:26,914 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:51:59,812 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:51:59,812 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:52:03,397 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:52:03,397 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:52:38,726 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:52:38,726 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:52:55,487 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:52:55,487 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:57:03,807 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:57:03,808 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:57:39,217 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:57:39,217 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 18:59:07,061 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 18:59:07,061 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:05:22,988 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:05:22,990 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:11:30,794 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:11:30,794 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:11:42,565 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:11:42,565 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:13:02,656 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:13:02,657 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:18:32,307 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:18:32,307 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:19:36,273 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:19:36,274 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:20:16,677 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:20:16,677 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:22:21,218 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:22:21,219 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:23:07,481 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:23:07,482 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:24:15,485 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:24:15,486 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:26:37,815 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:26:37,816 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:27:12,109 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:27:12,110 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:29:27,947 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:29:27,948 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:30:13,138 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:30:13,138 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:30:25,487 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:30:25,487 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:30:32,031 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:30:32,031 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:31:06,669 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:31:06,670 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:44:04,655 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:44:04,655 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:44:24,734 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:44:24,735 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:44:24,759 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 19:44:24,779 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 19:44:24,779 ERROR [ERROR]: Exception: 
+unsupported operand type(s) for -: 'NoneType' and 'int'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 337, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 231, in confirm_assignments
+    newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\task.py", line 204, in get_end_position
+    self.piece.attr(Attribute.MOVEMENT_TYPE))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 404, in get_path_to_target
+    min_range, max_range, movement_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\map\mapmanager.py", line 97, in get_tiles_in_range
+    distance = abs(cx - x) + abs(cy - y)
+
+2018-04-25 19:45:16,435 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:45:16,436 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:45:16,518 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 19:45:16,520 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 19:45:16,520 ERROR [ERROR]: Exception: 
+unsupported operand type(s) for -: 'NoneType' and 'int'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 337, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 231, in confirm_assignments
+    newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\task.py", line 204, in get_end_position
+    self.piece.attr(Attribute.MOVEMENT_TYPE))
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\piece\piece.py", line 404, in get_path_to_target
+    min_range, max_range, movement_type)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\map\mapmanager.py", line 97, in get_tiles_in_range
+    distance = abs(cx - x) + abs(cy - y)
+
+2018-04-25 19:45:55,370 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:45:55,371 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:47:16,100 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:47:16,101 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:49:04,223 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:49:04,223 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:51:04,421 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:51:04,421 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:51:30,462 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:51:30,463 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:53:54,398 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:53:54,398 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:55:43,609 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:55:43,609 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:56:06,846 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:56:06,846 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:56:16,739 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:56:16,739 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:57:04,471 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:57:04,471 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:57:27,606 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:57:27,607 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:58:04,141 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:58:04,141 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:58:48,870 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:58:48,870 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:58:55,394 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 19:58:55,410 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 19:58:55,411 ERROR [ERROR]: Exception: 
+<Team.NONE: '[NON]'>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battle.py", line 44, in render
+    SESSION.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 136, in render
+    manager.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piecemanager.py", line 415, in render
+    piece.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 837, in render
+    self.preview_path(game_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 783, in preview_path
+    cursor = self.get_manager(Manager.PLAYER).cursors[self.team]
+
+2018-04-25 19:59:23,826 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:59:23,826 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 19:59:47,757 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 19:59:47,758 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:00:11,228 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:00:11,228 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:00:24,415 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:00:24,415 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:05:34,335 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:05:34,336 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:05:34,399 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 20:05:34,402 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 20:05:34,402 ERROR [ERROR]: Exception: 
+list indices must be integers or slices, not tuple
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 336, in handle_orders_phase
+    tasks = self.generate_tasks()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 70, in generate_tasks
+    tasks.extend(self.generate_economic_tasks())
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 131, in generate_economic_tasks
+    tasks.extend(self.create_build_military_tasks())
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 169, in create_build_military_tasks
+    counts[archetype] /= self.personality.unit_construction_weight [archetype]
+
+2018-04-25 20:06:06,473 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:06:06,474 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:06:06,533 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 20:06:06,535 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 20:06:06,535 ERROR [ERROR]: Exception: 
+list indices must be integers or slices, not PieceArchetype
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 336, in handle_orders_phase
+    tasks = self.generate_tasks()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 70, in generate_tasks
+    tasks.extend(self.generate_economic_tasks())
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 131, in generate_economic_tasks
+    tasks.extend(self.create_build_military_tasks())
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ai\aiplayer.py", line 169, in create_build_military_tasks
+    counts[archetype] = count / self.personality.unit_construction_weight[archetype]
+
+2018-04-25 20:07:42,040 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:07:42,041 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:08:55,530 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:08:55,530 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:09:20,753 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:09:20,753 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:10:39,979 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:10:39,980 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:54:47,136 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:54:47,136 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 20:55:33,953 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 20:55:33,953 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:02:26,598 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:02:26,598 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:05:47,366 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:05:47,367 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:06:03,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:06:03,997 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:06:14,349 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:06:14,349 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:09:38,848 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:09:38,848 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:10:07,574 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:10:07,575 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:10:22,823 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:10:22,823 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:10:42,582 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:10:42,582 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:13:46,461 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:13:46,462 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:14:00,889 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 21:14:00,891 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 21:14:00,892 ERROR [ERROR]: Exception: 
+'NoneType' object is not iterable
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\screens\battle.py", line 44, in render
+    SESSION.render(map_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\managers\session.py", line 136, in render
+    manager.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\piece\piecemanager.py", line 415, in render
+    piece.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\piece\piece.py", line 823, in render
+    self.preview_path(game_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\piece\piece.py", line 744, in preview_path
+    for tile in self.current_path:
+
+2018-04-25 21:14:13,296 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:14:13,296 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:17:00,728 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:17:00,729 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:17:51,536 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:17:51,537 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:19:00,729 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:19:00,730 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:20:27,057 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:20:27,057 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:20:32,289 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:20:32,289 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:22:31,317 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:22:31,317 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:23:53,401 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:23:53,401 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:24:40,846 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:24:40,846 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:25:42,351 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:25:42,351 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:31:33,967 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:31:33,967 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:31:34,012 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 21:31:34,018 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 21:31:34,018 ERROR [ERROR]: Exception: 
+must be str, not int
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 355, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 249, in confirm_assignments
+    newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\task.py", line 208, in get_end_position
+    self.piece.attr(Attribute.MOVEMENT_TYPE))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 416, in get_path_to_target
+    self, blocked)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\pathfinder.py", line 43, in get_path_to_destination
+    came_from, cost_so_far = navigate(start, goal, map, piece, blocked_coords)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\pathfinder.py", line 31, in navigate
+    priority = new_cost + piece.get_move_score(goal, next, blocked)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 389, in get_move_score
+    print("move score: " + distance + ally_building_score + enemy_score + avoid_score)
+
+2018-04-25 21:31:46,928 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:31:46,928 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:32:35,181 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:32:35,181 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:33:28,416 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:33:28,416 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:33:45,444 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:33:45,444 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:37:09,201 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:37:09,201 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:38:06,540 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:38:06,540 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:38:24,554 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 21:38:24,572 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 21:38:24,572 ERROR [ERROR]: Exception: 
+list index out of range
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 355, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 249, in confirm_assignments
+    newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\task.py", line 208, in get_end_position
+    self.piece.attr(Attribute.MOVEMENT_TYPE))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 423, in get_path_to_target
+    self.current_path = potential_paths[0]
+
+2018-04-25 21:40:20,341 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:40:20,341 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:40:20,380 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 21:40:20,382 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 21:40:20,382 ERROR [ERROR]: Exception: 
+list index out of range
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 355, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 249, in confirm_assignments
+    newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\task.py", line 208, in get_end_position
+    self.piece.attr(Attribute.MOVEMENT_TYPE))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 423, in get_path_to_target
+    self.current_path = potential_paths[0]
+
+2018-04-25 21:41:34,353 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:41:34,353 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:41:34,413 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 21:41:34,415 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 21:41:34,415 ERROR [ERROR]: Exception: 
+'NoneType' object is not subscriptable
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 355, in handle_orders_phase
+    assigned_pieces, assigned_tasks = self.confirm_assignments(assignments)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 249, in confirm_assignments
+    newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\task.py", line 208, in get_end_position
+    self.piece.attr(Attribute.MOVEMENT_TYPE))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\piece\piece.py", line 422, in get_path_to_target
+    self.current_path = potential_paths.sort(key=lambda path: len(path))[0] if len(potential_paths) > 0 else None
+
+2018-04-25 21:41:51,952 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:41:51,952 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:42:04,504 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:42:04,504 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:42:39,451 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:42:39,452 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:44:17,675 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:44:17,675 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:44:21,662 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:44:21,662 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:45:42,485 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:45:42,486 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:46:57,305 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:46:57,305 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:47:27,050 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:47:27,050 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:47:48,300 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:47:48,300 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:52:37,012 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:52:37,013 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 21:52:46,883 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 21:52:46,883 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:02:48,480 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:02:48,481 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:02:48,511 ERROR [ERROR]: Caught exception in the launcher.
+2018-04-25 22:02:48,528 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-04-25 22:02:48,528 ERROR [ERROR]: Exception: 
+BUILD_BARRACKS
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 97, in handle_menu_selections
+    self.set_screen_from_mode(Mode.LOBBY, event.mapname)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 66, in set_screen_from_mode
+    new_screen = Lobby(False, map_name, map_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\lobby.py", line 31, in __init__
+    Session.set_up_local_game(map_name, map_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 45, in set_up_local_game
+    SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 113, in __set_up__
+    from terra.team.playermanager import PlayerManager
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\playermanager.py", line 8, in <module>
+    from terra.ai.aiplayer import AIPlayer
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\aiplayer.py", line 7, in <module>
+    from terra.ai.task import Task, TaskType, Assignment
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ai\task.py", line 32, in <module>
+    TaskType.BUILD_BARRACKS: [PieceArchetype.WORKER],
+
+  File "C:\Users\Ian\AppData\Local\Programs\Python\Python36-32\lib\enum.py", line 324, in __getattr__
+    raise AttributeError(name) from None
+
+2018-04-25 22:03:04,835 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:03:04,835 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:03:09,290 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:03:09,291 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:03:17,562 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:03:17,562 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:04:33,470 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:04:33,470 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:04:58,402 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:04:58,402 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:05:10,282 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:05:10,282 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:05:15,283 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:05:15,283 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:05:32,610 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:05:32,611 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:05:53,265 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:05:53,266 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:07:05,492 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:07:05,493 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:07:28,516 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:07:28,517 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-04-25 22:08:14,003 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-04-25 22:08:14,003 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.

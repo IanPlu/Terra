@@ -1,0 +1,1663 @@
+2018-04-25 19:11:48,041 INFO BLUE Base at tile (11, 11) with 150 HP was assigned the order 'Order: Build a Colonist on tile (12, 11)'
+2018-04-25 19:11:48,041 INFO BLUE Base at tile (11, 11) with 150 HP was assigned the order 'Order: Build a Colonist on tile (12, 11)'
+2018-04-25 19:11:48,042 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:48,042 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:48,042 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:11:48,042 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:11:48,042 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:11:48,042 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:11:48,043 INFO = Move phase begins
+2018-04-25 19:11:48,043 INFO = Move phase begins
+2018-04-25 19:11:48,055 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:11:48,055 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:11:48,055 INFO None moved to (6, 8)
+2018-04-25 19:11:48,055 INFO None moved to (6, 8)
+2018-04-25 19:11:48,101 INFO = Build phase begins
+2018-04-25 19:11:48,101 INFO = Build phase begins
+2018-04-25 19:11:48,120 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:48,120 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:48,120 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:48,120 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:48,120 INFO Team.BLUE PieceType.COLONIST was built on (12, 11). 
+2018-04-25 19:11:48,120 INFO Team.BLUE PieceType.COLONIST was built on (12, 11). 
+2018-04-25 19:11:48,120 INFO Team.BLUE team spent 5 resources.
+2018-04-25 19:11:48,120 INFO Team.BLUE team spent 5 resources.
+2018-04-25 19:11:48,159 INFO = Combat phase begins
+2018-04-25 19:11:48,159 INFO = Combat phase begins
+2018-04-25 19:11:48,212 INFO = Ranged phase begins
+2018-04-25 19:11:48,212 INFO = Ranged phase begins
+2018-04-25 19:11:48,271 INFO = Special phase begins
+2018-04-25 19:11:48,271 INFO = Special phase begins
+2018-04-25 19:11:48,322 INFO = Start Turn phase begins
+2018-04-25 19:11:48,322 INFO = Start Turn phase begins
+2018-04-25 19:11:48,323 INFO == TURN 11 BEGIN ==
+2018-04-25 19:11:48,323 INFO == TURN 11 BEGIN ==
+2018-04-25 19:11:48,338 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:48,338 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:48,339 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:48,339 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:48,339 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:48,339 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:48,339 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:48,339 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:48,339 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:48,339 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:48,340 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:48,340 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:48,393 INFO = Issue Orders phase begins
+2018-04-25 19:11:48,393 INFO = Issue Orders phase begins
+2018-04-25 19:11:49,875 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:49,875 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:49,876 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:11:49,876 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:11:49,876 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:11:49,876 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:11:49,876 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:49,876 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:49,876 INFO BLUE Colonist at tile (12, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:49,876 INFO BLUE Colonist at tile (12, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:49,876 INFO = Move phase begins
+2018-04-25 19:11:49,876 INFO = Move phase begins
+2018-04-25 19:11:49,889 INFO None moved to (10, 11)
+2018-04-25 19:11:49,889 INFO None moved to (10, 11)
+2018-04-25 19:11:49,890 INFO None moved to (10, 9)
+2018-04-25 19:11:49,890 INFO None moved to (10, 9)
+2018-04-25 19:11:49,890 INFO None moved to (7, 8)
+2018-04-25 19:11:49,890 INFO None moved to (7, 8)
+2018-04-25 19:11:49,891 INFO None moved to (8, 8)
+2018-04-25 19:11:49,891 INFO None moved to (8, 8)
+2018-04-25 19:11:49,928 INFO = Build phase begins
+2018-04-25 19:11:49,928 INFO = Build phase begins
+2018-04-25 19:11:49,940 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:49,940 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:49,940 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:49,940 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:49,976 INFO = Combat phase begins
+2018-04-25 19:11:49,976 INFO = Combat phase begins
+2018-04-25 19:11:50,031 INFO = Ranged phase begins
+2018-04-25 19:11:50,031 INFO = Ranged phase begins
+2018-04-25 19:11:50,081 INFO = Special phase begins
+2018-04-25 19:11:50,081 INFO = Special phase begins
+2018-04-25 19:11:50,129 INFO = Start Turn phase begins
+2018-04-25 19:11:50,129 INFO = Start Turn phase begins
+2018-04-25 19:11:50,129 INFO == TURN 12 BEGIN ==
+2018-04-25 19:11:50,129 INFO == TURN 12 BEGIN ==
+2018-04-25 19:11:50,142 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:50,142 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:50,142 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:50,142 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:50,142 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:50,142 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:50,142 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:50,142 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:50,143 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:50,143 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:50,143 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:50,143 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:50,177 INFO = Issue Orders phase begins
+2018-04-25 19:11:50,177 INFO = Issue Orders phase begins
+2018-04-25 19:11:50,917 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:50,917 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:50,917 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:50,917 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:50,917 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:50,917 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:50,917 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:11:50,917 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:11:50,917 INFO BLUE Ranger at tile (8, 8) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:50,917 INFO BLUE Ranger at tile (8, 8) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:50,918 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:50,918 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:50,918 INFO = Move phase begins
+2018-04-25 19:11:50,918 INFO = Move phase begins
+2018-04-25 19:11:50,930 INFO None moved to (10, 9)
+2018-04-25 19:11:50,930 INFO None moved to (10, 9)
+2018-04-25 19:11:50,931 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:50,931 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:50,931 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (10, 8)
+2018-04-25 19:11:50,931 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (10, 8)
+2018-04-25 19:11:50,931 INFO None moved to (8, 8)
+2018-04-25 19:11:50,931 INFO None moved to (8, 8)
+2018-04-25 19:11:50,931 INFO BLUE Ranger at tile (8, 8) with 90 HP moved to (9, 8)
+2018-04-25 19:11:50,931 INFO BLUE Ranger at tile (8, 8) with 90 HP moved to (9, 8)
+2018-04-25 19:11:50,969 INFO = Build phase begins
+2018-04-25 19:11:50,969 INFO = Build phase begins
+2018-04-25 19:11:50,982 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:50,982 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:50,982 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:50,982 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:51,021 INFO = Combat phase begins
+2018-04-25 19:11:51,021 INFO = Combat phase begins
+2018-04-25 19:11:51,073 INFO = Ranged phase begins
+2018-04-25 19:11:51,073 INFO = Ranged phase begins
+2018-04-25 19:11:51,125 INFO = Special phase begins
+2018-04-25 19:11:51,125 INFO = Special phase begins
+2018-04-25 19:11:51,180 INFO = Start Turn phase begins
+2018-04-25 19:11:51,180 INFO = Start Turn phase begins
+2018-04-25 19:11:51,180 INFO == TURN 13 BEGIN ==
+2018-04-25 19:11:51,180 INFO == TURN 13 BEGIN ==
+2018-04-25 19:11:51,192 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,192 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,193 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,193 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,193 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:51,193 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:51,193 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,193 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,193 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:51,193 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:51,194 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:51,194 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:51,233 INFO = Issue Orders phase begins
+2018-04-25 19:11:51,233 INFO = Issue Orders phase begins
+2018-04-25 19:11:51,464 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:51,464 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (8, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (8, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:51,465 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:51,465 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:51,465 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:51,465 INFO = Move phase begins
+2018-04-25 19:11:51,465 INFO = Move phase begins
+2018-04-25 19:11:51,478 INFO None moved to (10, 9)
+2018-04-25 19:11:51,478 INFO None moved to (10, 9)
+2018-04-25 19:11:51,478 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:11:51,478 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:11:51,478 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:51,478 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:51,478 INFO None moved to (8, 8)
+2018-04-25 19:11:51,478 INFO None moved to (8, 8)
+2018-04-25 19:11:51,479 INFO BLUE Ranger at tile (8, 8) with 90 HP moved to (10, 8)
+2018-04-25 19:11:51,479 INFO BLUE Ranger at tile (8, 8) with 90 HP moved to (10, 8)
+2018-04-25 19:11:51,479 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (11, 8)
+2018-04-25 19:11:51,479 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (11, 8)
+2018-04-25 19:11:51,518 INFO = Build phase begins
+2018-04-25 19:11:51,518 INFO = Build phase begins
+2018-04-25 19:11:51,532 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:51,532 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:51,532 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:51,532 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:51,574 INFO = Combat phase begins
+2018-04-25 19:11:51,574 INFO = Combat phase begins
+2018-04-25 19:11:51,625 INFO = Ranged phase begins
+2018-04-25 19:11:51,625 INFO = Ranged phase begins
+2018-04-25 19:11:51,674 INFO = Special phase begins
+2018-04-25 19:11:51,674 INFO = Special phase begins
+2018-04-25 19:11:51,726 INFO = Start Turn phase begins
+2018-04-25 19:11:51,726 INFO = Start Turn phase begins
+2018-04-25 19:11:51,727 INFO == TURN 14 BEGIN ==
+2018-04-25 19:11:51,727 INFO == TURN 14 BEGIN ==
+2018-04-25 19:11:51,739 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,739 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,740 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,740 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,740 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:51,740 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:51,740 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,740 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:51,741 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:51,741 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:51,741 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:51,741 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:51,778 INFO = Issue Orders phase begins
+2018-04-25 19:11:51,778 INFO = Issue Orders phase begins
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Demolish self'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Demolish self'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (8, 8) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (8, 8) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:52,034 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:52,034 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (11, 8) with 90 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (11, 8) with 90 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (11, 9)'
+2018-04-25 19:11:52,034 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (11, 9)'
+2018-04-25 19:11:52,034 INFO = Move phase begins
+2018-04-25 19:11:52,034 INFO = Move phase begins
+2018-04-25 19:11:52,049 INFO None moved to (11, 9)
+2018-04-25 19:11:52,049 INFO None moved to (11, 9)
+2018-04-25 19:11:52,049 INFO None moved to (10, 8)
+2018-04-25 19:11:52,049 INFO None moved to (10, 8)
+2018-04-25 19:11:52,049 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:52,049 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:52,050 INFO None moved to (9, 8)
+2018-04-25 19:11:52,050 INFO None moved to (9, 8)
+2018-04-25 19:11:52,050 INFO BLUE Ranger at tile (10, 8) with 90 HP moved to (10, 9)
+2018-04-25 19:11:52,050 INFO BLUE Ranger at tile (10, 8) with 90 HP moved to (10, 9)
+2018-04-25 19:11:52,050 INFO None moved to (11, 10)
+2018-04-25 19:11:52,050 INFO None moved to (11, 10)
+2018-04-25 19:11:52,088 INFO = Build phase begins
+2018-04-25 19:11:52,088 INFO = Build phase begins
+2018-04-25 19:11:52,142 INFO = Combat phase begins
+2018-04-25 19:11:52,142 INFO = Combat phase begins
+2018-04-25 19:11:52,193 INFO = Ranged phase begins
+2018-04-25 19:11:52,193 INFO = Ranged phase begins
+2018-04-25 19:11:52,243 INFO = Special phase begins
+2018-04-25 19:11:52,243 INFO = Special phase begins
+2018-04-25 19:11:52,255 INFO BLUE Ranger at tile (10, 9) with 0 HP took 90 damage from None!
+2018-04-25 19:11:52,255 INFO BLUE Ranger at tile (10, 9) with 0 HP took 90 damage from None!
+2018-04-25 19:11:52,256 INFO BLUE Ranger at tile (10, 9) with 0 HP was successfully demolished.
+2018-04-25 19:11:52,256 INFO BLUE Ranger at tile (10, 9) with 0 HP was successfully demolished.
+2018-04-25 19:11:52,293 INFO = Start Turn phase begins
+2018-04-25 19:11:52,293 INFO = Start Turn phase begins
+2018-04-25 19:11:52,293 INFO == TURN 15 BEGIN ==
+2018-04-25 19:11:52,293 INFO == TURN 15 BEGIN ==
+2018-04-25 19:11:52,306 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,306 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,306 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,306 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,306 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:52,306 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:52,306 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,306 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,306 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:52,306 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:52,306 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:52,306 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:52,343 INFO = Issue Orders phase begins
+2018-04-25 19:11:52,343 INFO = Issue Orders phase begins
+2018-04-25 19:11:52,629 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:52,629 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:52,629 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:52,629 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:52,630 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:52,630 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:52,630 INFO BLUE Ranger at tile (11, 9) with 90 HP was assigned the order 'Order: Move to (11, 9)'
+2018-04-25 19:11:52,630 INFO BLUE Ranger at tile (11, 9) with 90 HP was assigned the order 'Order: Move to (11, 9)'
+2018-04-25 19:11:52,630 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:52,630 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:52,630 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:52,630 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:52,630 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:52,630 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:52,630 INFO = Move phase begins
+2018-04-25 19:11:52,630 INFO = Move phase begins
+2018-04-25 19:11:52,642 INFO BLUE Ranger at tile (11, 9) with 90 HP moved to (11, 9)
+2018-04-25 19:11:52,642 INFO BLUE Ranger at tile (11, 9) with 90 HP moved to (11, 9)
+2018-04-25 19:11:52,642 INFO BLUE Ranger at tile (10, 8) with 90 HP moved to (10, 8)
+2018-04-25 19:11:52,642 INFO BLUE Ranger at tile (10, 8) with 90 HP moved to (10, 8)
+2018-04-25 19:11:52,643 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:52,643 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:52,643 INFO None moved to (11, 8)
+2018-04-25 19:11:52,643 INFO None moved to (11, 8)
+2018-04-25 19:11:52,643 INFO None moved to (9, 8)
+2018-04-25 19:11:52,643 INFO None moved to (9, 8)
+2018-04-25 19:11:52,643 INFO None moved to (10, 9)
+2018-04-25 19:11:52,643 INFO None moved to (10, 9)
+2018-04-25 19:11:52,681 INFO = Build phase begins
+2018-04-25 19:11:52,681 INFO = Build phase begins
+2018-04-25 19:11:52,694 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:52,694 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:52,694 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:52,694 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:52,733 INFO = Combat phase begins
+2018-04-25 19:11:52,733 INFO = Combat phase begins
+2018-04-25 19:11:52,783 INFO = Ranged phase begins
+2018-04-25 19:11:52,783 INFO = Ranged phase begins
+2018-04-25 19:11:52,834 INFO = Special phase begins
+2018-04-25 19:11:52,834 INFO = Special phase begins
+2018-04-25 19:11:52,884 INFO = Start Turn phase begins
+2018-04-25 19:11:52,884 INFO = Start Turn phase begins
+2018-04-25 19:11:52,884 INFO == TURN 16 BEGIN ==
+2018-04-25 19:11:52,884 INFO == TURN 16 BEGIN ==
+2018-04-25 19:11:52,897 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,897 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,897 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,897 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,897 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:52,897 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:52,897 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,897 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:52,898 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:52,898 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:52,898 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:52,898 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:52,935 INFO = Issue Orders phase begins
+2018-04-25 19:11:52,935 INFO = Issue Orders phase begins
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (11, 9) with 90 HP was assigned the order 'Order: Demolish self'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (11, 9) with 90 HP was assigned the order 'Order: Demolish self'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:53,203 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:53,203 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (11, 8) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (11, 8) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (11, 9)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (11, 9)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-25 19:11:53,203 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-25 19:11:53,203 INFO = Move phase begins
+2018-04-25 19:11:53,203 INFO = Move phase begins
+2018-04-25 19:11:53,217 INFO BLUE Ranger at tile (11, 10) with 90 HP moved to (11, 10)
+2018-04-25 19:11:53,217 INFO BLUE Ranger at tile (11, 10) with 90 HP moved to (11, 10)
+2018-04-25 19:11:53,217 INFO BLUE Ranger at tile (10, 8) with 90 HP moved to (10, 8)
+2018-04-25 19:11:53,217 INFO BLUE Ranger at tile (10, 8) with 90 HP moved to (10, 8)
+2018-04-25 19:11:53,217 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:53,217 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:53,218 INFO BLUE Ranger at tile (11, 8) with 90 HP moved to (11, 8)
+2018-04-25 19:11:53,218 INFO BLUE Ranger at tile (11, 8) with 90 HP moved to (11, 8)
+2018-04-25 19:11:53,218 INFO None moved to (10, 9)
+2018-04-25 19:11:53,218 INFO None moved to (10, 9)
+2018-04-25 19:11:53,218 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (11, 9)
+2018-04-25 19:11:53,218 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (11, 9)
+2018-04-25 19:11:53,259 INFO = Build phase begins
+2018-04-25 19:11:53,259 INFO = Build phase begins
+2018-04-25 19:11:53,309 INFO = Combat phase begins
+2018-04-25 19:11:53,309 INFO = Combat phase begins
+2018-04-25 19:11:53,359 INFO = Ranged phase begins
+2018-04-25 19:11:53,359 INFO = Ranged phase begins
+2018-04-25 19:11:53,409 INFO = Special phase begins
+2018-04-25 19:11:53,409 INFO = Special phase begins
+2018-04-25 19:11:53,421 INFO BLUE Ranger at tile (11, 9) with 0 HP took 90 damage from None!
+2018-04-25 19:11:53,421 INFO BLUE Ranger at tile (11, 9) with 0 HP took 90 damage from None!
+2018-04-25 19:11:53,421 INFO BLUE Ranger at tile (11, 9) with 0 HP was successfully demolished.
+2018-04-25 19:11:53,421 INFO BLUE Ranger at tile (11, 9) with 0 HP was successfully demolished.
+2018-04-25 19:11:53,459 INFO = Start Turn phase begins
+2018-04-25 19:11:53,459 INFO = Start Turn phase begins
+2018-04-25 19:11:53,459 INFO == TURN 17 BEGIN ==
+2018-04-25 19:11:53,459 INFO == TURN 17 BEGIN ==
+2018-04-25 19:11:53,471 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,471 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,471 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,471 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,471 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:53,471 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:53,472 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,472 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,472 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:53,472 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:53,472 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:53,472 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:53,508 INFO = Issue Orders phase begins
+2018-04-25 19:11:53,508 INFO = Issue Orders phase begins
+2018-04-25 19:11:53,725 INFO BLUE Ranger at tile (11, 9) with 90 HP was assigned the order 'Order: Move to (11, 9)'
+2018-04-25 19:11:53,725 INFO BLUE Ranger at tile (11, 9) with 90 HP was assigned the order 'Order: Move to (11, 9)'
+2018-04-25 19:11:53,726 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:53,726 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:53,726 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-25 19:11:53,726 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (11, 10)'
+2018-04-25 19:11:53,726 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:53,726 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:53,726 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:53,726 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:53,726 INFO BLUE Ranger at tile (11, 8) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:53,726 INFO BLUE Ranger at tile (11, 8) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:53,726 INFO = Move phase begins
+2018-04-25 19:11:53,726 INFO = Move phase begins
+2018-04-25 19:11:53,740 INFO BLUE Ranger at tile (11, 10) with 90 HP moved to (11, 10)
+2018-04-25 19:11:53,740 INFO BLUE Ranger at tile (11, 10) with 90 HP moved to (11, 10)
+2018-04-25 19:11:53,740 INFO BLUE Ranger at tile (10, 8) with 90 HP moved to (10, 8)
+2018-04-25 19:11:53,740 INFO BLUE Ranger at tile (10, 8) with 90 HP moved to (10, 8)
+2018-04-25 19:11:53,740 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:53,740 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:53,741 INFO BLUE Ranger at tile (11, 8) with 90 HP moved to (11, 8)
+2018-04-25 19:11:53,741 INFO BLUE Ranger at tile (11, 8) with 90 HP moved to (11, 8)
+2018-04-25 19:11:53,741 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (10, 9)
+2018-04-25 19:11:53,741 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (10, 9)
+2018-04-25 19:11:53,741 INFO BLUE Ranger at tile (11, 9) with 90 HP moved to (11, 9)
+2018-04-25 19:11:53,741 INFO BLUE Ranger at tile (11, 9) with 90 HP moved to (11, 9)
+2018-04-25 19:11:53,778 INFO = Build phase begins
+2018-04-25 19:11:53,778 INFO = Build phase begins
+2018-04-25 19:11:53,830 INFO = Combat phase begins
+2018-04-25 19:11:53,830 INFO = Combat phase begins
+2018-04-25 19:11:53,880 INFO = Ranged phase begins
+2018-04-25 19:11:53,880 INFO = Ranged phase begins
+2018-04-25 19:11:53,927 INFO = Special phase begins
+2018-04-25 19:11:53,927 INFO = Special phase begins
+2018-04-25 19:11:53,977 INFO = Start Turn phase begins
+2018-04-25 19:11:53,977 INFO = Start Turn phase begins
+2018-04-25 19:11:53,978 INFO == TURN 18 BEGIN ==
+2018-04-25 19:11:53,978 INFO == TURN 18 BEGIN ==
+2018-04-25 19:11:53,990 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,990 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,990 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,990 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,990 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:53,990 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:53,990 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,990 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:53,990 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:53,990 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:53,991 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:53,991 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:54,028 INFO = Issue Orders phase begins
+2018-04-25 19:11:54,028 INFO = Issue Orders phase begins
+2018-04-25 19:11:54,096 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:54,096 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Demolish self'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (10, 8) with 90 HP was assigned the order 'Order: Demolish self'
+2018-04-25 19:11:54,097 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:54,097 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (11, 8) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (11, 8) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (11, 9) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:54,097 INFO BLUE Ranger at tile (11, 9) with 90 HP was assigned the order 'Order: Move to (11, 8)'
+2018-04-25 19:11:54,097 INFO = Move phase begins
+2018-04-25 19:11:54,097 INFO = Move phase begins
+2018-04-25 19:11:54,110 INFO None moved to (10, 9)
+2018-04-25 19:11:54,110 INFO None moved to (10, 9)
+2018-04-25 19:11:54,110 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:54,110 INFO BLUE Colonist at tile (10, 11) with 100 HP moved to (10, 11)
+2018-04-25 19:11:54,111 INFO None moved to (9, 8)
+2018-04-25 19:11:54,111 INFO None moved to (9, 8)
+2018-04-25 19:11:54,111 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (10, 8)
+2018-04-25 19:11:54,111 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (10, 8)
+2018-04-25 19:11:54,111 INFO None moved to (11, 8)
+2018-04-25 19:11:54,111 INFO None moved to (11, 8)
+2018-04-25 19:11:54,149 INFO = Build phase begins
+2018-04-25 19:11:54,149 INFO = Build phase begins
+2018-04-25 19:11:54,163 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:54,163 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:11:54,163 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:54,163 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:11:54,200 INFO = Combat phase begins
+2018-04-25 19:11:54,200 INFO = Combat phase begins
+2018-04-25 19:11:54,253 INFO = Ranged phase begins
+2018-04-25 19:11:54,253 INFO = Ranged phase begins
+2018-04-25 19:11:54,307 INFO = Special phase begins
+2018-04-25 19:11:54,307 INFO = Special phase begins
+2018-04-25 19:11:54,323 INFO BLUE Ranger at tile (10, 8) with 0 HP took 90 damage from None!
+2018-04-25 19:11:54,323 INFO BLUE Ranger at tile (10, 8) with 0 HP took 90 damage from None!
+2018-04-25 19:11:54,324 INFO BLUE Ranger at tile (10, 8) with 0 HP was successfully demolished.
+2018-04-25 19:11:54,324 INFO BLUE Ranger at tile (10, 8) with 0 HP was successfully demolished.
+2018-04-25 19:11:54,375 INFO = Start Turn phase begins
+2018-04-25 19:11:54,375 INFO = Start Turn phase begins
+2018-04-25 19:11:54,376 INFO == TURN 19 BEGIN ==
+2018-04-25 19:11:54,376 INFO == TURN 19 BEGIN ==
+2018-04-25 19:11:54,400 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:54,400 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:54,400 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:54,400 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:54,400 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:54,400 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:11:54,401 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:54,401 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:11:54,401 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:54,401 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:11:54,401 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:54,401 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:11:54,442 INFO = Issue Orders phase begins
+2018-04-25 19:11:54,442 INFO = Issue Orders phase begins
+2018-04-25 19:30:21,194 INFO Team.RED PieceType.BASE was built on (4, 10). 
+2018-04-25 19:30:27,681 INFO BLUE Base at tile (11, 11) with 150 HP was assigned the order 'Order: Build a Colonist on tile (12, 11)'
+2018-04-25 19:30:27,681 INFO BLUE Base at tile (11, 11) with 150 HP was assigned the order 'Order: Build a Colonist on tile (12, 11)'
+2018-04-25 19:30:27,681 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:30:27,681 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:30:27,682 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:30:27,682 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:30:27,682 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:30:27,682 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:30:27,682 INFO = Move phase begins
+2018-04-25 19:30:27,682 INFO = Move phase begins
+2018-04-25 19:30:27,698 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:30:27,698 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:30:27,698 INFO None moved to (6, 8)
+2018-04-25 19:30:27,698 INFO None moved to (6, 8)
+2018-04-25 19:30:27,740 INFO = Build phase begins
+2018-04-25 19:30:27,740 INFO = Build phase begins
+2018-04-25 19:30:27,753 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:30:27,753 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:30:27,753 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:30:27,753 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:30:27,753 INFO Team.BLUE PieceType.COLONIST was built on (12, 11). 
+2018-04-25 19:30:27,753 INFO Team.BLUE PieceType.COLONIST was built on (12, 11). 
+2018-04-25 19:30:27,753 INFO Team.BLUE team spent 5 resources.
+2018-04-25 19:30:27,753 INFO Team.BLUE team spent 5 resources.
+2018-04-25 19:30:27,792 INFO = Combat phase begins
+2018-04-25 19:30:27,792 INFO = Combat phase begins
+2018-04-25 19:30:27,843 INFO = Ranged phase begins
+2018-04-25 19:30:27,843 INFO = Ranged phase begins
+2018-04-25 19:30:27,893 INFO = Special phase begins
+2018-04-25 19:30:27,893 INFO = Special phase begins
+2018-04-25 19:30:27,944 INFO = Start Turn phase begins
+2018-04-25 19:30:27,944 INFO = Start Turn phase begins
+2018-04-25 19:30:27,945 INFO == TURN 11 BEGIN ==
+2018-04-25 19:30:27,945 INFO == TURN 11 BEGIN ==
+2018-04-25 19:30:27,958 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:30:27,958 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:30:27,958 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:27,958 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:27,958 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:27,958 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:27,958 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:27,958 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:27,959 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:30:27,959 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:30:27,996 INFO = Issue Orders phase begins
+2018-04-25 19:30:27,996 INFO = Issue Orders phase begins
+2018-04-25 19:30:28,446 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:30:28,446 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:30:28,446 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:30:28,446 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:30:28,446 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:30:28,446 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:30:28,446 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:30:28,446 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:30:28,446 INFO BLUE Colonist at tile (12, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:30:28,446 INFO BLUE Colonist at tile (12, 11) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-04-25 19:30:28,447 INFO = Move phase begins
+2018-04-25 19:30:28,447 INFO = Move phase begins
+2018-04-25 19:30:28,458 INFO None moved to (10, 11)
+2018-04-25 19:30:28,458 INFO None moved to (10, 11)
+2018-04-25 19:30:28,459 INFO None moved to (10, 9)
+2018-04-25 19:30:28,459 INFO None moved to (10, 9)
+2018-04-25 19:30:28,459 INFO None moved to (7, 8)
+2018-04-25 19:30:28,459 INFO None moved to (7, 8)
+2018-04-25 19:30:28,459 INFO None moved to (8, 8)
+2018-04-25 19:30:28,459 INFO None moved to (8, 8)
+2018-04-25 19:30:28,495 INFO = Build phase begins
+2018-04-25 19:30:28,495 INFO = Build phase begins
+2018-04-25 19:30:28,507 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:30:28,507 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:30:28,508 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:30:28,508 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:30:28,543 INFO = Combat phase begins
+2018-04-25 19:30:28,543 INFO = Combat phase begins
+2018-04-25 19:30:28,592 INFO = Ranged phase begins
+2018-04-25 19:30:28,592 INFO = Ranged phase begins
+2018-04-25 19:30:28,642 INFO = Special phase begins
+2018-04-25 19:30:28,642 INFO = Special phase begins
+2018-04-25 19:30:28,692 INFO = Start Turn phase begins
+2018-04-25 19:30:28,692 INFO = Start Turn phase begins
+2018-04-25 19:30:28,693 INFO == TURN 12 BEGIN ==
+2018-04-25 19:30:28,693 INFO == TURN 12 BEGIN ==
+2018-04-25 19:30:28,709 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:30:28,709 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:30:28,709 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:28,709 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:28,709 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:28,709 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:28,709 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:28,709 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:28,710 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:30:28,710 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:30:28,754 INFO = Issue Orders phase begins
+2018-04-25 19:30:28,754 INFO = Issue Orders phase begins
+2018-04-25 19:30:29,036 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:30:29,036 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:30:29,036 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:30:29,036 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 8)'
+2018-04-25 19:30:29,036 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Demolish self'
+2018-04-25 19:30:29,036 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Demolish self'
+2018-04-25 19:30:29,036 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:30:29,036 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (8, 8)'
+2018-04-25 19:30:29,036 INFO BLUE Ranger at tile (8, 8) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:30:29,036 INFO BLUE Ranger at tile (8, 8) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:30:29,036 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:30:29,036 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:30:29,037 INFO = Move phase begins
+2018-04-25 19:30:29,037 INFO = Move phase begins
+2018-04-25 19:30:29,050 INFO None moved to (10, 9)
+2018-04-25 19:30:29,050 INFO None moved to (10, 9)
+2018-04-25 19:30:29,050 INFO None moved to (10, 8)
+2018-04-25 19:30:29,050 INFO None moved to (10, 8)
+2018-04-25 19:30:29,050 INFO None moved to (8, 8)
+2018-04-25 19:30:29,050 INFO None moved to (8, 8)
+2018-04-25 19:30:29,051 INFO BLUE Ranger at tile (8, 8) with 90 HP moved to (9, 8)
+2018-04-25 19:30:29,051 INFO BLUE Ranger at tile (8, 8) with 90 HP moved to (9, 8)
+2018-04-25 19:30:29,088 INFO = Build phase begins
+2018-04-25 19:30:29,088 INFO = Build phase begins
+2018-04-25 19:30:29,101 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:30:29,101 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:30:29,101 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:30:29,101 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:30:29,141 INFO = Combat phase begins
+2018-04-25 19:30:29,141 INFO = Combat phase begins
+2018-04-25 19:30:29,190 INFO = Ranged phase begins
+2018-04-25 19:30:29,190 INFO = Ranged phase begins
+2018-04-25 19:30:29,238 INFO = Special phase begins
+2018-04-25 19:30:29,238 INFO = Special phase begins
+2018-04-25 19:30:29,251 INFO BLUE Ranger at tile (10, 9) with 0 HP took 90 damage from None!
+2018-04-25 19:30:29,251 INFO BLUE Ranger at tile (10, 9) with 0 HP took 90 damage from None!
+2018-04-25 19:30:29,252 INFO BLUE Ranger at tile (10, 9) with 0 HP was successfully demolished.
+2018-04-25 19:30:29,252 INFO BLUE Ranger at tile (10, 9) with 0 HP was successfully demolished.
+2018-04-25 19:30:29,289 INFO = Start Turn phase begins
+2018-04-25 19:30:29,289 INFO = Start Turn phase begins
+2018-04-25 19:30:29,290 INFO == TURN 13 BEGIN ==
+2018-04-25 19:30:29,290 INFO == TURN 13 BEGIN ==
+2018-04-25 19:30:29,303 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:30:29,303 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:30:29,303 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:29,303 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:29,303 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:29,303 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:29,303 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:29,303 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:30:29,303 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:30:29,303 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:30:29,342 INFO = Issue Orders phase begins
+2018-04-25 19:30:29,342 INFO = Issue Orders phase begins
+2018-04-25 19:44:10,118 INFO BLUE Base at tile (11, 11) with 150 HP was assigned the order 'Order: Build a Colonist on tile (12, 11)'
+2018-04-25 19:44:10,118 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:44:10,118 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:44:10,119 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-04-25 19:44:10,119 INFO = Move phase begins
+2018-04-25 19:44:10,133 INFO None moved to (4, 8)
+2018-04-25 19:44:10,134 INFO None moved to (6, 8)
+2018-04-25 19:44:10,176 INFO = Build phase begins
+2018-04-25 19:44:10,192 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:44:10,193 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:44:10,193 INFO Team.BLUE PieceType.COLONIST was built on (12, 11). 
+2018-04-25 19:44:10,193 INFO Team.BLUE team spent 5 resources.
+2018-04-25 19:44:10,231 INFO = Combat phase begins
+2018-04-25 19:44:10,281 INFO = Ranged phase begins
+2018-04-25 19:44:10,331 INFO = Special phase begins
+2018-04-25 19:44:10,385 INFO = Start Turn phase begins
+2018-04-25 19:44:10,386 INFO == TURN 11 BEGIN ==
+2018-04-25 19:44:10,398 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:44:10,399 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:10,399 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:10,399 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:10,399 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:44:10,437 INFO = Issue Orders phase begins
+2018-04-25 19:44:14,647 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:44:14,648 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:44:14,648 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:44:14,648 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:44:14,648 INFO = Move phase begins
+2018-04-25 19:44:14,662 INFO None moved to (10, 9)
+2018-04-25 19:44:14,662 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:44:14,700 INFO = Build phase begins
+2018-04-25 19:44:14,714 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:44:14,714 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:44:14,753 INFO = Combat phase begins
+2018-04-25 19:44:14,809 INFO = Ranged phase begins
+2018-04-25 19:44:14,821 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:44:14,833 INFO RED Base at tile (4, 10) with 123 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:44:14,860 INFO = Special phase begins
+2018-04-25 19:44:14,910 INFO = Start Turn phase begins
+2018-04-25 19:44:14,911 INFO == TURN 12 BEGIN ==
+2018-04-25 19:44:14,925 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:44:14,926 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:14,926 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:14,926 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:14,926 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:44:14,965 INFO = Issue Orders phase begins
+2018-04-25 19:44:15,892 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:44:15,892 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:44:15,892 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:44:15,892 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:44:15,892 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:44:15,892 INFO = Move phase begins
+2018-04-25 19:44:15,913 INFO None moved to (10, 9)
+2018-04-25 19:44:15,913 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:44:15,914 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:44:15,960 INFO = Build phase begins
+2018-04-25 19:44:15,974 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:44:15,974 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:44:16,017 INFO = Combat phase begins
+2018-04-25 19:44:16,077 INFO = Ranged phase begins
+2018-04-25 19:44:16,091 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:44:16,109 INFO RED Base at tile (4, 10) with 96 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:44:16,138 INFO = Special phase begins
+2018-04-25 19:44:16,206 INFO = Start Turn phase begins
+2018-04-25 19:44:16,207 INFO == TURN 13 BEGIN ==
+2018-04-25 19:44:16,222 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:44:16,222 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:16,223 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:16,223 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:16,223 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:44:16,266 INFO = Issue Orders phase begins
+2018-04-25 19:44:16,725 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:44:16,726 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:44:16,726 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:44:16,726 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (9, 7)'
+2018-04-25 19:44:16,726 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:44:16,726 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:44:16,726 INFO = Move phase begins
+2018-04-25 19:44:16,738 INFO None moved to (10, 9)
+2018-04-25 19:44:16,739 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:44:16,739 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (9, 7)
+2018-04-25 19:44:16,739 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:44:16,776 INFO = Build phase begins
+2018-04-25 19:44:16,789 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:44:16,789 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:44:16,833 INFO = Combat phase begins
+2018-04-25 19:44:16,887 INFO = Ranged phase begins
+2018-04-25 19:44:16,901 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:44:16,915 INFO RED Base at tile (4, 10) with 69 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:44:16,944 INFO = Special phase begins
+2018-04-25 19:44:16,998 INFO = Start Turn phase begins
+2018-04-25 19:44:16,999 INFO == TURN 14 BEGIN ==
+2018-04-25 19:44:17,019 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:44:17,019 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:17,020 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:17,020 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:17,020 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:44:17,061 INFO = Issue Orders phase begins
+2018-04-25 19:44:17,393 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:44:17,393 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:44:17,393 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:44:17,393 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (9, 7)'
+2018-04-25 19:44:17,393 INFO BLUE Ranger at tile (9, 7) with 90 HP was assigned the order 'Order: Move to (10, 7)'
+2018-04-25 19:44:17,393 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:44:17,393 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:44:17,393 INFO = Move phase begins
+2018-04-25 19:44:17,407 INFO None moved to (10, 9)
+2018-04-25 19:44:17,408 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:44:17,408 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (9, 7)
+2018-04-25 19:44:17,408 INFO BLUE Ranger at tile (9, 7) with 90 HP moved to (10, 7)
+2018-04-25 19:44:17,408 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:44:17,444 INFO = Build phase begins
+2018-04-25 19:44:17,457 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:44:17,457 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:44:17,505 INFO = Combat phase begins
+2018-04-25 19:44:17,563 INFO = Ranged phase begins
+2018-04-25 19:44:17,577 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:44:17,592 INFO RED Base at tile (4, 10) with 42 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:44:17,619 INFO = Special phase begins
+2018-04-25 19:44:17,674 INFO = Start Turn phase begins
+2018-04-25 19:44:17,675 INFO == TURN 15 BEGIN ==
+2018-04-25 19:44:17,688 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:44:17,689 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:17,689 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:17,689 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:17,689 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:44:17,729 INFO = Issue Orders phase begins
+2018-04-25 19:44:18,102 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:44:18,102 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:44:18,103 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:44:18,103 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (9, 7)'
+2018-04-25 19:44:18,103 INFO BLUE Ranger at tile (9, 7) with 90 HP was assigned the order 'Order: Move to (10, 7)'
+2018-04-25 19:44:18,103 INFO BLUE Ranger at tile (10, 7) with 90 HP was assigned the order 'Order: Move to (10, 6)'
+2018-04-25 19:44:18,103 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:44:18,103 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:44:18,103 INFO = Move phase begins
+2018-04-25 19:44:18,116 INFO None moved to (10, 9)
+2018-04-25 19:44:18,116 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:44:18,116 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (9, 7)
+2018-04-25 19:44:18,116 INFO BLUE Ranger at tile (9, 7) with 90 HP moved to (10, 7)
+2018-04-25 19:44:18,117 INFO BLUE Ranger at tile (10, 7) with 90 HP moved to (10, 6)
+2018-04-25 19:44:18,117 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:44:18,155 INFO = Build phase begins
+2018-04-25 19:44:18,168 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:44:18,168 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:44:18,207 INFO = Combat phase begins
+2018-04-25 19:44:18,257 INFO = Ranged phase begins
+2018-04-25 19:44:18,270 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:44:18,284 INFO RED Base at tile (4, 10) with 15 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:44:18,312 INFO = Special phase begins
+2018-04-25 19:44:18,370 INFO = Start Turn phase begins
+2018-04-25 19:44:18,371 INFO == TURN 16 BEGIN ==
+2018-04-25 19:44:18,385 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:44:18,385 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:18,386 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:18,386 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:44:18,386 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:44:18,430 INFO = Issue Orders phase begins
+2018-04-25 19:44:18,693 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:44:18,693 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:44:18,693 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:44:18,693 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (9, 7)'
+2018-04-25 19:44:18,693 INFO BLUE Ranger at tile (9, 7) with 90 HP was assigned the order 'Order: Move to (10, 7)'
+2018-04-25 19:44:18,693 INFO BLUE Ranger at tile (10, 7) with 90 HP was assigned the order 'Order: Move to (10, 6)'
+2018-04-25 19:44:18,694 INFO BLUE Ranger at tile (10, 6) with 90 HP was assigned the order 'Order: Move to (10, 5)'
+2018-04-25 19:44:18,694 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:44:18,694 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:44:18,694 INFO = Move phase begins
+2018-04-25 19:44:18,712 INFO None moved to (10, 9)
+2018-04-25 19:44:18,713 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:44:18,713 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (9, 7)
+2018-04-25 19:44:18,713 INFO BLUE Ranger at tile (9, 7) with 90 HP moved to (10, 7)
+2018-04-25 19:44:18,714 INFO BLUE Ranger at tile (10, 7) with 90 HP moved to (10, 6)
+2018-04-25 19:44:18,714 INFO BLUE Ranger at tile (10, 6) with 90 HP moved to (10, 5)
+2018-04-25 19:44:18,714 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:44:18,756 INFO = Build phase begins
+2018-04-25 19:44:18,769 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:44:18,769 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:44:18,807 INFO = Combat phase begins
+2018-04-25 19:44:18,861 INFO = Ranged phase begins
+2018-04-25 19:44:18,876 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:44:18,891 INFO RED Base at tile (4, 10) with -12 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:44:18,921 INFO = Special phase begins
+2018-04-25 19:44:18,949 INFO === BATTLE OVER! ===
+2018-04-25 19:44:18,949 INFO Team.RED team has lost.
+2018-04-25 19:44:18,950 INFO -- Stats for team Team.RED --
+2018-04-25 19:44:18,950 INFO   * Tiles Moved: 0
+2018-04-25 19:44:18,950 INFO   * Ranged Attacks: 0
+2018-04-25 19:44:18,950 INFO   * Piece Conflicts: 0
+2018-04-25 19:44:18,950 INFO   * Pieces Lost: 1
+2018-04-25 19:44:18,950 INFO   * Pieces Built: 0
+2018-04-25 19:44:18,950 INFO   * Upgrades Researched: 0
+2018-04-25 19:44:18,950 INFO Team.BLUE team has won!
+2018-04-25 19:44:18,950 INFO -- Stats for team Team.BLUE --
+2018-04-25 19:44:18,950 INFO   * Tiles Moved: 34
+2018-04-25 19:44:18,950 INFO   * Ranged Attacks: 6
+2018-04-25 19:44:18,950 INFO   * Piece Conflicts: 0
+2018-04-25 19:44:18,950 INFO   * Pieces Lost: 0
+2018-04-25 19:44:18,950 INFO   * Pieces Built: 8
+2018-04-25 19:44:18,950 INFO   * Upgrades Researched: 0
+2018-04-25 19:47:24,300 INFO BLUE Base at tile (11, 11) with 150 HP was assigned the order 'Order: Build a Colonist on tile (12, 11)'
+2018-04-25 19:47:24,300 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:47:24,300 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:47:24,300 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-04-25 19:47:24,301 INFO = Move phase begins
+2018-04-25 19:47:24,318 INFO None moved to (4, 8)
+2018-04-25 19:47:24,318 INFO None moved to (6, 8)
+2018-04-25 19:47:24,370 INFO = Build phase begins
+2018-04-25 19:47:24,390 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:47:24,390 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:47:24,391 INFO Team.BLUE PieceType.COLONIST was built on (12, 11). 
+2018-04-25 19:47:24,391 INFO Team.BLUE team spent 5 resources.
+2018-04-25 19:47:24,445 INFO = Combat phase begins
+2018-04-25 19:47:24,516 INFO = Ranged phase begins
+2018-04-25 19:47:24,586 INFO = Special phase begins
+2018-04-25 19:47:24,660 INFO = Start Turn phase begins
+2018-04-25 19:47:24,661 INFO == TURN 11 BEGIN ==
+2018-04-25 19:47:24,679 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:47:24,680 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:24,680 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:24,680 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:24,681 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:47:24,732 INFO = Issue Orders phase begins
+2018-04-25 19:47:25,936 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:47:25,936 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:47:25,936 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:47:25,936 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:47:25,937 INFO = Move phase begins
+2018-04-25 19:47:25,959 INFO None moved to (10, 9)
+2018-04-25 19:47:25,959 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:47:26,013 INFO = Build phase begins
+2018-04-25 19:47:26,031 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:47:26,031 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:47:26,083 INFO = Combat phase begins
+2018-04-25 19:47:26,153 INFO = Ranged phase begins
+2018-04-25 19:47:26,174 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:47:26,193 INFO RED Base at tile (4, 10) with 123 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:47:26,229 INFO = Special phase begins
+2018-04-25 19:47:26,296 INFO = Start Turn phase begins
+2018-04-25 19:47:26,298 INFO == TURN 12 BEGIN ==
+2018-04-25 19:47:26,315 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:47:26,315 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:26,315 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:26,316 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:26,316 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:47:26,367 INFO = Issue Orders phase begins
+2018-04-25 19:47:27,682 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:47:27,682 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:47:27,682 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:47:27,683 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:47:27,683 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:47:27,683 INFO = Move phase begins
+2018-04-25 19:47:27,700 INFO None moved to (10, 9)
+2018-04-25 19:47:27,700 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:47:27,701 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:47:27,751 INFO = Build phase begins
+2018-04-25 19:47:27,768 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:47:27,769 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:47:27,820 INFO = Combat phase begins
+2018-04-25 19:47:27,893 INFO = Ranged phase begins
+2018-04-25 19:47:27,912 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:47:27,929 INFO RED Base at tile (4, 10) with 96 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:47:27,963 INFO = Special phase begins
+2018-04-25 19:47:28,036 INFO = Start Turn phase begins
+2018-04-25 19:47:28,037 INFO == TURN 13 BEGIN ==
+2018-04-25 19:47:28,057 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:47:28,057 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:28,058 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:28,058 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:28,058 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:47:28,112 INFO = Issue Orders phase begins
+2018-04-25 19:47:28,857 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:47:28,858 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:47:28,858 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:47:28,858 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (9, 7)'
+2018-04-25 19:47:28,858 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:47:28,858 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:47:28,859 INFO = Move phase begins
+2018-04-25 19:47:28,877 INFO None moved to (10, 9)
+2018-04-25 19:47:28,878 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:47:28,878 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (9, 7)
+2018-04-25 19:47:28,879 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:47:28,930 INFO = Build phase begins
+2018-04-25 19:47:28,947 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:47:28,948 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:47:29,008 INFO = Combat phase begins
+2018-04-25 19:47:29,103 INFO = Ranged phase begins
+2018-04-25 19:47:29,123 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:47:29,140 INFO RED Base at tile (4, 10) with 69 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:47:29,177 INFO = Special phase begins
+2018-04-25 19:47:29,247 INFO = Start Turn phase begins
+2018-04-25 19:47:29,248 INFO == TURN 14 BEGIN ==
+2018-04-25 19:47:29,266 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:47:29,266 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:29,266 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:29,267 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:29,267 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:47:29,328 INFO = Issue Orders phase begins
+2018-04-25 19:47:36,651 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:47:36,652 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Move to (4, 6)'
+2018-04-25 19:47:36,652 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:47:36,652 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (9, 7)'
+2018-04-25 19:47:36,652 INFO BLUE Ranger at tile (9, 7) with 90 HP was assigned the order 'Order: Move to (10, 7)'
+2018-04-25 19:47:36,652 INFO BLUE Ranger at tile (6, 8) with 90 HP was assigned the order 'Order: Move to (6, 8)'
+2018-04-25 19:47:36,652 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:47:36,653 INFO = Move phase begins
+2018-04-25 19:47:36,673 INFO None moved to (10, 9)
+2018-04-25 19:47:36,673 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:47:36,674 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (9, 7)
+2018-04-25 19:47:36,674 INFO BLUE Ranger at tile (9, 7) with 90 HP moved to (10, 7)
+2018-04-25 19:47:36,675 INFO None moved to (4, 6)
+2018-04-25 19:47:36,675 INFO BLUE Ranger at tile (6, 8) with 90 HP moved to (6, 8)
+2018-04-25 19:47:36,730 INFO = Build phase begins
+2018-04-25 19:47:36,749 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:47:36,749 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:47:36,804 INFO = Combat phase begins
+2018-04-25 19:47:36,878 INFO = Ranged phase begins
+2018-04-25 19:47:36,956 INFO = Special phase begins
+2018-04-25 19:47:37,050 INFO = Start Turn phase begins
+2018-04-25 19:47:37,052 INFO == TURN 15 BEGIN ==
+2018-04-25 19:47:37,072 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:47:37,073 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:37,073 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:37,074 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:47:37,074 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:47:37,131 INFO = Issue Orders phase begins
+2018-04-25 19:56:10,403 INFO BLUE Base at tile (11, 11) with 150 HP was assigned the order 'Order: Build a Colonist on tile (12, 11)'
+2018-04-25 19:56:10,403 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:10,403 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:10,404 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-04-25 19:56:10,404 INFO = Move phase begins
+2018-04-25 19:56:10,419 INFO None moved to (4, 8)
+2018-04-25 19:56:10,419 INFO None moved to (5, 8)
+2018-04-25 19:56:10,460 INFO = Build phase begins
+2018-04-25 19:56:10,473 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:10,474 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:10,474 INFO Team.BLUE PieceType.COLONIST was built on (12, 11). 
+2018-04-25 19:56:10,474 INFO Team.BLUE team spent 5 resources.
+2018-04-25 19:56:10,511 INFO = Combat phase begins
+2018-04-25 19:56:10,560 INFO = Ranged phase begins
+2018-04-25 19:56:10,611 INFO = Special phase begins
+2018-04-25 19:56:10,661 INFO = Start Turn phase begins
+2018-04-25 19:56:10,662 INFO == TURN 11 BEGIN ==
+2018-04-25 19:56:10,675 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:10,675 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:10,676 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:10,676 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:10,676 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:10,713 INFO = Issue Orders phase begins
+2018-04-25 19:56:11,998 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:11,998 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:11,998 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 9)'
+2018-04-25 19:56:11,998 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:11,999 INFO = Move phase begins
+2018-04-25 19:56:12,012 INFO None moved to (10, 9)
+2018-04-25 19:56:12,013 INFO None moved to (4, 9)
+2018-04-25 19:56:12,048 INFO = Build phase begins
+2018-04-25 19:56:12,061 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:12,062 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:12,102 INFO = Combat phase begins
+2018-04-25 19:56:12,153 INFO = Ranged phase begins
+2018-04-25 19:56:12,167 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:12,181 INFO RED Base at tile (4, 10) with 123 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:56:12,206 INFO = Special phase begins
+2018-04-25 19:56:12,258 INFO = Start Turn phase begins
+2018-04-25 19:56:12,258 INFO == TURN 12 BEGIN ==
+2018-04-25 19:56:12,270 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:12,271 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:12,271 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:12,271 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:12,272 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:12,311 INFO = Issue Orders phase begins
+2018-04-25 19:56:12,710 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:12,710 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:12,710 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:12,710 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:12,710 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:12,710 INFO = Move phase begins
+2018-04-25 19:56:12,723 INFO None moved to (10, 9)
+2018-04-25 19:56:12,724 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:12,762 INFO = Build phase begins
+2018-04-25 19:56:12,775 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:12,775 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:12,814 INFO = Combat phase begins
+2018-04-25 19:56:12,865 INFO = Ranged phase begins
+2018-04-25 19:56:12,878 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:12,879 INFO BLUE Ranger at tile (4, 9) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:12,892 INFO RED Base at tile (4, 10) with 69 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:56:12,893 INFO RED Base at tile (4, 10) with 69 HP took 27 damage from BLUE Ranger at tile (4, 9) with 90 HP!
+2018-04-25 19:56:12,919 INFO = Special phase begins
+2018-04-25 19:56:12,971 INFO = Start Turn phase begins
+2018-04-25 19:56:12,972 INFO == TURN 13 BEGIN ==
+2018-04-25 19:56:12,985 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:12,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:12,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:12,986 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:12,987 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:13,034 INFO = Issue Orders phase begins
+2018-04-25 19:56:13,327 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:13,328 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:13,328 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:13,328 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:13,328 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:13,328 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:13,328 INFO = Move phase begins
+2018-04-25 19:56:13,343 INFO None moved to (10, 9)
+2018-04-25 19:56:13,343 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:13,343 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:13,384 INFO = Build phase begins
+2018-04-25 19:56:13,397 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:13,398 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:13,439 INFO = Combat phase begins
+2018-04-25 19:56:13,492 INFO = Ranged phase begins
+2018-04-25 19:56:13,505 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:13,506 INFO BLUE Ranger at tile (4, 9) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:13,520 INFO RED Base at tile (4, 10) with 15 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:56:13,520 INFO RED Base at tile (4, 10) with 15 HP took 27 damage from BLUE Ranger at tile (4, 9) with 90 HP!
+2018-04-25 19:56:13,545 INFO = Special phase begins
+2018-04-25 19:56:13,596 INFO = Start Turn phase begins
+2018-04-25 19:56:13,596 INFO == TURN 14 BEGIN ==
+2018-04-25 19:56:13,610 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:13,610 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:13,610 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:13,610 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:13,610 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:13,648 INFO = Issue Orders phase begins
+2018-04-25 19:56:13,815 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:13,815 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:13,815 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:13,815 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:13,815 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:13,815 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:13,815 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:13,815 INFO = Move phase begins
+2018-04-25 19:56:13,828 INFO None moved to (10, 9)
+2018-04-25 19:56:13,829 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:13,829 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:13,829 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:13,868 INFO = Build phase begins
+2018-04-25 19:56:13,881 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:13,881 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:13,921 INFO = Combat phase begins
+2018-04-25 19:56:13,977 INFO = Ranged phase begins
+2018-04-25 19:56:13,990 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:13,991 INFO BLUE Ranger at tile (4, 9) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:14,004 INFO RED Base at tile (4, 10) with -39 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:56:14,004 INFO RED Base at tile (4, 10) with -39 HP took 27 damage from BLUE Ranger at tile (4, 9) with 90 HP!
+2018-04-25 19:56:14,032 INFO = Special phase begins
+2018-04-25 19:56:14,064 INFO === BATTLE OVER! ===
+2018-04-25 19:56:14,064 INFO Team.RED team has lost.
+2018-04-25 19:56:14,064 INFO -- Stats for team Team.RED --
+2018-04-25 19:56:14,064 INFO   * Tiles Moved: 0
+2018-04-25 19:56:14,064 INFO   * Ranged Attacks: 0
+2018-04-25 19:56:14,064 INFO   * Piece Conflicts: 0
+2018-04-25 19:56:14,064 INFO   * Pieces Lost: 1
+2018-04-25 19:56:14,064 INFO   * Pieces Built: 0
+2018-04-25 19:56:14,065 INFO   * Upgrades Researched: 0
+2018-04-25 19:56:14,065 INFO Team.BLUE team has won!
+2018-04-25 19:56:14,065 INFO -- Stats for team Team.BLUE --
+2018-04-25 19:56:14,065 INFO   * Tiles Moved: 25
+2018-04-25 19:56:14,065 INFO   * Ranged Attacks: 7
+2018-04-25 19:56:14,065 INFO   * Piece Conflicts: 0
+2018-04-25 19:56:14,065 INFO   * Pieces Lost: 0
+2018-04-25 19:56:14,066 INFO   * Pieces Built: 6
+2018-04-25 19:56:14,066 INFO   * Upgrades Researched: 0
+2018-04-25 19:56:18,171 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:18,171 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-04-25 19:56:18,172 INFO = Move phase begins
+2018-04-25 19:56:18,224 INFO = Build phase begins
+2018-04-25 19:56:18,237 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-04-25 19:56:18,237 INFO Team.BLUE team spent 1 resources.
+2018-04-25 19:56:18,238 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:18,238 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:18,278 INFO = Combat phase begins
+2018-04-25 19:56:18,328 INFO = Ranged phase begins
+2018-04-25 19:56:18,377 INFO = Special phase begins
+2018-04-25 19:56:18,429 INFO = Start Turn phase begins
+2018-04-25 19:56:18,430 INFO == TURN 2 BEGIN ==
+2018-04-25 19:56:18,443 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:18,443 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:18,443 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:18,443 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:18,443 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:18,481 INFO = Issue Orders phase begins
+2018-04-25 19:56:18,853 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:18,854 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-04-25 19:56:18,854 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:18,854 INFO = Move phase begins
+2018-04-25 19:56:18,868 INFO None moved to (10, 9)
+2018-04-25 19:56:18,907 INFO = Build phase begins
+2018-04-25 19:56:18,920 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-04-25 19:56:18,920 INFO Team.BLUE team spent 1 resources.
+2018-04-25 19:56:18,921 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:18,921 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:18,960 INFO = Combat phase begins
+2018-04-25 19:56:19,012 INFO = Ranged phase begins
+2018-04-25 19:56:19,064 INFO = Special phase begins
+2018-04-25 19:56:19,115 INFO = Start Turn phase begins
+2018-04-25 19:56:19,115 INFO == TURN 3 BEGIN ==
+2018-04-25 19:56:19,128 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:19,128 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:19,128 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:19,128 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:19,129 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:19,129 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:19,168 INFO = Issue Orders phase begins
+2018-04-25 19:56:19,356 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:19,356 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:19,357 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:19,357 INFO = Move phase begins
+2018-04-25 19:56:19,369 INFO None moved to (10, 9)
+2018-04-25 19:56:19,370 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:19,413 INFO = Build phase begins
+2018-04-25 19:56:19,427 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:19,427 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:19,470 INFO = Combat phase begins
+2018-04-25 19:56:19,523 INFO = Ranged phase begins
+2018-04-25 19:56:19,573 INFO = Special phase begins
+2018-04-25 19:56:19,627 INFO = Start Turn phase begins
+2018-04-25 19:56:19,627 INFO == TURN 4 BEGIN ==
+2018-04-25 19:56:19,641 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:19,641 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:19,641 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:19,641 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:19,642 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:19,642 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:19,687 INFO = Issue Orders phase begins
+2018-04-25 19:56:19,768 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:19,769 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:19,769 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:19,769 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:19,769 INFO = Move phase begins
+2018-04-25 19:56:19,782 INFO None moved to (10, 9)
+2018-04-25 19:56:19,783 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:19,783 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:19,823 INFO = Build phase begins
+2018-04-25 19:56:19,837 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:19,837 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:19,874 INFO = Combat phase begins
+2018-04-25 19:56:19,928 INFO = Ranged phase begins
+2018-04-25 19:56:19,983 INFO = Special phase begins
+2018-04-25 19:56:20,038 INFO = Start Turn phase begins
+2018-04-25 19:56:20,038 INFO == TURN 5 BEGIN ==
+2018-04-25 19:56:20,053 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,053 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,054 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:20,054 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,054 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:20,054 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:20,095 INFO = Issue Orders phase begins
+2018-04-25 19:56:20,186 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:20,186 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:20,187 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:20,187 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:20,187 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:20,187 INFO = Move phase begins
+2018-04-25 19:56:20,200 INFO None moved to (10, 9)
+2018-04-25 19:56:20,201 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:20,202 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:20,202 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:20,241 INFO = Build phase begins
+2018-04-25 19:56:20,254 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:20,254 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:20,293 INFO = Combat phase begins
+2018-04-25 19:56:20,346 INFO = Ranged phase begins
+2018-04-25 19:56:20,397 INFO = Special phase begins
+2018-04-25 19:56:20,449 INFO = Start Turn phase begins
+2018-04-25 19:56:20,450 INFO == TURN 6 BEGIN ==
+2018-04-25 19:56:20,462 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,463 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,463 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:20,463 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,463 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:20,463 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:20,502 INFO = Issue Orders phase begins
+2018-04-25 19:56:20,606 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:20,607 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:20,607 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:20,607 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:20,607 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-04-25 19:56:20,607 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:20,607 INFO = Move phase begins
+2018-04-25 19:56:20,620 INFO None moved to (10, 9)
+2018-04-25 19:56:20,620 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:20,621 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:20,621 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:20,621 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 8)
+2018-04-25 19:56:20,661 INFO = Build phase begins
+2018-04-25 19:56:20,674 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:20,674 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:20,710 INFO = Combat phase begins
+2018-04-25 19:56:20,765 INFO = Ranged phase begins
+2018-04-25 19:56:20,818 INFO = Special phase begins
+2018-04-25 19:56:20,869 INFO = Start Turn phase begins
+2018-04-25 19:56:20,870 INFO == TURN 7 BEGIN ==
+2018-04-25 19:56:20,882 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,883 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,883 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:20,883 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:20,883 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:20,884 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:20,923 INFO = Issue Orders phase begins
+2018-04-25 19:56:21,122 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:21,123 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:21,123 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:21,123 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:21,123 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 9)'
+2018-04-25 19:56:21,123 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:21,123 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:21,123 INFO = Move phase begins
+2018-04-25 19:56:21,137 INFO None moved to (10, 9)
+2018-04-25 19:56:21,138 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:21,138 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:21,138 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:21,138 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-04-25 19:56:21,179 INFO = Build phase begins
+2018-04-25 19:56:21,194 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:21,195 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:21,236 INFO = Combat phase begins
+2018-04-25 19:56:21,291 INFO = Ranged phase begins
+2018-04-25 19:56:21,303 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:21,316 INFO RED Barracks at tile (4, 10) with 70 HP took 30 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:56:21,343 INFO = Special phase begins
+2018-04-25 19:56:21,395 INFO = Start Turn phase begins
+2018-04-25 19:56:21,395 INFO == TURN 8 BEGIN ==
+2018-04-25 19:56:21,409 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:21,409 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:21,409 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:21,409 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:21,410 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:21,410 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:21,450 INFO = Issue Orders phase begins
+2018-04-25 19:56:21,791 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:21,791 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:21,791 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:21,791 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:21,792 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (3, 8)'
+2018-04-25 19:56:21,792 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:21,792 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:21,792 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:21,792 INFO = Move phase begins
+2018-04-25 19:56:21,804 INFO None moved to (10, 9)
+2018-04-25 19:56:21,804 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:21,805 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:21,805 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:21,805 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (3, 8)
+2018-04-25 19:56:21,843 INFO = Build phase begins
+2018-04-25 19:56:21,856 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:21,856 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:21,896 INFO = Combat phase begins
+2018-04-25 19:56:21,948 INFO = Ranged phase begins
+2018-04-25 19:56:21,962 INFO BLUE Ranger at tile (4, 9) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:21,963 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:21,976 INFO RED Barracks at tile (4, 10) with 10 HP took 30 damage from BLUE Ranger at tile (4, 9) with 90 HP!
+2018-04-25 19:56:21,976 INFO RED Barracks at tile (4, 10) with 10 HP took 30 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:56:22,003 INFO = Special phase begins
+2018-04-25 19:56:22,082 INFO = Start Turn phase begins
+2018-04-25 19:56:22,083 INFO == TURN 9 BEGIN ==
+2018-04-25 19:56:22,096 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:22,096 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:22,097 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:22,097 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:22,097 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:22,097 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:22,135 INFO = Issue Orders phase begins
+2018-04-25 19:56:22,396 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:22,396 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:22,396 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:22,396 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:22,396 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (3, 8)'
+2018-04-25 19:56:22,396 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:22,396 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 19:56:22,396 INFO BLUE Ranger at tile (3, 8) with 90 HP was assigned the order 'Order: Move to (3, 10)'
+2018-04-25 19:56:22,397 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:22,397 INFO = Move phase begins
+2018-04-25 19:56:22,411 INFO None moved to (10, 9)
+2018-04-25 19:56:22,411 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:22,411 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:22,412 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:22,412 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (3, 8)
+2018-04-25 19:56:22,412 INFO BLUE Ranger at tile (3, 8) with 90 HP moved to (3, 10)
+2018-04-25 19:56:22,458 INFO = Build phase begins
+2018-04-25 19:56:22,471 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:22,471 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:22,510 INFO = Combat phase begins
+2018-04-25 19:56:22,563 INFO = Ranged phase begins
+2018-04-25 19:56:22,576 INFO BLUE Ranger at tile (4, 9) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:22,576 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 19:56:22,589 INFO RED Barracks at tile (4, 10) with -50 HP took 30 damage from BLUE Ranger at tile (4, 9) with 90 HP!
+2018-04-25 19:56:22,590 INFO RED Barracks at tile (4, 10) with -50 HP took 30 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 19:56:22,616 INFO = Special phase begins
+2018-04-25 19:56:22,667 INFO = Start Turn phase begins
+2018-04-25 19:56:22,669 INFO == TURN 10 BEGIN ==
+2018-04-25 19:56:22,682 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:22,683 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:22,684 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:22,684 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:22,684 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:22,685 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:22,730 INFO = Issue Orders phase begins
+2018-04-25 19:56:24,631 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:24,631 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:24,631 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:24,632 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:24,632 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-04-25 19:56:24,632 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Move to (3, 8)'
+2018-04-25 19:56:24,632 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Move to (4, 11)'
+2018-04-25 19:56:24,632 INFO BLUE Ranger at tile (3, 8) with 90 HP was assigned the order 'Order: Move to (3, 9)'
+2018-04-25 19:56:24,632 INFO BLUE Ranger at tile (3, 10) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 12)'
+2018-04-25 19:56:24,632 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:24,632 INFO = Move phase begins
+2018-04-25 19:56:24,646 INFO None moved to (10, 9)
+2018-04-25 19:56:24,646 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:24,646 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:24,647 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:24,647 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 8)
+2018-04-25 19:56:24,647 INFO None moved to (3, 9)
+2018-04-25 19:56:24,647 INFO None moved to (4, 11)
+2018-04-25 19:56:24,647 INFO BLUE Ranger at tile (4, 8) with 90 HP moved to (3, 8)
+2018-04-25 19:56:24,686 INFO = Build phase begins
+2018-04-25 19:56:24,701 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:24,701 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:24,740 INFO = Combat phase begins
+2018-04-25 19:56:24,793 INFO = Ranged phase begins
+2018-04-25 19:56:24,807 INFO BLUE Ranger at tile (3, 10) with 90 HP conducted a ranged attack on (3, 12)
+2018-04-25 19:56:24,819 INFO RED Colonist at tile (3, 12) with 76 HP took 24 damage from BLUE Ranger at tile (3, 10) with 90 HP!
+2018-04-25 19:56:24,845 INFO = Special phase begins
+2018-04-25 19:56:24,901 INFO = Start Turn phase begins
+2018-04-25 19:56:24,903 INFO == TURN 11 BEGIN ==
+2018-04-25 19:56:24,917 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:24,918 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:24,918 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:24,919 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:24,919 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:24,919 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:24,959 INFO = Issue Orders phase begins
+2018-04-25 19:56:25,415 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:25,416 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:25,416 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:25,416 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:25,416 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 9)'
+2018-04-25 19:56:25,416 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Move to (4, 10)'
+2018-04-25 19:56:25,417 INFO BLUE Ranger at tile (3, 10) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 12)'
+2018-04-25 19:56:25,417 INFO BLUE Ranger at tile (3, 9) with 90 HP was assigned the order 'Order: Move to (3, 11)'
+2018-04-25 19:56:25,417 INFO BLUE Ranger at tile (4, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 12)'
+2018-04-25 19:56:25,417 INFO BLUE Ranger at tile (3, 8) with 90 HP was assigned the order 'Order: Move to (2, 9)'
+2018-04-25 19:56:25,417 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:25,417 INFO = Move phase begins
+2018-04-25 19:56:25,431 INFO None moved to (10, 9)
+2018-04-25 19:56:25,431 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:25,431 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:25,431 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:25,431 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-04-25 19:56:25,432 INFO None moved to (4, 10)
+2018-04-25 19:56:25,432 INFO None moved to (3, 11)
+2018-04-25 19:56:25,432 INFO None moved to (2, 9)
+2018-04-25 19:56:25,472 INFO = Build phase begins
+2018-04-25 19:56:25,485 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:25,485 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:25,524 INFO = Combat phase begins
+2018-04-25 19:56:25,537 INFO [<terra.piece.piece.Piece object at 0x08CD1210>, <terra.piece.piece.Piece object at 0x08CA4750>] are contesting the tile at (3, 11)!
+2018-04-25 19:56:25,538 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:25,538 INFO BLUE Ranger at tile (3, 11) with 90 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-04-25 19:56:25,539 INFO BLUE Ranger at tile (3, 11) with 90 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-04-25 19:56:25,539 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:25,578 INFO = Ranged phase begins
+2018-04-25 19:56:25,592 INFO BLUE Ranger at tile (3, 10) with 90 HP conducted a ranged attack on (3, 12)
+2018-04-25 19:56:25,592 INFO BLUE Ranger at tile (4, 11) with 90 HP conducted a ranged attack on (3, 12)
+2018-04-25 19:56:25,604 INFO RED Colonist at tile (3, 12) with 28 HP took 24 damage from BLUE Ranger at tile (3, 10) with 90 HP!
+2018-04-25 19:56:25,605 INFO RED Colonist at tile (3, 12) with 28 HP took 24 damage from BLUE Ranger at tile (4, 11) with 90 HP!
+2018-04-25 19:56:25,630 INFO = Special phase begins
+2018-04-25 19:56:25,686 INFO = Start Turn phase begins
+2018-04-25 19:56:25,686 INFO == TURN 12 BEGIN ==
+2018-04-25 19:56:25,701 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:25,702 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:25,703 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:25,703 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:25,703 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:25,703 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:25,754 INFO = Issue Orders phase begins
+2018-04-25 19:56:26,185 INFO BLUE Ranger at tile (3, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 12)'
+2018-04-25 19:56:26,185 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:26,185 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:26,185 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:26,185 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:26,185 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 9)'
+2018-04-25 19:56:26,185 INFO BLUE Ranger at tile (3, 10) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 12)'
+2018-04-25 19:56:26,186 INFO BLUE Ranger at tile (4, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 12)'
+2018-04-25 19:56:26,186 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Move to (2, 9)'
+2018-04-25 19:56:26,186 INFO BLUE Ranger at tile (4, 10) with 90 HP was assigned the order 'Order: Move to (4, 12)'
+2018-04-25 19:56:26,186 INFO BLUE Ranger at tile (2, 9) with 90 HP was assigned the order 'Order: Move to (2, 11)'
+2018-04-25 19:56:26,186 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:26,186 INFO = Move phase begins
+2018-04-25 19:56:26,200 INFO None moved to (10, 9)
+2018-04-25 19:56:26,200 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:26,201 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:26,201 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:26,201 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-04-25 19:56:26,201 INFO BLUE Ranger at tile (4, 9) with 90 HP moved to (2, 9)
+2018-04-25 19:56:26,202 INFO None moved to (4, 12)
+2018-04-25 19:56:26,202 INFO BLUE Ranger at tile (2, 9) with 90 HP moved to (2, 11)
+2018-04-25 19:56:26,244 INFO = Build phase begins
+2018-04-25 19:56:26,257 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:26,257 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:26,295 INFO = Combat phase begins
+2018-04-25 19:56:26,309 INFO [<terra.piece.piece.Piece object at 0x08CD1210>, <terra.piece.piece.Piece object at 0x08CA4750>] are contesting the tile at (3, 11)!
+2018-04-25 19:56:26,309 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:26,309 INFO BLUE Ranger at tile (3, 11) with 90 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-04-25 19:56:26,310 INFO BLUE Ranger at tile (3, 11) with 90 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-04-25 19:56:26,310 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:26,350 INFO = Ranged phase begins
+2018-04-25 19:56:26,365 INFO BLUE Ranger at tile (3, 11) with 90 HP conducted a ranged attack on (3, 12)
+2018-04-25 19:56:26,366 INFO BLUE Ranger at tile (3, 10) with 90 HP conducted a ranged attack on (3, 12)
+2018-04-25 19:56:26,367 INFO BLUE Ranger at tile (4, 11) with 90 HP conducted a ranged attack on (3, 12)
+2018-04-25 19:56:26,380 INFO RED Colonist at tile (3, 12) with -44 HP took 24 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:26,380 INFO RED Colonist at tile (3, 12) with -44 HP took 24 damage from BLUE Ranger at tile (3, 10) with 90 HP!
+2018-04-25 19:56:26,380 INFO RED Colonist at tile (3, 12) with -44 HP took 24 damage from BLUE Ranger at tile (4, 11) with 90 HP!
+2018-04-25 19:56:26,407 INFO = Special phase begins
+2018-04-25 19:56:26,460 INFO = Start Turn phase begins
+2018-04-25 19:56:26,461 INFO == TURN 13 BEGIN ==
+2018-04-25 19:56:26,474 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:26,475 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:26,475 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:26,475 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:26,475 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:26,475 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:26,515 INFO = Issue Orders phase begins
+2018-04-25 19:56:26,987 INFO BLUE Ranger at tile (3, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 13)'
+2018-04-25 19:56:26,987 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:26,987 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:26,987 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:26,987 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:26,987 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 9)'
+2018-04-25 19:56:26,988 INFO BLUE Ranger at tile (3, 10) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:26,988 INFO BLUE Ranger at tile (4, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:26,988 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Move to (3, 9)'
+2018-04-25 19:56:26,988 INFO BLUE Ranger at tile (2, 9) with 90 HP was assigned the order 'Order: Move to (2, 10)'
+2018-04-25 19:56:26,988 INFO BLUE Ranger at tile (4, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:26,988 INFO BLUE Ranger at tile (2, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:26,988 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:26,988 INFO = Move phase begins
+2018-04-25 19:56:27,001 INFO None moved to (10, 9)
+2018-04-25 19:56:27,002 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:27,002 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:27,002 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:27,002 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-04-25 19:56:27,003 INFO BLUE Ranger at tile (4, 9) with 90 HP moved to (3, 9)
+2018-04-25 19:56:27,003 INFO None moved to (2, 10)
+2018-04-25 19:56:27,042 INFO = Build phase begins
+2018-04-25 19:56:27,055 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:27,055 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:27,095 INFO = Combat phase begins
+2018-04-25 19:56:27,108 INFO [<terra.piece.piece.Piece object at 0x08CD1210>, <terra.piece.piece.Piece object at 0x08CA4750>] are contesting the tile at (3, 11)!
+2018-04-25 19:56:27,108 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:27,108 INFO BLUE Ranger at tile (3, 11) with 90 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-04-25 19:56:27,109 INFO BLUE Ranger at tile (3, 11) with 90 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-04-25 19:56:27,109 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:27,148 INFO = Ranged phase begins
+2018-04-25 19:56:27,162 INFO BLUE Ranger at tile (4, 12) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,162 INFO BLUE Ranger at tile (3, 11) with 90 HP conducted a ranged attack on (3, 13)
+2018-04-25 19:56:27,163 INFO BLUE Ranger at tile (3, 10) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,163 INFO BLUE Ranger at tile (4, 11) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,163 INFO BLUE Ranger at tile (2, 11) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,176 INFO RED Base at tile (3, 11) with 42 HP took 27 damage from BLUE Ranger at tile (4, 12) with 90 HP!
+2018-04-25 19:56:27,177 INFO RED Generator at tile (3, 13) with 70 HP took 30 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:27,177 INFO RED Base at tile (3, 11) with 42 HP took 27 damage from BLUE Ranger at tile (3, 10) with 90 HP!
+2018-04-25 19:56:27,177 INFO RED Base at tile (3, 11) with 42 HP took 27 damage from BLUE Ranger at tile (4, 11) with 90 HP!
+2018-04-25 19:56:27,177 INFO RED Base at tile (3, 11) with 42 HP took 27 damage from BLUE Ranger at tile (2, 11) with 90 HP!
+2018-04-25 19:56:27,202 INFO = Special phase begins
+2018-04-25 19:56:27,253 INFO = Start Turn phase begins
+2018-04-25 19:56:27,253 INFO == TURN 14 BEGIN ==
+2018-04-25 19:56:27,266 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:27,266 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:27,266 INFO Team.RED team acquired 1 resources.
+2018-04-25 19:56:27,266 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 19:56:27,267 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 19:56:27,267 INFO Team.RED team acquired 2 resources.
+2018-04-25 19:56:27,308 INFO = Issue Orders phase begins
+2018-04-25 19:56:27,742 INFO BLUE Ranger at tile (3, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 13)'
+2018-04-25 19:56:27,742 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (11, 10)'
+2018-04-25 19:56:27,742 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 19:56:27,742 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-04-25 19:56:27,742 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 19:56:27,742 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (3, 8)'
+2018-04-25 19:56:27,743 INFO BLUE Ranger at tile (3, 10) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:27,743 INFO BLUE Ranger at tile (4, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:27,743 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Move to (4, 10)'
+2018-04-25 19:56:27,743 INFO BLUE Ranger at tile (4, 12) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:27,743 INFO BLUE Ranger at tile (2, 11) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:27,743 INFO BLUE Ranger at tile (3, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:27,743 INFO BLUE Ranger at tile (2, 10) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-04-25 19:56:27,743 INFO BLUE Ranger at tile (11, 10) with 90 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 19:56:27,743 INFO = Move phase begins
+2018-04-25 19:56:27,757 INFO None moved to (10, 9)
+2018-04-25 19:56:27,757 INFO BLUE Ranger at tile (10, 9) with 90 HP moved to (9, 8)
+2018-04-25 19:56:27,757 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-04-25 19:56:27,757 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-04-25 19:56:27,758 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (3, 8)
+2018-04-25 19:56:27,758 INFO None moved to (4, 10)
+2018-04-25 19:56:27,798 INFO = Build phase begins
+2018-04-25 19:56:27,813 INFO Team.BLUE PieceType.RANGER was built on (11, 10). 
+2018-04-25 19:56:27,813 INFO Team.BLUE team spent 3 resources.
+2018-04-25 19:56:27,853 INFO = Combat phase begins
+2018-04-25 19:56:27,868 INFO [<terra.piece.piece.Piece object at 0x08CD1210>, <terra.piece.piece.Piece object at 0x08CA4750>] are contesting the tile at (3, 11)!
+2018-04-25 19:56:27,869 INFO RED Base at tile (3, 11) with 42 HP took 0 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:27,869 INFO BLUE Ranger at tile (3, 11) with 90 HP took 0 damage from RED Base at tile (3, 11) with 42 HP!
+2018-04-25 19:56:27,870 INFO BLUE Ranger at tile (3, 11) with 90 HP took 0 damage from RED Base at tile (3, 11) with 42 HP!
+2018-04-25 19:56:27,870 INFO RED Base at tile (3, 11) with 42 HP took 0 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:27,910 INFO = Ranged phase begins
+2018-04-25 19:56:27,924 INFO BLUE Ranger at tile (3, 9) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,925 INFO BLUE Ranger at tile (2, 10) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,925 INFO BLUE Ranger at tile (4, 12) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,925 INFO BLUE Ranger at tile (3, 11) with 90 HP conducted a ranged attack on (3, 13)
+2018-04-25 19:56:27,925 INFO BLUE Ranger at tile (3, 10) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,926 INFO BLUE Ranger at tile (4, 11) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,926 INFO BLUE Ranger at tile (2, 11) with 90 HP conducted a ranged attack on (3, 11)
+2018-04-25 19:56:27,940 INFO RED Base at tile (3, 11) with -120 HP took 27 damage from BLUE Ranger at tile (3, 9) with 90 HP!
+2018-04-25 19:56:27,940 INFO RED Base at tile (3, 11) with -120 HP took 27 damage from BLUE Ranger at tile (2, 10) with 90 HP!
+2018-04-25 19:56:27,940 INFO RED Base at tile (3, 11) with -120 HP took 27 damage from BLUE Ranger at tile (4, 12) with 90 HP!
+2018-04-25 19:56:27,940 INFO RED Generator at tile (3, 13) with 40 HP took 30 damage from BLUE Ranger at tile (3, 11) with 90 HP!
+2018-04-25 19:56:27,940 INFO RED Base at tile (3, 11) with -120 HP took 27 damage from BLUE Ranger at tile (3, 10) with 90 HP!
+2018-04-25 19:56:27,941 INFO RED Base at tile (3, 11) with -120 HP took 27 damage from BLUE Ranger at tile (4, 11) with 90 HP!
+2018-04-25 19:56:27,941 INFO RED Base at tile (3, 11) with -120 HP took 27 damage from BLUE Ranger at tile (2, 11) with 90 HP!
+2018-04-25 19:56:27,969 INFO = Special phase begins
+2018-04-25 19:56:27,999 INFO === BATTLE OVER! ===
+2018-04-25 19:56:28,000 INFO Team.RED team has lost.
+2018-04-25 19:56:28,000 INFO -- Stats for team Team.RED --
+2018-04-25 19:56:28,000 INFO   * Tiles Moved: 0
+2018-04-25 19:56:28,000 INFO   * Ranged Attacks: 0
+2018-04-25 19:56:28,000 INFO   * Piece Conflicts: 4
+2018-04-25 19:56:28,001 INFO   * Pieces Lost: 3
+2018-04-25 19:56:28,001 INFO   * Pieces Built: 0
+2018-04-25 19:56:28,001 INFO   * Upgrades Researched: 0
+2018-04-25 19:56:28,001 INFO Team.BLUE team has won!
+2018-04-25 19:56:28,001 INFO -- Stats for team Team.BLUE --
+2018-04-25 19:56:28,002 INFO   * Tiles Moved: 129
+2018-04-25 19:56:28,002 INFO   * Ranged Attacks: 23
+2018-04-25 19:56:28,002 INFO   * Piece Conflicts: 4
+2018-04-25 19:56:28,002 INFO   * Pieces Lost: 0
+2018-04-25 19:56:28,002 INFO   * Pieces Built: 16
+2018-04-25 19:56:28,002 INFO   * Upgrades Researched: 0
+2018-04-25 20:08:58,412 INFO BLUE Base at tile (11, 11) with 150 HP was assigned the order 'Order: Build a Colonist on tile (12, 11)'
+2018-04-25 20:08:58,412 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (11, 10)'
+2018-04-25 20:08:58,412 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-04-25 20:08:58,412 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-04-25 20:08:58,412 INFO = Move phase begins
+2018-04-25 20:08:58,425 INFO None moved to (4, 8)
+2018-04-25 20:08:58,425 INFO None moved to (5, 8)
+2018-04-25 20:08:58,515 INFO = Build phase begins
+2018-04-25 20:08:58,528 INFO Team.BLUE PieceType.TROOPER was built on (11, 10). 
+2018-04-25 20:08:58,528 INFO Team.BLUE team spent 3 resources.
+2018-04-25 20:08:58,528 INFO Team.BLUE PieceType.COLONIST was built on (12, 11). 
+2018-04-25 20:08:58,529 INFO Team.BLUE team spent 5 resources.
+2018-04-25 20:08:58,616 INFO = Combat phase begins
+2018-04-25 20:08:58,716 INFO = Ranged phase begins
+2018-04-25 20:08:58,818 INFO = Special phase begins
+2018-04-25 20:08:58,915 INFO = Start Turn phase begins
+2018-04-25 20:08:58,916 INFO == TURN 11 BEGIN ==
+2018-04-25 20:08:58,929 INFO Team.RED team acquired 2 resources.
+2018-04-25 20:08:58,929 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:08:58,929 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:08:58,929 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:08:58,930 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 20:08:59,017 INFO = Issue Orders phase begins
+2018-04-25 20:09:00,635 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (11, 10)'
+2018-04-25 20:09:00,636 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 20:09:00,636 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 9)'
+2018-04-25 20:09:00,636 INFO BLUE Trooper at tile (11, 10) with 100 HP was assigned the order 'Order: Move to (10, 9)'
+2018-04-25 20:09:00,636 INFO = Move phase begins
+2018-04-25 20:09:00,649 INFO None moved to (10, 9)
+2018-04-25 20:09:00,649 INFO None moved to (4, 9)
+2018-04-25 20:09:00,742 INFO = Build phase begins
+2018-04-25 20:09:00,755 INFO Team.BLUE PieceType.GHOST was built on (11, 10). 
+2018-04-25 20:09:00,755 INFO Team.BLUE team spent 3 resources.
+2018-04-25 20:09:00,845 INFO = Combat phase begins
+2018-04-25 20:09:00,948 INFO = Ranged phase begins
+2018-04-25 20:09:00,961 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 20:09:00,974 INFO RED Base at tile (4, 10) with 123 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 20:09:01,050 INFO = Special phase begins
+2018-04-25 20:09:01,150 INFO = Start Turn phase begins
+2018-04-25 20:09:01,150 INFO == TURN 12 BEGIN ==
+2018-04-25 20:09:01,163 INFO Team.RED team acquired 2 resources.
+2018-04-25 20:09:01,163 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:09:01,163 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:09:01,163 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:09:01,163 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 20:09:01,253 INFO = Issue Orders phase begins
+2018-04-25 20:09:01,747 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (11, 10)'
+2018-04-25 20:09:01,747 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 20:09:01,747 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-04-25 20:09:01,747 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-04-25 20:09:01,747 INFO BLUE Ghost at tile (11, 10) with 80 HP was assigned the order 'Order: Demolish self'
+2018-04-25 20:09:01,747 INFO = Move phase begins
+2018-04-25 20:09:01,763 INFO None moved to (9, 8)
+2018-04-25 20:09:01,867 INFO = Build phase begins
+2018-04-25 20:09:01,881 INFO Team.BLUE PieceType.TROOPER was built on (11, 10). 
+2018-04-25 20:09:01,882 INFO Team.BLUE team spent 3 resources.
+2018-04-25 20:09:01,977 INFO = Combat phase begins
+2018-04-25 20:09:02,086 INFO = Ranged phase begins
+2018-04-25 20:09:02,100 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 20:09:02,100 INFO BLUE Ranger at tile (4, 9) with 90 HP conducted a ranged attack on (4, 10)
+2018-04-25 20:09:02,113 INFO RED Base at tile (4, 10) with 69 HP took 27 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-04-25 20:09:02,114 INFO RED Base at tile (4, 10) with 69 HP took 27 damage from BLUE Ranger at tile (4, 9) with 90 HP!
+2018-04-25 20:09:02,190 INFO = Special phase begins
+2018-04-25 20:09:02,203 INFO BLUE Ghost at tile (11, 10) with 0 HP took 80 damage from None!
+2018-04-25 20:09:02,203 INFO BLUE Ghost at tile (11, 10) with 0 HP was successfully demolished.
+2018-04-25 20:09:02,293 INFO = Start Turn phase begins
+2018-04-25 20:09:02,294 INFO == TURN 13 BEGIN ==
+2018-04-25 20:09:02,306 INFO Team.RED team acquired 2 resources.
+2018-04-25 20:09:02,307 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:09:02,307 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:09:02,307 INFO Team.BLUE team acquired 1 resources.
+2018-04-25 20:09:02,307 INFO Team.BLUE team acquired 2 resources.
+2018-04-25 20:09:02,397 INFO = Issue Orders phase begins
+2018-04-25 21:05:56,448 INFO Team.BLUE PieceType.COLONIST was built on (3, 9). 
+2018-04-25 21:05:57,742 INFO Team.BLUE PieceType.COLONIST was built on (3, 11). 
+2018-04-25 21:06:09,700 INFO Team.BLUE PieceType.COLONIST was built on (8, 8). 
+2018-04-25 21:06:11,125 INFO Team.BLUE PieceType.COLONIST was built on (7, 8). 

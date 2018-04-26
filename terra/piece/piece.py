@@ -252,7 +252,8 @@ class Piece(AnimatedGameObject):
         publish_game_event(EventType.E_PIECE_DEAD, {
             'gx': self.gx,
             'gy': self.gy,
-            'team': self.team
+            'team': self.team,
+            'piece': self
         })
 
         # Bases being destroyed ends the game
@@ -365,7 +366,7 @@ class Piece(AnimatedGameObject):
                             self.attr(Attribute.ENTRENCHMENT_MODIFIER)
 
     # Return a score for moving from tile A to tile B. Lower numbers are preferred.
-    def get_move_score(self, a, b):
+    def get_move_score(self, a, b, blocked):
         piece_manager = self.get_manager(Manager.PIECE)
         x1, y1 = a
         x2, y2 = b
@@ -376,13 +377,17 @@ class Piece(AnimatedGameObject):
         enemies = piece_manager.get_enemy_pieces_at(x2, y2, self.team)
         enemy_score = 0
         for enemy in enemies:
-            multiplier = self.attr(Attribute.ATTACK_MULTIPLIER)[enemy.piece_archetype]
+            multiplier = self.attr(Attribute.ATTACK_MULTIPLIER)[enemy.piece_archetype] * self.attr(Attribute.ATTACK)
             if multiplier >= 1:
                 enemy_score -= 1 * multiplier
             else:
                 enemy_score += 2 * multiplier
 
-        return distance + ally_building_score + enemy_score
+        # Avoid blocked tiles whenever possible
+        avoid_score = 5 if (a, b) in blocked else 0
+
+        # print("{} | {} {} {}".format(distance, ally_building_score, enemy_score, avoid_score))
+        return distance + ally_building_score + enemy_score + avoid_score
 
     def is_enemy_at_tile(self, tile):
         return len(self.get_manager(Manager.PIECE).get_enemy_pieces_at(tile[0], tile[1], self.team)) > 0 \
@@ -392,54 +397,57 @@ class Piece(AnimatedGameObject):
     def is_tile_occupyable(self, tile):
         return not self.get_manager(Manager.PIECE).get_piece_at(tile[0], tile[1], self.team, PieceSubtype.BUILDING)
 
-    def get_path_to_destinations(self, destinations):
-        paths = []
-        for destination in destinations:
-            possible_path = get_path_to_destination((self.gx, self.gy), destination, self.get_manager(Manager.MAP), self)
-            if possible_path:
-                paths.append(possible_path)
+    # Find a path to the target.
+    # If a minimum and maximum range is provided, will attempt to path to within that range of the target. 0=Exact tile.
+    # If blocked is provided, will navigate around the specified blocked tiles
+    def get_path_to_target(self, target, blocked=None, min_range=0, max_range=0, movement_type=None):
+        destinations = self.get_manager(Manager.MAP).get_tiles_in_range(target[0], target[1],
+                                                                        min_range, max_range, movement_type)
+        # Sort destinations by the closest
+        destinations.sort(key=lambda tile: abs(tile[0] - self.gx) + abs(tile[1] - self.gy))
 
-        if len(paths) > 0:
-            self.current_path = min(paths, key=lambda p: len(p))
+        # Remove blocked tiles from the destinations
+        for blocker in blocked:
+            if blocker in destinations:
+                destinations.remove(blocker)
+
+        if len(destinations) > 0:
+            potential_paths = []
+            for destination in destinations:
+                potential_path = get_path_to_destination((self.gx, self.gy), destination,
+                                                         self.get_manager(Manager.MAP), self, blocked)
+                if potential_path:
+                    potential_paths.append(potential_path)
+
+            if len(potential_paths) > 0:
+                potential_paths.sort(key=lambda path: len(path))
+                self.current_path = potential_paths[0]
+            else:
+                self.current_path = None
+
+            return self.current_path
         else:
-            self.current_path = None
-
-        return self.current_path
+            return []
 
     # Figure out how many steps along the path we can take, return the end point
-    def step_along_path(self, path):
+    def step_along_path(self, path, blocked):
         current_steps = 0
         max_steps = min(self.attr(Attribute.MOVEMENT_RANGE), len(path) - 1)
         last_possible_destination = (self.gx, self.gy)
         while current_steps <= max_steps:
             path_dest = path[current_steps]
 
-            # If the tile is clear of allies, mark our last possible destination
-            if not self.get_manager(Manager.PIECE).get_piece_at(path_dest[0], path_dest[1], self.team):
+            # If the tile is clear of planned ally positions, mark our last possible destination
+            if not path_dest in blocked:
                 last_possible_destination = path_dest
 
-            # If there's no impedance in our way, continue stepping forward
-            if not self.is_enemy_at_tile(path_dest):
+            # If there's no impedance in our way, or if it's our first move, continue stepping forward
+            if not self.is_enemy_at_tile(path_dest) or current_steps == 0:
                 current_steps += 1
             else:
                 break
 
         return last_possible_destination
-        #
-        # # Start at the max number of steps we can take
-        # steps = min(self.attr(Attribute.MOVEMENT_RANGE), len(path) - 1)
-        # destination = None
-        # while not destination and steps > 0:
-        #     # Check the possible destination
-        #     pdest = path[steps]
-        #
-        #     # If the tile is clear of allies, lock it in
-        #     if self.get_manager(Manager.PIECE).get_piece_at(pdest[0], pdest[1], self.team):
-        #         steps -= 1
-        #     else:
-        #         destination = pdest
-        #
-        # return destination
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
@@ -744,6 +752,16 @@ class Piece(AnimatedGameObject):
     def stop_previewing_orders(self):
         self.previewing_order = False
 
+    def preview_path(self, game_screen):
+        if self.current_path:
+            for tile in self.current_path:
+                game_screen.blit(spr_cursor[self.team], (tile[0] * 24, tile[1] * 24))
+
+        # for x in range(self.get_manager(Manager.MAP).width):
+        #     for y in range(self.get_manager(Manager.MAP).height):
+        #         score = draw_text(str(self.get_move_score((self.gx, self.gy), (x, y), [])), light_color)
+        #         game_screen.blit(score, (x * 24 + 8, y * 24 + 8))
+
     # Render a preview of the piece's current orders.
     def preview_order(self, game_screen):
         if self.current_order:
@@ -774,15 +792,6 @@ class Piece(AnimatedGameObject):
                 game_screen.blit(draw_small_resource_count(clear_color, spr_resource_icon_small, spr_digit_icons, self.team,
                                                            base_upgrades[self.current_order.new_upgrade_type][UpgradeAttribute.UPGRADE_PRICE]),
                                  (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT + 16))
-
-    def preview_path(self, game_screen):
-        for tile in self.current_path:
-            game_screen.blit(spr_cursor[self.team], (tile[0] * 24, tile[1] * 24))
-
-        # for x in range(self.get_manager(Manager.MAP).width):
-        #     for y in range(self.get_manager(Manager.MAP).height):
-        #         score = draw_text(str(self.get_move_score((self.gx, self.gy), (x, y))), light_color)
-        #         game_screen.blit(score, (x * 24 + 8, y * 24 + 8))
 
     # Ask the Unit to render itself
     def render(self, game_screen, ui_screen):
@@ -826,11 +835,9 @@ class Piece(AnimatedGameObject):
                 game_screen.blit(spr_order_flags[self.current_order.name],
                                  (actual_x, actual_y + 16))
 
-            # Render order preview
-            if self.previewing_order:
-                self.preview_order(game_screen)
-
-                if self.current_path:
+                # Render order preview
+                if self.previewing_order:
+                    self.preview_order(game_screen)
                     self.preview_path(game_screen)
 
             # Render ranged attacks

@@ -13,8 +13,10 @@ from terra.menu.option import Option
 from terra.mode import Mode
 from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
-from terra.piece.piecetype import PieceType
+from terra.piece.piece import Piece
 from terra.piece.piecearchetype import PieceArchetype
+from terra.piece.piecesubtype import PieceSubtype
+from terra.piece.piecetype import PieceType
 
 
 # An AI player, in charge of giving orders to a team.
@@ -37,7 +39,8 @@ class AIPlayer(GameObject):
         self.personality = create_default_personality()
 
         self.debug_print_tasks = True
-        self.debug_print_assignments = True
+        self.debug_print_assignments = False
+        self.debug_print_confirmations = True
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
@@ -49,12 +52,14 @@ class AIPlayer(GameObject):
 
     # Rebuild the AI's understanding of the board, map, and pieces
     def parse_board_state(self):
-        self.planned_spending = 0
-        self.planned_occupied_coords = []
-
         self.my_pieces = self.get_manager(Manager.PIECE).get_all_pieces_for_team(self.team)
         self.enemy_pieces = self.get_manager(Manager.PIECE).get_all_enemy_pieces(self.team)
         self.map = self.get_manager(Manager.MAP)
+
+        self.planned_spending = 0
+        # Mark buildings as planned occupied tiles to start
+        self.planned_occupied_coords = [(piece.gx, piece.gy) for piece in self.my_pieces
+                                        if piece.piece_subtype == PieceSubtype.BUILDING]
 
     # Generate a list of tasks that we'd like to accomplish this turn
     def generate_tasks(self):
@@ -124,6 +129,15 @@ class AIPlayer(GameObject):
         for _ in piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.BARRACKS):
             tasks.extend(self.create_build_military_tasks())
 
+        # Build new barracks when possible
+        # TODO: Weight this based on total income
+        current_num_barracks = len(piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.BARRACKS))
+        desired_num_barracks = 2
+        if current_num_barracks < desired_num_barracks:
+            tasks.append(self.create_build_barracks_task())
+
+        # TODO: Build tech labs and towers
+
         return tasks
 
     # Return true if the specified coord is immediately harvestable (has an adjacent Colonist)
@@ -133,16 +147,32 @@ class AIPlayer(GameObject):
         return len(adjacent_colonists) > 0
 
     def create_harvest_task(self, coord):
-        return Task(self.team, TaskType.HARVEST_RESOURCE, coord[0], coord[1])
+        return Task(self.team, TaskType.HARVEST_RESOURCE, coord[0], coord[1], target=PieceType.GENERATOR)
 
     def create_moveto_harvest_task(self, coord):
         return Task(self.team, TaskType.MOVE_TO_RESOURCE, coord[0], coord[1])
 
     def create_build_colonist_task(self):
-        return Task(self.team, TaskType.BUILD_UNIT, target=PieceType.COLONIST)
+        return Task(self.team, TaskType.BUILD_PIECE, target=PieceType.COLONIST)
+
+    def create_build_barracks_task(self):
+        return Task(self.team, TaskType.BUILD_PIECE, target=PieceType.BARRACKS)
 
     def create_attack_enemy_task(self, target):
-        return Task(self.team, TaskType.ATTACK_ENEMY, target.gx, target.gy, target)
+        anticipated_x, anticipated_y = self.get_anticipated_movement(target)
+        return Task(self.team, TaskType.ATTACK_ENEMY, anticipated_x, anticipated_y, target)
+
+    def get_anticipated_movement(self, piece):
+        if piece.piece_subtype == PieceSubtype.BUILDING:
+            # Buildings usually don't go anywhere
+            return piece.gx, piece.gy
+        else:
+            # TODO: Try to anticipate where the enemy will be
+            # 1. Determine the movement range of the enemy (tile selection UI)
+            # 2. Score each tile in range based on targets it might attack
+            # 3. Score likelihood of it moving at all(buildings don't move, ranged units might attack, might repair)
+            # Use all this to determine the most likely tile the unit will be on next turn and target THAT tile instead
+            return piece.gx, piece.gy
 
     def create_heal_task(self, injured):
         return Task(self.team, TaskType.HEAL_SELF, target=injured)
@@ -155,16 +185,21 @@ class AIPlayer(GameObject):
             return None
 
     def create_build_military_tasks(self):
-        # TODO: Add weighting for piece types based on personality
+        # TODO: Add weighting based on enemy team composition
         tasks = []
         counts = self.get_manager(Manager.PIECE).get_archetype_counts(self.team, units_only=True)
-        target_archetype = PieceArchetype.GROUND
+        counts_map = {}
+        # Weight counts by personality
+        for archetype, count in counts:
+            counts_map[archetype] = count / self.personality.unit_construction_weight[archetype]
 
+        target_archetype = PieceArchetype.GROUND
         if len(counts) > 0:
-            target_archetype, amount = counts[-1]
+            # Find the lowest count
+            target_archetype, amount = min(counts_map.items(), key=lambda pair: pair[1])
 
         for piece_type in self.get_buildable_pieces(target_archetype):
-            tasks.append(Task(self.team, TaskType.BUILD_UNIT, target=piece_type))
+            tasks.append(Task(self.team, TaskType.BUILD_PIECE, target=piece_type))
 
         return tasks
 
@@ -181,16 +216,14 @@ class AIPlayer(GameObject):
     # TODO: Add weighting factors, run this multiple times to get different 'best' turns
     def assign_tasks(self, tasks):
         assignments = []
+        # For each task, create assignments of each eligible piece and score it by suitability
         for task in tasks:
-            eligible_pieces = task.get_eligible_pieces_for_task(self.get_manager(Manager.PIECE))
-            # Preplan each assignment, and score it
-            for piece in eligible_pieces:
-                assignment = self.create_assignment(piece, task)
-                if assignment:
-                    assignments.append(assignment)
+            for eligible_piece in task.get_eligible_pieces_for_task(self.get_manager(Manager.PIECE)):
+                score, end_pos = task.score_piece_for_task(eligible_piece, self.get_manager(Manager.MAP))
+                assignments.append(Assignment(eligible_piece, task, score, end_pos=end_pos))
 
         # Sort assignments by their score (lowest scores first)
-        assignments.sort(key=lambda assignment: assignment.value)
+        assignments.sort(key=lambda a: a.value)
 
         if self.debug_print_assignments:
             print("== Assignments ==")
@@ -199,63 +232,11 @@ class AIPlayer(GameObject):
 
         return assignments
 
-    def create_assignment(self, piece, task):
-        battle_map = self.get_manager(Manager.MAP)
-
-        if task.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY, TaskType.RETREAT]:
-            # TASK: Move towards a target.
-            #   MOVE_TO_RESOURCE: Attempt to reach tiles adjacent to the target resource, with intent to harvest.
-            #   ATTACK_ENEMY: Attempt to reach the enemy tile, with intent to harm.
-            #   RETREAT: Attempt to move away from attackers.
-
-            if task.target_adjacent:
-                # Get tiles adjacent to the target
-                adjacent_tiles = battle_map.get_valid_adjacent_tiles_for_movement_type(task.tx, task.ty,
-                                                                                       piece.attr(Attribute.MOVEMENT_TYPE))
-
-                # Filter and sort adjacent tiles to the nearest tile we can occupy / stand in
-                tiles = [tile for tile in adjacent_tiles if piece.is_tile_occupyable(tile)]
-                tiles.sort(key=lambda tile: abs(tile[0] - piece.gx) + abs(tile[1] - piece.gy))
-            else:
-                # Move directly to the target tile
-                tiles = [(task.tx, task.ty)]
-
-            # Try to path towards our goal(s)
-            path = piece.get_path_to_destinations(tiles)
-            if path:
-                # Try to step incrementally towards the goal.
-                destination = piece.step_along_path(path)
-                distance = abs(destination[0] - piece.gx) + abs(destination[1] - piece.gy)
-                score = task.score_piece_for_task(piece, battle_map) + distance
-
-                return Assignment(piece, task, score, end_pos=[destination], path=path)
-            else:
-                if (piece.gx, piece.gy) in tiles:
-                    # We are already at the destination!
-                    return Assignment(piece, task, task.score_piece_for_task(piece, battle_map))
-                else:
-                    # There's no valid path to our goal anymore
-                    # TODO: RETREAT tasks don't care (just want to get away), so still issue an assignment
-                    return None
-        elif task.task_type == TaskType.HARVEST_RESOURCE:
-            # TASK: Harvest an adjacent resource tile
-            # We're next to the goal already, presumably, so no pathfinding
-            score = task.score_piece_for_task(piece, battle_map)
-            return Assignment(piece, task, score, end_pos=[(piece.gx, piece.gy), (task.tx, task.ty)])
-        elif task.task_type in [TaskType.BUILD_UNIT]:
-            # Task: Build the specified unit.
-            score = task.score_piece_for_task(piece, battle_map)
-            if task.tx and task.ty:
-                return Assignment(piece, task, score, end_pos=[(piece.gx, piece.gy), (task.tx, task.ty)])
-        elif task.task_type == TaskType.HEAL_SELF:
-            # TASK: Heal self.
-            score = task.score_piece_for_task(piece, battle_map)
-            return Assignment(piece, task, score, end_pos=[(piece.gx, piece.gy), (task.tx, task.ty)])
-        else:
-            return None
-
     # Assign orders to pieces for each assignment
     def confirm_assignments(self, assignments):
+        if self.debug_print_confirmations:
+            print("== Confirming {} assignments".format(len(assignments)))
+
         assigned_pieces = []
         assigned_tasks = []
 
@@ -264,22 +245,26 @@ class AIPlayer(GameObject):
         # Allow building onto a tile where a second piece is, if that second piece is moving away
 
         for assignment in assignments:
-            if assignment.piece not in assigned_pieces and assignment.task not in assigned_tasks:
-                can_confirm_assignment = True
+            if assignment.value < 99999 and assignment.piece not in assigned_pieces and \
+                    assignment.task not in assigned_tasks:
+                enough_money = True
+                tiles_free = True
 
                 # Only confirm the assignment if we can afford it
                 new_spending = assignment.task.get_planned_spending(self.get_manager(Manager.TEAM))
                 if new_spending > 0 and self.planned_spending + new_spending > \
                         self.get_manager(Manager.TEAM).resources[self.team]:
-                    can_confirm_assignment = False
+                    enough_money = False
 
                 # Only confirm the assignment if it won't occupy the same tile twice
-                newly_occupied_tiles = assignment.end_pos
-                if newly_occupied_tiles and not set(self.planned_occupied_coords).isdisjoint(set(newly_occupied_tiles)):
-                    can_confirm_assignment = False
+                newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
+                if not newly_occupied_tiles:
+                    tiles_free = False
+                elif not set(self.planned_occupied_coords).isdisjoint(set(newly_occupied_tiles)):
+                    tiles_free = False
 
                 # If no other objections, allow the assignment to happen
-                if can_confirm_assignment:
+                if enough_money and tiles_free:
                     # Remove the piece from the eligible pool
                     assigned_pieces.append(assignment.piece)
 
@@ -293,9 +278,16 @@ class AIPlayer(GameObject):
                     # Mark planned spending
                     self.planned_spending += new_spending
                     # Mark occupied locations
-                    if assignment.end_pos:
-                        for pos in assignment.end_pos:
-                            self.planned_occupied_coords.append(pos)
+                    for coord in newly_occupied_tiles:
+                        self.planned_occupied_coords.append(coord)
+
+                    if self.debug_print_confirmations:
+                        print("+ Set order for assignment {}".format(assignment))
+                elif self.debug_print_confirmations:
+                    print("- Elected not to set order for assignment {} due to objections:\n"
+                          "   Enough money? {}, {}\n"
+                          "   Tiles free? {}, {}".format(assignment, enough_money, new_spending,
+                                                         tiles_free, newly_occupied_tiles))
 
         return assigned_pieces, assigned_tasks
 
@@ -304,47 +296,58 @@ class AIPlayer(GameObject):
         piece = assignment.piece
         task = assignment.task
 
-        piece.current_path = assignment.path
+        assignment.path = piece.current_path
+
+        order = None
+        tx = assignment.tx
+        ty = assignment.ty
+
+        if isinstance(task.target, Piece):
+            ranged_distance = abs(task.target.gx - piece.gx) + abs(task.target.gy - piece.gy)
+        else:
+            ranged_distance = 0
 
         if task.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY]:
-
-            # Ranged units should issue attack orders when close enough
-            distance = abs(task.tx - piece.gx) + abs(task.ty - piece.gy)
+            # Ranged units should issue attack orders instead of move orders when close enough to their target
             if piece.attr(Attribute.DAMAGE_TYPE) == DamageType.RANGED and \
                     task.task_type in [TaskType.ATTACK_ENEMY] and \
-                    piece.attr(Attribute.MIN_RANGE) <= distance <= piece.attr(Attribute.MAX_RANGE):
+                    piece.attr(Attribute.MIN_RANGE) <= ranged_distance <= piece.attr(Attribute.MAX_RANGE):
                 # Conduct a ranged attack on the target
-                # TODO: Currently will not try to step backwards out of its minimum range
-                piece.set_order(Event(USEREVENT, {
-                    'option': Option.MENU_RANGED_ATTACK,
-                    'dx': task.tx,
-                    'dy': task.ty,
-                }))
+                order = Option.MENU_RANGED_ATTACK
+                tx = task.tx
+                ty = task.ty
             else:
                 # Move to the specified end position.
-                dx, dy = assignment.end_pos[0]
-                piece.set_order(Event(USEREVENT, {
-                    'option': Option.MENU_MOVE,
-                    'dx': dx,
-                    'dy': dy,
-                }))
+                order = Option.MENU_MOVE
         elif task.task_type == TaskType.HARVEST_RESOURCE:
             # We're next to the goal, so issue a BUILD order
-            piece.set_order(Event(USEREVENT, {
-                'option': PieceType.GENERATOR,
-                'dx': task.tx,
-                'dy': task.ty,
-            }))
-        elif task.task_type == TaskType.BUILD_UNIT:
-            piece.set_order(Event(USEREVENT, {
-                'option': task.target,
-                'dx': task.tx,
-                'dy': task.ty,
-            }))
+            order = PieceType.GENERATOR
+        elif task.task_type == TaskType.BUILD_PIECE:
+            # We're next to the goal, so issue a BUILD order
+            order = task.target
         elif task.task_type == TaskType.HEAL_SELF:
+            # Heal ourselves in place
+            order = Option.MENU_HEAL_SELF
+
+        # Assign the order to the piece, simulating a menu event
+        if order:
             piece.set_order(Event(USEREVENT, {
-                'option': Option.MENU_HEAL_SELF,
+                'option': order,
+                'dx': tx,
+                'dy': ty,
             }))
+
+    # Give leftover pieces an order
+    def move_leftover_pieces(self, leftovers):
+        for piece in leftovers:
+            if piece.attr(Attribute.MOVEMENT_RANGE) > 0 and (piece.gx, piece.gy) in self.planned_occupied_coords:
+                # TODO: Assign a move order within range
+                # Update planned occupied coords
+
+                # For now, just delete the piece
+                piece.set_order(Event(USEREVENT, {
+                    'option': Option.MENU_DEMOLISH_SELF,
+                }))
 
     def handle_orders_phase(self, event):
         self.parse_board_state()
@@ -363,6 +366,10 @@ class AIPlayer(GameObject):
 
         # TODO: Handle any unclaimed tasks?
         # leftover_tasks = [task for task in tasks if task not in assigned_tasks]
+
+        # TODO: Pieces without orders should check that they're not in the planned occupied coord list
+        # that way we can move / get out of the way of more important orders
+        self.move_leftover_pieces(list(set(self.my_pieces) - set(assigned_pieces)))
 
         # TODO: Fill in unspent resources?
 

@@ -23,6 +23,7 @@ class ResultsScreen(GameScreen):
         self.winning_pieces = [piece for piece in results["winning_pieces"] if piece.piece_subtype == PieceSubtype.UNIT]
         self.all_teams = results["all_teams"]
         self.team_stats = results["team_stats"]
+        self.turn = results["turn"]
 
     def register_input_handlers(self, input_handler):
         super().register_input_handlers(input_handler)
@@ -44,13 +45,14 @@ class ResultsScreen(GameScreen):
 
         # Draw winning team
         game_screen.blit(Menu.draw_menu_box(RESOLUTION_WIDTH - 48, 24, background=light_team_color, team=self.winning_team), (base_x, base_y))
-        game_screen.blit(draw_text(get_string(formatted_strings, "RESULTS_HEADER").format(get_string(team_name_strings, self.winning_team)),
-                                   light_color, dark_color), (base_x + 8, base_y + 8))
+        game_screen.blit(draw_text(get_string(formatted_strings, "RESULTS_HEADER").format(
+            get_string(team_name_strings, self.winning_team), self.turn), light_color, dark_color), (base_x + 8, base_y + 8))
 
         x = 0
         for piece in self.winning_pieces:
-            game_screen.blit(spr_pieces[piece.team][piece.piece_type].subsurface(0, 0, 24, 24), (base_x + x, base_y + 24))
-            x += 12
+            if x < RESOLUTION_WIDTH - 24:
+                game_screen.blit(spr_pieces[piece.team][piece.piece_type].subsurface(0, 0, 24, 24), (base_x + x, base_y + 24))
+                x += 12
 
         x = 0
         y = 2

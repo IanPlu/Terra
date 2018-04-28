@@ -1,9 +1,12 @@
-from queue import PriorityQueue
+from queue import PriorityQueue, Queue
 from terra.piece.attribute import Attribute
 
 
+# Utility methods for pathfinding around the map in various ways.
+# This file owes its life to: https://www.redblobgames.com/pathfinding/a-star/introduction.html
+
+
 # Pathfind a piece to the specified goal
-# https://www.redblobgames.com/pathfinding/a-star/introduction.html
 def navigate(start, goal, map, piece, blocked_coords=None):
     blocked = blocked_coords if not None else []
 
@@ -34,12 +37,30 @@ def navigate(start, goal, map, piece, blocked_coords=None):
     return came_from, cost_so_far
 
 
-# Reconstruct the optimal path from the search
-# Once we have the path, step through it <movement_range> times to get where along the path we should move to
-# Note: Sometimes there isn't a path to the destination, and this will return None
-def get_path_to_destination(start, goal, map, piece, blocked_coords=None):
-    came_from, cost_so_far = navigate(start, goal, map, piece, blocked_coords)
+# Generate all paths to a goal, as well as all distances to that goal.
+def navigate_all(goal, map, movement_type):
+    frontier = Queue()
+    frontier.put(goal)
 
+    # Track both distance and where we came from
+    came_from = {goal: None}
+    distance = {goal: 0}
+
+    while not frontier.empty():
+        current = frontier.get()
+
+        for next in map.get_valid_adjacent_tiles_for_movement_type(current[0], current[1], movement_type):
+            if next not in came_from:
+                frontier.put(next)
+                came_from[next] = current
+                distance[next] = 1 + distance[current]
+
+    return came_from, distance
+
+
+# Given a goal and the 'came_from' map, reconstruct a single path to the goal
+# If there's not actually a path to the destination, returns None.
+def reconstruct_path(start, goal, came_from):
     current = goal
     path = []
     try:
@@ -52,5 +73,11 @@ def get_path_to_destination(start, goal, map, piece, blocked_coords=None):
     path.append(start)
     path.reverse()
     return path
+
+
+# Navigate and reconstruct the optimal path to the goal all in one.
+def get_path_to_destination(start, goal, map, piece, blocked_coords=None):
+    came_from, cost_so_far = navigate(start, goal, map, piece, blocked_coords)
+    return reconstruct_path(start, goal, came_from)
 
 

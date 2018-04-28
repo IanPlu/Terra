@@ -193,6 +193,10 @@ class PieceManager(GameObject):
         else:
             return counts.most_common()
 
+    # Return the sum of all resource production for the specified team
+    def get_income(self, team):
+        return sum(piece.attr(Attribute.RESOURCE_PRODUCTION) for piece in self.get_all_pieces_for_team(team))
+
     # Register a piece with the game map.
     def register_piece(self, piece):
         if not self.pieces.get((piece.gx, piece.gy)):

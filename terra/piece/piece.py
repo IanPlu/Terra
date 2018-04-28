@@ -377,6 +377,10 @@ class Piece(AnimatedGameObject):
         enemies = piece_manager.get_enemy_pieces_at(x2, y2, self.team)
         enemy_score = 0
         for enemy in enemies:
+            # If this piece can't enter buildings, score appropriately
+            if enemy.piece_subtype == PieceSubtype.BUILDING and self.attr(Attribute.CANT_ATTACK_BUILDINGS):
+                enemy_score += 9999
+
             multiplier = self.attr(Attribute.ATTACK_MULTIPLIER)[enemy.piece_archetype] * self.attr(Attribute.ATTACK)
             if multiplier >= 1:
                 enemy_score -= 1 * multiplier

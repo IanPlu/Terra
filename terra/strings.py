@@ -73,7 +73,8 @@ menu_help_strings = {
                            "Notably weak to ranged attacks.",
         PieceType.RANGER: "* Rangers are fairly fragile units that can conduct long-range attacks without being "
                           "counter attacked. They cannot defend themselves in melee and are notably weak to "
-                          "high-mobility units. Their ranged attack is canceled if an enemy contests their tile. ",
+                          "high-mobility units. Their ranged attack is canceled if an enemy contests their tile.\n"
+                          "When attacking a tile, they will only damage enemies. ",
         PieceType.GHOST: "* Ghosts are high-mobility units with low defenses. They are not impeded by enemy units when "
                          "moving around, and can slip behind enemy lines. Cannot attack or contest buildings, and are "
                          "notably weak in direct combat.",
@@ -83,7 +84,8 @@ menu_help_strings = {
                             " on the move, due to their low HP.",
         PieceType.BOLTCASTER: "* Boltcasters are a high-caliber ranged unit. They have a much longer range than "
                               "Rangers, but also have a larger blind spot and low mobility. Their ranged attacks also "
-                              "deal damage to tiles adjacent to their target.",
+                              "deal damage to tiles adjacent to their target.\n"
+                              "When attacking a tile, they will only damage enemies. ",
         PieceType.BANSHEE: "* Banshees are a high-mobility specialty unit. They have a very high movement range, and "
                            "can traverse (but not end the turn in) normally impassible terrain. Like Ghosts, they're "
                            "not impeded by enemies when moving. Notably low health pool.",
@@ -91,7 +93,8 @@ menu_help_strings = {
         PieceType.TITAN: "* Titans are defensive super units. They have a wealth of health and armor, and provide"
                          " healing and bonus armor to adjacent allies every turn. Adjacent enemies take damage as well.",
         PieceType.EARTHRENDER: "* Earthrenders are ranged super units. They have an extremely far effective range, deal"
-                               " damage in an area, and cannot be interrupted when firing. ",
+                               " damage in an area, and cannot be interrupted when firing.\n"
+                               "When attacking a tile, they will only damage enemies. ",
         PieceType.DEMON: "* Demons are mobility super units. They have a very high movement range, and ignore terrain. "
                          "Like Ghosts, they can't attack buildings. Demons function as a portal-- allies can "
                          "travel to a Demon's tile as if it were adjacent to the Base. ",
@@ -450,7 +453,7 @@ label_strings = {
 formatted_strings = {
     Language.EN_US: {
         "NEW_TURN_MESSAGE": "TURN {}",
-        "RESULTS_HEADER": "{} team won!",
+        "RESULTS_HEADER": "{} team won on turn {}!",
         "QUANTITY": "{}x",
 
         Setting.SCREEN_SCALE: "Screen Scale: {}x",

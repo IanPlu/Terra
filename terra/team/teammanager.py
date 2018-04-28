@@ -106,7 +106,7 @@ class TeamManager(GameObject):
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
         event_bus.register_handler(EventType.E_CLEANUP, self.cleanup_turn_submission)
-        event_bus.register_handler(EventType.E_SUBMIT_TURN, self.set_turn_submitted)
+        event_bus.register_handler(EventType.E_SUBMIT_TURN, self.set_turn_submitted_from_event)
         event_bus.register_handler(EventType.E_CANCEL_TURN, self.unset_turn_submitted)
         event_bus.register_handler(EventType.E_CLOSE_MENU, self.handle_menu_option)
         event_bus.register_handler(EventType.E_UPGRADE_BUILT, self.purchase_upgrade_from_event)
@@ -268,20 +268,20 @@ class TeamManager(GameObject):
             })
 
     # Mark a turn received from the network as submitted.
-    def set_turn_submitted(self, event):
-        self.turn_submitted[event.team] = True
+    def set_turn_submitted(self, team):
+        self.turn_submitted[team] = True
 
         if self.check_if_ready_to_submit_turns():
             publish_game_event(EventType.E_ALL_TURNS_SUBMITTED, {})
             for team in self.teams:
                 self.turn_submitted[team] = False
 
-    def set_ai_turn_submitted(self, team):
-        self.turn_submitted[team] = True
-
     # Mark a turn received from the network as NOT submitted
     def unset_turn_submitted(self, event):
         self.turn_submitted[event.team] = False
+
+    def set_turn_submitted_from_event(self, event):
+        self.set_turn_submitted(event.team)
 
     def cleanup_turn_submission(self, event):
         for team in self.teams:
@@ -325,7 +325,8 @@ class TeamManager(GameObject):
                 'winning_team': winning_team,
                 'all_teams': self.get_all_teams(),
                 'team_stats': self.get_manager(Manager.STAT).get_results(),
-                'winning_pieces': self.get_manager(Manager.PIECE).get_all_pieces_for_team(winning_team)
+                'winning_pieces': self.get_manager(Manager.PIECE).get_all_pieces_for_team(winning_team),
+                'turn': self.get_manager(Manager.TURN).turn,
             }
 
             publish_game_event(EventType.E_BATTLE_OVER, {

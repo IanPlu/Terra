@@ -1,5 +1,7 @@
 from enum import Enum
 
+from terra.economy.upgradeattribute import UpgradeAttribute
+from terra.economy.upgrades import base_upgrades
 from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
 from terra.piece.piecearchetype import PieceArchetype
@@ -10,18 +12,16 @@ from terra.piece.piecetype import PieceType
 # Possible tasks the AI will try to complete
 class TaskType(Enum):
     # Econ
-    MOVE_TO_RESOURCE = "Move to Resource"   # x Step 1 in harvesting a resource-- moving to it
-    HARVEST_RESOURCE = "Harvest Resource"   # x Attempt to harvest the designated Resource tile
-    BUILD_PIECE = "Build Piece"             # / Attempt to build pieces
-    RESEARCH_UPGRADE = "Research Upgrade"   # Research general unit upgrades
-    RESEARCH_NEW_UNIT = "Research Units"    # Research new unit types
+    MOVE_TO_RESOURCE = "Move to Resource"   # Step 1 in harvesting a resource-- moving to it
+    HARVEST_RESOURCE = "Harvest Resource"   # Attempt to harvest the designated Resource tile
+    BUILD_PIECE = "Build Piece"             # Attempt to build pieces
+    RESEARCH_UPGRADE = "Research Upgrade"   # Research general upgrades
 
     # Combat
-    ATTACK_ENEMY = "Attack Enemy"           # x Attempt to intercept and attack an enemy unit
-    DEFEND_AREA = "Defend Area"             # Attempt to defend an area from enemies
-    DESTROY_BUILDING = "Destroy Building"   # Attempt to destroy an enemy building
-    HEAL_SELF = "Heal Self"                 # x Attempt to repair damage
-    RETREAT = "Retreat"                     # x Attempt to escape and move towards base
+    ATTACK_ENEMY = "Attack Enemy"           # Attempt to intercept and attack an enemy unit
+    DEFEND_TARGET = "Defend Area"           # TODO Attempt to defend a unit or area from enemies
+    HEAL_SELF = "Heal Self"                 # Attempt to repair damage
+    RETREAT = "Retreat"                     # Attempt to escape and move towards base
 
 
 all_archetypes = [archetype for archetype in PieceArchetype]
@@ -31,11 +31,9 @@ task_type_to_piece_archetype = {
     TaskType.HARVEST_RESOURCE: [PieceArchetype.WORKER],
     TaskType.BUILD_PIECE: [PieceArchetype.WORKER, PieceArchetype.UTILITY],
     TaskType.RESEARCH_UPGRADE: [PieceArchetype.UTILITY],
-    TaskType.RESEARCH_NEW_UNIT: [PieceArchetype.UTILITY],
 
     TaskType.ATTACK_ENEMY: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
-    TaskType.DEFEND_AREA: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
-    TaskType.DESTROY_BUILDING: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
+    TaskType.DEFEND_TARGET: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
     TaskType.HEAL_SELF: all_archetypes,
     TaskType.RETREAT: all_archetypes,
 }
@@ -88,6 +86,8 @@ class Task:
             pieces = [piece for piece in pieces if piece in piece_manager.get_adjacent_pieces(self.tx, self.ty, self.team)]
         elif self.task_type in [TaskType.BUILD_PIECE]:
             pieces = [piece for piece in pieces if self.target in piece.attr(Attribute.BUILDABLE_PIECES)]
+        elif self.task_type in [TaskType.RESEARCH_UPGRADE]:
+            pieces = [piece for piece in pieces if self.target in piece.attr(Attribute.PURCHASEABLE_UPGRADES)]
         elif self.task_type in [TaskType.ATTACK_ENEMY]:
             # Filter out pieces that can't attack this target
             eligible_pieces = []
@@ -107,10 +107,9 @@ class Task:
         return pieces
 
     # Return a score for this task. Higher values means a lower priority
-    def score_piece_for_task(self, piece, map):
+    def score_piece_for_task(self, piece, distance_map):
         if self.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY]:
-            # TODO: Do some simple / rough pathfinding to determine distance? Construct a simplified view of the
-            # map-- graph of nodes + edges. Determine distance along this axis (use to determine line of play too)
+            # Calculate the distance. This isn't 100% accurate (sometimes things are in the way) but it's good enough
             distance = abs(self.tx - piece.gx) + abs(self.ty - piece.gy)
 
             if self.task_type == TaskType.ATTACK_ENEMY and self.target:
@@ -134,8 +133,8 @@ class Task:
                 destinations = [tile for tile in piece.get_base_buildable_tiles()
                                 if piece.can_build_piece_onto_tile(self.target, tile)]
                 if len(destinations) > 0:
-                    # TODO: Have some heuristic for best tile to build onto. Maybe by line of play?
-                    self.tx, self.ty = destinations[0]
+                    # Use the distance map to find the best position along the critical path
+                    self.tx, self.ty = min(destinations, key=lambda tile: distance_map.get(tile, 999))
                     score = 1 if self.target == PieceType.COLONIST else 2
                     occupied_tiles = [(self.tx, self.ty)]
                     if piece.piece_subtype != PieceSubtype.BUILDING:
@@ -153,6 +152,14 @@ class Task:
             # Prioritize based on how low health we are
             score = -10 * piece.hp / piece.attr(Attribute.MAX_HP)
             return score, [(piece.gx, piece.gy)]
+        elif self.task_type in [TaskType.RESEARCH_UPGRADE]:
+            # Evaluate based on piece type. Tech labs are highest priority, because they have no other tasks
+            # competing for for its attention.
+            return {
+                PieceType.TECHLAB: 0,
+                PieceType.BASE: 1,
+                PieceType.BARRACKS: 2,
+            }[piece.piece_type]
         else:
             return 99999, []
 
@@ -160,6 +167,8 @@ class Task:
     def get_planned_spending(self, team_manager):
         if self.task_type in [TaskType.BUILD_PIECE]:
             return team_manager.attr(self.team, self.target, Attribute.PRICE)
+        elif self.task_type in [TaskType.RESEARCH_UPGRADE]:
+            return base_upgrades[self.target][UpgradeAttribute.UPGRADE_PRICE]
         elif self.task_type in [TaskType.HARVEST_RESOURCE]:
             return team_manager.attr(self.team, PieceType.GENERATOR, Attribute.PRICE)
         else:

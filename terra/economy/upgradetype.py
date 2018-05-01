@@ -65,3 +65,13 @@ class UpgradeType(Enum):
     # Demon
     DEMON_CAN_BUILD = auto()
     DEMON_BASE_ATTACK = auto()
+
+
+unit_research = {
+    UpgradeType.RESEARCH_GUARDIAN,
+    UpgradeType.RESEARCH_BOLTCASTER,
+    UpgradeType.RESEARCH_BANSHEE,
+    UpgradeType.RESEARCH_TITAN,
+    UpgradeType.RESEARCH_EARTHRENDER,
+    UpgradeType.RESEARCH_DEMON,
+}

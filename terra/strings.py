@@ -73,7 +73,8 @@ menu_help_strings = {
                            "Notably weak to ranged attacks.",
         PieceType.RANGER: "* Rangers are fairly fragile units that can conduct long-range attacks without being "
                           "counter attacked. They cannot defend themselves in melee and are notably weak to "
-                          "high-mobility units. Their ranged attack is canceled if an enemy contests their tile.\n"
+                          "high-mobility units. Their ranged attack deals damage in an area, but is canceled if an "
+                          "enemy contests their tile.\n"
                           "When attacking a tile, they will only damage enemies. ",
         PieceType.GHOST: "* Ghosts are high-mobility units with low defenses. They are not impeded by enemy units when "
                          "moving around, and can slip behind enemy lines. Cannot attack or contest buildings, and are "
@@ -379,6 +380,8 @@ main_menu_strings = {
 
         Option.LEAVE_LOBBY: "Leave Lobby",
         Option.START_BATTLE: "Start Battle",
+        Option.ADD_HUMAN: "Add Local Player",
+        Option.REMOVE_HUMAN: "Remove Local Player",
     }
 }
 
@@ -445,6 +448,8 @@ label_strings = {
         "MAPNAME_INPUT": "Enter new map name:",
         "RESULTS_PROMPT": "Press the CONFIRM key to continue",
         "OPEN_TEAM": "-OPEN-",
+        "HUMAN_TEAM": "Player",
+        "AI_TEAM": "CPU",
         "TUTORIAL_PROMPT": "Press the CONFIRM key to continue",
     }
 }

@@ -57,6 +57,8 @@ spr_main_menu_option = {
     Option.SAVE_SETTINGS: spr_main_menu_option_base[6],
     Option.START_BATTLE: spr_main_menu_option_base[0],
     Option.LEAVE_LOBBY: spr_main_menu_option_base[4],
+    Option.ADD_HUMAN: spr_main_menu_option_base[5],
+    Option.REMOVE_HUMAN: spr_main_menu_option_base[7],
     Option.TUTORIAL: spr_main_menu_option_base[5],
 }
 

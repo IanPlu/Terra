@@ -40,6 +40,7 @@ class LobbyMenu(Menu):
         #     options.append(Option.SETTINGS)
 
         if not self.is_network_game():
+            options.append(Option.ADD_HUMAN)
             options.append(Option.START_BATTLE)
 
         options.reverse()
@@ -70,6 +71,10 @@ class LobbyMenu(Menu):
             self.start_battle()
         elif option == Option.SETTINGS:
             self.open_settings()
+        elif option == Option.ADD_HUMAN:
+            self.add_human()
+        elif option == Option.REMOVE_HUMAN:
+            self.remove_human()
 
     def cancel(self):
         super().cancel()
@@ -80,6 +85,16 @@ class LobbyMenu(Menu):
 
     def exit_lobby(self):
         publish_game_event(EventType.E_EXIT_LOBBY, {})
+
+    def add_human(self):
+        self.options.insert(self.options.index(Option.ADD_HUMAN), Option.REMOVE_HUMAN)
+        self.options.remove(Option.ADD_HUMAN)
+        publish_game_event(EventType.E_ADD_HUMAN, {})
+
+    def remove_human(self):
+        self.options.insert(self.options.index(Option.REMOVE_HUMAN), Option.ADD_HUMAN)
+        self.options.remove(Option.REMOVE_HUMAN)
+        publish_game_event(EventType.E_REMOVE_HUMAN, {})
 
     def on_all_teams_filled(self, event):
         if self.get_manager(Manager.NETWORK).is_host:

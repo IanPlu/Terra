@@ -75,6 +75,13 @@ class Task:
             base += " on tile ({}, {})".format(self.tx, self.ty)
         return base
 
+    def requires_pathfinding(self):
+        return self.task_type in [
+            TaskType.MOVE_TO_RESOURCE,
+            TaskType.ATTACK_ENEMY,
+            TaskType.BUILD_PIECE,
+        ]
+
     # Return all pieces for this team that can work this task
     def get_eligible_pieces_for_task(self, piece_manager):
         pieces = []
@@ -155,11 +162,12 @@ class Task:
         elif self.task_type in [TaskType.RESEARCH_UPGRADE]:
             # Evaluate based on piece type. Tech labs are highest priority, because they have no other tasks
             # competing for for its attention.
+            # TODO: Determine heuristic for weighting this vs. building units
             return {
-                PieceType.TECHLAB: 0,
-                PieceType.BASE: 1,
-                PieceType.BARRACKS: 2,
-            }[piece.piece_type]
+                PieceType.TECHLAB: 3,
+                PieceType.BASE: 5,
+                PieceType.BARRACKS: 7,
+            }.get(piece.piece_type, 99999), []
         else:
             return 99999, []
 
@@ -196,9 +204,7 @@ class Assignment:
 
     # Return a list of coords that will be occupied if this assignment is carried out
     def get_end_position(self, planned_occupied_coords):
-        if len(self.end_pos) > 0:
-            return self.end_pos
-        else:
+        if self.task.requires_pathfinding() and len(self.end_pos) == 0:
             # Pathfind, taking into account the planned occupied coords
             destination = (self.tx, self.ty)
             min_range = 0
@@ -221,3 +227,5 @@ class Assignment:
             else:
                 # Return None to indicate no path
                 return None
+        else:
+            return self.end_pos

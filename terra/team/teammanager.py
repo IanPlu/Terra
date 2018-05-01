@@ -17,7 +17,6 @@ from terra.util.mathutil import clamp
 
 # Max number of any given resource a player can hold.
 MAX_RESOURCES = 999
-ai_game = True
 
 
 # Manager for resources, upgrades, and piece stats for all teams.
@@ -78,19 +77,6 @@ class TeamManager(GameObject):
         # When players lose or are removed, they'll stay in this list.
         self.all_teams = self.teams.copy()
 
-        # For local games, set P1 as human and P2 as an AI.
-        # TODO: More graceful handling of this
-        self.human_teams = []
-        self.ai_teams = []
-        if ai_game:
-            if not self.is_network_game():
-                self.human_teams.append(self.teams[0])
-                self.ai_teams.append(self.teams[1])
-            else:
-                self.human_teams.extend(self.teams)
-        else:
-            self.human_teams.extend(self.teams)
-
     def destroy(self):
         super().destroy()
         for _, bar in self.phase_bars.items():
@@ -121,14 +107,6 @@ class TeamManager(GameObject):
     # Get the list of teams currently present in the battle
     def get_teams(self):
         return self.teams
-
-    # Get the list of human (not AI) players currently present in the battle
-    def get_human_teams(self):
-        return self.human_teams
-
-    # Get the list of AI (not human) players currently present in the battle
-    def get_ai_teams(self):
-        return self.ai_teams
 
     # Get a list of all teams that have ever been in the battle
     def get_all_teams(self):
@@ -209,6 +187,11 @@ class TeamManager(GameObject):
                 for attribute in attributes:
                     self.piece_attributes[team][piece_type][attribute] += \
                         upgrade[UpgradeAttribute.NEW_STAT][piece_type][attribute]
+
+                    # Corner case: heal units when their max HP increases
+                    if attribute == Attribute.MAX_HP:
+                        for piece in self.get_manager(Manager.PIECE).get_all_pieces_for_team(team, piece_type=piece_type):
+                            piece.heal_hp(upgrade[UpgradeAttribute.NEW_STAT][piece_type][attribute])
 
         if upgrade.get(UpgradeAttribute.NEW_TYPE):
             for piece_type, attributes in upgrade[UpgradeAttribute.NEW_TYPE].items():

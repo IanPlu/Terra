@@ -5,8 +5,8 @@ from terra.engine.gamescreen import GameScreen
 from terra.managers.session import Session, Manager
 from terra.map.minimap import draw_map_preview
 from terra.menu.lobbymenu import LobbyMenu
-from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color
-from terra.strings import get_text, label_strings
+from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color, spr_title_text
+from terra.strings import get_text, get_string, label_strings
 from terra.team.team import Team
 from terra.util.drawingutil import draw_text
 
@@ -55,30 +55,40 @@ class Lobby(GameScreen):
         game_screen = Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), SRCALPHA, 32)
         game_screen.fill(clear_color[Team.RED])
 
+        game_screen.blit(spr_title_text, (self.root_x - spr_title_text.get_width() // 2, 24))
+
         # Render a minimap preview of the current map
         minimap = draw_map_preview(menu_width - 24, 144, self.bitmap, self.pieces, self.team_data)
         game_screen.blit(minimap, (self.root_x - minimap.get_width() - 24, self.root_y))
 
-        # Render the current lobby status-- open and filled teams
+        # Render the current lobby status-- open and filled teams for network games, human and AI teams for local
         if self.is_network_game():
-            row_y = 0
-            for team in self.teams:
-                position_x, position_y = self.root_x, self.root_y + row_y * 24 + 1
+            filled_teams = self.get_manager(Manager.NETWORK).filled_teams
+            ai_teams = []
+        else:
+            filled_teams = dict([(team, get_string(label_strings, "HUMAN_TEAM")) for
+                                 team in self.get_manager(Manager.PLAYER).human_teams])
+            ai_teams = self.get_manager(Manager.PLAYER).ai_teams
 
-                filled_teams = self.get_manager(Manager.NETWORK).filled_teams
-                is_filled = team in filled_teams.keys()
-                x_offset = 0 if is_filled else 16
+        row_y = 0
+        for team in self.teams:
+            position_x, position_y = self.root_x, self.root_y + row_y * 24 + 1
 
-                game_screen.fill(light_color, (position_x - 24 - 1 + x_offset, position_y - 1, menu_width + 3 - x_offset, 24))
-                game_screen.fill(light_team_color[team] if is_filled else shadow_color[team],
-                                 (position_x - 24 + x_offset, position_y, menu_width - x_offset, 21))
+            is_filled = team in filled_teams.keys()
+            x_offset = 0 if is_filled else 16
 
-                if team in filled_teams:
-                    game_screen.blit(draw_text(filled_teams[team], light_color, dark_color), (position_x + 8, position_y + 4))
-                else:
-                    game_screen.blit(get_text(label_strings, "OPEN_TEAM"), (position_x + 8, position_y + 4))
+            game_screen.fill(light_color, (position_x - 24 - 1 + x_offset, position_y - 1, menu_width + 3 - x_offset, 24))
+            game_screen.fill(light_team_color[team] if is_filled else shadow_color[team],
+                             (position_x - 24 + x_offset, position_y, menu_width - x_offset, 21))
 
-                row_y += 1
+            if team in filled_teams:
+                game_screen.blit(draw_text(filled_teams[team], light_color, dark_color), (position_x + 8, position_y + 4))
+            elif team in ai_teams:
+                game_screen.blit(get_text(label_strings, "AI_TEAM"), (position_x + 8, position_y + 4))
+            else:
+                game_screen.blit(get_text(label_strings, "OPEN_TEAM"), (position_x + 8, position_y + 4))
+
+            row_y += 1
 
         if self.lobby_menu:
             self.lobby_menu.render(game_screen, ui_screen)

@@ -1,7 +1,7 @@
 from terra.turn.battlephase import BattlePhase
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
-from terra.event.event import EventType
+from terra.event.event import publish_game_event, EventType
 from terra.managers.session import Manager
 from terra.mode import Mode
 from terra.ui.cursor import Cursor
@@ -14,19 +14,23 @@ class PlayerManager(GameObject):
     def __init__(self):
         super().__init__()
 
+        all_teams = self.get_manager(Manager.TEAM).get_teams()
+        if self.is_network_game():
+            self.human_teams = all_teams.copy()
+            self.ai_teams = []
+        else:
+            self.human_teams = all_teams[:1]
+            self.ai_teams = all_teams[1:]
+
         self.cursors = {}
         self.ais = {}
-        for team in self.get_manager(Manager.TEAM).get_human_teams():
+        for team in self.human_teams:
             self.cursors[team] = Cursor(team)
 
-        for team in self.get_manager(Manager.TEAM).get_ai_teams():
+        for team in self.ai_teams:
             self.ais[team] = AIPlayer(team)
 
-            # TODO: Don't create cursors for AI Players
-            self.cursors[team] = Cursor(team)
-
         self.active_team = self.get_manager(Manager.NETWORK).team
-        self.hotseat_mode = not self.get_manager(Manager.NETWORK).networked_game and len(self.ais.keys()) == 0
 
     def destroy(self):
         super().destroy()
@@ -40,14 +44,49 @@ class PlayerManager(GameObject):
         super().register_handlers(event_bus)
         event_bus.register_handler(EventType.E_TURN_SUBMITTED, self.pass_control_to_next_team_from_event)
         event_bus.register_handler(EventType.E_SWAP_ACTIVE_PLAYER, self.pass_control_to_next_team_from_event)
+        event_bus.register_handler(EventType.E_ADD_HUMAN, self.add_human)
+        event_bus.register_handler(EventType.E_REMOVE_HUMAN, self.remove_human)
 
     def is_accepting_input(self):
         return self.get_mode() in [Mode.BATTLE] and not self.get_manager(Manager.NETWORK).networked_game
 
+    def is_hotseat_mode(self):
+        return not self.get_manager(Manager.NETWORK).networked_game and len(self.ais.keys()) == 0
+
+    # Swap a team from being human-controlled to ai-controlled, and vice-versa
+    def swap_team(self, team):
+        if team in self.ai_teams:
+            ai = self.ais.pop(team)
+            ai.destroy()
+            self.cursors[team] = Cursor(team)
+
+            self.ai_teams.remove(team)
+            self.human_teams.append(team)
+        elif team in self.human_teams:
+            self.ais[team] = AIPlayer(team)
+            cursor = self.cursors.pop(team)
+            cursor.destroy()
+
+            self.ai_teams.append(team)
+            self.human_teams.remove(team)
+
+            # Prompt the new AI to plan its turn
+            publish_game_event(EventType.AI_REPLAN_TURN, {})
+
+    # Add a human player to the first open spot (AI-occupied slot)
+    def add_human(self, event=None):
+        if len(self.ai_teams) > 0:
+            self.swap_team(self.ai_teams[0])
+
+    # Remove a human player from the last occupied spot
+    def remove_human(self, event=None):
+        if len(self.human_teams) > 0:
+            self.swap_team(self.human_teams[-1])
+
     # Once a player submits their turn, if we're in hotseat / sequential mode,
     # swap the active team to let the other player take a turn
     def pass_control_to_next_team_from_event(self, event):
-        if self.hotseat_mode:
+        if self.is_hotseat_mode():
             self.pass_control_to_next_team()
 
     def pass_control_to_next_team(self):

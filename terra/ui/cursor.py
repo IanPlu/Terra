@@ -160,7 +160,7 @@ class Cursor(GameObject):
                 else:
                     menu_options = [Option.MENU_SUBMIT_TURN]
 
-                if self.get_manager(Manager.PLAYER).hotseat_mode:
+                if self.get_manager(Manager.PLAYER).is_hotseat_mode():
                     menu_options.append(Option.MENU_SWAP_ACTIVE_PLAYER)
 
                 menu_options.extend([Option.MENU_SAVE_GAME, Option.MENU_CONCEDE, Option.MENU_QUIT_BATTLE])

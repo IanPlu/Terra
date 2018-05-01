@@ -1,4 +1,5 @@
 from math import ceil
+from random import sample
 
 from pygame import USEREVENT
 from pygame.event import Event
@@ -6,6 +7,7 @@ from pygame.event import Event
 from terra.ai.pathfinder import navigate_all
 from terra.ai.personality import create_default_personality
 from terra.ai.task import Task, TaskType, Assignment
+from terra.economy.upgradetype import unit_research
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
 from terra.managers.session import Manager
@@ -50,6 +52,8 @@ class AIPlayer(GameObject):
         self.debug_print_confirmations = False
         self.debug_assign_orders_immediately = False
 
+        self.parse_board_state()
+
         super().__init__()
 
     def register_handlers(self, event_bus):
@@ -57,8 +61,10 @@ class AIPlayer(GameObject):
 
         if self.debug_assign_orders_immediately:
             event_bus.register_handler(EventType.START_PHASE_ORDERS, self.debug_handle_orders_phase)
+            event_bus.register_handler(EventType.AI_REPLAN_TURN, self.debug_handle_orders_phase)
         else:
             event_bus.register_handler(EventType.START_PHASE_ORDERS, self.handle_orders_phase)
+            event_bus.register_handler(EventType.AI_REPLAN_TURN, self.handle_orders_phase)
             event_bus.register_handler(EventType.E_TURN_SUBMITTED, self.handle_turn_submitted)
 
     def is_accepting_events(self):
@@ -163,6 +169,7 @@ class AIPlayer(GameObject):
 
         # TODO: Generate terraforming tasks to get to these resources
         terraforming_required_resources = list(set(all_harvestable_coords) - set(harvestable_coords))
+        # Calculate the path to the resource, mark each impassible tile on the route and create an order for each
 
         for coord in immediate_harvest_coords:
             tasks.append(self.create_harvest_task(coord))
@@ -194,9 +201,13 @@ class AIPlayer(GameObject):
         return tasks
 
     # TODO: Weigh upgrade choices by personality + unit preferences
+    # TODO: Figure out heuristics for which upgrade to get. For now, just try to research a random sample
     def generate_research_tasks(self):
         tasks = []
         piece_manager = self.get_manager(Manager.PIECE)
+        team_manager = self.get_manager(Manager.TEAM)
+
+        upgrades_to_research = set()
 
         # If we don't have a tech lab, we should build one
         if len(piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.TECHLAB)) == 0:
@@ -204,16 +215,35 @@ class AIPlayer(GameObject):
             tasks.append(self.create_build_techlab_task())
         else:
             # Generate research tasks to produce new unit types
+            for upgrade in unit_research:
+                if not team_manager.has_upgrade(self.team, upgrade):
+                    upgrades_to_research.add(upgrade)
+
             # Additionally, generate tasks to research upgrades in the tech lab's research list
-            pass
+            for upgrade in self.pick_researchable_upgrades(PieceType.TECHLAB, 3):
+                upgrades_to_research.add(upgrade)
 
         # Generate economic research tasks. Pick an upgrade from the HQ's research list
-        # TODO
+        for upgrade in self.pick_researchable_upgrades(PieceType.BASE, 2):
+            upgrades_to_research.add(upgrade)
 
         # Generate military research tasks. Pick an upgrade from the barracks' research list
-        # TODO
+        for upgrade in self.pick_researchable_upgrades(PieceType.BARRACKS, 2):
+            upgrades_to_research.add(upgrade)
+
+        for upgrade in upgrades_to_research:
+            tasks.append(self.create_research_task(upgrade))
 
         return tasks
+
+    # Pick <number> upgrades that <piece_type> can research
+    def pick_researchable_upgrades(self, piece_type, number):
+        researchable_upgrades = self.get_manager(Manager.TEAM).attr(self.team, piece_type, Attribute.PURCHASEABLE_UPGRADES)
+        k = min(number, len(researchable_upgrades))
+        if k > 0:
+            return sample(researchable_upgrades, k=k)
+        else:
+            return []
 
     # TODO: Figure out the piece price by tech level
     def get_highest_piece_price(self):
@@ -247,6 +277,9 @@ class AIPlayer(GameObject):
 
     def create_build_techlab_task(self):
         return Task(self.team, TaskType.BUILD_PIECE, target=PieceType.TECHLAB)
+
+    def create_research_task(self, upgrade_type):
+        return Task(self.team, TaskType.RESEARCH_UPGRADE, target=upgrade_type)
 
     def create_attack_enemy_task(self, target):
         anticipated_x, anticipated_y = self.get_anticipated_movement(target)
@@ -344,7 +377,7 @@ class AIPlayer(GameObject):
 
                 # Only confirm the assignment if it won't occupy the same tile twice
                 newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
-                if not newly_occupied_tiles:
+                if newly_occupied_tiles is None:
                     tiles_free = False
                 elif not set(self.planned_occupied_coords).isdisjoint(set(newly_occupied_tiles)):
                     tiles_free = False

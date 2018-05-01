@@ -39,6 +39,8 @@ class EventType(Enum):
     E_EXIT_LOBBY = auto()
     E_NETWORKING_ERROR = auto()
     E_SWAP_ACTIVE_PLAYER = auto()
+    E_ADD_HUMAN = auto()
+    E_REMOVE_HUMAN = auto()
 
     E_ALL_TEAMS_FILLED = auto()
     E_TEAM_LEFT = auto()
@@ -101,6 +103,9 @@ class EventType(Enum):
     NETWORK_CONNECTED_TO_HOST = auto()
     NETWORK_CLIENT_DISCONNECTED = auto()
     NETWORK_DISCONNECTED_FROM_HOST = auto()
+
+    # AI control events
+    AI_REPLAN_TURN = auto()
 
 
 # Publish the specified game event, with the data provided.

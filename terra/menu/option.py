@@ -21,9 +21,11 @@ class Option(Enum):
     SAVE_SETTINGS = auto()
     TUTORIAL = auto()
 
-    # Network lobby options
+    # Lobby options
     LEAVE_LOBBY = auto()
     START_BATTLE = auto()
+    ADD_HUMAN = auto()
+    REMOVE_HUMAN = auto()
 
     # Piece selection options
     MENU_CANCEL_ORDER = auto()

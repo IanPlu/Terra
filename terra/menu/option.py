@@ -51,3 +51,14 @@ class Option(Enum):
     MENU_FILL_WITH_CURRENT_TILE = auto()
     MENU_MIRROR_X = auto()
     MENU_MIRROR_Y = auto()
+
+
+contestable_options = [
+    Option.MENU_RANGED_ATTACK,
+    Option.MENU_BUILD_PIECE,
+    Option.MENU_PURCHASE_UPGRADE,
+    Option.MENU_RAISE_TILE,
+    Option.MENU_LOWER_TILE,
+    Option.MENU_HEAL_SELF,
+]
+

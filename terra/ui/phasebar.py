@@ -5,7 +5,7 @@ from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
 from terra.managers.session import Manager
 from terra.resources.assets import clear_color, spr_cursor, spr_phase_indicator, spr_resource_icon, spr_digit_icons, \
-    spr_turn_submitted_indicator, light_color
+    spr_turn_submitted_indicator, spr_turn_thinking_indicator, light_color
 from terra.strings import get_text, get_formatted_text, notification_strings, phase_strings
 from terra.ui.toastnotification import ToastNotification
 from terra.util.drawingutil import draw_resource_count
@@ -82,4 +82,7 @@ class PhaseBar(GameObject):
         for team in self.get_manager(Manager.TEAM).get_teams():
             if self.get_manager(Manager.TEAM).turn_submitted[team]:
                 ui_screen.blit(spr_turn_submitted_indicator[team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
+                x += 1
+            elif self.get_manager(Manager.PLAYER).is_ai_thinking(team):
+                ui_screen.blit(spr_turn_thinking_indicator[team], (GRID_WIDTH * x, RESOLUTION_HEIGHT - GRID_HEIGHT))
                 x += 1

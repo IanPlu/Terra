@@ -51,6 +51,9 @@ class TileSelection(GameObject):
     # Use Dijkstra's algorithm to navigate the map for tile selection, with some rules caveats
     # https://www.redblobgames.com/pathfinding/a-star/introduction.html
     def __navigate__(self):
+        piece_manager = self.get_manager(Manager.PIECE)
+        battle_map = self.get_manager(Manager.MAP)
+
         frontier = PriorityQueue()
         frontier.put((self.gx, self.gy), 0)
         cost_so_far = {(self.gx, self.gy): 0}
@@ -62,11 +65,11 @@ class TileSelection(GameObject):
 
         while not frontier.empty():
             current = frontier.get()
-            neighbors = self.get_manager(Manager.MAP).get_valid_adjacent_tiles_for_movement_type(current[0], current[1], self.movement_type)
+            neighbors = battle_map.get_valid_adjacent_traversable_tiles(current[0], current[1], self.movement_type)
 
             # If there's a friendly base on this tile, add any portal coords to the neighbors
-            if len(portal_coords) > 0 and len(self.get_manager(Manager.PIECE).get_pieces_at(current[0], current[1],
-                                                                                   PieceType.BASE, self.team)) > 0:
+            if len(portal_coords) > 0 and len(piece_manager.get_pieces_at(current[0], current[1],
+                                                                          PieceType.BASE, self.team)) > 0:
                 neighbors.extend(portal_coords)
 
             for next in neighbors:
@@ -76,7 +79,7 @@ class TileSelection(GameObject):
                     traversable.add(next)
 
                     # If there's an enemy on this tile, and we are susceptible to impedance, don't investigate past it
-                    if not (len(self.get_manager(Manager.PIECE).get_enemy_pieces_at(next[0], next[1], self.team)) > 0 and self.__can_be_impeded__()):
+                    if not (len(piece_manager.get_enemy_pieces_at(next[0], next[1], self.team)) > 0 and self.__can_be_impeded__()):
                         frontier.put(next, new_cost)
 
                     # If this tile is within our minimum range, add it to the exclusion list
@@ -84,7 +87,12 @@ class TileSelection(GameObject):
                         excluded_coordinates.add(next)
 
         # Remove previously excluded coordinates from the list
-        return traversable - excluded_coordinates
+        traversable -= excluded_coordinates
+
+        # Remove tiles that are traversable but not passable
+        traversable = [tile for tile in traversable if battle_map.is_tile_passable(tile[0], tile[1], self.movement_type)]
+
+        return traversable
 
     # Return the initial list of coordinates that cannot be selected
     def __generate_excluded_coordinates__(self):

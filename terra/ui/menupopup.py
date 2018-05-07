@@ -7,10 +7,11 @@ from terra.economy.upgradetype import UpgradeType
 from terra.event.event import publish_game_event, EventType
 from terra.managers.session import Manager
 from terra.menu.menu import Menu
+from terra.menu.option import contestable_options
 from terra.piece.attribute import Attribute
 from terra.piece.piecetype import PieceType
-from terra.resources.assets import spr_pieces, clear_color, shadow_color, spr_digit_icons, spr_upgrade_icons, \
-    spr_resource_icon, spr_order_options, spr_menu_option_item_background, light_team_color
+from terra.resources.assets import spr_pieces, clear_color, spr_digit_icons, spr_upgrade_icons, \
+    spr_resource_icon, spr_order_options, spr_menu_option_item_background, light_team_color, spr_contested_icon
 from terra.strings import menu_option_strings, piece_name_strings, upgrade_name_strings, get_text
 from terra.ui.detailbox import DetailBox
 from terra.util.drawingutil import draw_resource_count
@@ -22,7 +23,7 @@ menu_edge_buffer = 24
 
 # A menu popup containing multiple selectable menu options
 class MenuPopup(Menu):
-    def __init__(self, cursor, tx, ty, team, options=None, centered=False):
+    def __init__(self, cursor, team, tx=None, ty=None, options=None, centered=False):
         self.cursor = cursor
         self.team = team
         self.detailbox = None
@@ -46,7 +47,7 @@ class MenuPopup(Menu):
         if centered:
             x = (RESOLUTION_WIDTH - self.width) // 2
             y = (RESOLUTION_HEIGHT - height) // 2
-        else:
+        elif self.tx is not None and self.ty is not None:
             x = (self.tx + 1 - self.cursor.camera_x // GRID_WIDTH) * GRID_WIDTH
             y = (self.ty - self.cursor.camera_y // GRID_HEIGHT) * GRID_HEIGHT
 
@@ -55,6 +56,9 @@ class MenuPopup(Menu):
                 x -= self.width + menu_edge_buffer
             if y > RESOLUTION_HEIGHT - height - menu_edge_buffer:
                 y -= height - menu_edge_buffer
+        else:
+            x = 0
+            y = 0
 
         super().__init__(num_options=len(options),
                          max_displayable_options=max_displayable_options,
@@ -109,6 +113,19 @@ class MenuPopup(Menu):
         if self.detailbox:
             self.detailbox.destroy()
             self.detailbox = None
+
+    # Return true if the chosen menu option is at risk of being contested.
+    # If this menu isn't for a specific tile, this always returns False.
+    def is_option_contested(self, option):
+        if self.tx and self.ty:
+            piece = self.get_manager(Manager.PIECE).get_piece_at(self.tx, self.ty, self.team)
+            if piece:
+                return piece.is_contested()
+            else:
+                # No piece, so can't be contested
+                return False
+        else:
+            return False
 
     def step(self, event):
         super().step(event)
@@ -173,5 +190,10 @@ class MenuPopup(Menu):
                 else:
                     # Render menu option icons
                     ui_screen.blit(spr_order_options[self.team][option], (self.root_x + x_offset, self.root_y + row_y * option_height))
+
+                    # Render 'contested' indicator if necessary
+                    if option in contestable_options and self.is_option_contested(option):
+                        ui_screen.blit(spr_contested_icon[self.team], (self.root_x + x_offset, self.root_y + row_y * option_height))
+
                     ui_screen.blit(get_text(menu_option_strings, option, light=True), (self.root_x + 29, self.root_y + 8 + row_y * option_height))
                     row_y += 1

@@ -29,7 +29,7 @@ class PieceConflict:
         attack = self.get_attack_damage(piece1, piece2)
         defense = self.get_defense_bonuses(piece2, piece1)
 
-        return int(attack * (1 - defense / 10))
+        return dmg_formula(attack, defense)
 
     # Conduct one round of combat
     def resolve(self):
@@ -55,3 +55,7 @@ class PieceConflict:
                     piece.on_damaging_enemy(piece_attack, enemy)
                 if enemy_attack > 0:
                     enemy.on_damaging_enemy(enemy_attack, piece)
+
+
+def dmg_formula(attack, defense):
+    return int(attack * (1 - defense / 10))

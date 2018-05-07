@@ -13,7 +13,6 @@ class Attribute(Enum):
     ATTACK_MULTIPLIER = "attack_multiplier"             # Flat multiplier for damage against each piece archetype.
     DAMAGE_TYPE = "damage_type"                         # Types of attacks this piece can make (melee or ranged).
     ARMOR = "armor"                                     # Innate damage reduction. One armor = 10% damage reduction.
-    ENTRENCHMENT_MODIFIER = "entrenchment_modifier"     # Multiplier on entrenchment bonuses earned.
     MIN_RANGE = "min_range"                             # Minimum range for ranged attacks.
     MAX_RANGE = "max_range"                             # Maximum range for ranged attacks.
     MOVEMENT_TYPE = "movement_type"                     # Movement type. Affects what tiles it can traverse.

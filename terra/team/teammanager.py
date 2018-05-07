@@ -188,10 +188,15 @@ class TeamManager(GameObject):
                     self.piece_attributes[team][piece_type][attribute] += \
                         upgrade[UpgradeAttribute.NEW_STAT][piece_type][attribute]
 
-                    # Corner case: heal units when their max HP increases
+                    # Corner case: heal units when their max HP increases?
                     if attribute == Attribute.MAX_HP:
-                        for piece in self.get_manager(Manager.PIECE).get_all_pieces_for_team(team, piece_type=piece_type):
-                            piece.heal_hp(upgrade[UpgradeAttribute.NEW_STAT][piece_type][attribute])
+                        # We might not have a piece manager yet, if the game is being reloaded from a save.
+                        # In that case, we don't need to heal pieces anyway
+                        # TODO: This is fragile and results in buggy behavior later if the session load order changes
+                        piece_manager = self.get_manager(Manager.PIECE)
+                        if piece_manager:
+                            for piece in piece_manager.get_all_pieces_for_team(team, piece_type=piece_type):
+                                piece.heal_hp(upgrade[UpgradeAttribute.NEW_STAT][piece_type][attribute])
 
         if upgrade.get(UpgradeAttribute.NEW_TYPE):
             for piece_type, attributes in upgrade[UpgradeAttribute.NEW_TYPE].items():

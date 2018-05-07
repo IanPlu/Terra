@@ -144,7 +144,7 @@ class Cursor(GameObject):
     # Creates a generic menu popup from the provided event.
     def open_menu(self, event):
         if self.can_confirm_or_cancel():
-            self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
+            self.menu = MenuPopup(self, event.team, event.gx, event.gy, event.options)
 
     def close_menu(self, event):
         if self.can_confirm_or_cancel():
@@ -171,7 +171,7 @@ class Cursor(GameObject):
                 # Don't open the menu in this mode
                 return
 
-            self.menu = MenuPopup(self, self.gx, self.gy, self.team, menu_options, centered=True)
+            self.menu = MenuPopup(self, self.team, self.gx, self.gy, menu_options, centered=True)
 
     def open_move_ui(self, event):
         self.move_ui = TileSelection(event.gx, event.gy, event.min_range, event.max_range,
@@ -183,10 +183,10 @@ class Cursor(GameObject):
             self.move_ui = None
 
     def open_build_ui(self, event):
-        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
+        self.menu = MenuPopup(self, event.team, event.gx, event.gy, event.options)
 
     def open_upgrade_ui(self, event):
-        self.menu = MenuPopup(self, event.gx, event.gy, event.team, event.options)
+        self.menu = MenuPopup(self, event.team, event.gx, event.gy, event.options)
 
     def step(self, event):
         super().step(event)

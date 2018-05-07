@@ -1,7 +1,7 @@
 import pygame
 
 from terra.ai.pathfinder import get_path_to_destination
-from terra.constants import GRID_WIDTH, GRID_HEIGHT
+from terra.constants import GRID_WIDTH, GRID_HEIGHT, NETWORK_ANIMATION_SPEED
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.economy.upgradeattribute import UpgradeAttribute
@@ -51,7 +51,8 @@ class Piece(AnimatedGameObject):
         self.rendered_gy = self.gy * GRID_HEIGHT
 
         # How quickly pieces will animate and scroll to their correct locations. Higher number = slower movement
-        self.move_animation_speed = 12 / SETTINGS.get(Setting.ANIMATION_SPEED)
+        self.move_animation_speed = 12 / (NETWORK_ANIMATION_SPEED if self.is_network_game() else
+                                          SETTINGS.get(Setting.ANIMATION_SPEED))
         self.move_animation_snap_dist = 1
 
         # Look up values based on our piece type
@@ -66,7 +67,6 @@ class Piece(AnimatedGameObject):
             self.hp = self.attr(Attribute.MAX_HP)
         self.current_order = None
         self.in_conflict = False
-        self.entrenchment = 0
 
         self.temporary_armor = 0
         self.last_attacker = None
@@ -224,8 +224,7 @@ class Piece(AnimatedGameObject):
 
     # Return the combination of any innate armor, entrenchment bonuses, etc. this piece has
     def get_defense_rating(self):
-        return self.entrenchment + \
-               self.attr(Attribute.ARMOR) + \
+        return self.attr(Attribute.ARMOR) + \
                self.temporary_armor
 
     # Get movement range, plus any bonuses
@@ -237,7 +236,7 @@ class Piece(AnimatedGameObject):
 
         return movement_range
 
-    # Clean ourselves up at the end of phases, die as appropriate
+    # Clean ourselves up at the end of turns, die as appropriate
     def cleanup(self, event):
         if self.hp <= 0:
             self.on_death()
@@ -304,7 +303,7 @@ class Piece(AnimatedGameObject):
             enemy_pieces = self.get_manager(Manager.PIECE).get_enemy_pieces_at(self.gx, self.gy, self.team)
             contesting_pieces = []
             for piece in enemy_pieces:
-                # Contests if any of the following are true:
+                # Contests if all of the following are true:
                 # - Enemy can attack us (some pieces can't attack buildings, which we might be)
                 # - Enemy deals melee damage (not ranged)
                 # - Enemy has an attack rating (so they'll actually hurt us)
@@ -359,11 +358,6 @@ class Piece(AnimatedGameObject):
                 'team': self.team,
                 'health': heal
             })
-
-    # Apply an entrenchment bonus per unused movement range (up to 2)
-    def apply_entrenchment(self, distance):
-        self.entrenchment = (min(self.attr(Attribute.MOVEMENT_RANGE), 2) - distance) * \
-                            self.attr(Attribute.ENTRENCHMENT_MODIFIER)
 
     # Return a score for moving from tile A to tile B. Lower numbers are preferred.
     def get_move_score(self, a, b, blocked):
@@ -525,14 +519,8 @@ class Piece(AnimatedGameObject):
                 'dy': self.current_order.dy
             })
 
-            # Apply entrenchment bonus based on distance moved
-            self.apply_entrenchment(abs(self.gx - self.current_order.dx) + abs(self.gy - self.current_order.dy))
-
             # Pop orders once they're executed
             self.current_order = None
-        else:
-            # Apply the full entrenchment bonus
-            self.apply_entrenchment(0)
 
     def handle_end_phase_move(self, event):
         # Apply buffs to allies on adjacent tiles, if necessary

@@ -1,5 +1,6 @@
 from math import ceil
 from random import sample
+from threading import Thread
 
 from pygame import USEREVENT
 from pygame.event import Event
@@ -7,6 +8,8 @@ from pygame.event import Event
 from terra.ai.pathfinder import navigate_all
 from terra.ai.personality import create_default_personality
 from terra.ai.task import Task, TaskType, Assignment
+from terra.economy.upgradeattribute import UpgradeAttribute
+from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import unit_research
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
@@ -35,9 +38,12 @@ class AIPlayer(GameObject):
         self.tasks = []
         self.assignments = []
         self.income = 0
+        self.is_thinking = False
 
         # Aliases for commonly accessed data
         self.my_pieces = None
+        self.my_piece_counts = None
+        self.my_archetype_counts = None
         self.enemy_pieces = None
         self.map = None
 
@@ -50,7 +56,8 @@ class AIPlayer(GameObject):
         self.debug_print_tasks = False
         self.debug_print_assignments = False
         self.debug_print_confirmations = False
-        self.debug_assign_orders_immediately = False
+
+        self.do_threaded_planning = True
 
         self.parse_board_state()
 
@@ -59,13 +66,15 @@ class AIPlayer(GameObject):
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
 
-        if self.debug_assign_orders_immediately:
-            event_bus.register_handler(EventType.START_PHASE_ORDERS, self.debug_handle_orders_phase)
-            event_bus.register_handler(EventType.AI_REPLAN_TURN, self.debug_handle_orders_phase)
+        if self.do_threaded_planning:
+            # When the player submits their turn, plan out the AI turn on a separate thread
+            event_bus.register_handler(EventType.AI_REPLAN_TURN, self.begin_threaded_planning)
+            event_bus.register_handler(EventType.E_TURN_SUBMITTED, self.begin_threaded_planning)
         else:
-            event_bus.register_handler(EventType.START_PHASE_ORDERS, self.handle_orders_phase)
-            event_bus.register_handler(EventType.AI_REPLAN_TURN, self.handle_orders_phase)
-            event_bus.register_handler(EventType.E_TURN_SUBMITTED, self.handle_turn_submitted)
+            # At start of turn, do preplanning. Then complete planning the turn when the player submits their turn
+            event_bus.register_handler(EventType.AI_REPLAN_TURN, self.do_all_planning)
+            event_bus.register_handler(EventType.START_PHASE_START_TURN, self.do_preplanning)
+            event_bus.register_handler(EventType.E_TURN_SUBMITTED, self.act_on_planning)
 
     def is_accepting_events(self):
         return self.get_mode() in [Mode.BATTLE, Mode.LOBBY]
@@ -74,6 +83,8 @@ class AIPlayer(GameObject):
     def parse_board_state(self):
         piece_manager = self.get_manager(Manager.PIECE)
         self.my_pieces = piece_manager.get_all_pieces_for_team(self.team)
+        self.my_piece_counts = dict(piece_manager.get_piece_counts(self.team))
+        self.my_archetype_counts = piece_manager.get_archetype_counts(self.team, units_only=True)
         self.enemy_pieces = piece_manager.get_all_enemy_pieces(self.team)
         self.map = self.get_manager(Manager.MAP)
 
@@ -160,15 +171,15 @@ class AIPlayer(GameObject):
         all_harvestable_coords = [coord for coord in self.map.find_tiles_by_type(TileType.RESOURCE)
                                   if len(piece_manager.get_pieces_at(coord[0], coord[1], PieceType.GENERATOR)) == 0]
 
-        # Get a list of open resource tiles, add tasks to harvest them. Search only the reachable tiles from the HQ.
+        # Get a list of reachable open resource tiles, add tasks to harvest them.
         harvestable_coords = [coord for coord in all_harvestable_coords if coord in self.distance_map.keys()]
 
-        # Sort those resource tiles by whether they're immediately harvestable or not
+        # Sort those resource tiles by whether they're immediately harvestable or not (Colonist adjacent)
         immediate_harvest_coords = [coord for coord in harvestable_coords if self.is_immediately_harvestable(coord)]
         moveto_coords = list(set(harvestable_coords) - set(immediate_harvest_coords))
 
         # TODO: Generate terraforming tasks to get to these resources
-        terraforming_required_resources = list(set(all_harvestable_coords) - set(harvestable_coords))
+        # terraforming_required_resources = list(set(all_harvestable_coords) - set(harvestable_coords))
         # Calculate the path to the resource, mark each impassible tile on the route and create an order for each
 
         for coord in immediate_harvest_coords:
@@ -200,14 +211,15 @@ class AIPlayer(GameObject):
 
         return tasks
 
-    # TODO: Weigh upgrade choices by personality + unit preferences
-    # TODO: Figure out heuristics for which upgrade to get. For now, just try to research a random sample
     def generate_research_tasks(self):
         tasks = []
         piece_manager = self.get_manager(Manager.PIECE)
         team_manager = self.get_manager(Manager.TEAM)
 
-        upgrades_to_research = set()
+        upgrades_to_research = []
+
+        def queue_upgrade(upgrade):
+            upgrades_to_research.append((self.score_researchable_upgrade(upgrade), upgrade))
 
         # If we don't have a tech lab, we should build one
         if len(piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.TECHLAB)) == 0:
@@ -217,22 +229,24 @@ class AIPlayer(GameObject):
             # Generate research tasks to produce new unit types
             for upgrade in unit_research:
                 if not team_manager.has_upgrade(self.team, upgrade):
-                    upgrades_to_research.add(upgrade)
+                    queue_upgrade(upgrade)
 
             # Additionally, generate tasks to research upgrades in the tech lab's research list
-            for upgrade in self.pick_researchable_upgrades(PieceType.TECHLAB, 3):
-                upgrades_to_research.add(upgrade)
+            for upgrade in self.pick_researchable_upgrades(PieceType.TECHLAB, self.personality.research_to_consider):
+                queue_upgrade(upgrade)
 
         # Generate economic research tasks. Pick an upgrade from the HQ's research list
-        for upgrade in self.pick_researchable_upgrades(PieceType.BASE, 2):
-            upgrades_to_research.add(upgrade)
+        for upgrade in self.pick_researchable_upgrades(PieceType.BASE, self.personality.research_to_consider):
+            queue_upgrade(upgrade)
 
         # Generate military research tasks. Pick an upgrade from the barracks' research list
-        for upgrade in self.pick_researchable_upgrades(PieceType.BARRACKS, 2):
-            upgrades_to_research.add(upgrade)
+        for upgrade in self.pick_researchable_upgrades(PieceType.BARRACKS, self.personality.research_to_consider):
+            queue_upgrade(upgrade)
 
-        for upgrade in upgrades_to_research:
-            tasks.append(self.create_research_task(upgrade))
+        # Take the top few research items, based on personality
+        upgrades_to_research.sort(key=lambda pair: pair[0])
+        num_to_research = min(self.personality.research_to_consider, len(upgrades_to_research))
+        tasks.extend([self.create_research_task(upgrade) for upgrade in upgrades_to_research[0:num_to_research]])
 
         return tasks
 
@@ -244,6 +258,25 @@ class AIPlayer(GameObject):
             return sample(researchable_upgrades, k=k)
         else:
             return []
+
+    def score_researchable_upgrade(self, upgrade):
+        score = 10
+        upgrade_attributes = base_upgrades.get(upgrade)
+
+        # Score new unit research inherently higher
+        if upgrade_attributes.get(UpgradeAttribute.NEW_BUILDABLE, None):
+            score -= self.personality.new_unit_tier_priority
+
+        # Weigh other research by how many pieces they'll affect (e.g. if we have lots of Troopers, upgrade them)
+        total_pieces = len(self.my_pieces)
+        if upgrade_attributes.get(UpgradeAttribute.DISPLAY_FOR, None):
+            for piece_type in upgrade_attributes[UpgradeAttribute.DISPLAY_FOR]:
+                piece_proportion = round(self.my_piece_counts.get(piece_type, 0) / total_pieces, 2)
+                preference_weight = self.personality.unit_preference\
+                    .get(self.get_manager(Manager.TEAM).attr(self.team, piece_type, Attribute.ARCHETYPE), 1.0)
+                score -= 2 * piece_proportion * preference_weight
+
+        return score
 
     # TODO: Figure out the piece price by tech level
     def get_highest_piece_price(self):
@@ -264,10 +297,10 @@ class AIPlayer(GameObject):
         return len(adjacent_colonists) > 0
 
     def create_harvest_task(self, coord):
-        return Task(self.team, TaskType.HARVEST_RESOURCE, coord[0], coord[1], target=PieceType.GENERATOR)
+        return Task(self.team, TaskType.HARVEST_RESOURCE, tx=coord[0], ty=coord[1], target=PieceType.GENERATOR)
 
     def create_moveto_harvest_task(self, coord):
-        return Task(self.team, TaskType.MOVE_TO_RESOURCE, coord[0], coord[1])
+        return Task(self.team, TaskType.MOVE_TO_RESOURCE, tx=coord[0], ty=coord[1])
 
     def create_build_colonist_task(self):
         return Task(self.team, TaskType.BUILD_PIECE, target=PieceType.COLONIST)
@@ -283,7 +316,7 @@ class AIPlayer(GameObject):
 
     def create_attack_enemy_task(self, target):
         anticipated_x, anticipated_y = self.get_anticipated_movement(target)
-        return Task(self.team, TaskType.ATTACK_ENEMY, anticipated_x, anticipated_y, target)
+        return Task(self.team, TaskType.ATTACK_ENEMY, tx=anticipated_x, ty=anticipated_y, target=target)
 
     def get_anticipated_movement(self, piece):
         if piece.piece_subtype == PieceSubtype.BUILDING:
@@ -310,33 +343,31 @@ class AIPlayer(GameObject):
     def create_build_military_tasks(self):
         # TODO: Add weighting based on enemy team composition
         tasks = []
-        counts = self.get_manager(Manager.PIECE).get_archetype_counts(self.team, units_only=True)
         counts_map = {}
         # Weight counts by personality
-        for archetype, count in counts:
-            counts_map[archetype] = count / self.personality.unit_construction_weight[archetype]
+        for archetype, count in self.my_archetype_counts:
+            counts_map[archetype] = count / self.personality.unit_preference[archetype]
 
         target_archetype = PieceArchetype.GROUND
-        if len(counts) > 0:
+        if len(counts_map.keys()) > 0:
             # Find the lowest count
             target_archetype, amount = min(counts_map.items(), key=lambda pair: pair[1])
 
-        for piece_type in self.get_buildable_pieces(target_archetype):
+        for piece_type in self.get_buildable_pieces(PieceType.BARRACKS, target_archetype):
             tasks.append(Task(self.team, TaskType.BUILD_PIECE, target=piece_type))
 
         return tasks
 
     # Return a list of pieces we can build for this archetype
-    # TODO: Query for upgrades / higher tier units
-    def get_buildable_pieces(self, piece_archetype):
-        return {
-            PieceArchetype.GROUND: [PieceType.TROOPER],
-            PieceArchetype.RANGED: [PieceType.RANGER],
-            PieceArchetype.MOBILITY: [PieceType.GHOST],
-        }[piece_archetype]
+    def get_buildable_pieces(self, builder_type, piece_archetype):
+        team_manager = self.get_manager(Manager.TEAM)
+        buildable_at_barracks = team_manager.attr(self.team, builder_type, Attribute.BUILDABLE_PIECES)
+
+        # Return all buildable pieces matching the archetype
+        return [piece_type for piece_type in buildable_at_barracks
+                if team_manager.attr(self.team, piece_type, Attribute.ARCHETYPE) == piece_archetype]
 
     # Create assignments for each task
-    # TODO: Add weighting factors, run this multiple times to get different 'best' turns(?)
     def assign_tasks(self, tasks):
         assignments = []
         # For each task, create assignments of each eligible piece and score it by suitability
@@ -496,12 +527,21 @@ class AIPlayer(GameObject):
                     # Add ourselves to the planned occupied coords
                     self.planned_occupied_coords.append((piece.gx, piece.gy))
 
-    def debug_handle_orders_phase(self, event):
-        self.handle_orders_phase(event)
-        self.handle_turn_submitted(event)
+    # Begin planning the AI turn
+    def begin_threaded_planning(self, event=None):
+        thread = Thread(target=self.do_all_planning)
+        thread.start()
+
+    # Conduct preplanning and acting on that planning sequentially
+    def do_all_planning(self, event=None):
+        self.do_preplanning()
+        self.act_on_planning()
 
     # Calculate what the world looks like right now
-    def handle_orders_phase(self, event):
+    def do_preplanning(self, event=None):
+        self.is_thinking = True
+
+        # Grok the board state, build some common aliases / queries
         self.parse_board_state()
 
         # Generate all potential tasks the AI might want to accomplish
@@ -509,19 +549,19 @@ class AIPlayer(GameObject):
 
         # Generate assignments between tasks and pieces that can possibly execute the task
         self.assignments = self.assign_tasks(self.tasks)
+        self.is_thinking = False
 
     # Act on planning and issue orders
-    def handle_turn_submitted(self, event):
+    def act_on_planning(self, event=None):
+        self.is_thinking = True
+
         # Confirm assignments in order of importance, issue concrete orders.
         assigned_pieces, assigned_tasks = self.confirm_assignments(self.assignments)
-
-        # TODO: Handle any unclaimed tasks?
-        # leftover_tasks = [task for task in tasks if task not in assigned_tasks]
 
         # Pieces without orders should get out of the way of pieces with more important orders
         self.move_leftover_pieces(list(set(self.my_pieces) - set(assigned_pieces)))
 
-        # TODO: Fill in unspent resources?
-
         # Mark the turn as submitted so the game can progress when the player is ready
         self.get_manager(Manager.TEAM).set_turn_submitted(self.team)
+
+        self.is_thinking = False

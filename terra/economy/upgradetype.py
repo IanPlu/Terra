@@ -4,8 +4,8 @@ from enum import Enum, auto
 # Constants for upgrade names.
 class UpgradeType(Enum):
     # General tech + unit research
-    RESOURCE_PRODUCTION_1 = auto()
-    RESOURCE_PRODUCTION_2 = auto()
+    RESOURCE_PRODUCTION = auto()
+    BUILDING_ARMOR = auto()
 
     RESEARCH_GUARDIAN = auto()
     RESEARCH_BOLTCASTER = auto()
@@ -25,7 +25,7 @@ class UpgradeType(Enum):
     TROOPER_ATTACK = auto()
     TROOPER_ARMOR = auto()
     TROOPER_REGEN = auto()
-    TROOPER_ENTRENCHMENT = auto()
+    TROOPER_COST = auto()
 
     # Ranger
     RANGER_ATTACK = auto()
@@ -40,7 +40,7 @@ class UpgradeType(Enum):
     GHOST_STEAL = auto()
 
     # Guardian
-    GUARDIAN_ENTRENCHMENT = auto()
+    GUARDIAN_ARMOR_SHARE = auto()
     GUARDIAN_ARMOR = auto()
     GUARDIAN_MEDIC = auto()
 

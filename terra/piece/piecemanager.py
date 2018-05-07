@@ -193,6 +193,13 @@ class PieceManager(GameObject):
         else:
             return counts.most_common()
 
+    # Return a count of how many pieces this team has per type
+    def get_piece_counts(self, team):
+        counts = Counter()
+        counts.update(Counter([piece.piece_type for piece in self.get_all_pieces_for_team(team)]))
+
+        return counts.most_common()
+
     # Return the sum of all resource production for the specified team
     def get_income(self, team):
         return sum(piece.attr(Attribute.RESOURCE_PRODUCTION) for piece in self.get_all_pieces_for_team(team))

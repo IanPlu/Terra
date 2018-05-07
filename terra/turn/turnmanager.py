@@ -3,7 +3,7 @@ from terra.engine.gameobject import GameObject
 from terra.event.event import publish_game_event, EventType
 from terra.managers.session import Manager
 from terra.map.metadatakey import MetadataKey
-from terra.constants import TICK_RATE
+from terra.constants import TICK_RATE, NETWORK_ANIMATION_SPEED
 from terra.settings import SETTINGS, Setting
 
 
@@ -17,7 +17,7 @@ class TurnManager(GameObject):
 
         # How long each phase's animation should take (in seconds)
         self.phase_animation_length = 1/4
-        self.framerate = 1
+        self.framerate = NETWORK_ANIMATION_SPEED if self.is_network_game() else SETTINGS.get(Setting.ANIMATION_SPEED)
 
         # Initialize any data from metadata we care about
         for key, value in meta.items():
@@ -61,12 +61,13 @@ class TurnManager(GameObject):
         if not self.validate_phase():
             return
 
-        # Clean up units every phase
-        publish_game_event(EventType.E_CLEANUP, {})
-
         # Publish an event for the end of the orders phase, if necessary
         if self.phase == BattlePhase.ORDERS:
             publish_game_event(EventType.END_PHASE_ORDERS, {})
+
+        # Clean up at the end of turns
+        if self.phase == BattlePhase.EXECUTE_SPECIAL:
+            publish_game_event(EventType.E_CLEANUP, {})
 
         # Progress the phase
         new_phase = self.phase.value + 1
@@ -120,7 +121,7 @@ class TurnManager(GameObject):
         super().render(game_screen, ui_screen)
 
         if self.phase != BattlePhase.ORDERS:
-            self.timer += (self.framerate * SETTINGS.get(Setting.ANIMATION_SPEED)) / TICK_RATE
+            self.timer += self.framerate / TICK_RATE
             # Progress the phase
             if self.timer >= self.phase_animation_length:
                 self.end_phase()

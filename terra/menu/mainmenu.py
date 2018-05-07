@@ -62,7 +62,7 @@ def generate_settings_menu():
         (Setting.SCREEN_SCALE, []),
         (Setting.SFX_VOLUME, []),
         # (Setting.BGM_VOLUME, []),
-        # (Setting.ANIMATION_SPEED, []),
+        (Setting.ANIMATION_SPEED, []),
         (Setting.NICKNAME, []),
         (Option.SAVE_SETTINGS, []),
     ]

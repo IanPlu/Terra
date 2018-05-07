@@ -86,7 +86,8 @@ class CombatLogger(GameObject):
     # Log whenever two or more pieces are contesting the same tile
     def log_contesting_pieces(self, event):
         pieces = self.get_manager(Manager.PIECE).get_pieces_at(event.gx, event.gy)
-        self.logger.info("{} are contesting the tile at ({}, {})!".format(str(pieces), event.gx, event.gy))
+        pieces_str = ", ".join([str(piece) for piece in pieces])
+        self.logger.info("{} are contesting the tile at ({}, {})!".format(pieces_str, event.gx, event.gy))
 
     # Log whenever a piece takes damage.
     def log_damage(self, event):

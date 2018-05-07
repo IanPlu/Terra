@@ -30,7 +30,7 @@ class Session:
         self.is_network_game = is_network_game
 
     def get(self, manager_type):
-        return self.managers[manager_type]
+        return self.managers.get(manager_type, None)
 
     # Set up a local game, either a new game with a .map file, or loading a saved game from a .sav file.
     @staticmethod

@@ -53,6 +53,13 @@ class PlayerManager(GameObject):
     def is_hotseat_mode(self):
         return not self.get_manager(Manager.NETWORK).networked_game and len(self.ais.keys()) == 0
 
+    def is_ai_thinking(self, team):
+        ai = self.ais.get(team, None)
+        if ai:
+            return ai.is_thinking
+        else:
+            return False
+
     # Swap a team from being human-controlled to ai-controlled, and vice-versa
     def swap_team(self, team):
         if team in self.ai_teams:
@@ -99,9 +106,12 @@ class PlayerManager(GameObject):
         self.active_team = team_manager.get_teams()[current_index]
 
     def handle_team_defeated(self, team):
-        pass
-        self.cursors[team].destroy()
-        del self.cursors[team]
+        if self.cursors.get(team, None):
+            self.cursors[team].destroy()
+            del self.cursors[team]
+        elif self.ais.get(team, None):
+            self.ais[team].destroy()
+            del self.ais[team]
 
     def step(self, event):
         super().step(event)

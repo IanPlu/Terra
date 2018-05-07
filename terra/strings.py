@@ -111,8 +111,9 @@ menu_help_strings = {
                            "Tech Labs heal adjacent allies for a small amount each turn.",
 
         # Upgrades
-        UpgradeType.RESOURCE_PRODUCTION_1: "* Generators now produce +1 resource per turn.",
-        UpgradeType.RESOURCE_PRODUCTION_2: "* Generators now produce an additional +1 resource per turn.",
+        UpgradeType.RESOURCE_PRODUCTION: "* Your Base produces more resources per turn, and your Barracks each produce"
+                                         " a small amount of resources each turn.",
+        UpgradeType.BUILDING_ARMOR: "* Your buildings gain a small amount of armor, reducing damage dealt to them. ",
 
         UpgradeType.COLONIST_ATTACK: "* Colonists now deal a small amount of damage in direct combat.",
         UpgradeType.COLONIST_MAX_HP: "* Colonists now have a higher max HP.",
@@ -125,7 +126,7 @@ menu_help_strings = {
         UpgradeType.TROOPER_ATTACK: "* Troopers now deal more damage in direct combat.",
         UpgradeType.TROOPER_ARMOR: "* Troopers gain a small amount of armor, reducing damage dealt to them.",
         UpgradeType.TROOPER_REGEN: "* Troopers now regenerate a small amount of health at the start of each turn.",
-        UpgradeType.TROOPER_ENTRENCHMENT: "* Troopers now gain double the benefit from entrenchment.",
+        UpgradeType.TROOPER_COST: "* Troopers are now cheaper to produce. ",
 
         UpgradeType.RANGER_ATTACK: "* Rangers now deal more damage in ranged attacks.",
         UpgradeType.RANGER_DISTANCE: "* Rangers gain more range on their ranged attacks, but their blind spot "
@@ -146,7 +147,7 @@ menu_help_strings = {
         UpgradeType.RESEARCH_BANSHEE: "* Allows building Banshees at Barracks. Banshees are high mobility specialty "
                                       "units.",
 
-        UpgradeType.GUARDIAN_ENTRENCHMENT: "* Guardians now benefit even more from entrenchment bonuses.",
+        UpgradeType.GUARDIAN_ARMOR_SHARE: "* Guardians now share more armor with adjacent allies.",
         UpgradeType.GUARDIAN_ARMOR: "* Guardians gain even greater armor bonuses, increasing their defense.",
         UpgradeType.GUARDIAN_MEDIC: "* Guardians now heal adjacent allies for a small amount at the start of each "
                                     "turn.",
@@ -293,8 +294,8 @@ piece_name_strings = {
 
 upgrade_name_strings = {
     Language.EN_US: {
-        UpgradeType.RESOURCE_PRODUCTION_1: "Harvest+",
-        UpgradeType.RESOURCE_PRODUCTION_2: "Harvest++",
+        UpgradeType.RESOURCE_PRODUCTION: "Recycling",
+        UpgradeType.BUILDING_ARMOR: "Shield Gen",
 
         UpgradeType.COLONIST_ATTACK: "[C] Attack+",
         UpgradeType.COLONIST_MAX_HP: "[C] HP+",
@@ -304,7 +305,7 @@ upgrade_name_strings = {
         UpgradeType.TROOPER_ATTACK: "[T] Attack+",
         UpgradeType.TROOPER_ARMOR: "[T] Armor+",
         UpgradeType.TROOPER_REGEN: "[T] Regen",
-        UpgradeType.TROOPER_ENTRENCHMENT: "[T] Entrench+",
+        UpgradeType.TROOPER_COST: "[T] Legion",
 
         UpgradeType.RANGER_ATTACK: "[R] Attack+",
         UpgradeType.RANGER_DISTANCE: "[R] Range+",
@@ -320,7 +321,7 @@ upgrade_name_strings = {
         UpgradeType.RESEARCH_BOLTCASTER: "Unlock Unit",
         UpgradeType.RESEARCH_BANSHEE: "Unlock Unit",
 
-        UpgradeType.GUARDIAN_ENTRENCHMENT: "[Gu] Entrench+",
+        UpgradeType.GUARDIAN_ARMOR_SHARE: "[Gu] Entrench",
         UpgradeType.GUARDIAN_ARMOR: "[Gu] Armor+",
         UpgradeType.GUARDIAN_MEDIC: "[Gu] Medic",
 
@@ -395,7 +396,6 @@ attribute_label_strings = {
         Attribute.ATTACK_MULTIPLIER: "Attack Multiplier",
         Attribute.DAMAGE_TYPE: "Damage Type",
         Attribute.ARMOR: "Armor",
-        Attribute.ENTRENCHMENT_MODIFIER: "Entrenchment Modifier",
         Attribute.MIN_RANGE: "Minimum Range",
         Attribute.MAX_RANGE: "Maximum Range",
         Attribute.MOVEMENT_TYPE: "Movement Type",

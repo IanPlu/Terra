@@ -40,7 +40,6 @@ task_type_to_piece_archetype = {
 
 # How much to prioritize an enemy target. Higher number = more important
 enemy_target_priority = {
-    # TODO: Make BASE pieces their own archetype
     PieceArchetype.UTILITY: 1,
     PieceArchetype.GENERATOR: 1,
     PieceArchetype.WORKER: 2,
@@ -53,12 +52,13 @@ enemy_target_priority = {
 # An instance of a task.
 # Contains extra details about the task
 class Task:
-    def __init__(self, team, task_type, tx=None, ty=None, target=None):
+    def __init__(self, team, task_type, priority=0, tx=None, ty=None, target=None):
         self.team = team
         self.task_type = task_type
+        self.priority = priority
+
         self.tx = tx
         self.ty = ty
-
         self.target = target
 
         # True if this task type should be navigating to tiles adjacent to the target

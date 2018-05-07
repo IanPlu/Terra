@@ -75,9 +75,16 @@ spr_phase_indicator = {
 spr_turn_submitted_indicator = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Turn_Submitted.png"))
 }
+spr_turn_thinking_indicator = {
+    Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Turn_Thinking.png"))
+}
 
 spr_wait_icon = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Wait_Indicator.png"))
+}
+
+spr_contested_icon = {
+    Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Caution.png"))
 }
 
 spr_order_options_base = get_sprites_from_strip(pygame.image.load(
@@ -135,8 +142,8 @@ spr_piece_attribute_icons = {
 spr_upgrade_icons_base = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "ui/Upgrade_Icons.png")), 24)
 spr_upgrade_icons = {
     Team.RED: {
-        UpgradeType.RESOURCE_PRODUCTION_1: spr_upgrade_icons_base[0],
-        UpgradeType.RESOURCE_PRODUCTION_2: spr_upgrade_icons_base[1],
+        UpgradeType.RESOURCE_PRODUCTION: spr_upgrade_icons_base[0],
+        UpgradeType.BUILDING_ARMOR: spr_upgrade_icons_base[1],
 
         UpgradeType.COLONIST_ATTACK: spr_upgrade_icons_base[2],
         UpgradeType.COLONIST_MAX_HP: spr_upgrade_icons_base[3],
@@ -146,7 +153,7 @@ spr_upgrade_icons = {
         UpgradeType.TROOPER_ATTACK: spr_upgrade_icons_base[6],
         UpgradeType.TROOPER_ARMOR: spr_upgrade_icons_base[7],
         UpgradeType.TROOPER_REGEN: spr_upgrade_icons_base[8],
-        UpgradeType.TROOPER_ENTRENCHMENT: spr_upgrade_icons_base[9],
+        UpgradeType.TROOPER_COST: spr_upgrade_icons_base[9],
 
         UpgradeType.RANGER_ATTACK: spr_upgrade_icons_base[10],
         UpgradeType.RANGER_DISTANCE: spr_upgrade_icons_base[11],
@@ -162,7 +169,7 @@ spr_upgrade_icons = {
         UpgradeType.RESEARCH_BOLTCASTER: spr_upgrade_icons_base[19],
         UpgradeType.RESEARCH_BANSHEE: spr_upgrade_icons_base[20],
 
-        UpgradeType.GUARDIAN_ENTRENCHMENT: spr_upgrade_icons_base[21],
+        UpgradeType.GUARDIAN_ARMOR_SHARE: spr_upgrade_icons_base[21],
         UpgradeType.GUARDIAN_ARMOR: spr_upgrade_icons_base[22],
         UpgradeType.GUARDIAN_MEDIC: spr_upgrade_icons_base[23],
 
@@ -346,9 +353,11 @@ def load_assets():
         spr_resource_icon[team] = swap_palette(spr_resource_icon[Team.RED], unit_palette[team])
         spr_resource_icon_small[team] = swap_palette(spr_resource_icon_small[Team.RED], unit_palette[team])
 
-        spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED],
-                                                          unit_palette[team])
+        spr_turn_submitted_indicator[team] = swap_palette(spr_turn_submitted_indicator[Team.RED], unit_palette[team])
+        spr_turn_thinking_indicator[team] = swap_palette(spr_turn_thinking_indicator[Team.RED], unit_palette[team])
+
         spr_wait_icon[team] = swap_palette(spr_wait_icon[Team.RED], unit_palette[team])
+        spr_contested_icon[team] = swap_palette(spr_contested_icon[Team.RED], unit_palette[team])
         spr_target[team] = swap_palette(spr_target[Team.RED], unit_palette[team])
         spr_menu_option_item_background[team] = swap_palette(spr_menu_option_item_background[Team.RED], unit_palette[team])
 

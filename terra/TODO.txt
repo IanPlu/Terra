@@ -1,148 +1,37 @@
 General & QoL
-x Validate orders for a player as soon as they submit their turn
-x Add support to the level editor for adding units and buildings
-x Add saving games mid-combat
-    x Save and load piece HP
-x Add a preview order key and a preview all key-- when pressed, display whatever the piece is going to do.
-    Arrows to show movement, ghost pieces for building, etc.
-x Display prices in menus for building units and buildings
-    x Display prices for units
-    x Display prices for buildings (unify build orders for all pieces?)
-x Add an intersitial screen when swapping active players for local coop, to hide moves
-    x no need to hide moves, added an autoswap / hotseat mode
-x Improve the main menu
-x Add context menu to battle screen for submitting turn, saving, quitting to menu, etc
-x Game end screens / match review with statistics(?)
-    x Improve the look and feel of the stats screen
-* Add UI to unit popup menus to indicate you're attempting to take an action that will be contested
-  (e.g. trying to build while contested)
-x Add 'serialize' method to managers, use this when saving or loading the game state
-x Create a separate 'buy' menu better suited to showing lots of upgrades / pieces to purchase, or add a scroll bar
 * Add autosave to battle and level editor
-x Add a prematch lobby where you can assign teams and wait for connections / kick connections, etc.
-x Include a base font for the game
+* Refactor level editor, add custom cursor controls + separation from level editor functions and GameScreen object
 * Add support for rebinding controls
-
-Engineering
-* Write tests!!
-x Set up packaging this into an executable
-    x Determine directory structure -- do maps / saves need to be put somewhere else?
-x Improve rendering performance
-    x Rendering large maps chugs. Look into pygame.display.update, and only updating the portion around the camera viewport? (note: this would be minimal, since large portions of the screen are updated at a time)
-    x Cull rendering for entities outside the camera? (note: this was a huuuuuge boost)
-    x Optimize animation to use scrolling surfaces and not lists of surfs (note: this was a minor boost)
-x Improve performance of tile selection
-    x Used Dijkstra's algorithm
-x Create common 'menu' class? Auto support for scrolling, setting mouse pos to menu pos, etc.
-* Support bundling and distributing the VC redist!
-
-Bug fixes
-x Fix map scaling + ui screen nonsense for map1 and map2 (e.g. small maps)
-x Fix popup menus scrolling off the top of the screen
-x Fix resources not being deducted for placing buildings
-x Fix invalid order effects showing for all teams
-x Fix trying to RAISE or LOWER terrain past the edge of the tile types
-x fix not being able to issue BUILD orders when an ally is on the required tile (e.g. ally on an adjacent resource tile)
-x Fix the loggers not outputting to separate files: https://stackoverflow.com/questions/11232230/logging-to-two-files-with-different-settings
-* Fix level editor click+hold taking effect when clicking the pause menu
-x Fix level editor generating new maps via an error in loading files, rather than an explicit action?
-* Fix level editor scrolling piece types when scrolling the pause menu
-x Fix team assumptions from the network manager -- because it's loaded before the map, it can't know what teams are in the game
-    x Loaded map ahead of time, and network manager gains a team from the host when polling for the map data
-* Fix window gaining focus + clicking on a menu option confirms that menu option
-x Fix level editor not responding to any button inputs
-
-* Fix double building generators
-
+* Add preview enemy key?
+    - Show movement range visualization
+    - Show unit details
 
 Gameplay
-x Build support for upgrades, enable purchasing them from the base
-    x Double check whether I'm using piece prices or the team-specific piece prices, etc.
-    x Fill out more upgrades now that the framework is in place
-    x Fill out basic T2 unit upgrades
-x Add additional tiers for units
-x Add ultimate tiers for units
-x Modify GHOST movement type to be unable to stop on the same tile as enemy buildings
-x Decide where the BUILD phase should slot into the order. Currently impossible to interrupt production
-x Decide whether GHOSTS should be able to contest buildings-- currently can't enter, but if they do they can block it forever
-    x Pieces that can't attack buildings do not contest them either, now.
 
-* Implement parting shots -- when two units were contesting last turn, if one unit stays on that tile
-    and the other doesn't, the remaining unit gets a free weak attack against the retreating unit
-* Implement colonist building flipping
-x Implement colonist terraforming
-x Implement unique upgrades as generic attributes
-    x Whether this piece contests enemies, and can be contested
-    x Whether this piece impedes movement, and is affected by impedance
-    x Additional defensive bonuses + entrenchment bonuses
-    * Whether this piece is affected by parting shots
+Engineering
+* Write tests
+* Support bundling and distributing the VC redist
 
-x Add a 'heal' action? Piece doesn't move and instead works on healing itself by a small amount.
-x Determine whether pieces contest a tile if they're moving / leaving that tile.
-    x Because BUILD actions pop before MOVE actions, at start of turn if we're contested, we stay contested even though the enemy moves off of us
-
-- Prevent Colonists from building generators on existing enemy generators
-    - More generally, prevent building where enemy pieces are
-
-Gameplay considerations
-x Prevent Colonists from occupying enemy buildings
-x Prevent Colonists from contesting enemies
-x Decide whether having a three-resource system adds all that much-- personally I don't like how fiddly that can be, but the upside is that if you focus on
-    one of the three archetypes you can optimize your production towards them. Need to decide whether I want to encourage that kind of specialization.
+Bug fixes
+* Fix level editor click+hold taking effect when clicking the pause menu
+* Fix level editor scrolling piece types when scrolling the pause menu
+* Fix window gaining focus + clicking on a menu option confirms that menu option
+* Fix AI Ghosts moving onto buildings
+* Prevent Colonists from building generators on existing enemy generators
+    - More generally, prevent building where enemy buildings are
 
 Networking
-x Send the map / save data back and forth
-x Upon submitting a turn, don't allow modifying the turn unless you cancel submission
-    x Check that if you cancel an order already submitted (e.g. MoveOrder -> None) it cancels it out
-x Gracefully handle connects / disconnects
-x Support for connecting to a custom IP
-x Check that victory checking + conceding works
-x Support marking events as coming from the network or local. Use this when deciding whether to forward an event on to the network
-* Handle different animation speeds in network games-- can cause desync
-    - Add a 'waiting for other player'? Or just lock the animation speed setting?
-
-Kegan's Special to do list
-x Allow ESC to cancel out of menus
-x Unit info popup
-x Trim price UI down to 2 digits
-    x Adjust method to not always output a 3 digit number, right justify
-x Don't prompt to build generators on tiles with pieces on them already
-x Rename wait -> cancel, don't show if no order is currently queued
-x Remove 'None' tile type, no point
-x Invalid build order cue should show up on ALL pieces with a BUILD order
-    x Verbose tooltips
 
 AI
-https://www.gamasutra.com/view/feature/129959/designing_ai_algorithms_for_.php?page=2
-- 1. Build a barebones AI, which is able to run logic when the orders phase begins, and assign valid sets of random orders.
-    - Build an AI logger, so I can pore over what the AI is 'thinking' each turn. Sync it with the combat logger.
-    - Barebones AI should only worry about Colonists, Troopers, and building things
-- 2. Build a task manager.
-    - Create a function that is able to generate some tasks based on the current game state
-    - Create a function that assigns tasks to pieces.
-        - Assign weights to each task / piece pairing, based on how suitable to the job the piece is. E.x. a closer piece is more suitable to a task than a far piece.
-        - Unmet tasks should be handled by production?
-    - Add weighting to tasks based on game state and piece suitability
-        - Add 'personality' weighting, similar to Civ. Some AI might favor defensive, economic actions, while others will favor aggressive actions. 'Naive' or
-        'Shortsighted' AI will have lower thresholds for pursuing risky goals, etc.
-    - Add support for more complex unit types
-    - Consider multiple allocations of tasks. Build allocations that favor one goal or another, and figure out a way to score it + prioritize one over the other
-
-
-
-AI notes:
-- Task assignment works well for this type of game
-- Should be done in two phases-- piece assignment, then production assignment
-    - Note: what to do about colonists? Presumably if we have a goal to 'harvest resource' and there's a Colonist already there,
-        we have it harvest that resource in the first phase (don't make colonists wait to harvest to fit the build queue)
-- May need to implement some predictive element given the nature of the game
-    - Build heatmaps for enemy threat, understand what the enemy composition is, weight accordingly
-- Ranged units might provide difficult-- have their main task be 'protect ground forces'? So they act mostly defensive unless they have a juicy stationary target
-    - Could be fun to just have ranged units take shots we know probably won't hit-- player will feel like they juked the AI
-    - Will depend a lot
-
-
-
+* Implement and generate DEFEND tasks
+* Implement and generate TERRAFORMING tasks
+* Add prioritization of tasks (important)
+* Wire up more data to Personality
+    * Add a 'how much research to consider' amount
+    * Add a weight for how often to research new units
+* Add understanding of new unit types to piece building order
+    * Add weighting based on the enemy team comp
+* Anticipate enemy movements when tracking a target (evaluate its possible moves)
 
 
 

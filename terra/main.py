@@ -7,7 +7,7 @@ from terra.engine.debug import DebugController
 from terra.event.event import EventType
 from terra.event.eventbus import EVENT_BUS
 from terra.managers.session import SESSION, Manager
-from terra.menu.titlescreen import TitleScreen
+from terra.screens.titlescreen import TitleScreen
 from terra.menu.option import Option
 from terra.mode import Mode
 from terra.resources.assetloading import AssetType

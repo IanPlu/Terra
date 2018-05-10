@@ -1,6 +1,5 @@
 General & QoL
-* Add autosave to battle and level editor
-* Refactor level editor, add custom cursor controls + separation from level editor functions and GameScreen object
+* Refactor results screen to screen + menu so as to not require the input controller in the screen
 * Add support for rebinding controls
 * Add preview enemy key?
     - Show movement range visualization
@@ -27,16 +26,8 @@ AI
 * Implement and generate TERRAFORMING tasks
 * Add prioritization of tasks (important)
 * Wire up more data to Personality
-    * Add a 'how much research to consider' amount
-    * Add a weight for how often to research new units
-* Add understanding of new unit types to piece building order
-    * Add weighting based on the enemy team comp
+* Add weighting to piece production based on the enemy team comp
 * Anticipate enemy movements when tracking a target (evaluate its possible moves)
-
-
-
-
-
 
 
 

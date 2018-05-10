@@ -1,11 +1,12 @@
-from terra.turn.battlephase import BattlePhase
+from terra.ai.aiplayer import AIPlayer
 from terra.constants import RESOLUTION_WIDTH, RESOLUTION_HEIGHT
 from terra.engine.gameobject import GameObject
 from terra.event.event import publish_game_event, EventType
 from terra.managers.session import Manager
 from terra.mode import Mode
-from terra.ui.cursor import Cursor
-from terra.ai.aiplayer import AIPlayer
+from terra.turn.battlephase import BattlePhase
+from terra.ui.battlecursor import BattleCursor
+from terra.ui.editorcursor import EditorCursor
 
 
 # Manager for the current player. Helps handle input, networking, and information that should be hidden
@@ -25,7 +26,7 @@ class PlayerManager(GameObject):
         self.cursors = {}
         self.ais = {}
         for team in self.human_teams:
-            self.cursors[team] = Cursor(team)
+            self.cursors[team] = self.create_cursor(team)
 
         for team in self.ai_teams:
             self.ais[team] = AIPlayer(team)
@@ -60,12 +61,18 @@ class PlayerManager(GameObject):
         else:
             return False
 
+    def create_cursor(self, team):
+        if self.get_mode() in [Mode.EDIT]:
+            return EditorCursor()
+        else:
+            return BattleCursor(team)
+
     # Swap a team from being human-controlled to ai-controlled, and vice-versa
     def swap_team(self, team):
         if team in self.ai_teams:
             ai = self.ais.pop(team)
             ai.destroy()
-            self.cursors[team] = Cursor(team)
+            self.cursors[team] = self.create_cursor(team)
 
             self.ai_teams.remove(team)
             self.human_teams.append(team)

@@ -259,6 +259,10 @@ class PieceManager(GameObject):
     def move_piece_from_event(self, event):
         self.move_piece(event.gx, event.gy, event.team, event.dx, event.dy)
 
+    def destroy_all_pieces(self):
+        for piece in self.__get_all_pieces__():
+            self.destroy_piece(piece)
+
     # Get lists of all units and buildings, regardless of position or team
     def __get_all_pieces__(self):
         pieces = []

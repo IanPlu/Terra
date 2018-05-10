@@ -139,6 +139,9 @@ class Session:
     def set_mode(self, new_mode):
         self.current_mode = new_mode
 
+    def is_active(self):
+        return len(self.managers) > 0
+
     # Ask each manager to serialize any metadata it needs to store
     def serialize_metadata(self):
         metadata = []
@@ -148,7 +151,7 @@ class Session:
         return metadata
 
     # Save the current game state to a string
-    def save_game_to_string(self):
+    def save_game_to_string(self, save=True, autosave=False):
         # Ask each manager to serialize itself
         bitmap = self.get(Manager.MAP).convert_bitmap_from_grid()
         pieces = self.get(Manager.PIECE).serialize_pieces()
@@ -157,8 +160,8 @@ class Session:
         meta = self.serialize_metadata()
 
         # Strip '.map' from the map name
-        save_name = self.map_name[:-4]
-        save_path = get_asset(AssetType.SAVE, save_name + ".sav")
+        save_name = "__autosave__" if autosave else self.map_name[:-4]
+        save_path = get_asset(AssetType.SAVE if save else AssetType.MAP, save_name + ".sav")
 
         # Serialize to a string
         lines = ""
@@ -193,17 +196,17 @@ class Session:
         return lines, save_path
 
     # Save the current state to a save file
-    def save_game_to_file(self):
-        lines, save_path = self.save_game_to_string()
+    def save_game_to_file(self, autosave=False):
+        lines, save_path = self.save_game_to_string(save=True, autosave=autosave)
 
         with open(save_path, 'w') as save_file:
             save_file.write(lines)
 
     # Save the current state to a map file
-    def save_map_to_file(self):
-        lines, _ = self.save_game_to_string()
+    def save_map_to_file(self, autosave=False):
+        lines, save_path = self.save_game_to_string(save=False, autosave=autosave)
 
-        with open(get_asset(AssetType.MAP, self.map_name), 'w') as map_file:
+        with open(get_asset(AssetType.MAP, save_path), 'w') as map_file:
             map_file.write(lines)
 
 

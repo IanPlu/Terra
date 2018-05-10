@@ -25,6 +25,7 @@ class Setting(Enum):
     BGM_VOLUME = "BGM_VOLUME"
     ANIMATION_SPEED = "ANIMATION_SPEED"
     NICKNAME = "NICKNAME"
+    AUTOSAVE_INTERVAL = "AUTOSAVE_INTERVAL"
 
 
 numeric_settings = [
@@ -32,6 +33,7 @@ numeric_settings = [
     Setting.SFX_VOLUME,
     Setting.BGM_VOLUME,
     Setting.ANIMATION_SPEED,
+    Setting.AUTOSAVE_INTERVAL,
 ]
 
 
@@ -40,7 +42,8 @@ setting_bounds = {
     Setting.SCREEN_SCALE: (1, 4),
     Setting.SFX_VOLUME: (0, 100),
     Setting.BGM_VOLUME: (0, 100),
-    Setting.ANIMATION_SPEED: (1, 8)
+    Setting.ANIMATION_SPEED: (1, 8),
+    Setting.AUTOSAVE_INTERVAL: (0, 600)
 }
 
 # How much one press modifies the setting
@@ -49,6 +52,7 @@ setting_interval = {
     Setting.SFX_VOLUME: 10,
     Setting.BGM_VOLUME: 10,
     Setting.ANIMATION_SPEED: 1,
+    Setting.AUTOSAVE_INTERVAL: 30,
 }
 
 # Default values for each setting
@@ -58,6 +62,7 @@ default_settings = {
     Setting.BGM_VOLUME: 0,
     Setting.NICKNAME: get_nickname(),
     Setting.ANIMATION_SPEED: 4,
+    Setting.AUTOSAVE_INTERVAL: 300,
 }
 
 

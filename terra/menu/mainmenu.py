@@ -64,6 +64,7 @@ def generate_settings_menu():
         # (Setting.BGM_VOLUME, []),
         (Setting.ANIMATION_SPEED, []),
         (Setting.NICKNAME, []),
+        (Setting.AUTOSAVE_INTERVAL, []),
         (Option.SAVE_SETTINGS, []),
     ]
 

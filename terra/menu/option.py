@@ -49,6 +49,7 @@ class Option(Enum):
     # Level editor options
     MENU_SAVE_MAP = auto()
     MENU_FILL_WITH_CURRENT_TILE = auto()
+    MENU_DESTROY_ALL_PIECES = auto()
     MENU_MIRROR_X = auto()
     MENU_MIRROR_Y = auto()
 

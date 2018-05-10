@@ -106,6 +106,7 @@ spr_order_options = {
         Option.MENU_DEMOLISH_SELF: spr_order_options_base[12],
         Option.MENU_HEAL_SELF: spr_order_options_base[15],
         Option.MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
+        Option.MENU_DESTROY_ALL_PIECES: spr_order_options_base[12],
         Option.MENU_CONCEDE: spr_order_options_base[0],
         Option.MENU_MIRROR_X: spr_order_options_base[13],
         Option.MENU_MIRROR_Y: spr_order_options_base[14],
@@ -264,6 +265,7 @@ spr_order_flags = {
     Option.MENU_DEMOLISH_SELF: spr_base_order_flags[8],
     Option.MENU_HEAL_SELF: spr_base_order_flags[9],
     Option.MENU_FILL_WITH_CURRENT_TILE: spr_base_order_flags[0],
+    Option.MENU_DESTROY_ALL_PIECES: spr_base_order_flags[0],
     Option.MENU_CONCEDE: spr_base_order_flags[0],
     Option.MENU_MIRROR_X: spr_base_order_flags[0],
     Option.MENU_MIRROR_Y: spr_base_order_flags[0],
@@ -332,9 +334,18 @@ shadow_color = {
 
 # Audio
 all_sounds = []
-sfx_cursor_move = load_sound("cursor/sfx_cursor_move.wav")
-sfx_cursor_select = load_sound("cursor/sfx_cursor_select.wav")
-sfx_cursor_cancel = load_sound("cursor/sfx_cursor_cancel.wav")
+sfx_cursor_move = load_sound("Cursor_Move.wav")
+sfx_cursor_select = load_sound("Cursor_Move2.wav")
+sfx_cursor_cancel = load_sound("Cursor_Move3.wav")
+
+sfx_turn_submitted = load_sound("Notification2.wav")
+sfx_all_turns_submitted = load_sound("Notification.wav")
+
+sfx_piece_hit = load_sound("Hit1.wav")
+sfx_order_canceled = load_sound("Interrupt.wav")
+
+sfx_ranged_attack = load_sound("Attack1.wav")
+sfx_build = load_sound("Build1.wav")
 
 # Fonts
 font_pixelmix = pygame.font.Font(get_asset(AssetType.FONT, "pixelmix.ttf"), 8)

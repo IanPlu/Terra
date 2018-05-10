@@ -1,9 +1,12 @@
+from threading import Timer
+
 from pygame import Surface, SRCALPHA
 
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT
 from terra.engine.gamescreen import GameScreen
 from terra.event.event import EventType
 from terra.managers.session import SESSION, Session, Manager
+from terra.settings import Setting, SETTINGS
 
 
 # A battle containing a map, players, their resources + input methods, etc.
@@ -14,6 +17,9 @@ class Battle(GameScreen):
         # Only create the session if nothing else has (e.g. the network lobby)
         if create_session:
             Session.set_up_local_game(map_name, map_type)
+
+        # Begin scheduling autosaves
+        self.autosave()
 
     def destroy(self):
         super().destroy()
@@ -27,6 +33,14 @@ class Battle(GameScreen):
 
     def trigger_save_game(self, event):
         SESSION.save_game_to_file()
+
+    def autosave(self):
+        if SESSION.is_active():
+            timer = Timer(SETTINGS.get(Setting.AUTOSAVE_INTERVAL), self.autosave)
+            timer.daemon = True
+            timer.start()
+
+            SESSION.save_game_to_file(autosave=True)
 
     def step(self, event):
         super().step(event)

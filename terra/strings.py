@@ -38,6 +38,7 @@ menu_option_strings = {
         Option.MENU_DEMOLISH_SELF: "Demolish",
         Option.MENU_HEAL_SELF: "Repair",
         Option.MENU_FILL_WITH_CURRENT_TILE: "Fill Map",
+        Option.MENU_DESTROY_ALL_PIECES: "Clear Pieces",
         Option.MENU_CONCEDE: "Concede",
         Option.MENU_MIRROR_X: "Mirror (H)",
         Option.MENU_MIRROR_Y: "Mirror (V)",
@@ -63,6 +64,7 @@ menu_help_strings = {
         Option.MENU_DEMOLISH_SELF: "* Destroy this piece at the end of the turn, freeing space for other pieces later.",
         Option.MENU_HEAL_SELF: "* Order this piece to heal itself a small amount.",
         Option.MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
+        Option.MENU_DESTROY_ALL_PIECES: "* Destroy all pieces on the map.",
         Option.MENU_CONCEDE: "* Concede the game. Your opponent wins!",
         Option.MENU_SWAP_ACTIVE_PLAYER: "* Swap the currently active player in hotseat mode, without passing the turn.",
 
@@ -466,6 +468,7 @@ formatted_strings = {
         Setting.BGM_VOLUME: "Music Volume: {}%",
         Setting.NICKNAME: "Nickname: '{}'",
         Setting.ANIMATION_SPEED: "Animation Speed: {}x",
+        Setting.AUTOSAVE_INTERVAL: "Autosave Every: {}s",
 
         Stat.TILES_MOVED: "Tiles Moved: {}",
         Stat.RANGED_ATTACKS_MADE: "Ranged Attacks: {}",

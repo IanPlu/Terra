@@ -11,7 +11,7 @@ from terra.settings import Setting, SETTINGS
 
 # A battle containing a map, players, their resources + input methods, etc.
 # Handles the turn / phase loop.
-class Battle(GameScreen):
+class BattleScreen(GameScreen):
     def __init__(self, map_name=None, map_type=None, create_session=True):
         super().__init__()
         # Only create the session if nothing else has (e.g. the network lobby)
@@ -19,7 +19,8 @@ class Battle(GameScreen):
             Session.set_up_local_game(map_name, map_type)
 
         # Begin scheduling autosaves
-        self.autosave()
+        if SETTINGS.get(Setting.AUTOSAVE_INTERVAL) > 0:
+            self.autosave()
 
     def destroy(self):
         super().destroy()

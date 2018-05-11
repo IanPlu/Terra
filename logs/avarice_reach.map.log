@@ -1,0 +1,2209 @@
+2018-05-01 15:20:15,155 INFO RED Barracks at tile (4, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (4, 9)'
+2018-05-01 15:20:15,155 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-01 15:20:15,155 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (4, 12)'
+2018-05-01 15:20:15,155 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-01 15:20:15,156 INFO = Move phase begins
+2018-05-01 15:20:15,239 INFO = Build phase begins
+2018-05-01 15:20:15,256 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-01 15:20:15,257 INFO Team.BLUE team spent 1 resources.
+2018-05-01 15:20:15,257 INFO Team.RED PieceType.GENERATOR was built on (4, 12). 
+2018-05-01 15:20:15,257 INFO Team.RED team spent 1 resources.
+2018-05-01 15:20:15,258 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-01 15:20:15,258 INFO Team.BLUE team spent 3 resources.
+2018-05-01 15:20:15,258 INFO Team.RED PieceType.TROOPER was built on (4, 9). 
+2018-05-01 15:20:15,258 INFO Team.RED team spent 3 resources.
+2018-05-01 15:20:15,325 INFO = Combat phase begins
+2018-05-01 15:20:15,412 INFO = Ranged phase begins
+2018-05-01 15:20:15,502 INFO = Special phase begins
+2018-05-01 15:20:15,587 INFO = Start Turn phase begins
+2018-05-01 15:20:15,588 INFO == TURN 2 BEGIN ==
+2018-05-01 15:20:15,606 INFO Team.RED team acquired 1 resources.
+2018-05-01 15:20:15,606 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:15,607 INFO Team.RED team acquired 1 resources.
+2018-05-01 15:20:15,607 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:15,607 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 15:20:15,607 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:15,677 INFO = Issue Orders phase begins
+2018-05-01 15:20:22,814 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-01 15:20:22,815 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (2, 12)'
+2018-05-01 15:20:22,815 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-05-01 15:20:22,815 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-01 15:20:22,815 INFO RED Trooper at tile (4, 9) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-01 15:20:22,815 INFO = Move phase begins
+2018-05-01 15:20:22,833 INFO None moved to (5, 8)
+2018-05-01 15:20:22,834 INFO None moved to (9, 8)
+2018-05-01 15:20:22,902 INFO = Build phase begins
+2018-05-01 15:20:22,920 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-05-01 15:20:22,921 INFO Team.BLUE team spent 1 resources.
+2018-05-01 15:20:22,921 INFO Team.RED PieceType.GENERATOR was built on (2, 12). 
+2018-05-01 15:20:22,921 INFO Team.RED team spent 1 resources.
+2018-05-01 15:20:22,922 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-01 15:20:22,922 INFO Team.BLUE team spent 3 resources.
+2018-05-01 15:20:23,003 INFO = Combat phase begins
+2018-05-01 15:20:23,091 INFO = Ranged phase begins
+2018-05-01 15:20:23,174 INFO = Special phase begins
+2018-05-01 15:20:23,258 INFO = Start Turn phase begins
+2018-05-01 15:20:23,259 INFO == TURN 3 BEGIN ==
+2018-05-01 15:20:23,276 INFO Team.RED team acquired 1 resources.
+2018-05-01 15:20:23,276 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:23,277 INFO Team.RED team acquired 1 resources.
+2018-05-01 15:20:23,277 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:23,277 INFO Team.RED team acquired 1 resources.
+2018-05-01 15:20:23,277 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:23,277 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 15:20:23,278 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:23,349 INFO = Issue Orders phase begins
+2018-05-01 15:20:35,619 INFO BLUE Barracks at tile (11, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 2)'
+2018-05-01 15:20:35,619 INFO BLUE Ranger at tile (7, 1) with 7 HP was assigned the order 'Order: Ranged attack tile (6, 1)'
+2018-05-01 15:20:35,619 INFO RED Boltcaster at tile (4, 2) with 60 HP was assigned the order 'Order: Ranged attack tile (7, 1)'
+2018-05-01 15:20:35,620 INFO BLUE Ranger at tile (8, 1) with 27 HP was assigned the order 'Order: Ranged attack tile (6, 1)'
+2018-05-01 15:20:35,620 INFO BLUE Colonist at tile (13, 7) with 2 HP was assigned the order 'Order: Build a Generator on tile (13, 8)'
+2018-05-01 15:20:35,620 INFO BLUE Ghost at tile (5, 1) with 46 HP was assigned the order 'Order: Move to (5, 0)'
+2018-05-01 15:20:35,620 INFO BLUE Ghost at tile (5, 6) with 80 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-01 15:20:35,620 INFO BLUE Trooper at tile (10, 2) with 100 HP was assigned the order 'Order: Move to (10, 3)'
+2018-05-01 15:20:35,621 INFO = Move phase begins
+2018-05-01 15:20:35,637 INFO None moved to (10, 3)
+2018-05-01 15:20:35,638 INFO None moved to (6, 8)
+2018-05-01 15:20:35,638 INFO None moved to (5, 0)
+2018-05-01 15:20:35,700 INFO = Build phase begins
+2018-05-01 15:20:35,718 INFO BLUE Colonist at tile (13, 7) with 2 HP failed to execute its orders!
+2018-05-01 15:20:35,719 INFO Team.BLUE PieceType.TROOPER was built on (10, 2). 
+2018-05-01 15:20:35,719 INFO Team.BLUE team spent 3 resources.
+2018-05-01 15:20:35,781 INFO = Combat phase begins
+2018-05-01 15:20:35,798 INFO RED Ranger at tile (5, 0) with 36 HP, BLUE Ghost at tile (5, 0) with 46 HP are contesting the tile at (5, 0)!
+2018-05-01 15:20:35,799 INFO RED Ranger at tile (5, 0) with 36 HP took 27 damage from BLUE Ghost at tile (5, 0) with 46 HP!
+2018-05-01 15:20:35,800 INFO BLUE Ghost at tile (5, 0) with 46 HP took 0 damage from RED Ranger at tile (5, 0) with 36 HP!
+2018-05-01 15:20:35,800 INFO BLUE Ghost at tile (5, 0) with 46 HP took 0 damage from RED Ranger at tile (5, 0) with 36 HP!
+2018-05-01 15:20:35,801 INFO RED Ranger at tile (5, 0) with 36 HP took 27 damage from BLUE Ghost at tile (5, 0) with 46 HP!
+2018-05-01 15:20:35,801 INFO RED Ghost at tile (13, 7) with 51 HP, BLUE Colonist at tile (13, 7) with -42 HP are contesting the tile at (13, 7)!
+2018-05-01 15:20:35,802 INFO RED Ghost at tile (13, 7) with 51 HP took 0 damage from BLUE Colonist at tile (13, 7) with -42 HP!
+2018-05-01 15:20:35,802 INFO BLUE Colonist at tile (13, 7) with -42 HP took 22 damage from RED Ghost at tile (13, 7) with 51 HP!
+2018-05-01 15:20:35,803 INFO BLUE Colonist at tile (13, 7) with -42 HP took 22 damage from RED Ghost at tile (13, 7) with 51 HP!
+2018-05-01 15:20:35,803 INFO RED Ghost at tile (13, 7) with 51 HP took -2 damage from BLUE Colonist at tile (13, 7) with -42 HP!
+2018-05-01 15:20:35,804 INFO RED Colonist at tile (6, 8) with -1500 HP, BLUE Ghost at tile (6, 8) with 80 HP are contesting the tile at (6, 8)!
+2018-05-01 15:20:35,804 INFO RED Colonist at tile (6, 8) with -1500 HP took 800 damage from BLUE Ghost at tile (6, 8) with 80 HP!
+2018-05-01 15:20:35,805 INFO BLUE Ghost at tile (6, 8) with 80 HP took 0 damage from RED Colonist at tile (6, 8) with -1500 HP!
+2018-05-01 15:20:35,805 INFO BLUE Ghost at tile (6, 8) with 80 HP took 0 damage from RED Colonist at tile (6, 8) with -1500 HP!
+2018-05-01 15:20:35,806 INFO RED Colonist at tile (6, 8) with -1500 HP took 800 damage from BLUE Ghost at tile (6, 8) with 80 HP!
+2018-05-01 15:20:35,867 INFO = Ranged phase begins
+2018-05-01 15:20:35,884 INFO BLUE Ranger at tile (8, 1) with 27 HP conducted a ranged attack on (6, 1)
+2018-05-01 15:20:35,885 INFO RED Boltcaster at tile (4, 2) with 60 HP conducted a ranged attack on (7, 1)
+2018-05-01 15:20:35,885 INFO BLUE Ranger at tile (7, 1) with -25 HP conducted a ranged attack on (6, 1)
+2018-05-01 15:20:35,902 INFO RED Trooper at tile (6, 1) with 80 HP took 9 damage from BLUE Ranger at tile (8, 1) with 3 HP!
+2018-05-01 15:20:35,902 INFO RED Trooper at tile (6, 0) with 57 HP took 4 damage from BLUE Ranger at tile (8, 1) with 3 HP!
+2018-05-01 15:20:35,903 INFO BLUE Ranger at tile (7, 1) with -25 HP took 32 damage from RED Boltcaster at tile (4, 2) with 60 HP!
+2018-05-01 15:20:35,903 INFO BLUE Ranger at tile (8, 1) with 3 HP took 24 damage from RED Boltcaster at tile (4, 2) with 60 HP!
+2018-05-01 15:20:35,904 INFO RED Trooper at tile (6, 1) with 80 HP took -8 damage from BLUE Ranger at tile (7, 1) with -25 HP!
+2018-05-01 15:20:35,904 INFO RED Trooper at tile (6, 0) with 57 HP took -4 damage from BLUE Ranger at tile (7, 1) with -25 HP!
+2018-05-01 15:20:35,952 INFO = Special phase begins
+2018-05-01 15:20:36,034 INFO = Start Turn phase begins
+2018-05-01 15:20:36,037 INFO == TURN 17 BEGIN ==
+2018-05-01 15:20:36,055 INFO Team.RED team spent 2 resources.
+2018-05-01 15:20:36,055 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 15:20:36,057 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:36,058 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:36,058 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:36,059 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:36,059 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:36,060 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:36,060 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:36,061 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:36,061 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 15:20:36,062 INFO Team.RED team acquired 3 resources.
+2018-05-01 15:20:36,126 INFO = Issue Orders phase begins
+2018-05-01 15:20:56,361 INFO BLUE Barracks at tile (11, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 2)'
+2018-05-01 15:20:56,362 INFO BLUE Ranger at tile (7, 1) with 7 HP was assigned the order 'Order: Ranged attack tile (6, 1)'
+2018-05-01 15:20:56,363 INFO RED Boltcaster at tile (4, 2) with 60 HP was assigned the order 'Order: Ranged attack tile (7, 1)'
+2018-05-01 15:20:56,363 INFO BLUE Ranger at tile (8, 1) with 27 HP was assigned the order 'Order: Ranged attack tile (6, 1)'
+2018-05-01 15:20:56,363 INFO RED Trooper at tile (6, 1) with 81 HP was assigned the order 'Order: Move to (7, 1)'
+2018-05-01 15:20:56,364 INFO BLUE Colonist at tile (13, 7) with 2 HP was assigned the order 'Order: Build a Generator on tile (13, 8)'
+2018-05-01 15:20:56,364 INFO BLUE Ghost at tile (5, 1) with 46 HP was assigned the order 'Order: Move to (5, 0)'
+2018-05-01 15:20:56,364 INFO BLUE Ghost at tile (5, 6) with 80 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-01 15:20:56,364 INFO BLUE Trooper at tile (10, 2) with 100 HP was assigned the order 'Order: Move to (10, 3)'
+2018-05-01 15:20:56,365 INFO = Move phase begins
+2018-05-01 15:20:56,382 INFO None moved to (10, 3)
+2018-05-01 15:20:56,383 INFO None moved to (6, 8)
+2018-05-01 15:20:56,383 INFO None moved to (5, 0)
+2018-05-01 15:20:56,384 INFO None moved to (7, 1)
+2018-05-01 15:20:56,446 INFO = Build phase begins
+2018-05-01 15:20:56,465 INFO BLUE Colonist at tile (13, 7) with 2 HP failed to execute its orders!
+2018-05-01 15:20:56,466 INFO Team.BLUE PieceType.TROOPER was built on (10, 2). 
+2018-05-01 15:20:56,467 INFO Team.BLUE team spent 3 resources.
+2018-05-01 15:20:56,530 INFO = Combat phase begins
+2018-05-01 15:20:56,548 INFO BLUE Ranger at tile (7, 1) with -31 HP, RED Trooper at tile (7, 1) with 81 HP are contesting the tile at (7, 1)!
+2018-05-01 15:20:56,549 INFO BLUE Ranger at tile (7, 1) with -31 HP took 19 damage from RED Trooper at tile (7, 1) with 81 HP!
+2018-05-01 15:20:56,550 INFO RED Trooper at tile (7, 1) with 81 HP took 0 damage from BLUE Ranger at tile (7, 1) with -31 HP!
+2018-05-01 15:20:56,551 INFO RED Trooper at tile (7, 1) with 81 HP took 0 damage from BLUE Ranger at tile (7, 1) with -31 HP!
+2018-05-01 15:20:56,551 INFO BLUE Ranger at tile (7, 1) with -31 HP took 19 damage from RED Trooper at tile (7, 1) with 81 HP!
+2018-05-01 15:20:56,552 INFO RED Ranger at tile (5, 0) with 36 HP, BLUE Ghost at tile (5, 0) with 46 HP are contesting the tile at (5, 0)!
+2018-05-01 15:20:56,552 INFO RED Ranger at tile (5, 0) with 36 HP took 27 damage from BLUE Ghost at tile (5, 0) with 46 HP!
+2018-05-01 15:20:56,553 INFO BLUE Ghost at tile (5, 0) with 46 HP took 0 damage from RED Ranger at tile (5, 0) with 36 HP!
+2018-05-01 15:20:56,553 INFO BLUE Ghost at tile (5, 0) with 46 HP took 0 damage from RED Ranger at tile (5, 0) with 36 HP!
+2018-05-01 15:20:56,554 INFO RED Ranger at tile (5, 0) with 36 HP took 27 damage from BLUE Ghost at tile (5, 0) with 46 HP!
+2018-05-01 15:20:56,554 INFO RED Ghost at tile (13, 7) with 51 HP, BLUE Colonist at tile (13, 7) with -42 HP are contesting the tile at (13, 7)!
+2018-05-01 15:20:56,555 INFO RED Ghost at tile (13, 7) with 51 HP took 0 damage from BLUE Colonist at tile (13, 7) with -42 HP!
+2018-05-01 15:20:56,556 INFO BLUE Colonist at tile (13, 7) with -42 HP took 22 damage from RED Ghost at tile (13, 7) with 51 HP!
+2018-05-01 15:20:56,556 INFO BLUE Colonist at tile (13, 7) with -42 HP took 22 damage from RED Ghost at tile (13, 7) with 51 HP!
+2018-05-01 15:20:56,557 INFO RED Ghost at tile (13, 7) with 51 HP took -2 damage from BLUE Colonist at tile (13, 7) with -42 HP!
+2018-05-01 15:20:56,558 INFO RED Colonist at tile (6, 8) with -1500 HP, BLUE Ghost at tile (6, 8) with 80 HP are contesting the tile at (6, 8)!
+2018-05-01 15:20:56,558 INFO RED Colonist at tile (6, 8) with -1500 HP took 800 damage from BLUE Ghost at tile (6, 8) with 80 HP!
+2018-05-01 15:20:56,559 INFO BLUE Ghost at tile (6, 8) with 80 HP took 0 damage from RED Colonist at tile (6, 8) with -1500 HP!
+2018-05-01 15:20:56,559 INFO BLUE Ghost at tile (6, 8) with 80 HP took 0 damage from RED Colonist at tile (6, 8) with -1500 HP!
+2018-05-01 15:20:56,560 INFO RED Colonist at tile (6, 8) with -1500 HP took 800 damage from BLUE Ghost at tile (6, 8) with 80 HP!
+2018-05-01 15:20:56,624 INFO = Ranged phase begins
+2018-05-01 15:20:56,641 INFO BLUE Ranger at tile (8, 1) with 27 HP conducted a ranged attack on (6, 1)
+2018-05-01 15:20:56,642 INFO RED Boltcaster at tile (4, 2) with 60 HP conducted a ranged attack on (7, 1)
+2018-05-01 15:20:56,642 INFO BLUE Ranger at tile (7, 1) with -63 HP conducted a ranged attack on (6, 1)
+2018-05-01 15:20:56,659 INFO RED Trooper at tile (7, 1) with 88 HP took 5 damage from BLUE Ranger at tile (8, 1) with 3 HP!
+2018-05-01 15:20:56,660 INFO RED Trooper at tile (6, 0) with 64 HP took 4 damage from BLUE Ranger at tile (8, 1) with 3 HP!
+2018-05-01 15:20:56,661 INFO BLUE Ranger at tile (7, 1) with -63 HP took 32 damage from RED Boltcaster at tile (4, 2) with 60 HP!
+2018-05-01 15:20:56,661 INFO BLUE Ranger at tile (8, 1) with 3 HP took 24 damage from RED Boltcaster at tile (4, 2) with 60 HP!
+2018-05-01 15:20:56,662 INFO RED Trooper at tile (7, 1) with 88 HP took -12 damage from BLUE Ranger at tile (7, 1) with -63 HP!
+2018-05-01 15:20:56,662 INFO RED Trooper at tile (6, 0) with 64 HP took -11 damage from BLUE Ranger at tile (7, 1) with -63 HP!
+2018-05-01 15:20:56,711 INFO = Special phase begins
+2018-05-01 15:20:56,794 INFO = Start Turn phase begins
+2018-05-01 15:20:56,798 INFO == TURN 17 BEGIN ==
+2018-05-01 15:20:56,815 INFO Team.RED team spent 2 resources.
+2018-05-01 15:20:56,816 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 15:20:56,818 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:56,818 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:56,819 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:56,819 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:56,820 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:56,821 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:56,822 INFO Team.RED team acquired 2 resources.
+2018-05-01 15:20:56,822 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 15:20:56,823 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 15:20:56,823 INFO Team.RED team acquired 3 resources.
+2018-05-01 15:20:56,884 INFO = Issue Orders phase begins
+2018-05-01 16:36:26,761 INFO == TURN 1 BEGIN ==
+2018-05-01 16:36:26,762 INFO = Issue Orders phase begins
+2018-05-01 16:50:42,863 INFO Team.RED PieceType.GUARDIAN was built on (14, 5). 
+2018-05-01 16:50:54,926 INFO BLUE Colonist at tile (7, 8) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (6, 8)'
+2018-05-01 16:50:54,927 INFO BLUE Colonist at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (9, 7)'
+2018-05-01 16:50:54,928 INFO RED Boltcaster at tile (13, 4) with 60 HP was assigned the order 'Order: Move to (14, 4)'
+2018-05-01 16:50:54,929 INFO RED Guardian at tile (14, 5) with 80 HP was assigned the order 'Order: Move to (14, 7)'
+2018-05-01 16:50:54,930 INFO = Move phase begins
+2018-05-01 16:50:54,947 INFO None moved to (14, 7)
+2018-05-01 16:50:54,948 INFO None moved to (14, 4)
+2018-05-01 16:50:54,948 INFO None moved to (9, 7)
+2018-05-01 16:50:55,020 INFO = Build phase begins
+2018-05-01 16:50:55,039 INFO Team.BLUE PieceType.TECHLAB was built on (6, 8). 
+2018-05-01 16:50:55,040 INFO Team.BLUE team spent 2 resources.
+2018-05-01 16:50:55,116 INFO = Combat phase begins
+2018-05-01 16:50:55,206 INFO = Ranged phase begins
+2018-05-01 16:50:55,291 INFO = Special phase begins
+2018-05-01 16:50:55,380 INFO = Start Turn phase begins
+2018-05-01 16:50:55,383 INFO == TURN 2 BEGIN ==
+2018-05-01 16:50:55,398 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,398 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,399 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,399 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,400 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,400 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,401 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,401 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,401 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,402 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,402 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,403 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,403 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:50:55,403 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 16:50:55,404 INFO Team.RED team acquired 2 resources.
+2018-05-01 16:50:55,462 INFO = Issue Orders phase begins
+2018-05-01 16:51:00,673 INFO BLUE Base at tile (14, 9) with 150 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_ATTACK'
+2018-05-01 16:51:00,673 INFO BLUE Colonist at tile (7, 8) with 100 HP was assigned the order 'Order: Build a Barracks on tile (7, 7)'
+2018-05-01 16:51:00,674 INFO RED Guardian at tile (14, 7) with 80 HP was assigned the order 'Order: Move to (14, 5)'
+2018-05-01 16:51:00,674 INFO BLUE Colonist at tile (9, 7) with 100 HP was assigned the order 'Order: Build a Generator on tile (9, 6)'
+2018-05-01 16:51:00,674 INFO BLUE Tech Lab at tile (6, 8) with 50 HP was assigned the order 'Order: purchase upgrade UpgradeType.BUILDING_ARMOR'
+2018-05-01 16:51:00,674 INFO = Move phase begins
+2018-05-01 16:51:00,692 INFO None moved to (14, 5)
+2018-05-01 16:51:00,753 INFO = Build phase begins
+2018-05-01 16:51:00,769 INFO Team.BLUE PieceType.GENERATOR was built on (9, 6). 
+2018-05-01 16:51:00,770 INFO Team.BLUE team spent 1 resources.
+2018-05-01 16:51:00,771 INFO Team.BLUE PieceType.BARRACKS was built on (7, 7). 
+2018-05-01 16:51:00,771 INFO Team.BLUE team spent 5 resources.
+2018-05-01 16:51:00,835 INFO = Combat phase begins
+2018-05-01 16:51:00,912 INFO = Ranged phase begins
+2018-05-01 16:51:00,990 INFO = Special phase begins
+2018-05-01 16:51:01,007 INFO Team.BLUE team researched the upgrade UpgradeType.BUILDING_ARMOR
+2018-05-01 16:51:01,007 INFO Team.BLUE team spent 4 resources.
+2018-05-01 16:51:01,008 INFO Team.BLUE team researched the upgrade UpgradeType.COLONIST_ATTACK
+2018-05-01 16:51:01,008 INFO Team.BLUE team spent 3 resources.
+2018-05-01 16:51:01,078 INFO = Start Turn phase begins
+2018-05-01 16:51:01,081 INFO == TURN 3 BEGIN ==
+2018-05-01 16:51:01,099 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,099 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,100 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,100 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,101 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,101 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,102 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,102 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,103 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,103 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,103 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,104 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,104 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,105 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:01,105 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 16:51:01,105 INFO Team.RED team acquired 2 resources.
+2018-05-01 16:51:01,165 INFO = Issue Orders phase begins
+2018-05-01 16:51:27,445 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-01 16:51:27,445 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (4, 12)'
+2018-05-01 16:51:27,445 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-01 16:51:27,445 INFO = Move phase begins
+2018-05-01 16:51:27,506 INFO = Build phase begins
+2018-05-01 16:51:27,518 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-01 16:51:27,519 INFO Team.BLUE team spent 1 resources.
+2018-05-01 16:51:27,519 INFO Team.RED PieceType.GENERATOR was built on (4, 12). 
+2018-05-01 16:51:27,519 INFO Team.RED team spent 1 resources.
+2018-05-01 16:51:27,519 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-01 16:51:27,519 INFO Team.BLUE team spent 3 resources.
+2018-05-01 16:51:27,570 INFO = Combat phase begins
+2018-05-01 16:51:27,633 INFO = Ranged phase begins
+2018-05-01 16:51:27,696 INFO = Special phase begins
+2018-05-01 16:51:27,763 INFO = Start Turn phase begins
+2018-05-01 16:51:27,763 INFO == TURN 2 BEGIN ==
+2018-05-01 16:51:27,776 INFO Team.RED team acquired 1 resources.
+2018-05-01 16:51:27,776 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:27,776 INFO Team.RED team acquired 1 resources.
+2018-05-01 16:51:27,777 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:27,777 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 16:51:27,777 INFO Team.RED team acquired 2 resources.
+2018-05-01 16:51:27,827 INFO = Issue Orders phase begins
+2018-05-01 16:51:38,495 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-01 16:51:38,495 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (2, 12)'
+2018-05-01 16:51:38,495 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-05-01 16:51:38,495 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-01 16:51:38,496 INFO = Move phase begins
+2018-05-01 16:51:38,508 INFO None moved to (9, 8)
+2018-05-01 16:51:38,557 INFO = Build phase begins
+2018-05-01 16:51:38,570 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-05-01 16:51:38,570 INFO Team.BLUE team spent 1 resources.
+2018-05-01 16:51:38,570 INFO Team.RED PieceType.GENERATOR was built on (2, 12). 
+2018-05-01 16:51:38,570 INFO Team.RED team spent 1 resources.
+2018-05-01 16:51:38,570 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-01 16:51:38,571 INFO Team.BLUE team spent 3 resources.
+2018-05-01 16:51:38,621 INFO = Combat phase begins
+2018-05-01 16:51:38,685 INFO = Ranged phase begins
+2018-05-01 16:51:38,747 INFO = Special phase begins
+2018-05-01 16:51:38,809 INFO = Start Turn phase begins
+2018-05-01 16:51:38,810 INFO == TURN 3 BEGIN ==
+2018-05-01 16:51:38,822 INFO Team.RED team acquired 1 resources.
+2018-05-01 16:51:38,823 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:38,823 INFO Team.RED team acquired 1 resources.
+2018-05-01 16:51:38,823 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:38,823 INFO Team.RED team acquired 1 resources.
+2018-05-01 16:51:38,823 INFO Team.BLUE team acquired 1 resources.
+2018-05-01 16:51:38,823 INFO Team.BLUE team acquired 2 resources.
+2018-05-01 16:51:38,823 INFO Team.RED team acquired 2 resources.
+2018-05-01 16:51:38,872 INFO = Issue Orders phase begins
+2018-05-02 15:04:16,269 INFO == TURN 1 BEGIN ==
+2018-05-02 15:04:16,270 INFO = Issue Orders phase begins
+2018-05-04 13:15:45,754 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-04 13:15:45,755 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-04 13:15:45,755 INFO = Move phase begins
+2018-05-04 13:15:45,816 INFO = Build phase begins
+2018-05-04 13:15:45,829 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-04 13:15:45,829 INFO Team.BLUE team spent 1 resources.
+2018-05-04 13:15:45,829 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-04 13:15:45,830 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:45,880 INFO = Combat phase begins
+2018-05-04 13:15:45,940 INFO = Ranged phase begins
+2018-05-04 13:15:46,000 INFO = Special phase begins
+2018-05-04 13:15:46,066 INFO = Start Turn phase begins
+2018-05-04 13:15:46,067 INFO == TURN 2 BEGIN ==
+2018-05-04 13:15:46,078 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:46,079 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:46,079 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:46,079 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:46,079 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:46,126 INFO = Issue Orders phase begins
+2018-05-04 13:15:47,370 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-04 13:15:47,370 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-05-04 13:15:47,370 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-04 13:15:47,370 INFO = Move phase begins
+2018-05-04 13:15:47,382 INFO None moved to (9, 8)
+2018-05-04 13:15:47,428 INFO = Build phase begins
+2018-05-04 13:15:47,440 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-05-04 13:15:47,440 INFO Team.BLUE team spent 1 resources.
+2018-05-04 13:15:47,441 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-04 13:15:47,441 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:47,486 INFO = Combat phase begins
+2018-05-04 13:15:47,545 INFO = Ranged phase begins
+2018-05-04 13:15:47,604 INFO = Special phase begins
+2018-05-04 13:15:47,662 INFO = Start Turn phase begins
+2018-05-04 13:15:47,662 INFO == TURN 3 BEGIN ==
+2018-05-04 13:15:47,675 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:47,675 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:47,675 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:47,675 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:47,675 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:47,676 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:47,725 INFO = Issue Orders phase begins
+2018-05-04 13:15:48,438 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-04 13:15:48,438 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-05-04 13:15:48,438 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-04 13:15:48,438 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-04 13:15:48,438 INFO = Move phase begins
+2018-05-04 13:15:48,450 INFO None moved to (9, 8)
+2018-05-04 13:15:48,451 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-04 13:15:48,451 INFO None moved to (10, 11)
+2018-05-04 13:15:48,497 INFO = Build phase begins
+2018-05-04 13:15:48,510 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-04 13:15:48,510 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:48,557 INFO = Combat phase begins
+2018-05-04 13:15:48,615 INFO = Ranged phase begins
+2018-05-04 13:15:48,676 INFO = Special phase begins
+2018-05-04 13:15:48,736 INFO = Start Turn phase begins
+2018-05-04 13:15:48,737 INFO == TURN 4 BEGIN ==
+2018-05-04 13:15:48,748 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:48,749 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:48,749 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:48,749 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:48,749 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:48,749 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:48,797 INFO = Issue Orders phase begins
+2018-05-04 13:15:49,493 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-04 13:15:49,493 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-04 13:15:49,493 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-04 13:15:49,493 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 8)'
+2018-05-04 13:15:49,493 INFO BLUE Ghost at tile (10, 9) with 80 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-04 13:15:49,493 INFO = Move phase begins
+2018-05-04 13:15:49,506 INFO None moved to (8, 8)
+2018-05-04 13:15:49,506 INFO None moved to (7, 8)
+2018-05-04 13:15:49,506 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-04 13:15:49,506 INFO None moved to (10, 8)
+2018-05-04 13:15:49,555 INFO = Build phase begins
+2018-05-04 13:15:49,567 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-04 13:15:49,567 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:49,616 INFO = Combat phase begins
+2018-05-04 13:15:49,675 INFO = Ranged phase begins
+2018-05-04 13:15:49,737 INFO = Special phase begins
+2018-05-04 13:15:49,797 INFO = Start Turn phase begins
+2018-05-04 13:15:49,798 INFO == TURN 5 BEGIN ==
+2018-05-04 13:15:49,810 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:49,810 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:49,810 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:49,811 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:49,811 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:49,811 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:49,859 INFO = Issue Orders phase begins
+2018-05-04 13:15:50,489 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-04 13:15:50,489 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-04 13:15:50,489 INFO BLUE Ghost at tile (8, 8) with 80 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-04 13:15:50,489 INFO BLUE Trooper at tile (5, 8) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-04 13:15:50,489 INFO BLUE Colonist at tile (10, 8) with 100 HP was assigned the order 'Order: Build a Barracks on tile (11, 8)'
+2018-05-04 13:15:50,489 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-04 13:15:50,489 INFO = Move phase begins
+2018-05-04 13:15:50,502 INFO None moved to (9, 8)
+2018-05-04 13:15:50,502 INFO None moved to (6, 8)
+2018-05-04 13:15:50,502 INFO None moved to (5, 8)
+2018-05-04 13:15:50,502 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-05-04 13:15:50,552 INFO = Build phase begins
+2018-05-04 13:15:50,565 INFO Team.BLUE PieceType.BARRACKS was built on (11, 8). 
+2018-05-04 13:15:50,565 INFO Team.BLUE team spent 5 resources.
+2018-05-04 13:15:50,566 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-04 13:15:50,566 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:50,613 INFO = Combat phase begins
+2018-05-04 13:15:50,673 INFO = Ranged phase begins
+2018-05-04 13:15:50,733 INFO = Special phase begins
+2018-05-04 13:15:50,794 INFO = Start Turn phase begins
+2018-05-04 13:15:50,794 INFO == TURN 6 BEGIN ==
+2018-05-04 13:15:50,807 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:50,807 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:50,807 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:50,808 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:50,808 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:50,808 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:50,858 INFO = Issue Orders phase begins
+2018-05-04 13:15:51,860 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-04 13:15:51,860 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-05-04 13:15:51,860 INFO BLUE Colonist at tile (10, 8) with 100 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-04 13:15:51,860 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-04 13:15:51,860 INFO BLUE Ghost at tile (6, 8) with 80 HP was assigned the order 'Order: Move to (3, 8)'
+2018-05-04 13:15:51,860 INFO BLUE Trooper at tile (4, 9) with 100 HP was assigned the order 'Order: Move to (4, 10)'
+2018-05-04 13:15:51,860 INFO BLUE Barracks at tile (11, 8) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 8)'
+2018-05-04 13:15:51,861 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-04 13:15:51,861 INFO = Move phase begins
+2018-05-04 13:15:51,873 INFO None moved to (9, 8)
+2018-05-04 13:15:51,874 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-04 13:15:51,874 INFO None moved to (3, 8)
+2018-05-04 13:15:51,874 INFO None moved to (4, 8)
+2018-05-04 13:15:51,874 INFO None moved to (4, 10)
+2018-05-04 13:15:51,874 INFO None moved to (8, 8)
+2018-05-04 13:15:51,924 INFO = Build phase begins
+2018-05-04 13:15:51,937 INFO Team.BLUE PieceType.GHOST was built on (10, 8). 
+2018-05-04 13:15:51,937 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:51,938 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-04 13:15:51,938 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:51,988 INFO = Combat phase begins
+2018-05-04 13:15:52,001 INFO RED Barracks at tile (4, 10) with 50 HP, BLUE Trooper at tile (4, 10) with 100 HP are contesting the tile at (4, 10)!
+2018-05-04 13:15:52,001 INFO RED Barracks at tile (4, 10) with 50 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-04 13:15:52,001 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 50 HP!
+2018-05-04 13:15:52,001 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 50 HP!
+2018-05-04 13:15:52,002 INFO RED Barracks at tile (4, 10) with 50 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-04 13:15:52,054 INFO = Ranged phase begins
+2018-05-04 13:15:52,114 INFO = Special phase begins
+2018-05-04 13:15:52,175 INFO = Start Turn phase begins
+2018-05-04 13:15:52,176 INFO == TURN 7 BEGIN ==
+2018-05-04 13:15:52,189 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:52,190 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:52,190 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:52,190 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:52,190 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:52,190 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:52,238 INFO = Issue Orders phase begins
+2018-05-04 13:15:53,199 INFO BLUE Trooper at tile (4, 10) with 100 HP was assigned the order 'Order: Move to (4, 10)'
+2018-05-04 13:15:53,199 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-04 13:15:53,199 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-04 13:15:53,199 INFO BLUE Barracks at tile (11, 8) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 8)'
+2018-05-04 13:15:53,199 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-04 13:15:53,199 INFO BLUE Ghost at tile (3, 8) with 80 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-04 13:15:53,199 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-05-04 13:15:53,199 INFO BLUE Colonist at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-04 13:15:53,199 INFO BLUE Ghost at tile (10, 8) with 80 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-04 13:15:53,200 INFO BLUE Ghost at tile (10, 9) with 80 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-04 13:15:53,200 INFO = Move phase begins
+2018-05-04 13:15:53,211 INFO None moved to (8, 8)
+2018-05-04 13:15:53,212 INFO None moved to (9, 8)
+2018-05-04 13:15:53,212 INFO BLUE Ghost at tile (9, 8) with 80 HP moved to (7, 8)
+2018-05-04 13:15:53,212 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-04 13:15:53,212 INFO None moved to (3, 11)
+2018-05-04 13:15:53,212 INFO BLUE Trooper at tile (4, 10) with 100 HP moved to (4, 10)
+2018-05-04 13:15:53,212 INFO BLUE Ghost at tile (8, 8) with 80 HP moved to (6, 8)
+2018-05-04 13:15:53,259 INFO = Build phase begins
+2018-05-04 13:15:53,271 INFO Team.BLUE PieceType.TROOPER was built on (10, 8). 
+2018-05-04 13:15:53,271 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:53,271 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-04 13:15:53,271 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:53,320 INFO = Combat phase begins
+2018-05-04 13:15:53,333 INFO RED Base at tile (3, 11) with 150 HP, BLUE Ghost at tile (3, 11) with 80 HP are contesting the tile at (3, 11)!
+2018-05-04 13:15:53,333 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ghost at tile (3, 11) with 80 HP!
+2018-05-04 13:15:53,333 INFO BLUE Ghost at tile (3, 11) with 80 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-05-04 13:15:53,333 INFO BLUE Ghost at tile (3, 11) with 80 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-05-04 13:15:53,334 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ghost at tile (3, 11) with 80 HP!
+2018-05-04 13:15:53,334 INFO RED Barracks at tile (4, 10) with 0 HP, BLUE Trooper at tile (4, 10) with 100 HP are contesting the tile at (4, 10)!
+2018-05-04 13:15:53,334 INFO RED Barracks at tile (4, 10) with 0 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-04 13:15:53,334 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 0 HP!
+2018-05-04 13:15:53,334 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 0 HP!
+2018-05-04 13:15:53,334 INFO RED Barracks at tile (4, 10) with 0 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-04 13:15:53,383 INFO = Ranged phase begins
+2018-05-04 13:15:53,397 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-05-04 13:15:53,409 INFO RED Barracks at tile (4, 10) with -48 HP took 48 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-05-04 13:15:53,447 INFO = Special phase begins
+2018-05-04 13:15:53,512 INFO = Start Turn phase begins
+2018-05-04 13:15:53,513 INFO == TURN 8 BEGIN ==
+2018-05-04 13:15:53,525 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:53,525 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:53,525 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:53,526 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:53,526 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:53,526 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:53,575 INFO = Issue Orders phase begins
+2018-05-04 13:15:54,565 INFO BLUE Ghost at tile (3, 11) with 80 HP was assigned the order 'Order: Move to (3, 12)'
+2018-05-04 13:15:54,566 INFO BLUE Trooper at tile (4, 10) with 100 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-04 13:15:54,566 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-04 13:15:54,566 INFO BLUE Ghost at tile (9, 8) with 80 HP was assigned the order 'Order: Move to (11, 7)'
+2018-05-04 13:15:54,566 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-04 13:15:54,566 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Move to (3, 9)'
+2018-05-04 13:15:54,566 INFO BLUE Ghost at tile (8, 8) with 80 HP was assigned the order 'Order: Move to (10, 8)'
+2018-05-04 13:15:54,566 INFO BLUE Trooper at tile (5, 8) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-04 13:15:54,566 INFO BLUE Colonist at tile (6, 8) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (6, 7)'
+2018-05-04 13:15:54,567 INFO BLUE Trooper at tile (10, 8) with 100 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-04 13:15:54,567 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-04 13:15:54,567 INFO = Move phase begins
+2018-05-04 13:15:54,581 INFO None moved to (9, 8)
+2018-05-04 13:15:54,581 INFO None moved to (8, 8)
+2018-05-04 13:15:54,581 INFO BLUE Trooper at tile (8, 8) with 100 HP moved to (10, 8)
+2018-05-04 13:15:54,582 INFO BLUE Trooper at tile (9, 8) with 100 HP moved to (11, 7)
+2018-05-04 13:15:54,582 INFO None moved to (5, 8)
+2018-05-04 13:15:54,582 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-05-04 13:15:54,582 INFO None moved to (3, 12)
+2018-05-04 13:15:54,582 INFO None moved to (3, 9)
+2018-05-04 13:15:54,582 INFO None moved to (3, 11)
+2018-05-04 13:15:54,643 INFO = Build phase begins
+2018-05-04 13:15:54,656 INFO Team.BLUE PieceType.TECHLAB was built on (6, 7). 
+2018-05-04 13:15:54,656 INFO Team.BLUE team spent 2 resources.
+2018-05-04 13:15:54,656 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-04 13:15:54,656 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:54,705 INFO = Combat phase begins
+2018-05-04 13:15:54,717 INFO RED Base at tile (3, 11) with 106 HP, BLUE Trooper at tile (3, 11) with 100 HP are contesting the tile at (3, 11)!
+2018-05-04 13:15:54,717 INFO RED Base at tile (3, 11) with 106 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-04 13:15:54,718 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with 106 HP!
+2018-05-04 13:15:54,718 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with 106 HP!
+2018-05-04 13:15:54,718 INFO RED Base at tile (3, 11) with 106 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-04 13:15:54,718 INFO RED Colonist at tile (3, 12) with -4 HP, BLUE Ghost at tile (3, 12) with 80 HP are contesting the tile at (3, 12)!
+2018-05-04 13:15:54,718 INFO RED Colonist at tile (3, 12) with -4 HP took 52 damage from BLUE Ghost at tile (3, 12) with 80 HP!
+2018-05-04 13:15:54,719 INFO BLUE Ghost at tile (3, 12) with 80 HP took 0 damage from RED Colonist at tile (3, 12) with -4 HP!
+2018-05-04 13:15:54,719 INFO BLUE Ghost at tile (3, 12) with 80 HP took 0 damage from RED Colonist at tile (3, 12) with -4 HP!
+2018-05-04 13:15:54,719 INFO RED Colonist at tile (3, 12) with -4 HP took 52 damage from BLUE Ghost at tile (3, 12) with 80 HP!
+2018-05-04 13:15:54,768 INFO = Ranged phase begins
+2018-05-04 13:15:54,830 INFO = Special phase begins
+2018-05-04 13:15:54,891 INFO = Start Turn phase begins
+2018-05-04 13:15:54,891 INFO == TURN 9 BEGIN ==
+2018-05-04 13:15:54,904 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:54,905 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:54,905 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:54,905 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:54,905 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:54,905 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:54,954 INFO = Issue Orders phase begins
+2018-05-04 13:15:59,130 INFO BLUE Trooper at tile (3, 11) with 100 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-04 13:15:59,130 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-04 13:15:59,130 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-04 13:15:59,131 INFO BLUE Trooper at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-04 13:15:59,131 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-04 13:15:59,131 INFO BLUE Colonist at tile (6, 8) with 100 HP was assigned the order 'Order: Move to (4, 8)'
+2018-05-04 13:15:59,131 INFO BLUE Trooper at tile (4, 9) with 100 HP was assigned the order 'Order: Move to (4, 11)'
+2018-05-04 13:15:59,131 INFO BLUE Ranger at tile (3, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-05-04 13:15:59,131 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-04 13:15:59,132 INFO = Move phase begins
+2018-05-04 13:15:59,144 INFO None moved to (9, 8)
+2018-05-04 13:15:59,144 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-04 13:15:59,144 INFO None moved to (6, 8)
+2018-05-04 13:15:59,144 INFO None moved to (4, 9)
+2018-05-04 13:15:59,144 INFO BLUE Ranger at tile (4, 9) with 90 HP moved to (4, 11)
+2018-05-04 13:15:59,145 INFO BLUE Trooper at tile (3, 11) with 100 HP moved to (3, 11)
+2018-05-04 13:15:59,145 INFO BLUE Trooper at tile (6, 8) with 100 HP moved to (4, 8)
+2018-05-04 13:15:59,194 INFO = Build phase begins
+2018-05-04 13:15:59,208 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-04 13:15:59,208 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:15:59,268 INFO = Combat phase begins
+2018-05-04 13:15:59,282 INFO RED Base at tile (3, 11) with 62 HP, BLUE Trooper at tile (3, 11) with 100 HP are contesting the tile at (3, 11)!
+2018-05-04 13:15:59,283 INFO RED Base at tile (3, 11) with 62 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-04 13:15:59,283 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with 62 HP!
+2018-05-04 13:15:59,283 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with 62 HP!
+2018-05-04 13:15:59,283 INFO RED Base at tile (3, 11) with 62 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-04 13:15:59,338 INFO = Ranged phase begins
+2018-05-04 13:15:59,350 INFO BLUE Ranger at tile (3, 9) with 90 HP conducted a ranged attack on (3, 11)
+2018-05-04 13:15:59,363 INFO RED Base at tile (3, 11) with 19 HP took 43 damage from BLUE Ranger at tile (3, 9) with 90 HP!
+2018-05-04 13:15:59,401 INFO = Special phase begins
+2018-05-04 13:15:59,464 INFO = Start Turn phase begins
+2018-05-04 13:15:59,465 INFO == TURN 10 BEGIN ==
+2018-05-04 13:15:59,478 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:59,478 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:59,478 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:15:59,478 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:15:59,478 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:15:59,478 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:15:59,529 INFO = Issue Orders phase begins
+2018-05-04 13:16:00,755 INFO BLUE Trooper at tile (3, 11) with 100 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-04 13:16:00,755 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-04 13:16:00,755 INFO BLUE Ghost at tile (3, 12) with 80 HP was assigned the order 'Order: Move to (1, 12)'
+2018-05-04 13:16:00,755 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-04 13:16:00,755 INFO BLUE Barracks at tile (11, 8) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 8)'
+2018-05-04 13:16:00,755 INFO BLUE Trooper at tile (6, 8) with 100 HP was assigned the order 'Order: Move to (4, 8)'
+2018-05-04 13:16:00,755 INFO BLUE Ghost at tile (10, 8) with 80 HP was assigned the order 'Order: Move to (11, 10)'
+2018-05-04 13:16:00,756 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Move to (4, 10)'
+2018-05-04 13:16:00,756 INFO BLUE Ranger at tile (3, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-05-04 13:16:00,756 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-04 13:16:00,756 INFO BLUE Trooper at tile (4, 11) with 100 HP was assigned the order 'Order: Move to (3, 12)'
+2018-05-04 13:16:00,756 INFO BLUE Colonist at tile (4, 8) with 100 HP was assigned the order 'Order: Move to (4, 11)'
+2018-05-04 13:16:00,756 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-04 13:16:00,756 INFO = Move phase begins
+2018-05-04 13:16:00,771 INFO None moved to (9, 8)
+2018-05-04 13:16:00,771 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-04 13:16:00,772 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-04 13:16:00,772 INFO None moved to (4, 8)
+2018-05-04 13:16:00,772 INFO None moved to (11, 10)
+2018-05-04 13:16:00,772 INFO None moved to (4, 10)
+2018-05-04 13:16:00,772 INFO None moved to (3, 12)
+2018-05-04 13:16:00,772 INFO BLUE Trooper at tile (3, 12) with 100 HP moved to (1, 12)
+2018-05-04 13:16:00,773 INFO BLUE Trooper at tile (3, 11) with 100 HP moved to (3, 11)
+2018-05-04 13:16:00,773 INFO BLUE Trooper at tile (4, 8) with 100 HP moved to (4, 11)
+2018-05-04 13:16:00,826 INFO = Build phase begins
+2018-05-04 13:16:00,839 INFO Team.BLUE PieceType.GHOST was built on (10, 8). 
+2018-05-04 13:16:00,839 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:16:00,839 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-04 13:16:00,839 INFO Team.BLUE team spent 3 resources.
+2018-05-04 13:16:00,889 INFO = Combat phase begins
+2018-05-04 13:16:00,901 INFO RED Base at tile (3, 11) with -25 HP, BLUE Trooper at tile (3, 11) with 100 HP are contesting the tile at (3, 11)!
+2018-05-04 13:16:00,901 INFO RED Base at tile (3, 11) with -25 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-04 13:16:00,901 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with -25 HP!
+2018-05-04 13:16:00,901 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with -25 HP!
+2018-05-04 13:16:00,902 INFO RED Base at tile (3, 11) with -25 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-04 13:16:00,949 INFO = Ranged phase begins
+2018-05-04 13:16:00,962 INFO BLUE Ranger at tile (3, 9) with 90 HP conducted a ranged attack on (3, 11)
+2018-05-04 13:16:00,974 INFO RED Base at tile (3, 11) with -68 HP took 43 damage from BLUE Ranger at tile (3, 9) with 90 HP!
+2018-05-04 13:16:01,010 INFO = Special phase begins
+2018-05-04 13:16:01,071 INFO = Start Turn phase begins
+2018-05-04 13:16:01,072 INFO == TURN 11 BEGIN ==
+2018-05-04 13:16:01,084 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:16:01,085 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:16:01,085 INFO Team.RED team acquired 1 resources.
+2018-05-04 13:16:01,085 INFO Team.BLUE team acquired 1 resources.
+2018-05-04 13:16:01,085 INFO Team.BLUE team acquired 2 resources.
+2018-05-04 13:16:01,086 INFO Team.RED team acquired 2 resources.
+2018-05-04 13:16:01,099 INFO === BATTLE OVER! ===
+2018-05-04 13:16:01,099 INFO Team.RED team has lost.
+2018-05-04 13:16:01,099 INFO -- Stats for team Team.RED --
+2018-05-04 13:16:01,099 INFO   * Tiles Moved: 0
+2018-05-04 13:16:01,099 INFO   * Ranged Attacks: 0
+2018-05-04 13:16:01,099 INFO   * Piece Conflicts: 7
+2018-05-04 13:16:01,099 INFO   * Pieces Lost: 3
+2018-05-04 13:16:01,099 INFO   * Pieces Built: 0
+2018-05-04 13:16:01,100 INFO   * Upgrades Researched: 0
+2018-05-04 13:16:01,100 INFO Team.BLUE team has won!
+2018-05-04 13:16:01,100 INFO -- Stats for team Team.BLUE --
+2018-05-04 13:16:01,100 INFO   * Tiles Moved: 99
+2018-05-04 13:16:01,100 INFO   * Ranged Attacks: 3
+2018-05-04 13:16:01,100 INFO   * Piece Conflicts: 7
+2018-05-04 13:16:01,100 INFO   * Pieces Lost: 0
+2018-05-04 13:16:01,100 INFO   * Pieces Built: 17
+2018-05-04 13:16:01,100 INFO   * Upgrades Researched: 0
+2018-05-06 14:49:08,175 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 14:49:08,175 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-06 14:49:08,175 INFO = Move phase begins
+2018-05-06 14:49:08,230 INFO = Build phase begins
+2018-05-06 14:49:08,241 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-06 14:49:08,241 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:49:08,241 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 14:49:08,241 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:49:08,284 INFO = Combat phase begins
+2018-05-06 14:49:08,338 INFO = Ranged phase begins
+2018-05-06 14:49:08,391 INFO = Special phase begins
+2018-05-06 14:49:08,444 INFO = Start Turn phase begins
+2018-05-06 14:49:08,444 INFO == TURN 2 BEGIN ==
+2018-05-06 14:49:08,455 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:08,455 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:49:08,455 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:08,455 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:49:08,455 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:49:08,497 INFO = Issue Orders phase begins
+2018-05-06 14:49:40,386 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 14:49:40,386 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-06 14:49:40,386 INFO = Move phase begins
+2018-05-06 14:49:40,441 INFO = Build phase begins
+2018-05-06 14:49:40,452 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-06 14:49:40,452 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:49:40,452 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 14:49:40,452 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:49:40,495 INFO = Combat phase begins
+2018-05-06 14:49:40,548 INFO = Ranged phase begins
+2018-05-06 14:49:40,603 INFO = Special phase begins
+2018-05-06 14:49:40,659 INFO = Start Turn phase begins
+2018-05-06 14:49:40,660 INFO == TURN 2 BEGIN ==
+2018-05-06 14:49:40,670 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:40,671 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:49:40,671 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:40,671 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:49:40,671 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:49:40,715 INFO = Issue Orders phase begins
+2018-05-06 14:49:42,450 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 14:49:42,450 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-05-06 14:49:42,450 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:49:42,450 INFO = Move phase begins
+2018-05-06 14:49:42,462 INFO None moved to (9, 8)
+2018-05-06 14:49:42,507 INFO = Build phase begins
+2018-05-06 14:49:42,518 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-05-06 14:49:42,519 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:49:42,519 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 14:49:42,519 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:49:42,563 INFO = Combat phase begins
+2018-05-06 14:49:42,618 INFO = Ranged phase begins
+2018-05-06 14:49:42,674 INFO = Special phase begins
+2018-05-06 14:49:42,730 INFO = Start Turn phase begins
+2018-05-06 14:49:42,731 INFO == TURN 3 BEGIN ==
+2018-05-06 14:49:42,741 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:42,742 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:42,742 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:49:42,742 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:42,742 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:49:42,742 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:49:42,785 INFO = Issue Orders phase begins
+2018-05-06 14:49:44,282 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-06 14:49:44,282 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-05-06 14:49:44,282 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:49:44,282 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:49:44,282 INFO = Move phase begins
+2018-05-06 14:49:44,294 INFO None moved to (9, 8)
+2018-05-06 14:49:44,294 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 14:49:44,294 INFO None moved to (10, 11)
+2018-05-06 14:49:44,338 INFO = Build phase begins
+2018-05-06 14:49:44,350 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-06 14:49:44,350 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:49:44,394 INFO = Combat phase begins
+2018-05-06 14:49:44,449 INFO = Ranged phase begins
+2018-05-06 14:49:44,505 INFO = Special phase begins
+2018-05-06 14:49:44,560 INFO = Start Turn phase begins
+2018-05-06 14:49:44,561 INFO == TURN 4 BEGIN ==
+2018-05-06 14:49:44,572 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:44,572 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:44,572 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:49:44,572 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:44,572 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:49:44,572 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:49:44,616 INFO = Issue Orders phase begins
+2018-05-06 14:49:46,859 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 14:49:46,860 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:49:46,860 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:49:46,860 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 8)'
+2018-05-06 14:49:46,860 INFO BLUE Ghost at tile (10, 9) with 80 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 14:49:46,860 INFO = Move phase begins
+2018-05-06 14:49:46,871 INFO None moved to (8, 8)
+2018-05-06 14:49:46,871 INFO None moved to (7, 8)
+2018-05-06 14:49:46,871 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-06 14:49:46,872 INFO None moved to (10, 8)
+2018-05-06 14:49:46,916 INFO = Build phase begins
+2018-05-06 14:49:46,927 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 14:49:46,927 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:49:46,972 INFO = Combat phase begins
+2018-05-06 14:49:47,029 INFO = Ranged phase begins
+2018-05-06 14:49:47,084 INFO = Special phase begins
+2018-05-06 14:49:47,140 INFO = Start Turn phase begins
+2018-05-06 14:49:47,140 INFO == TURN 5 BEGIN ==
+2018-05-06 14:49:47,151 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:47,152 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:47,152 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:49:47,152 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:47,152 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:49:47,152 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:49:47,197 INFO = Issue Orders phase begins
+2018-05-06 14:49:49,093 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 14:49:49,093 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:49:49,093 INFO BLUE Ghost at tile (8, 8) with 80 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-06 14:49:49,093 INFO BLUE Trooper at tile (5, 8) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-06 14:49:49,093 INFO BLUE Colonist at tile (10, 8) with 100 HP was assigned the order 'Order: Build a Barracks on tile (11, 8)'
+2018-05-06 14:49:49,093 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:49:49,093 INFO = Move phase begins
+2018-05-06 14:49:49,105 INFO None moved to (9, 8)
+2018-05-06 14:49:49,105 INFO None moved to (6, 8)
+2018-05-06 14:49:49,105 INFO None moved to (5, 8)
+2018-05-06 14:49:49,105 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-05-06 14:49:49,158 INFO = Build phase begins
+2018-05-06 14:49:49,171 INFO Team.BLUE PieceType.BARRACKS was built on (11, 8). 
+2018-05-06 14:49:49,171 INFO Team.BLUE team spent 5 resources.
+2018-05-06 14:49:49,171 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 14:49:49,171 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:49:49,219 INFO = Combat phase begins
+2018-05-06 14:49:49,278 INFO = Ranged phase begins
+2018-05-06 14:49:49,341 INFO = Special phase begins
+2018-05-06 14:49:49,403 INFO = Start Turn phase begins
+2018-05-06 14:49:49,403 INFO == TURN 6 BEGIN ==
+2018-05-06 14:49:49,417 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:49,417 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:49,417 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:49:49,417 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:49,417 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:49:49,417 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:49:49,469 INFO = Issue Orders phase begins
+2018-05-06 14:49:55,081 INFO == TURN 1 BEGIN ==
+2018-05-06 14:49:55,081 INFO = Issue Orders phase begins
+2018-05-06 14:49:56,939 INFO BLUE Base at tile (16, 3) with 150 HP was assigned the order 'Order: Build a Colonist on tile (17, 3)'
+2018-05-06 14:49:56,939 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 3)'
+2018-05-06 14:49:56,939 INFO = Move phase begins
+2018-05-06 14:49:56,998 INFO = Build phase begins
+2018-05-06 14:49:57,011 INFO Team.BLUE PieceType.GENERATOR was built on (18, 3). 
+2018-05-06 14:49:57,011 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:49:57,011 INFO Team.BLUE PieceType.COLONIST was built on (17, 3). 
+2018-05-06 14:49:57,011 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:49:57,059 INFO = Combat phase begins
+2018-05-06 14:49:57,119 INFO = Ranged phase begins
+2018-05-06 14:49:57,179 INFO = Special phase begins
+2018-05-06 14:49:57,238 INFO = Start Turn phase begins
+2018-05-06 14:49:57,238 INFO == TURN 2 BEGIN ==
+2018-05-06 14:49:57,250 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:57,250 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:49:57,251 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:49:57,251 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:49:57,251 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:49:57,300 INFO = Issue Orders phase begins
+2018-05-06 14:50:00,200 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (13, 2)'
+2018-05-06 14:50:00,201 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (19, 2)'
+2018-05-06 14:50:00,201 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (17, 4)'
+2018-05-06 14:50:00,201 INFO = Move phase begins
+2018-05-06 14:50:00,262 INFO = Build phase begins
+2018-05-06 14:50:00,275 INFO Team.BLUE PieceType.TECHLAB was built on (17, 4). 
+2018-05-06 14:50:00,275 INFO Team.BLUE team spent 2 resources.
+2018-05-06 14:50:00,275 INFO Team.BLUE PieceType.GENERATOR was built on (19, 2). 
+2018-05-06 14:50:00,275 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:50:00,275 INFO Team.BLUE PieceType.TROOPER was built on (13, 2). 
+2018-05-06 14:50:00,276 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:00,325 INFO = Combat phase begins
+2018-05-06 14:50:00,386 INFO = Ranged phase begins
+2018-05-06 14:50:00,449 INFO = Special phase begins
+2018-05-06 14:50:00,511 INFO = Start Turn phase begins
+2018-05-06 14:50:00,512 INFO == TURN 3 BEGIN ==
+2018-05-06 14:50:00,524 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:00,524 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:00,524 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:00,524 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:00,525 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:00,525 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:00,573 INFO = Issue Orders phase begins
+2018-05-06 14:50:27,099 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 14:50:27,099 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-06 14:50:27,099 INFO = Move phase begins
+2018-05-06 14:50:27,156 INFO = Build phase begins
+2018-05-06 14:50:27,167 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-06 14:50:27,167 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:50:27,167 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 14:50:27,167 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:27,212 INFO = Combat phase begins
+2018-05-06 14:50:27,269 INFO = Ranged phase begins
+2018-05-06 14:50:27,325 INFO = Special phase begins
+2018-05-06 14:50:27,382 INFO = Start Turn phase begins
+2018-05-06 14:50:27,383 INFO == TURN 2 BEGIN ==
+2018-05-06 14:50:27,394 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:27,394 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:27,394 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:27,394 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:27,395 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:27,440 INFO = Issue Orders phase begins
+2018-05-06 14:50:28,131 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 14:50:28,131 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-05-06 14:50:28,131 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:28,132 INFO = Move phase begins
+2018-05-06 14:50:28,143 INFO None moved to (9, 8)
+2018-05-06 14:50:28,187 INFO = Build phase begins
+2018-05-06 14:50:28,199 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-05-06 14:50:28,199 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:50:28,199 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 14:50:28,199 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:28,245 INFO = Combat phase begins
+2018-05-06 14:50:28,301 INFO = Ranged phase begins
+2018-05-06 14:50:28,357 INFO = Special phase begins
+2018-05-06 14:50:28,413 INFO = Start Turn phase begins
+2018-05-06 14:50:28,413 INFO == TURN 3 BEGIN ==
+2018-05-06 14:50:28,424 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:28,424 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:28,424 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:28,425 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:28,425 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:28,425 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:28,469 INFO = Issue Orders phase begins
+2018-05-06 14:50:29,540 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-06 14:50:29,540 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-05-06 14:50:29,540 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:50:29,541 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:29,541 INFO = Move phase begins
+2018-05-06 14:50:29,552 INFO None moved to (9, 8)
+2018-05-06 14:50:29,552 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 14:50:29,552 INFO None moved to (10, 11)
+2018-05-06 14:50:29,596 INFO = Build phase begins
+2018-05-06 14:50:29,608 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-06 14:50:29,608 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:29,652 INFO = Combat phase begins
+2018-05-06 14:50:29,707 INFO = Ranged phase begins
+2018-05-06 14:50:29,763 INFO = Special phase begins
+2018-05-06 14:50:29,819 INFO = Start Turn phase begins
+2018-05-06 14:50:29,819 INFO == TURN 4 BEGIN ==
+2018-05-06 14:50:29,830 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:29,831 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:29,831 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:29,831 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:29,831 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:29,831 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:29,877 INFO = Issue Orders phase begins
+2018-05-06 14:50:32,523 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 14:50:32,523 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:50:32,523 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:50:32,523 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 8)'
+2018-05-06 14:50:32,523 INFO BLUE Ghost at tile (10, 9) with 80 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 14:50:32,523 INFO = Move phase begins
+2018-05-06 14:50:32,534 INFO None moved to (8, 8)
+2018-05-06 14:50:32,535 INFO None moved to (7, 8)
+2018-05-06 14:50:32,535 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-06 14:50:32,535 INFO None moved to (10, 8)
+2018-05-06 14:50:32,580 INFO = Build phase begins
+2018-05-06 14:50:32,591 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 14:50:32,591 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:32,638 INFO = Combat phase begins
+2018-05-06 14:50:32,695 INFO = Ranged phase begins
+2018-05-06 14:50:32,752 INFO = Special phase begins
+2018-05-06 14:50:32,811 INFO = Start Turn phase begins
+2018-05-06 14:50:32,811 INFO == TURN 5 BEGIN ==
+2018-05-06 14:50:32,822 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:32,823 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:32,823 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:32,823 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:32,823 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:32,823 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:32,870 INFO = Issue Orders phase begins
+2018-05-06 14:50:34,259 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 14:50:34,260 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:50:34,260 INFO BLUE Ghost at tile (8, 8) with 80 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-06 14:50:34,260 INFO BLUE Trooper at tile (5, 8) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-06 14:50:34,260 INFO BLUE Colonist at tile (10, 8) with 100 HP was assigned the order 'Order: Build a Barracks on tile (11, 8)'
+2018-05-06 14:50:34,260 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:34,260 INFO = Move phase begins
+2018-05-06 14:50:34,271 INFO None moved to (9, 8)
+2018-05-06 14:50:34,271 INFO None moved to (6, 8)
+2018-05-06 14:50:34,272 INFO None moved to (5, 8)
+2018-05-06 14:50:34,272 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-05-06 14:50:34,317 INFO = Build phase begins
+2018-05-06 14:50:34,328 INFO Team.BLUE PieceType.BARRACKS was built on (11, 8). 
+2018-05-06 14:50:34,328 INFO Team.BLUE team spent 5 resources.
+2018-05-06 14:50:34,328 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 14:50:34,328 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:34,374 INFO = Combat phase begins
+2018-05-06 14:50:34,430 INFO = Ranged phase begins
+2018-05-06 14:50:34,487 INFO = Special phase begins
+2018-05-06 14:50:34,544 INFO = Start Turn phase begins
+2018-05-06 14:50:34,544 INFO == TURN 6 BEGIN ==
+2018-05-06 14:50:34,556 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:34,556 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:34,556 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:34,556 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:34,556 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:34,556 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:34,602 INFO = Issue Orders phase begins
+2018-05-06 14:50:46,364 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 14:50:46,364 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-06 14:50:46,364 INFO = Move phase begins
+2018-05-06 14:50:46,420 INFO = Build phase begins
+2018-05-06 14:50:46,431 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-06 14:50:46,431 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:50:46,431 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 14:50:46,431 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:46,476 INFO = Combat phase begins
+2018-05-06 14:50:46,533 INFO = Ranged phase begins
+2018-05-06 14:50:46,590 INFO = Special phase begins
+2018-05-06 14:50:46,647 INFO = Start Turn phase begins
+2018-05-06 14:50:46,648 INFO == TURN 2 BEGIN ==
+2018-05-06 14:50:46,659 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:46,659 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:46,659 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:46,660 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:46,660 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:46,705 INFO = Issue Orders phase begins
+2018-05-06 14:50:48,138 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 14:50:48,138 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-05-06 14:50:48,138 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:48,138 INFO = Move phase begins
+2018-05-06 14:50:48,150 INFO None moved to (9, 8)
+2018-05-06 14:50:48,193 INFO = Build phase begins
+2018-05-06 14:50:48,205 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-05-06 14:50:48,205 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:50:48,205 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 14:50:48,205 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:48,250 INFO = Combat phase begins
+2018-05-06 14:50:48,306 INFO = Ranged phase begins
+2018-05-06 14:50:48,362 INFO = Special phase begins
+2018-05-06 14:50:48,417 INFO = Start Turn phase begins
+2018-05-06 14:50:48,417 INFO == TURN 3 BEGIN ==
+2018-05-06 14:50:48,428 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:48,428 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:48,428 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:48,429 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:48,429 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:48,429 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:48,472 INFO = Issue Orders phase begins
+2018-05-06 14:50:49,660 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-06 14:50:49,660 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-05-06 14:50:49,660 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:50:49,660 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:49,660 INFO = Move phase begins
+2018-05-06 14:50:49,672 INFO None moved to (9, 8)
+2018-05-06 14:50:49,672 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 14:50:49,673 INFO None moved to (10, 11)
+2018-05-06 14:50:49,718 INFO = Build phase begins
+2018-05-06 14:50:49,729 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-06 14:50:49,729 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:49,775 INFO = Combat phase begins
+2018-05-06 14:50:49,831 INFO = Ranged phase begins
+2018-05-06 14:50:49,889 INFO = Special phase begins
+2018-05-06 14:50:49,947 INFO = Start Turn phase begins
+2018-05-06 14:50:49,947 INFO == TURN 4 BEGIN ==
+2018-05-06 14:50:49,959 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:49,959 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:49,959 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:49,959 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:49,959 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:49,959 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:50,004 INFO = Issue Orders phase begins
+2018-05-06 14:50:50,794 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 14:50:50,794 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:50:50,795 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:50:50,795 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 8)'
+2018-05-06 14:50:50,795 INFO BLUE Ghost at tile (10, 9) with 80 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 14:50:50,795 INFO = Move phase begins
+2018-05-06 14:50:50,806 INFO None moved to (8, 8)
+2018-05-06 14:50:50,806 INFO None moved to (7, 8)
+2018-05-06 14:50:50,807 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-06 14:50:50,807 INFO None moved to (10, 8)
+2018-05-06 14:50:50,853 INFO = Build phase begins
+2018-05-06 14:50:50,864 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 14:50:50,864 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:50,910 INFO = Combat phase begins
+2018-05-06 14:50:50,968 INFO = Ranged phase begins
+2018-05-06 14:50:51,026 INFO = Special phase begins
+2018-05-06 14:50:51,084 INFO = Start Turn phase begins
+2018-05-06 14:50:51,084 INFO == TURN 5 BEGIN ==
+2018-05-06 14:50:51,096 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:51,096 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:51,096 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:51,096 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:51,096 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:51,096 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:51,144 INFO = Issue Orders phase begins
+2018-05-06 14:50:51,919 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 14:50:51,919 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:50:51,919 INFO BLUE Ghost at tile (8, 8) with 80 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-06 14:50:51,919 INFO BLUE Trooper at tile (5, 8) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-06 14:50:51,919 INFO BLUE Colonist at tile (10, 8) with 100 HP was assigned the order 'Order: Build a Barracks on tile (11, 8)'
+2018-05-06 14:50:51,920 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:51,920 INFO = Move phase begins
+2018-05-06 14:50:51,933 INFO None moved to (9, 8)
+2018-05-06 14:50:51,933 INFO None moved to (6, 8)
+2018-05-06 14:50:51,933 INFO None moved to (5, 8)
+2018-05-06 14:50:51,933 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-05-06 14:50:51,983 INFO = Build phase begins
+2018-05-06 14:50:51,995 INFO Team.BLUE PieceType.BARRACKS was built on (11, 8). 
+2018-05-06 14:50:51,995 INFO Team.BLUE team spent 5 resources.
+2018-05-06 14:50:51,996 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 14:50:51,996 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:52,044 INFO = Combat phase begins
+2018-05-06 14:50:52,100 INFO = Ranged phase begins
+2018-05-06 14:50:52,157 INFO = Special phase begins
+2018-05-06 14:50:52,213 INFO = Start Turn phase begins
+2018-05-06 14:50:52,214 INFO == TURN 6 BEGIN ==
+2018-05-06 14:50:52,225 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:52,225 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:52,225 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:52,225 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:52,225 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:52,226 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:52,269 INFO = Issue Orders phase begins
+2018-05-06 14:50:53,424 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-06 14:50:53,424 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-05-06 14:50:53,424 INFO BLUE Colonist at tile (10, 8) with 100 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 14:50:53,424 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:50:53,425 INFO BLUE Ghost at tile (6, 8) with 80 HP was assigned the order 'Order: Move to (3, 8)'
+2018-05-06 14:50:53,425 INFO BLUE Trooper at tile (4, 9) with 100 HP was assigned the order 'Order: Move to (4, 10)'
+2018-05-06 14:50:53,425 INFO BLUE Barracks at tile (11, 8) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 8)'
+2018-05-06 14:50:53,425 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:53,425 INFO = Move phase begins
+2018-05-06 14:50:53,437 INFO None moved to (9, 8)
+2018-05-06 14:50:53,438 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 14:50:53,438 INFO None moved to (3, 8)
+2018-05-06 14:50:53,438 INFO None moved to (4, 8)
+2018-05-06 14:50:53,438 INFO None moved to (4, 10)
+2018-05-06 14:50:53,438 INFO None moved to (8, 8)
+2018-05-06 14:50:53,484 INFO = Build phase begins
+2018-05-06 14:50:53,496 INFO Team.BLUE PieceType.GHOST was built on (10, 8). 
+2018-05-06 14:50:53,496 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:53,496 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-06 14:50:53,496 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:53,541 INFO = Combat phase begins
+2018-05-06 14:50:53,553 INFO RED Barracks at tile (4, 10) with 50 HP, BLUE Trooper at tile (4, 10) with 100 HP are contesting the tile at (4, 10)!
+2018-05-06 14:50:53,553 INFO RED Barracks at tile (4, 10) with 50 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-06 14:50:53,554 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 50 HP!
+2018-05-06 14:50:53,554 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 50 HP!
+2018-05-06 14:50:53,554 INFO RED Barracks at tile (4, 10) with 50 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-06 14:50:53,600 INFO = Ranged phase begins
+2018-05-06 14:50:53,658 INFO = Special phase begins
+2018-05-06 14:50:53,715 INFO = Start Turn phase begins
+2018-05-06 14:50:53,715 INFO == TURN 7 BEGIN ==
+2018-05-06 14:50:53,727 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:53,727 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:53,727 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:53,727 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:53,727 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:53,727 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:53,773 INFO = Issue Orders phase begins
+2018-05-06 14:50:54,684 INFO BLUE Trooper at tile (4, 10) with 100 HP was assigned the order 'Order: Move to (4, 10)'
+2018-05-06 14:50:54,684 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 14:50:54,684 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:50:54,684 INFO BLUE Barracks at tile (11, 8) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 8)'
+2018-05-06 14:50:54,684 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:50:54,685 INFO BLUE Ghost at tile (3, 8) with 80 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-06 14:50:54,685 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-05-06 14:50:54,685 INFO BLUE Colonist at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-06 14:50:54,685 INFO BLUE Ghost at tile (10, 8) with 80 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:54,685 INFO BLUE Ghost at tile (10, 9) with 80 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 14:50:54,685 INFO = Move phase begins
+2018-05-06 14:50:54,696 INFO None moved to (8, 8)
+2018-05-06 14:50:54,697 INFO None moved to (9, 8)
+2018-05-06 14:50:54,697 INFO BLUE Ghost at tile (9, 8) with 80 HP moved to (7, 8)
+2018-05-06 14:50:54,697 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-06 14:50:54,697 INFO None moved to (3, 11)
+2018-05-06 14:50:54,697 INFO BLUE Trooper at tile (4, 10) with 100 HP moved to (4, 10)
+2018-05-06 14:50:54,697 INFO BLUE Ghost at tile (8, 8) with 80 HP moved to (6, 8)
+2018-05-06 14:50:54,743 INFO = Build phase begins
+2018-05-06 14:50:54,755 INFO Team.BLUE PieceType.TROOPER was built on (10, 8). 
+2018-05-06 14:50:54,755 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:54,755 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 14:50:54,755 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:54,802 INFO = Combat phase begins
+2018-05-06 14:50:54,814 INFO RED Base at tile (3, 11) with 150 HP, BLUE Ghost at tile (3, 11) with 80 HP are contesting the tile at (3, 11)!
+2018-05-06 14:50:54,815 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ghost at tile (3, 11) with 80 HP!
+2018-05-06 14:50:54,815 INFO BLUE Ghost at tile (3, 11) with 80 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-05-06 14:50:54,815 INFO BLUE Ghost at tile (3, 11) with 80 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-05-06 14:50:54,815 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ghost at tile (3, 11) with 80 HP!
+2018-05-06 14:50:54,815 INFO RED Barracks at tile (4, 10) with 0 HP, BLUE Trooper at tile (4, 10) with 100 HP are contesting the tile at (4, 10)!
+2018-05-06 14:50:54,815 INFO RED Barracks at tile (4, 10) with 0 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-06 14:50:54,815 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 0 HP!
+2018-05-06 14:50:54,815 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 0 HP!
+2018-05-06 14:50:54,816 INFO RED Barracks at tile (4, 10) with 0 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-06 14:50:54,863 INFO = Ranged phase begins
+2018-05-06 14:50:54,876 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-05-06 14:50:54,888 INFO RED Barracks at tile (4, 10) with -48 HP took 48 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-05-06 14:50:54,923 INFO = Special phase begins
+2018-05-06 14:50:54,982 INFO = Start Turn phase begins
+2018-05-06 14:50:54,983 INFO == TURN 8 BEGIN ==
+2018-05-06 14:50:54,995 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:54,995 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:54,995 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:54,995 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:54,995 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:54,995 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:55,042 INFO = Issue Orders phase begins
+2018-05-06 14:50:56,087 INFO BLUE Ghost at tile (3, 11) with 80 HP was assigned the order 'Order: Move to (3, 12)'
+2018-05-06 14:50:56,087 INFO BLUE Trooper at tile (4, 10) with 100 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-06 14:50:56,087 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 14:50:56,087 INFO BLUE Ghost at tile (9, 8) with 80 HP was assigned the order 'Order: Move to (11, 7)'
+2018-05-06 14:50:56,087 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:50:56,087 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Move to (3, 9)'
+2018-05-06 14:50:56,087 INFO BLUE Ghost at tile (8, 8) with 80 HP was assigned the order 'Order: Move to (10, 8)'
+2018-05-06 14:50:56,087 INFO BLUE Trooper at tile (5, 8) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-06 14:50:56,087 INFO BLUE Colonist at tile (6, 8) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (6, 7)'
+2018-05-06 14:50:56,087 INFO BLUE Trooper at tile (10, 8) with 100 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 14:50:56,087 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:56,088 INFO = Move phase begins
+2018-05-06 14:50:56,099 INFO None moved to (9, 8)
+2018-05-06 14:50:56,099 INFO None moved to (8, 8)
+2018-05-06 14:50:56,099 INFO BLUE Trooper at tile (8, 8) with 100 HP moved to (10, 8)
+2018-05-06 14:50:56,099 INFO BLUE Trooper at tile (9, 8) with 100 HP moved to (11, 7)
+2018-05-06 14:50:56,099 INFO None moved to (5, 8)
+2018-05-06 14:50:56,100 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-05-06 14:50:56,100 INFO None moved to (3, 12)
+2018-05-06 14:50:56,100 INFO None moved to (3, 9)
+2018-05-06 14:50:56,100 INFO None moved to (3, 11)
+2018-05-06 14:50:56,146 INFO = Build phase begins
+2018-05-06 14:50:56,158 INFO Team.BLUE PieceType.TECHLAB was built on (6, 7). 
+2018-05-06 14:50:56,158 INFO Team.BLUE team spent 2 resources.
+2018-05-06 14:50:56,158 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 14:50:56,159 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:56,205 INFO = Combat phase begins
+2018-05-06 14:50:56,216 INFO RED Base at tile (3, 11) with 106 HP, BLUE Trooper at tile (3, 11) with 100 HP are contesting the tile at (3, 11)!
+2018-05-06 14:50:56,217 INFO RED Base at tile (3, 11) with 106 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-06 14:50:56,217 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with 106 HP!
+2018-05-06 14:50:56,217 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with 106 HP!
+2018-05-06 14:50:56,217 INFO RED Base at tile (3, 11) with 106 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-06 14:50:56,217 INFO RED Colonist at tile (3, 12) with -4 HP, BLUE Ghost at tile (3, 12) with 80 HP are contesting the tile at (3, 12)!
+2018-05-06 14:50:56,217 INFO RED Colonist at tile (3, 12) with -4 HP took 52 damage from BLUE Ghost at tile (3, 12) with 80 HP!
+2018-05-06 14:50:56,217 INFO BLUE Ghost at tile (3, 12) with 80 HP took 0 damage from RED Colonist at tile (3, 12) with -4 HP!
+2018-05-06 14:50:56,217 INFO BLUE Ghost at tile (3, 12) with 80 HP took 0 damage from RED Colonist at tile (3, 12) with -4 HP!
+2018-05-06 14:50:56,218 INFO RED Colonist at tile (3, 12) with -4 HP took 52 damage from BLUE Ghost at tile (3, 12) with 80 HP!
+2018-05-06 14:50:56,263 INFO = Ranged phase begins
+2018-05-06 14:50:56,320 INFO = Special phase begins
+2018-05-06 14:50:56,378 INFO = Start Turn phase begins
+2018-05-06 14:50:56,378 INFO == TURN 9 BEGIN ==
+2018-05-06 14:50:56,391 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:56,391 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:56,391 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:56,391 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:56,392 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:56,392 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:56,437 INFO = Issue Orders phase begins
+2018-05-06 14:50:57,573 INFO BLUE Trooper at tile (3, 11) with 100 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-06 14:50:57,574 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 14:50:57,574 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:50:57,574 INFO BLUE Trooper at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-06 14:50:57,574 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-06 14:50:57,574 INFO BLUE Colonist at tile (6, 8) with 100 HP was assigned the order 'Order: Move to (4, 8)'
+2018-05-06 14:50:57,574 INFO BLUE Trooper at tile (4, 9) with 100 HP was assigned the order 'Order: Move to (4, 11)'
+2018-05-06 14:50:57,574 INFO BLUE Ranger at tile (3, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-05-06 14:50:57,574 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:57,574 INFO = Move phase begins
+2018-05-06 14:50:57,586 INFO None moved to (9, 8)
+2018-05-06 14:50:57,586 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 14:50:57,586 INFO None moved to (6, 8)
+2018-05-06 14:50:57,587 INFO None moved to (4, 9)
+2018-05-06 14:50:57,587 INFO BLUE Ranger at tile (4, 9) with 90 HP moved to (4, 11)
+2018-05-06 14:50:57,587 INFO BLUE Trooper at tile (3, 11) with 100 HP moved to (3, 11)
+2018-05-06 14:50:57,587 INFO BLUE Trooper at tile (6, 8) with 100 HP moved to (4, 8)
+2018-05-06 14:50:57,632 INFO = Build phase begins
+2018-05-06 14:50:57,643 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 14:50:57,643 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:57,688 INFO = Combat phase begins
+2018-05-06 14:50:57,700 INFO RED Base at tile (3, 11) with 62 HP, BLUE Trooper at tile (3, 11) with 100 HP are contesting the tile at (3, 11)!
+2018-05-06 14:50:57,701 INFO RED Base at tile (3, 11) with 62 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-06 14:50:57,701 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with 62 HP!
+2018-05-06 14:50:57,701 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with 62 HP!
+2018-05-06 14:50:57,701 INFO RED Base at tile (3, 11) with 62 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-06 14:50:57,747 INFO = Ranged phase begins
+2018-05-06 14:50:57,758 INFO BLUE Ranger at tile (3, 9) with 90 HP conducted a ranged attack on (3, 11)
+2018-05-06 14:50:57,769 INFO RED Base at tile (3, 11) with 19 HP took 43 damage from BLUE Ranger at tile (3, 9) with 90 HP!
+2018-05-06 14:50:57,804 INFO = Special phase begins
+2018-05-06 14:50:57,861 INFO = Start Turn phase begins
+2018-05-06 14:50:57,862 INFO == TURN 10 BEGIN ==
+2018-05-06 14:50:57,874 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:57,875 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:57,875 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:57,875 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:57,875 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:57,875 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:57,922 INFO = Issue Orders phase begins
+2018-05-06 14:50:59,254 INFO BLUE Trooper at tile (3, 11) with 100 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-06 14:50:59,254 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-06 14:50:59,254 INFO BLUE Ghost at tile (3, 12) with 80 HP was assigned the order 'Order: Move to (1, 12)'
+2018-05-06 14:50:59,254 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 14:50:59,255 INFO BLUE Barracks at tile (11, 8) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 8)'
+2018-05-06 14:50:59,255 INFO BLUE Trooper at tile (6, 8) with 100 HP was assigned the order 'Order: Move to (4, 8)'
+2018-05-06 14:50:59,255 INFO BLUE Ghost at tile (10, 8) with 80 HP was assigned the order 'Order: Move to (11, 10)'
+2018-05-06 14:50:59,255 INFO BLUE Ranger at tile (4, 9) with 90 HP was assigned the order 'Order: Move to (4, 10)'
+2018-05-06 14:50:59,255 INFO BLUE Ranger at tile (3, 9) with 90 HP was assigned the order 'Order: Ranged attack tile (3, 11)'
+2018-05-06 14:50:59,255 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 14:50:59,255 INFO BLUE Trooper at tile (4, 11) with 100 HP was assigned the order 'Order: Move to (3, 12)'
+2018-05-06 14:50:59,255 INFO BLUE Colonist at tile (4, 8) with 100 HP was assigned the order 'Order: Move to (4, 11)'
+2018-05-06 14:50:59,255 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 14:50:59,255 INFO = Move phase begins
+2018-05-06 14:50:59,267 INFO None moved to (9, 8)
+2018-05-06 14:50:59,267 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 14:50:59,267 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-06 14:50:59,267 INFO None moved to (4, 8)
+2018-05-06 14:50:59,267 INFO None moved to (11, 10)
+2018-05-06 14:50:59,267 INFO None moved to (4, 10)
+2018-05-06 14:50:59,267 INFO None moved to (3, 12)
+2018-05-06 14:50:59,268 INFO BLUE Trooper at tile (3, 12) with 100 HP moved to (1, 12)
+2018-05-06 14:50:59,268 INFO BLUE Trooper at tile (3, 11) with 100 HP moved to (3, 11)
+2018-05-06 14:50:59,268 INFO BLUE Trooper at tile (4, 8) with 100 HP moved to (4, 11)
+2018-05-06 14:50:59,313 INFO = Build phase begins
+2018-05-06 14:50:59,326 INFO Team.BLUE PieceType.GHOST was built on (10, 8). 
+2018-05-06 14:50:59,326 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:59,326 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-06 14:50:59,326 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:50:59,372 INFO = Combat phase begins
+2018-05-06 14:50:59,384 INFO RED Base at tile (3, 11) with -25 HP, BLUE Trooper at tile (3, 11) with 100 HP are contesting the tile at (3, 11)!
+2018-05-06 14:50:59,384 INFO RED Base at tile (3, 11) with -25 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-06 14:50:59,385 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with -25 HP!
+2018-05-06 14:50:59,385 INFO BLUE Trooper at tile (3, 11) with 100 HP took 0 damage from RED Base at tile (3, 11) with -25 HP!
+2018-05-06 14:50:59,385 INFO RED Base at tile (3, 11) with -25 HP took 22 damage from BLUE Trooper at tile (3, 11) with 100 HP!
+2018-05-06 14:50:59,431 INFO = Ranged phase begins
+2018-05-06 14:50:59,444 INFO BLUE Ranger at tile (3, 9) with 90 HP conducted a ranged attack on (3, 11)
+2018-05-06 14:50:59,455 INFO RED Base at tile (3, 11) with -68 HP took 43 damage from BLUE Ranger at tile (3, 9) with 90 HP!
+2018-05-06 14:50:59,492 INFO = Special phase begins
+2018-05-06 14:50:59,550 INFO = Start Turn phase begins
+2018-05-06 14:50:59,551 INFO == TURN 11 BEGIN ==
+2018-05-06 14:50:59,563 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:59,564 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:59,564 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:50:59,564 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:50:59,564 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:50:59,564 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:50:59,577 INFO === BATTLE OVER! ===
+2018-05-06 14:50:59,577 INFO Team.RED team has lost.
+2018-05-06 14:50:59,577 INFO -- Stats for team Team.RED --
+2018-05-06 14:50:59,577 INFO   * Tiles Moved: 0
+2018-05-06 14:50:59,577 INFO   * Ranged Attacks: 0
+2018-05-06 14:50:59,577 INFO   * Piece Conflicts: 7
+2018-05-06 14:50:59,577 INFO   * Pieces Lost: 3
+2018-05-06 14:50:59,577 INFO   * Pieces Built: 0
+2018-05-06 14:50:59,577 INFO   * Upgrades Researched: 0
+2018-05-06 14:50:59,577 INFO Team.BLUE team has won!
+2018-05-06 14:50:59,577 INFO -- Stats for team Team.BLUE --
+2018-05-06 14:50:59,577 INFO   * Tiles Moved: 99
+2018-05-06 14:50:59,577 INFO   * Ranged Attacks: 3
+2018-05-06 14:50:59,577 INFO   * Piece Conflicts: 7
+2018-05-06 14:50:59,577 INFO   * Pieces Lost: 0
+2018-05-06 14:50:59,578 INFO   * Pieces Built: 17
+2018-05-06 14:50:59,578 INFO   * Upgrades Researched: 0
+2018-05-06 14:51:03,832 INFO == TURN 1 BEGIN ==
+2018-05-06 14:51:03,832 INFO = Issue Orders phase begins
+2018-05-06 14:51:05,720 INFO BLUE Base at tile (16, 3) with 150 HP was assigned the order 'Order: Build a Colonist on tile (17, 3)'
+2018-05-06 14:51:05,720 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 3)'
+2018-05-06 14:51:05,720 INFO = Move phase begins
+2018-05-06 14:51:05,780 INFO = Build phase begins
+2018-05-06 14:51:05,792 INFO Team.BLUE PieceType.GENERATOR was built on (18, 3). 
+2018-05-06 14:51:05,793 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:51:05,793 INFO Team.BLUE PieceType.COLONIST was built on (17, 3). 
+2018-05-06 14:51:05,793 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:51:05,841 INFO = Combat phase begins
+2018-05-06 14:51:05,901 INFO = Ranged phase begins
+2018-05-06 14:51:05,962 INFO = Special phase begins
+2018-05-06 14:51:06,024 INFO = Start Turn phase begins
+2018-05-06 14:51:06,025 INFO == TURN 2 BEGIN ==
+2018-05-06 14:51:06,038 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:06,038 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:06,038 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:51:06,038 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:51:06,038 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:51:06,086 INFO = Issue Orders phase begins
+2018-05-06 14:51:06,854 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (13, 2)'
+2018-05-06 14:51:06,854 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (19, 2)'
+2018-05-06 14:51:06,854 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (17, 4)'
+2018-05-06 14:51:06,854 INFO = Move phase begins
+2018-05-06 14:51:06,916 INFO = Build phase begins
+2018-05-06 14:51:06,928 INFO Team.BLUE PieceType.TECHLAB was built on (17, 4). 
+2018-05-06 14:51:06,928 INFO Team.BLUE team spent 2 resources.
+2018-05-06 14:51:06,928 INFO Team.BLUE PieceType.GENERATOR was built on (19, 2). 
+2018-05-06 14:51:06,929 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:51:06,929 INFO Team.BLUE PieceType.TROOPER was built on (13, 2). 
+2018-05-06 14:51:06,929 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:51:06,979 INFO = Combat phase begins
+2018-05-06 14:51:07,041 INFO = Ranged phase begins
+2018-05-06 14:51:07,102 INFO = Special phase begins
+2018-05-06 14:51:07,165 INFO = Start Turn phase begins
+2018-05-06 14:51:07,165 INFO == TURN 3 BEGIN ==
+2018-05-06 14:51:07,178 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:07,178 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:07,178 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:07,178 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:51:07,178 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:51:07,178 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:51:07,228 INFO = Issue Orders phase begins
+2018-05-06 14:51:10,878 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Ranger on tile (13, 2)'
+2018-05-06 14:51:10,878 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 1)'
+2018-05-06 14:51:10,878 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Move to (17, 6)'
+2018-05-06 14:51:10,879 INFO BLUE Trooper at tile (13, 2) with 100 HP was assigned the order 'Order: Move to (11, 2)'
+2018-05-06 14:51:10,879 INFO = Move phase begins
+2018-05-06 14:51:10,890 INFO None moved to (11, 2)
+2018-05-06 14:51:10,890 INFO None moved to (17, 6)
+2018-05-06 14:51:10,937 INFO = Build phase begins
+2018-05-06 14:51:10,950 INFO Team.BLUE PieceType.GENERATOR was built on (18, 1). 
+2018-05-06 14:51:10,950 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:51:10,950 INFO Team.BLUE PieceType.RANGER was built on (13, 2). 
+2018-05-06 14:51:10,950 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:51:10,997 INFO = Combat phase begins
+2018-05-06 14:51:11,057 INFO = Ranged phase begins
+2018-05-06 14:51:11,116 INFO = Special phase begins
+2018-05-06 14:51:11,174 INFO = Start Turn phase begins
+2018-05-06 14:51:11,175 INFO == TURN 4 BEGIN ==
+2018-05-06 14:51:11,186 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:11,186 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:11,186 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:11,187 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:11,187 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:51:11,187 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:51:11,187 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:51:11,232 INFO = Issue Orders phase begins
+2018-05-06 14:51:17,215 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Ghost on tile (13, 2)'
+2018-05-06 14:51:17,215 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Move to (15, 2)'
+2018-05-06 14:51:17,215 INFO BLUE Trooper at tile (11, 2) with 100 HP was assigned the order 'Order: Move to (10, 3)'
+2018-05-06 14:51:17,215 INFO BLUE Colonist at tile (17, 6) with 100 HP was assigned the order 'Order: Move to (18, 7)'
+2018-05-06 14:51:17,215 INFO BLUE Ranger at tile (13, 2) with 90 HP was assigned the order 'Order: Move to (11, 2)'
+2018-05-06 14:51:17,216 INFO = Move phase begins
+2018-05-06 14:51:17,229 INFO None moved to (11, 2)
+2018-05-06 14:51:17,230 INFO BLUE Ranger at tile (11, 2) with 90 HP moved to (10, 3)
+2018-05-06 14:51:17,230 INFO None moved to (18, 7)
+2018-05-06 14:51:17,230 INFO None moved to (15, 2)
+2018-05-06 14:51:17,283 INFO = Build phase begins
+2018-05-06 14:51:17,296 INFO Team.BLUE PieceType.GHOST was built on (13, 2). 
+2018-05-06 14:51:17,296 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:51:17,348 INFO = Combat phase begins
+2018-05-06 14:51:17,414 INFO = Ranged phase begins
+2018-05-06 14:51:17,478 INFO = Special phase begins
+2018-05-06 14:51:17,542 INFO = Start Turn phase begins
+2018-05-06 14:51:17,543 INFO == TURN 5 BEGIN ==
+2018-05-06 14:51:17,557 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:17,557 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:17,557 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:17,557 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:17,557 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:51:17,558 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:51:17,558 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:51:17,609 INFO = Issue Orders phase begins
+2018-05-06 14:51:20,907 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (13, 2)'
+2018-05-06 14:51:20,907 INFO BLUE Ranger at tile (11, 2) with 90 HP was assigned the order 'Order: Move to (10, 1)'
+2018-05-06 14:51:20,908 INFO BLUE Trooper at tile (10, 3) with 100 HP was assigned the order 'Order: Move to (9, 4)'
+2018-05-06 14:51:20,908 INFO BLUE Colonist at tile (18, 7) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 8)'
+2018-05-06 14:51:20,908 INFO BLUE Colonist at tile (15, 2) with 100 HP was assigned the order 'Order: Build a Barracks on tile (15, 3)'
+2018-05-06 14:51:20,908 INFO BLUE Ghost at tile (13, 2) with 80 HP was assigned the order 'Order: Move to (10, 2)'
+2018-05-06 14:51:20,908 INFO = Move phase begins
+2018-05-06 14:51:20,920 INFO None moved to (10, 2)
+2018-05-06 14:51:20,920 INFO None moved to (10, 1)
+2018-05-06 14:51:20,920 INFO None moved to (9, 4)
+2018-05-06 14:51:20,966 INFO = Build phase begins
+2018-05-06 14:51:20,978 INFO Team.BLUE PieceType.GENERATOR was built on (18, 8). 
+2018-05-06 14:51:20,978 INFO Team.BLUE team spent 1 resources.
+2018-05-06 14:51:20,979 INFO Team.BLUE PieceType.BARRACKS was built on (15, 3). 
+2018-05-06 14:51:20,979 INFO Team.BLUE team spent 5 resources.
+2018-05-06 14:51:20,979 INFO Team.BLUE PieceType.TROOPER was built on (13, 2). 
+2018-05-06 14:51:20,979 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:51:21,026 INFO = Combat phase begins
+2018-05-06 14:51:21,084 INFO = Ranged phase begins
+2018-05-06 14:51:21,141 INFO = Special phase begins
+2018-05-06 14:51:21,200 INFO = Start Turn phase begins
+2018-05-06 14:51:21,200 INFO == TURN 6 BEGIN ==
+2018-05-06 14:51:21,212 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:21,212 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:21,212 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:21,212 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:21,213 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:21,213 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:51:21,213 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:51:21,213 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:51:21,263 INFO = Issue Orders phase begins
+2018-05-06 14:51:29,231 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Ranger on tile (13, 2)'
+2018-05-06 14:51:29,231 INFO BLUE Colonist at tile (18, 7) with 100 HP was assigned the order 'Order: Move to (15, 7)'
+2018-05-06 14:51:29,231 INFO BLUE Colonist at tile (15, 2) with 100 HP was assigned the order 'Order: Move to (12, 2)'
+2018-05-06 14:51:29,231 INFO BLUE Ghost at tile (10, 2) with 80 HP was assigned the order 'Order: Move to (9, 0)'
+2018-05-06 14:51:29,231 INFO BLUE Ranger at tile (10, 1) with 90 HP was assigned the order 'Order: Move to (9, 1)'
+2018-05-06 14:51:29,232 INFO BLUE Trooper at tile (9, 4) with 100 HP was assigned the order 'Order: Move to (7, 4)'
+2018-05-06 14:51:29,232 INFO BLUE Barracks at tile (15, 3) with 100 HP was assigned the order 'Order: Build a Ranger on tile (14, 3)'
+2018-05-06 14:51:29,232 INFO BLUE Trooper at tile (13, 2) with 100 HP was assigned the order 'Order: Move to (11, 2)'
+2018-05-06 14:51:29,232 INFO = Move phase begins
+2018-05-06 14:51:29,244 INFO None moved to (11, 2)
+2018-05-06 14:51:29,244 INFO None moved to (9, 0)
+2018-05-06 14:51:29,244 INFO None moved to (9, 1)
+2018-05-06 14:51:29,244 INFO None moved to (7, 4)
+2018-05-06 14:51:29,244 INFO None moved to (15, 7)
+2018-05-06 14:51:29,245 INFO None moved to (12, 2)
+2018-05-06 14:51:29,292 INFO = Build phase begins
+2018-05-06 14:51:29,305 INFO Team.BLUE PieceType.RANGER was built on (14, 3). 
+2018-05-06 14:51:29,305 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:51:29,305 INFO Team.BLUE PieceType.RANGER was built on (13, 2). 
+2018-05-06 14:51:29,305 INFO Team.BLUE team spent 3 resources.
+2018-05-06 14:51:29,353 INFO = Combat phase begins
+2018-05-06 14:51:29,414 INFO = Ranged phase begins
+2018-05-06 14:51:29,475 INFO = Special phase begins
+2018-05-06 14:51:29,537 INFO = Start Turn phase begins
+2018-05-06 14:51:29,538 INFO == TURN 7 BEGIN ==
+2018-05-06 14:51:29,550 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:29,551 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:29,551 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:29,551 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:29,551 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 14:51:29,551 INFO Team.RED team acquired 1 resources.
+2018-05-06 14:51:29,551 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 14:51:29,551 INFO Team.RED team acquired 2 resources.
+2018-05-06 14:51:29,601 INFO = Issue Orders phase begins
+2018-05-06 15:05:50,666 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 15:05:50,666 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-06 15:05:50,666 INFO = Move phase begins
+2018-05-06 15:05:50,722 INFO = Build phase begins
+2018-05-06 15:05:50,734 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-06 15:05:50,734 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:05:50,734 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 15:05:50,734 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:05:50,780 INFO = Combat phase begins
+2018-05-06 15:05:50,835 INFO = Ranged phase begins
+2018-05-06 15:05:50,891 INFO = Special phase begins
+2018-05-06 15:05:50,947 INFO = Start Turn phase begins
+2018-05-06 15:05:50,947 INFO == TURN 2 BEGIN ==
+2018-05-06 15:05:50,959 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:05:50,959 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:05:50,959 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:05:50,959 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:05:50,959 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:05:51,004 INFO = Issue Orders phase begins
+2018-05-06 15:05:55,036 INFO == TURN 1 BEGIN ==
+2018-05-06 15:05:55,037 INFO = Issue Orders phase begins
+2018-05-06 15:05:58,056 INFO BLUE Base at tile (16, 3) with 150 HP was assigned the order 'Order: Build a Colonist on tile (17, 3)'
+2018-05-06 15:05:58,056 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 3)'
+2018-05-06 15:05:58,056 INFO = Move phase begins
+2018-05-06 15:05:58,120 INFO = Build phase begins
+2018-05-06 15:05:58,134 INFO Team.BLUE PieceType.GENERATOR was built on (18, 3). 
+2018-05-06 15:05:58,134 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:05:58,134 INFO Team.BLUE PieceType.COLONIST was built on (17, 3). 
+2018-05-06 15:05:58,135 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:05:58,187 INFO = Combat phase begins
+2018-05-06 15:05:58,251 INFO = Ranged phase begins
+2018-05-06 15:05:58,315 INFO = Special phase begins
+2018-05-06 15:05:58,379 INFO = Start Turn phase begins
+2018-05-06 15:05:58,380 INFO == TURN 2 BEGIN ==
+2018-05-06 15:05:58,392 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:05:58,393 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:05:58,393 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:05:58,393 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:05:58,393 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:05:58,444 INFO = Issue Orders phase begins
+2018-05-06 15:05:59,947 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (13, 2)'
+2018-05-06 15:05:59,948 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (19, 2)'
+2018-05-06 15:05:59,948 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (17, 4)'
+2018-05-06 15:05:59,948 INFO = Move phase begins
+2018-05-06 15:06:00,013 INFO = Build phase begins
+2018-05-06 15:06:00,026 INFO Team.BLUE PieceType.TECHLAB was built on (17, 4). 
+2018-05-06 15:06:00,026 INFO Team.BLUE team spent 2 resources.
+2018-05-06 15:06:00,026 INFO Team.BLUE PieceType.GENERATOR was built on (19, 2). 
+2018-05-06 15:06:00,027 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:06:00,027 INFO Team.BLUE PieceType.TROOPER was built on (13, 2). 
+2018-05-06 15:06:00,027 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:06:00,077 INFO = Combat phase begins
+2018-05-06 15:06:00,141 INFO = Ranged phase begins
+2018-05-06 15:06:00,205 INFO = Special phase begins
+2018-05-06 15:06:00,267 INFO = Start Turn phase begins
+2018-05-06 15:06:00,268 INFO == TURN 3 BEGIN ==
+2018-05-06 15:06:00,281 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:06:00,281 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:06:00,281 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:06:00,281 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:06:00,281 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:06:00,281 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:06:00,330 INFO = Issue Orders phase begins
+2018-05-06 15:06:04,142 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Ranger on tile (13, 2)'
+2018-05-06 15:06:04,142 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 1)'
+2018-05-06 15:06:04,142 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Move to (17, 6)'
+2018-05-06 15:06:04,142 INFO BLUE Trooper at tile (13, 2) with 100 HP was assigned the order 'Order: Move to (11, 2)'
+2018-05-06 15:06:04,142 INFO = Move phase begins
+2018-05-06 15:06:04,156 INFO None moved to (11, 2)
+2018-05-06 15:06:04,156 INFO None moved to (17, 6)
+2018-05-06 15:06:04,207 INFO = Build phase begins
+2018-05-06 15:06:04,221 INFO Team.BLUE PieceType.GENERATOR was built on (18, 1). 
+2018-05-06 15:06:04,221 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:06:04,221 INFO Team.BLUE PieceType.RANGER was built on (13, 2). 
+2018-05-06 15:06:04,222 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:06:04,274 INFO = Combat phase begins
+2018-05-06 15:06:04,341 INFO = Ranged phase begins
+2018-05-06 15:06:04,408 INFO = Special phase begins
+2018-05-06 15:06:04,473 INFO = Start Turn phase begins
+2018-05-06 15:06:04,474 INFO == TURN 4 BEGIN ==
+2018-05-06 15:06:04,486 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:06:04,487 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:06:04,487 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:06:04,487 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:06:04,487 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:06:04,487 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:06:04,487 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:06:04,534 INFO = Issue Orders phase begins
+2018-05-06 15:12:01,999 INFO == TURN 1 BEGIN ==
+2018-05-06 15:12:01,999 INFO = Issue Orders phase begins
+2018-05-06 15:12:04,298 INFO BLUE Base at tile (16, 3) with 150 HP was assigned the order 'Order: Build a Colonist on tile (17, 3)'
+2018-05-06 15:12:04,298 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 3)'
+2018-05-06 15:12:04,298 INFO = Move phase begins
+2018-05-06 15:12:04,358 INFO = Build phase begins
+2018-05-06 15:12:04,371 INFO Team.BLUE PieceType.GENERATOR was built on (18, 3). 
+2018-05-06 15:12:04,371 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:12:04,371 INFO Team.BLUE PieceType.COLONIST was built on (17, 3). 
+2018-05-06 15:12:04,371 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:12:04,419 INFO = Combat phase begins
+2018-05-06 15:12:04,481 INFO = Ranged phase begins
+2018-05-06 15:12:04,541 INFO = Special phase begins
+2018-05-06 15:12:04,601 INFO = Start Turn phase begins
+2018-05-06 15:12:04,601 INFO == TURN 2 BEGIN ==
+2018-05-06 15:12:04,614 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:04,614 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:04,614 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:12:04,614 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:12:04,614 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:12:04,663 INFO = Issue Orders phase begins
+2018-05-06 15:12:06,582 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (13, 2)'
+2018-05-06 15:12:06,582 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (19, 2)'
+2018-05-06 15:12:06,582 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (17, 4)'
+2018-05-06 15:12:06,583 INFO = Move phase begins
+2018-05-06 15:12:06,645 INFO = Build phase begins
+2018-05-06 15:12:06,658 INFO Team.BLUE PieceType.TECHLAB was built on (17, 4). 
+2018-05-06 15:12:06,658 INFO Team.BLUE team spent 2 resources.
+2018-05-06 15:12:06,658 INFO Team.BLUE PieceType.GENERATOR was built on (19, 2). 
+2018-05-06 15:12:06,659 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:12:06,659 INFO Team.BLUE PieceType.TROOPER was built on (13, 2). 
+2018-05-06 15:12:06,659 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:12:06,709 INFO = Combat phase begins
+2018-05-06 15:12:06,771 INFO = Ranged phase begins
+2018-05-06 15:12:06,834 INFO = Special phase begins
+2018-05-06 15:12:06,896 INFO = Start Turn phase begins
+2018-05-06 15:12:06,896 INFO == TURN 3 BEGIN ==
+2018-05-06 15:12:06,909 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:06,909 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:06,909 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:06,909 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:12:06,910 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:12:06,910 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:12:06,959 INFO = Issue Orders phase begins
+2018-05-06 15:12:12,548 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Ranger on tile (13, 2)'
+2018-05-06 15:12:12,549 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 1)'
+2018-05-06 15:12:12,549 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Move to (17, 6)'
+2018-05-06 15:12:12,549 INFO BLUE Trooper at tile (13, 2) with 100 HP was assigned the order 'Order: Move to (11, 2)'
+2018-05-06 15:12:12,549 INFO = Move phase begins
+2018-05-06 15:12:12,562 INFO None moved to (11, 2)
+2018-05-06 15:12:12,562 INFO None moved to (17, 6)
+2018-05-06 15:12:12,612 INFO = Build phase begins
+2018-05-06 15:12:12,625 INFO Team.BLUE PieceType.GENERATOR was built on (18, 1). 
+2018-05-06 15:12:12,625 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:12:12,625 INFO Team.BLUE PieceType.RANGER was built on (13, 2). 
+2018-05-06 15:12:12,625 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:12:12,676 INFO = Combat phase begins
+2018-05-06 15:12:12,739 INFO = Ranged phase begins
+2018-05-06 15:12:12,802 INFO = Special phase begins
+2018-05-06 15:12:12,865 INFO = Start Turn phase begins
+2018-05-06 15:12:12,866 INFO == TURN 4 BEGIN ==
+2018-05-06 15:12:12,879 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:12,879 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:12,879 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:12,879 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:12,880 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:12:12,880 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:12:12,880 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:12:12,930 INFO = Issue Orders phase begins
+2018-05-06 15:12:20,151 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Ghost on tile (13, 2)'
+2018-05-06 15:12:20,151 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Move to (15, 2)'
+2018-05-06 15:12:20,151 INFO BLUE Trooper at tile (11, 2) with 100 HP was assigned the order 'Order: Move to (10, 3)'
+2018-05-06 15:12:20,152 INFO BLUE Colonist at tile (17, 6) with 100 HP was assigned the order 'Order: Move to (18, 7)'
+2018-05-06 15:12:20,152 INFO BLUE Ranger at tile (13, 2) with 90 HP was assigned the order 'Order: Move to (11, 2)'
+2018-05-06 15:12:20,152 INFO = Move phase begins
+2018-05-06 15:12:20,164 INFO None moved to (11, 2)
+2018-05-06 15:12:20,164 INFO BLUE Ranger at tile (11, 2) with 90 HP moved to (10, 3)
+2018-05-06 15:12:20,165 INFO None moved to (18, 7)
+2018-05-06 15:12:20,165 INFO None moved to (15, 2)
+2018-05-06 15:12:20,215 INFO = Build phase begins
+2018-05-06 15:12:20,228 INFO Team.BLUE PieceType.GHOST was built on (13, 2). 
+2018-05-06 15:12:20,228 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:12:20,278 INFO = Combat phase begins
+2018-05-06 15:12:20,340 INFO = Ranged phase begins
+2018-05-06 15:12:20,403 INFO = Special phase begins
+2018-05-06 15:12:20,466 INFO = Start Turn phase begins
+2018-05-06 15:12:20,466 INFO == TURN 5 BEGIN ==
+2018-05-06 15:12:20,479 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:20,479 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:20,479 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:20,480 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:20,480 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:12:20,480 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:12:20,480 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:12:20,530 INFO = Issue Orders phase begins
+2018-05-06 15:12:26,641 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (13, 2)'
+2018-05-06 15:12:26,641 INFO BLUE Ranger at tile (11, 2) with 90 HP was assigned the order 'Order: Move to (10, 1)'
+2018-05-06 15:12:26,641 INFO BLUE Trooper at tile (10, 3) with 100 HP was assigned the order 'Order: Move to (9, 4)'
+2018-05-06 15:12:26,641 INFO BLUE Colonist at tile (18, 7) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 8)'
+2018-05-06 15:12:26,642 INFO BLUE Colonist at tile (15, 2) with 100 HP was assigned the order 'Order: Build a Barracks on tile (15, 3)'
+2018-05-06 15:12:26,642 INFO BLUE Ghost at tile (13, 2) with 80 HP was assigned the order 'Order: Move to (10, 2)'
+2018-05-06 15:12:26,642 INFO = Move phase begins
+2018-05-06 15:12:26,655 INFO None moved to (10, 2)
+2018-05-06 15:12:26,655 INFO None moved to (10, 1)
+2018-05-06 15:12:26,655 INFO None moved to (9, 4)
+2018-05-06 15:12:26,705 INFO = Build phase begins
+2018-05-06 15:12:26,718 INFO Team.BLUE PieceType.GENERATOR was built on (18, 8). 
+2018-05-06 15:12:26,718 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:12:26,719 INFO Team.BLUE PieceType.BARRACKS was built on (15, 3). 
+2018-05-06 15:12:26,719 INFO Team.BLUE team spent 5 resources.
+2018-05-06 15:12:26,719 INFO Team.BLUE PieceType.TROOPER was built on (13, 2). 
+2018-05-06 15:12:26,719 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:12:26,769 INFO = Combat phase begins
+2018-05-06 15:12:26,831 INFO = Ranged phase begins
+2018-05-06 15:12:26,895 INFO = Special phase begins
+2018-05-06 15:12:26,959 INFO = Start Turn phase begins
+2018-05-06 15:12:26,959 INFO == TURN 6 BEGIN ==
+2018-05-06 15:12:26,971 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:26,972 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:26,972 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:26,972 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:26,972 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:12:26,972 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:12:26,972 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:12:26,972 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:12:27,024 INFO = Issue Orders phase begins
+2018-05-06 15:18:00,108 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 15:18:00,108 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-06 15:18:00,109 INFO = Move phase begins
+2018-05-06 15:18:00,164 INFO = Build phase begins
+2018-05-06 15:18:00,175 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-06 15:18:00,175 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:18:00,175 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 15:18:00,175 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:00,218 INFO = Combat phase begins
+2018-05-06 15:18:00,273 INFO = Ranged phase begins
+2018-05-06 15:18:00,327 INFO = Special phase begins
+2018-05-06 15:18:00,381 INFO = Start Turn phase begins
+2018-05-06 15:18:00,382 INFO == TURN 2 BEGIN ==
+2018-05-06 15:18:00,392 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:00,393 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:00,393 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:00,393 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:00,393 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:00,435 INFO = Issue Orders phase begins
+2018-05-06 15:18:00,859 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 15:18:00,860 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-05-06 15:18:00,860 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 15:18:00,860 INFO = Move phase begins
+2018-05-06 15:18:00,872 INFO None moved to (9, 8)
+2018-05-06 15:18:00,917 INFO = Build phase begins
+2018-05-06 15:18:00,928 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-05-06 15:18:00,928 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:18:00,928 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 15:18:00,928 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:00,973 INFO = Combat phase begins
+2018-05-06 15:18:01,031 INFO = Ranged phase begins
+2018-05-06 15:18:01,088 INFO = Special phase begins
+2018-05-06 15:18:01,144 INFO = Start Turn phase begins
+2018-05-06 15:18:01,145 INFO == TURN 3 BEGIN ==
+2018-05-06 15:18:01,156 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:01,156 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:01,157 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:01,157 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:01,157 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:01,157 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:01,200 INFO = Issue Orders phase begins
+2018-05-06 15:18:01,877 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-06 15:18:01,877 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-05-06 15:18:01,877 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 15:18:01,877 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 15:18:01,877 INFO = Move phase begins
+2018-05-06 15:18:01,888 INFO None moved to (9, 8)
+2018-05-06 15:18:01,889 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 15:18:01,889 INFO None moved to (10, 11)
+2018-05-06 15:18:01,932 INFO = Build phase begins
+2018-05-06 15:18:01,943 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-06 15:18:01,943 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:01,987 INFO = Combat phase begins
+2018-05-06 15:18:02,046 INFO = Ranged phase begins
+2018-05-06 15:18:02,099 INFO = Special phase begins
+2018-05-06 15:18:02,154 INFO = Start Turn phase begins
+2018-05-06 15:18:02,155 INFO == TURN 4 BEGIN ==
+2018-05-06 15:18:02,165 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:02,165 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:02,165 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:02,165 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:02,166 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:02,166 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:02,209 INFO = Issue Orders phase begins
+2018-05-06 15:18:02,882 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 15:18:02,882 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 15:18:02,882 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 15:18:02,883 INFO BLUE Colonist at tile (10, 11) with 100 HP was assigned the order 'Order: Move to (10, 8)'
+2018-05-06 15:18:02,883 INFO BLUE Ghost at tile (10, 9) with 80 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 15:18:02,883 INFO = Move phase begins
+2018-05-06 15:18:02,894 INFO None moved to (8, 8)
+2018-05-06 15:18:02,894 INFO None moved to (7, 8)
+2018-05-06 15:18:02,894 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-06 15:18:02,894 INFO None moved to (10, 8)
+2018-05-06 15:18:02,938 INFO = Build phase begins
+2018-05-06 15:18:02,949 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 15:18:02,949 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:02,993 INFO = Combat phase begins
+2018-05-06 15:18:03,049 INFO = Ranged phase begins
+2018-05-06 15:18:03,104 INFO = Special phase begins
+2018-05-06 15:18:03,159 INFO = Start Turn phase begins
+2018-05-06 15:18:03,159 INFO == TURN 5 BEGIN ==
+2018-05-06 15:18:03,170 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:03,170 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:03,170 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:03,170 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:03,171 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:03,171 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:03,213 INFO = Issue Orders phase begins
+2018-05-06 15:18:03,718 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 15:18:03,718 INFO BLUE Ranger at tile (7, 8) with 90 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 15:18:03,718 INFO BLUE Ghost at tile (8, 8) with 80 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-06 15:18:03,718 INFO BLUE Trooper at tile (5, 8) with 100 HP was assigned the order 'Order: Move to (4, 9)'
+2018-05-06 15:18:03,718 INFO BLUE Colonist at tile (10, 8) with 100 HP was assigned the order 'Order: Build a Barracks on tile (11, 8)'
+2018-05-06 15:18:03,718 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 15:18:03,718 INFO = Move phase begins
+2018-05-06 15:18:03,729 INFO None moved to (9, 8)
+2018-05-06 15:18:03,730 INFO None moved to (6, 8)
+2018-05-06 15:18:03,730 INFO None moved to (5, 8)
+2018-05-06 15:18:03,730 INFO BLUE Ranger at tile (5, 8) with 90 HP moved to (4, 9)
+2018-05-06 15:18:03,774 INFO = Build phase begins
+2018-05-06 15:18:03,785 INFO Team.BLUE PieceType.BARRACKS was built on (11, 8). 
+2018-05-06 15:18:03,785 INFO Team.BLUE team spent 5 resources.
+2018-05-06 15:18:03,786 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 15:18:03,786 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:03,830 INFO = Combat phase begins
+2018-05-06 15:18:03,887 INFO = Ranged phase begins
+2018-05-06 15:18:03,939 INFO = Special phase begins
+2018-05-06 15:18:03,993 INFO = Start Turn phase begins
+2018-05-06 15:18:03,993 INFO == TURN 6 BEGIN ==
+2018-05-06 15:18:04,005 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:04,005 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:04,006 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:04,006 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:04,006 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:04,006 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:04,051 INFO = Issue Orders phase begins
+2018-05-06 15:18:04,869 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-06 15:18:04,869 INFO BLUE Ranger at tile (5, 8) with 90 HP was assigned the order 'Order: Move to (4, 8)'
+2018-05-06 15:18:04,869 INFO BLUE Colonist at tile (10, 8) with 100 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 15:18:04,869 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 15:18:04,869 INFO BLUE Ghost at tile (6, 8) with 80 HP was assigned the order 'Order: Move to (3, 8)'
+2018-05-06 15:18:04,869 INFO BLUE Trooper at tile (4, 9) with 100 HP was assigned the order 'Order: Move to (4, 10)'
+2018-05-06 15:18:04,869 INFO BLUE Barracks at tile (11, 8) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 8)'
+2018-05-06 15:18:04,869 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 15:18:04,870 INFO = Move phase begins
+2018-05-06 15:18:04,880 INFO None moved to (9, 8)
+2018-05-06 15:18:04,880 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 15:18:04,881 INFO None moved to (3, 8)
+2018-05-06 15:18:04,881 INFO None moved to (4, 8)
+2018-05-06 15:18:04,881 INFO None moved to (4, 10)
+2018-05-06 15:18:04,881 INFO None moved to (8, 8)
+2018-05-06 15:18:04,924 INFO = Build phase begins
+2018-05-06 15:18:04,935 INFO Team.BLUE PieceType.GHOST was built on (10, 8). 
+2018-05-06 15:18:04,936 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:04,936 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-06 15:18:04,936 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:04,979 INFO = Combat phase begins
+2018-05-06 15:18:04,991 INFO RED Barracks at tile (4, 10) with 50 HP, BLUE Trooper at tile (4, 10) with 100 HP are contesting the tile at (4, 10)!
+2018-05-06 15:18:04,991 INFO RED Barracks at tile (4, 10) with 50 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-06 15:18:04,991 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 50 HP!
+2018-05-06 15:18:04,991 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 50 HP!
+2018-05-06 15:18:04,991 INFO RED Barracks at tile (4, 10) with 50 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-06 15:18:05,036 INFO = Ranged phase begins
+2018-05-06 15:18:05,092 INFO = Special phase begins
+2018-05-06 15:18:05,148 INFO = Start Turn phase begins
+2018-05-06 15:18:05,149 INFO == TURN 7 BEGIN ==
+2018-05-06 15:18:05,161 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:05,161 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:05,161 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:05,161 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:05,162 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:05,162 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:05,207 INFO = Issue Orders phase begins
+2018-05-06 15:18:05,867 INFO BLUE Trooper at tile (4, 10) with 100 HP was assigned the order 'Order: Move to (4, 10)'
+2018-05-06 15:18:05,867 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 15:18:05,867 INFO BLUE Ranger at tile (9, 8) with 90 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 15:18:05,867 INFO BLUE Barracks at tile (11, 8) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 8)'
+2018-05-06 15:18:05,867 INFO BLUE Trooper at tile (7, 8) with 100 HP was assigned the order 'Order: Move to (5, 8)'
+2018-05-06 15:18:05,868 INFO BLUE Ghost at tile (3, 8) with 80 HP was assigned the order 'Order: Move to (3, 11)'
+2018-05-06 15:18:05,868 INFO BLUE Ranger at tile (4, 8) with 90 HP was assigned the order 'Order: Ranged attack tile (4, 10)'
+2018-05-06 15:18:05,868 INFO BLUE Colonist at tile (8, 8) with 100 HP was assigned the order 'Order: Move to (6, 8)'
+2018-05-06 15:18:05,868 INFO BLUE Ghost at tile (10, 8) with 80 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 15:18:05,868 INFO BLUE Ghost at tile (10, 9) with 80 HP was assigned the order 'Order: Move to (8, 8)'
+2018-05-06 15:18:05,868 INFO = Move phase begins
+2018-05-06 15:18:05,879 INFO None moved to (8, 8)
+2018-05-06 15:18:05,879 INFO None moved to (9, 8)
+2018-05-06 15:18:05,880 INFO BLUE Ghost at tile (9, 8) with 80 HP moved to (7, 8)
+2018-05-06 15:18:05,880 INFO BLUE Ranger at tile (7, 8) with 90 HP moved to (5, 8)
+2018-05-06 15:18:05,880 INFO None moved to (3, 11)
+2018-05-06 15:18:05,880 INFO BLUE Trooper at tile (4, 10) with 100 HP moved to (4, 10)
+2018-05-06 15:18:05,880 INFO BLUE Ghost at tile (8, 8) with 80 HP moved to (6, 8)
+2018-05-06 15:18:05,925 INFO = Build phase begins
+2018-05-06 15:18:05,937 INFO Team.BLUE PieceType.TROOPER was built on (10, 8). 
+2018-05-06 15:18:05,937 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:05,937 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 15:18:05,937 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:05,982 INFO = Combat phase begins
+2018-05-06 15:18:05,994 INFO RED Base at tile (3, 11) with 150 HP, BLUE Ghost at tile (3, 11) with 80 HP are contesting the tile at (3, 11)!
+2018-05-06 15:18:05,994 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ghost at tile (3, 11) with 80 HP!
+2018-05-06 15:18:05,994 INFO BLUE Ghost at tile (3, 11) with 80 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-05-06 15:18:05,994 INFO BLUE Ghost at tile (3, 11) with 80 HP took 0 damage from RED Base at tile (3, 11) with 150 HP!
+2018-05-06 15:18:05,994 INFO RED Base at tile (3, 11) with 150 HP took 0 damage from BLUE Ghost at tile (3, 11) with 80 HP!
+2018-05-06 15:18:05,995 INFO RED Barracks at tile (4, 10) with 0 HP, BLUE Trooper at tile (4, 10) with 100 HP are contesting the tile at (4, 10)!
+2018-05-06 15:18:05,995 INFO RED Barracks at tile (4, 10) with 0 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-06 15:18:05,995 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 0 HP!
+2018-05-06 15:18:05,995 INFO BLUE Trooper at tile (4, 10) with 100 HP took 0 damage from RED Barracks at tile (4, 10) with 0 HP!
+2018-05-06 15:18:05,995 INFO RED Barracks at tile (4, 10) with 0 HP took 25 damage from BLUE Trooper at tile (4, 10) with 100 HP!
+2018-05-06 15:18:06,040 INFO = Ranged phase begins
+2018-05-06 15:18:06,051 INFO BLUE Ranger at tile (4, 8) with 90 HP conducted a ranged attack on (4, 10)
+2018-05-06 15:18:06,062 INFO RED Barracks at tile (4, 10) with -48 HP took 48 damage from BLUE Ranger at tile (4, 8) with 90 HP!
+2018-05-06 15:18:06,096 INFO = Special phase begins
+2018-05-06 15:18:06,153 INFO = Start Turn phase begins
+2018-05-06 15:18:06,154 INFO == TURN 8 BEGIN ==
+2018-05-06 15:18:06,166 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:06,166 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:06,166 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:06,166 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:06,166 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:06,166 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:06,213 INFO = Issue Orders phase begins
+2018-05-06 15:18:08,967 INFO == TURN 1 BEGIN ==
+2018-05-06 15:18:08,967 INFO = Issue Orders phase begins
+2018-05-06 15:18:11,120 INFO BLUE Base at tile (16, 3) with 150 HP was assigned the order 'Order: Build a Colonist on tile (17, 3)'
+2018-05-06 15:18:11,120 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 3)'
+2018-05-06 15:18:11,120 INFO = Move phase begins
+2018-05-06 15:18:11,183 INFO = Build phase begins
+2018-05-06 15:18:11,196 INFO Team.BLUE PieceType.GENERATOR was built on (18, 3). 
+2018-05-06 15:18:11,196 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:18:11,196 INFO Team.BLUE PieceType.COLONIST was built on (17, 3). 
+2018-05-06 15:18:11,196 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:11,245 INFO = Combat phase begins
+2018-05-06 15:18:11,307 INFO = Ranged phase begins
+2018-05-06 15:18:11,369 INFO = Special phase begins
+2018-05-06 15:18:11,432 INFO = Start Turn phase begins
+2018-05-06 15:18:11,432 INFO == TURN 2 BEGIN ==
+2018-05-06 15:18:11,445 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:11,445 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:11,446 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:11,446 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:11,446 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:11,495 INFO = Issue Orders phase begins
+2018-05-06 15:18:11,850 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Trooper on tile (13, 2)'
+2018-05-06 15:18:11,850 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (19, 2)'
+2018-05-06 15:18:11,850 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Build a Tech Lab on tile (17, 4)'
+2018-05-06 15:18:11,850 INFO = Move phase begins
+2018-05-06 15:18:11,912 INFO = Build phase begins
+2018-05-06 15:18:11,925 INFO Team.BLUE PieceType.TECHLAB was built on (17, 4). 
+2018-05-06 15:18:11,925 INFO Team.BLUE team spent 2 resources.
+2018-05-06 15:18:11,925 INFO Team.BLUE PieceType.GENERATOR was built on (19, 2). 
+2018-05-06 15:18:11,925 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:18:11,925 INFO Team.BLUE PieceType.TROOPER was built on (13, 2). 
+2018-05-06 15:18:11,926 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:11,975 INFO = Combat phase begins
+2018-05-06 15:18:12,040 INFO = Ranged phase begins
+2018-05-06 15:18:12,102 INFO = Special phase begins
+2018-05-06 15:18:12,164 INFO = Start Turn phase begins
+2018-05-06 15:18:12,165 INFO == TURN 3 BEGIN ==
+2018-05-06 15:18:12,177 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:12,177 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:12,177 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:12,178 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:12,178 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:12,178 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:12,227 INFO = Issue Orders phase begins
+2018-05-06 15:18:14,432 INFO BLUE Barracks at tile (14, 2) with 100 HP was assigned the order 'Order: Build a Ranger on tile (13, 2)'
+2018-05-06 15:18:14,432 INFO BLUE Colonist at tile (18, 2) with 100 HP was assigned the order 'Order: Build a Generator on tile (18, 1)'
+2018-05-06 15:18:14,432 INFO BLUE Colonist at tile (17, 3) with 100 HP was assigned the order 'Order: Move to (17, 6)'
+2018-05-06 15:18:14,432 INFO BLUE Trooper at tile (13, 2) with 100 HP was assigned the order 'Order: Move to (11, 2)'
+2018-05-06 15:18:14,432 INFO = Move phase begins
+2018-05-06 15:18:14,444 INFO None moved to (11, 2)
+2018-05-06 15:18:14,445 INFO None moved to (17, 6)
+2018-05-06 15:18:14,493 INFO = Build phase begins
+2018-05-06 15:18:14,506 INFO Team.BLUE PieceType.GENERATOR was built on (18, 1). 
+2018-05-06 15:18:14,506 INFO Team.BLUE team spent 1 resources.
+2018-05-06 15:18:14,506 INFO Team.BLUE PieceType.RANGER was built on (13, 2). 
+2018-05-06 15:18:14,506 INFO Team.BLUE team spent 3 resources.
+2018-05-06 15:18:14,556 INFO = Combat phase begins
+2018-05-06 15:18:14,617 INFO = Ranged phase begins
+2018-05-06 15:18:14,679 INFO = Special phase begins
+2018-05-06 15:18:14,742 INFO = Start Turn phase begins
+2018-05-06 15:18:14,743 INFO == TURN 4 BEGIN ==
+2018-05-06 15:18:14,756 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:14,756 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:14,756 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:14,756 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 15:18:14,756 INFO Team.RED team acquired 1 resources.
+2018-05-06 15:18:14,756 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 15:18:14,757 INFO Team.RED team acquired 2 resources.
+2018-05-06 15:18:14,807 INFO = Issue Orders phase begins
+2018-05-06 16:56:47,282 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 16:56:47,282 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-06 16:56:47,282 INFO = Move phase begins
+2018-05-06 16:56:47,633 INFO = Build phase begins
+2018-05-06 16:56:47,644 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-06 16:56:47,644 INFO Team.BLUE team spent 1 resources.
+2018-05-06 16:56:47,644 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 16:56:47,644 INFO Team.BLUE team spent 3 resources.
+2018-05-06 16:56:47,984 INFO = Combat phase begins
+2018-05-06 16:56:48,332 INFO = Ranged phase begins
+2018-05-06 16:56:48,679 INFO = Special phase begins
+2018-05-06 16:56:49,031 INFO = Start Turn phase begins
+2018-05-06 16:56:49,032 INFO == TURN 2 BEGIN ==
+2018-05-06 16:56:49,053 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:56:49,054 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:56:49,054 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:56:49,054 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:56:49,054 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:56:49,398 INFO = Issue Orders phase begins
+2018-05-06 16:56:50,838 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ranger on tile (10, 9)'
+2018-05-06 16:56:50,839 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (12, 12)'
+2018-05-06 16:56:50,839 INFO BLUE Trooper at tile (10, 9) with 100 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 16:56:50,839 INFO = Move phase begins
+2018-05-06 16:56:50,852 INFO None moved to (9, 8)
+2018-05-06 16:56:51,197 INFO = Build phase begins
+2018-05-06 16:56:51,208 INFO Team.BLUE PieceType.GENERATOR was built on (12, 12). 
+2018-05-06 16:56:51,208 INFO Team.BLUE team spent 1 resources.
+2018-05-06 16:56:51,208 INFO Team.BLUE PieceType.RANGER was built on (10, 9). 
+2018-05-06 16:56:51,209 INFO Team.BLUE team spent 3 resources.
+2018-05-06 16:56:51,541 INFO = Combat phase begins
+2018-05-06 16:56:51,887 INFO = Ranged phase begins
+2018-05-06 16:56:52,231 INFO = Special phase begins
+2018-05-06 16:56:52,577 INFO = Start Turn phase begins
+2018-05-06 16:56:52,577 INFO == TURN 3 BEGIN ==
+2018-05-06 16:56:52,589 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:56:52,589 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:56:52,589 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:56:52,589 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:56:52,589 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:56:52,589 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:56:52,931 INFO = Issue Orders phase begins
+2018-05-06 16:56:55,806 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Ghost on tile (10, 9)'
+2018-05-06 16:56:55,806 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Move to (10, 11)'
+2018-05-06 16:56:55,806 INFO BLUE Trooper at tile (9, 8) with 100 HP was assigned the order 'Order: Move to (7, 8)'
+2018-05-06 16:56:55,806 INFO BLUE Ranger at tile (10, 9) with 90 HP was assigned the order 'Order: Move to (9, 8)'
+2018-05-06 16:56:55,806 INFO = Move phase begins
+2018-05-06 16:56:55,818 INFO None moved to (9, 8)
+2018-05-06 16:56:55,818 INFO BLUE Ranger at tile (9, 8) with 90 HP moved to (7, 8)
+2018-05-06 16:56:55,818 INFO None moved to (10, 11)
+2018-05-06 16:56:56,154 INFO = Build phase begins
+2018-05-06 16:56:56,166 INFO Team.BLUE PieceType.GHOST was built on (10, 9). 
+2018-05-06 16:56:56,166 INFO Team.BLUE team spent 3 resources.
+2018-05-06 16:56:56,500 INFO = Combat phase begins
+2018-05-06 16:56:56,849 INFO = Ranged phase begins
+2018-05-06 16:56:57,211 INFO = Special phase begins
+2018-05-06 16:56:57,553 INFO = Start Turn phase begins
+2018-05-06 16:56:57,553 INFO == TURN 4 BEGIN ==
+2018-05-06 16:56:57,564 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:56:57,564 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:56:57,564 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:56:57,565 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:56:57,565 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:56:57,565 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:56:57,895 INFO = Issue Orders phase begins
+2018-05-06 16:57:15,919 INFO = Move phase begins
+2018-05-06 16:57:15,919 INFO = Move phase begins
+2018-05-06 16:57:16,016 INFO = Build phase begins
+2018-05-06 16:57:16,016 INFO = Build phase begins
+2018-05-06 16:57:16,113 INFO = Combat phase begins
+2018-05-06 16:57:16,113 INFO = Combat phase begins
+2018-05-06 16:57:16,205 INFO = Ranged phase begins
+2018-05-06 16:57:16,205 INFO = Ranged phase begins
+2018-05-06 16:57:16,300 INFO = Special phase begins
+2018-05-06 16:57:16,300 INFO = Special phase begins
+2018-05-06 16:57:16,394 INFO = Start Turn phase begins
+2018-05-06 16:57:16,394 INFO = Start Turn phase begins
+2018-05-06 16:57:16,395 INFO == TURN 2 BEGIN ==
+2018-05-06 16:57:16,395 INFO == TURN 2 BEGIN ==
+2018-05-06 16:57:16,406 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:57:16,406 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:57:16,406 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:57:16,406 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:57:16,406 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:57:16,406 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:57:16,406 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:57:16,406 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:57:16,491 INFO = Issue Orders phase begins
+2018-05-06 16:57:16,491 INFO = Issue Orders phase begins
+2018-05-06 16:57:20,333 INFO = Move phase begins
+2018-05-06 16:57:20,333 INFO = Move phase begins
+2018-05-06 16:57:20,438 INFO = Build phase begins
+2018-05-06 16:57:20,438 INFO = Build phase begins
+2018-05-06 16:57:20,531 INFO = Combat phase begins
+2018-05-06 16:57:20,531 INFO = Combat phase begins
+2018-05-06 16:57:20,623 INFO = Ranged phase begins
+2018-05-06 16:57:20,623 INFO = Ranged phase begins
+2018-05-06 16:57:20,712 INFO = Special phase begins
+2018-05-06 16:57:20,712 INFO = Special phase begins
+2018-05-06 16:57:20,823 INFO = Start Turn phase begins
+2018-05-06 16:57:20,823 INFO = Start Turn phase begins
+2018-05-06 16:57:20,824 INFO == TURN 3 BEGIN ==
+2018-05-06 16:57:20,824 INFO == TURN 3 BEGIN ==
+2018-05-06 16:57:20,836 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:57:20,836 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:57:20,836 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:57:20,836 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:57:20,836 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:57:20,836 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:57:20,837 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:57:20,837 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:57:20,921 INFO = Issue Orders phase begins
+2018-05-06 16:57:20,921 INFO = Issue Orders phase begins
+2018-05-06 16:57:26,178 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Move to (3, 9)'
+2018-05-06 16:57:26,178 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Move to (3, 9)'
+2018-05-06 16:57:26,178 INFO = Move phase begins
+2018-05-06 16:57:26,178 INFO = Move phase begins
+2018-05-06 16:57:26,190 INFO None moved to (3, 9)
+2018-05-06 16:57:26,190 INFO None moved to (3, 9)
+2018-05-06 16:57:26,274 INFO = Build phase begins
+2018-05-06 16:57:26,274 INFO = Build phase begins
+2018-05-06 16:57:26,366 INFO = Combat phase begins
+2018-05-06 16:57:26,366 INFO = Combat phase begins
+2018-05-06 16:57:26,459 INFO = Ranged phase begins
+2018-05-06 16:57:26,459 INFO = Ranged phase begins
+2018-05-06 16:57:26,559 INFO = Special phase begins
+2018-05-06 16:57:26,559 INFO = Special phase begins
+2018-05-06 16:57:26,647 INFO = Start Turn phase begins
+2018-05-06 16:57:26,647 INFO = Start Turn phase begins
+2018-05-06 16:57:26,647 INFO == TURN 4 BEGIN ==
+2018-05-06 16:57:26,647 INFO == TURN 4 BEGIN ==
+2018-05-06 16:57:26,659 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:57:26,659 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:57:26,659 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:57:26,659 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:57:26,659 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:57:26,659 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:57:26,659 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:57:26,659 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:57:26,740 INFO = Issue Orders phase begins
+2018-05-06 16:57:26,740 INFO = Issue Orders phase begins
+2018-05-06 16:57:35,165 INFO BLUE Barracks at tile (10, 10) with 100 HP was assigned the order 'Order: Build a Trooper on tile (10, 9)'
+2018-05-06 16:57:35,165 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Move to (3, 9)'
+2018-05-06 16:57:35,165 INFO BLUE Colonist at tile (11, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (10, 12)'
+2018-05-06 16:57:35,165 INFO = Move phase begins
+2018-05-06 16:57:35,176 INFO None moved to (3, 9)
+2018-05-06 16:57:35,520 INFO = Build phase begins
+2018-05-06 16:57:35,532 INFO Team.BLUE PieceType.GENERATOR was built on (10, 12). 
+2018-05-06 16:57:35,532 INFO Team.BLUE team spent 1 resources.
+2018-05-06 16:57:35,532 INFO Team.BLUE PieceType.TROOPER was built on (10, 9). 
+2018-05-06 16:57:35,532 INFO Team.BLUE team spent 3 resources.
+2018-05-06 16:57:35,894 INFO = Combat phase begins
+2018-05-06 16:57:36,279 INFO = Ranged phase begins
+2018-05-06 16:57:36,648 INFO = Special phase begins
+2018-05-06 16:57:37,011 INFO = Start Turn phase begins
+2018-05-06 16:57:37,011 INFO == TURN 2 BEGIN ==
+2018-05-06 16:57:37,025 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:57:37,026 INFO Team.RED team acquired 1 resources.
+2018-05-06 16:57:37,026 INFO Team.BLUE team acquired 1 resources.
+2018-05-06 16:57:37,026 INFO Team.BLUE team acquired 2 resources.
+2018-05-06 16:57:37,026 INFO Team.RED team acquired 2 resources.
+2018-05-06 16:57:37,392 INFO = Issue Orders phase begins
+2018-05-10 18:03:17,135 INFO RED Base at tile (3, 11) with 150 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESOURCE_PRODUCTION'
+2018-05-10 18:03:17,135 INFO RED Base at tile (3, 11) with 150 HP was assigned the order 'Order: purchase upgrade UpgradeType.RESOURCE_PRODUCTION'
+2018-05-10 18:03:17,136 INFO = Move phase begins
+2018-05-10 18:03:17,136 INFO = Move phase begins
+2018-05-10 18:03:17,183 INFO = Build phase begins
+2018-05-10 18:03:17,183 INFO = Build phase begins
+2018-05-10 18:03:17,230 INFO = Combat phase begins
+2018-05-10 18:03:17,230 INFO = Combat phase begins
+2018-05-10 18:03:17,276 INFO = Ranged phase begins
+2018-05-10 18:03:17,276 INFO = Ranged phase begins
+2018-05-10 18:03:17,323 INFO = Special phase begins
+2018-05-10 18:03:17,323 INFO = Special phase begins
+2018-05-10 18:03:17,336 INFO Team.RED team researched the upgrade UpgradeType.RESOURCE_PRODUCTION
+2018-05-10 18:03:17,336 INFO Team.RED team researched the upgrade UpgradeType.RESOURCE_PRODUCTION
+2018-05-10 18:03:17,336 INFO Team.RED team spent 5 resources.
+2018-05-10 18:03:17,336 INFO Team.RED team spent 5 resources.
+2018-05-10 18:03:17,371 INFO = Start Turn phase begins
+2018-05-10 18:03:17,371 INFO = Start Turn phase begins
+2018-05-10 18:03:17,372 INFO == TURN 2 BEGIN ==
+2018-05-10 18:03:17,372 INFO == TURN 2 BEGIN ==
+2018-05-10 18:03:17,383 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:03:17,383 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:03:17,383 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:03:17,383 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:03:17,383 INFO Team.BLUE team acquired 1 resources.
+2018-05-10 18:03:17,383 INFO Team.BLUE team acquired 1 resources.
+2018-05-10 18:03:17,383 INFO Team.BLUE team acquired 2 resources.
+2018-05-10 18:03:17,383 INFO Team.BLUE team acquired 2 resources.
+2018-05-10 18:03:17,384 INFO Team.RED team acquired 3 resources.
+2018-05-10 18:03:17,384 INFO Team.RED team acquired 3 resources.
+2018-05-10 18:03:17,418 INFO = Issue Orders phase begins
+2018-05-10 18:03:17,418 INFO = Issue Orders phase begins
+2018-05-10 18:04:01,799 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (4, 12)'
+2018-05-10 18:04:01,799 INFO RED Colonist at tile (3, 12) with 100 HP was assigned the order 'Order: Build a Generator on tile (4, 12)'
+2018-05-10 18:04:01,799 INFO = Move phase begins
+2018-05-10 18:04:01,799 INFO = Move phase begins
+2018-05-10 18:04:01,849 INFO = Build phase begins
+2018-05-10 18:04:01,849 INFO = Build phase begins
+2018-05-10 18:04:01,863 INFO Team.RED PieceType.GENERATOR was built on (4, 12). 
+2018-05-10 18:04:01,863 INFO Team.RED PieceType.GENERATOR was built on (4, 12). 
+2018-05-10 18:04:01,863 INFO Team.RED team spent 1 resources.
+2018-05-10 18:04:01,863 INFO Team.RED team spent 1 resources.
+2018-05-10 18:04:01,900 INFO = Combat phase begins
+2018-05-10 18:04:01,900 INFO = Combat phase begins
+2018-05-10 18:04:01,948 INFO = Ranged phase begins
+2018-05-10 18:04:01,948 INFO = Ranged phase begins
+2018-05-10 18:04:01,994 INFO = Special phase begins
+2018-05-10 18:04:01,994 INFO = Special phase begins
+2018-05-10 18:04:02,046 INFO = Start Turn phase begins
+2018-05-10 18:04:02,046 INFO = Start Turn phase begins
+2018-05-10 18:04:02,047 INFO == TURN 3 BEGIN ==
+2018-05-10 18:04:02,047 INFO == TURN 3 BEGIN ==
+2018-05-10 18:04:02,059 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:04:02,059 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:04:02,059 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:04:02,059 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:04:02,059 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:04:02,059 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:04:02,059 INFO Team.BLUE team acquired 1 resources.
+2018-05-10 18:04:02,059 INFO Team.BLUE team acquired 1 resources.
+2018-05-10 18:04:02,059 INFO Team.BLUE team acquired 2 resources.
+2018-05-10 18:04:02,059 INFO Team.BLUE team acquired 2 resources.
+2018-05-10 18:04:02,059 INFO Team.RED team acquired 3 resources.
+2018-05-10 18:04:02,059 INFO Team.RED team acquired 3 resources.
+2018-05-10 18:04:02,094 INFO = Issue Orders phase begins
+2018-05-10 18:04:02,094 INFO = Issue Orders phase begins
+2018-05-10 18:05:38,066 INFO RED Base at tile (3, 11) with 150 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_ATTACK'
+2018-05-10 18:05:38,066 INFO RED Base at tile (3, 11) with 150 HP was assigned the order 'Order: purchase upgrade UpgradeType.COLONIST_ATTACK'
+2018-05-10 18:05:38,066 INFO = Move phase begins
+2018-05-10 18:05:38,066 INFO = Move phase begins
+2018-05-10 18:05:38,110 INFO = Build phase begins
+2018-05-10 18:05:38,110 INFO = Build phase begins
+2018-05-10 18:05:38,155 INFO = Combat phase begins
+2018-05-10 18:05:38,155 INFO = Combat phase begins
+2018-05-10 18:05:38,199 INFO = Ranged phase begins
+2018-05-10 18:05:38,199 INFO = Ranged phase begins
+2018-05-10 18:05:38,244 INFO = Special phase begins
+2018-05-10 18:05:38,244 INFO = Special phase begins
+2018-05-10 18:05:38,256 INFO Team.RED team researched the upgrade UpgradeType.COLONIST_ATTACK
+2018-05-10 18:05:38,256 INFO Team.RED team researched the upgrade UpgradeType.COLONIST_ATTACK
+2018-05-10 18:05:38,256 INFO Team.RED team spent 3 resources.
+2018-05-10 18:05:38,256 INFO Team.RED team spent 3 resources.
+2018-05-10 18:05:38,289 INFO = Start Turn phase begins
+2018-05-10 18:05:38,289 INFO = Start Turn phase begins
+2018-05-10 18:05:38,289 INFO == TURN 4 BEGIN ==
+2018-05-10 18:05:38,289 INFO == TURN 4 BEGIN ==
+2018-05-10 18:05:38,300 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:05:38,300 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:05:38,300 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:05:38,300 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:05:38,300 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:05:38,300 INFO Team.RED team acquired 1 resources.
+2018-05-10 18:05:38,300 INFO Team.BLUE team acquired 1 resources.
+2018-05-10 18:05:38,300 INFO Team.BLUE team acquired 1 resources.
+2018-05-10 18:05:38,301 INFO Team.BLUE team acquired 2 resources.
+2018-05-10 18:05:38,301 INFO Team.BLUE team acquired 2 resources.
+2018-05-10 18:05:38,301 INFO Team.RED team acquired 3 resources.
+2018-05-10 18:05:38,301 INFO Team.RED team acquired 3 resources.
+2018-05-10 18:05:38,333 INFO = Issue Orders phase begins
+2018-05-10 18:05:38,333 INFO = Issue Orders phase begins

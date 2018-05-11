@@ -1,9 +1,5 @@
 General & QoL
-* Refactor results screen to screen + menu so as to not require the input controller in the screen
 * Add support for rebinding controls
-* Add preview enemy key?
-    - Show movement range visualization
-    - Show unit details
 
 Gameplay
 
@@ -12,12 +8,7 @@ Engineering
 * Support bundling and distributing the VC redist
 
 Bug fixes
-* Fix level editor click+hold taking effect when clicking the pause menu
-* Fix level editor scrolling piece types when scrolling the pause menu
-* Fix window gaining focus + clicking on a menu option confirms that menu option
-* Fix AI Ghosts moving onto buildings
-* Prevent Colonists from building generators on existing enemy generators
-    - More generally, prevent building where enemy buildings are
+* Fix AI Ghosts moving onto buildings (Unconfirmed?)
 
 Networking
 

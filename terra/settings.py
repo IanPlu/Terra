@@ -106,7 +106,7 @@ class Settings:
     # Return the actual value of the setting
     def get(self, setting):
         value = self.current_settings.get(setting)
-        if value:
+        if value is not None:
             return value
         else:
             self.current_settings[setting] = default_settings[setting]
@@ -115,7 +115,7 @@ class Settings:
     # Return the unsaved value of the setting
     def get_unsaved(self, setting):
         value = self.unsaved_settings.get(setting)
-        if value:
+        if value is not None:
             return value
         else:
             self.unsaved_settings[setting] = default_settings[setting]

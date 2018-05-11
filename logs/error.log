@@ -1373,3 +1373,462 @@ list index out of range
 2018-05-09 18:53:29,866 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
 2018-05-09 18:56:13,559 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
 2018-05-09 18:56:13,560 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 12:12:49,874 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 12:12:49,876 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 12:21:48,286 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 12:21:48,287 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 12:21:48,323 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 12:21:48,340 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 12:21:48,340 ERROR [ERROR]: Exception: 
+'EditorCursor' object has no attribute 'enable_multi_place'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 193, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 112, in handle_menu_selections
+    self.set_screen_from_mode(Mode.EDIT, event.mapname)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 62, in set_screen_from_mode
+    new_screen = LevelEditor(map_name)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\leveleditor.py", line 21, in __init__
+    Session.set_up_level_editor(map_name)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 91, in set_up_level_editor
+    SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 124, in __set_up__
+    self.managers[Manager.PLAYER] = PlayerManager()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\playermanager.py", line 29, in __init__
+    self.cursors[team] = self.create_cursor(team)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\playermanager.py", line 66, in create_cursor
+    return EditorCursor()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\editorcursor.py", line 23, in __init__
+    super().__init__(Team.RED)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\cursor.py", line 23, in __init__
+    super().__init__()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\engine\gameobject.py", line 12, in __init__
+    self.register_input_handlers(INPUT_CONTROLLER)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\editorcursor.py", line 49, in register_input_handlers
+    if self.enable_multi_place:
+
+2018-05-10 12:22:23,720 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 12:22:23,721 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 13:57:29,130 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 13:57:29,131 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:01:01,522 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:01:01,522 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:17:24,600 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:17:24,600 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:26:27,658 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:26:27,658 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:27:30,773 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:27:30,774 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:28:10,483 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:28:10,483 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:29:50,075 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:29:50,075 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:31:36,641 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:31:36,642 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:32:48,451 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:32:48,452 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:34:16,410 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:34:16,411 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:34:36,346 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:34:36,347 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:38:10,963 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:38:10,963 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:38:36,810 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:38:36,811 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:42:24,578 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:42:24,578 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:42:41,561 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:42:41,562 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 14:43:40,633 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 14:43:40,633 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 17:31:26,450 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 17:31:26,451 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 17:31:26,452 ERROR [ERROR]: Exception: 
+cannot convert without pygame.display initialized
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 199, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 154, in render
+    ui_screen = ui_screen.convert_alpha()
+
+2018-05-10 17:31:46,573 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 17:31:46,573 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:02:14,463 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:02:14,463 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:02:17,027 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:02:17,028 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:02:17,028 ERROR [ERROR]: Exception: 
+open_detailbox() missing 1 required positional argument: 'event'
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 196, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 137, in step
+    INPUT_CONTROLLER.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\control\inputcontroller.py", line 58, in invoke_handlers
+    handler()
+
+2018-05-10 18:02:29,672 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:02:29,672 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:02:32,064 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:02:32,069 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:02:32,070 ERROR [ERROR]: Exception: 
+<terra.piece.piece.Piece object at 0x08B98EF0>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battlescreen.py", line 59, in render
+    SESSION.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 136, in render
+    manager.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\playermanager.py", line 158, in render
+    cursor.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\battlecursor.py", line 178, in render
+    self.detail_box.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\detailbox.py", line 188, in render
+    ui_screen.blit(spr_order_options[self.team][self.target], (self.x + 4, self.y + 8))
+
+2018-05-10 18:02:53,172 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:02:53,172 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:03:10,280 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:03:10,280 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:22:19,090 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:22:19,090 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:26:03,608 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:26:03,608 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:26:03,625 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:26:03,645 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:26:03,645 ERROR [ERROR]: Exception: 
+unexpected EOF while parsing (detailbox.py, line 230)
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 196, in run
+    self.step(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 140, in step
+    EVENT_BUS.invoke_handlers(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\event\eventbus.py", line 46, in invoke_handlers
+    handler(event)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 97, in handle_menu_selections
+    self.set_screen_from_mode(Mode.LOBBY, event.mapname)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 66, in set_screen_from_mode
+    new_screen = LobbyScreen(False, map_name, map_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\lobbyscreen.py", line 31, in __init__
+    Session.set_up_local_game(map_name, map_type)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 45, in set_up_local_game
+    SESSION.__set_up__(map_name, bitmap, pieces, teams, upgrades, meta)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 113, in __set_up__
+    from terra.team.playermanager import PlayerManager
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\playermanager.py", line 8, in <module>
+    from terra.ui.battlecursor import BattleCursor
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\battlecursor.py", line 15, in <module>
+    from terra.ui.menupopup import MenuPopup
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\menupopup.py", line 16, in <module>
+    from terra.ui.detailbox import DetailBox
+
+2018-05-10 18:26:16,944 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:26:16,944 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:27:21,505 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:27:21,506 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:28:28,050 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:28:28,050 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:28:29,848 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:28:29,855 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:28:29,855 ERROR [ERROR]: Exception: 
+tuple indices must be integers or slices, not Team
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battlescreen.py", line 59, in render
+    SESSION.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 136, in render
+    manager.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\playermanager.py", line 158, in render
+    cursor.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\battlecursor.py", line 176, in render
+    self.menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\menupopup.py", line 143, in render
+    self.detailbox.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\detailbox.py", line 188, in render
+    ui_screen.blit(Menu.draw_menu_box(self.width, self.height, background=light_color[self.team],
+
+2018-05-10 18:28:51,916 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:28:51,916 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:28:53,771 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:28:53,773 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:28:53,774 ERROR [ERROR]: Exception: 
+tuple indices must be integers or slices, not Team
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battlescreen.py", line 59, in render
+    SESSION.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 136, in render
+    manager.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\playermanager.py", line 158, in render
+    cursor.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\battlecursor.py", line 176, in render
+    self.menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\menupopup.py", line 143, in render
+    self.detailbox.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\detailbox.py", line 189, in render
+    team=self.team, border=clear_color[self.team]), (self.x, self.y))
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\menu.py", line 111, in draw_menu_box
+    box.fill(background[team], (1, 1, width - 2, height - 3))
+
+2018-05-10 18:29:13,550 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:29:13,551 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:29:16,988 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:29:16,991 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:29:16,991 ERROR [ERROR]: Exception: 
+tuple indices must be integers or slices, not Team
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\screens\battlescreen.py", line 59, in render
+    SESSION.render(map_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\managers\session.py", line 136, in render
+    manager.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\team\playermanager.py", line 158, in render
+    cursor.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ui\battlecursor.py", line 176, in render
+    self.menu.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ui\menupopup.py", line 143, in render
+    self.detailbox.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ui\detailbox.py", line 189, in render
+    team=self.team, border=clear_color[self.team]), (self.x, self.y))
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\menu.py", line 111, in draw_menu_box
+    box.fill(background[team], (1, 1, width - 2, height - 3))
+
+2018-05-10 18:33:30,165 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:33:30,170 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:33:30,170 ERROR [ERROR]: Exception: 
+invalid color argument
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 240, in render
+    background=light_team_color[Team.RED] if is_selected else shadow_color)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\menu.py", line 111, in draw_menu_box
+    box.fill(background, (1, 1, width - 2, height - 3))
+
+2018-05-10 18:33:36,808 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:33:36,810 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:33:36,810 ERROR [ERROR]: Exception: 
+invalid color argument
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\screens\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\mainmenu.py", line 240, in render
+    background=light_team_color[Team.RED] if is_selected else shadow_color)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\menu\menu.py", line 111, in draw_menu_box
+    box.fill(background, (1, 1, width - 2, height - 3))
+
+2018-05-10 18:40:59,540 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:40:59,542 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:40:59,542 ERROR [ERROR]: Exception: 
+invalid color argument
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\titlescreen.py", line 39, in render
+    self.main_menu.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\mainmenu.py", line 228, in render
+    game_screen.blit(self.draw_scroll_bar(width, height, self.max_displayable_options, self.menu_min, self.num_options),
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\menu.py", line 122, in draw_scroll_bar
+    box = Menu.draw_menu_box(width, height, background, team)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\menu\menu.py", line 110, in draw_menu_box
+    box.fill(border, (0, 0, width, height))
+
+2018-05-10 18:41:58,009 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:41:58,010 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:42:33,448 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:42:33,448 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:42:53,150 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:42:53,150 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:43:20,294 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:43:20,304 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:43:20,304 ERROR [ERROR]: Exception: 
+<Team.NONE: '[NON]'>
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\screens\battlescreen.py", line 59, in render
+    SESSION.render(map_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\managers\session.py", line 136, in render
+    manager.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\team\playermanager.py", line 158, in render
+    cursor.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ui\battlecursor.py", line 178, in render
+    self.detail_box.render(game_screen, ui_screen)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\ui\detailbox.py", line 220, in render
+    relevant_upgrades = [upgrade for upgrade in self.get_manager(Manager.TEAM).get_owned_upgrades(self.team)
+
+  File "C:/Users/Ian/Documents/GitHub/Terra\terra\team\teammanager.py", line 218, in get_owned_upgrades
+    return self.owned_upgrades[team]
+
+2018-05-10 18:43:38,850 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:43:38,851 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:43:40,299 ERROR [ERROR]: Caught exception in the launcher.
+2018-05-10 18:43:40,301 ERROR [ERROR]: !=== Caught a fatal exception: ===!
+2018-05-10 18:43:40,301 ERROR [ERROR]: Exception: 
+'NoneType' object is not iterable
+  File "C:/Users/Ian/Documents/GitHub/Terra/launcher.py", line 8, in <module>
+    Main().run()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 202, in run
+    self.render()
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\main.py", line 156, in render
+    game_screen = self.current_screen.render(ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\screens\battlescreen.py", line 59, in render
+    SESSION.render(map_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\managers\session.py", line 136, in render
+    manager.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\team\playermanager.py", line 158, in render
+    cursor.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\battlecursor.py", line 178, in render
+    self.detail_box.render(game_screen, ui_screen)
+
+  File "C:\Users\Ian\Documents\GitHub\Terra\terra\ui\detailbox.py", line 220, in render
+    relevant_upgrades = [upgrade for upgrade in self.get_manager(Manager.TEAM).get_owned_upgrades(self.team)
+
+2018-05-10 18:44:07,938 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:44:07,938 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:48:03,096 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:48:03,096 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:49:35,210 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:49:35,210 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:51:05,027 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:51:05,027 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:51:28,016 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:51:28,016 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:52:02,209 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:52:02,210 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:52:39,261 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:52:39,261 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.
+2018-05-10 18:53:06,475 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 2 of 3.
+2018-05-10 18:53:06,476 WARNING [WARN]: Caught exception while sending message 'b'[TEAM_FI][RED]None''. Retry 3 of 3.

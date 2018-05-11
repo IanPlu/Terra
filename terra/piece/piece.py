@@ -158,6 +158,7 @@ class Piece(AnimatedGameObject):
         return actions
 
     # Trim the list of innately buildable pieces to ones that can be placed nearby, taking tile type etc. into account
+    # TODO: Use 'can_build_piece_onto_tile()'
     def get_valid_buildable_pieces(self):
         valid_pieces = []
 
@@ -190,7 +191,10 @@ class Piece(AnimatedGameObject):
                     if piece.attr(Attribute.MOVEMENT_RANGE) <= 0:
                         immobile_allies.append(piece)
 
-                if len(immobile_allies) <= 0:
+                # Can't build onto tiles where enemy buildings are
+                enemy_buildings = self.get_manager(Manager.PIECE).get_enemy_pieces_at(tile_x, tile_y, self.team, piece_subtype=PieceSubtype.BUILDING)
+
+                if len(immobile_allies) <= 0 and len(enemy_buildings) <= 0:
                     unoccupied_tiles.append((tile_x, tile_y))
 
         return unoccupied_tiles
@@ -200,7 +204,10 @@ class Piece(AnimatedGameObject):
         valid_tile_types = movement_types[self.get_manager(Manager.TEAM).attr(self.team, piece_type, Attribute.MOVEMENT_TYPE)][MovementAttribute.PASSABLE]
         tile_type = self.get_manager(Manager.MAP).get_tile_type_at(tile[0], tile[1])
 
-        return tile_type in valid_tile_types
+        # Can't build onto tiles where enemy buildings are
+        enemy_buildings = self.get_manager(Manager.PIECE).get_enemy_pieces_at(tile[0], tile[1], self.team, piece_subtype=PieceSubtype.BUILDING)
+
+        return tile_type in valid_tile_types and len(enemy_buildings) == 0
 
     # Get the list of upgrades that can be purchased by this piece
     def get_valid_purchaseable_upgrades(self):

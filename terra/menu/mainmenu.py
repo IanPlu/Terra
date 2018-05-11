@@ -7,12 +7,13 @@ from terra.map.minimap import draw_map_preview_from_file
 from terra.menu.menu import Menu
 from terra.menu.option import Option
 from terra.menu.textinput import TextInput, FILTER_IP, FILTER_FILENAME, FILTER_ALPHANUMERIC
+from terra.menu.tutorial import Tutorial
 from terra.resources.assetloading import AssetType
 from terra.resources.assets import light_color, shadow_color, light_team_color, spr_main_menu_option, dark_color
 from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
+from terra.team.team import Team
 from terra.util.drawingutil import draw_text
-from terra.menu.tutorial import Tutorial
 
 
 # Convert a list of loadable maps to selectable options: [(display name, filename), (...)]
@@ -216,7 +217,7 @@ class MainMenu(Menu):
         else:
             # Draw text for the menu title
             menu_title_text = get_text(main_menu_strings, self.current_menu[0])
-            game_screen.blit(self.draw_menu_box(self.width - 16, 24, background=light_team_color),
+            game_screen.blit(self.draw_menu_box(self.width - 16, 24, background=light_team_color[Team.RED]),
                              (self.root_x - 8, self.root_y - 16))
             game_screen.blit(menu_title_text, (self.root_x + 24, self.root_y - 12))
 
@@ -236,7 +237,7 @@ class MainMenu(Menu):
 
                 position_x, position_y = self.root_x, self.root_y + row_y * self.option_height
                 box = self.draw_menu_box(self.width - x_offset, self.option_height,
-                                         background=light_team_color if is_selected else shadow_color)
+                                         background=light_team_color[Team.RED] if is_selected else shadow_color[Team.RED])
                 game_screen.blit(box, (position_x - 24 + x_offset, position_y))
 
                 if isinstance(option[0], str):

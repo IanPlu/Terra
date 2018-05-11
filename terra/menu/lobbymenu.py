@@ -8,6 +8,7 @@ from terra.menu.menu import Menu
 from terra.menu.option import Option
 from terra.resources.assets import light_team_color, shadow_color, spr_main_menu_option
 from terra.strings import get_text, main_menu_strings
+from terra.team.team import Team
 
 
 # Menu for the pre-match lobby.
@@ -130,7 +131,7 @@ class LobbyMenu(Menu):
             x_offset = 0 if is_selected else 16
 
             box = self.draw_menu_box(self.width - x_offset, self.option_height,
-                                     background=light_team_color if is_selected else shadow_color)
+                                     background=light_team_color[Team.RED] if is_selected else shadow_color[Team.RED])
             game_screen.blit(box, (position_x - 24 + x_offset, position_y))
 
             game_screen.blit(spr_main_menu_option[option], (position_x - 24 + x_offset, position_y))

@@ -92,11 +92,17 @@ class PieceManager(GameObject):
         return None
 
     # Return any enemy units or buildings at the location (not belonging to the provided team)
-    def get_enemy_pieces_at(self, gx, gy, my_team):
+    def get_enemy_pieces_at(self, gx, gy, my_team, piece_type=None, piece_subtype=None):
         pieces = []
         for piece in self.get_pieces_at(gx, gy):
             if not piece.team == my_team:
                 pieces.append(piece)
+
+        if piece_type:
+            pieces = [piece for piece in pieces if piece.piece_type == piece_type]
+        if piece_subtype:
+            pieces = [piece for piece in pieces if piece.piece_subtype == piece_subtype]
+
         return pieces
 
     # Return any pieces adjacent to the specified tile

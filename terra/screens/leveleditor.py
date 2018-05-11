@@ -21,7 +21,8 @@ class LevelEditor(GameScreen):
         Session.set_up_level_editor(map_name)
 
         # Begin scheduling autosaves
-        self.autosave()
+        if SETTINGS.get(Setting.AUTOSAVE_INTERVAL) > 0:
+            self.autosave()
 
     def destroy(self):
         super().destroy()

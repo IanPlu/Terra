@@ -104,11 +104,11 @@ class Menu(GameObject):
 
     # Draw a menu box, with the specified size in px and color.
     @staticmethod
-    def draw_menu_box(width, height, background=shadow_color, team=Team.RED):
+    def draw_menu_box(width, height, background=shadow_color[Team.RED], border=light_color):
         box = Surface((width, height), SRCALPHA, 32)
 
-        box.fill(light_color, (0, 0, width, height))
-        box.fill(background[team], (1, 1, width - 2, height - 3))
+        box.fill(border, (0, 0, width, height))
+        box.fill(background, (1, 1, width - 2, height - 3))
 
         return box
 
@@ -118,8 +118,8 @@ class Menu(GameObject):
         return max_displayable_options < num_options
 
     @staticmethod
-    def draw_scroll_bar(width, height, max_displayable_options, menu_min, num_options, background=shadow_color, team=Team.RED):
-        box = Menu.draw_menu_box(width, height, background, team)
+    def draw_scroll_bar(width, height, max_displayable_options, menu_min, num_options, background=shadow_color[Team.RED]):
+        box = Menu.draw_menu_box(width, height, background)
 
         # What percent of the total options are visible right now
         percentage_shown = max_displayable_options / num_options

@@ -1,5 +1,7 @@
-from pygame import KEYDOWN, KEYUP, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 from enum import Enum
+
+from pygame import KEYDOWN, KEYUP, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
+
 from terra.control.keybindings import translate_input, translate_mouse_button
 
 

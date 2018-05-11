@@ -12,10 +12,10 @@ from terra.menu.option import Option
 from terra.mode import Mode
 from terra.resources.assetloading import AssetType
 from terra.resources.assets import load_assets, clear_color, spr_game_icon
-from terra.screens.battle import Battle
+from terra.screens.battlescreen import BattleScreen
 from terra.screens.leveleditor import LevelEditor
-from terra.screens.lobby import Lobby
-from terra.screens.results import ResultsScreen
+from terra.screens.lobbyscreen import LobbyScreen
+from terra.screens.resultsscreen import ResultsScreen
 from terra.settings import Setting, SETTINGS
 from terra.team.team import Team
 
@@ -57,18 +57,18 @@ class Main:
             new_screen = TitleScreen()
         elif new_mode == Mode.BATTLE:
             # Managers are already initialized by the lobby
-            new_screen = Battle(create_session=False)
+            new_screen = BattleScreen(create_session=False)
         elif new_mode == Mode.EDIT:
             new_screen = LevelEditor(map_name)
         elif new_mode == Mode.RESULTS:
             new_screen = ResultsScreen(results)
         elif new_mode == Mode.LOBBY:
-            new_screen = Lobby(False, map_name, map_type)
+            new_screen = LobbyScreen(False, map_name, map_type)
         elif new_mode == Mode.NETWORK_LOBBY:
-            new_screen = Lobby(is_host, map_name, map_type, address)
+            new_screen = LobbyScreen(is_host, map_name, map_type, address)
         elif new_mode == Mode.NETWORK_BATTLE:
             # Managers are already initialized by the lobby
-            new_screen = Battle(create_session=False)
+            new_screen = BattleScreen(create_session=False)
         else:
             new_screen = None
 
@@ -185,12 +185,15 @@ class Main:
                 SESSION.get(Manager.NETWORK).network_step()
 
             # Run game logic
+            # Only run when the window is focused
+            is_focused = pygame.key.get_focused()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.quit()
                     break
 
-                self.step(event)
+                if is_focused:
+                    self.step(event)
 
             if self.should_quit:
                 break

@@ -1,6 +1,6 @@
 import pygame
 
-from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH
+from terra.constants import RESOLUTION_HEIGHT, RESOLUTION_WIDTH, GRID_HEIGHT, GRID_WIDTH
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.economy.upgradeattribute import UpgradeAttribute
@@ -13,11 +13,13 @@ from terra.piece.attribute import Attribute
 from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_upgrade_icons, spr_order_options, clear_color, \
-    spr_piece_attribute_icons, dark_color, light_color, spr_combat_icon, spr_build_icon
+    spr_piece_attribute_icons, dark_color, light_color, spr_combat_icon, spr_build_icon, team_color
 from terra.strings import get_text, get_multiline_text, piece_name_strings, upgrade_name_strings, \
     menu_option_strings, menu_help_strings, attribute_value_strings, attribute_label_strings, get_string, \
     formatted_strings
 from terra.util.drawingutil import draw_text
+from terra.util.mathutil import wrap
+from terra.menu.menu import Menu
 
 subgrid_size = 8
 subgrid_width = 24
@@ -34,15 +36,20 @@ piece_archetype_to_type = {
 
 
 # A UI box showing a long text description of a piece or upgrade.
+# - Targets: List of pairs like: ( <piece_type/upgrade_type>, team )
 class DetailBox(GameObject):
-    def __init__(self, team, target):
+    def __init__(self, targets):
         super().__init__()
 
-        self.team = team
-        self.target = target
+        self.targets = targets
+        self.index = 0
+        self.target, self.team = self.targets[self.index]
 
         self.x = (RESOLUTION_WIDTH - subgrid_width * subgrid_size) // 2
         self.y = (RESOLUTION_HEIGHT - subgrid_height * subgrid_size) // 2 - 16
+
+        self.width = 8 * GRID_WIDTH
+        self.height = 9 * GRID_HEIGHT
 
     def register_input_handlers(self, input_handler):
         super().register_input_handlers(input_handler)
@@ -51,8 +58,24 @@ class DetailBox(GameObject):
         input_handler.register_handler(InputAction.PRESS, Key.MENU, self.close)
         input_handler.register_handler(InputAction.PRESS, Key.MENU2, self.close)
 
+        input_handler.register_handler(InputAction.PRESS, Key.LEFT, self.scroll_left)
+        input_handler.register_handler(InputAction.PRESS, Key.UP, self.scroll_left)
+        input_handler.register_handler(InputAction.PRESS, Key.RIGHT, self.scroll_right)
+        input_handler.register_handler(InputAction.PRESS, Key.DOWN, self.scroll_right)
+
     def close(self):
         publish_game_event(EventType.E_CLOSE_DETAILBOX, {})
+
+    def scroll_left(self):
+        self.scroll(-1)
+
+    def scroll_right(self):
+        self.scroll(1)
+
+    # Update the currently display target+team pair. Wrap around if necessary
+    def scroll(self, direction):
+        self.index = wrap(self.index + direction, 0, len(self.targets) - 1)
+        self.target, self.team = self.targets[self.index]
 
     # Return a surface containing a single piece attribute with icon and value text
     def render_attribute(self, attribute):
@@ -164,8 +187,18 @@ class DetailBox(GameObject):
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
 
-        ui_screen.fill(clear_color[self.team], (self.x, self.y, 24 * 8, 24 * 9))
-        ui_screen.fill(light_color, (self.x + 2, self.y + 2, 24 * 8 - 4, 24 * 9 - 5))
+        # If we have multiple targets, draw tabs for each target
+        if len(self.targets) > 0:
+            index = 0
+            for target, team in self.targets:
+                x_offset = 0 if self.index == index else GRID_WIDTH / 2
+                ui_screen.blit(Menu.draw_menu_box(GRID_WIDTH + 8, GRID_HEIGHT * 2, background=team_color[team],
+                                                  border=clear_color[team]), (self.x - GRID_WIDTH + x_offset, self.y + (index * GRID_HEIGHT * 2)))
+                index += 1
+
+        # Draw the base container
+        ui_screen.blit(Menu.draw_menu_box(self.width, self.height, background=light_color,
+                                          border=clear_color[self.team]), (self.x, self.y))
 
         if self.target in PieceType:
             # Render piece icons

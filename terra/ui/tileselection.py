@@ -98,11 +98,15 @@ class TileSelection(GameObject):
     def __generate_excluded_coordinates__(self):
         excluded_coordinates = set()
 
-        # if it's not movement, only exclude our own tile
-        if not self.movement_type or self.movement_type in [MovementType.RAISE, MovementType.LOWER, MovementType.BUILDING, MovementType.GENERATOR]:
-            return {(self.gx, self.gy)}
-        # Otherwise exclude friendly buildings from selection
+        if self.movement_type in [MovementType.BUILDING, MovementType.GENERATOR]:
+            # Exclude enemy buildings from the selection
+            for building in self.get_manager(Manager.PIECE).get_all_enemy_pieces(self.team, PieceSubtype.BUILDING):
+                excluded_coordinates.add((building.gx, building.gy))
+        elif not self.movement_type or self.movement_type in [MovementType.RAISE, MovementType.LOWER]:
+            # if it's not movement and not placing a building, only exclude our own tile
+            excluded_coordinates.add((self.gx, self.gy))
         else:
+            # Otherwise exclude friendly buildings from selection for movement
             for building in self.get_manager(Manager.PIECE).get_all_pieces_for_team(self.team, PieceSubtype.BUILDING):
                 excluded_coordinates.add((building.gx, building.gy))
 

@@ -26,6 +26,12 @@ class EditorCursor(Cursor):
         self.tile_type = [TileType.GRASS, TileType.SEA]
         self.piece_type = PieceType.COLONIST
 
+        self.placing_multiple = False
+        self.placing_multiple_alt = False
+
+        self.last_gx = self.gx
+        self.last_gy = self.gy
+
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
 
@@ -38,6 +44,11 @@ class EditorCursor(Cursor):
         input_handler.register_handler(InputAction.PRESS, Key.MENU2, self.swap_placing_mode)
         input_handler.register_handler(InputAction.PRESS, Key.SCROLL_UP, self.scroll_up)
         input_handler.register_handler(InputAction.PRESS, Key.SCROLL_DOWN, self.scroll_down)
+
+        input_handler.register_handler(InputAction.PRESS, Key.CONFIRM, self.start_multiplace)
+        input_handler.register_handler(InputAction.RELEASE, Key.CONFIRM, self.end_multiplace)
+        input_handler.register_handler(InputAction.PRESS, Key.CANCEL, self.start_multiplace_alt)
+        input_handler.register_handler(InputAction.RELEASE, Key.CANCEL, self.end_multiplace_alt)
 
     def is_accepting_input(self):
         return self.menu is None
@@ -68,6 +79,18 @@ class EditorCursor(Cursor):
 
     def scroll_down(self):
         self.update_object_to_place(direction=-1)
+
+    def start_multiplace(self):
+        self.placing_multiple = True
+
+    def end_multiplace(self):
+        self.placing_multiple = False
+
+    def start_multiplace_alt(self):
+        self.placing_multiple_alt = True
+
+    def end_multiplace_alt(self):
+        self.placing_multiple_alt = False
 
     def open_pause_menu(self):
         self.menu = MenuPopup(self, Team.RED, self.gx, self.gy, [
@@ -146,6 +169,14 @@ class EditorCursor(Cursor):
 
         if self.menu:
             self.menu.step(event)
+        elif self.last_gx != self.gx or self.last_gy != self.gy:
+            self.last_gx = self.gx
+            self.last_gy = self.gy
+
+            if self.placing_multiple:
+                self.confirm()
+            elif self.placing_multiple_alt:
+                self.cancel()
 
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)

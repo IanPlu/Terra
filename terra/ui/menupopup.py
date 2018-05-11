@@ -107,7 +107,9 @@ class MenuPopup(Menu):
         })
 
     def show_detailbox(self):
-        self.detailbox = DetailBox(self.team, self.options[self.menu_pos])
+        self.detailbox = DetailBox([
+            (self.options[self.menu_pos], self.team),
+        ])
 
     def close_detailbox(self, event):
         if self.detailbox:
@@ -158,7 +160,7 @@ class MenuPopup(Menu):
                 position_x, position_y = self.root_x, \
                                          self.root_y + row_y * self.option_height
                 box = self.draw_menu_box(self.width - x_offset, self.option_height,
-                                         background=light_team_color if is_selected else clear_color, team=self.team)
+                                         background=light_team_color[self.team] if is_selected else clear_color[self.team])
                 ui_screen.blit(box, (position_x + x_offset, position_y))
 
                 if option in PieceType:

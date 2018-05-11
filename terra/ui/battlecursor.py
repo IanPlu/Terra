@@ -14,6 +14,7 @@ from terra.turn.battlephase import BattlePhase
 from terra.ui.cursor import Cursor
 from terra.ui.menupopup import MenuPopup
 from terra.ui.tileselection import TileSelection
+from terra.ui.detailbox import DetailBox
 
 
 # Controllable cursor on the battle map.
@@ -22,6 +23,7 @@ class BattleCursor(Cursor):
     def __init__(self, team):
         self.menu = None
         self.move_ui = None
+        self.detail_box = None
 
         super().__init__(team)
 
@@ -46,19 +48,22 @@ class BattleCursor(Cursor):
         event_bus.register_handler(EventType.E_CANCEL_TILE_SELECTION, self.close_move_ui)
         event_bus.register_handler(EventType.E_OPEN_BUILD_MENU, self.open_build_ui)
         event_bus.register_handler(EventType.E_OPEN_UPGRADE_MENU, self.open_upgrade_ui)
+        event_bus.register_handler(EventType.E_CLOSE_DETAILBOX, self.close_detailbox)
 
     def register_input_handlers(self, input_handler):
         super().register_input_handlers(input_handler)
 
         input_handler.register_handler(InputAction.PRESS, Key.MENU, self.open_pause_menu)
+        input_handler.register_handler(InputAction.PRESS, Key.MENU2, self.open_detailbox)
 
     def is_accepting_events(self):
         return self.get_manager(Manager.PLAYER).active_team == self.team \
                and self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
 
     def is_accepting_input(self):
-        return self.menu is None and self.get_manager(Manager.PLAYER).active_team == self.team \
-               and self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
+        return self.menu is None and self.detail_box is None and \
+               self.get_manager(Manager.PLAYER).active_team == self.team and \
+               self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
 
     def can_confirm_or_cancel(self):
         return self.get_manager(Manager.TURN).phase == BattlePhase.ORDERS
@@ -89,7 +94,7 @@ class BattleCursor(Cursor):
                 self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_SELECT)
 
     def is_active(self):
-        return not self.menu and pygame.mouse.get_focused()
+        return not self.menu and not self.detail_box and pygame.mouse.get_focused()
 
     # Creates a generic menu popup from the provided event.
     def open_menu(self, event):
@@ -131,6 +136,20 @@ class BattleCursor(Cursor):
     def open_upgrade_ui(self, event):
         self.menu = MenuPopup(self, event.team, event.gx, event.gy, event.options)
 
+    def open_detailbox(self):
+        if self.can_confirm_or_cancel():
+            pieces = self.get_manager(Manager.PIECE).get_pieces_at(self.gx, self.gy)
+            if len(pieces) > 0:
+                self.detail_box = DetailBox([
+                    (piece.piece_type, piece.team) for piece in pieces
+                ])
+
+    def close_detailbox(self, event=None):
+        if self.can_confirm_or_cancel():
+            if self.detail_box:
+                self.detail_box.destroy()
+            self.detail_box = None
+
     def step(self, event):
         super().step(event)
 
@@ -138,6 +157,8 @@ class BattleCursor(Cursor):
             self.menu.step(event)
         if self.move_ui:
             self.move_ui.step(event)
+        if self.detail_box:
+            self.detail_box.step(event)
 
     def render(self, game_screen, ui_screen):
         if self.move_ui:
@@ -153,6 +174,8 @@ class BattleCursor(Cursor):
 
         if self.menu:
             self.menu.render(game_screen, ui_screen)
+        if self.detail_box:
+            self.detail_box.render(game_screen, ui_screen)
 
 
 

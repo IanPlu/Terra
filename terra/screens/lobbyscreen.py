@@ -15,7 +15,7 @@ menu_width = 168
 
 # Pre-match screen for games.
 # Gives room for players to trickle into an online game, change team assignments, etc.
-class Lobby(GameScreen):
+class LobbyScreen(GameScreen):
     def __init__(self, is_host, map_name=None, map_type=None, address=None):
         super().__init__()
 

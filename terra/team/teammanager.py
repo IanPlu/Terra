@@ -215,7 +215,7 @@ class TeamManager(GameObject):
                 self.piece_attributes[team][piece_type][Attribute.BUILDABLE_PIECES].extend(new_pieces)
 
     def get_owned_upgrades(self, team):
-        return self.owned_upgrades[team]
+        return self.owned_upgrades.get(team, {})
 
     def has_upgrade(self, team, upgrade):
         return upgrade in self.get_owned_upgrades(team)

@@ -16,6 +16,7 @@ class TaskType(Enum):
     HARVEST_RESOURCE = "Harvest Resource"   # Attempt to harvest the designated Resource tile
     BUILD_PIECE = "Build Piece"             # Attempt to build pieces
     RESEARCH_UPGRADE = "Research Upgrade"   # Research general upgrades
+    TERRAFORM = "Terraform"                 # Terraform a tile
 
     # Combat
     ATTACK_ENEMY = "Attack Enemy"           # Attempt to intercept and attack an enemy unit
@@ -26,16 +27,32 @@ class TaskType(Enum):
 
 all_archetypes = [archetype for archetype in PieceArchetype]
 
+# What piece archetypes are eligible for each task
 task_type_to_piece_archetype = {
     TaskType.MOVE_TO_RESOURCE: [PieceArchetype.WORKER],
     TaskType.HARVEST_RESOURCE: [PieceArchetype.WORKER],
     TaskType.BUILD_PIECE: [PieceArchetype.WORKER, PieceArchetype.UTILITY],
     TaskType.RESEARCH_UPGRADE: [PieceArchetype.UTILITY],
+    TaskType.TERRAFORM: [PieceArchetype.WORKER],
 
     TaskType.ATTACK_ENEMY: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
     TaskType.DEFEND_TARGET: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
     TaskType.HEAL_SELF: all_archetypes,
     TaskType.RETREAT: all_archetypes,
+}
+
+# Base task priority. If there's no preference from the AI personality, use this as base
+base_task_priority = {
+    TaskType.MOVE_TO_RESOURCE: 1.7,
+    TaskType.HARVEST_RESOURCE: 1.8,
+    TaskType.BUILD_PIECE: 1.6,
+    TaskType.RESEARCH_UPGRADE: 1.5,
+    TaskType.TERRAFORM: 1.5,
+
+    TaskType.ATTACK_ENEMY: 1.8,
+    TaskType.DEFEND_TARGET: 1.8,
+    TaskType.HEAL_SELF: 2,
+    TaskType.RETREAT: 2,
 }
 
 # How much to prioritize an enemy target. Higher number = more important
@@ -52,17 +69,17 @@ enemy_target_priority = {
 # An instance of a task.
 # Contains extra details about the task
 class Task:
-    def __init__(self, team, task_type, priority=0, tx=None, ty=None, target=None):
+    def __init__(self, team, task_type, tx=None, ty=None, target=None):
         self.team = team
         self.task_type = task_type
-        self.priority = priority
 
         self.tx = tx
         self.ty = ty
         self.target = target
 
         # True if this task type should be navigating to tiles adjacent to the target
-        self.target_adjacent = task_type in [TaskType.HARVEST_RESOURCE, TaskType.MOVE_TO_RESOURCE, TaskType.RETREAT]
+        self.target_adjacent = task_type in [TaskType.HARVEST_RESOURCE, TaskType.MOVE_TO_RESOURCE,
+                                             TaskType.RETREAT, TaskType.TERRAFORM]
         # True if this task type should allow any number of pieces to be assigned to it
         self.allow_multiple_assignments = task_type in [TaskType.ATTACK_ENEMY]
 
@@ -80,6 +97,7 @@ class Task:
             TaskType.MOVE_TO_RESOURCE,
             TaskType.ATTACK_ENEMY,
             TaskType.BUILD_PIECE,
+            TaskType.TERRAFORM,
         ]
 
     # Return all pieces for this team that can work this task
@@ -110,12 +128,15 @@ class Task:
         elif self.task_type == TaskType.HEAL_SELF:
             # Only the target piece can work on this task
             pieces = [self.target]
+        elif self.task_type == TaskType.TERRAFORM:
+            # Only pieces with the 'terraform' attribute can work on this task
+            pieces = [piece for piece in pieces if piece.attr(Attribute.TERRAFORMING)]
 
         return pieces
 
     # Return a score for this task. Higher values means a lower priority
     def score_piece_for_task(self, piece, distance_map):
-        if self.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY]:
+        if self.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY, TaskType.TERRAFORM]:
             # Calculate the distance. This isn't 100% accurate (sometimes things are in the way) but it's good enough
             distance = abs(self.tx - piece.gx) + abs(self.ty - piece.gy)
 
@@ -162,7 +183,6 @@ class Task:
         elif self.task_type in [TaskType.RESEARCH_UPGRADE]:
             # Evaluate based on piece type. Tech labs are highest priority, because they have no other tasks
             # competing for for its attention.
-            # TODO: Determine heuristic for weighting this vs. building units
             return {
                 PieceType.TECHLAB: 3,
                 PieceType.BASE: 5,

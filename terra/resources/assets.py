@@ -217,6 +217,8 @@ spr_tiles_mini = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SP
 
 spr_coast_detail = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Sea_Border.png")), 24)
 
+spr_grid = pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_None.png"))
+
 
 # Pieces
 spr_pieces = {

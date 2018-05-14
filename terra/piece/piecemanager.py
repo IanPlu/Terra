@@ -199,6 +199,20 @@ class PieceManager(GameObject):
         else:
             return counts.most_common()
 
+    # Return a count of how many pieces all enemies have per archetype
+    def get_enemy_archetype_counts(self, my_team, units_only=False):
+        counts = Counter({
+            PieceArchetype.GROUND: 0,
+            PieceArchetype.RANGED: 0,
+            PieceArchetype.MOBILITY: 0,
+        })
+        counts.update(Counter([piece.piece_archetype for piece in self.get_all_enemy_pieces(my_team)]))
+
+        if units_only:
+            return list(filter(lambda pair: pair[0] in [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY], counts.most_common()))
+        else:
+            return counts.most_common()
+
     # Return a count of how many pieces this team has per type
     def get_piece_counts(self, team):
         counts = Counter()

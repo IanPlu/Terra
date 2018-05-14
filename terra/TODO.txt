@@ -8,16 +8,15 @@ Engineering
 * Support bundling and distributing the VC redist
 
 Bug fixes
-* Fix AI Ghosts moving onto buildings (Unconfirmed?)
+* Fix AI Ghosts moving onto buildings to get at targets past the building (Test with no RED actions on Avarice Reach)
 
 Networking
 
 AI
 * Implement and generate DEFEND tasks
 * Implement and generate TERRAFORMING tasks
-* Add prioritization of tasks (important)
-* Wire up more data to Personality
-* Add weighting to piece production based on the enemy team comp
+    * Fix pathfinding to favor flat land paths
+    * Fix understanding of islands -- do some flood fill magic to determine islands, bridge them by finding shortest distance b/w islands
 * Anticipate enemy movements when tracking a target (evaluate its possible moves)
 
 

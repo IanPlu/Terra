@@ -58,18 +58,20 @@ class DetailBox(GameObject):
         input_handler.register_handler(InputAction.PRESS, Key.MENU, self.close)
         input_handler.register_handler(InputAction.PRESS, Key.MENU2, self.close)
 
-        input_handler.register_handler(InputAction.PRESS, Key.LEFT, self.scroll_left)
-        input_handler.register_handler(InputAction.PRESS, Key.UP, self.scroll_left)
-        input_handler.register_handler(InputAction.PRESS, Key.RIGHT, self.scroll_right)
-        input_handler.register_handler(InputAction.PRESS, Key.DOWN, self.scroll_right)
+        input_handler.register_handler(InputAction.PRESS, Key.LEFT, self.scroll_up)
+        input_handler.register_handler(InputAction.PRESS, Key.UP, self.scroll_up)
+        input_handler.register_handler(InputAction.PRESS, Key.RIGHT, self.scroll_down)
+        input_handler.register_handler(InputAction.PRESS, Key.DOWN, self.scroll_down)
+        input_handler.register_handler(InputAction.PRESS, Key.SCROLL_UP, self.scroll_up)
+        input_handler.register_handler(InputAction.PRESS, Key.SCROLL_DOWN, self.scroll_down)
 
     def close(self):
         publish_game_event(EventType.E_CLOSE_DETAILBOX, {})
 
-    def scroll_left(self):
+    def scroll_up(self):
         self.scroll(-1)
 
-    def scroll_right(self):
+    def scroll_down(self):
         self.scroll(1)
 
     # Update the currently display target+team pair. Wrap around if necessary

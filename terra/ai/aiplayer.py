@@ -5,11 +5,12 @@ from threading import Thread
 from pygame import USEREVENT
 from pygame.event import Event
 
-from terra.ai.pathfinder import navigate_all
+from terra.ai.pathfinder import navigate_all, get_terraform_tiles
 from terra.ai.personality import create_default_personality
 from terra.ai.task import Task, TaskType, Assignment
 from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
+from terra.economy.upgradetype import UpgradeType
 from terra.economy.upgradetype import unit_research
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
@@ -21,7 +22,7 @@ from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import MovementType
 from terra.piece.piece import Piece
-from terra.piece.piecearchetype import PieceArchetype
+from terra.piece.piecearchetype import PieceArchetype, counter_archetype
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
 
@@ -45,6 +46,7 @@ class AIPlayer(GameObject):
         self.my_piece_counts = None
         self.my_archetype_counts = None
         self.enemy_pieces = None
+        self.enemy_archetype_counts = None
         self.map = None
 
         self.personality = create_default_personality()
@@ -86,6 +88,7 @@ class AIPlayer(GameObject):
         self.my_piece_counts = dict(piece_manager.get_piece_counts(self.team))
         self.my_archetype_counts = piece_manager.get_archetype_counts(self.team, units_only=True)
         self.enemy_pieces = piece_manager.get_all_enemy_pieces(self.team)
+        self.enemy_archetype_counts = piece_manager.get_enemy_archetype_counts(self.team, units_only=True)
         self.map = self.get_manager(Manager.MAP)
 
         self.income = piece_manager.get_income(self.team)
@@ -109,7 +112,7 @@ class AIPlayer(GameObject):
 
         # Do basic pathfinding to the enemy base from every location.
         # Most importantly this produces a distance map from every tile to the enemy base.
-        # TODO: Only supports one base, for the moment
+        # Only supports one base, for the moment (no 3+ player games)
         bases = self.get_manager(Manager.PIECE).get_all_enemy_pieces(self.team, piece_type=PieceType.BASE)
         if len(bases) <= 0:
             return
@@ -119,20 +122,22 @@ class AIPlayer(GameObject):
 
     # Generate a list of tasks that we'd like to accomplish this turn
     def generate_tasks(self):
+        # Tasks look like (Task(), priority)
         tasks = []
 
         tasks.extend(self.generate_combat_tasks())
         tasks.extend(self.generate_economic_tasks())
         tasks.extend(self.generate_research_tasks())
 
-        # TODO: Sort tasks by priority
+        tasks.sort(key=lambda pair: pair[1], reverse=True)
 
         if self.debug_print_tasks:
             print("== Tasks ==")
             for task in tasks:
                 print(task)
 
-        return tasks
+        # Only return the tasks, not the priorities
+        return [task for task, priority in tasks]
 
     # Generate tasks focused on combat. Attack enemies, defend key areas, retreat wounded units.
     def generate_combat_tasks(self):
@@ -178,9 +183,10 @@ class AIPlayer(GameObject):
         immediate_harvest_coords = [coord for coord in harvestable_coords if self.is_immediately_harvestable(coord)]
         moveto_coords = list(set(harvestable_coords) - set(immediate_harvest_coords))
 
-        # TODO: Generate terraforming tasks to get to these resources
-        # terraforming_required_resources = list(set(all_harvestable_coords) - set(harvestable_coords))
-        # Calculate the path to the resource, mark each impassible tile on the route and create an order for each
+        # Generate terraforming tasks for resources inaccessible from a path from the base
+        if self.get_manager(Manager.TEAM).has_upgrade(self.team, UpgradeType.COLONIST_TERRAFORMING):
+            terraforming_required_resources = list(set(all_harvestable_coords) - set(harvestable_coords))
+            tasks.extend(self.create_terraforming_tasks(terraforming_required_resources))
 
         for coord in immediate_harvest_coords:
             tasks.append(self.create_harvest_task(coord))
@@ -278,17 +284,13 @@ class AIPlayer(GameObject):
 
         return score
 
-    # TODO: Figure out the piece price by tech level
     def get_highest_piece_price(self):
-        has_t2_units = False
-        has_t3_units = False
+        team_manager = self.get_manager(Manager.TEAM)
+        buildable_pieces = team_manager.attr(self.team, PieceType.BARRACKS, Attribute.BUILDABLE_PIECES)
 
-        if has_t3_units:
-            return 12
-        elif has_t2_units:
-            return 5
-        else:
-            return 3
+        # Find the highest cost buildable piece
+        prices = [team_manager.attr(self.team, piece_type, Attribute.PRICE) for piece_type in buildable_pieces]
+        return max(prices)
 
     # Return true if the specified coord is immediately harvestable (has an adjacent Colonist)
     def is_immediately_harvestable(self, coord):
@@ -297,26 +299,94 @@ class AIPlayer(GameObject):
         return len(adjacent_colonists) > 0
 
     def create_harvest_task(self, coord):
-        return Task(self.team, TaskType.HARVEST_RESOURCE, tx=coord[0], ty=coord[1], target=PieceType.GENERATOR)
+        task = Task(self.team, TaskType.HARVEST_RESOURCE, tx=coord[0], ty=coord[1], target=PieceType.GENERATOR)
+        return task, self.personality.prioritize_task(task)
 
     def create_moveto_harvest_task(self, coord):
-        return Task(self.team, TaskType.MOVE_TO_RESOURCE, tx=coord[0], ty=coord[1])
+        task = Task(self.team, TaskType.MOVE_TO_RESOURCE, tx=coord[0], ty=coord[1])
+        return task, self.personality.prioritize_task(task)
 
     def create_build_colonist_task(self):
-        return Task(self.team, TaskType.BUILD_PIECE, target=PieceType.COLONIST)
+        task = Task(self.team, TaskType.BUILD_PIECE, target=PieceType.COLONIST)
+        return task, self.personality.prioritize_task(task)
 
     def create_build_barracks_task(self):
-        return Task(self.team, TaskType.BUILD_PIECE, target=PieceType.BARRACKS)
+        task = Task(self.team, TaskType.BUILD_PIECE, target=PieceType.BARRACKS)
+        return task, self.personality.prioritize_task(task)
 
     def create_build_techlab_task(self):
-        return Task(self.team, TaskType.BUILD_PIECE, target=PieceType.TECHLAB)
+        task = Task(self.team, TaskType.BUILD_PIECE, target=PieceType.TECHLAB)
+        return task, self.personality.prioritize_task(task)
 
     def create_research_task(self, upgrade_type):
-        return Task(self.team, TaskType.RESEARCH_UPGRADE, target=upgrade_type)
+        task = Task(self.team, TaskType.RESEARCH_UPGRADE, target=upgrade_type)
+        return task, self.personality.prioritize_task(task)
 
     def create_attack_enemy_task(self, target):
         anticipated_x, anticipated_y = self.get_anticipated_movement(target)
-        return Task(self.team, TaskType.ATTACK_ENEMY, tx=anticipated_x, ty=anticipated_y, target=target)
+        task = Task(self.team, TaskType.ATTACK_ENEMY, tx=anticipated_x, ty=anticipated_y, target=target)
+        return task, self.personality.prioritize_task(task)
+
+    def create_heal_task(self, injured):
+        task = Task(self.team, TaskType.HEAL_SELF, target=injured)
+        return task, self.personality.prioritize_task(task)
+
+    def create_retreat_task(self, piece):
+        bases = self.get_manager(Manager.PIECE).get_all_pieces_for_team(self.team, piece_type=PieceType.BASE)
+        if len(bases) > 0:
+            task = Task(self.team, TaskType.RETREAT, bases[0].gx, bases[0].gy, target=piece)
+            return task, self.personality.prioritize_task(task)
+        else:
+            return None
+
+    def create_terraforming_task(self, tile):
+        task = Task(self.team, TaskType.TERRAFORM, tx=tile[0], ty=tile[1],
+                    target=self.map.get_tile_type_at(tile[0], tile[1]))
+        return task, self.personality.prioritize_task(task)
+
+    def create_build_military_tasks(self):
+        tasks = []
+        counts_map = {}
+        # Weight counts by personality
+        for archetype, count in self.my_archetype_counts:
+            counts_map[archetype] = count / self.personality.unit_preference[archetype]
+
+        for archetype, count in self.enemy_archetype_counts:
+            if count > 0 and len(self.enemy_pieces) > 0:
+                # If the enemy has mainly one archetype, act like we have less of the counter unit than we do
+                our_archetype = counter_archetype[archetype]
+                counts_map[our_archetype] /= count / len(self.enemy_pieces)
+
+        target_archetype = PieceArchetype.GROUND
+        if len(counts_map.keys()) > 0:
+            # Find the lowest count
+            target_archetype, amount = min(counts_map.items(), key=lambda pair: pair[1])
+
+        for piece_type in self.get_buildable_pieces(PieceType.BARRACKS, target_archetype):
+            task = Task(self.team, TaskType.BUILD_PIECE, target=piece_type)
+            tasks.append((task, self.personality.prioritize_task(task)))
+
+        return tasks
+
+    def create_terraforming_tasks(self, tiles):
+        tasks = []
+        tiles_to_terraform = set()
+        piece_manager = self.get_manager(Manager.PIECE)
+
+        bases = piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.BASE)
+
+        if len(bases) > 0 and len(tiles) > 0:
+            base = bases[0]
+
+            # Pick the tile closest to the base
+            tile = min(tiles, key=lambda tile: abs(tile[0] - base.gx) + abs(tile[1] - base.gy))
+            for terraform_tile in get_terraform_tiles((base.gx, base.gy), tile, self.map):
+                tiles_to_terraform.add(terraform_tile)
+
+        for tile in tiles_to_terraform:
+            tasks.append(self.create_terraforming_task(tile))
+
+        return tasks
 
     def get_anticipated_movement(self, piece):
         if piece.piece_subtype == PieceSubtype.BUILDING:
@@ -329,34 +399,6 @@ class AIPlayer(GameObject):
             # 3. Score likelihood of it moving at all(buildings don't move, ranged units might attack, might repair)
             # Use all this to determine the most likely tile the unit will be on next turn and target THAT tile instead
             return piece.gx, piece.gy
-
-    def create_heal_task(self, injured):
-        return Task(self.team, TaskType.HEAL_SELF, target=injured)
-
-    def create_retreat_task(self, piece):
-        bases = self.get_manager(Manager.PIECE).get_all_pieces_for_team(self.team, piece_type=PieceType.BASE)
-        if len(bases) > 0:
-            return Task(self.team, TaskType.RETREAT, bases[0].gx, bases[0].gy, target=piece)
-        else:
-            return None
-
-    def create_build_military_tasks(self):
-        # TODO: Add weighting based on enemy team composition
-        tasks = []
-        counts_map = {}
-        # Weight counts by personality
-        for archetype, count in self.my_archetype_counts:
-            counts_map[archetype] = count / self.personality.unit_preference[archetype]
-
-        target_archetype = PieceArchetype.GROUND
-        if len(counts_map.keys()) > 0:
-            # Find the lowest count
-            target_archetype, amount = min(counts_map.items(), key=lambda pair: pair[1])
-
-        for piece_type in self.get_buildable_pieces(PieceType.BARRACKS, target_archetype):
-            tasks.append(Task(self.team, TaskType.BUILD_PIECE, target=piece_type))
-
-        return tasks
 
     # Return a list of pieces we can build for this archetype
     def get_buildable_pieces(self, builder_type, piece_archetype):
@@ -457,13 +499,18 @@ class AIPlayer(GameObject):
         else:
             ranged_distance = 0
 
-        if task.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY]:
+        if task.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY, TaskType.TERRAFORM]:
             # Ranged units should issue attack orders instead of move orders when close enough to their target
             if piece.attr(Attribute.DAMAGE_TYPE) == DamageType.RANGED and \
                     task.task_type in [TaskType.ATTACK_ENEMY] and \
                     piece.attr(Attribute.MIN_RANGE) <= ranged_distance <= piece.attr(Attribute.MAX_RANGE):
                 # Conduct a ranged attack on the target
                 order = Option.MENU_RANGED_ATTACK
+                tx = task.tx
+                ty = task.ty
+            # Terraforming orders should conduct the terraform action when adjacent
+            elif task.task_type in [TaskType.TERRAFORM] and abs(piece.gx - task.tx) + abs(piece.gy - task.ty) <= 1:
+                order = Option.MENU_RAISE_TILE if task.target == TileType.SEA else Option.MENU_LOWER_TILE
                 tx = task.tx
                 ty = task.ty
             else:
@@ -505,24 +552,30 @@ class AIPlayer(GameObject):
 
                     # Pick an arbitrary tile and pathfind to it
                     # destination = valid_tiles[randint(0, len(valid_tiles) - 1)]
-                    destination = valid_tiles[0]
-                    path = piece.get_path_to_target(destination, self.planned_occupied_coords, movement_type=movement_type)
-                    final_goal = piece.step_along_path(path, self.planned_occupied_coords)
-
-                    if final_goal == (piece.gx, piece.gy):
-                        # We couldn't find a path to get out of the way, so delete ourselves
+                    if len(valid_tiles) == 0:
+                        # No possible valid destination! Just destroy ourselves
                         piece.set_order(Event(USEREVENT, {
                             'option': Option.MENU_DEMOLISH_SELF,
                         }))
                     else:
-                        # Update the planned occupied coords, issue the order
-                        self.planned_occupied_coords.append(final_goal)
+                        destination = valid_tiles[0]
+                        path = piece.get_path_to_target(destination, self.planned_occupied_coords, movement_type=movement_type)
+                        final_goal = piece.step_along_path(path, self.planned_occupied_coords)
 
-                        piece.set_order(Event(USEREVENT, {
-                            'option': Option.MENU_MOVE,
-                            'dx': final_goal[0],
-                            'dy': final_goal[1],
-                        }))
+                        if final_goal == (piece.gx, piece.gy):
+                            # We couldn't find a path to get out of the way, so delete ourselves
+                            piece.set_order(Event(USEREVENT, {
+                                'option': Option.MENU_DEMOLISH_SELF,
+                            }))
+                        else:
+                            # Update the planned occupied coords, issue the order
+                            self.planned_occupied_coords.append(final_goal)
+
+                            piece.set_order(Event(USEREVENT, {
+                                'option': Option.MENU_MOVE,
+                                'dx': final_goal[0],
+                                'dy': final_goal[1],
+                            }))
                 else:
                     # Add ourselves to the planned occupied coords
                     self.planned_occupied_coords.append((piece.gx, piece.gy))

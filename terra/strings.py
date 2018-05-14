@@ -71,13 +71,13 @@ menu_help_strings = {
         # Pieces
         PieceType.COLONIST: "* Colonists are workers with little combat ability, but can harvest resources and build "
                             "buildings. Build orders are canceled if an enemy contests this unit's tile. ",
-        PieceType.TROOPER: "* Troopers are ground forces with balanced stats that form a strong front line. "
-                           "Notably weak to ranged attacks.",
+        PieceType.TROOPER: "* Troopers are ground forces with balanced stats that form a strong front line. They're on "
+                           "the slow side, but are good at taking ground and holding it. Good at destroying enemy "
+                           "generators. Notably weak to ranged attacks.",
         PieceType.RANGER: "* Rangers are fairly fragile units that can conduct long-range attacks without being "
                           "counter attacked. They cannot defend themselves in melee and are notably weak to "
-                          "high-mobility units. Their ranged attack deals damage in an area, but is canceled if an "
-                          "enemy contests their tile.\n"
-                          "When attacking a tile, they will only damage enemies. ",
+                          "high-mobility units. Their ranged attack deals damage to enemies in an area, but is "
+                          "canceled if an enemy contests their tile.",
         PieceType.GHOST: "* Ghosts are high-mobility units with low defenses. They are not impeded by enemy units when "
                          "moving around, and can slip behind enemy lines. Cannot attack or contest buildings, and are "
                          "notably weak in direct combat.",
@@ -469,6 +469,7 @@ formatted_strings = {
         Setting.NICKNAME: "Nickname: '{}'",
         Setting.ANIMATION_SPEED: "Animation Speed: {}x",
         Setting.AUTOSAVE_INTERVAL: "Autosave Every: {}s",
+        Setting.GRID_OPACITY: "Grid Opacity: {}%",
 
         Stat.TILES_MOVED: "Tiles Moved: {}",
         Stat.RANGED_ATTACKS_MADE: "Ranged Attacks: {}",

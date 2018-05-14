@@ -227,7 +227,8 @@ class Piece(AnimatedGameObject):
         multiplier = self.attr(Attribute.ATTACK_MULTIPLIER)[target.piece_archetype]
         health_modifier = self.hp / self.attr(Attribute.MAX_HP)
 
-        return attack * multiplier * health_modifier
+        # Round up-- always do at least one point of damage
+        return int(max(attack * multiplier * health_modifier, 1))
 
     # Return the combination of any innate armor, entrenchment bonuses, etc. this piece has
     def get_defense_rating(self):

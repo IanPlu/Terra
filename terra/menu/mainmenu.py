@@ -41,10 +41,17 @@ def generate_menu():
 
     start_menu_options = [
         local_option,
-        (Option.NETWORK, [
-            host_option,
-            (Option.JOIN_GAME, [])
-        ]),
+    ]
+
+    if SETTINGS.get(Setting.NETWORK_ENABLED) == "True":
+        start_menu_options.append(
+            (Option.NETWORK, [
+                host_option,
+                (Option.JOIN_GAME, [])
+            ]),
+        )
+
+    start_menu_options.extend([
         (Option.LEVEL_EDITOR, [
             (Option.NEW_MAP, []),
             (Option.LOAD_MAP, loadable_maps)
@@ -52,7 +59,7 @@ def generate_menu():
         (Option.SETTINGS, generate_settings_menu()),
         (Option.TUTORIAL, []),
         (Option.QUIT, [])
-    ]
+    ])
 
     return Option.START, start_menu_options
 
@@ -66,6 +73,7 @@ def generate_settings_menu():
         (Setting.ANIMATION_SPEED, []),
         (Setting.NICKNAME, []),
         (Setting.AUTOSAVE_INTERVAL, []),
+        (Setting.GRID_OPACITY, []),
         (Option.SAVE_SETTINGS, []),
     ]
 

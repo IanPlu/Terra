@@ -2,7 +2,7 @@ from terra.constants import GRID_WIDTH, GRID_HEIGHT
 from terra.engine.animatedgameobject import AnimatedGameObject
 from terra.managers.session import Manager
 from terra.map.tiletype import TileType
-from terra.resources.assets import spr_tiles, spr_coast_detail
+from terra.resources.assets import spr_tiles, spr_coast_detail, spr_grid
 
 
 # A single tile on the map.
@@ -58,3 +58,6 @@ class Tile(AnimatedGameObject):
                 coast_index = self.get_index()
                 if coast_index > 0:
                     game_screen.blit(spr_coast_detail[coast_index], (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))
+
+            # Render gridlines as appropriate
+            game_screen.blit(spr_grid, (self.gx * GRID_WIDTH, self.gy * GRID_HEIGHT))

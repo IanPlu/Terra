@@ -12,3 +12,15 @@ class PieceArchetype(Enum):
     # Building archetypes
     GENERATOR = auto()
     UTILITY = auto()
+
+
+# Map of archetype to the archetype that counters it
+counter_archetype = {
+    PieceArchetype.WORKER: PieceArchetype.MOBILITY,
+    PieceArchetype.GROUND: PieceArchetype.RANGED,
+    PieceArchetype.RANGED: PieceArchetype.MOBILITY,
+    PieceArchetype.MOBILITY: PieceArchetype.GROUND,
+
+    PieceArchetype.GENERATOR: PieceArchetype.GROUND,
+    PieceArchetype.UTILITY: PieceArchetype.RANGED,
+}

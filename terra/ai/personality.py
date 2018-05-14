@@ -1,5 +1,7 @@
-from terra.piece.piecearchetype import PieceArchetype
 from random import uniform
+
+from terra.ai.task import TaskType, base_task_priority
+from terra.piece.piecearchetype import PieceArchetype
 
 
 # Container for AI 'personality'. Controls thresholds for various behavior, how aggressive / defensive to act, etc.
@@ -27,6 +29,24 @@ class Personality:
         for archetype in PieceArchetype:
             if not self.unit_preference.get(archetype, None):
                 self.unit_preference[archetype] = 1.0
+
+    # Return a priority score for a task, based on our personality
+    # Higher numbers are more important
+    def prioritize_task(self, task):
+        personal_priority = {
+            TaskType.MOVE_TO_RESOURCE: self.constructive,
+            TaskType.HARVEST_RESOURCE: self.constructive,
+            TaskType.BUILD_PIECE: self.constructive,
+            TaskType.RESEARCH_UPGRADE: self.scientific,
+            TaskType.TERRAFORM: self.constructive,
+
+            TaskType.ATTACK_ENEMY: self.aggressive,
+            TaskType.DEFEND_TARGET: self.defensive,
+            TaskType.HEAL_SELF: self.defensive,
+            TaskType.RETREAT: self.defensive,
+        }.get(task.task_type, 1)
+
+        return personal_priority * base_task_priority.get(task.task_type, 1)
 
 
 # Create a default balanced personality.

@@ -4,6 +4,8 @@ from terra.map.maputils import generate_bitmap_from_simplex_noise
 from terra.map.tile import Tile
 from terra.map.tiletype import tile_height_order
 from terra.piece.movementtype import movement_types, MovementAttribute
+from terra.resources.assets import spr_grid
+from terra.settings import SETTINGS, Setting
 from terra.util.mathutil import clamp
 
 
@@ -152,6 +154,11 @@ class MapManager(GameObject):
     # Render the map to the screen
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
+
+        # Adjust the grid opacity
+        # TODO: Don't do this every frame?
+        spr_grid.set_alpha(256 * SETTINGS.get(Setting.GRID_OPACITY) / 100)
+
         for x in range(self.width):
             for y in range(self.height):
                 self.tile_grid[y][x].render(game_screen, ui_screen)

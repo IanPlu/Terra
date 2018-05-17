@@ -16,7 +16,7 @@ class TaskType(Enum):
     HARVEST_RESOURCE = "Harvest Resource"   # Attempt to harvest the designated Resource tile
     BUILD_PIECE = "Build Piece"             # Attempt to build pieces
     RESEARCH_UPGRADE = "Research Upgrade"   # Research general upgrades
-    TERRAFORM = "Terraform"                 # Terraform a tile
+    MINE = "Mine"                           # Mine a meteor tile
 
     # Combat
     ATTACK_ENEMY = "Attack Enemy"           # Attempt to intercept and attack an enemy unit
@@ -33,7 +33,7 @@ task_type_to_piece_archetype = {
     TaskType.HARVEST_RESOURCE: [PieceArchetype.WORKER],
     TaskType.BUILD_PIECE: [PieceArchetype.WORKER, PieceArchetype.UTILITY],
     TaskType.RESEARCH_UPGRADE: [PieceArchetype.UTILITY],
-    TaskType.TERRAFORM: [PieceArchetype.WORKER],
+    TaskType.MINE: [PieceArchetype.WORKER],
 
     TaskType.ATTACK_ENEMY: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
     TaskType.DEFEND_TARGET: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
@@ -47,7 +47,7 @@ base_task_priority = {
     TaskType.HARVEST_RESOURCE: 1.8,
     TaskType.BUILD_PIECE: 1.6,
     TaskType.RESEARCH_UPGRADE: 1.5,
-    TaskType.TERRAFORM: 1.5,
+    TaskType.MINE: 1.5,
 
     TaskType.ATTACK_ENEMY: 1.8,
     TaskType.DEFEND_TARGET: 1.8,
@@ -79,7 +79,7 @@ class Task:
 
         # True if this task type should be navigating to tiles adjacent to the target
         self.target_adjacent = task_type in [TaskType.HARVEST_RESOURCE, TaskType.MOVE_TO_RESOURCE,
-                                             TaskType.RETREAT, TaskType.TERRAFORM]
+                                             TaskType.RETREAT, TaskType.MINE]
         # True if this task type should allow any number of pieces to be assigned to it
         self.allow_multiple_assignments = task_type in [TaskType.ATTACK_ENEMY]
 
@@ -97,7 +97,7 @@ class Task:
             TaskType.MOVE_TO_RESOURCE,
             TaskType.ATTACK_ENEMY,
             TaskType.BUILD_PIECE,
-            TaskType.TERRAFORM,
+            TaskType.MINE,
         ]
 
     # Return all pieces for this team that can work this task
@@ -128,15 +128,15 @@ class Task:
         elif self.task_type == TaskType.HEAL_SELF:
             # Only the target piece can work on this task
             pieces = [self.target]
-        elif self.task_type == TaskType.TERRAFORM:
-            # Only pieces with the 'terraform' attribute can work on this task
-            pieces = [piece for piece in pieces if piece.attr(Attribute.TERRAFORMING)]
+        elif self.task_type == TaskType.MINE:
+            # Only pieces with the 'mining' attribute can work on this task
+            pieces = [piece for piece in pieces if piece.attr(Attribute.MINING)]
 
         return pieces
 
     # Return a score for this task. Higher values means a lower priority
-    def score_piece_for_task(self, piece, distance_map):
-        if self.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY, TaskType.TERRAFORM]:
+    def score_piece_for_task(self, piece, path_cache):
+        if self.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY, TaskType.MINE]:
             # Calculate the distance. This isn't 100% accurate (sometimes things are in the way) but it's good enough
             distance = abs(self.tx - piece.gx) + abs(self.ty - piece.gy)
 
@@ -161,8 +161,10 @@ class Task:
                 destinations = [tile for tile in piece.get_base_buildable_tiles()
                                 if piece.can_build_piece_onto_tile(self.target, tile)]
                 if len(destinations) > 0:
-                    # Use the distance map to find the best position along the critical path
-                    self.tx, self.ty = min(destinations, key=lambda tile: distance_map.get(tile, 999))
+                    # Use the path cache to find the best position along the critical path
+                    self.tx, self.ty = path_cache.get_shortest_distance_to_targets((piece.gx, piece.gy),
+                                                                                   destinations,
+                                                                                   piece.attr(Attribute.MOVEMENT_TYPE))
                     score = 1 if self.target == PieceType.COLONIST else 2
                     occupied_tiles = [(self.tx, self.ty)]
                     if piece.piece_subtype != PieceSubtype.BUILDING:
@@ -223,7 +225,7 @@ class Assignment:
         return "{} with {}. Score: {}".format(self.piece, self.task, self.value)
 
     # Return a list of coords that will be occupied if this assignment is carried out
-    def get_end_position(self, planned_occupied_coords):
+    def get_end_position(self, path_cache, planned_occupied_coords):
         if self.task.requires_pathfinding() and len(self.end_pos) == 0:
             # Pathfind, taking into account the planned occupied coords
             destination = (self.tx, self.ty)
@@ -237,8 +239,8 @@ class Assignment:
                 min_range = self.piece.attr(Attribute.MIN_RANGE)
                 max_range = self.piece.attr(Attribute.MAX_RANGE)
 
-            path = self.piece.get_path_to_target(destination, planned_occupied_coords, min_range, max_range,
-                                                 self.piece.attr(Attribute.MOVEMENT_TYPE))
+            path = self.piece.get_path_to_target(destination, path_cache, planned_occupied_coords,
+                                                 min_range, max_range, self.piece.attr(Attribute.MOVEMENT_TYPE))
 
             if path:
                 # Step along the path and modify the destination to be the furthest we can go along this path

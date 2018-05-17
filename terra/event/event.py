@@ -61,7 +61,7 @@ class EventType(Enum):
     E_ARMOR_GRANTED = auto()
     E_PIECE_HEALED = auto()
     E_PIECE_ON_INVALID_TERRAIN = auto()
-    E_TILE_TERRAFORMED = auto()
+    E_TILE_MINED = auto()
     E_PLAYER_CONCEDED = auto()
     E_TEAM_DEFEATED = auto()
     E_DEATH_AOE = auto()

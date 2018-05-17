@@ -2,6 +2,7 @@ General & QoL
 * Add support for rebinding controls
 
 Gameplay
+* Replace the 'CRATERING' effect (no more terraforming)
 
 Engineering
 * Write tests
@@ -14,10 +15,8 @@ Networking
 
 AI
 * Implement and generate DEFEND tasks
-* Implement and generate TERRAFORMING tasks
-    * Fix pathfinding to favor flat land paths
-    * Fix understanding of islands -- do some flood fill magic to determine islands, bridge them by finding shortest distance b/w islands
 * Anticipate enemy movements when tracking a target (evaluate its possible moves)
+* Update line of play for building units
 
 
 

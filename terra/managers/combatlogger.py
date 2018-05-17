@@ -36,7 +36,7 @@ class CombatLogger(GameObject):
         event_bus.register_handler(EventType.E_PIECE_BUILT, self.log_piece_built)
         event_bus.register_handler(EventType.E_UNIT_MOVED, self.log_piece_moved)
         event_bus.register_handler(EventType.E_UNIT_RANGED_ATTACK, self.log_ranged_attack)
-        event_bus.register_handler(EventType.E_TILE_TERRAFORMED, self.log_terraforming)
+        event_bus.register_handler(EventType.E_TILE_MINED, self.log_mining)
         event_bus.register_handler(EventType.E_PIECE_DEMOLISHED, self.log_demolition)
 
         event_bus.register_handler(EventType.E_BATTLE_OVER, self.log_results)
@@ -71,8 +71,8 @@ class CombatLogger(GameObject):
         piece = self.get_manager(Manager.PIECE).get_piece_at(event.gx, event.gy, event.team)
         self.logger.info("{} conducted a ranged attack on ({}, {})".format(piece, event.tx, event.ty))
 
-    def log_terraforming(self, event):
-        self.logger.info("Tile at ({}, {}) was {}".format(event.gx, event.gy, "raised" if event.raising else "lowered"))
+    def log_mining(self, event):
+        self.logger.info("Tile at ({}, {}) was mined!".format(event.gx, event.gy))
 
     def log_demolition(self, event):
         piece = self.get_manager(Manager.PIECE).get_piece_at(event.gx, event.gy, event.team)

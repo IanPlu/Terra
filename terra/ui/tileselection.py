@@ -102,7 +102,7 @@ class TileSelection(GameObject):
             # Exclude enemy buildings from the selection
             for building in self.get_manager(Manager.PIECE).get_all_enemy_pieces(self.team, PieceSubtype.BUILDING):
                 excluded_coordinates.add((building.gx, building.gy))
-        elif not self.movement_type or self.movement_type in [MovementType.RAISE, MovementType.LOWER]:
+        elif not self.movement_type or self.movement_type in [MovementType.MINE]:
             # if it's not movement and not placing a building, only exclude our own tile
             excluded_coordinates.add((self.gx, self.gy))
         else:

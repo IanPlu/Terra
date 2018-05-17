@@ -33,8 +33,7 @@ menu_option_strings = {
         Option.MENU_SAVE_GAME: "Save Game",
         Option.MENU_QUIT_BATTLE: "Quit",
         Option.MENU_SAVE_MAP: "Save Map",
-        Option.MENU_RAISE_TILE: "Raise Tile",
-        Option.MENU_LOWER_TILE: "Lower Tile",
+        Option.MENU_MINE_TILE: "Mine",
         Option.MENU_DEMOLISH_SELF: "Demolish",
         Option.MENU_HEAL_SELF: "Repair",
         Option.MENU_FILL_WITH_CURRENT_TILE: "Fill Map",
@@ -59,8 +58,7 @@ menu_help_strings = {
         Option.MENU_SAVE_GAME: "* Save the current battle. You can resume it later.",
         Option.MENU_QUIT_BATTLE: "* Quit this battle.",
         Option.MENU_SAVE_MAP: "* Save this map design to a file.",
-        Option.MENU_RAISE_TILE: "* Terraform an adjacent tile. Seas -> Coasts -> Plains -> Hills -> Mountains.",
-        Option.MENU_LOWER_TILE: "* Terraform an adjacent tile. Mountains -> Hills -> Plains -> Coasts -> Seas.",
+        Option.MENU_MINE_TILE: "* Mine out a Meteor tile, gaining resources and removing the meteor. ",
         Option.MENU_DEMOLISH_SELF: "* Destroy this piece at the end of the turn, freeing space for other pieces later.",
         Option.MENU_HEAL_SELF: "* Order this piece to heal itself a small amount.",
         Option.MENU_FILL_WITH_CURRENT_TILE: "* Fill the map design with the currently selected tile type.",
@@ -119,9 +117,8 @@ menu_help_strings = {
 
         UpgradeType.COLONIST_ATTACK: "* Colonists now deal a small amount of damage in direct combat.",
         UpgradeType.COLONIST_MAX_HP: "* Colonists now have a higher max HP.",
-        UpgradeType.COLONIST_TERRAFORMING: "* Colonists can now conduct terraforming actions, changing nearby terrain."
-                                           "Can be used offensively by putting harmful terrain under enemies, or "
-                                           "defensively to create chokepoints and cut off routes.",
+        UpgradeType.COLONIST_MINING: "* Colonists can now conduct deep mining actions, removing Meteor tiles and "
+                                     "gaining resources in return. ",
         UpgradeType.COLONIST_UNCONTESTABLE: "* Colonists now cannot be interrupted during their special actions by "
                                             "enemies contesting their tile.",
 
@@ -301,7 +298,7 @@ upgrade_name_strings = {
 
         UpgradeType.COLONIST_ATTACK: "[C] Attack+",
         UpgradeType.COLONIST_MAX_HP: "[C] HP+",
-        UpgradeType.COLONIST_TERRAFORMING: "[C] Terraform",
+        UpgradeType.COLONIST_MINING: "[C] Mining",
         UpgradeType.COLONIST_UNCONTESTABLE: "[C] Covert Ops",
 
         UpgradeType.TROOPER_ATTACK: "[T] Attack+",
@@ -411,7 +408,7 @@ attribute_label_strings = {
         Attribute.CANT_ATTACK_BUILDINGS: "Can't Attack Buildings",
         Attribute.IGNORE_CONTESTING: "Ignore Enemies Contesting",
         Attribute.REGEN: "Regeneration",
-        Attribute.TERRAFORMING: "Can Terraform",
+        Attribute.MINING: "Can Mine",
         Attribute.MEDIC: "Heal Allies",
         Attribute.ARMOR_PIERCING: "Pierces Armor",
         Attribute.AOE_ON_KILL: "AOE Damage on Kill",

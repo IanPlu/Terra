@@ -10,7 +10,7 @@ event_type_to_effect = {
     EventType.E_ARMOR_GRANTED: EffectType.ARMOR_GRANTED,
     EventType.E_PIECE_HEALED: EffectType.HP_HEALED,
     EventType.E_PIECE_ON_INVALID_TERRAIN: EffectType.ALERT,
-    EventType.E_TILE_TERRAFORMED: EffectType.PIECE_DESTROYED,
+    EventType.E_TILE_MINED: EffectType.PIECE_DESTROYED,
     EventType.E_INVALID_BUILD_ORDERS: EffectType.NO_MONEY,
     EventType.E_INVALID_UPGRADE_ORDERS: EffectType.DUPLICATE_UPGRADE,
     EventType.E_UNIT_RANGED_ATTACK: EffectType.PIECE_CONFLICT,

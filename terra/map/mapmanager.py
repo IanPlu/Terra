@@ -2,7 +2,7 @@ from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
 from terra.map.maputils import generate_bitmap_from_simplex_noise
 from terra.map.tile import Tile
-from terra.map.tiletype import tile_height_order
+from terra.map.tiletype import TileType
 from terra.piece.movementtype import movement_types, MovementAttribute
 from terra.resources.assets import spr_grid
 from terra.settings import SETTINGS, Setting
@@ -39,7 +39,7 @@ class MapManager(GameObject):
         self.tile_grid = []
 
     def register_handlers(self, event_bus):
-        event_bus.register_handler(EventType.E_TILE_TERRAFORMED, self.terraform_tile)
+        event_bus.register_handler(EventType.E_TILE_MINED, self.mine_tile)
 
     # Given a 2D array of ints, convert it to a 2D array of Tile objects
     def convert_grid_from_bitmap(self, bitmap):
@@ -65,6 +65,14 @@ class MapManager(GameObject):
             bitmap.append(row)
 
         return bitmap
+
+    # Return a flattened list of all tiles in the map
+    def get_all_tiles(self):
+        all_tiles = []
+        for tiles in self.tile_grid:
+            for tile in tiles:
+                all_tiles.append(tile)
+        return all_tiles
 
     # Return the tile at the specified grid location.
     def get_tile_at(self, gx, gy):
@@ -108,6 +116,10 @@ class MapManager(GameObject):
 
         return tiles
 
+    # Return the number of generally passable tiles (non-SEA, non-MOUNTAIN)
+    def get_map_size(self):
+        return len([tile for tile in self.get_all_tiles() if tile.tile_type not in [TileType.SEA, TileType.MOUNTAIN]])
+
     # Return a list of coordinates of tiles of the specified type
     def find_tiles_by_type(self, tile_type):
         coords = []
@@ -122,20 +134,10 @@ class MapManager(GameObject):
     def update_tile_type(self, gx, gy, new_tile_type):
         self.tile_grid[gy][gx] = Tile(self, new_tile_type, gx, gy)
 
-    # Terraform a tile according to an event
-    def terraform_tile(self, event):
-        tile_type = self.get_tile_type_at(event.gx, event.gy)
-
-        # Ignore tiles not in the tile heightmap
-        if tile_type not in tile_height_order:
-            return
-        else:
-            if event.raising:
-                new_tile_type_index = tile_height_order.index(tile_type) + 1
-            else:
-                new_tile_type_index = tile_height_order.index(tile_type) - 1
-
-            self.update_tile_type(event.gx, event.gy, tile_height_order[clamp(new_tile_type_index, 0, len(tile_height_order) - 1)])
+    # Mine out a tile according to an event
+    def mine_tile(self, event):
+        if self.get_tile_type_at(event.gx, event.gy) == TileType.METEOR:
+            self.update_tile_type(event.gx, event.gy, TileType.GRASS)
 
     # Replace all tiles with the provided tiletype.
     def fill_map_with_tile(self, new_tile_type):

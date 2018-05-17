@@ -38,7 +38,7 @@ class Personality:
             TaskType.HARVEST_RESOURCE: self.constructive,
             TaskType.BUILD_PIECE: self.constructive,
             TaskType.RESEARCH_UPGRADE: self.scientific,
-            TaskType.TERRAFORM: self.constructive,
+            TaskType.MINE: self.constructive,
 
             TaskType.ATTACK_ENEMY: self.aggressive,
             TaskType.DEFEND_TARGET: self.defensive,

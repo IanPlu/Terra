@@ -1,6 +1,6 @@
 import pygame
 
-from terra.ai.pathfinder import get_path_to_destination
+from terra.ai.pathfinder import get_path_to_destination, reconstruct_breadth_first_path
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, NETWORK_ANIMATION_SPEED
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
@@ -16,7 +16,7 @@ from terra.mode import Mode
 from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
 from terra.piece.movementtype import MovementType, MovementAttribute, movement_types
-from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, TerraformOrder, DemolishOrder, \
+from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, MineOrder, DemolishOrder, \
     HealOrder
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
@@ -26,7 +26,8 @@ from terra.settings import SETTINGS, Setting
 from terra.strings import piece_name_strings, LANGUAGE
 from terra.team.team import Team
 from terra.turn.battlephase import BattlePhase
-from terra.util.drawingutil import draw_small_resource_count, draw_text
+from terra.util.drawingutil import draw_small_resource_count
+from terra.economy.prices import MINE_RESOURCES
 
 team_offsets = {
     Team.RED: (-3, -3),
@@ -143,10 +144,8 @@ class Piece(AnimatedGameObject):
             actions.append(Option.MENU_BUILD_PIECE)
         if len(self.get_valid_purchaseable_upgrades()):
             actions.append(Option.MENU_PURCHASE_UPGRADE)
-        if len(self.get_valid_tiles_for_terraforming(raising=True)):
-            actions.append(Option.MENU_RAISE_TILE)
-        if len(self.get_valid_tiles_for_terraforming(raising=False)):
-            actions.append(Option.MENU_LOWER_TILE)
+        if len(self.get_adjacent_mineable_tiles()):
+            actions.append(Option.MENU_MINE_TILE)
         if self.piece_subtype == PieceSubtype.BUILDING and self.piece_type is not PieceType.BASE:
             actions.append(Option.MENU_DEMOLISH_SELF)
         if self.hp < self.attr(Attribute.MAX_HP):
@@ -213,11 +212,10 @@ class Piece(AnimatedGameObject):
     def get_valid_purchaseable_upgrades(self):
         return self.attr(Attribute.PURCHASEABLE_UPGRADES)
 
-    # Return a list of adjacent tiles that can be traversed by this movement type
-    def get_valid_tiles_for_terraforming(self, raising=True):
-        if self.attr(Attribute.TERRAFORMING):
-            return self.get_manager(Manager.MAP).get_valid_adjacent_tiles_for_movement_type(
-                self.gx, self.gy, MovementType.RAISE if raising else MovementType.LOWER)
+    def get_adjacent_mineable_tiles(self):
+        if self.attr(Attribute.MINING):
+            return self.get_manager(Manager.MAP)\
+                .get_valid_adjacent_tiles_for_movement_type(self.gx, self.gy, MovementType.MINE)
         else:
             return []
 
@@ -406,7 +404,7 @@ class Piece(AnimatedGameObject):
     # Find a path to the target.
     # If a minimum and maximum range is provided, will attempt to path to within that range of the target. 0=Exact tile.
     # If blocked is provided, will navigate around the specified blocked tiles
-    def get_path_to_target(self, target, blocked=None, min_range=0, max_range=0, movement_type=None):
+    def get_path_to_target(self, target, path_cache=None, blocked=None, min_range=0, max_range=0, movement_type=None):
         destinations = self.get_manager(Manager.MAP).get_tiles_in_range(target[0], target[1],
                                                                         min_range, max_range, movement_type)
         # Sort destinations by the closest
@@ -420,8 +418,18 @@ class Piece(AnimatedGameObject):
         if len(destinations) > 0:
             potential_paths = []
             for destination in destinations:
-                potential_path = get_path_to_destination((self.gx, self.gy), destination,
-                                                         self.get_manager(Manager.MAP), self, blocked)
+                if path_cache:
+                    # Use the cached path and try to navigate
+                    came_from = path_cache.get_map(destination, movement_type)
+                    if not came_from:
+                        # Cache the new path
+                        came_from = path_cache.cache_path(destination, movement_type)
+
+                    potential_path = reconstruct_breadth_first_path(destination, (self.gx, self.gy), came_from)
+                else:
+                    # Do ad-hoc pathfinding
+                    potential_path = get_path_to_destination((self.gx, self.gy), destination,
+                                                             self.get_manager(Manager.MAP), self, blocked)
                 if potential_path:
                     potential_paths.append(potential_path)
 
@@ -437,23 +445,27 @@ class Piece(AnimatedGameObject):
 
     # Figure out how many steps along the path we can take, return the end point
     def step_along_path(self, path, blocked):
-        current_steps = 0
-        max_steps = min(self.attr(Attribute.MOVEMENT_RANGE), len(path) - 1)
-        last_possible_destination = (self.gx, self.gy)
-        while current_steps <= max_steps:
-            path_dest = path[current_steps]
+        if path:
+            current_steps = 0
+            max_steps = min(self.attr(Attribute.MOVEMENT_RANGE), len(path) - 1)
+            last_possible_destination = (self.gx, self.gy)
+            while current_steps <= max_steps:
+                path_dest = path[current_steps]
 
-            # If the tile is clear of planned ally positions, mark our last possible destination
-            if not path_dest in blocked:
-                last_possible_destination = path_dest
+                # If the tile is clear of planned ally positions, mark our last possible destination
+                if not path_dest in blocked:
+                    last_possible_destination = path_dest
 
-            # If there's no impedance in our way, or if it's our first move, continue stepping forward
-            if not self.is_enemy_at_tile(path_dest) or current_steps == 0:
-                current_steps += 1
-            else:
-                break
+                # If there's no impedance in our way, or if it's our first move, continue stepping forward
+                if not self.is_enemy_at_tile(path_dest) or current_steps == 0:
+                    current_steps += 1
+                else:
+                    break
 
-        return last_possible_destination
+            return last_possible_destination
+        else:
+            # No path!
+            return self.gx, self.gy
 
     # Phase handlers. Other than the orders handler, these are only triggered when we have orders.
     def handle_phase_start_turn(self, event):
@@ -590,17 +602,19 @@ class Piece(AnimatedGameObject):
                 # Pop orders once they're executed
                 self.current_order = None
 
-        # Execute terraforming orders
-        elif isinstance(self.current_order, TerraformOrder):
+        # Execute mining orders
+        elif isinstance(self.current_order, MineOrder):
             if self.is_contested():
-                # Can't terraform if there's an enemy piece here
+                # Can't mine if there's an enemy piece here
                 self.abort_order()
             else:
-                publish_game_event(EventType.E_TILE_TERRAFORMED, {
+                publish_game_event(EventType.E_TILE_MINED, {
                     'gx': self.current_order.tx,
                     'gy': self.current_order.ty,
-                    'raising': self.current_order.raising
                 })
+
+                # Earn resources from mining
+                self.get_manager(Manager.TEAM).add_resources(self.team, MINE_RESOURCES)
 
                 # Pop orders once they're executed
                 self.current_order = None
@@ -678,14 +692,14 @@ class Piece(AnimatedGameObject):
                 'team': self.team,
                 'options': self.get_valid_purchaseable_upgrades()
             })
-        elif event.option in [Option.MENU_RAISE_TILE, Option.MENU_LOWER_TILE]:
-            # Attempting to terraform, so open the tile selection
+        elif event.option in [Option.MENU_MINE_TILE]:
+            # Attempting to mine, so open the tile selection
             publish_game_event(EventType.E_OPEN_TILE_SELECTION, {
                 'gx': self.gx,
                 'gy': self.gy,
                 'min_range': 1,
                 'max_range': 1,
-                'movement_type': MovementType.RAISE if event.option == Option.MENU_RAISE_TILE else MovementType.LOWER,
+                'movement_type': MovementType.MINE,
                 'piece_type': None,
                 'team': self.team,
                 'option': event.option
@@ -705,10 +719,8 @@ class Piece(AnimatedGameObject):
             self.current_order = UpgradeOrder(event.option)
         elif event.option == Option.MENU_CANCEL_ORDER:
             self.current_order = None
-        elif event.option == Option.MENU_RAISE_TILE:
-            self.current_order = TerraformOrder(event.dx, event.dy, raising=True)
-        elif event.option == Option.MENU_LOWER_TILE:
-            self.current_order = TerraformOrder(event.dx, event.dy, raising=False)
+        elif event.option == Option.MENU_MINE_TILE:
+            self.current_order = MineOrder(event.dx, event.dy)
         elif event.option == Option.MENU_DEMOLISH_SELF:
             self.current_order = DemolishOrder()
         elif event.option == Option.MENU_HEAL_SELF:

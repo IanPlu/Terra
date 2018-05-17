@@ -101,8 +101,7 @@ spr_order_options = {
         Option.MENU_SAVE_GAME: spr_order_options_base[7],
         Option.MENU_QUIT_BATTLE: spr_order_options_base[8],
         Option.MENU_SAVE_MAP: spr_order_options_base[9],
-        Option.MENU_RAISE_TILE: spr_order_options_base[10],
-        Option.MENU_LOWER_TILE: spr_order_options_base[11],
+        Option.MENU_MINE_TILE: spr_order_options_base[11],
         Option.MENU_DEMOLISH_SELF: spr_order_options_base[12],
         Option.MENU_HEAL_SELF: spr_order_options_base[15],
         Option.MENU_FILL_WITH_CURRENT_TILE: spr_order_options_base[10],
@@ -148,7 +147,7 @@ spr_upgrade_icons = {
 
         UpgradeType.COLONIST_ATTACK: spr_upgrade_icons_base[2],
         UpgradeType.COLONIST_MAX_HP: spr_upgrade_icons_base[3],
-        UpgradeType.COLONIST_TERRAFORMING: spr_upgrade_icons_base[4],
+        UpgradeType.COLONIST_MINING: spr_upgrade_icons_base[4],
         UpgradeType.COLONIST_UNCONTESTABLE: spr_upgrade_icons_base[5],
 
         UpgradeType.TROOPER_ATTACK: spr_upgrade_icons_base[6],
@@ -211,6 +210,7 @@ spr_tiles = {
     TileType.MOUNTAIN: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Mountain.png")),
     TileType.COAST: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Coast.png")),
     TileType.HILL: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Hill.png")),
+    TileType.METEOR: pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Tile_Meteor.png")),
 }
 
 spr_tiles_mini = get_sprites_from_strip(pygame.image.load(get_asset(AssetType.SPRITE, "tiles/Minimap_Tile.png")), 4)
@@ -262,8 +262,7 @@ spr_order_flags = {
     Option.MENU_SAVE_GAME: spr_base_order_flags[3],
     Option.MENU_QUIT_BATTLE: spr_base_order_flags[0],
     Option.MENU_SAVE_MAP: spr_base_order_flags[3],
-    Option.MENU_RAISE_TILE: spr_base_order_flags[7],
-    Option.MENU_LOWER_TILE: spr_base_order_flags[7],
+    Option.MENU_MINE_TILE: spr_base_order_flags[7],
     Option.MENU_DEMOLISH_SELF: spr_base_order_flags[8],
     Option.MENU_HEAL_SELF: spr_base_order_flags[9],
     Option.MENU_FILL_WITH_CURRENT_TILE: spr_base_order_flags[0],

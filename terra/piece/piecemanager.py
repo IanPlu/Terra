@@ -426,7 +426,7 @@ class PieceManager(GameObject):
 
         # Do any extra effects
         if origin_unit.attr(Attribute.CRATERING):
-            publish_game_event(EventType.E_TILE_TERRAFORMED, {
+            publish_game_event(EventType.E_TILE_MINED, {
                 'gx': tx,
                 'gy': ty,
                 'raising': False

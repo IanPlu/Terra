@@ -27,7 +27,7 @@ class Attribute(Enum):
     CANT_ATTACK_BUILDINGS = "cant_attack_buildings"     # Whether this piece is unable to occupy buildings
     IGNORE_CONTESTING = "ignore_contesting"             # Whether this piece ignores enemies contesting its actions
     REGEN = "regen"                                     # How much health this piece regenerates at the start of turn
-    TERRAFORMING = "terraforming"                       # Whether this piece is able to conduct the terraforming action
+    MINING = "mining"                                   # Whether this piece is able to conduct the mining action
     MEDIC = "medic"                                     # How much health this piece heals allies at the start of turn
     ARMOR_PIERCING = "armor_piercing"                   # Whether this piece ignores enemy defensive bonuses
     AOE_ON_KILL = "aoe_on_kill"                         # Enemies this kills detonate in an AoE for this much damage

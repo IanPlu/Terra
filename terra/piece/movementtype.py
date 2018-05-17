@@ -12,8 +12,7 @@ class MovementType(Enum):
     FLYING = auto()
     BUILDING = auto()
     GENERATOR = auto()
-    RAISE = auto()
-    LOWER = auto()
+    MINE = auto()
 
     def __str__(self):
         from terra.strings import attribute_value_strings, get_string
@@ -63,14 +62,9 @@ movement_types = {
         MovementAttribute.PASSABLE: {TileType.RESOURCE},
         MovementAttribute.TRAVERSABLE: {},
     },
-    # 'Movement' type used for terraforming. Controls which tiles can be raised.
-    MovementType.RAISE: {
-        MovementAttribute.PASSABLE: {TileType.SEA, TileType.COAST, TileType.GRASS, TileType.HILL},
-        MovementAttribute.TRAVERSABLE: {},
-    },
-    # 'Movement' type used for terraforming. Controls which tiles can be lowered.
-    MovementType.LOWER: {
-        MovementAttribute.PASSABLE: {TileType.MOUNTAIN, TileType.HILL, TileType.GRASS, TileType.COAST},
+    # 'Movement' type used for mining. Controls which tiles can be raised.
+    MovementType.MINE: {
+        MovementAttribute.PASSABLE: {TileType.METEOR},
         MovementAttribute.TRAVERSABLE: {},
     },
 }

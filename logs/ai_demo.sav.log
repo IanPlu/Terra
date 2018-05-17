@@ -1,0 +1,50 @@
+2018-05-16 18:01:14,941 INFO RED Colonist at tile (8, 5) with 100 HP was assigned the order 'Order: Mine Meteor on tile (7, 5)'
+2018-05-16 18:01:14,941 INFO = Move phase begins
+2018-05-16 18:01:15,010 INFO = Build phase begins
+2018-05-16 18:01:15,077 INFO = Combat phase begins
+2018-05-16 18:01:15,153 INFO = Ranged phase begins
+2018-05-16 18:01:15,221 INFO = Special phase begins
+2018-05-16 18:01:15,234 INFO Tile at (7, 5) was mined!
+2018-05-16 18:01:15,235 INFO Team.RED team acquired 5 resources.
+2018-05-16 18:01:15,287 INFO = Start Turn phase begins
+2018-05-16 18:01:15,288 INFO == TURN 4 BEGIN ==
+2018-05-16 18:01:15,301 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:15,301 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:15,302 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:15,302 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:15,302 INFO Team.RED team acquired 2 resources.
+2018-05-16 18:01:15,302 INFO Team.BLUE team acquired 2 resources.
+2018-05-16 18:01:15,352 INFO = Issue Orders phase begins
+2018-05-16 18:01:20,479 INFO RED Colonist at tile (8, 5) with 100 HP was assigned the order 'Order: Move to (9, 7)'
+2018-05-16 18:01:20,480 INFO = Move phase begins
+2018-05-16 18:01:20,492 INFO None moved to (9, 7)
+2018-05-16 18:01:20,545 INFO = Build phase begins
+2018-05-16 18:01:20,608 INFO = Combat phase begins
+2018-05-16 18:01:20,671 INFO = Ranged phase begins
+2018-05-16 18:01:20,736 INFO = Special phase begins
+2018-05-16 18:01:20,801 INFO = Start Turn phase begins
+2018-05-16 18:01:20,802 INFO == TURN 5 BEGIN ==
+2018-05-16 18:01:20,814 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:20,814 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:20,814 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:20,815 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:20,815 INFO Team.RED team acquired 2 resources.
+2018-05-16 18:01:20,815 INFO Team.BLUE team acquired 2 resources.
+2018-05-16 18:01:20,868 INFO = Issue Orders phase begins
+2018-05-16 18:01:23,634 INFO RED Colonist at tile (9, 7) with 100 HP was assigned the order 'Order: Mine Meteor on tile (8, 7)'
+2018-05-16 18:01:23,634 INFO = Move phase begins
+2018-05-16 18:01:23,699 INFO = Build phase begins
+2018-05-16 18:01:23,759 INFO = Combat phase begins
+2018-05-16 18:01:23,826 INFO = Ranged phase begins
+2018-05-16 18:01:23,891 INFO = Special phase begins
+2018-05-16 18:01:23,905 INFO Tile at (8, 7) was mined!
+2018-05-16 18:01:23,905 INFO Team.RED team acquired 5 resources.
+2018-05-16 18:01:23,956 INFO = Start Turn phase begins
+2018-05-16 18:01:23,956 INFO == TURN 6 BEGIN ==
+2018-05-16 18:01:23,969 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:23,969 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:23,969 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:23,969 INFO Team.BLUE team acquired 1 resources.
+2018-05-16 18:01:23,969 INFO Team.RED team acquired 2 resources.
+2018-05-16 18:01:23,969 INFO Team.BLUE team acquired 2 resources.
+2018-05-16 18:01:24,024 INFO = Issue Orders phase begins

@@ -73,19 +73,18 @@ class UpgradeOrder(Order):
         return "[Upgrd]{}".format(self.new_upgrade_type.name)
 
 
-# An order to modify an adjacent tile
-class TerraformOrder(Order):
-    def __init__(self, tx, ty, raising=True):
-        super().__init__(Option.MENU_RAISE_TILE)
+# An order to mine out an adjacent tile
+class MineOrder(Order):
+    def __init__(self, tx, ty):
+        super().__init__(Option.MENU_MINE_TILE)
         self.tx = tx
         self.ty = ty
-        self.raising = raising
 
     def __str__(self):
-        return "Order: {} terrain on tile ({}, {})".format("raise" if self.raising else "lower", self.tx, self.ty)
+        return "Order: Mine Meteor on tile ({}, {})".format(self.tx, self.ty)
 
     def serialize(self):
-        return "[Terra]{},{},{}".format(self.tx, self.ty, self.raising)
+        return "[Terra]{},{}".format(self.tx, self.ty)
 
 
 # An order for the building to demolish itself.
@@ -125,7 +124,7 @@ def deserialize_order(order):
     elif prefix == "[Upgrd]":
         return UpgradeOrder(UpgradeType[fields[0]])
     elif prefix == "[Terra]":
-        return TerraformOrder(int(fields[0]), int(fields[1]), bool(fields[2]))
+        return MineOrder(int(fields[0]), int(fields[1]))
     elif prefix == "[Demol]":
         return DemolishOrder()
     elif prefix == "[HealS]":

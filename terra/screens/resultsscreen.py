@@ -15,6 +15,11 @@ class ResultsScreen(GameScreen):
 
         self.results = Results(results)
 
+    def destroy(self):
+        super().destroy()
+        if self.results:
+            self.results.destroy()
+
     def render(self, ui_screen):
         super().render(ui_screen)
         game_screen = Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), SRCALPHA, 32)

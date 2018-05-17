@@ -18,7 +18,7 @@ class UpgradeType(Enum):
     # Colonist
     COLONIST_ATTACK = auto()
     COLONIST_MAX_HP = auto()
-    COLONIST_TERRAFORMING = auto()
+    COLONIST_MINING = auto()
     COLONIST_UNCONTESTABLE = auto()
 
     # Trooper

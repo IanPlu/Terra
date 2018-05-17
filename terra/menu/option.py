@@ -33,8 +33,7 @@ class Option(Enum):
     MENU_RANGED_ATTACK = auto()
     MENU_BUILD_PIECE = auto()
     MENU_PURCHASE_UPGRADE = auto()
-    MENU_RAISE_TILE = auto()
-    MENU_LOWER_TILE = auto()
+    MENU_MINE_TILE = auto()
     MENU_DEMOLISH_SELF = auto()
     MENU_HEAL_SELF = auto()
 
@@ -58,8 +57,7 @@ contestable_options = [
     Option.MENU_RANGED_ATTACK,
     Option.MENU_BUILD_PIECE,
     Option.MENU_PURCHASE_UPGRADE,
-    Option.MENU_RAISE_TILE,
-    Option.MENU_LOWER_TILE,
+    Option.MENU_MINE_TILE,
     Option.MENU_HEAL_SELF,
 ]
 

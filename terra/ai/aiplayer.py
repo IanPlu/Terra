@@ -5,7 +5,7 @@ from threading import Thread
 from pygame import USEREVENT
 from pygame.event import Event
 
-from terra.ai.pathfinder import navigate_all, get_terraform_tiles
+from terra.ai.pathcache import PathCache
 from terra.ai.personality import create_default_personality
 from terra.ai.task import Task, TaskType, Assignment
 from terra.economy.upgradeattribute import UpgradeAttribute
@@ -48,12 +48,12 @@ class AIPlayer(GameObject):
         self.enemy_pieces = None
         self.enemy_archetype_counts = None
         self.map = None
+        self.map_size = None
 
         self.personality = create_default_personality()
 
         # General map navigation
-        self.came_from = {}
-        self.distance_map = {}
+        self.path_cache = PathCache(self.get_manager(Manager.PIECE), self.get_manager(Manager.MAP), self.team)
 
         self.debug_print_tasks = False
         self.debug_print_assignments = False
@@ -64,6 +64,12 @@ class AIPlayer(GameObject):
         self.parse_board_state()
 
         super().__init__()
+
+    def destroy(self):
+        super().destroy()
+
+        if self.path_cache:
+            self.path_cache.destroy()
 
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
@@ -91,34 +97,16 @@ class AIPlayer(GameObject):
         self.enemy_archetype_counts = piece_manager.get_enemy_archetype_counts(self.team, units_only=True)
         self.map = self.get_manager(Manager.MAP)
 
+        if not self.map_size:
+            self.map_size = self.map.get_map_size()
+
         self.income = piece_manager.get_income(self.team)
         self.planned_spending = 0
         # Mark buildings as planned occupied tiles to start
         self.planned_occupied_coords = [(piece.gx, piece.gy) for piece in self.my_pieces
                                         if piece.piece_subtype == PieceSubtype.BUILDING]
 
-        self.calculate_line_of_play()
-
-    def calculate_line_of_play(self):
-        # NOTES:
-        # 1. Do basic GROUND pathfinding from my base to the enemy base. This is the critical path
-        #       1a. Recalculate this any time terraforming occurs and the critical path may have changed
-        #       1b. There may be multiple critical paths. Do pathfinding multiple times, and take ALL paths with the
-        #           same lowest distance score as critical paths(?)
-        # 2. Calculate where each piece for each team is on the critical path.
-        #       - From the home team side to the enemy team side, mark the first time we encounter an enemy on the line
-        #       - Then mark the last time we encountered an ally
-        #       - The midpoint between these two marks if the Line of Play
-
-        # Do basic pathfinding to the enemy base from every location.
-        # Most importantly this produces a distance map from every tile to the enemy base.
-        # Only supports one base, for the moment (no 3+ player games)
-        bases = self.get_manager(Manager.PIECE).get_all_enemy_pieces(self.team, piece_type=PieceType.BASE)
-        if len(bases) <= 0:
-            return
-        else:
-            base = bases[0]
-            self.came_from, self.distance_map = navigate_all((base.gx, base.gy), self.map, MovementType.GROUND)
+        self.path_cache.generate_paths()
 
     # Generate a list of tasks that we'd like to accomplish this turn
     def generate_tasks(self):
@@ -173,20 +161,18 @@ class AIPlayer(GameObject):
         piece_manager = self.get_manager(Manager.PIECE)
 
         # Get all possible harvestable coordinates
-        all_harvestable_coords = [coord for coord in self.map.find_tiles_by_type(TileType.RESOURCE)
-                                  if len(piece_manager.get_pieces_at(coord[0], coord[1], PieceType.GENERATOR)) == 0]
-
-        # Get a list of reachable open resource tiles, add tasks to harvest them.
-        harvestable_coords = [coord for coord in all_harvestable_coords if coord in self.distance_map.keys()]
+        harvestable_coords = [coord for coord in self.map.find_tiles_by_type(TileType.RESOURCE)
+                              if len(piece_manager.get_pieces_at(coord[0], coord[1], PieceType.GENERATOR)) == 0]
 
         # Sort those resource tiles by whether they're immediately harvestable or not (Colonist adjacent)
         immediate_harvest_coords = [coord for coord in harvestable_coords if self.is_immediately_harvestable(coord)]
         moveto_coords = list(set(harvestable_coords) - set(immediate_harvest_coords))
 
-        # Generate terraforming tasks for resources inaccessible from a path from the base
-        if self.get_manager(Manager.TEAM).has_upgrade(self.team, UpgradeType.COLONIST_TERRAFORMING):
-            terraforming_required_resources = list(set(all_harvestable_coords) - set(harvestable_coords))
-            tasks.extend(self.create_terraforming_tasks(terraforming_required_resources))
+        # Generate mining tasks for meteor tiles
+        if self.get_manager(Manager.TEAM).has_upgrade(self.team, UpgradeType.COLONIST_MINING):
+            mineable_coords = [coord for coord in self.map.find_tiles_by_type(TileType.METEOR)]
+            for tile in mineable_coords:
+                tasks.append(self.create_mining_task(tile))
 
         for coord in immediate_harvest_coords:
             tasks.append(self.create_harvest_task(coord))
@@ -196,9 +182,8 @@ class AIPlayer(GameObject):
         # Determine how many colonists we should have, and add tasks to build more if needed
         current_num_colonists = len(piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.COLONIST))
         num_open_resources = len(harvestable_coords)
-        map_size = len(self.distance_map)
 
-        desired_num_colonists = ceil(map_size / 150) if num_open_resources > 0 else 0
+        desired_num_colonists = ceil(self.map_size / 150) if num_open_resources > 0 else 0
 
         if current_num_colonists < desired_num_colonists:
             tasks.append(self.create_build_colonist_task())
@@ -224,8 +209,8 @@ class AIPlayer(GameObject):
 
         upgrades_to_research = []
 
-        def queue_upgrade(upgrade):
-            upgrades_to_research.append((self.score_researchable_upgrade(upgrade), upgrade))
+        def queue_upgrade(upgr):
+            upgrades_to_research.append((self.score_researchable_upgrade(upgr), upgr))
 
         # If we don't have a tech lab, we should build one
         if len(piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.TECHLAB)) == 0:
@@ -339,8 +324,8 @@ class AIPlayer(GameObject):
         else:
             return None
 
-    def create_terraforming_task(self, tile):
-        task = Task(self.team, TaskType.TERRAFORM, tx=tile[0], ty=tile[1],
+    def create_mining_task(self, tile):
+        task = Task(self.team, TaskType.MINE, tx=tile[0], ty=tile[1],
                     target=self.map.get_tile_type_at(tile[0], tile[1]))
         return task, self.personality.prioritize_task(task)
 
@@ -365,26 +350,6 @@ class AIPlayer(GameObject):
         for piece_type in self.get_buildable_pieces(PieceType.BARRACKS, target_archetype):
             task = Task(self.team, TaskType.BUILD_PIECE, target=piece_type)
             tasks.append((task, self.personality.prioritize_task(task)))
-
-        return tasks
-
-    def create_terraforming_tasks(self, tiles):
-        tasks = []
-        tiles_to_terraform = set()
-        piece_manager = self.get_manager(Manager.PIECE)
-
-        bases = piece_manager.get_all_pieces_for_team(self.team, piece_type=PieceType.BASE)
-
-        if len(bases) > 0 and len(tiles) > 0:
-            base = bases[0]
-
-            # Pick the tile closest to the base
-            tile = min(tiles, key=lambda tile: abs(tile[0] - base.gx) + abs(tile[1] - base.gy))
-            for terraform_tile in get_terraform_tiles((base.gx, base.gy), tile, self.map):
-                tiles_to_terraform.add(terraform_tile)
-
-        for tile in tiles_to_terraform:
-            tasks.append(self.create_terraforming_task(tile))
 
         return tasks
 
@@ -415,7 +380,7 @@ class AIPlayer(GameObject):
         # For each task, create assignments of each eligible piece and score it by suitability
         for task in tasks:
             for eligible_piece in task.get_eligible_pieces_for_task(self.get_manager(Manager.PIECE)):
-                score, end_pos = task.score_piece_for_task(eligible_piece, self.distance_map)
+                score, end_pos = task.score_piece_for_task(eligible_piece, self.path_cache)
                 assignments.append(Assignment(eligible_piece, task, score, end_pos=end_pos))
 
         # Sort assignments by their score (lowest scores first)
@@ -449,7 +414,7 @@ class AIPlayer(GameObject):
                     enough_money = False
 
                 # Only confirm the assignment if it won't occupy the same tile twice
-                newly_occupied_tiles = assignment.get_end_position(self.planned_occupied_coords)
+                newly_occupied_tiles = assignment.get_end_position(self.path_cache, self.planned_occupied_coords)
                 if newly_occupied_tiles is None:
                     tiles_free = False
                 elif not set(self.planned_occupied_coords).isdisjoint(set(newly_occupied_tiles)):
@@ -499,7 +464,7 @@ class AIPlayer(GameObject):
         else:
             ranged_distance = 0
 
-        if task.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY, TaskType.TERRAFORM]:
+        if task.task_type in [TaskType.MOVE_TO_RESOURCE, TaskType.ATTACK_ENEMY, TaskType.MINE]:
             # Ranged units should issue attack orders instead of move orders when close enough to their target
             if piece.attr(Attribute.DAMAGE_TYPE) == DamageType.RANGED and \
                     task.task_type in [TaskType.ATTACK_ENEMY] and \
@@ -508,9 +473,9 @@ class AIPlayer(GameObject):
                 order = Option.MENU_RANGED_ATTACK
                 tx = task.tx
                 ty = task.ty
-            # Terraforming orders should conduct the terraform action when adjacent
-            elif task.task_type in [TaskType.TERRAFORM] and abs(piece.gx - task.tx) + abs(piece.gy - task.ty) <= 1:
-                order = Option.MENU_RAISE_TILE if task.target == TileType.SEA else Option.MENU_LOWER_TILE
+            # Mining orders should conduct the mine action when adjacent
+            elif task.task_type in [TaskType.MINE] and abs(piece.gx - task.tx) + abs(piece.gy - task.ty) <= 1:
+                order = Option.MENU_MINE_TILE
                 tx = task.tx
                 ty = task.ty
             else:
@@ -559,7 +524,8 @@ class AIPlayer(GameObject):
                         }))
                     else:
                         destination = valid_tiles[0]
-                        path = piece.get_path_to_target(destination, self.planned_occupied_coords, movement_type=movement_type)
+                        path = piece.get_path_to_target(destination, self.path_cache, self.planned_occupied_coords,
+                                                        movement_type=movement_type)
                         final_goal = piece.step_along_path(path, self.planned_occupied_coords)
 
                         if final_goal == (piece.gx, piece.gy):

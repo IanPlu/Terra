@@ -27,3 +27,26 @@ class PieceType(Enum):
     BARRACKS = 13
     TOWER = 14
     TECHLAB = 15
+
+
+ALL_UNITS = frozenset([
+    PieceType.COLONIST,
+    PieceType.TROOPER,
+    PieceType.RANGER,
+    PieceType.GHOST,
+
+    PieceType.GUARDIAN,
+    PieceType.BOLTCASTER,
+    PieceType.BANSHEE,
+
+    PieceType.TITAN,
+    PieceType.EARTHRENDER,
+    PieceType.DEMON,
+])
+ALL_BUILDINGS = frozenset([
+    PieceType.BASE,
+    PieceType.GENERATOR,
+    PieceType.BARRACKS,
+    PieceType.TOWER,
+    PieceType.TECHLAB,
+])

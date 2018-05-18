@@ -119,7 +119,7 @@ class MenuPopup(Menu):
     # Return true if the chosen menu option is at risk of being contested.
     # If this menu isn't for a specific tile, this always returns False.
     def is_option_contested(self, option):
-        if self.tx and self.ty:
+        if self.tx and self.ty and option in contestable_options:
             piece = self.get_manager(Manager.PIECE).get_piece_at(self.tx, self.ty, self.team)
             if piece:
                 return piece.is_contested()
@@ -194,7 +194,7 @@ class MenuPopup(Menu):
                     ui_screen.blit(spr_order_options[self.team][option], (self.root_x + x_offset, self.root_y + row_y * option_height))
 
                     # Render 'contested' indicator if necessary
-                    if option in contestable_options and self.is_option_contested(option):
+                    if self.is_option_contested(option):
                         ui_screen.blit(spr_contested_icon[self.team], (self.root_x + x_offset, self.root_y + row_y * option_height))
 
                     ui_screen.blit(get_text(menu_option_strings, option, light=True), (self.root_x + 29, self.root_y + 8 + row_y * option_height))

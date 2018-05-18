@@ -58,12 +58,12 @@ class BattleCursor(Cursor):
 
     def is_accepting_events(self):
         return self.get_manager(Manager.PLAYER).active_team == self.team \
-               and self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
+               and self.get_mode() in [Mode.BATTLE, Mode.CAMPAIGN, Mode.NETWORK_BATTLE, Mode.EDIT]
 
     def is_accepting_input(self):
         return self.menu is None and self.detail_box is None and \
                self.get_manager(Manager.PLAYER).active_team == self.team and \
-               self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE, Mode.EDIT]
+               self.get_mode() in [Mode.BATTLE, Mode.CAMPAIGN, Mode.NETWORK_BATTLE, Mode.EDIT]
 
     def can_confirm_or_cancel(self):
         return self.get_manager(Manager.TURN).phase == BattlePhase.ORDERS
@@ -83,15 +83,11 @@ class BattleCursor(Cursor):
                         'selecting_movement': self.move_ui is not None
                     })
 
-                    self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_SELECT)
-
     def cancel(self):
         super().cancel()
         if self.can_confirm_or_cancel():
             if not self.get_manager(Manager.TEAM).is_turn_submitted(self.team):
                 publish_game_event(EventType.E_CANCEL, {})
-
-                self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_SELECT)
 
     def is_active(self):
         return not self.menu and not self.detail_box and pygame.mouse.get_focused()
@@ -108,6 +104,7 @@ class BattleCursor(Cursor):
             self.menu = None
 
     def open_pause_menu(self):
+        self.play_sound(SoundType.CURSOR_SELECT)
         if self.can_confirm_or_cancel():
             if self.get_manager(Manager.TEAM).is_turn_submitted(self.team):
                 menu_options = [Option.MENU_REVISE_TURN]

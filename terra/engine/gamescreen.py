@@ -1,6 +1,4 @@
 from terra.event.eventbus import EVENT_BUS
-# TODO: Game screens shouldn't need the input controller-- input should be handled by a delegate
-from terra.control.inputcontroller import INPUT_CONTROLLER
 from terra.managers.session import SESSION
 
 

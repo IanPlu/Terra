@@ -60,28 +60,28 @@ class Cursor(GameObject):
     def move_up(self):
         if self.gy > 0:
             self.gy -= 1
-            self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_MOVE)
+            self.play_sound(SoundType.CURSOR_MOVE)
 
     def move_down(self):
         if self.gy < self.get_manager(Manager.MAP).height - 1:
             self.gy += 1
-            self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_MOVE)
+            self.play_sound(SoundType.CURSOR_MOVE)
 
     def move_left(self):
         if self.gx > 0:
             self.gx -= 1
-            self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_MOVE)
+            self.play_sound(SoundType.CURSOR_MOVE)
 
     def move_right(self):
         if self.gx < self.get_manager(Manager.MAP).width - 1:
             self.gx += 1
-            self.get_manager(Manager.SOUND).play_sound(SoundType.CURSOR_MOVE)
+            self.play_sound(SoundType.CURSOR_MOVE)
 
     def confirm(self):
-        pass
+        self.play_sound(SoundType.CURSOR_SELECT)
 
     def cancel(self):
-        pass
+        self.play_sound(SoundType.CURSOR_SELECT)
 
     def is_active(self):
         return True

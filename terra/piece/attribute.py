@@ -37,4 +37,3 @@ class Attribute(Enum):
     HEAL_POWER = "heal_power"                           # How much this HP piece can heal itself with the heal action
     PORTAL = "portal"                                   # If true, acts as an adjacent tile for movement to the HQ.
     LIFESTEAL = "lifesteal"                             # What portion of damage dealt comes back as health (dmg * this)
-    CRATERING = "cratering"                             # If true, ranged attacks will terraform-LOWER terrain

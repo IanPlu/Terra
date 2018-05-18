@@ -5,6 +5,7 @@ from terra.menu.menu import Menu
 from terra.constants import RESOLUTION_WIDTH, HALF_RES_HEIGHT
 from terra.strings import tutorial_strings, label_strings, get_text, get_multiline_text
 from terra.event.event import publish_game_event, EventType
+from terra.sound.soundtype import SoundType
 
 
 scroll_amount = 12
@@ -63,15 +64,19 @@ class Tutorial(GameObject):
         if self.current_page < max_page:
             self.change_page(1)
         else:
+            self.play_sound(SoundType.CURSOR_CANCEL)
             publish_game_event(EventType.TUTORIAL_EXIT, {})
 
     def cancel(self):
         if self.current_page > 0:
             self.change_page(-1)
         else:
+            self.play_sound(SoundType.CURSOR_CANCEL)
             publish_game_event(EventType.TUTORIAL_EXIT, {})
 
     def change_page(self, amount):
+        self.play_sound(SoundType.CURSOR_SELECT)
+
         self.current_page += amount
         self.scroll_pos = 0
         self.text = get_multiline_text(tutorial_strings, self.current_page, width=self.width - 24, height=self.height * 2)

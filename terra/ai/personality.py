@@ -1,7 +1,19 @@
 from random import uniform
+from enum import Enum
 
 from terra.ai.task import TaskType, base_task_priority
 from terra.piece.piecearchetype import PieceArchetype
+
+
+# Aliases for personality types, and the associated method to create them
+class PersonalityType(Enum):
+    DEFAULT = 0
+    AGGRESSIVE = 1
+    DEFENSIVE = 2
+    BERSERKER = 3
+    BUILDER = 4
+    TECHER = 5
+    RANDOM = 6
 
 
 # Container for AI 'personality'. Controls thresholds for various behavior, how aggressive / defensive to act, etc.
@@ -13,8 +25,9 @@ from terra.piece.piecearchetype import PieceArchetype
 #   * Unit Preference - How much this AI favors specific piece archetypes. e.x.: {PieceArchetype.GROUND: 1.0}
 #   * Research to Consider - How many research items to consider each round
 class Personality:
-    def __init__(self, aggressive=1.0, defensive=1.0, constructive=1.0, scientific=1.0, retreat_threshold=0.6,
-                 unit_preference=None, research_to_consider=3, new_unit_tier_priority=3):
+    def __init__(self, personality_type=PersonalityType.DEFAULT, aggressive=1.0, defensive=1.0, constructive=1.0,
+                 scientific=1.0, retreat_threshold=0.6, unit_preference=None, research_to_consider=3, new_unit_tier_priority=3):
+        self.personality_type = personality_type
         self.aggressive = aggressive
         self.defensive = defensive
         self.constructive = constructive
@@ -57,6 +70,7 @@ def create_default_personality():
 # Create an aggressive personality that favors aggressive actions and doesn't retreat often
 def create_aggressive_personality():
     return Personality(
+        personality_type=PersonalityType.AGGRESSIVE,
         aggressive=1.5,
         defensive=0.65,
         retreat_threshold=0.4
@@ -66,6 +80,7 @@ def create_aggressive_personality():
 # Create a defensive personality that favors defensive actions and retreating for healing
 def create_defensive_personality():
     return Personality(
+        personality_type=PersonalityType.DEFENSIVE,
         aggressive=0.65,
         defensive=1.5,
         constructive=1.1,
@@ -76,6 +91,7 @@ def create_defensive_personality():
 # Create a hyper-aggressive personality that never retreats and rarely defends
 def create_berserker_personality():
     return Personality(
+        personality_type=PersonalityType.BERSERKER,
         aggressive=2.0,
         defensive=0.2,
         retreat_threshold=0.0,
@@ -86,6 +102,7 @@ def create_berserker_personality():
 # Create an AI that just wants to build neat stuff
 def create_builder_personality():
     return Personality(
+        personality_type=PersonalityType.BUILDER,
         aggressive=0.5,
         defensive=0.5,
         constructive=2.0,
@@ -96,6 +113,7 @@ def create_builder_personality():
 # Create an AI that wants to reach new unit tiers quickly and win by having better teched units
 def create_fast_techer_personality():
     return Personality(
+        personality_type=PersonalityType.TECHER,
         aggressive=0.8,
         defensive=1.2,
         constructive=1.1,
@@ -107,6 +125,7 @@ def create_fast_techer_personality():
 # Create a completely random AI within the provided thresholds
 def create_chaotic_personality(lower=0.0, upper=2.0):
     return Personality(
+        personality_type=PersonalityType.RANDOM,
         aggressive=uniform(lower, upper),
         defensive=uniform(lower, upper),
         constructive=uniform(lower, upper),
@@ -121,3 +140,15 @@ def create_chaotic_personality(lower=0.0, upper=2.0):
             PieceArchetype.UTILITY: uniform(lower, upper),
         }
     )
+
+
+# Map of personality types to methods that will create that type
+personality_method = {
+    PersonalityType.DEFAULT: create_default_personality,
+    PersonalityType.AGGRESSIVE: create_aggressive_personality,
+    PersonalityType.DEFENSIVE: create_defensive_personality,
+    PersonalityType.BERSERKER: create_berserker_personality,
+    PersonalityType.BUILDER: create_builder_personality,
+    PersonalityType.TECHER: create_fast_techer_personality,
+    PersonalityType.RANDOM: create_chaotic_personality,
+}

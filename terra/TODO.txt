@@ -1,22 +1,22 @@
 General & QoL
-* Add support for rebinding controls
 
 Gameplay
-* Replace the 'CRATERING' effect (no more terraforming)
+* Add war room maps
+    - X number of maps, where X/3 have the player with an advantage, X/3 are even footing, and X/3 favor the AI
 
 Engineering
-* Write tests
 * Support bundling and distributing the VC redist
 
 Bug fixes
-* Fix AI Ghosts moving onto buildings to get at targets past the building (Test with no RED actions on Avarice Reach)
+* Fix empty directories breaking things
 
 Networking
 
+Sound
+
 AI
 * Implement and generate DEFEND tasks
-* Anticipate enemy movements when tracking a target (evaluate its possible moves)
-* Update line of play for building units
+* Anticipate enemy movements when tracking a target? (evaluate its possible moves)
 
 
 

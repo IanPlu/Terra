@@ -3,6 +3,7 @@ from terra.effects.effecttype import EffectType
 from terra.effects.turnbanner import TurnBanner
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
+from terra.mode import Mode
 
 event_type_to_effect = {
     EventType.E_PIECE_DEAD: EffectType.PIECE_DESTROYED,
@@ -64,7 +65,8 @@ class EffectsManager(GameObject):
 
     # Create a 'new turn' TurnBanner effect.
     def create_turn_banner(self, event):
-        self.effects.append(TurnBanner(self, event.turn_number))
+        if self.get_mode() in [Mode.LOBBY, Mode.NETWORK_LOBBY, Mode.BATTLE, Mode.CAMPAIGN, Mode.NETWORK_BATTLE]:
+            self.effects.append(TurnBanner(self, event.turn_number))
 
     # Create effects on each set of invalid coordinates from an invalid move orders event.
     def create_invalid_coordinate_effects(self, event):

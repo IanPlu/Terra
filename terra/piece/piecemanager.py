@@ -12,6 +12,7 @@ from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piececonflict import PieceConflict
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
+from terra.sound.soundtype import SoundType
 from terra.team.team import Team
 from terra.util.collectionutil import safe_get_from_list
 
@@ -389,6 +390,7 @@ class PieceManager(GameObject):
                 # Edge case: two allied pieces briefly occupying the same location
                 # This happens from building a new unit onto a tile where a piece is demolishing itself
                 if len(teams) > 1:
+                    self.play_sound(SoundType.PIECE_CONFLICT)
                     conflict = PieceConflict(conflicts)
                     conflict.resolve()
 
@@ -423,14 +425,6 @@ class PieceManager(GameObject):
             conduct_ranged_attack(target_piece, 1)
         for target_piece in splashed_pieces:
             conduct_ranged_attack(target_piece, aoe_multiplier)
-
-        # Do any extra effects
-        if origin_unit.attr(Attribute.CRATERING):
-            publish_game_event(EventType.E_TILE_MINED, {
-                'gx': tx,
-                'gy': ty,
-                'raising': False
-            })
 
     def conduct_ranged_attack_from_event(self, event):
         self.ranged_attack(event.gx, event.gy, event.team, event.tx, event.ty)

@@ -95,7 +95,7 @@ def map_exists(mapname, asset_type=AssetType.MAP):
         map_path = get_asset(asset_type, mapname)
         with open(map_path):
             return True
-    except IOError as e:
+    except IOError:
         return False
 
 

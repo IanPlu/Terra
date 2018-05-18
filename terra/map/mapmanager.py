@@ -6,7 +6,6 @@ from terra.map.tiletype import TileType
 from terra.piece.movementtype import movement_types, MovementAttribute
 from terra.resources.assets import spr_grid
 from terra.settings import SETTINGS, Setting
-from terra.util.mathutil import clamp
 
 
 # A single map containing tiles, organized into a grid.
@@ -26,6 +25,9 @@ class MapManager(GameObject):
 
         # Serialize the map to Tile objects (from integers)
         self.tile_grid = self.convert_grid_from_bitmap(self.bitmap)
+
+        # Adjust the grid opacity
+        spr_grid.set_alpha(256 * SETTINGS.get(Setting.GRID_OPACITY) / 100)
 
     def destroy(self):
         super().destroy()
@@ -156,10 +158,6 @@ class MapManager(GameObject):
     # Render the map to the screen
     def render(self, game_screen, ui_screen):
         super().render(game_screen, ui_screen)
-
-        # Adjust the grid opacity
-        # TODO: Don't do this every frame?
-        spr_grid.set_alpha(256 * SETTINGS.get(Setting.GRID_OPACITY) / 100)
 
         for x in range(self.width):
             for y in range(self.height):

@@ -162,9 +162,9 @@ class Task:
                                 if piece.can_build_piece_onto_tile(self.target, tile)]
                 if len(destinations) > 0:
                     # Use the path cache to find the best position along the critical path
-                    self.tx, self.ty = path_cache.get_shortest_distance_to_targets((piece.gx, piece.gy),
-                                                                                   destinations,
-                                                                                   piece.attr(Attribute.MOVEMENT_TYPE))
+                    self.tx, self.ty = path_cache.get_shortest_distance_to_target((piece.gx, piece.gy),
+                                                                                  destinations,
+                                                                                  piece.attr(Attribute.MOVEMENT_TYPE))
                     score = 1 if self.target == PieceType.COLONIST else 2
                     occupied_tiles = [(self.tx, self.ty)]
                     if piece.piece_subtype != PieceSubtype.BUILDING:

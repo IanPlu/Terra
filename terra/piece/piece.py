@@ -4,6 +4,7 @@ from terra.ai.pathfinder import get_path_to_destination, reconstruct_breadth_fir
 from terra.constants import GRID_WIDTH, GRID_HEIGHT, NETWORK_ANIMATION_SPEED
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
+from terra.economy.prices import MINE_RESOURCES
 from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import UpgradeType
@@ -19,15 +20,15 @@ from terra.piece.movementtype import MovementType, MovementAttribute, movement_t
 from terra.piece.orders import MoveOrder, RangedAttackOrder, BuildOrder, UpgradeOrder, MineOrder, DemolishOrder, \
     HealOrder
 from terra.piece.piecesubtype import PieceSubtype
-from terra.piece.piecetype import PieceType
+from terra.piece.piecetype import PieceType, ALL_UNITS
 from terra.resources.assets import spr_pieces, spr_order_flags, clear_color, spr_upgrade_icons, \
     spr_target, light_team_color, spr_digit_icons, spr_resource_icon_small, light_color, spr_cursor
 from terra.settings import SETTINGS, Setting
+from terra.sound.soundtype import SoundType
 from terra.strings import piece_name_strings, LANGUAGE
 from terra.team.team import Team
 from terra.turn.battlephase import BattlePhase
 from terra.util.drawingutil import draw_small_resource_count
-from terra.economy.prices import MINE_RESOURCES
 
 team_offsets = {
     Team.RED: (-3, -3),
@@ -121,7 +122,7 @@ class Piece(AnimatedGameObject):
         input_handler.register_handler(InputAction.RELEASE, Key.MENU2, self.stop_previewing_orders)
 
     def is_accepting_events(self):
-        return self.get_mode() in [Mode.BATTLE, Mode.NETWORK_BATTLE]
+        return self.get_mode() in [Mode.BATTLE, Mode.CAMPAIGN, Mode.NETWORK_BATTLE]
 
     # Get the sprite index to display.
     def get_index(self):
@@ -254,6 +255,8 @@ class Piece(AnimatedGameObject):
 
     # Do anything special on death
     def on_death(self):
+        self.play_sound(SoundType.PIECE_DEAD)
+
         publish_game_event(EventType.E_PIECE_DEAD, {
             'gx': self.gx,
             'gy': self.gy,
@@ -291,6 +294,7 @@ class Piece(AnimatedGameObject):
 
     # Cancel our current order, usually if we're contested.
     def abort_order(self):
+        self.play_sound(SoundType.ORDER_CANCELED)
         publish_game_event(EventType.E_ORDER_CANCELED, {
             'gx': self.gx,
             'gy': self.gy,
@@ -452,8 +456,12 @@ class Piece(AnimatedGameObject):
             while current_steps <= max_steps:
                 path_dest = path[current_steps]
 
+                cant_occupy_tile = len(self.get_manager(Manager.PIECE).get_enemy_pieces_at(
+                    path_dest[0], path_dest[1], self.team, piece_subtype=PieceSubtype.BUILDING)) > 0 and \
+                                  self.attr(Attribute.CANT_ATTACK_BUILDINGS)
+
                 # If the tile is clear of planned ally positions, mark our last possible destination
-                if not path_dest in blocked:
+                if not path_dest in blocked and not cant_occupy_tile:
                     last_possible_destination = path_dest
 
                 # If there's no impedance in our way, or if it's our first move, continue stepping forward
@@ -514,6 +522,11 @@ class Piece(AnimatedGameObject):
                 # Can't build if there's an enemy piece here
                 self.abort_order()
             else:
+                if self.current_order.new_piece_type in ALL_UNITS:
+                    self.play_sound(SoundType.UNIT_CREATED)
+                else:
+                    self.play_sound(SoundType.BUILDING_BUILT)
+
                 publish_game_event(EventType.E_PIECE_BUILT, {
                     'tx': self.current_order.tx,
                     'ty': self.current_order.ty,
@@ -573,6 +586,7 @@ class Piece(AnimatedGameObject):
                 # Abort the order
                 self.current_order = None
             else:
+                self.play_sound(SoundType.RANGED_ATTACK)
                 publish_game_event(EventType.E_UNIT_RANGED_ATTACK, {
                     'gx': self.gx,
                     'gy': self.gy,

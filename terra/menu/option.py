@@ -20,10 +20,14 @@ class Option(Enum):
     LOAD_MAP = auto()
     SAVE_SETTINGS = auto()
     TUTORIAL = auto()
+    CAMPAIGN = auto()
+    NEW_CAMPAIGN_GAME = auto()
+    LOAD_CAMPAIGN_GAME = auto()
 
     # Lobby options
     LEAVE_LOBBY = auto()
     START_BATTLE = auto()
+    AI_PERSONALITY = auto()
     ADD_HUMAN = auto()
     REMOVE_HUMAN = auto()
 

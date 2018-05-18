@@ -18,9 +18,10 @@ class DebugController(GameObject):
         input_handler.register_handler(InputAction.PRESS, Key.DEBUG1, self.submit_turn_team_1)
         input_handler.register_handler(InputAction.PRESS, Key.DEBUG2, self.submit_turn_team_2)
         input_handler.register_handler(InputAction.PRESS, Key.DEBUG5, self.research_and_money)
+        input_handler.register_handler(InputAction.PRESS, Key.DEBUG4, self.win_battle)
 
     def is_accepting_input(self):
-        return self.get_mode() in [Mode.BATTLE] and DEBUG_COMMANDS
+        return self.get_mode() in [Mode.BATTLE, Mode.CAMPAIGN] and DEBUG_COMMANDS
 
     # Manually swap control to the next player
     def pass_control(self):
@@ -35,6 +36,13 @@ class DebugController(GameObject):
     def submit_turn_team_2(self):
         team_manager = self.get_manager(Manager.TEAM)
         team_manager.try_submitting_turn(team_manager.teams[1])
+
+    # Win the game for the current active team
+    def win_battle(self):
+        team_manager = self.get_manager(Manager.TEAM)
+        for team in team_manager.teams:
+            if team != self.get_manager(Manager.PLAYER).active_team:
+                team_manager.remove_team(team)
 
     # Give each team lots of money, research all units
     def research_and_money(self):

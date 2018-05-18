@@ -9,17 +9,18 @@ from terra.economy.upgradetype import UpgradeType
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType, publish_game_event
 from terra.managers.session import Manager
+from terra.menu.menu import Menu
 from terra.piece.attribute import Attribute
 from terra.piece.piecearchetype import PieceArchetype
 from terra.piece.piecetype import PieceType
 from terra.resources.assets import spr_pieces, spr_upgrade_icons, spr_order_options, clear_color, \
     spr_piece_attribute_icons, dark_color, light_color, spr_combat_icon, spr_build_icon, team_color
+from terra.sound.soundtype import SoundType
 from terra.strings import get_text, get_multiline_text, piece_name_strings, upgrade_name_strings, \
     menu_option_strings, menu_help_strings, attribute_value_strings, attribute_label_strings, get_string, \
     formatted_strings
 from terra.util.drawingutil import draw_text
 from terra.util.mathutil import wrap
-from terra.menu.menu import Menu
 
 subgrid_size = 8
 subgrid_width = 24
@@ -66,6 +67,7 @@ class DetailBox(GameObject):
         input_handler.register_handler(InputAction.PRESS, Key.SCROLL_DOWN, self.scroll_down)
 
     def close(self):
+        self.play_sound(SoundType.CURSOR_CANCEL)
         publish_game_event(EventType.E_CLOSE_DETAILBOX, {})
 
     def scroll_up(self):
@@ -76,6 +78,7 @@ class DetailBox(GameObject):
 
     # Update the currently display target+team pair. Wrap around if necessary
     def scroll(self, direction):
+        self.play_sound(SoundType.CURSOR_MOVE)
         self.index = wrap(self.index + direction, 0, len(self.targets) - 1)
         self.target, self.team = self.targets[self.index]
 

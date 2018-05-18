@@ -4,8 +4,10 @@ from pygame.mouse import get_pos
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.engine.gameobject import GameObject
+from terra.managers.session import Manager
 from terra.resources.assets import shadow_color, light_color
 from terra.settings import SETTINGS, Setting
+from terra.sound.soundtype import SoundType
 from terra.team.team import Team
 from terra.util.mathutil import clamp
 
@@ -41,20 +43,22 @@ class Menu(GameObject):
         input_handler.register_handler(InputAction.MOTION, None, self.set_cursor_pos_to_mouse_coords)
 
     def confirm(self):
-        pass
+        self.play_sound(SoundType.CURSOR_SELECT)
 
     def cancel(self):
-        pass
+        self.play_sound(SoundType.CURSOR_CANCEL)
 
     # Move the cursor up
     def cursor_up(self):
         self.menu_pos -= 1
         self.normalize_menu_pos()
+        self.play_sound(SoundType.CURSOR_MOVE)
 
     # Move the cursor down
     def cursor_down(self):
         self.menu_pos += 1
         self.normalize_menu_pos()
+        self.play_sound(SoundType.CURSOR_MOVE)
 
     # Scroll the displayed menu portion up
     def scroll_menu_up(self):

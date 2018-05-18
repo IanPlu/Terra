@@ -1,6 +1,7 @@
-from terra.event.eventbus import EVENT_BUS
 from terra.control.inputcontroller import INPUT_CONTROLLER
-from terra.managers.session import SESSION, Manager
+from terra.event.eventbus import EVENT_BUS
+from terra.managers.session import SESSION
+from terra.sound.soundmanager import SOUND
 
 
 # Base game object class.
@@ -48,9 +49,16 @@ class GameObject:
     def get_mode(self):
         return SESSION.current_mode
 
+    # Return the filename of the current map
+    def get_map_name(self):
+        return SESSION.map_name
+
     # Return whether this is a network game or not
     def is_network_game(self):
         return SESSION.is_network_game
+
+    def play_sound(self, sound_type):
+        SOUND.play_sound(sound_type)
 
     # Invoked for every event on the queue.
     # Do state changes and any logic that should run for every event and logic loop tick

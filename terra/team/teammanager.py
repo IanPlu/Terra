@@ -11,6 +11,7 @@ from terra.mode import Mode
 from terra.piece.attribute import Attribute
 from terra.piece.pieceattributes import base_piece_attributes
 from terra.piece.piecetype import PieceType
+from terra.sound.soundtype import SoundType
 from terra.team.team import Team
 from terra.ui.phasebar import PhaseBar
 from terra.util.mathutil import clamp
@@ -102,7 +103,7 @@ class TeamManager(GameObject):
         event_bus.register_handler(EventType.END_PHASE_SPECIAL, self.check_for_remaining_teams)
 
     def is_accepting_input(self):
-        return self.get_mode() in [Mode.BATTLE] and not self.get_manager(Manager.NETWORK).networked_game
+        return self.get_mode() in [Mode.BATTLE, Mode.CAMPAIGN] and not self.get_manager(Manager.NETWORK).networked_game
 
     # Get the list of teams currently present in the battle
     def get_teams(self):
@@ -192,7 +193,6 @@ class TeamManager(GameObject):
                     if attribute == Attribute.MAX_HP:
                         # We might not have a piece manager yet, if the game is being reloaded from a save.
                         # In that case, we don't need to heal pieces anyway
-                        # TODO: This is fragile and results in buggy behavior later if the session load order changes
                         piece_manager = self.get_manager(Manager.PIECE)
                         if piece_manager:
                             for piece in piece_manager.get_all_pieces_for_team(team, piece_type=piece_type):
@@ -237,6 +237,7 @@ class TeamManager(GameObject):
     def try_submitting_turn(self, team):
         if not self.is_turn_submitted(team) and self.get_manager(Manager.PIECE).validate_orders(team):
             self.turn_submitted[team] = True
+            self.play_sound(SoundType.TURN_SUBMITTED)
             publish_game_event(EventType.E_TURN_SUBMITTED, {
                 'team': team,
                 'orders': self.get_manager(Manager.PIECE).serialize_orders(team)
@@ -260,6 +261,7 @@ class TeamManager(GameObject):
         self.turn_submitted[team] = True
 
         if self.check_if_ready_to_submit_turns():
+            self.play_sound(SoundType.ALL_TURNS_SUBMITTED)
             publish_game_event(EventType.E_ALL_TURNS_SUBMITTED, {})
             for team in self.teams:
                 self.turn_submitted[team] = False

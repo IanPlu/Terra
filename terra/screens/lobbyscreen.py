@@ -6,7 +6,7 @@ from terra.managers.session import Session, Manager
 from terra.map.minimap import draw_map_preview
 from terra.menu.lobbymenu import LobbyMenu
 from terra.resources.assets import clear_color, light_color, shadow_color, light_team_color, dark_color, spr_title_text
-from terra.strings import get_text, get_string, label_strings
+from terra.strings import get_text, get_string, label_strings, personality_strings
 from terra.team.team import Team
 from terra.util.drawingutil import draw_text
 
@@ -52,6 +52,8 @@ class LobbyScreen(GameScreen):
     def render(self, ui_screen):
         super().render(ui_screen)
 
+        player_manager = self.get_manager(Manager.PLAYER)
+
         game_screen = Surface((RESOLUTION_WIDTH, RESOLUTION_HEIGHT), SRCALPHA, 32)
         game_screen.fill(clear_color[Team.RED])
 
@@ -67,8 +69,8 @@ class LobbyScreen(GameScreen):
             ai_teams = []
         else:
             filled_teams = dict([(team, get_string(label_strings, "HUMAN_TEAM")) for
-                                 team in self.get_manager(Manager.PLAYER).human_teams])
-            ai_teams = self.get_manager(Manager.PLAYER).ai_teams
+                                 team in player_manager.human_teams])
+            ai_teams = player_manager.ai_teams
 
         row_y = 0
         for team in self.teams:
@@ -84,7 +86,8 @@ class LobbyScreen(GameScreen):
             if team in filled_teams:
                 game_screen.blit(draw_text(filled_teams[team], light_color, dark_color), (position_x + 8, position_y + 4))
             elif team in ai_teams:
-                game_screen.blit(get_text(label_strings, "AI_TEAM"), (position_x + 8, position_y + 4))
+                personality_type = player_manager.get_ai_player(team).personality.personality_type
+                game_screen.blit(get_text(personality_strings, personality_type), (position_x + 8, position_y + 4))
             else:
                 game_screen.blit(get_text(label_strings, "OPEN_TEAM"), (position_x + 8, position_y + 4))
 

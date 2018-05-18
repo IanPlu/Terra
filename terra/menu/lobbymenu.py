@@ -24,7 +24,7 @@ class LobbyMenu(Menu):
                          max_displayable_options=3,
                          displayable_buffer=1,
                          root_x=HALF_RES_WIDTH,
-                         root_y=HALF_RES_HEIGHT + len(teams) * 24,
+                         root_y=HALF_RES_HEIGHT + (len(teams) - 1) * 24,
                          width=168,
                          option_height=24)
 
@@ -42,6 +42,7 @@ class LobbyMenu(Menu):
 
         if not self.is_network_game():
             options.append(Option.ADD_HUMAN)
+            options.append(Option.AI_PERSONALITY)
             options.append(Option.START_BATTLE)
 
         options.reverse()
@@ -72,6 +73,8 @@ class LobbyMenu(Menu):
             self.start_battle()
         elif option == Option.SETTINGS:
             self.open_settings()
+        elif option == Option.AI_PERSONALITY:
+            self.change_ai_personality()
         elif option == Option.ADD_HUMAN:
             self.add_human()
         elif option == Option.REMOVE_HUMAN:
@@ -97,16 +100,20 @@ class LobbyMenu(Menu):
         self.options.remove(Option.REMOVE_HUMAN)
         publish_game_event(EventType.E_REMOVE_HUMAN, {})
 
-    def on_all_teams_filled(self, event):
+    def on_all_teams_filled(self, event=None):
         if self.get_manager(Manager.NETWORK).is_host:
             self.options.insert(0, Option.START_BATTLE)
             self.num_options += 1
 
-    def on_team_left(self, event):
+    def on_team_left(self, event=None):
         if Option.START_BATTLE in self.options:
             self.options.remove(Option.START_BATTLE)
             self.menu_pos = 0
             self.num_options -= 1
+
+    def change_ai_personality(self, event=None):
+        # NOTE: Doesn't support multiple AIs. All AIs will change.
+        publish_game_event(EventType.E_CHANGE_AI_PERSONALITY, {})
 
     def open_settings(self):
         self.settings = LobbySettings(self.teams)

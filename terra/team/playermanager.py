@@ -49,10 +49,13 @@ class PlayerManager(GameObject):
         event_bus.register_handler(EventType.E_REMOVE_HUMAN, self.remove_human)
 
     def is_accepting_input(self):
-        return self.get_mode() in [Mode.BATTLE] and not self.get_manager(Manager.NETWORK).networked_game
+        return self.get_mode() in [Mode.BATTLE, Mode.CAMPAIGN] and not self.get_manager(Manager.NETWORK).networked_game
 
     def is_hotseat_mode(self):
         return not self.get_manager(Manager.NETWORK).networked_game and len(self.ais.keys()) == 0
+
+    def get_ai_player(self, team):
+        return self.ais.get(team, None)
 
     def is_ai_thinking(self, team):
         ai = self.ais.get(team, None)

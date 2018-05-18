@@ -2,6 +2,7 @@ from terra.constants import HALF_RES_WIDTH, HALF_RES_HEIGHT
 from terra.control.inputcontroller import InputAction
 from terra.control.keybindings import Key
 from terra.event.event import EventType, publish_game_event
+from terra.managers.campaignmanager import get_open_maps, load_campaign_progress
 from terra.map.maputils import get_loadable_maps
 from terra.map.minimap import draw_map_preview_from_file
 from terra.menu.menu import Menu
@@ -9,7 +10,8 @@ from terra.menu.option import Option
 from terra.menu.textinput import TextInput, FILTER_IP, FILTER_FILENAME, FILTER_ALPHANUMERIC
 from terra.menu.tutorial import Tutorial
 from terra.resources.assetloading import AssetType
-from terra.resources.assets import light_color, shadow_color, light_team_color, spr_main_menu_option, dark_color
+from terra.resources.assets import light_color, shadow_color, light_team_color, spr_main_menu_option, dark_color, \
+    spr_mission_completed
 from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
 from terra.team.team import Team
@@ -40,6 +42,7 @@ def generate_menu():
         host_option[1].append((Option.LOAD_NETWORK_GAME, loadable_saves))
 
     start_menu_options = [
+        (Option.CAMPAIGN, generate_campaign_menu()),
         local_option,
     ]
 
@@ -78,6 +81,21 @@ def generate_settings_menu():
     ]
 
 
+# Generate the campaign menu.
+def generate_campaign_menu():
+    open_maps = [(mapname, []) for mapname in get_open_maps()]
+    loadable_saves = convert_loadable_maps_to_options(AssetType.CAMPAIGN_SAVE)
+
+    options = []
+
+    if len(open_maps) > 0:
+        options.append((Option.NEW_CAMPAIGN_GAME, open_maps))
+    if len(loadable_saves) > 0:
+        options.append((Option.LOAD_CAMPAIGN_GAME, loadable_saves))
+
+    return options
+
+
 # Main menu for the game.
 # Allows player to load or start games, access the level editor, and change settings.
 class MainMenu(Menu):
@@ -85,6 +103,8 @@ class MainMenu(Menu):
         self.current_menu = generate_menu()
         self.text_input = None
         self.tutorial = None
+
+        self.progress = load_campaign_progress()
 
         super().__init__(num_options=len(self.current_menu[1]),
                          max_displayable_options=6,
@@ -107,6 +127,7 @@ class MainMenu(Menu):
         event_bus.register_handler(EventType.TEXT_CANCEL_INPUT, self.handle_text_input)
         event_bus.register_handler(EventType.TEXT_SUBMIT_INPUT, self.handle_text_input)
         event_bus.register_handler(EventType.TUTORIAL_EXIT, self.close_tutorial)
+        event_bus.register_handler(EventType.E_BATTLE_OVER, self.update_campaign_progress)
 
     def register_input_handlers(self, input_handler):
         super().register_input_handlers(input_handler)
@@ -151,7 +172,8 @@ class MainMenu(Menu):
         self.clamp_menu_bounds()
 
     def handle_menu_selection(self, option):
-        if self.current_menu[0] in [Option.NEW_GAME, Option.LOAD_GAME, Option.LOAD_MAP]:
+        if self.current_menu[0] in [Option.NEW_GAME, Option.LOAD_GAME, Option.LOAD_MAP,
+                                    Option.NEW_CAMPAIGN_GAME, Option.LOAD_CAMPAIGN_GAME]:
             publish_game_event(EventType.MENU_SELECT_OPTION, {
                 'option': self.current_menu[0],
                 'mapname': option[0]
@@ -209,6 +231,9 @@ class MainMenu(Menu):
         if selection in numeric_settings:
             SETTINGS.raise_setting(selection)
 
+    def update_campaign_progress(self, event=None):
+        self.progress = load_campaign_progress()
+
     def step(self, event):
         super().step(event)
 
@@ -250,6 +275,7 @@ class MainMenu(Menu):
 
                 if isinstance(option[0], str):
                     # Render arbitrary text
+
                     # Format the text a bit
                     text = option[0]\
                         .replace("_", " ")\
@@ -260,12 +286,24 @@ class MainMenu(Menu):
                     # Render arbitrary text
                     game_screen.blit(draw_text(text, light_color, dark_color), (position_x + 8, position_y + 8))
 
+                    # For campaign, render an icon for completed missions
+                    if option[0] in self.progress:
+                        game_screen.blit(spr_mission_completed, (position_x + self.width - 24, position_y))
+
                     # Render map previews if we're trying to select a map
                     if is_selected and self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
                                                                 Option.LOAD_GAME, Option.LOAD_MAP,
-                                                                Option.NEW_NETWORK_GAME, Option.LOAD_NETWORK_GAME]:
-                        asset_type = AssetType.MAP if self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,
-                                                                               Option.NEW_NETWORK_GAME, Option.LOAD_MAP] else AssetType.SAVE
+                                                                Option.NEW_NETWORK_GAME, Option.LOAD_NETWORK_GAME,
+                                                                Option.NEW_CAMPAIGN_GAME, Option.LOAD_CAMPAIGN_GAME]:
+
+                        if self.current_menu[0] in [Option.LOAD_GAME, Option.LOAD_NETWORK_GAME]:
+                            asset_type = AssetType.SAVE
+                        elif self.current_menu[0] in [Option.NEW_CAMPAIGN_GAME]:
+                            asset_type = AssetType.CAMPAIGN_MAP
+                        elif self.current_menu[0] in [Option.LOAD_CAMPAIGN_GAME]:
+                            asset_type = AssetType.CAMPAIGN_SAVE
+                        else:
+                            asset_type = AssetType.MAP
 
                         container_height = 24 * self.max_displayable_options
                         container_width = self.width - 24

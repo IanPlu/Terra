@@ -59,7 +59,7 @@ class UpgradeType(Enum):
     TITAN_AURA_DAMAGE = auto()
 
     # Earthrender
-    EARTHRENDER_CRATERING = auto()
+    EARTHRENDER_CHAIN = auto()
     EARTHRENDER_DAMAGE = auto()
 
     # Demon

@@ -6,31 +6,31 @@ from pygame import USEREVENT
 from pygame.event import Event
 
 from terra.ai.pathcache import PathCache
-from terra.ai.personality import create_default_personality
+from terra.ai.personality import personality_method, PersonalityType
 from terra.ai.task import Task, TaskType, Assignment
 from terra.economy.upgradeattribute import UpgradeAttribute
 from terra.economy.upgrades import base_upgrades
 from terra.economy.upgradetype import UpgradeType
 from terra.economy.upgradetype import unit_research
 from terra.engine.gameobject import GameObject
-from terra.event.event import EventType
+from terra.event.event import EventType, publish_game_event
 from terra.managers.session import Manager
 from terra.map.tiletype import TileType
 from terra.menu.option import Option
 from terra.mode import Mode
 from terra.piece.attribute import Attribute
 from terra.piece.damagetype import DamageType
-from terra.piece.movementtype import MovementType
 from terra.piece.piece import Piece
 from terra.piece.piecearchetype import PieceArchetype, counter_archetype
 from terra.piece.piecesubtype import PieceSubtype
 from terra.piece.piecetype import PieceType
+from terra.util.mathutil import wrap
 
 
 # An AI player, in charge of giving orders to a team.
 # When the Orders phase begins, it'll provide orders to its team.
 class AIPlayer(GameObject):
-    def __init__(self, team):
+    def __init__(self, team, personality_type=PersonalityType.DEFAULT):
         self.team = team
 
         # Turn planning data
@@ -50,7 +50,7 @@ class AIPlayer(GameObject):
         self.map = None
         self.map_size = None
 
-        self.personality = create_default_personality()
+        self.personality = personality_method[personality_type]()
 
         # General map navigation
         self.path_cache = PathCache(self.get_manager(Manager.PIECE), self.get_manager(Manager.MAP), self.team)
@@ -74,10 +74,13 @@ class AIPlayer(GameObject):
     def register_handlers(self, event_bus):
         super().register_handlers(event_bus)
 
+        event_bus.register_handler(EventType.E_CHANGE_AI_PERSONALITY, self.change_personality)
+
         if self.do_threaded_planning:
             # When the player submits their turn, plan out the AI turn on a separate thread
             event_bus.register_handler(EventType.AI_REPLAN_TURN, self.begin_threaded_planning)
             event_bus.register_handler(EventType.E_TURN_SUBMITTED, self.begin_threaded_planning)
+            event_bus.register_handler(EventType.AI_EXCEPTION, self.handle_ai_exception)
         else:
             # At start of turn, do preplanning. Then complete planning the turn when the player submits their turn
             event_bus.register_handler(EventType.AI_REPLAN_TURN, self.do_all_planning)
@@ -85,7 +88,13 @@ class AIPlayer(GameObject):
             event_bus.register_handler(EventType.E_TURN_SUBMITTED, self.act_on_planning)
 
     def is_accepting_events(self):
-        return self.get_mode() in [Mode.BATTLE, Mode.LOBBY]
+        return self.get_mode() in [Mode.BATTLE, Mode.CAMPAIGN, Mode.LOBBY]
+
+    # Scroll through available AI personalities
+    def change_personality(self, event):
+        new_personality = PersonalityType(wrap(self.personality.personality_type.value + 1,
+                                                0, len(PersonalityType) - 1))
+        self.personality = personality_method[new_personality]()
 
     # Rebuild the AI's understanding of the board, map, and pieces
     def parse_board_state(self):
@@ -551,10 +560,22 @@ class AIPlayer(GameObject):
         thread = Thread(target=self.do_all_planning)
         thread.start()
 
+    # Handle exceptions passed back into the main thread from the AI planning thread
+    def handle_ai_exception(self, event):
+        raise event.exc_info[0].with_traceback(event.exc_info[1], event.exc_info[2])
+
     # Conduct preplanning and acting on that planning sequentially
     def do_all_planning(self, event=None):
-        self.do_preplanning()
-        self.act_on_planning()
+        try:
+            self.do_preplanning()
+            self.act_on_planning()
+        except Exception as exception:
+            from sys import exc_info
+            # Something's gone wrong, so re-raise this exception with an event in the main thread
+            publish_game_event(EventType.AI_EXCEPTION, {
+                'exception': exception,
+                'exc_info': exc_info(),
+            })
 
     # Calculate what the world looks like right now
     def do_preplanning(self, event=None):

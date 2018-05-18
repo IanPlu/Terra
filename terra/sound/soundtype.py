@@ -1,7 +1,8 @@
 from enum import Enum
 
 from terra.resources.assets import sfx_cursor_move, sfx_cursor_select, sfx_cursor_cancel, sfx_turn_submitted, \
-    sfx_all_turns_submitted, sfx_piece_hit, sfx_order_canceled, sfx_ranged_attack, sfx_build
+    sfx_all_turns_submitted, sfx_piece_hit, sfx_order_canceled, sfx_ranged_attack, sfx_building_built, sfx_unit_built, \
+    sfx_piece_conflict
 
 
 class SoundType(Enum):
@@ -16,5 +17,6 @@ class SoundType(Enum):
     ORDER_CANCELED = sfx_order_canceled
 
     RANGED_ATTACK = sfx_ranged_attack
-    BUILDING_BUILT = sfx_build
-    UNIT_CREATED = sfx_build
+    PIECE_CONFLICT = sfx_piece_conflict
+    BUILDING_BUILT = sfx_building_built
+    UNIT_CREATED = sfx_unit_built

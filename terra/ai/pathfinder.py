@@ -1,6 +1,5 @@
 from queue import PriorityQueue, Queue
 
-from terra.map.tiletype import TileType
 from terra.piece.attribute import Attribute
 
 

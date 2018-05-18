@@ -18,7 +18,7 @@ setup(name="Terra",
       version="0.1",
       description="Terra game",
       options=options,
-      requires=['pygame'],
+      requires=['pygame', 'cx_Freeze', 'opensimplex'],
       executables=[Executable("launcher.py", base="Win32GUI")])
 
 # Zip up the created file

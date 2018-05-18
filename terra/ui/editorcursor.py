@@ -7,7 +7,8 @@ from terra.event.event import EventType, publish_game_event
 from terra.managers.session import Manager
 from terra.map.tiletype import TileType
 from terra.menu.option import Option
-from terra.piece.piecetype import PieceType
+from terra.piece.piecetype import PieceType, ALL_UNITS
+from terra.sound.soundtype import SoundType
 from terra.team.team import Team
 from terra.ui.cursor import Cursor
 from terra.ui.menupopup import MenuPopup
@@ -93,6 +94,7 @@ class EditorCursor(Cursor):
         self.placing_multiple_alt = False
 
     def open_pause_menu(self):
+        self.play_sound(SoundType.CURSOR_SELECT)
         self.menu = MenuPopup(self, Team.RED, self.gx, self.gy, [
             Option.MENU_SAVE_MAP,
             Option.MENU_FILL_WITH_CURRENT_TILE,
@@ -135,6 +137,7 @@ class EditorCursor(Cursor):
 
     # Replace the tile at the current cursor location with the specified tile type
     def place_tile(self, tile_type):
+        self.play_sound(SoundType.BUILDING_BUILT)
         self.get_manager(Manager.MAP).update_tile_type(self.gx, self.gy, tile_type)
 
     # Place the current piece type at the current cursor location. If a piece for this team already exists, remove it
@@ -143,6 +146,11 @@ class EditorCursor(Cursor):
         if piece:
             # Delete existing pieces first
             self.remove_piece(piece)
+
+        if piece_type in ALL_UNITS:
+            self.play_sound(SoundType.UNIT_CREATED)
+        else:
+            self.play_sound(SoundType.BUILDING_BUILT)
 
         publish_game_event(EventType.E_PIECE_BUILT, {
             'tx': self.gx,

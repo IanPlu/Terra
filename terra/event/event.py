@@ -39,6 +39,7 @@ class EventType(Enum):
     E_EXIT_LOBBY = auto()
     E_NETWORKING_ERROR = auto()
     E_SWAP_ACTIVE_PLAYER = auto()
+    E_CHANGE_AI_PERSONALITY = auto()
     E_ADD_HUMAN = auto()
     E_REMOVE_HUMAN = auto()
 
@@ -106,6 +107,7 @@ class EventType(Enum):
 
     # AI control events
     AI_REPLAN_TURN = auto()
+    AI_EXCEPTION = auto()
 
 
 # Publish the specified game event, with the data provided.

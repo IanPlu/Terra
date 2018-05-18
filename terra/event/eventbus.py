@@ -1,4 +1,7 @@
+from sys import exc_info
+
 from pygame import USEREVENT
+
 from terra.event.event import FROM_NETWORK
 
 
@@ -43,7 +46,11 @@ class EventBus:
                 for handler, local_only in event_handlers:
                     if ((local_only and is_local_event) or (not local_only)) and \
                             handler.__self__.is_accepting_events():
-                        handler(event)
+                        try:
+                            handler(event)
+                        except:
+                            exc = exc_info()
+                            raise exc[0].with_traceback(exc[1], exc[2])
 
 
 EVENT_BUS = EventBus()

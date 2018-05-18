@@ -14,8 +14,8 @@ class Manager(Enum):
     TURN = "turn"
     PLAYER = "player"
     NETWORK = "network"
-    SOUND = "sound"
     STAT = "stat"
+    CAMPAIGN = "campaign"
 
 
 # A single game session (a battle). An instance will contain multiple manager objects.
@@ -111,10 +111,10 @@ class Session:
         from terra.map.mapmanager import MapManager
         from terra.piece.piecemanager import PieceManager
         from terra.team.playermanager import PlayerManager
-        from terra.sound.soundmanager import SoundManager
         from terra.managers.statmanager import StatManager
         from terra.team.teammanager import TeamManager
         from terra.turn.turnmanager import TurnManager
+        from terra.managers.campaignmanager import CampaignManager
 
         self.map_name = map_name
         self.managers[Manager.COMBAT_LOGGER] = CombatLogger(map_name)
@@ -123,9 +123,11 @@ class Session:
         self.managers[Manager.PIECE] = PieceManager(pieces)
         self.managers[Manager.PLAYER] = PlayerManager()
         self.managers[Manager.TURN] = TurnManager(meta)
-        self.managers[Manager.SOUND] = SoundManager()
         self.managers[Manager.STAT] = StatManager(teams)
         self.managers[Manager.EFFECTS] = EffectsManager()
+
+        if self.current_mode == Mode.CAMPAIGN:
+            self.managers[Manager.CAMPAIGN] = CampaignManager()
 
     def step(self, event):
         for key, manager in self.managers.items():

@@ -57,10 +57,15 @@ spr_main_menu_option = {
     Option.SAVE_SETTINGS: spr_main_menu_option_base[6],
     Option.START_BATTLE: spr_main_menu_option_base[0],
     Option.LEAVE_LOBBY: spr_main_menu_option_base[4],
+    Option.AI_PERSONALITY: spr_main_menu_option_base[7],
     Option.ADD_HUMAN: spr_main_menu_option_base[5],
     Option.REMOVE_HUMAN: spr_main_menu_option_base[7],
     Option.TUTORIAL: spr_main_menu_option_base[5],
+    Option.CAMPAIGN: spr_main_menu_option_base[0],
+    Option.NEW_CAMPAIGN_GAME: spr_main_menu_option_base[0],
+    Option.LOAD_CAMPAIGN_GAME: spr_main_menu_option_base[6],
 }
+spr_mission_completed = spr_main_menu_option_base[9]
 
 spr_cursor = {
     Team.RED: pygame.image.load(get_asset(AssetType.SPRITE, "ui/Cursor.png"))
@@ -188,7 +193,7 @@ spr_upgrade_icons = {
         UpgradeType.TITAN_LIFESTEAL: spr_upgrade_icons_base[33],
         UpgradeType.TITAN_AURA_DAMAGE: spr_upgrade_icons_base[34],
 
-        UpgradeType.EARTHRENDER_CRATERING: spr_upgrade_icons_base[35],
+        UpgradeType.EARTHRENDER_CHAIN: spr_upgrade_icons_base[35],
         UpgradeType.EARTHRENDER_DAMAGE: spr_upgrade_icons_base[36],
 
         UpgradeType.DEMON_CAN_BUILD: spr_upgrade_icons_base[37],
@@ -346,7 +351,9 @@ sfx_piece_hit = load_sound("Hit1.wav")
 sfx_order_canceled = load_sound("Interrupt.wav")
 
 sfx_ranged_attack = load_sound("Attack1.wav")
-sfx_build = load_sound("Build1.wav")
+sfx_piece_conflict = load_sound("Combat.wav")
+sfx_building_built = load_sound("Build1.wav")
+sfx_unit_built = load_sound("Build2.wav")
 
 # Fonts
 font_pixelmix = pygame.font.Font(get_asset(AssetType.FONT, "pixelmix.ttf"), 8)

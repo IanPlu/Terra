@@ -1,11 +1,8 @@
 from terra.ai.pathfinder import navigate_all
 from terra.engine.gameobject import GameObject
 from terra.event.event import EventType
-from terra.map.tiletype import TileType
 from terra.piece.attribute import Attribute
 from terra.piece.movementtype import MovementType
-from terra.piece.piecetype import PieceType
-
 
 cached_movement_types = [MovementType.GROUND, MovementType.HEAVY, MovementType.HOVER, MovementType.FLYING]
 terraforming_affected_movement_types = [MovementType.GROUND, MovementType.HEAVY, MovementType.HOVER]
@@ -74,19 +71,24 @@ class PathCache(GameObject):
     def get_distance(self, target, movement_type):
         return self.distances.get(movement_type, {}).get(target, None)
 
-    def get_shortest_distance_to_targets(self, start, targets, movement_type):
+    # Return the start among starts with the shortest distance to the target
+    def get_shortest_distance_to_target(self, target, starts, movement_type):
         shortest = 999
-        min_target = targets[0]
+        min_start = starts[0]
 
-        for target in targets:
+        for start in starts:
             distances = self.get_distance(target, movement_type)
             if distances:
                 distance = distances.get(start, 999)
-                if distance <= shortest:
-                    shortest = distance
-                    min_target = target
+            else:
+                # Just use the manhattan distance (ignoring terrain)
+                distance = abs(start[0] - target[0]) + abs(start[1] - target[1])
 
-        return min_target
+            if distance <= shortest:
+                shortest = distance
+                min_start = start
+
+        return min_start
 
     # Pathfind to the target for all possible contiguous start points, and cache it in 'paths' and 'distances'
     def cache_path(self, target, movement_type):

@@ -13,6 +13,7 @@ from terra.settings import Setting
 from terra.team.team import Team
 from terra.turn.battlephase import BattlePhase
 from terra.util.drawingutil import draw_text, draw_multiline_text
+from terra.ai.personality import PersonalityType
 
 
 class Language(Enum):
@@ -171,7 +172,8 @@ menu_help_strings = {
         UpgradeType.TITAN_LIFESTEAL: "* Titans now heal for a portion of damage they deal with their normal attack. ",
         UpgradeType.TITAN_AURA_DAMAGE: "* Titans now deal more damage to adjacent enemies at the end of turn. ",
 
-        UpgradeType.EARTHRENDER_CRATERING: "* Earthrenders now LOWER the tile they target with ranged attacks. ",
+        UpgradeType.EARTHRENDER_CHAIN: "* Earthrenders now trigger an explosion when killing enemies, dealing the "
+                                       "same damage to enemies adjacent to the target. This effect can chain.",
         UpgradeType.EARTHRENDER_DAMAGE: "* Earthrenders now do significantly more damage, and have a longer range. ",
 
         UpgradeType.DEMON_CAN_BUILD: "* Demons now gain the ability to construct T1 units. ",
@@ -339,7 +341,7 @@ upgrade_name_strings = {
         UpgradeType.TITAN_LIFESTEAL: "[Ti] Flux Engine",
         UpgradeType.TITAN_AURA_DAMAGE: "[Ti] Devastation",
 
-        UpgradeType.EARTHRENDER_CRATERING: "[Ea] Meteor",
+        UpgradeType.EARTHRENDER_CHAIN: "[Ea] Meteor",
         UpgradeType.EARTHRENDER_DAMAGE: "[Ea] Long Gun",
 
         UpgradeType.DEMON_CAN_BUILD: "[De] Summoning",
@@ -377,9 +379,13 @@ main_menu_strings = {
         Option.LOAD_MAP: "Load Map",
         Option.SAVE_SETTINGS: "Apply Settings",
         Option.TUTORIAL: "Manual",
+        Option.CAMPAIGN: "Missions",
+        Option.NEW_CAMPAIGN_GAME: "Start Mission",
+        Option.LOAD_CAMPAIGN_GAME: "Continue Mission",
 
         Option.LEAVE_LOBBY: "Leave Lobby",
         Option.START_BATTLE: "Start Battle",
+        Option.AI_PERSONALITY: "AI Personality",
         Option.ADD_HUMAN: "Add Local Player",
         Option.REMOVE_HUMAN: "Remove Local Player",
     }
@@ -418,7 +424,6 @@ attribute_label_strings = {
         Attribute.HEAL_POWER: "Healing Power",
         Attribute.PORTAL: "Acts as a Portal",
         Attribute.LIFESTEAL: "Lifesteal",
-        Attribute.CRATERING: "Ranged attacks Terraform",
     }
 }
 
@@ -437,6 +442,18 @@ attribute_value_strings = {
         PieceArchetype.MOBILITY: "Mobility",
         PieceArchetype.GENERATOR: "Generator",
         PieceArchetype.UTILITY: "Utility",
+    }
+}
+
+personality_strings = {
+    Language.EN_US: {
+        PersonalityType.DEFAULT: "Default AI",
+        PersonalityType.AGGRESSIVE: "Aggressive AI",
+        PersonalityType.DEFENSIVE: "Defensive AI",
+        PersonalityType.BERSERKER: "Berserker AI",
+        PersonalityType.BUILDER: "Builder AI",
+        PersonalityType.TECHER: "Techer AI",
+        PersonalityType.RANDOM: "Chaotic AI",
     }
 }
 

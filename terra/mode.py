@@ -4,6 +4,7 @@ from enum import Enum, auto
 class Mode(Enum):
     MAIN_MENU = auto()
     BATTLE = auto()
+    CAMPAIGN = auto()
     EDIT = auto()
     RESULTS = auto()
     LOBBY = auto()

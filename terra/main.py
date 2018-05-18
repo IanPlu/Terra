@@ -58,6 +58,8 @@ class Main:
         elif new_mode == Mode.BATTLE:
             # Managers are already initialized by the lobby
             new_screen = BattleScreen(create_session=False)
+        elif new_mode == Mode.CAMPAIGN:
+            new_screen = BattleScreen(map_name, map_type, create_session=True)
         elif new_mode == Mode.EDIT:
             new_screen = LevelEditor(map_name)
         elif new_mode == Mode.RESULTS:
@@ -97,6 +99,10 @@ class Main:
             self.set_screen_from_mode(Mode.LOBBY, event.mapname)
         elif event.option == Option.LOAD_GAME:
             self.set_screen_from_mode(Mode.LOBBY, event.mapname, map_type=AssetType.SAVE)
+        elif event.option == Option.NEW_CAMPAIGN_GAME:
+            self.set_screen_from_mode(Mode.CAMPAIGN, event.mapname, map_type=AssetType.CAMPAIGN_MAP)
+        elif event.option == Option.LOAD_CAMPAIGN_GAME:
+            self.set_screen_from_mode(Mode.CAMPAIGN, event.mapname, map_type=AssetType.CAMPAIGN_SAVE)
         elif event.option == Option.NEW_NETWORK_GAME:
             mode = Mode.NETWORK_LOBBY if use_network_lobby else Mode.BATTLE
             self.set_screen_from_mode(mode, event.mapname, event.address, is_host=True)
@@ -164,7 +170,13 @@ class Main:
     # Run the entire game + loop. Initialize stuff like pygame and the window the game will render in.
     def run(self):
         # Initialize pygame and some UI settings
+        pygame.mixer.pre_init(22050, -16, 2, 4096)
         pygame.init()
+        # This inexplicably works to reduce the sound lag:
+        # https://stackoverflow.com/questions/37379849/pygame-sound-delay-not-related-to-buffer-sampling?rq=1
+        pygame.mixer.quit()
+        pygame.mixer.init(22050, -16, 2, 256)
+
         self.reset_resolution()
 
         load_assets()

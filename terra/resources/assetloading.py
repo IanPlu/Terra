@@ -12,6 +12,8 @@ class AssetType(Enum):
     ATTRIBUTES = "resources/attributes/"
     LOG = "logs/"
     FONT = "resources/fonts/"
+    CAMPAIGN_MAP = "resources/campaignmaps"
+    CAMPAIGN_SAVE = "resources/campaignsaves"
 
 
 # Return a properly formatted path to the specified resource

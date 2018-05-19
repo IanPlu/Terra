@@ -54,7 +54,6 @@ class Personality:
             TaskType.MINE: self.constructive,
 
             TaskType.ATTACK_ENEMY: self.aggressive,
-            TaskType.DEFEND_TARGET: self.defensive,
             TaskType.HEAL_SELF: self.defensive,
             TaskType.RETREAT: self.defensive,
         }.get(task.task_type, 1)

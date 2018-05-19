@@ -187,7 +187,8 @@ tutorial_strings = {
            "\n\n"
            "Asking nicely if you could have full control of a newly discovered planet didn't work. "
            "Neither did sending your legions of space-lawyers to argue the case for your galactic megacorporation! "
-           "So we're down to the old-fashioned way-- lots of fighting, and lots of lasers!"
+           "So we're down to the old-fashioned way-- lots of fighting, and lots of lasers!\n"
+           "If anyone asks, you're just negotiating with your fellow CEOs. "
            "\n\n"
            "Terra is a turn-based strategy game set on an alien world, where multiple corporate armies are fighting"
            " for control, so they can get back to their usual business of building office parks and digging out "
@@ -366,7 +367,7 @@ main_menu_strings = {
         Option.START: "Main Menu",
         Option.NEW_GAME: "New Game",
         Option.LOAD_GAME: "Load Game",
-        Option.LEVEL_EDITOR: "Level Editor",
+        Option.LEVEL_EDITOR: "Map Editor",
         Option.SETTINGS: "Settings",
         Option.QUIT: "Quit",
         Option.LOCAL: "Local Play",

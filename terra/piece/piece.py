@@ -38,6 +38,14 @@ team_offsets = {
     Team.NONE: (-2, 2)
 }
 
+campaign_team_offsets = {
+    Team.RED: (-3, -3),
+    Team.BLUE: (3, 3),
+    Team.GREEN: (3, 3),
+    Team.YELLOW: (3, 3),
+    Team.NONE: (-2, 2)
+}
+
 
 # Base object in play belonging to a player, like a unit or a building.
 # They belong to a team and exist somewhere on the map.
@@ -158,7 +166,6 @@ class Piece(AnimatedGameObject):
         return actions
 
     # Trim the list of innately buildable pieces to ones that can be placed nearby, taking tile type etc. into account
-    # TODO: Use 'can_build_piece_onto_tile()'
     def get_valid_buildable_pieces(self):
         valid_pieces = []
 
@@ -191,7 +198,7 @@ class Piece(AnimatedGameObject):
                     if piece.attr(Attribute.MOVEMENT_RANGE) <= 0:
                         immobile_allies.append(piece)
 
-                # Can't build onto tiles where enemy buildings are
+                # Can't build onto tiles where existing buildings are
                 enemy_buildings = self.get_manager(Manager.PIECE).get_enemy_pieces_at(tile_x, tile_y, self.team, piece_subtype=PieceSubtype.BUILDING)
 
                 if len(immobile_allies) <= 0 and len(enemy_buildings) <= 0:
@@ -838,7 +845,10 @@ class Piece(AnimatedGameObject):
                 if abs(self.rendered_gy - desired_y) <= self.move_animation_snap_dist:
                     self.rendered_gy = desired_y
 
-            xoffset, yoffset = team_offsets[self.team] if self.in_conflict else (0, 0)
+            if self.get_mode() == Mode.CAMPAIGN:
+                xoffset, yoffset = campaign_team_offsets[self.team] if self.in_conflict else (0, 0)
+            else:
+                xoffset, yoffset = team_offsets[self.team] if self.in_conflict else (0, 0)
 
             actual_x = self.rendered_gx + xoffset
             actual_y = self.rendered_gy + yoffset

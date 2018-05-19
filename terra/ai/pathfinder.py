@@ -41,7 +41,7 @@ def navigate(start, goal, map, piece=None, movement_type=None, blocked_coords=No
 
 
 # Generate all paths to a goal, as well as all distances to that goal.
-def navigate_all(goal, map, movement_type):
+def navigate_all(goal, map, movement_type, max_distance=None):
     frontier = Queue()
     frontier.put(goal)
 
@@ -54,9 +54,10 @@ def navigate_all(goal, map, movement_type):
 
         for next in map.get_valid_adjacent_tiles_for_movement_type(current[0], current[1], movement_type):
             if next not in came_from:
-                frontier.put(next)
-                came_from[next] = current
-                distance[next] = 1 + distance[current]
+                if not max_distance or (1 + distance[current] < max_distance):
+                    frontier.put(next)
+                    came_from[next] = current
+                    distance[next] = 1 + distance[current]
 
     return came_from, distance
 
@@ -78,18 +79,11 @@ def reconstruct_path(start, goal, came_from):
     return path
 
 
-# TODO: Fix needing two methods-- Right now it's because BFS is from goal -> many starts
 def reconstruct_breadth_first_path(start, goal, came_from):
-    current = goal
-    path = []
-    try:
-        while current != start:
-            path.append(current)
-            current = came_from[current]
-    except KeyError:
-        return None
+    path = reconstruct_path(start, goal, came_from)
+    if path:
+        path.reverse()
 
-    path.append(start)
     return path
 
 

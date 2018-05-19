@@ -1,11 +1,12 @@
 from math import ceil
-from random import sample
+from random import sample, randint
 from threading import Thread
 
 from pygame import USEREVENT
 from pygame.event import Event
 
 from terra.ai.pathcache import PathCache
+from terra.ai.pathfinder import navigate_all
 from terra.ai.personality import personality_method, PersonalityType
 from terra.ai.task import Task, TaskType, Assignment
 from terra.economy.upgradeattribute import UpgradeAttribute
@@ -152,11 +153,6 @@ class AIPlayer(GameObject):
                     tasks.append(task)
             else:
                 tasks.append(self.create_heal_task(injured))
-
-        # TODO: Generate tasks to defend key targets (Base, Barracks, Colonists)
-        # Generate base defense task with priority and assignment limit based on number of nearby enemies
-        # Generate barracks defense task with similar (but lower) priority to base defense
-        # Generate Colonist defense tasks. Try to keep close / move WITH the Colonist
 
         # Try to attack all enemies
         for enemy in enemy_pieces:
@@ -362,17 +358,33 @@ class AIPlayer(GameObject):
 
         return tasks
 
+    # Anticipate roughly where an enemy will be next turn
     def get_anticipated_movement(self, piece):
         if piece.piece_subtype == PieceSubtype.BUILDING:
             # Buildings usually don't go anywhere
             return piece.gx, piece.gy
         else:
-            # TODO: Try to anticipate where the enemy will be
-            # 1. Determine the movement range of the enemy (tile selection UI)
-            # 2. Score each tile in range based on targets it might attack
-            # 3. Score likelihood of it moving at all(buildings don't move, ranged units might attack, might repair)
-            # Use all this to determine the most likely tile the unit will be on next turn and target THAT tile instead
-            return piece.gx, piece.gy
+            gx, gy = piece.gx, piece.gy
+            possible_tiles, distance = navigate_all((piece.gx, piece.gy), self.map, piece.attr(Attribute.MOVEMENT_TYPE),
+                                                    max_distance=piece.attr(Attribute.MOVEMENT_RANGE))
+
+            # Determine if the enemy will move (not healing or ranged attacking)
+            odds_out_of_ten = 3 if piece.attr(Attribute.DAMAGE_TYPE) == DamageType.RANGED else 7
+            moving = randint(0, 10) <= odds_out_of_ten
+
+            if moving:
+                # Assume they'll move about their full range
+                possible_tiles = [tile for tile, distance in distance.items() if distance >= piece.attr(Attribute.MOVEMENT_RANGE) - 1]
+
+                # Sort by distance to our base
+                our_base = self.get_manager(Manager.PIECE).get_all_pieces_for_team(self.team, piece_type=PieceType.BASE)
+                if len(our_base) > 0:
+                    possible_tiles = sorted(possible_tiles, key=lambda tile: abs(tile[0] - our_base[0].gx) + abs(tile[1] - our_base[0].gy))
+
+                if len(possible_tiles) > 0:
+                    gx, gy = possible_tiles[0]
+
+            return gx, gy
 
     # Return a list of pieces we can build for this archetype
     def get_buildable_pieces(self, builder_type, piece_archetype):

@@ -30,7 +30,7 @@ class MapReadingStep(Enum):
 def get_loadable_maps(asset_type=AssetType.MAP):
     maps = []
     for (_, _, filenames) in walk(get_asset(asset_type, "")):
-        maps.extend(filenames)
+        maps.extend([filename for filename in filenames if filename.endswith((".map", ".sav"))])
 
     return maps
 
@@ -101,7 +101,7 @@ def map_exists(mapname, asset_type=AssetType.MAP):
 
 # Generate a default map, pieces, teams, and so on, ready for use.
 def generate_map():
-    bitmap = generate_bitmap_from_simplex_noise(20, 15, mirror_x=False, mirror_y=False)
+    bitmap = generate_bitmap_from_simplex_noise(15, 10, mirror_x=False, mirror_y=False)
     pieces = []
     teams = ["RED 5 5 5", "BLUE 5 5 5"]
     upgrades = ["RED|", "BLUE|"]

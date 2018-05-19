@@ -11,7 +11,7 @@ from terra.menu.textinput import TextInput, FILTER_IP, FILTER_FILENAME, FILTER_A
 from terra.menu.tutorial import Tutorial
 from terra.resources.assetloading import AssetType
 from terra.resources.assets import light_color, shadow_color, light_team_color, spr_main_menu_option, dark_color, \
-    spr_mission_completed
+    spr_mission_completed, spr_main_menu_preview, clear_color
 from terra.settings import Setting, SETTINGS, numeric_settings
 from terra.strings import get_text, get_string, main_menu_strings, formatted_strings
 from terra.team.team import Team
@@ -273,6 +273,15 @@ class MainMenu(Menu):
                                          background=light_team_color[Team.RED] if is_selected else shadow_color[Team.RED])
                 game_screen.blit(box, (position_x - 24 + x_offset, position_y))
 
+                # Render splash graphics for top-level menu options
+                if is_selected and self.current_menu[0] == Option.START:
+                    splash_width = self.width - 24
+                    splash_height = 24 * (self.max_displayable_options)
+
+                    game_screen.blit(self.draw_menu_box(splash_width, splash_height), (self.root_x - splash_width - 24, self.root_y))
+                    game_screen.blit(spr_main_menu_preview[option[0]], (self.root_x - splash_width - 12, self.root_y + 12))
+                    game_screen.fill(clear_color[Team.RED], (self.root_x - splash_width - 12, self.root_y + 132, 120, 2))
+
                 if isinstance(option[0], str):
                     # Render arbitrary text
 
@@ -288,7 +297,7 @@ class MainMenu(Menu):
 
                     # For campaign, render an icon for completed missions
                     if option[0] in self.progress:
-                        game_screen.blit(spr_mission_completed, (position_x + self.width - 24, position_y))
+                        game_screen.blit(spr_mission_completed, (position_x + self.width - 48, position_y - 2))
 
                     # Render map previews if we're trying to select a map
                     if is_selected and self.current_menu[0] in [Option.NEW_GAME, Option.NEW_MAP,

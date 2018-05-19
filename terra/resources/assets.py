@@ -37,6 +37,19 @@ unit_palette = {
 spr_game_icon = pygame.image.load(get_asset(AssetType.SPRITE, "ui/GameIcon.png"))
 
 spr_title_text = pygame.image.load(get_asset(AssetType.SPRITE, "ui/TitleText.png"))
+spr_main_menu_preview_base = get_sprites_from_strip(pygame.image.load(
+    get_asset(AssetType.SPRITE, "ui/Menu_Previews.png")), 120)
+spr_main_menu_preview = {
+    Option.CAMPAIGN: spr_main_menu_preview_base[0],
+    Option.LOCAL: spr_main_menu_preview_base[1],
+    Option.LEVEL_EDITOR: spr_main_menu_preview_base[2],
+    Option.SETTINGS: spr_main_menu_preview_base[3],
+    Option.TUTORIAL: spr_main_menu_preview_base[4],
+    Option.QUIT: spr_main_menu_preview_base[5],
+    Option.NETWORK: spr_main_menu_preview_base[6],
+}
+
+
 spr_main_menu_option_base = get_sprites_from_strip(pygame.image.load(
     get_asset(AssetType.SPRITE, "ui/MainMenuOption.png")), 24)
 spr_main_menu_option = {
@@ -61,7 +74,7 @@ spr_main_menu_option = {
     Option.ADD_HUMAN: spr_main_menu_option_base[5],
     Option.REMOVE_HUMAN: spr_main_menu_option_base[7],
     Option.TUTORIAL: spr_main_menu_option_base[5],
-    Option.CAMPAIGN: spr_main_menu_option_base[0],
+    Option.CAMPAIGN: spr_main_menu_option_base[9],
     Option.NEW_CAMPAIGN_GAME: spr_main_menu_option_base[0],
     Option.LOAD_CAMPAIGN_GAME: spr_main_menu_option_base[6],
 }

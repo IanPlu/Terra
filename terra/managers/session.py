@@ -164,7 +164,10 @@ class Session:
         # Strip '.map' from the map name
         save_name = "autosave-" + self.map_name[:-4] if autosave else self.map_name[:-4]
         postfix = ".sav" if save else ".map"
-        save_path = get_asset(AssetType.SAVE if save else AssetType.MAP, save_name + postfix)
+        if self.current_mode == Mode.CAMPAIGN:
+            save_path = get_asset(AssetType.CAMPAIGN_SAVE if save else AssetType.CAMPAIGN_MAP, save_name + postfix)
+        else:
+            save_path = get_asset(AssetType.SAVE if save else AssetType.MAP, save_name + postfix)
 
         # Serialize to a string
         lines = ""

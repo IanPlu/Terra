@@ -9,7 +9,6 @@ options = {
             'terra'
         ],
         'include_files': ['resources', 'logs'],
-        # TODO: Figure out exactly how illegal this is
         'include_msvcr': True
     }
 }

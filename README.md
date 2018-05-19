@@ -1,6 +1,7 @@
 # Terra
 Asking nicely if you could have full control of a newly discovered planet didn't work. Neither did sending your legions of space-lawyers to argue the case for your
-galactic megacorporation! So we're down to the old-fashioned way-- lots of fighting, and lots of lasers!
+galactic megacorporation! So we're down to the old-fashioned way-- lots of fighting, and lots of lasers!\
+If anyone asks, you're just negotiating with your fellow CEOs.
 
 Terra is a turn-based strategy game set on an alien world, where multiple corporate armies are fighting for control, so they can get back to their usual business of
 building office parks and digging out landfills for massive amounts of paperwork. Players give orders to each of their units, and turns are executed simultaneously.
@@ -10,6 +11,9 @@ Currently, there's a local battle mode, a rough online mode against friends, and
 
 # Installation
 Download the 'Terra.zip' file and extract it. Run the 'launcher.exe' file to play!
+
+You may need to download and install the Microsoft Visual C++ redistributable, if you don't already have it (many other games include it):
+- https://www.microsoft.com/en-us/download/details.aspx?id=5555
 
 # How to Play
 Your goal is to be the last corporation standing! Eliminate the enemy HQ!

@@ -20,7 +20,6 @@ class TaskType(Enum):
 
     # Combat
     ATTACK_ENEMY = "Attack Enemy"           # Attempt to intercept and attack an enemy unit
-    DEFEND_TARGET = "Defend Area"           # TODO Attempt to defend a unit or area from enemies
     HEAL_SELF = "Heal Self"                 # Attempt to repair damage
     RETREAT = "Retreat"                     # Attempt to escape and move towards base
 
@@ -36,7 +35,6 @@ task_type_to_piece_archetype = {
     TaskType.MINE: [PieceArchetype.WORKER],
 
     TaskType.ATTACK_ENEMY: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
-    TaskType.DEFEND_TARGET: [PieceArchetype.GROUND, PieceArchetype.RANGED, PieceArchetype.MOBILITY],
     TaskType.HEAL_SELF: all_archetypes,
     TaskType.RETREAT: all_archetypes,
 }
@@ -50,7 +48,6 @@ base_task_priority = {
     TaskType.MINE: 1.5,
 
     TaskType.ATTACK_ENEMY: 1.8,
-    TaskType.DEFEND_TARGET: 1.8,
     TaskType.HEAL_SELF: 2,
     TaskType.RETREAT: 2,
 }
@@ -117,7 +114,8 @@ class Task:
             # Filter out pieces that can't attack this target
             eligible_pieces = []
             targets = piece_manager.get_enemy_pieces_at(self.tx, self.ty, self.team)
-            # TODO: This is real ugly. Streamline and improve
+
+            # If any of our targets are buildings, need to make sure only pieces that can occupy buildings are included.
             if len(targets) > 0:
                 for piece in pieces:
                     for target in targets:

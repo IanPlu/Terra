@@ -53,8 +53,8 @@ setting_bounds = {
 # How much one press modifies the setting
 setting_interval = {
     Setting.SCREEN_SCALE: 1,
-    Setting.SFX_VOLUME: 10,
-    Setting.BGM_VOLUME: 10,
+    Setting.SFX_VOLUME: 5,
+    Setting.BGM_VOLUME: 5,
     Setting.ANIMATION_SPEED: 1,
     Setting.AUTOSAVE_INTERVAL: 30,
     Setting.GRID_OPACITY: 10,

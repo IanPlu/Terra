@@ -27,6 +27,7 @@ class CampaignManager(GameObject):
 # Return a list of completed campaign maps from the progress file
 def load_campaign_progress():
     try:
+        all_maps = get_loadable_maps(AssetType.CAMPAIGN_MAP)
         progress_path = get_asset(AssetType.ATTRIBUTES, "campaign.cfg")
         progress = []
 
@@ -35,7 +36,7 @@ def load_campaign_progress():
             for line in StringIO(lines):
                 # Format: <mapname>
                 values = line.rstrip().split(' ')
-                if len(values) == 1:
+                if len(values) == 1 and values[0] in all_maps:
                     progress.append(values[0])
         return progress
     except (IOError, KeyError) as e:
@@ -75,6 +76,6 @@ def get_open_maps():
     completed_maps = load_campaign_progress()
 
     num_completed = len(completed_maps)
-    num_available = min(len(all_maps), num_completed + 2)
+    num_available = min(len(all_maps), num_completed + 3)
 
     return all_maps[:num_available]

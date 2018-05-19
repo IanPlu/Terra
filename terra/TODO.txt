@@ -1,22 +1,18 @@
 General & QoL
 
+Polish
+
 Gameplay
-* Add war room maps
-    - X number of maps, where X/3 have the player with an advantage, X/3 are even footing, and X/3 favor the AI
 
 Engineering
-* Support bundling and distributing the VC redist
 
 Bug fixes
-* Fix empty directories breaking things
 
 Networking
 
 Sound
 
 AI
-* Implement and generate DEFEND tasks
-* Anticipate enemy movements when tracking a target? (evaluate its possible moves)
 
 
 

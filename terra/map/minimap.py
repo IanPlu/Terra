@@ -62,7 +62,7 @@ def draw_map_preview(container_width, container_height, bitmap, pieces, teams):
 
     # Trim giant maps to fit in the window
     if minimap.get_width() > container_width - 8:
-        minimap = minimap.subsurface((0, 0, container_width - 8, minimap.get_width()))
+        minimap = minimap.subsurface((0, 0, container_width - 8, minimap.get_height()))
     if minimap.get_height() > container_height - 38:
         minimap = minimap.subsurface((0, 0, minimap.get_width(), container_height - 38))
 

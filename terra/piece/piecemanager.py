@@ -74,13 +74,15 @@ class PieceManager(GameObject):
 
     # Return a list of piece(s) at the specified grid location
     # If piece type or team is provided, only return pieces of that type.
-    def get_pieces_at(self, gx, gy, piece_type=None, team=None):
+    def get_pieces_at(self, gx, gy, piece_type=None, team=None, piece_subtype=None):
         pieces = self.pieces.get((gx, gy))
         if not pieces:
             return []
         else:
             if piece_type:
                 pieces = [piece for piece in pieces if piece.piece_type == piece_type]
+            if piece_subtype:
+                pieces = [piece for piece in pieces if piece.piece_subtype == piece_subtype]
             if team:
                 pieces = [piece for piece in pieces if piece.team == team]
             return pieces
